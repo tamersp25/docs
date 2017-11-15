@@ -1,0 +1,13 @@
+siteTitle="Veritone"
+baseColor = "#4caf50"
+bg = "#ffffff"
+docPages = [
+  "/docs/",
+  "/docs/getting-started/",
+  "/docs/authentication/",
+  "/docs/api/",
+  "/docs/api/recording/",
+  "/docs/api/asset/",
+  "/docs/api/job/",
+  "/docs/api/search/"
+]
