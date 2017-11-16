@@ -115,15 +115,6 @@ class Sidebar extends Component {
       return this.mapSubPages(filtered, p);
     }, []).map(child => this.mapSubPageItem(child, child.title));
 
-    const docOptions = docPages.map((child) =>
-      <option
-        key={prefixLink(child.path)}
-        value={prefixLink(child.path)}
-      >
-        {child.title}
-      </option>
-    )
-
     return (
       <div
         style={{
