@@ -1,5 +1,5 @@
 ---
-title: The Next Step
+title: FAQ
 ---
 
 ## Basically do this
