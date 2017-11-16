@@ -1,6 +1,7 @@
 siteTitle="Veritone"
 baseColor = "#4caf50"
 bg = "#ffffff"
+linkPrefix = "/veritone-docs"
 docPages = [
   "/docs/",
   "/docs/getting-started/",
