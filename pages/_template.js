@@ -5,6 +5,8 @@ import { Container, Grid, Span } from 'react-responsive-grid'
 import { prefixLink } from 'gatsby-helpers'
 import includes from 'underscore.string/include'
 import { colors, activeColors } from 'utils/colors'
+import Breakpoint from 'components/Breakpoint'
+import Sidebar from 'components/Sidebar'
 
 import typography from 'utils/typography'
 import { config } from 'config'
@@ -105,11 +107,27 @@ class Template extends Component {
             paddingTop: 0,
           }}
         >
-          {this.props.children}
+          <Breakpoint
+            mobile
+          >
+            <Sidebar {...this.props} />
+            <div
+              style={{
+                padding: `0 ${rhythm(1)}`,
+                paddingLeft: `calc(${rhythm(8)} + ${rhythm(1)})`,
+              }}
+            >
+              {this.props.children}
+            </div>
+          </Breakpoint>
         </Container>
       </div>
     )
   }
+}
+
+Template.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 Template.propTypes = {
