@@ -1,1 +1,1 @@
-# veritone-docs
+# Veritone Docs
