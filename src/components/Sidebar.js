@@ -62,7 +62,7 @@ class Sidebar extends Component {
       'Getting Started',
       'Authentication',
       'Tutorials',
-      'Api',
+      'API',
       'FAQ',
     ]
     const pages = this.props.data.allMarkdownRemark.edges.sort(function(a, b) {
