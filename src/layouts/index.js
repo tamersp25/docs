@@ -58,9 +58,7 @@ const TemplateWrapper = ({ children, data, location }) => (
     >
       <div className="container">
         <SideBar data={data} location={location} />
-        <div className="content">
-          {children()}
-        </div>
+        <div className="content">{children()}</div>
       </div>
     </div>
   </div>
@@ -80,7 +78,7 @@ export const query = graphql`
             title
           }
           fields {
-            slug,
+            slug
             rootDir
           }
           children {
