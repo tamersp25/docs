@@ -10,6 +10,7 @@ import veritoneLogo from '../../public/static/veritone-logo-white.svg'
 
 import './index.css'
 import './github.css'
+import 'prismjs/themes/prism.css'
 
 const Header = () => (
   <div
