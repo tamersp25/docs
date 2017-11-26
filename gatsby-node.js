@@ -1,5 +1,27 @@
+const webpack = require('webpack')
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const frontmatter = require('front-matter')
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  switch (stage) {
+    case 'develop':
+      config.plugin('ContextReplacementPlugin', // needed due to https://github.com/graphql/graphql-language-service/issues/128
+        webpack.ContextReplacementPlugin,
+        [/graphql-language-service-interface[\\/]dist$/,  new RegExp(`^\\./.*\\.js$`)]
+      )
+      break;
+
+    case 'build-javascript':
+      config.plugin('ContextReplacementPlugin', // needed due to https://github.com/graphql/graphql-language-service/issues/128
+        webpack.ContextReplacementPlugin,
+        [/graphql-language-service-interface[\\/]dist$/,  new RegExp(`^\\./.*\\.js$`)]
+      )
+      break;
+  }
+
+  return config;
+};
 
 exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
   const { createNodeField, createParentChildLink } = boundActionCreators

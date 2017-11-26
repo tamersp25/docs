@@ -2,15 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+
 import './reset.css'
-
 import SideBar from '../components/Sidebar'
-
 import veritoneLogo from '../../public/static/veritone-logo-white.svg'
-
 import './index.css'
-import './github.css'
-import 'prismjs/themes/prism.css'
 
 const Header = () => (
   <div
