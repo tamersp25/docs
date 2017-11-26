@@ -9,7 +9,7 @@ import './playground.css'
 
 
 function graphQLFetcher(graphQLParams) {
-  return fetch(window.location.origin + '/___graphql', {
+  return fetch('https://api.graph.cool/simple/v1/swapi', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(graphQLParams),

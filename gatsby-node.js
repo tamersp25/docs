@@ -1,3 +1,6 @@
+// Fixes isomorphic-fetch
+global.self = global;
+
 const webpack = require('webpack')
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -11,6 +14,13 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
         [/graphql-language-service-interface[\\/]dist$/,  new RegExp(`^\\./.*\\.js$`)]
       )
       break;
+
+    case 'build-html':
+      config.loader('null', {
+        test: /graphql-language-service-interface/,
+        loader: 'null-loader'
+      })
+    break;
 
     case 'build-javascript':
       config.plugin('ContextReplacementPlugin', // needed due to https://github.com/graphql/graphql-language-service/issues/128

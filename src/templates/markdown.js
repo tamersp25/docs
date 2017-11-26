@@ -1,5 +1,5 @@
 import React from 'react'
-const Markdown = require('react-markdown')
+import Markdown from 'react-markdown';
 import Playground from './playground';
 
 export default ({ data }) => {
