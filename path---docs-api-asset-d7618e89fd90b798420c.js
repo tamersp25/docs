@@ -1,0 +1,2 @@
+webpackJsonp([0xd1f2a79e4eb2],{643:function(t,n){t.exports={data:{markdownRemark:{html:"<p>It's not hard, you've just got to give it a try!</p>\n<pre><code class=\"language-javascript\">if (true) {\n  console.log('Yes I can!')\n}\n</code></pre>",internal:{content:"---\ntitle: Asset\n---\n\nIt's not hard, you've just got to give it a try!\n\n```javascript\nif (true) {\n  console.log('Yes I can!')\n}\n```\n"},frontmatter:{title:"Asset"}}},pathContext:{slug:"/docs/api/asset/"}}}});
+//# sourceMappingURL=path---docs-api-asset-d7618e89fd90b798420c.js.map

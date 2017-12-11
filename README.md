@@ -1,1 +1,0 @@
-# Veritone Docs
