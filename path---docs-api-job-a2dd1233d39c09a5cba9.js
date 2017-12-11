@@ -1,2 +1,0 @@
-webpackJsonp([0xcd5d7c72e55],{644:function(t,n){t.exports={data:{markdownRemark:{html:"<p>It's not hard, you've just got to give it a try!</p>\n<pre><code class=\"language-javascript\">if (true) {\n  console.log('Yes I can!')\n}\n</code></pre>",internal:{content:"---\ntitle: Job\n---\n\nIt's not hard, you've just got to give it a try!\n\n```javascript\nif (true) {\n  console.log('Yes I can!')\n}\n```\n"},frontmatter:{title:"Job"}}},pathContext:{slug:"/docs/api/job/"}}}});
-//# sourceMappingURL=path---docs-api-job-a2dd1233d39c09a5cba9.js.map
