@@ -1,7 +1,7 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
-import { CustomGraphiQL } from 'graphcool-graphiql'
-import frontmatter from 'front-matter'
+import { CustomGraphiQL } from 'graphcool-graphiql';
+import frontmatter from 'front-matter';
 import CodeBlock from './codeblock';
 
 import 'graphiql/graphiql.css'
@@ -9,11 +9,15 @@ import './playground.css'
 
 
 function graphQLFetcher(graphQLParams) {
-  return fetch('https://api.graph.cool/simple/v1/swapi', {
+  return fetch('https://api.veritone.com/v3/graphql', {
     method: 'post',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(graphQLParams),
-  }).then(response => response.json());
+    credentials: 'include'
+  })
+  .then(response => response.json())
 }
 
 function parseGraphqlStr(str) {
@@ -25,7 +29,7 @@ function parseGraphqlStr(str) {
   
   let dataPart;
   let variablesPart;
-  
+
   if (b) {
     dataPart = b
     variablesPart = a
@@ -35,8 +39,6 @@ function parseGraphqlStr(str) {
   
   return {
     data: dataPart.trim(),
-    disabled: fm.attributes.disabled || false,
-    endpoint: fm.attributes.endpoint,
     query: queryPart.trim(),
     variables: variablesPart ? variablesPart.trim() : null,
   }
@@ -57,8 +59,6 @@ class Playground extends React.Component {
         // GraphQL artifacts
         query: isTypeGraphql ? parseGraphqlStr(props.value).query : '',
         variables: isTypeGraphql ? parseGraphqlStr(props.value).variables : '',
-        response: isTypeGraphql ? parseGraphqlStr(props.value).data : '',
-        defaultQuery: isTypeGraphql ? parseGraphqlStr(props.value).query : '',
       };
     }
   
