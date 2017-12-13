@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import './reset.css'
-import SideBar from '../components/Sidebar'
-import veritoneLogo from '../../public/static/veritone-logo-white.svg'
-import './index.css'
+import './reset.css';
+import SideBar from '../components/Sidebar';
+import SlackLink from '../components/SlackLink';
+import veritoneLogo from '../../public/static/veritone-logo-white.svg';
+import './index.css';
 
 const Header = () => (
   <div
@@ -53,6 +54,9 @@ const TemplateWrapper = ({ children, data, location }) => (
         paddingTop: 0,
       }}
     >
+      <div className="slackLink-container">
+        <SlackLink />
+      </div>
       <div className="container">
         <SideBar data={data} location={location} />
         <div className="content">{children()}</div>

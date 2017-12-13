@@ -69,16 +69,18 @@ class Playground extends React.Component {
         return CodeBlock(this.props.value);
       }
       return (
-        <CustomGraphiQL
-          selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
-          fetcher={graphQLFetcher}
-          query={this.state.query}
-          variables={this.state.variables}
-          onEditQuery={this.handleEditQuery}
-          disableAutofocus={true}
-          disableResize={true}
-          rerenderQuery={true}
-        />
+        <div style={{ marginBottom: '10px' }}>
+          <CustomGraphiQL
+            selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
+            fetcher={graphQLFetcher}
+            query={this.state.query}
+            variables={this.state.variables}
+            onEditQuery={this.handleEditQuery}
+            disableAutofocus={true}
+            disableResize={true}
+            rerenderQuery={true}
+          />
+        </div>
       );
     }
   }

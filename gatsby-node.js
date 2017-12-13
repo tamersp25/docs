@@ -37,7 +37,7 @@ exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
   const { createNodeField, createParentChildLink } = boundActionCreators
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
-    const child = (slug.split('/').filter(p => p).length > 2);
+    const child = (slug.split('/').filter(p => p).length > 1);
 
     createNodeField({
       node: node,
@@ -48,7 +48,7 @@ exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
     createNodeField({
       node: node,
       name: `rootDir`,
-      value: slug.split('/').filter(p => p).length === 2,
+      value: slug.split('/').filter(p => p).length === 1,
     })
 
     if (child) {

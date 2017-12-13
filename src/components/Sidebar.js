@@ -11,7 +11,7 @@ class Sidebar extends Component {
 
   handleOnClick = node => {
     this.setState({
-      open: node.fields.slug.split('/').filter(p => p && p !== 'docs'),
+      open: node.fields.slug.split('/').filter(p => p),
     })
   }
 
@@ -19,7 +19,7 @@ class Sidebar extends Component {
     this.setState({
       open: this.props.location.pathname
         .split('/')
-        .filter(p => p && p !== 'docs'),
+        .filter(p => p),
     })
   }
 
@@ -27,7 +27,7 @@ class Sidebar extends Component {
     const isActive = this.props.location.pathname.includes(node.fields.slug)
     const isOpen = !!intersection(
       this.state.open,
-      node.fields.slug.split('/').filter(p => p && p !== 'docs')
+      node.fields.slug.split('/').filter(p => p)
     ).length
 
     return (
@@ -47,8 +47,8 @@ class Sidebar extends Component {
         {node.children.length > 0 && (
           <ul>
             {node.children.map(child => {
-              const childNode = pages.find(n => n.node.id === child.id)
-              return this.mapSidebarItems(childNode.node, pages, true)
+              const childNode = pages.find(n => n.node.id === child.id);
+              return this.mapSidebarItems(childNode.node, pages, true);
             })}
           </ul>
         )}
@@ -71,6 +71,7 @@ class Sidebar extends Component {
         order.indexOf(b.node.frontmatter.title)
       )
     }) // TODO graphql sort
+
     return (
       <ul className="sidebar">
         {pages

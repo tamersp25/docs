@@ -638,3 +638,8 @@ pre tt:after {
 * {
   box-sizing: border-box;
 }
+
+.slackLink-container {
+  display: flex;
+  justify-content: flex-end;
+}
