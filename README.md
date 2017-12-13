@@ -61,7 +61,7 @@ To add a child link - follow the same steps above for adding a new link but nest
 
 ### How to deploy
 
-Run `npm run deploy` and your current source files will automatically be bundled and pushed to the `master` branch and github pages will automatically update with your latest changes. (This can sometimes take a few mins due to caching).
+Run `npm run deploy` and your current source files will be bundled and pushed to the `master` branch. Github pages will automatically update with your latest changes. (This can sometimes take a few mins due to caching).
 
 
 ### Useful Resources
