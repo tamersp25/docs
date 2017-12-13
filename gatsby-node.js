@@ -34,35 +34,38 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 };
 
 exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
-  const { createNodeField, createParentChildLink } = boundActionCreators
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    const child = (slug.split('/').filter(p => p).length > 1);
+  const { createNodeField, createParentChildLink } = boundActionCreators;  
+  return new Promise((resolve, reject) => {
+    if (node.internal.type === `MarkdownRemark`) {
+      const slug = createFilePath({ node, getNode, basePath: `pages` });
+      const child = (slug.split('/').filter(p => p).length > 1);
 
-    createNodeField({
-      node: node,
-      name: `slug`,
-      value: slug,
-    })
+      createNodeField({
+        node: node,
+        name: `slug`,
+        value: slug,
+      })
 
-    createNodeField({
-      node: node,
-      name: `rootDir`,
-      value: slug.split('/').filter(p => p).length === 1,
-    })
+      createNodeField({
+        node: node,
+        name: `rootDir`,
+        value: slug.split('/').filter(p => p).length === 1,
+      })
 
-    if (child) {
-      const parentPath = node.fields.slug.split('/').slice(0, -2).join('/') + '/';
-      const parentNode = getNodes().filter(n => n.fields && n.fields.slug === parentPath)[0];
+      if (child) {
+        const parentPath = node.fields.slug.split('/').slice(0, -2).join('/') + '/';
+        const parentNode = getNodes().filter(n => n.fields && n.fields.slug === parentPath)[0];
 
-      if (parentNode && node) {
-        createParentChildLink({
-          parent: parentNode,
-          child: node
-        })
+        if (parentNode && node) {
+          createParentChildLink({
+            parent: parentNode,
+            child: node
+          })
+        }
       }
     }
-  }
+    resolve();
+  })
 }
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
