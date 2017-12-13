@@ -6,7 +6,7 @@
 Veritone Docs is static site built with a mix of React / Markdown and powered by [Gatsby](https://www.gatsbyjs.org). Currently hosted on github pages and can be found at https://docs.veritone.com. Gatsby is powered by `graphql` under the hood and has a plugin eco-system which allows us to customize the site with ease.
 
 
-## Quick Start
+### Quick Start
 
 Dev -
 
