@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import './reset.css';
 import SideBar from '../components/Sidebar';
 import SlackLink from '../components/SlackLink';
-import veritoneLogo from '../../public/static/veritone-logo-white.svg';
+import veritoneLogo from '../assets/veritone-logo-white.svg';
 import './index.css';
 
 const Header = () => (
