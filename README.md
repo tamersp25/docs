@@ -24,7 +24,7 @@ npm run deploy
 
 ### How to add a graphiql code example
 
-To add a graphql code snippet that will interpolate into a graphiql code example all you need to do is to add a graphiql code snippet as shown below to your markdown file.
+To add a graphql code snippet that will interpolate into a graphiql code example all you need to do is to add a graphql code snippet as shown below to your markdown file.
 
 ```graphql
 ---
