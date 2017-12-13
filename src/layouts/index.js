@@ -41,8 +41,8 @@ const TemplateWrapper = ({ children, data, location }) => (
     <Helmet
       title="Veritone Docs"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'Veritone Docs' },
+        { name: 'keywords', content: 'veritone, api, docs, documentation, reference, graphql' },
       ]}
     />
     <Header />

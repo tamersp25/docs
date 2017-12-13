@@ -18,6 +18,7 @@
   "scripts": {
     "build": "gatsby build",
     "prebuild": "rm -rf public",
+    "postbuild": "cp CNAME public",
     "start": "gatsby develop",
     "deploy": "npm run build && gh-pages -d public --branch master",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",

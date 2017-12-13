@@ -52,14 +52,15 @@ exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
     })
 
     if (child) {
-      const childTitleCharCount = node.frontmatter.title.length + 1;;
-      const parentPath = node.fields.slug.substring(0, node.fields.slug.length - childTitleCharCount);
+      const parentPath = node.fields.slug.split('/').slice(0, -2).join('/') + '/';
       const parentNode = getNodes().filter(n => n.fields && n.fields.slug === parentPath)[0];
 
-      createParentChildLink({
-        parent: parentNode,
-        child: node
-      })
+      if (parentNode && node) {
+        createParentChildLink({
+          parent: parentNode,
+          child: node
+        })
+      }
     }
   }
 }
