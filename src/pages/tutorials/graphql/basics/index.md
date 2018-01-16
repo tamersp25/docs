@@ -1,5 +1,6 @@
-
-# Tutorial:  GraphQL API Basics
+---
+title: GraphQL API Basics
+---
 
 This tutorial outlines the basic, raw format of a GraphQL API request.
 
@@ -16,7 +17,7 @@ Two types of requests are accepted:  plain JSON and multipart form POST. For mos
 To make a plain JSON request:
 - use HTTP POST
 - set the `Content-Type` header to `application/json`
-- most operations require authentication. If authenticating, set the `Authorization` header to `Bearer: <your token`.
+- most operations require authentication. If authenticating, set the `Authorization` header to `Bearer: <your token>`.
 - the request body must contain valid JSON. The JSON must contain a `query` element, with a string value containing the GraphQL query.
 - optionally, you can include a `variables` element with a map of variable values referenced in the query
 
@@ -71,7 +72,6 @@ query assetById($assetId: ID!) {
   }
 }
 ```
-
 The client then provides variable values in a separate JSON
 object. Here is the `curl` example:
 ```
@@ -148,4 +148,63 @@ request
       console.log("new asset created with id "+ responseData.data.createAsset.id);
     }
   });
+```
+
+Here's another example using Python's `requests` library. It uses `createAsset`
+as an example. However, the request format is exactly the same for all mutations
+that accept file upload (`updateLibraryEngineModel`, `uploadEngineResult`, etc.).
+The only difference is in the GraphQL query string.
+
+```
+import requests
+import json
+import os
+
+# basic function that creates an asset using the Veritone GraphQL API using
+# multipart form POST
+#   tdoId:  ID of the TDO that will contain the new asset
+#   filePath:  local path to the file to upload
+#   assetType:  asset type, such as "media" or "transcript"
+#   token:  a valid Veritone authentication token
+def createAsset(tdoId, filePath, assetType, token):
+    # This is the GraphQL query string, using GraphQL variables.
+    query = '''
+    mutation createAsset($assetType: String!, $containerId: ID!){
+        createAsset(input: {
+            assetType: $assetType
+            containerId: $containerId
+        }) {
+            id
+            assetType
+            contentType
+            uri
+        }
+    }
+    '''
+    # Our variable map will contain the parameter values.
+    variables = {
+        'assetType': assetType,
+        'containerId': tdoId
+    }
+    # Set up the files for requests library multipart form upload.
+    # First determine the base file name from the path
+    fileName = os.path.basename(filePath)
+    # Now set up the dict containing the file itself
+    files = {
+        'file': (fileName, open(filePath))
+    }
+    # Set up authorization header
+    headers = {
+        'Authorization': 'Bearer %s' % token
+    }
+    # Finally set up the other form fields.
+    data = {
+        'query': query,
+        # Note that variables should have a string containing JSON.
+        'variables': json.dumps(variables)
+    }
+
+    # Make the request and print the result
+    r = requests.post('https://api.veritone.com/v3/graphql', files=files, data=data, headers=headers)
+    print(r.text)
 ```
