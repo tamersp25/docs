@@ -608,7 +608,6 @@ def run(payload_arg):
 
 ```
 
-```
 ### Report Task Completion Status
 #### Task Success
 If the processing completed successfully and we were able to upload the new asset, we will need to update the
