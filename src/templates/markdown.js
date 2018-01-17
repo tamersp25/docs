@@ -19,7 +19,8 @@ export default ({ data }) => {
         const language = node.parent.attribs.class && node.parent.attribs.class.split('language-');
         const props = {
           language: language && language[1],
-          value: buildCodeString(node)
+          codeString: buildCodeString(node),
+          inline: node.parent.type === 'tag' && node.parent.name === 'p'
         }
 
         return <Playground key={idx} {...props} />

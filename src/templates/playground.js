@@ -34,14 +34,14 @@ class Playground extends React.Component {
 
     render() {
       if (this.props.language !== 'graphql') {
-        return CodeBlock(this.props.value, this.props.language);
+        return CodeBlock(this.props);
       }
       return (
         <div style={{ marginBottom: '10px' }}>
           <CustomGraphiQL
             selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
             fetcher={graphQLFetcher}
-            query={this.props.value}
+            query={this.props.codeString}
             onEditQuery={this.handleEditQuery}
             disableAutofocus={true}
             disableResize={true}
