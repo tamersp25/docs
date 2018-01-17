@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import { intersection } from 'lodash'
+import { difference } from 'lodash'
 
 import './Sidebar.css'
 
@@ -24,11 +24,21 @@ class Sidebar extends Component {
   }
 
   mapSidebarItems = (node, pages, isChildNode) => {
-    const isActive = this.props.location.pathname.includes(node.fields.slug)
-    const isOpen = !!intersection(
-      this.state.open,
-      node.fields.slug.split('/').filter(p => p)
-    ).length
+    const isActive = this.props.location.pathname.includes(node.fields.slug);
+    const nodePath = node.fields.slug.split('/').filter(p => p);
+
+    const [subset, superset] = this.state.open.length > nodePath.length ? [nodePath, this.state.open] : [this.state.open, nodePath];    
+
+    const diff = superset.length - subset.length;
+
+    const match = difference(subset, superset).length === 0;
+
+    const isChildOfCurrentNode = superset[superset.length - (diff + 2)] === (subset[subset.length - 2]);
+
+    const sharesParentNode = superset[superset.length - 2] === subset[subset.length - 2];
+
+    const isOpen = match && diff <= 1 || sharesParentNode || (isChildOfCurrentNode && this.state.open.length > 2 && diff === 1);
+
 
     return (
       <li
