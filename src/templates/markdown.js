@@ -8,7 +8,8 @@ export default ({ data }) => {
   return (
     <div>
       <h1>{post.frontmatter.title}</h1>
-      <Markdown
+      {<div dangerouslySetInnerHTML={{__html:post.html}}/>}
+      {/* <Markdown
         source={post.internal.content}
         renderers={{
           code: Playground
@@ -18,7 +19,7 @@ export default ({ data }) => {
             return true;
           }
         }}
-      />
+      /> */}
     </div>
   )
 }
