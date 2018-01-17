@@ -103,7 +103,7 @@ It would return something like:
 {
   "data": {
     "createMyObject": {
-      "id": "37dbf368-7c76-45c8-8b96-c1e90b0c5ec2"
+      "id": "37dbf368-7c76-45c8-8b96-c1e90b0c5ec2",
       "name": "my new object"
     }
   }
