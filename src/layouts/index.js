@@ -7,6 +7,8 @@ import './reset.css';
 import SideBar from '../components/Sidebar';
 import SlackLink from '../components/SlackLink';
 import veritoneLogo from '../assets/veritone-logo-white.svg';
+
+import 'prismjs/themes/prism-solarizedlight.css';
 import './index.css';
 
 const Header = () => (

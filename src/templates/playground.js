@@ -9,7 +9,7 @@ import './playground.css'
 
 
 function graphQLFetcher(graphQLParams) {
-  return fetch('https://api.veritone.com/v3/graphql', {
+  return fetch('https://api.aws-dev.veritone.com/v3/graphql', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json'
@@ -23,10 +23,8 @@ function graphQLFetcher(graphQLParams) {
 function parseGraphqlStr(str) {
   if (!str) return '';
 
-  const fm = frontmatter(str)
-
   const [queryPart, a, b] = fm.body.split('---')
-  
+
   let dataPart;
   let variablesPart;
 
@@ -36,7 +34,7 @@ function parseGraphqlStr(str) {
   } else {
     dataPart = a
   }
-  
+
   return {
     data: dataPart.trim(),
     query: queryPart.trim(),
@@ -54,16 +52,15 @@ class Playground extends React.Component {
         // REQUIRED:
         // `fetcher` must be provided in order for GraphiQL to operate
         fetcher: graphQLFetcher,
-  
         // OPTIONAL PARAMETERS
         // GraphQL artifacts
-        query: isTypeGraphql ? parseGraphqlStr(props.value).query : '',
-        variables: isTypeGraphql ? parseGraphqlStr(props.value).variables : '',
+        // query: isTypeGraphql ? parseGraphqlStr(props.value).query : '',
+        // variables: isTypeGraphql ? parseGraphqlStr(props.value).variables : '',
       };
     }
-  
+
     handleEditQuery = (query) => this.setState({ query })
-  
+
     render() {
       if (this.props.language !== 'graphql') {
         return CodeBlock(this.props.value);
@@ -73,8 +70,8 @@ class Playground extends React.Component {
           <CustomGraphiQL
             selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
             fetcher={graphQLFetcher}
-            query={this.state.query}
-            variables={this.state.variables}
+            query={this.props.value}
+            // variables={this.state.variables}
             onEditQuery={this.handleEditQuery}
             disableAutofocus={true}
             disableResize={true}
