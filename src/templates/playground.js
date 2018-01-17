@@ -42,6 +42,7 @@ class Playground extends React.Component {
             selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
             fetcher={graphQLFetcher}
             query={this.props.codeString}
+            schema={null}
             onEditQuery={this.handleEditQuery}
             disableAutofocus={true}
             disableResize={true}
