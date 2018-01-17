@@ -3,12 +3,11 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import './reset.css';
 import SideBar from '../components/Sidebar';
 import SlackLink from '../components/SlackLink';
 import veritoneLogo from '../assets/veritone-logo-white.svg';
 
-import 'prismjs/themes/prism-solarizedlight.css';
+import './reset.css';
 import './index.css';
 
 const Header = () => (

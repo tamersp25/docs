@@ -5,8 +5,6 @@ title: TDO
 #### Retrieve a list of Temporal Data Objects
 
 ```graphql
----
----
 query {
   temporalDataObjects {
     records {
@@ -23,7 +21,6 @@ query {
     }
   }
 }
----
 ```
 
 &nbsp;
@@ -32,8 +29,6 @@ query {
 #### Retrieve a Temporal Data Object
 
 ```graphql
----
----
 query {
   temporalDataObject(id: 42027543) {
     id,
@@ -48,5 +43,4 @@ query {
     }
   }
 }
----
 ```

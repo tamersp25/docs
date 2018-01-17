@@ -1,7 +1,6 @@
 import React from 'react';
 import fetch from 'isomorphic-fetch';
 import { CustomGraphiQL } from 'graphcool-graphiql';
-import frontmatter from 'front-matter';
 import CodeBlock from './codeblock';
 
 import 'graphiql/graphiql.css'
@@ -20,42 +19,14 @@ function graphQLFetcher(graphQLParams) {
   .then(response => response.json())
 }
 
-function parseGraphqlStr(str) {
-  if (!str) return '';
-
-  const [queryPart, a, b] = fm.body.split('---')
-
-  let dataPart;
-  let variablesPart;
-
-  if (b) {
-    dataPart = b
-    variablesPart = a
-  } else {
-    dataPart = a
-  }
-
-  return {
-    data: dataPart.trim(),
-    query: queryPart.trim(),
-    variables: variablesPart ? variablesPart.trim() : null,
-  }
-}
-
 class Playground extends React.Component {
     constructor(props) {
       super(props);
 
-      const isTypeGraphql = this.props.language === 'graphql';
-
       this.state = {
         // REQUIRED:
         // `fetcher` must be provided in order for GraphiQL to operate
-        fetcher: graphQLFetcher,
-        // OPTIONAL PARAMETERS
-        // GraphQL artifacts
-        // query: isTypeGraphql ? parseGraphqlStr(props.value).query : '',
-        // variables: isTypeGraphql ? parseGraphqlStr(props.value).variables : '',
+        fetcher: graphQLFetcher
       };
     }
 
@@ -63,7 +34,7 @@ class Playground extends React.Component {
 
     render() {
       if (this.props.language !== 'graphql') {
-        return CodeBlock(this.props.value);
+        return CodeBlock(this.props.value, this.props.language);
       }
       return (
         <div style={{ marginBottom: '10px' }}>
@@ -71,7 +42,6 @@ class Playground extends React.Component {
             selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
             fetcher={graphQLFetcher}
             query={this.props.value}
-            // variables={this.state.variables}
             onEditQuery={this.handleEditQuery}
             disableAutofocus={true}
             disableResize={true}

@@ -5,7 +5,7 @@ title: Object Detection (Network Isolated)
 ### Overview
 
 This purpose of this tutorial is to give you a starting point for creating an network isolated object detection engine ([YOLO](https://pjreddie.com/darknet/yolo/))
-in Python and deploying it through VDA. The full code sample for this tutorial can be found at 
+in Python and deploying it through VDA. The full code sample for this tutorial can be found at
  [Github](https://github.com/veritone/veritone-sample-engine-yolo "VDA Object Detection Sample").
 
 The tutorial will walk through the following phases of an engine:
@@ -34,15 +34,15 @@ Cython==0.25.2
 gql==0.1.0
 ```
 
-and then run 
+and then run
 
-```$bash
+```bash
 $ pip3 install -r requirements.txt
 ```
 
 ### Receive the Task Payload
 The first step is to receive the task payload of the format:
-```
+```json
 {
   "applicationId": "fb901454-1ef2-4130-a65d-0a831443f675",
   "jobId": "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49",
@@ -53,11 +53,11 @@ The first step is to receive the task payload of the format:
 ```
 The location of the file will be set as an environment variable, **PAYLOAD_FILE**, in your container during execution.
 Every request we make to the api server will require the token as part of the **Authorization** header in the format
-`Authorization: Bearer token`.
+`Authorization: Bearer token`
 
 For testing purposes we will create a `payload.json` file with the above contents and pass it as a command line parameter.
 
-Let's create a file in src called `engine.py`:
+Let's create a file in src called `engine.py`
 
 ```python
 import os
@@ -87,7 +87,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
     run(PAYLOAD)
-
 ```
 
 
@@ -108,8 +107,6 @@ After you have loaded the task payload, we need to update the task status to `ru
  GraphQL endpoint with the payload:
 
 ```graphql
----
----
 mutation{
   updateTask(input :{
     id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
@@ -120,7 +117,6 @@ mutation{
   status
   }
 }
----
 ```
 This will update the task status to running and return us the task Id and Status.
 
@@ -152,7 +148,7 @@ class APIClient(object):
         transport = RequestsHTTPTransport(baseUrl, headers=self.headers,
                                           use_json=True)
         self.client = Client(transport=transport, fetch_schema_from_transport=True)
-    
+
     def update_task(self, job_id, task_id, status, output=None):
         logging.debug("Updating task status to {} for task_id: {}".format(status, task_id))
         if status not in VALID_TASK_STATUS:
@@ -187,7 +183,7 @@ final task output as well logging any relevant information in case of failure.
 
 We can then add a `conf/config.json` file with:
 
-```
+```json
 {
   "baseUri": "https://api.veritone.com/v3/graphql",
   "detectionThreshold": 0.6,
@@ -210,9 +206,9 @@ CONFIG_PATH = './conf/config.json'
 def run(payload_arg)
     payload = load_json(payload_arg)
     config = load_json(CONFIG_PATH)
-    
+
     client = APIClient(config['baseUri'], payload['token'])
-    
+
     try :
         client.update_task(payload['jobId'], payload['taskId'], 'running')
     except Exception as ex:
@@ -226,8 +222,6 @@ Note, you will need to place a valid token, jobId, and taskId in the payload.jso
 Now that we have updated the task status, we need to get the assets for the recording specified in the task payload.
 
 ```graphql
----
----
 query{
   temporalDataObject(id: "38828568") {
     assets(type: "media"){
@@ -241,7 +235,6 @@ query{
     }
   }
 }
----
 ```
 
 Notice we are only fetching the assets for the recording and leaving out all the other unnecessary fields. We are also
@@ -320,7 +313,7 @@ the asset url. In our case, we are extracting frames from the video so we can di
 which will then download and extract frames into jpeg files which will later be used for object detection.
 
 ### Process the Asset
-This is where the core processing for your engine occurs. In our case, we use ffmpeg to extract frames from the video 
+This is where the core processing for your engine occurs. In our case, we use ffmpeg to extract frames from the video
 and run object detection on each frame.
 
 #### Prerequisites
@@ -382,7 +375,7 @@ def extract_frames(video_file, fps):
     return jpegs
 ```
 
-We are using ffmpeg with the asset's signedURI to download the video and extract frames based on the fps set in our 
+We are using ffmpeg with the asset's signedURI to download the video and extract frames based on the fps set in our
 config file. The frames will be saved as jpegs to a temp directory and we will pass back the paths to the jpeg files.
 
 #### Process each image
@@ -444,7 +437,7 @@ Object Format. The format looks like:
       ]
     }
 ```
-Let's add 
+Let's add
 ```python
 def create_result(json_data, start, fps):
     """Transforms yolo prediction data to Veritone Object."""
@@ -505,7 +498,7 @@ def format_output(predictions_per_frame, fps):
 ```
 
 There are two important functions here. The first transforms YOLO output json to Veritone format. The second groups
-together objects that were detected in contiguous frames. In the end, we just need to call format_output with our 
+together objects that were detected in contiguous frames. In the end, we just need to call format_output with our
 predictions_per_frame from the previous step and we will have properly formatted output.
 
 We update `engine.py` to:
@@ -531,8 +524,6 @@ def run(payload_arg):
 Now that our engine has run successfully, we need to upload the results back to Veritone. To do this we need to execute a
 Multi-Part Form request with the updateAsset mutation and the outputFile.
 ```graphql
----
----
 mutation {
   createAsset(
     input: {
@@ -544,7 +535,6 @@ mutation {
     uri
   }
 }
----
 ```
 
 The one catch with the `gql` library is that it does not support Multi-Part Form with file upload so we will use `requests`
@@ -612,7 +602,7 @@ def run(payload_arg):
            raise ValueError('Cannot find assets for recording with id {}'.format(payload['recordingId']))
        predictions_per_frame = process(assets, config['detectionThreshold'], config['fps'])
        results = format_output(predictions_per_frame, config['fps'])
-       
+
        results_published = client.publish_results(payload['recordingId'], results)
    ...
 
@@ -621,12 +611,10 @@ def run(payload_arg):
 ```
 ### Report Task Completion Status
 #### Task Success
-If the processing completed successfully and we were able to upload the new asset, we will need to update the 
+If the processing completed successfully and we were able to upload the new asset, we will need to update the
 status and pass the task output back to the server. We can use the same mutation as updating the task status to running with a slight change:
 
 ```graphql
----
----
 mutation{
   updateTask(input :{
     id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
@@ -638,14 +626,11 @@ mutation{
   status
   }
 }
----
 ```
 
 #### Task Failure
 On the other hand, if there were some errors processing the file, we should set the task status to failed and add error information as part of the task output.
 ```graphql
----
----
 mutation{
   updateTask(input :{
     id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
@@ -657,7 +642,6 @@ mutation{
   status
   }
 }
----
 ```
 
 Since we have already published the results we need to update the final task status in our `engine.py`:
@@ -667,7 +651,7 @@ Since we have already published the results we need to update the final task sta
        raise ValueError('Failed to publish results')
    else:
        client.update_task(payload['jobId'], payload['taskId'], 'complete', results)
-           
+
 ```
 
 At this point we should have a fully functional object detection engine that is integrated with Veritone API.

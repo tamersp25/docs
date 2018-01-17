@@ -1,7 +1,6 @@
 import React from 'react'
-import Markdown from 'react-markdown';
-import Playground from './playground';
 import ReactHtmlParser from 'react-html-parser';
+import Playground from './playground';
 
 function buildCodeString(node) {
   if (!node) return '';
@@ -17,8 +16,9 @@ export default ({ data }) => {
   const options = {
     transform: (node, idx) => {
       if (node.type === "tag" && node.name === 'code') {
+        const language = node.parent.attribs.class && node.parent.attribs.class.split('language-');
         const props = {
-          language: node.parent.attribs.class.split('language-')[1],
+          language: language && language[1],
           value: buildCodeString(node)
         }
 
