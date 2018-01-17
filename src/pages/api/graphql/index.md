@@ -1,8 +1,6 @@
 ---
 title: Veritone GraphQL API Overview
 ---
-# Veritone GraphQL API Overview
-
 
 ## What is GraphQL?
 
@@ -49,7 +47,7 @@ type MyObjectType {
 ```
 However, that's just convention -- a query is, in the schema, just a field on a type. In this example, `query` is the root of our schema.
 To query, you send a string in GraphQL that specifies the fields you want, and any parameters on them.So for this simple schema we might send:
-```
+```graphql
 query {
   objects(objectName: "my sample object?") {
     name
@@ -89,7 +87,7 @@ mutation {
 ```
 We've defined an object type that has some fields provided by the user, and some fields controlled by the server. Our input type contains only those fields that can (and must) be provided by the user. Our mutation take the input type and returns a new object.
 
-```
+```graphql
 mutation {
   createMyObject(input: {
       name: "my new object"
@@ -101,11 +99,11 @@ mutation {
 ```
 It would return something like:
 
-```
+```json
 {
   "data": {
     "createMyObject": {
-      "id": "37dbf368-7c76-45c8-8b96-c1e90b0c5ec2"
+      "id": "37dbf368-7c76-45c8-8b96-c1e90b0c5ec2",
       "name": "my new object"
     }
   }
@@ -117,8 +115,7 @@ Now let's take a look at the Veritone schema. You can refer to the following lin
 
 If you're new to our schema, try using the me query to explore the data you have access to.
 
----
----
+```graphql
 query {
   me {
     id
@@ -126,7 +123,7 @@ query {
     # use <ctrl-space> to get a list of fields available at each level
   }
 }
----
+```
 
 Queries that support paging all use a consistent set of parameters and return fields based on the interface `Page`. You specify an optional offset and limit as parameters, and receive back an object with fields `offset`, `limit`, `count` (number of objects actually returned), and `records` containing the list of results.
 
@@ -143,8 +140,7 @@ GraphQL lets you structure complex queries that retrieve, aggregate, and marshal
 You can retrieve the same field twice, say to apply different parameters, using aliases. For example:
 
 
----
----
+```graphql
 query {
   firstUser: user(name:"smith") {
     ...
@@ -156,12 +152,11 @@ query {
     ...
   }
 }
----
+```
 
 GraphQL supports interfaces, which define common fields for a set of types, and unions, which specify a grouping of types with no common fields. A field that uses an interface or union can include any of several types. All types that implement a given interface have common fields that can be requested in the usual way.However, to request a type-specific field you must use a fragment. Here is an example using `TemporalDataObject`, which accepts an interface, `Metadata` in its `metadata` field. We'll ask for a common field, `name`, along with some fields that are specific to `Program`.
 
----
----
+```graphql
 {
   temporalDataObjects(limit: 30) {
     records {
@@ -176,11 +171,12 @@ GraphQL supports interfaces, which define common fields for a set of types, and 
      }   
   }
 }
----
+```
 
 The result will look something like this:
-```
-{  "data": {
+```json
+{  
+  "data": {
     "temporalDataObjects": {
       "records": [
         {
@@ -223,4 +219,5 @@ The result will look something like this:
       ]
     }
   }
+}
 ```
