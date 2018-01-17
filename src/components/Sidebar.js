@@ -33,11 +33,11 @@ class Sidebar extends Component {
 
     const match = difference(subset, superset).length === 0;
 
-    const isChildOfCurrentNode = superset[superset.length - (diff + 2)] === (subset[subset.length - 2]);
+    const isChildOfCurrentNode = superset[superset.length - (diff + 2)] === (subset[subset.length - 2]) && diff === 1;
 
     const sharesParentNode = superset[superset.length - 2] === subset[subset.length - 2];
 
-    const isOpen = match && diff <= 1 || sharesParentNode || (isChildOfCurrentNode && this.state.open.length > 2 && diff === 1);
+    const isOpen = match && diff <= 1 || sharesParentNode || (isChildOfCurrentNode && this.state.open.length > 2);
 
 
     return (
