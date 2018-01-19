@@ -71,6 +71,7 @@ class Sidebar extends Component {
       'Introduction',
       'Getting Started',
       'Authentication',
+      'Engine',
       'Tutorials',
       'API',
       'FAQ',
