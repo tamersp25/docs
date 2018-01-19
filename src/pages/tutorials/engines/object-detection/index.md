@@ -588,8 +588,6 @@ The request has query, filename and the file. Since we are not using `gql` we ne
 In our `engine.py` we just have to call this function to upload the results:
 
 ```python
-We update `engine.py` to:
-```python
 ...
 from helper import format_output
 ...
