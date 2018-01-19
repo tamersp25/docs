@@ -52,6 +52,19 @@ values to declare but may be omitted if you don't.
 |medium|2GB|
 |large|6GB|
 
+## Supported Categories
+* audioDetection
+* facialDetection
+* fingerprint
+* geolocation
+* logoRecognition
+* objectDetection
+* ocr
+* sentiment
+* transcription
+* transcode
+* translate
+
 ## Supported Mime Types
 * application/json
 * application/pdf
@@ -97,7 +110,7 @@ NVIDIA Tesla M2050 GPUs|Coming soon!|	CG1
 
 Example
 Putting it all together, an example of a manifest.json submission is provided below.
-```
+```json
 {
   "engineId": "f06e3ecb-cb30-3d0f-3268-c08428dc72be",
   "category": "transcription",
