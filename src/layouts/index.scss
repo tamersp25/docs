@@ -197,8 +197,9 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: 'Roboto','Helvetica Neue','sans-serif';
+  font-family: sans-serif;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.7);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -206,6 +207,9 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 img {
   max-width: 100%;
@@ -217,7 +221,6 @@ img {
   padding-right: 0;
   padding-top: 0;
   vertical-align: bottom;
-  /* margin-bottom: 1.45rem; */
 }
 h1 {
   margin-left: 0;
@@ -228,40 +231,32 @@ h1 {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
+
+  font-family: sans-serif;
+  font-size: 35px;
+  color: rgba(0,0,0,.7);
+  line-height: 52px;
+  font-weight: 700;
 }
 h2 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: 1.45rem 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
-  color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
-  line-height: 1.1;
+  font-size: 26px;
+  color: rgba(0,0,0,.7);
+  line-height: 39px;
+  font-weight: 700;
 }
 h3 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+  margin: 1.45rem 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -573,7 +568,7 @@ thead {
 }
 td,
 th {
-  text-align: left;
+  font-size: 14px;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
   font-feature-settings: "tnum";
   -moz-font-feature-settings: "tnum";
@@ -650,10 +645,9 @@ pre tt:after {
  * and overflow that we removed from <pre>.
  */
 .gatsby-highlight {
-  background-color: #fdf6e3;
   border-radius: 0.3em;
   margin: .5em 0;
-  padding: 1em;
+  padding: 0;
   overflow: auto;
 }
 
@@ -670,4 +664,30 @@ pre tt:after {
   overflow: initial;
   float: left; /* 1 */
   min-width: 100%; /* 2 */
+}
+
+.engine-manifest {
+  overflow-x: auto;
+  table {
+    table-layout: fixed;
+  }
+
+  th,td {  
+    &:nth-child(1) {
+      width: 177px;
+    }
+
+    &:nth-child(2), &:nth-child(3) {
+      text-align: center;
+      width: 99px;
+    }
+
+    &:nth-child(4) {
+      width: 323px;
+    }
+
+    &:nth-child(5) {
+      width: 243px;
+    }
+  }
 }
