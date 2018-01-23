@@ -92,7 +92,8 @@ mutation {
       }
     }
   }
-  ```
+}
+```
 The mutation returns the following. Our two tasks are in `queued` state, since the job was just launched.
 
 ```
@@ -132,6 +133,7 @@ The mutation returns the following. Our two tasks are in `queued` state, since t
       }
     }
   }
+}
 ```
 ## Update a task
 An engine implementation will typically update its task with a `complete` status and, optionally, a payload containing the engine results (Veritone recommends creating an asset containing the results – see the `createAsset` example above).
