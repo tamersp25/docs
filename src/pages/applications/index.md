@@ -27,7 +27,7 @@ Once your app is integrated in Veritone, it’s available to all users in your o
 
 The purpose of Veritone applications is to provide users with AI-based solutions. To help achieve this, your app must have an evident purpose that ties into Veritone’s core services and it must incorporate one or more of our cognitive processing workflow APIs.
 
-Integrated Veritone apps use standard OAuth 2.0 protocol to authenticate, provide single sign on, and acquire access tokens for use with our APIs. Your app must support OAuth 2.0 integration for user login and authentication on both the front and back ends. See the Enable OAuth Settings section for implementation details.
+Integrated Veritone apps use standard OAuth 2.0 protocol to authenticate, provide single sign on, and acquire access tokens for use with our APIs. Your app must support OAuth 2.0 integration for user login and authentication on both the front and back ends.
 
 #### What is the the app development workflow process?
 
@@ -39,7 +39,7 @@ Before you start development, it's important to know how all the pieces fit toge
 4.  Submit Your App for Review and Approval by a Member of Our Team
 5.  Install your app in the Veritone Platform
 
-You’ll find complete application development workflow details in our [Quick Start](/quick-start) section.
+You’ll find complete application development workflow details in our [Quick Start](quick-start) section.
 
 #### Where can I get help?
 
