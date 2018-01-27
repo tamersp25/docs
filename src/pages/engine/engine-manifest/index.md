@@ -23,27 +23,31 @@ your container or in some cases, assume the default values. Fields that are not 
 being required are optional; they should be included in the manifest file if you have any 
 values to declare but may be omitted if you don't.
 
-| Field | Format | Required  | Description | Example |
-| --- |:---:|:---:|---|---| 
-| engineId|string|Yes|The ID of your engine. You can find your engine ID at the top of the Engines section pages in the Developer Portal.|{"engineId":"f06e3ecb-cb30-3d0f-3268-c08428dc72be"}|
-| category| string|Yes|The category of the engine that you are providing. The available options are Refer to Cognitive Engine Classes for more information about each engine category.|"category": "transcription"|
-| preferredInputFormat |string|Yes|Identify the MIME type of the input media format that is preferred by your engine. Choose one format only.|"preferredInputFormat": "audio/wav"|
-| supportedInputFormats |string|No|List the MIME types of all of the input media formats that your engine can support. Include your preferred Input format here as well.|"supportedInputFormats": ["application/ttml+xml", "audio/wav"]|
-| outputFormats|list of string|Yes|List all of the MIME types of the media formats that your engine will output. |"outputFormats": ["application/ttml+xml", "audio/wav"]|
-| clusterSize|string|Yes|The cluster size on which your engine should run: small, medium, large (defined below)|"clusterSize": "small"|
-| initialConcurrency|integer|No|The initial number of instances of your engine that can run at the same time.<br>If omitted, we will use a value of 50.|"initialConcurrency": 50|
-| maxConcurrency|integer|No|The maximum number of instances of your engine that can run at the same time.<br>If omitted, we will use a value of 50|"maxConcurrency": 50|
-| url|string|No|The URL of the website where the user can get more information about your engine.|"url": "https://www.veritone.com/aiware/engines/transcription-engine/"|
-| externalCalls|string |No|The domains of any external calls that are required by your code. This should include all calls that require internet access.|"externalCalls": ["http://s3.amazonaws.com", "http://github.com"]|
-| libraries|string|No|List any dependent libraries required by your engine.	|"libraries": ["tensorflow", "apache mahout"]|
-| maxFileMb|float|No|The maximum file size that your engine can process, in megabytes. Omit this field if you engine can process any size of file.|"maxFileMb": 1200.0|
-| minMediaLengthMs|integer|No|The minimum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.	|"minMediaLengthMs": 1000|
-| maxMediaLengthMs|integer|No|The maximum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.	|"maxMediaLengthMs": 900000|
-| trainableViaApi|boolean|No|Describes as to whether an API's available for training|"trainableViaApi": true|
-| supportedLanguages|list of string|No|List of supported Languages in ISO 639-1 Codes|"supportedLanguages": ["en", "ko", "fr"]|
-| gpuSupported|string|Yes|List of supported GPU engines<br> See the Supported GPU section below<br> Examples include: "G2", "G3", "P2"|"gpuSupported": "P2"|
-| minMemoryRequired|integer|No|Minimum amount of RAM needed to run in MB.|"minMemoryRequired": 1024|
-| releaseNotes|string|No|Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.|"releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions."|
+<div class="engine-manifest">
+
+  | Field | Format | Required  | Description | Example |
+  | --- |:---:|:---:|---|---| 
+  | engineId|string|Yes|The ID of your engine. You can find your engine ID at the top of the Engines section pages in the Developer Portal.|{"engineId":"f06e3ecb-cb30-3d0f-3268-c08428dc72be"}|
+  | category| string|Yes|The category of the engine that you are providing. The available options are Refer to Cognitive Engine Classes for more information about each engine category.|"category": "transcription"|
+  | preferredInputFormat |string|Yes|Identify the MIME type of the input media format that is preferred by your engine. Choose one format only.|"preferredInputFormat": "audio/wav"|
+  | supportedInputFormats |string|No|List the MIME types of all of the input media formats that your engine can support. Include your preferred Input format here as well.|"supportedInputFormats": ["application/ttml+xml", "audio/wav"]|
+  | outputFormats|list of string|Yes|List all of the MIME types of the media formats that your engine will output. |"outputFormats": ["application/ttml+xml", "audio/wav"]|
+  | clusterSize|string|Yes|The cluster size on which your engine should run: small, medium, large (defined below)|"clusterSize": "small"|
+  | initialConcurrency|integer|No|The initial number of instances of your engine that can run at the same time.<br>If omitted, we will use a value of 50.|"initialConcurrency": 50|
+  | maxConcurrency|integer|No|The maximum number of instances of your engine that can run at the same time.<br>If omitted, we will use a value of 50|"maxConcurrency": 50|
+  | url|string|No|The URL of the website where the user can get more information about your engine.|"url": "https://www.veritone.com/aiware/engines/transcription-engine/"|
+  | externalCalls|string |No|The domains of any external calls that are required by your code. This should include all calls that require internet access.|"externalCalls": ["http://s3.amazonaws.com", "http://github.com"]|
+  | libraries|string|No|List any dependent libraries required by your engine.	|"libraries": ["tensorflow", "apache mahout"]|
+  | maxFileMb|float|No|The maximum file size that your engine can process, in megabytes. Omit this field if you engine can process any size of file.|"maxFileMb": 1200.0|
+  | minMediaLengthMs|integer|No|The minimum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.	|"minMediaLengthMs": 1000|
+  | maxMediaLengthMs|integer|No|The maximum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.	|"maxMediaLengthMs": 900000|
+  | trainableViaApi|boolean|No|Describes as to whether an API's available for training|"trainableViaApi": true|
+  | supportedLanguages|list of string|No|List of supported Languages in ISO 639-1 Codes|"supportedLanguages": ["en", "ko", "fr"]|
+  | gpuSupported|string|Yes|List of supported GPU engines<br> See the Supported GPU section below<br> Examples include: "G2", "G3", "P2"|"gpuSupported": "P2"|
+  | minMemoryRequired|integer|No|Minimum amount of RAM needed to run in MB.|"minMemoryRequired": 1024|
+  | releaseNotes|string|No|Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.|"releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions."|
+
+</div>
 
 ## Supported Cluster Sizes
 |Code|Ram|

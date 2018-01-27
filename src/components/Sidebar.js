@@ -45,6 +45,7 @@ class Sidebar extends Component {
         key={node.id}
         style={{
           display: !isChildNode || (isChildNode && isOpen) ? 'block' : 'none',
+          lineHeight: 'initial',
         }}
       >
         <Link to={node.fields.slug} onClick={() => this.handleOnClick(node)}>
