@@ -4,7 +4,7 @@ import { CustomGraphiQL } from 'graphcool-graphiql';
 import CodeBlock from './codeblock';
 
 import 'graphiql/graphiql.css'
-import './playground.css'
+import './playground.scss'
 
 
 function graphQLFetcher(graphQLParams) {
@@ -33,11 +33,11 @@ class Playground extends React.Component {
     handleEditQuery = (query) => this.setState({ query })
 
     render() {
-      if (this.props.language !== 'graphql') {
+      if (!this.props.language || !this.props.language.includes('graphql')) {
         return CodeBlock(this.props);
       }
       return (
-        <div style={{ marginBottom: '10px' }}>
+        <div className={this.props.language === 'graphql(disable)' ? 'fullScreen' : null} style={{ marginBottom: '10px' }}>
           <CustomGraphiQL
             selectedEndpoint={this.props.selectedEndpoint || 'SIMPLE'}
             fetcher={graphQLFetcher}

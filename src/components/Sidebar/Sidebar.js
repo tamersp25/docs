@@ -45,6 +45,7 @@ class Sidebar extends Component {
         key={node.id}
         style={{
           display: !isChildNode || (isChildNode && isOpen) ? 'block' : 'none',
+          paddingRight: isActive ? 0 : 10,
           lineHeight: 'initial',
         }}
       >
@@ -69,13 +70,10 @@ class Sidebar extends Component {
 
   render() {
     const order = [
-      'Introduction',
-      'Getting Started',
-      'Authentication',
-      'Engine',
-      'Tutorials',
-      'API',
-      'FAQ',
+      'Developer Benefits',
+      'Applications',
+      'Engines',
+      'Libraries'
     ]
     const pages = this.props.data.allMarkdownRemark.edges.sort(function(a, b) {
       return (

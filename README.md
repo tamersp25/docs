@@ -27,8 +27,6 @@ npm run deploy
 To add a graphql code snippet that will interpolate into a graphiql code example all you need to do is to add a graphql code snippet as shown below to your markdown file.
 
 ```graphql
----
----
 query {
   temporalDataObjects {
     records {
@@ -45,18 +43,17 @@ query {
     }
   }
 }
----
 ```
 
 
 ### How to add a new link to the side bar
 
-All links in the side bar represent a folder in `src/pages`. To create a new side bar link, simply create a new `folder` in the pages folder i.e `src/pages/folderName`. You must ensure to include an `index.md` file which contains a `title` attribute in the markdown.
+All links in the side bar represent a folder/file in `src/pages`. To create a new side bar link, simply create a new `folder/file` in the pages folder i.e `src/pages/folderName|(fileName.md)`. When creating a folder you must ensure to include an `index.md` file which contains a `title` attribute in the markdown.
 
 
 ### How to add a new child link to an existing side bar link
 
-To add a child link - follow the same steps above for adding a new link but nest the child folder inside of the parent link i.e `src/pages/parentFolder/childFolder`.
+To add a child link - follow the same steps above for adding a new link but nest the child folder inside of the parent link i.e `src/pages/parentFolder/childFolder|(childFileName.md)`.
 
 
 ### How to deploy
@@ -71,4 +68,3 @@ Run `npm run deploy` and your current source files will be bundled and pushed to
 [Gatsby Docs](https://www.gatsbyjs.org/docs/)
 
 [Veritone External Developer Documentation](https://veritone-developer.atlassian.net/wiki/spaces/DOC/overview)
-
