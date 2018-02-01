@@ -67,13 +67,11 @@ Once your Dockerfile is created, proceed to the next steps package and upload yo
 
 #### Veritone's Build Compliance Testing ####
 
-Once a build is uploaded to Veritone, it runs through a compliance testing pipeline to ensure it&rsquo;s ready for prime time. We  in the Docker container, inspect the packaged manifest, run the engine with a payload appropriate for the engine class, and examine the output and network usage of the run. We expect the engine to complete this test run within 10 minutes, or it will be considered a timeout.
+When a build is submitted to Veritone, there are a number of tests run against it to make sure it is ready for prime time on our platform. This testing includes inspecting the packaged manifest, running the engine with a payload appropriate for the engine class, and examining the output and network usage of the run. In addition, a static analysis of vulnerabilities is performed in your Docker container.
 
-During testing, the build state displays as *Fetching*. Once testing is complete, the status changes to *Available* if the build passed or *Invalid* if it failed. A build in the *Available* state is ready to be submitted to Veritone for final review and approval. From there, it&rsquo;s just a click away from deployment into production.
+An engine is expected to complete testing within 10 minutes, or it will be considered a timeout. When testing is complete, Veritone provides a Build Report with results of the testing that can be downloaded as a JSON file. If your build did not pass testing, this report can offer insight to help determine the cause. 
 
-When testing is complete, Veritone provides a Build Report that can be downloaded as a JSON file to review your build's results. The Build Report can be used to help determine why a build did not pass testing. Since the report includes results of the vulnerability scans and shows Docker runtime information, it can also be used for debugging purposes.  
-
-To download a build report, follow the steps below. Then continue reading for additional details about how to read the report. 
+During testing, the build state displays as Fetching. Once testing is complete, the status changes to Available if the build passed or Invalid if it failed. A build in the Available state is ready to be submitted to Veritone for final review and approval. 
 
 |To download a build report: | |
 |--------|--------|
@@ -96,6 +94,9 @@ The build report presents findings from Veritone&rsquo;s engine build testing to
 |testLog|Array of lines the build wrote to stdout during a test run.|[    "Starting my engines...",    "Processing complete",    "Elapsed time: 200ms"]|
 |success|true when a build passes all tests &ndash; build marked `AVAILABLE`.false when a build fails any tests, contains critical vulnerabilities, or does not run properly &ndash; build marked `INVALID`.|true|
 |errors|Array of errors encountered when testing the build.|["Error running container: exit code 1"]|
+
+If vulnerabilities are detected in your engine build, they will be included for you to review in the vulnerabilities array of the report (see example below). Engine builds will only be marked invalid if we detect vulnerabilities labeled as "Critical." Anything below this level of severity will not prevent your engine from being made available, but will still be included for your review in the build report.
+If you would like to test a container for vulnerabilities on your own, check out Clair's getting started guide.
 
 #### Build States ####
 
