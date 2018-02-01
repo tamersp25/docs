@@ -43,4 +43,4 @@ You’ll find complete application development workflow details in our [Quick St
 
 #### Where can I get help?
 
-If you need assistance at any point in the process, reach out to our support team on our [Slack channel](https://slackin-icayqqaioq.now.sh/) for help.
+If you need assistance at any point in the process, reach out to our support team on our [Slack channel](https://chat.veritone.com/) for help.

@@ -6,7 +6,7 @@ When your engine container is created, your manifest file is built, and your cod
 
 In this section, we&rsquo;ll walk you through the steps to upload a build, including creating a Docker image and pushing it to Veritone&rsquo;s Docker registry. We&rsquo;ll also provide details about the compliance testing that your build will undergo and let you how you can download and review the results. Finally we&rsquo;ll dive into the different engine states and provide descriptions and optional actions that can be performed for each.
 
-Remember that our developer support team is here to answer questions and provide assistance. Ping us on our dedicated Veritone Developer Slack channel at [veritonevda.slack.com](http://veritonevda.slack.com). 
+Remember that our developer support team is here to answer questions and provide assistance. Ping us on our dedicated Veritone Developer [Slack channel](https://chat.veritone.com) at [veritonevda.slack.com](http://veritonevda.slack.com). 
 
 1. Upload a New Build
    * Create a Docker File

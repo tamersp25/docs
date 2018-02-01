@@ -6,7 +6,7 @@ As a Veritone ecosystem partner, you have the unique opportunity to build a cust
 
 Before you begin development, it&rsquo;s important to understand how all of the pieces and processes work together. The following sections provide a general overview of the pieces and processes involved in the engine lifecycle. Click on a section header to dive into more detail. If you&rsquo;re ready to get started right away, our provides step-by-step instructions for getting your integration up and running as quickly as possible.
 
-Remember that our developer support team is here to answer questions and provide assistance. Reach out to us on our Slack channel any time you need help.
+Remember that our developer support team is here to answer questions and provide assistance. Reach out to us on our [Slack channel](https://chat.veritone.com/) any time you need help.
 
 ## The Engine Pieces
 
