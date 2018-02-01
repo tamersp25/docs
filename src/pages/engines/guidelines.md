@@ -16,7 +16,7 @@ The task processing workflow is detailed in the steps below:
 4. Download an Existing Asset
 5. Process the Task
 6. Format and Generate Output
-7. Create and Upload a New Asset to Veritone
+7. Uploade Engine Result & Create a New Asset
 8. Set Task Status to Complete
 9. Reporting Task Failure
 
@@ -230,91 +230,15 @@ When processing is complete, convert your engine&rsquo;s raw output to a Veriton
 * [Transcription](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/14024956/Transcription)
 * [Object Recognition](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/13992129/Object+Recognition)
 
-**7. Create and Upload a New Asset to Veritone**
+**7. Upload Engine Results and Create a New Asset**
 
-Engine output is uploaded to Veritone as an asset by calling the _Create Asset_ mutation. In some cases, multiple asset are generated as output. For example, a transcription engine may produce a Time Text Markup Language (TTML) transcript and a Veritone Lattice Format (VLF) lattice &mdash; both of which are individual assets with unique Asset IDs.
+Once your output file is created, upload it to Veritone, create a new asset, and set the task status to complete using the Upload Engine Result mutation. If your engine outputted to multiple files, make individual calls to create a separate asset for each file. 
 
-There are two available options for setting up your _Create Asset_ request:
+Upload Engine Result mutation requests are submitted as multipart form post. This type of request is structured in two parts: the form-data that specifies the file information and a query containing details about the asset to create. Specify multipart/form-data as the Content-Type header and use the file and filename parameters to send the file contents in the request. 
 
-**Option 1:**
+Note: GraphiQL does not currently support multipart form requests, so a different HTTP client must be used to make sample requests to the Upload Engine Result mutation.
 
-Upload the file to an external host location that&rsquo;s accessible to Veritone and pass the raw, signed URI in the request.
-
-#### Option 1 Request Payload: Create Asset
-
-```graphql(disable)
-mutation {
-# -------request fields-----------
-  createAsset(input: {     # => The Create Asset mutation type and input variable. (required)
-    containerId: "string"  # => The Recording ID received in the Task Payload. (required)
-    contentType: "string"  # => The MIME type of the asset (e.g., audio/mp3). (required)
-    type: "string"         # => A label that classifies an asset, such as “transcript,” “media,” or “text.” (required)
-    sourceData: {          # => An object that specifies the source engine and Task ID. (required)
-      name: "string"       # => The unique ID of the engine that processed the task. (required)
-      taskId: "string"     # => The Task ID received in the Task Payload. (required)
-      signedUri: "string"    # => The secure URI of the file to be passed in the request. (required)
-  }){
-# -------return fields------------
-    id        # => The unique ID of the new asset. (required)
-    type      # => A label that classifies an asset. The returned value reflects the input value specified in the request. (required)
-    signedUri # => The secure URI of the new asset. (required)
-  }
-}
-```
-
-#### Option 1 GraphiQL Sample Request: Create Asset
-
-```graphql(disable)
-mutation {
-  createAsset(
-    input: {
-      containerId: "38828568"
-      contentType: "application/ttml+xml"
-      type: "transcript"
-      sourceData: {
-        name: "619d7252-d473-b42c-96c6-5675b5e56afd"
-        taskId: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
-      }
-      signedUri: "https://inspirent.s3.amazonaws.com/assets/38828568/0a632ae6-3bf6-4886-b64d-9a8ba088a582.ttml"
-    }
-  ) {
-    id
-    type
-    signedUri
-  }
-}
-```
-
-#### Option 1 cURL Sample Request: Create Asset
-
-```bash
-curl -X POST \
-  https://api.veritone.com/v3/graphql \
-  -H 'authorization: Bearer 31rzg6:2e76022093e64732b4c48f202234394328abcf72d50e4981b8043a19e8d9baac' \
-  -H 'content-type: application/json' \
-  -d '{"query": "mutation { createAsset( input: { containerId: \"38828568\", contentType: \"application/ttml+xml\", type: \"transcript\", signedUri: \"https://inspirent.s3.amazonaws.com/assets/38828568/0a632ae6-3bf6-4886-b64d-9a8ba088a582.ttml\", sourceData: { name: \"619d7252-d473-b42c-96c6-5675b5e56afd\", taskId: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180\" } } ) { id,  type, signedUri } }" }'
-```
-
-#### Option 1 Sample Response: Create Asset
-
-```json
-{
-  "data": {
-    "createAsset": {
-      "id": "f2f31230-d4f4-463e-bf3f-a6eb32bb5c80",
-      "type": "transcript",
-      "signedUri":
-        "https://inspirent.s3.amazonaws.com/assets/38828568/0a632ae6-3bf6-4886-b64d-9a8ba087a582.ttml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171122T175331Z&X-Amz-Expires=604800&X-Amz-Signature=e46a0c239c1f4bd66358313bfcb221a9c7543546135f03c8fe3a0540e77b0a3e&X-Amz-SignedHeaders=host"
-    }
-  }
-}
-```
-
-**Option 2:**
-
-The second option allows you to send the file contents as part of the request. This option uses the _multipart/form-data_ header and requires use of the _file_ and _filename_ parameters. Requests using this option are structured in two parts: the form-data that specifies the file information and a query containing details about the asset. Currently, GraphiQL does not support multipart/form requests, so a different HTTP client must be used for making sample calls.
-
-#### Option 2 Request Payload: Create Asset (in cURL structure)
+#### Upload Engine Result Request Payload
 
 ```bash
 -H 'content-type: => A header that specifies the content type. Enter multipart/form-data as the value. (required)
@@ -322,23 +246,20 @@ The second option allows you to send the file contents as part of the request. T
 -F file           => The path of the file to upload. (required)
 -F 'query=mutation {
 -------request fields-----------
-    createAsset(input :{    => The Create Asset mutation type and input variable. (required)
-      containerId: "string" => The Recording ID received in the Task Payload. (required)
-      contentType: "string" => The MIME type of the asset (e.g., audio/mp3). (required)
-      type: "string"        => A label that classifies an asset, such as “transcript,” “media,” or “text.” (required)
-      sourceData: {         => An object that specifies the source engine and Task ID. (required)
-        name: "string"      => The unique ID of the engine that processed the task. (required)
-        taskId: "string"    => The Task ID received in the Task Payload. (required)
+    uploadEngineResult(input :{ => The Upload Engine Result mutation type and input variable. (required)
+      taskId: "string"          => The Task ID received in the Task Payload. (required)
+      contentType: "string"     => The MIME type of the asset (e.g., audio/mp3). (required)
+      completeTask: Boolean     => A Boolean that marks the task as complete when set to true. Important Note: If you’re creating multiple assets for a task, only set the value to true in the final request. Otherwise, the task status will be marked as complete and additional requests made with the Task ID will result in an error. (required)
   }){
 -------return fields------------
-    id       => The unique ID of the new asset. (required)
-    type     => A label that classifies an asset. The returned value reflects the input value specified in the request. (required)
+    id        => The unique ID of the new asset. (required)
+    type      => A label that classifies an asset. The returned value reflects the request input value. (required)
     signedUri => The secure URI of the new asset. (required)
   }
 }
 ```
 
-#### Option 2 Sample Request: Create Asset
+#### Sample Request: Upload Engine Result
 
 ```bash
 curl -X POST \
@@ -346,26 +267,23 @@ curl -X POST \
   -H 'authorization: Bearer 31rzg6:2e33029893e64732b4c48f202234394328abcf72d50e4981b8043a19e8d9baac' \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
   -F 'query=mutation {
-          createAsset(
+          uploadEngineResult(
             input: {
-                containerId: "38828568",
+                taskId: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180",
                 contentType: "application/ttml+xml",
-                type: "transcript"
-                sourceData: {
-                  name: "619d7252-d473-b42c-96c6-5675b5e56afd",
-                  taskId: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
-              },
+                assetType: "transcript",
+                completeTask: true
           }) {
             id
             type
             signedUri
           }
         }' \
-  -F filename=test.ttml \
-  -F file=@/Users/bobjones/Downloads/test.ttml
+  -F filename=your-filename.ttml \
+  -F file=@/Users/bobjones/Downloads/your-filename.ttml
 ```
 
-#### Option 2 Sample Response: Create Asset
+#### Sample Response: Upload Engine Result
 
 ```json
 {
@@ -380,78 +298,7 @@ curl -X POST \
 }
 ```
 
-**8. Set Task Status to Complete**
-
-Once the asset has been uploaded, mark the task status as _complete_ by calling the *Update Task *mutation. Requests from all engine categories other than Transcription must include the _output string_ parameter and use the series data from the engine output as the value.
-
-#### Request Payload: Set Task Status to Complete
-
-```graphql(disable)
-mutation {
-  # -------request fields-----------
-  updateTask(
-    input: {
-      # => The Update Task mutation type and input variable. (required)
-      id: "string" # => The Task ID received in the Task Payload. (required)
-      jobId: "string" # => The Job ID received in the Task Payload. (required)
-      status: enum # => The status of the task. Set the value to complete (without quotes). (required)
-      outputString: "JSON string" # => A JSON file containing an array of Series objects with details about each instance of a
-      #  found item. (Refer to your engine category’s output specifications for Series
-      #  information.) All quotes in the string must be properly escaped for the task to be
-      #  updated and stored. *The output string parameter is required for all engine categories
-      #  except Transcription. (required*)
-    }
-  ) {
-    # -------return fields------------
-    id # => The unique ID associated with the task. (required)
-    status # => The current status of the task. (required)
-  }
-}
-```
-
-#### GraphiQL Sample Request: Set Task Status to Complete
-
-```graphql(disable)
-mutation {
-  updateTask(
-    input: {
-      id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
-      jobId: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49"
-      status: complete
-      outputString: "{ \"series\": [ { \"found\": \"outdoor\", \"start\": 0, \"end\": 109050, \"confidence\": 825 }, { \"found\": \"minivan\", \"start\": 3375, \"end\": 5875, \"confidence\": 763 } ] }"
-    }
-  ) {
-    id
-    status
-  }
-}
-```
-
-#### cURL Sample Request: Set Task Status to Complete
-
-```bash
-curl -X POST \
-  https://api.veritone.com/v3/graphql \
-  -H 'authorization: Bearer 31rzg6:2e76022093e64732b4c48f202234394328abcf72d50e4981b8043a19e8d9baac' \
-  -H 'content-type: application/json' \
-  -d '{"query": "mutation { updateTask( input: { id: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180\", jobId: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49\", status: \"complete\", outputString: \"{ \\\"series\\\": [ { \\\"found\\\": \\\"outdoor\\\", \\\"start\\\": 0, \\\"end\\\": 109050, \\\"confidence\\\": 825}, { \\\"found\\\": \\\"minivan\\\", \\\"start\\\": 3375, \\\"end\\\": 5875, \\\"confidence\\\": 763 } ] }\" } ) { id,  status } }" }'
-```
-
-#### Sample Response: Set Task Status to Complete
-
-```json
-{
-  "data": {
-    "updateTask": {
-      "id":
-        "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180",
-      "status": "complete"
-    }
-  }
-}
-```
-
-**9. Reporting Task Failure**
+**8. Reporting Task Failure**
 
 If an error occurs during processing or if your engine does not support the task content type, mark the task status as _failed_ by calling the _Update Task_ mutation. The _output_ parameter should be included in your request and specify a JSON object with the _error_ field to indicate the reason for the task failure. When a task fails, no further engine processing should occur.
 
