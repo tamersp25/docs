@@ -13,8 +13,8 @@ The object detection engine input requirements are described in the table below.
 
 <table>
   <tr>
-    <th width="20%"><h4 class="text-left">Data Structure</h4></th>
-    <th width="80%"><h4 class="text-left">Description</h4></th>
+    <th width="20%"><h4 class="text-center">Data Structure</h4></th>
+    <th width="80%"><h4 class="text-center">Description</h4></th>
   </tr>
   <tr>
    <td align="right" valign="top"><b>Task Payload</b><br>object
@@ -123,50 +123,45 @@ To generate an output file, use the data structure described in the table below 
 
 Once the output file is created, make a request to the UploadEngineResult mutation to upload the file and create a new asset. The table below outlines the fields accepted in the request payload. For complete request details, refer to the Engine Construction Guidelines. 
 
-|Field|Type|Required|Description|Example|
-|--------|--------|--------|--------|
-|content-type|header string|required|A header that specifies the content type of the request. Enter multipart/form-data as the value.|content-type: multipart/form-data|
-|file|form|required|The path of the file to upload.|file=@/Users/bobjones/Downloads/your-filename.json|
-|filename|header string|required|The name of the file to upload. The value must match the name of the saved file.|filename=your-filename.json|
-|taskId|string|required|The Task ID received in the Task Payload.|taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef"|
-|contentType|string|required|The MIME type of the file to upload. Specify “application/json” as the value.|contentType: "application/json"|
-|assetType|string|required|The type of asset to create. Specify “object” as the value.|assetType: "object"|
-|completeTask|string|required|A Boolean that marks the task as complete. Set the value to true.|completeTask: true|
-
-| **Field**                      | **Description**                                                                                  | **Example**                                                                         |
-|--------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| **content-type** header string | A header that specifies the content type of the request. Enter multipart/form-data as the value. | content-type: multipart/form-data                                                   |
-|           **file** form string | The path of the file to upload.                                                                  | file=@/Users/bobjones/Downloads/your-filename.json                                  |
-|       **filename** form string | The name of the file to upload. The value must match the name of the saved file.                 | filename=your-filename.json                                                         |
-|         **taskId** body string | The Task ID received in the Task Payload.                                                        | taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef" |
-|    **contentType** body string | The MIME type of the file to upload. Specify “application/json” as the value.                    | contentType: "application/json"                                                     |
-|      **assetType** body string | The type of asset to create. Specify “object” as the value.                                      | assetType: "object"                                                                 |
-|  **completeTask** body Boolean | A Boolean that marks the task as complete. Set the value to *true*.                              | completeTask: true                                                                  |
-
-
 <table>
   <tr>
-    <th width="20%"><h4 class="text-center">Data Structure</h4></th>
-    <th width="80%"><h4 class="text-center">Description</h4></th>
+    <td width="18%"><h4 class="text-left">Field</h4></td>
+    <td width="57%"><h4 class="text-left">Description</h4></td>
+    <td width="25%"><h4 class="text-left">Example</h4></td>
   </tr>
   <tr>
-   <td align="right" valign="top"><b>Task Payload</b><br>object
-</td>
-    <td>The payload (provided by Veritone) with data that describes the task to be completed by the engine. See the sample Task Payload in the Engine Construction Guidelines for more information.
-</td>
+    <td align="right" valign="top"><b>content-type</b><br>header<br>string</td>
+    <td>A header that specifies the content type of the request. Enter multipart/form-data as the value.</td>
+    <td><code>`content-type: multipart/form-data`</code></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><b>Content-Type</b><br>string
-</td>
-    <td>The format (MIME type) of the input file. 
-
-<code>`"contentType": "video/mp4"`</code></td>
+    <td align="right" valign="top"><b>file</b><br>form<br>string</td>
+    <td>The path of the file to upload.</td>
+    <td><code>`file=@/Users/bobjones/Downloads/your-filename.json`</code></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><b>Input Asset URI</b><br>string
-</td>
-    <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
-     
-<code>`"signedUri": "https://inspirent.s3.amazonaws.com/assets/39528568/ 909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"`</code></td>
+    <td align="right" valign="top"><b>filename</b><br>form<br>string</td>
+    <td>The name of the file to upload. The value must match the name of the saved file.</td>
+    <td><code>`filename=your-filename.json`</code></td>
   </tr>
-</table>
+  <tr>
+    <td align="right" valign="top"><b>taskId</b><br>body<br>string</td>
+    <td>The Task ID received in the Task Payload.</td>
+    <td><code>`taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef"`</code></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top"><b>contentType</b><br>body<br>string</td>
+    <td>The MIME type of the file to upload. Specify "application/json" as the value.</td>
+    <td><code>`contentType: "application/json"`</code></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top"><b>assetType</b><br>body<br>string</td>
+    <td>The type of asset to create. Specify “object” as the value.</td>
+    <td><code>`assetType: "object"`</code></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top"><b>completeTask</b><br>body<br>Boolean</td>
+    <td>A Boolean that marks the task as complete. Set the value to true.</td>
+    <td><code>`completeTask: true`</code></td>
+  </tr>
+</table>                                                                |
