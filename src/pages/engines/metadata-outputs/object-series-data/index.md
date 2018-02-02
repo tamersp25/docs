@@ -27,14 +27,14 @@ The object detection engine input requirements are described in the table below.
 </td>
     <td>The format (MIME type) of the input file. 
 
-<code>`"contentType": "video/mp4"`</code></td>
+<code>"contentType": "video/mp4"</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>Input Asset URI</b><br>string
 </td>
     <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
      
-<code>`"signedUri": "https://inspirent.s3.amazonaws.com/assets/39528568/ 909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"`</code></td>
+<code>"signedUri": "https://inspirent.s3.amazonaws.com/assets/39528568/ 909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"</code></td>
   </tr>
 </table>
 
@@ -57,32 +57,32 @@ To generate an output file, use the data structure described in the table below 
   <tr>
     <td align="right" valign="top"><b>found</b><br>string<br>required</td>
     <td>A label that identifies the detected object.</td>
-    <td><code>`found: "minivan"`</code></td>
+    <td><code>found: "minivan"</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>start</b><br>integer<br>required</td>
     <td>The time in milliseconds from the beginning of the input file that the object was first identified.</td>
-    <td><code>`start: "4000"`</code></td>
+    <td><code>start: "4000"</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>end</b><br>integer<br>required</td>
     <td>The time in milliseconds from the beginning of the input file that the object was last identified.</td>
-    <td><code>`end: "15000"`</code></td>
+    <td><code>end: "15000"</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>salience</b><br>float<br>optional</td>
     <td>The estimated probability that the detected object is correctly identified. Scores range from 0-100, with a higher score indicating greater correlation.</td>
-    <td><code>`salience: 88.5096206665039`</code></td>
+    <td><code>salience: 88.5096206665039</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>bounding poly</b><br>object<br>optional</td>
     <td>The coordinates of the bounding box around the detected object. The left (x-coordinate) and top (y-coordinate) are coordinates representing the top and left sides of the bounding box. The width and height values represent the dimensions of the bounding box as a ratio of the overall image dimension.</td>
-    <td><code>`boundingPoly: {
+    <td><code>boundingPoly: {
       left: 0.318888902664,
       top: 0.493333339691,
       width: 0.25,
       height: 0.334814816713,
- }`</code></td>
+ }</code></td>
   </tr>
 </table>
 
@@ -132,36 +132,36 @@ Once the output file is created, make a request to the UploadEngineResult mutati
   <tr valign="top">
     <td align="right"><b>content-type</b><br>header<br>string</td>
     <td>A header that specifies the content type of the request. Enter multipart/form-data as the value.</td>
-    <td><code>`content-type: multipart/form-data`</code></td>
+    <td><code>content-type: multipart/form-data</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>file</b><br>form<br>string</td>
     <td>The path of the file to upload.</td>
-    <td><code>`file=@/Users/bobjones/Downloads/your-filename.json`</code></td>
+    <td><code>file=@/Users/bobjones/Downloads/your-filename.json</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>filename</b><br>form<br>string</td>
     <td>The name of the file to upload. The value must match the name of the saved file.</td>
-    <td><code>`filename=your-filename.json`</code></td>
+    <td><code>filename=your-filename.json</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>taskId</b><br>body<br>string</td>
     <td>The Task ID received in the Task Payload.</td>
-    <td><code>`taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef"`</code></td>
+    <td><code>taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef"</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>contentType</b><br>body<br>string</td>
     <td>The MIME type of the file to upload. Specify "application/json" as the value.</td>
-    <td><code>`contentType: "application/json"`</code></td>
+    <td><code>contentType: "application/json"</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>assetType</b><br>body<br>string</td>
     <td>The type of asset to create. Specify “object” as the value.</td>
-    <td><code>`assetType: "object"`</code></td>
+    <td><code>assetType: "object"</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>completeTask</b><br>body<br>Boolean</td>
     <td>A Boolean that marks the task as complete. Set the value to true.</td>
-    <td><code>`completeTask: true`</code></td>
+    <td><code>completeTask: true</code></td>
   </tr>
 </table>
