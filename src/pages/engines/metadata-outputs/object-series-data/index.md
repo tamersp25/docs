@@ -124,7 +124,7 @@ To generate an output file, use the data structure described in the table below 
 Once the output file is created, make a request to the UploadEngineResult mutation to upload the file and create a new asset. The table below outlines the fields accepted in the request payload. For complete request details, refer to the Engine Construction Guidelines. 
 
 <table>
-  <tr height="10">
+  <tr height="5">
     <td width="18%"><h3 class="text-left">Field</h3></td>
     <td width="57%"><h3 class="text-left">Description</h3></td>
     <td width="25%"><h3 class="text-left">Example</h3></td>
@@ -164,4 +164,4 @@ Once the output file is created, make a request to the UploadEngineResult mutati
     <td>A Boolean that marks the task as complete. Set the value to true.</td>
     <td><code>`completeTask: true`</code></td>
   </tr>
-</table>                                                                |
+</table>
