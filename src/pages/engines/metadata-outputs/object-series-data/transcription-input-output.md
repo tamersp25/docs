@@ -56,18 +56,18 @@ To generate a TTML file, use the data structure described in the table below and
     <td width="57%"><h3 class="text-left">Description</h3></td>
     <td width="25%"><h3 class="text-left">Example</h3></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>p</b><br>element<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>p</b><br>element<br>required</td>
     <td>The current paragraph that contains the transcript text.</td>
-    <td><code><p></p></code></td>
+    <td><code>\<p>\\</p>\</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>begin</b><br>string attribute<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>begin</b><br>string attribute<br>required</td>
     <td>The starting time of the paragraph in HH:MM:SS.mmm from the beginning of the file.</td>
     <td><code>begin="00:00:01.360"</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>end</b><br>string attribute<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>end</b><br>string attribute<br>required</td>
     <td>The ending time of the paragraph in HH:MM:SS.mmm from the beginning of the file.</td>
     <td><code>end="00:00:02.520"</code></td>
   </tr>
@@ -104,35 +104,34 @@ To generate a VLF file from your engine’s raw output, use the data structure d
     <td width="57%"><h3 class="text-left">Description</h3></td>
     <td width="25%"><h3 class="text-left">Example</h3></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>parent key</b><br>integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>parent key</b><br>integer<br>required</td>
     <td>The zero-indexed key of each utterance in the lattice. </td>
     <td><code>0: {</code></td>
   </tr>
-  <tr>
-     <td align="right" valign="top"><b>startTimeMs</b><br>integer<br>required</td>
+  <tr valign="top">
+     <td align="right"><b>startTimeMs</b><br>integer<br>required</td>
     <td>The time in milliseconds from the beginning of the file when the utterance begins.</td>
     <td><code>startTimeMs: 1260</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>stopTimeMs</b><br>integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>stopTimeMs</b><br>integer<br>required</td>
     <td>The time in milliseconds from the beginning of the file when the utterance ends.</td>
     <td><code>stopTimeMs: 1360</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>durationMs</b><br>integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>durationMs</b><br>integer<br>required</td>
     <td>The length of the utterance in milliseconds. (stopTimeMs - startTimeMs)</td>
     <td><code>durationMs: 100</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>words</b><br>array of objects<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>words</b><br>array of objects<br>required</td>
     <td>An array of objects containing data attributes associated with detected words. Create a separate object for each word and interval of silence. See the Words table below for more information.</td>
     <td><code>words: [
             {</code></td>
   </tr>
-  <tr>
-    <td>index
-    <td align="right" valign="top"><b>index</b><br>integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>index</b><br>integer<br>required</td>
     <td>The indexed order in which the word appears in the transcript. This value matches the parent key.</td>
     <td><code>index: 0</code></td>
   </tr>
@@ -148,43 +147,43 @@ To generate a VLF file from your engine’s raw output, use the data structure d
     <td width="25%"><h3 class="text-left">Example</h3></td>
   </tr>
   <tr>
-    <td align="right" valign="top"><b>words</b><br>array<br>required</td>
+    <td align="right"><b>words</b><br>array<br>required</td>
     <td>The root object field of the results array.</td>
     <td><code>words: [</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>word</b><br>string<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>word</b><br>string<br>required</td>
     <td>The detected keyword (or silence) associated with the specified time increment. </td>
     <td><code>word: "You"
 word: "!silence"</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>confidence</b><br>rounded integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>confidence</b><br>rounded integer<br>required</td>
     <td>The estimated probability that the detected object is correctly identified. Confidence scores are rounded (not truncated) whole numbers and range from 0-1000, with a higher score indicating greater correlation.</td>
     <td><code>confidence: 800</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>bestPathForward</b><br>Boolean<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>bestPathForward</b><br>Boolean<br>required</td>
     <td>True marks this word as the best path forward. (Single-path transcripts must report true.)</td>
     <td><code>bestPathForward: true</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>bestPathBackward</b><br>Boolean<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>bestPathBackward</b><br>Boolean<br>required</td>
     <td>True marks this word as the best path backward. (Single-path transcripts must report true.)</td>
     <td><code>bestPathBackward: true</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>spanningForward</b><br>Boolean<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>spanningForward</b><br>Boolean<br>required</td>
     <td>True marks this word as a forward spanning word. Spanning words are words that span multiple utterances, where the number of utterances they span is described by the spanningLength field. (Single-path transcripts must report false.)</td>
     <td><code>spanningForward: false</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>spanningBackward</b><br>Boolean<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>spanningBackward</b><br>Boolean<br>required</td>
     <td>True marks this word as a backward spanning word. Spanning words are words that span multiple utterances, where the number of utterances they span is described by the spanningLength field. (Single-path transcripts must report false.)</td>
     <td><code>spanningBackward: false</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>spanningLength</b><br>integer<br>required</td>
+  <tr valign="top">
+    <td align="right"><b>spanningLength</b><br>integer<br>required</td>
     <td>The number of utterances this word spans. The spanning length must be at least 1. (Single-path transcripts must report 1.)</td>
     <td><code>spanningLength: 1</code></td>
   </tr>
