@@ -76,3 +76,43 @@ Once the output file is created, make a request to the UploadEngineResult mutati
 |contentType|string|required|The MIME type of the file to upload. Specify “application/json” as the value.|contentType: "application/json"|
 |assetType|string|required|The type of asset to create. Specify “object” as the value.|assetType: "object"|
 |completeTask|string|required|A Boolean that marks the task as complete. Set the value to true.|completeTask: true|
+
+| **Field**                      | **Description**                                                                                  | **Example**                                                                         |
+|--------------------------------|--------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| **content-type** header string | A header that specifies the content type of the request. Enter multipart/form-data as the value. | content-type: multipart/form-data                                                   |
+|           **file** form string | The path of the file to upload.                                                                  | file=@/Users/bobjones/Downloads/your-filename.json                                  |
+|       **filename** form string | The name of the file to upload. The value must match the name of the saved file.                 | filename=your-filename.json                                                         |
+|         **taskId** body string | The Task ID received in the Task Payload.                                                        | taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef" |
+|    **contentType** body string | The MIME type of the file to upload. Specify “application/json” as the value.                    | contentType: "application/json"                                                     |
+|      **assetType** body string | The type of asset to create. Specify “object” as the value.                                      | assetType: "object"                                                                 |
+|  **completeTask** body Boolean | A Boolean that marks the task as complete. Set the value to *true*.                              | completeTask: true                                                                  |
+
+
+<table>
+  <tr>
+    <td>Data Structure</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>Task Payload
+object
+</td>
+    <td>The payload (provided by Veritone) with data that describes the task to be completed by the engine. See the sample Task Payload in the Engine Construction Guidelines for more information.
+</td>
+  </tr>
+  <tr>
+    <td>Content-Type
+string
+</td>
+    <td>The format (MIME type) of the input file. 
+
+"contentType": "video/mp4"</td>
+  </tr>
+  <tr>
+    <td>Input Asset URI
+string
+</td>
+    <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
+"signedUri": "https://inspirent.s3.amazonaws.com/assets/39528568/ 909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"</td>
+  </tr>
+</table>
