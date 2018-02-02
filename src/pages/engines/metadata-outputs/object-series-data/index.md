@@ -90,17 +90,17 @@ Once the output file is created, make a request to the UploadEngineResult mutati
 
 <table>
   <tr>
-    <th width="20%">Data Structure</th>
-    <th width="80%">Description</th>
+    <th width="15%">Data Structure</th>
+    <th width="85%">Description</th>
   </tr>
   <tr>
-   <td align="right"><b>Task Payload</b><br>object
+   <td align="right">h3 Task Payload<br>object
 </td>
     <td>The payload (provided by Veritone) with data that describes the task to be completed by the engine. See the sample Task Payload in the Engine Construction Guidelines for more information.
 </td>
   </tr>
   <tr>
-    <td align="right"><b>Content-Type</b><br>string
+    <td align="right" valign="top"><b>Content-Type</b><br>string
 </td>
     <td>The format (MIME type) of the input file. 
 
