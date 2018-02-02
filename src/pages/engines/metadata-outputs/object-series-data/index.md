@@ -13,8 +13,8 @@ The object detection engine input requirements are described in the table below.
 
 <table>
   <tr>
-    <th width="20%"><h4 class="text-center">Data Structure</h4></th>
-    <th width="80%"><h4 class="text-center">Description</h4></th>
+    <td width="20%"><h3 class="text-left">Data Structure</h3></td>
+    <td width="80%"><h3 class="text-left">Description</h3></td>
   </tr>
   <tr>
    <td align="right" valign="top"><b>Task Payload</b><br>object
@@ -45,9 +45,9 @@ To generate an output file, use the data structure described in the table below 
 
 <table>
   <tr>
-    <th width="18%"><h4 class="text-center">Data Structure</h4></th>
-    <th width="57%"><h4 class="text-center">Description</h4></th>
-    <th width="25%"><h4 class="text-center">Example</h4></th>
+    <td width="18%"><h3 class="text-left">Data Structure</h3></td>
+    <td width="57%"><h3 class="text-left">Description</h3></td>
+    <td width="25%"><h3 class="text-left">Example</h3></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>series</b><br>array<br>required</td>
@@ -124,7 +124,7 @@ To generate an output file, use the data structure described in the table below 
 Once the output file is created, make a request to the UploadEngineResult mutation to upload the file and create a new asset. The table below outlines the fields accepted in the request payload. For complete request details, refer to the Engine Construction Guidelines. 
 
 <table>
-  <tr height="1">
+  <tr>
     <td width="18%"><h3 class="text-left">Field</h3></td>
     <td width="57%"><h3 class="text-left">Description</h3></td>
     <td width="25%"><h3 class="text-left">Example</h3></td>
