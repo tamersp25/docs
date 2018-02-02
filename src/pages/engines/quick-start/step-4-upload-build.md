@@ -98,6 +98,28 @@ The build report presents findings from Veritone&rsquo;s engine build testing to
 If vulnerabilities are detected in your engine build, they will be included for you to review in the vulnerabilities array of the report (see example below). Engine builds will only be marked invalid if we detect vulnerabilities labeled as "Critical." Anything below this level of severity will not prevent your engine from being made available, but will still be included for your review in the build report.
 If you would like to test a container for vulnerabilities on your own, check out Clair's getting started guide.
 
+```json
+{
+    "vulnerabilities": [
+        {
+            "Name": "CVE-2013-4402",
+            "NamespaceName": "ubuntu:13.04",
+            "Description": "The compressed packet parser in GnuPG 1.4.x before 1.4.15 and 2.0.x before 2.0.22 allows remote attackers to cause a denial of service (infinite recursion) via a crafted OpenPGP message.",
+            "Link": "http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4402",
+            "Severity": "Medium",
+            "Metadata": {
+                "NVD": {
+                    "CVSSv2": {
+                        "Score": 5,
+                        "Vectors": "AV:N/AC:L/Au:N/C:N/I:N"
+                    }
+                }
+            },
+            "FixedBy": "1.4.12-7ubuntu1.2"
+        }
+    ]
+}```
+
 #### Build States ####
 
 The build state allows you easily identify and track a build&rsquo;s progression through the workflow cycle. Veritone uses six different states to capture the most relevant aspects of a build&rsquo;s lifecycle stages and general operations.
