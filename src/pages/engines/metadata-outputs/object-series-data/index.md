@@ -125,17 +125,17 @@ Once the output file is created, make a request to the UploadEngineResult mutati
 
 <table>
   <tr>
-    <td width="18%"><h4 class="text-left">Field</h4></td>
-    <td width="57%"><h4 class="text-left">Description</h4></td>
-    <td width="25%"><h4 class="text-left">Example</h4></td>
+    <td width="18%"><h3 class="text-left">Field</h3></td>
+    <td width="57%"><h3 class="text-left">Description</h3></td>
+    <td width="25%"><h3 class="text-left">Example</h3></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>content-type</b><br>header<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>content-type</b><br>header<br>string</td>
     <td>A header that specifies the content type of the request. Enter multipart/form-data as the value.</td>
     <td><code>`content-type: multipart/form-data`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>file</b><br>form<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>file</b><br>form<br>string</td>
     <td>The path of the file to upload.</td>
     <td><code>`file=@/Users/bobjones/Downloads/your-filename.json`</code></td>
   </tr>
