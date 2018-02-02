@@ -1,5 +1,0 @@
----
-title: Asset
----
-
-Coming soon...

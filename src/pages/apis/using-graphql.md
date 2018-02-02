@@ -1,5 +1,5 @@
 ---
-title: Veritone GraphQL API Overview
+title: Using GraphQL
 ---
 
 ## What is GraphQL?
@@ -34,7 +34,7 @@ For detailed information about GraphQL, see the main GraphQL site (http://graphq
 This document contains a high-level overview and some information specific to Veritone's implementation.
 
 A GraphQL _schema_ defines _types_ and _fields_ on those types. That's it. A schema defines a set of queries as entry points to the data model. In a typical schema you will see something like this:
-```
+```graphql
 schema {  
   query: Query
 }
@@ -46,7 +46,7 @@ type MyObjectType {
 }
 ```
 However, that's just convention -- a query is, in the schema, just a field on a type. In this example, `query` is the root of our schema.
-To query, you send a string in GraphQL that specifies the fields you want, and any parameters on them.So for this simple schema we might send:
+To query, you send a string in GraphQL that specifies the fields you want, and any parameters on them. So for this simple schema we might send:
 ```graphql
 query {
   objects(objectName: "my sample object?") {
@@ -59,7 +59,7 @@ Here we are specifying the top-level field on the schema (`query`),and asking fo
 It's up to the server how to resolve each requested field and interpret the parameters. All data might reside in a single back-end database schema. On the other hand, the server might populate some fields by reaching out to other sources such as REST services or even external services.
 Take this example:
 
-```
+```graphql
 type MyObjectType {
   name: String  data: ObjectData
 }
@@ -67,11 +67,13 @@ type ObjectData {
   ...
 }
 ```
+
 `name` and the list of `MyObjectType` might live in one backend database, while the server populates data for each object by calling out to an external REST service.
 To modify data, you use a _mutation_.  A mutation is formatted like a query and can return information like a query, but modifies data in some way (create, update, or delete).
 Mutations take, as parameters, special types called inputs. An input contains those fields necessary to create or modify an instance of the related type.
 Continuing our example, we might have
-```
+
+```graphql
 type MyObjectType {
   # A name for the object, provided by the user. Required.
   name: String!
@@ -174,6 +176,7 @@ GraphQL supports interfaces, which define common fields for a set of types, and 
 ```
 
 The result will look something like this:
+
 ```json
 {  
   "data": {

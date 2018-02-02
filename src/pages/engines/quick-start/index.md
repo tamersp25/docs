@@ -1,5 +1,5 @@
 ---
-title: Development Quickstart
+title: Quickstart
 ---
 
 This quick start is designed to take you through the engine development lifecycle as quickly as possible. Upon completion, you'll have completed the necessary steps to build and deploy your engine in the Veritone Platform.

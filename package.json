@@ -27,14 +27,15 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "prebuild": "rm -rf public",
+    "prebuild": "rm -rf public && rm -rf .cache",
     "postbuild": "cp CNAME public",
-    "start": "gatsby develop",
+    "start": "rm -rf .cache && gatsby develop",
     "deploy": "npm run build && gh-pages -d public --branch master",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "gatsby-plugin-remove-trailing-slashes": "^1.0.4",
     "gh-pages": "^1.1.0",
     "prettier": "^1.8.2"
   }
