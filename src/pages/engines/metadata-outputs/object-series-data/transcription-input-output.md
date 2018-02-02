@@ -8,6 +8,8 @@ This section provides input and output data model specifications for transcripti
 
 Input assets to transcription engines typically take the form of video or audio files. To ensure your engine can accept and process tasks, be sure your engine’s supported file formats (specified in the build [manifest](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/18874416/Engine+Manifests)) align with those used by Veritone.
 
+The following types of content are accepted by the Veritone API.
+
 <table>
   <tr>
     <th align="right">Accepted MIME Types</th>
