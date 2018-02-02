@@ -124,7 +124,7 @@ To generate an output file, use the data structure described in the table below 
 Once the output file is created, make a request to the UploadEngineResult mutation to upload the file and create a new asset. The table below outlines the fields accepted in the request payload. For complete request details, refer to the Engine Construction Guidelines. 
 
 <table>
-  <tr>
+  <tr height="10">
     <td width="18%"><h3 class="text-left">Field</h3></td>
     <td width="57%"><h3 class="text-left">Description</h3></td>
     <td width="25%"><h3 class="text-left">Example</h3></td>
@@ -139,28 +139,28 @@ Once the output file is created, make a request to the UploadEngineResult mutati
     <td>The path of the file to upload.</td>
     <td><code>`file=@/Users/bobjones/Downloads/your-filename.json`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>filename</b><br>form<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>filename</b><br>form<br>string</td>
     <td>The name of the file to upload. The value must match the name of the saved file.</td>
     <td><code>`filename=your-filename.json`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>taskId</b><br>body<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>taskId</b><br>body<br>string</td>
     <td>The Task ID received in the Task Payload.</td>
     <td><code>`taskId: "e0d2ff71-503f-4ace-a214-3bb941425fd6-b4e26652-eba4-4740-91f8-1c59b18811ef"`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>contentType</b><br>body<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>contentType</b><br>body<br>string</td>
     <td>The MIME type of the file to upload. Specify "application/json" as the value.</td>
     <td><code>`contentType: "application/json"`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>assetType</b><br>body<br>string</td>
+  <tr valign="top">
+    <td align="right"><b>assetType</b><br>body<br>string</td>
     <td>The type of asset to create. Specify “object” as the value.</td>
     <td><code>`assetType: "object"`</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>completeTask</b><br>body<br>Boolean</td>
+  <tr valign="top">
+    <td align="right"><b>completeTask</b><br>body<br>Boolean</td>
     <td>A Boolean that marks the task as complete. Set the value to true.</td>
     <td><code>`completeTask: true`</code></td>
   </tr>
