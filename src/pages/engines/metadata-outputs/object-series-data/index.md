@@ -90,18 +90,18 @@ Once the output file is created, make a request to the UploadEngineResult mutati
 
 <table>
   <tr>
-    <td>Data Structure</td>
-    <td>Description</td>
+    <td><b>Data Structure</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
-    <td>Task Payload
+   <td><b>Task Payload</b>
 object
 </td>
     <td>The payload (provided by Veritone) with data that describes the task to be completed by the engine. See the sample Task Payload in the Engine Construction Guidelines for more information.
 </td>
   </tr>
   <tr>
-    <td>Content-Type
+    <td><b>Content-Type</b>
 string
 </td>
     <td>The format (MIME type) of the input file. 
@@ -109,7 +109,7 @@ string
 "contentType": "video/mp4"</td>
   </tr>
   <tr>
-    <td>Input Asset URI
+    <td><b>Input Asset URI</b>
 string
 </td>
     <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
