@@ -59,7 +59,7 @@ To generate a TTML file, use the data structure described in the table below and
   <tr valign="top">
     <td align="right"><b>p</b><br>element<br>required</td>
     <td>The current paragraph that contains the transcript text.</td>
-    <td><code>\<p>\ \</p>\</code></td>
+    <td><code>&lt;p&gt;&lt;/p&gt;</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>begin</b><br>string attribute<br>required</td>
@@ -192,7 +192,7 @@ word: "!silence"</code></td>
 
 ## **Sample Single-Path VLF Data Structure**
 
-```
+```json
 {
     0: {
         startTimeMs: 1260,
