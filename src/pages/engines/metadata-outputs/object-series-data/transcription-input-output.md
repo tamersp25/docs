@@ -6,24 +6,7 @@ This section provides input and output data model specifications for transcripti
 
 ## Input Data Structure
 
-Input assets to transcription engines typically take the form of video or audio files. To ensure your engine can accept and process tasks, be sure your engine’s supported file formats (specified in the build [manifest](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/18874416/Engine+Manifests)) align with those used by Veritone.
-
-The following types of content are accepted by the Veritone API.
-
-<table>
-  <tr>
-    <th align="right">Accepted MIME Types</th>
-    <td></td>
-  </tr>
-  <tr valign="top">
-    <td align="right"><b>video</b></td>
-    <td>video/3gpp, video/mp4, video/mpeg, video/ogg, video/quicktime, video/webm, video/x-m4v, video/x-ms-wmv, video/x-msvideo</td>
-  </tr>
-  <tr valign="top">
-    <td align="right"><b>audio</b></td>
-    <td>audio/aac, audio/flac, audio/midi, audio/mp4, audio/mpeg, audio/wav, audio/x-wav, audio/webm</td>
-  </tr>
-</table>
+Input assets to transcription engines typically take the form of video or audio files. To ensure your engine can accept and process tasks, be sure your engine supports MP3 and MP4 as input file types.
 
 The transcription engine input requirements are described in the table below.
 
