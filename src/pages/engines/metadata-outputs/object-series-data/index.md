@@ -90,8 +90,8 @@ Once the output file is created, make a request to the UploadEngineResult mutati
 
 <table>
   <tr>
-    <th width="25%">Data Structure</th>
-    <th width="75%">Description</th>
+    <th width="20%">Data Structure</th>
+    <th width="80%">Description</th>
   </tr>
   <tr>
    <td align="right"><b>Task Payload</b><br>object
