@@ -52,7 +52,7 @@ To generate an output file, use the data structure described in the table below 
   <tr>
     <td align="right" valign="top"><b>series</b><br>array<br>required</td>
     <td>The root object field of the results array. </td>
-    <td><code>`series: [`</code></td>
+    <td><code>series: [</code></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>found</b><br>string<br>required</td>
