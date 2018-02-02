@@ -1,5 +1,5 @@
 ---
-title: Application Quick Start
+title: Quickstart
 ---
 
 The Application Quick Start is designed to provide fast-track development and take you through the application lifecycle as quickly as possible. It will introduce the tools, concepts, and steps required to build and install your application in Veritone.

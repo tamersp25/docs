@@ -18,7 +18,7 @@ When you create an app in Veritone, you specify general information that defines
 * **Application Name**: _(required)_ Enter your application's name (up to 50 characters in length) as you would like it to appear to users.
 * **Application Description**: _(required)_ Describe what your application does in a few sentences. This description will be shown to users.
 *   **URL:** Enter the URL where the application can be accessed.
-*   **Redirect URL:** Enter your application server's Oauth2 redirect/callback URL. See the section on [OAuth](../../oauth/) for more information. 
+*   **Redirect URL:** Enter your application server's Oauth2 redirect/callback URL. See the section on [OAuth](../../oauth) for more information. 
 *   **Icon**: _(optional)_ Upload an icon for your application from your local file system as a 128x128 png or jpg file. For best results, upload a square image. The icon displays to the left of the application name in the Veritone App Picker and will automatically be resized and converted to grayscale in the Veritone UI. If an icon is not uploaded, a generic icon will display with your application name.
 
 4\. Click **Submit** to continue. The application details page opens and an "Application created successfully" message momentarily displays. 
@@ -30,7 +30,7 @@ When you create an app in Veritone, you specify general information that defines
 *   If no changes need to be made, no further action is necessary.
 *   If changes are required, make the necessary edits and click _Save_. An "Application updated successfully" message displays momentarily. Note that the _Save_ button remains blue after your changes have been applied. 
 
-Once your app has been created, use the details at the top of the page to [set up your app with OAuth 2.0 authentication](../../oauth/). 
+Once your app has been created, use the details at the top of the page to [set up your app with OAuth 2.0 authentication](../../oauth). 
 
 ![VDA-Create-Application-4](VDA-Create-Application-4.png)
 

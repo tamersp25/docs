@@ -1,6 +1,7 @@
 ---
 title:  Clean up TDO data
 ---
+
 As part of the cognition workflow, organizations may upload large amounts of content (media files, etc.) to object storage. Furthermore, as engines run, they may store their results in additional assets and tables. Sometimes it may become necessary to clean up, or delete, some of this content either to save space or comply with certain policies. But the organization may not wish to entirely delete all data.
 
 The Veritone GraphQL API allows users fine-grained control over what data is delete is what is left on Veritone's servers.
@@ -19,7 +20,7 @@ A query that modified information is called a mutation. The specific mutation us
 
 To use the default settings, type this and hit the arrow button or CTRL-ENTER to execute the query:
 
-```
+```graphql
 mutation {
  cleanupTDO(id: "<insert TDO ID here>") {
    id
@@ -40,7 +41,8 @@ For more precise control over the data that is deleted, you can pass an addition
 
 
 The default behavior is to use the `storage` and `searchIndex` settings. To change this, pass any combination of valid option values as shown below:
-```
+
+```graphql
 mutation {
  cleanupTDO(id: "<insert TDO ID here>", options: [engineResults, storage]) {
    id

@@ -47,7 +47,7 @@ Once you have the Task Payload, call the _Update Task_ mutation and provide the 
 
 #### Request Payload: Set Task Status to Running
 
-```graphql(disable)
+```graphql
 mutation {
   # -------request fields-----------
   updateTask(
@@ -67,7 +67,7 @@ mutation {
 
 #### GraphiQL Sample Request: Set Task Status to Running
 
-```graphql(disable)
+```graphql
 mutation {
   updateTask(
     input: {
@@ -112,7 +112,7 @@ When the task status is set to _running_, make a request to the _Temporal Data O
 
 #### Request Payload: Get Recording Container
 
-```graphql(disable)
+```graphql
 query {
 # -------request fields-----------------------
   temporalDataObject    # => The query operation to retrieve a recording container object. (required)
@@ -138,7 +138,7 @@ query {
 
 #### GraphiQL Sample Request: Get Recording Container
 
-```graphql(disable)
+```graphql
 query {
   temporalDataObject(id: "38828568") {
     assets(type: "media") {
@@ -304,7 +304,7 @@ If an error occurs during processing or if your engine does not support the task
 
 #### Request Payload: Set Task Status to Failed
 
-```graphql(disable)
+```graphql
 mutation {
 # -------request fields-----------
   updateTask(input :{       # => The Update Task mutation type and input variable. (required)
@@ -324,7 +324,7 @@ mutation {
 
 #### GraphiQL Sample Request: Set Task Status to Failed
 
-```graphql(disable)
+```graphql
 mutation {
   updateTask(
     input: {

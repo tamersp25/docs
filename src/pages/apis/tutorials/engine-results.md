@@ -30,7 +30,7 @@ Here's a sample query that creates a transcript engine result.
 Note that the `assetType` and `contentType` values will depend on the type of
 engine.
 
-```
+```graphql
 mutation {
     uploadEngineResult(input: {
       taskId: "<the task ID>"
@@ -48,7 +48,7 @@ mutation {
       }
     }
   }
-  ```
+```
 
 The _asset_ can contain any format:  JSON, XML, binary, etc.
 However, the _task output_ metadata property must contain valid JSON.
@@ -57,13 +57,15 @@ automatically transforming the engine result into JSON before setting it
 on the task metadata (the asset contains unmodified engine results, exactly
 as uploaded by the client). The entire result string is placed into a single
 JSON value:
-```
+
+```json
   { "data": "<xml id=\"id\">...</xml>"}
 ```
+
 To override the default key, `data`, use the `outputJsonKey` parameter.
 In this example, we'll change it to `transcriptXml`.
 
-```
+```graphql
 mutation {
     uploadEngineResult(input: {
       taskId: "<the task ID>"
@@ -74,11 +76,11 @@ mutation {
       id
     }
   }
-  ```
+```
 
 The resulting value will then be:
 
-```
+```json
 { "transcriptXml": "<xml id=\"id\">...</xml>"}
 ```
 
@@ -86,7 +88,7 @@ And, again, the asset will contain the raw XML.
 
 By default, the task will be marked `complete`. To override this behavior,
 use the `completeTask` parameter:
-```
+```graphql
 mutation {
     uploadEngineResult(input: {
       taskId: "<the task ID>"
@@ -103,7 +105,7 @@ mutation {
 Now say we do not want to produce a file, but rather, feed our engine results
 directly from memory into the mutation.
 
-```
+```graphql
 mutation {
     uploadEngineResult(input: {
       taskId: "<the task ID>"

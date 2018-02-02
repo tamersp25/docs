@@ -56,7 +56,7 @@ Once you have the Task Payload, call the Update Task mutation and provide the Ta
 
 #### Request Payload: Set Task Status to Running
 
-```graphql(disable)
+```graphql
 mutation{
 # -------request fields-----------
   updateTask(input :{ # => The mutation type and input variable. (required)
@@ -73,7 +73,7 @@ mutation{
 
 #### GraphiQL Sample Request: Set Task Status to Running
 
-```graphql(disable)
+```graphql
 mutation{
   updateTask(input :{
     id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
@@ -116,7 +116,7 @@ When the task status is set to running, make a request to the Temporal Data Obje
 
 #### Request Payload: Get Recording Container
 
-```graphql(disable)
+```graphql
 query {
 # -------request fields-----------------------
   temporalDataObject    # => The query operation to retrieve a recording container object. (required)
@@ -142,7 +142,7 @@ query {
 
 #### GraphiQL Sample Request: Get Recording Container
 
-```graphql(disable)
+```graphql
 query {
   temporalDataObject(id: "38828568") {
     assets(type: "media"){
@@ -246,7 +246,7 @@ Upload the file to an external host location that’s accessible to Veritone and
 
 #### Option 1 Request Payload: Create Asset
 
-```graphql(disable)
+```graphql
 mutation {
 # -------request fields-----------
   createAsset(input: {     # => The Create Asset mutation type and input variable. (required)
@@ -268,7 +268,7 @@ mutation {
 
 #### Option 1 GraphiQL Sample Request: Create Asset
 
-```graphql(disable)
+```graphql
 mutation {
   createAsset(input: {
     containerId: "38828568"
@@ -388,7 +388,7 @@ Once the asset has been uploaded, mark the task status as complete by calling th
 
 #### Request Payload: Set Task Status to Complete
 
-```graphql(disable)
+```graphql
 mutation {
 # -------request fields-----------
   updateTask(input :{           # => The Update Task mutation type and input variable. (required)
@@ -452,7 +452,7 @@ If an error occurs during processing or if your engine does not support the task
 
 #### Request Payload: Set Task Status to Failed
 
-```graphql(disable)
+```graphql
 mutation{
 # -------request fields-----------
   updateTask(input :{       # => The Update Task mutation type and input variable. (required)
@@ -473,7 +473,7 @@ mutation{
 
 #### GraphiQL Sample Request: Set Task Status to Failed
 
-```graphql(disable)
+```graphql
 mutation{
   updateTask(input :{
     id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"

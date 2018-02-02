@@ -39,7 +39,6 @@ class Sidebar extends Component {
 
     const isOpen = match && diff <= 1 || sharesParentNode || (isChildOfCurrentNode && this.state.open.length > 2);
 
-
     return (
       <li
         key={node.id}
@@ -53,7 +52,7 @@ class Sidebar extends Component {
           {isActive ? (
             <strong>{node.frontmatter.title}</strong>
           ) : (
-            node.frontmatter.title
+            <div>{node.frontmatter.title}</div>
           )}
         </Link>
         {node.children.length > 0 && (
@@ -73,7 +72,7 @@ class Sidebar extends Component {
       'Developer Benefits',
       'Applications',
       'Engines',
-      'Libraries'
+      'APIs'
     ]
     const pages = this.props.data.allMarkdownRemark.edges.sort(function(a, b) {
       return (

@@ -5,4 +5,4 @@ title: Tutorials
 
 #### GraphQL API Tutorials
 
-- [Object Detection](object-detection.md)
+- [Object Detection](object-detection)

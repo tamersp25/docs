@@ -26,6 +26,14 @@ a {
   padding-left: 15px;
 }
 
+.sidebar li {
+  margin-bottom: calc(1.45rem / 2);
+}
+
+.sidebar li > ul {
+   margin-top: calc(1.45rem / 2);
+}
+
 .sidebar a {
   color: #4caf50;
 }
