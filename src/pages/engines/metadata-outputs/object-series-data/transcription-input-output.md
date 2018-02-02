@@ -8,6 +8,21 @@ This section provides input and output data model specifications for transcripti
 
 Input assets to transcription engines typically take the form of video or audio files. To ensure your engine can accept and process tasks, be sure your engine’s supported file formats (specified in the build [manifest](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/18874416/Engine+Manifests)) align with those used by Veritone.
 
+<table>
+  <tr>
+    <th align="right">Accepted MIME Types</th>
+    <td></td>
+  </tr>
+  <tr valign="top">
+    <td align="right"><b>video</b></td>
+    <td>video/3gpp, video/mp4, video/mpeg, video/ogg, video/quicktime, video/webm, video/x-m4v, video/x-ms-wmv, video/x-msvideo</td>
+  </tr>
+  <tr valign="top">
+    <td align="right"><b>audio</b></td>
+    <td>audio/aac, audio/flac, audio/midi, audio/mp4, audio/mpeg, audio/wav, audio/x-wav, audio/webm</td>
+  </tr>
+</table>
+
 The transcription engine input requirements are described in the table below.
 
 <table>
@@ -15,21 +30,21 @@ The transcription engine input requirements are described in the table below.
     <td width="20%"><h3 class="text-left">Data Structure</h3></td>
     <td width="80%"><h3 class="text-left">Description</h3></td>
   </tr>
-  <tr>
-   <td align="right" valign="top"><b>Task Payload</b><br>object
+  <tr valign="top">
+   <td align="right"><b>Task Payload</b><br>object
 </td>
     <td>The payload (provided by Veritone) with data that describes the task to be completed by the engine. See the sample Task Payload in the Engine Construction Guidelines for more information.
 </td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>Content-Type</b><br>string
+  <tr valign="top">
+    <td align="right"><b>Content-Type</b><br>string
 </td>
     <td>The format (MIME type) of the input file. 
 
 <code>"contentType": "video/mp4"</code></td>
   </tr>
-  <tr>
-    <td align="right" valign="top"><b>Input Asset URI</b><br>string
+  <tr valign="top">
+    <td align="right"><b>Input Asset URI</b><br>string
 </td>
     <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
      
