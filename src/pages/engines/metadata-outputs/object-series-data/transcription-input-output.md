@@ -46,7 +46,7 @@ Once your output files are created, upload them to Veritone using the *Upload En
 
 **Timed Text Markup Language/TTML**
 
-[TTML (Timed Text Markup Language)](https://www.w3.org/TR/ttaf1-dfxp/) is a widely supported XML format that consists of a collection of nested, time-based, text elements. A TTML file includes the root element "<tt>" that contains document-level metadata followed by the "<body>" and a "<div>" element that contains the timing cues. The actual times (begin, end) and associated text are set inside opening and closing paragraph tags (<p>, </p>). Blank lines and white space are ignored, and multiple lines are defined by <br/> tags.
+[TTML (Timed Text Markup Language)](https://www.w3.org/TR/ttaf1-dfxp/) is a widely supported XML format that consists of a collection of nested, time-based, text elements. A TTML file includes the root element \"<tt>"\ that contains document-level metadata followed by the \"<body>"\ and a \"<div>"\ element that contains the timing cues. The actual times (begin, end) and associated text are set inside opening and closing paragraph tags (\<p>\, \</p>\). Blank lines and white space are ignored, and multiple lines are defined by \<br/>\ tags.
 
 To generate a TTML file, use the data structure described in the table below and save the document with the extension .ttml. When uploading the file to Veritone, specify "application/ttml+xml" as the content type for the asset.
 
