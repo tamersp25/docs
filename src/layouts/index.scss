@@ -634,7 +634,7 @@ pre tt:after {
     table-layout: fixed;
   }
 
-  th,td {  
+  th,td {
     &:nth-child(1) {
       width: 177px;
     }
@@ -671,4 +671,8 @@ table th {
 tr td {
   padding: 6px 13px;
   border: 1px solid #ddd;
+}
+
+.gatsby-resp-image-background-image {
+  display: block;
 }
