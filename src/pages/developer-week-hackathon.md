@@ -45,8 +45,7 @@ give you a reference.
 
 The easiest way to build a Veritone-powered web app is to start from our 
 sample React app.  If you're comfortable building a web app with React,
-just follow [step 1 of the applications quickstart guide](/applications/quick-start/step-1/)
-then `git clone` our [sample React app](https://github.com/veritone/veritone-sample-app-react)
+just `git clone` our [sample React app](https://github.com/veritone/veritone-sample-app-react)
 and follow the instructions in the [Quick Start section of the README](https://github.com/veritone/veritone-sample-app-react#quick-start).
 
 #### Option 2: Integrate into an existing app
@@ -54,5 +53,10 @@ and follow the instructions in the [Quick Start section of the README](https://g
 If you'd like to integrate with another framework or have an existing app you'd
 like to add Veritone services to, the easiest way is to [create an API token](/apis/authentication/) 
 and start making calls through our [GraphQL interface](/apis/using-graphql/).
+
+Alternatively, if you're comfortable implementing your own OAuth2 flow, 
+you can [create an application](/applications/quick-start/step-1/) in the 
+Veritone Developer app and use the OAuth flow to get tokens on a user-by-user 
+basis.
 
 Happy coding!
