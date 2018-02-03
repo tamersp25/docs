@@ -16,9 +16,8 @@ The task processing workflow is detailed in the steps below:
 4. Download an Existing Asset
 5. Process the Task
 6. Format and Generate Output
-7. Uploade Engine Result & Create a New Asset
-8. Set Task Status to Complete
-9. Reporting Task Failure
+7. Upload Engine Result & Create a New Asset
+8. Reporting Task Failure
 
 **1. Receive the Task Payload**
 
