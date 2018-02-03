@@ -4,15 +4,15 @@ title: Authentication
 
 Veritone uses token-based authentication for accessing the system and resources. Currently, the following authentication types are provided to meet the security needs of specific actions being performed:
 
-* **Application OAuth2:** Authenticates, provides SSO, and generates tokens for integrated application users to securely access data without revealing username and password credentials. See [OAuth2 Authentication and Authorization](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/185368577/OAuth2+Authentication+and+Authorization) for more information.
+* **Application:** Third-party applications use OAuth2 protocol for authentication and authorization. OAuth2 provides SSO and generates tokens for users to securely access data without revealing username and password credentials. See [OAuth2 Authentication and Authorization](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/185368577/OAuth2+Authentication+and+Authorization) for more information.
 
-* **Engine JWT:** A one-time use token passed from Veritone to an engine in the Task Payload at engine runtime. JWT tokens provide engines with access to resources specifically related to processing tasks (e.g., a TDO’s media assets).
+* **Engine:** Veritone uses JSON Web Tokens (JWT) for engine authentication. JWTs provide access to resources specifically related to processing tasks (e.g., a TDO’s media assets) and are passed to engines in the Task Payload at engine runtime.
 
-* **API Token:** A long-lived token that provides access to organization-level resources. Generally, API Tokens are used to make ad-hoc API requests by passing the token as an *Authorization* header. 
+* **API Token:** API Tokens provide access to organization-level resources and are generally used to make ad-hoc API requests by passing the token in an *Authorization* header. 
 
 ### **To Get an API Token**
 
-Veritone’s GraphiQL interface is recommended for exploring, writing and testing the API, but calls can also be made using any HTTP client. When you’re logged into the Veritone platform, GraphiQL logic automatically passes a valid API Token in the *Authorization* header of every request. When making requests using a different client, include a valid API Token in the *Authentication* header with the value *Bearer <token>*. Requests made without this header or with an invalid token will return an error code.
+Veritone’s GraphiQL interface is recommended for exploring, writing and testing the API, but calls can also be made using any HTTP client. When you’re logged into the Veritone platform, GraphiQL logic automatically passes a valid token in the *Authorization* header of every request. When making requests using a different client, include a valid API Token in the *Authentication* header with the value *Bearer <token>*. Requests made without this header or with an invalid token will return an error code.
 
 An API Token can be generated in the Veritone Admin App by your Organization Administrator. 
 
