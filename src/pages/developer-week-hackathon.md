@@ -5,15 +5,19 @@ title: DEVELOPER WEEK HACKATHON
 <img src="developer-week-hackathon-banner.png" />
 
 Veritone is sponsoring two challenges for the DeveloperWeek Hackathon 
-February 3-4, 2018, each valued at $1,500
-If you're here to win one of these prizes, see the quickstart
-instructions below to quickly get you on your way.
+February 3-4, 2018 in San Francisco, each worth $1,500!
+If you're here to win one of these prizes, the instructions below are going
+to be your quickest path to the money.
 
 ## Getting Started: Register as a Veritone Developer
 
-[Click here](https://www.veritone.com/onboarding/#/signUp?type=developer) 
-to create your free Veritone Developer account (with $300 of free AI 
-processing included).
+1. No matter which challenge you're tackling, 
+[start here](https://www.veritone.com/onboarding/#/signUp?type=developer) 
+to create your Veritone Developer account (with $300 of free AI processing).
+
+2. Consider signing up for our [Veritone Developer Slack](https://chat.veritone.com).
+
+---
 
 ## Challenge 1: Build and Deploy a Cognitive Engine on an OS for AI
 
@@ -21,13 +25,14 @@ processing included).
 > a cognitive engine and deploying it via our Veritone Developer application 
 > onto the Veritone aiWARE platform.
 
-1. [Click here](/engines/quick-start/step-1-create-an-engine/) and follow the 
-Engine developer quickstart tutorial.
+[The engine quickstart guide](/engines/quick-start/step-1-create-an-engine/)
+will walk you through all the steps of creating an A.I. engine and uploading
+it to Veritone's platform.
 
-2. [Click here](/engines/sample-engines/) if you'd like to start with a sample
-engines.
+You can find a list of our [sample engines here](/engines/sample-engines/) to
+give you a reference.
 
-TODO: sort all this out
+---
 
 ## Challenge 2: Build an Innovative AI-Powered Application on an OS for AI
 
@@ -38,8 +43,16 @@ TODO: sort all this out
 
 #### Option 1: Start an app from scratch
 
-TODO: Sample app
+The easiest way to build a Veritone-powered web app is to start from our 
+sample React app.  If you're comfortable building a web app with React,
+just follow [step 1 of the applications quickstart guide](/applications/quick-start/step-1/)
+then `git clone` our [sample React app](https://github.com/veritone/veritone-sample-app-react)
+and follow the instructions in the [Quick Start section of the README](https://github.com/veritone/veritone-sample-app-react#quick-start).
 
 #### Option 2: Integrate into an existing app
 
-TODO: API key
+If you'd like to integrate with another framework or have an existing app you'd
+like to add Veritone services to, the easiest way is to [create an API token](/apis/authentication/) 
+and start making calls through our [GraphQL interface](/apis/using-graphql/).
+
+Happy coding!
