@@ -1,6 +1,4 @@
----
-title: Transcription - Veritone Lattice Format (VLF)
----
+
 
 VLF is a flexible JSON format that describes a transcript's lattice. It can be used to denote a single and multi path transcripts, as well as spanning words.
 
