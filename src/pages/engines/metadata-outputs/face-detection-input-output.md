@@ -41,7 +41,7 @@ The face detection engine input requirements are described in the table below.
 
 ### Output Data Structure ###
 
-When task processing is complete, your engine will write an output summary of the analysis as a JSON file and send it to Veritone to create a new asset. The output structure consists of an array of time-series objects with data attributes for each object found in the input file. Each result in the series includes a label for the detected object, the starting and ending times that the object was identified in the input file, and a confidence score. 
+When task processing is complete, your engine will write an output summary of the analysis as a JSON file and send it to Veritone to create a new asset. The output structure consists of an array of time-series objects with data attributes for each face found in the input file. Each result in the series includes a label that identifies a detected object as a face, the starting and ending times that the face was identified, and a confidence score. 
 To generate an output file, use the data structure described in the table below and save the document with the extension .json. Once your output file is created, call the UploadEngineResult GraphQL mutation to upload the results. (See the Engine Construction Guidelines for full request details.)
 
 <table>
@@ -57,7 +57,7 @@ To generate an output file, use the data structure described in the table below 
   </tr>
   <tr>
     <td align="right" valign="top"><b>found</b><br>string<br>required</td>
-    <td>A label that identifies the detected object. Specify "face" as the value.</td>
+    <td>A label that identifies a detected object. Specify "face" as the value.</td>
     <td><code>found: "face"</code></td>
   </tr>
   <tr>
