@@ -2,7 +2,7 @@
 title: Face Detection Input/Output
 ---
 
-Face Detection engines determine the existence of human faces in a given frame of video or image. Detectimg faces is a necessary pre-cursor to further facial analysis including recognition, demographics, and emotion.
+Face Detection engines determine the existence of human faces in a given frame of video or in an image. Detecting faces is a necessary precursor to further facial analysis such as recognition, demographics, or emotion.
 
 This section provides input and output data model specifications for face detection engines.  The Input Structure includes data being passed to the engine from Veritone to perform task execution. All data fields expected in the transcription files returned by the engine are described in the Output Structure.
 
