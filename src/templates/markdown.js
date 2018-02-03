@@ -15,12 +15,12 @@ export default ({ data }) => {
   const post = data.markdownRemark
   const options = {
     transform: (node, idx) => {
-      if (node.type === "tag" && node.name === 'code') {
+      if (node.type === 'tag' && node.name === 'code') {
         const language = node.parent.attribs.class && node.parent.attribs.class.split('language-');
         const props = {
           language: language && language[1],
           codeString: buildCodeString(node),
-          inline: node.parent.type === 'tag' && node.parent.name === 'p'
+          inline: node.parent.type === 'tag' && (node.parent.name === 'p' || node.parent.name === 'li' || node.parent.name === 'td')
         }
 
         return <Playground key={idx} {...props} />

@@ -40,6 +40,8 @@ a {
   background-color: transparent;
   color: #4688F1;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+  cursor: pointer;
 }
 a:active,
 a:hover {
@@ -335,7 +337,7 @@ p {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  margin-bottom: 1.45rem;
+  margin-bottom: 1rem;
 }
 figure {
   margin-left: 0;
@@ -465,22 +467,13 @@ th {
 li {
   margin-bottom: 0.2em;
 }
-/* ol li {
-  padding-left: 0;
-}
-ul li {
-  padding-left: 0;
-} */
 li > ol {
   margin-left: 1.45rem;
   margin-bottom: calc(1.45rem / 2);
   margin-top: calc(1.45rem / 2);
 }
 li > ul {
-  // margin-left: 1.45rem;
-  // margin-bottom: calc(1.45rem / 2);
   padding-left: 1em;
-  // margin-top: calc(1.45rem / 2);
 }
 blockquote *:last-child {
   margin-bottom: 0;
@@ -583,7 +576,7 @@ pre tt:after {
 }
 
 .content {
-  padding-left: 30px;
+  padding-left: 50px;
   flex-grow: 1;
   overflow: hidden;
 }
@@ -671,6 +664,17 @@ table th {
 tr td {
   padding: 6px 13px;
   border: 1px solid #ddd;
+}
+
+table {
+  .gatsby-resp-image-link {
+    margin: 0.5rem 0 !important;
+  }
+}
+
+
+.gatsby-resp-image-link {
+  margin: 3rem 0 !important;
 }
 
 .gatsby-resp-image-background-image {

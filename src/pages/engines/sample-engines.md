@@ -1,5 +1,6 @@
 ---
 title: Sample Engines
+order: 7
 ---
 
 Veritone maintains open-source engines that serve as working examples of how engines are to be written and packaged.

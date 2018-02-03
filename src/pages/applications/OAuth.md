@@ -1,5 +1,6 @@
 ---
 title: OAuth2 Authentication and Authorization
+order: 2
 ---
 
 Integrated apps in Veritone use the [OAuth 2.0](http://oauth.net/2/) protocol to authenticate, provide single sign-on, and generate tokens for use with APIs. OAuth 2.0 works by delegating user authentication to the service that hosts the user account, and then granting a third-party application access to specific user account data while keeping usernames, passwords, and other information private. The result of the OAuth 2.0 auth flow is a token your application can use to interact with Veritone's APIs.

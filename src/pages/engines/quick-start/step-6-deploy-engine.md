@@ -1,5 +1,6 @@
 ---
 title: Step 6 - Deploy an Engine
+order: 6
 ---
 
 Congratulations! Your engine has been built, tested, and approved. Now, with the click of a single button you will make it available to users in the Veritone Platform.

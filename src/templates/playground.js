@@ -33,7 +33,7 @@ class Playground extends React.Component {
     handleEditQuery = (query) => this.setState({ query })
 
     render() {
-      if (!this.props.language || !this.props.language.includes('graphql')) {
+      if (!this.props.language || !this.props.language.includes('graphql(')) {
         return CodeBlock(this.props);
       }
       return (

@@ -1,5 +1,6 @@
 ---
 title: Step 7 - Manage an Active Engine or Build
+order: 7
 ---
 
 #### Pausing Your Build

@@ -1,8 +1,9 @@
 ---
 title: Tutorials
+order: 8
 ---
 
 
-#### GraphQL API Tutorials
+#### Engine Tutorials
 
-- [Object Detection](object-detection)
+- [Object Detection](object-detection/)

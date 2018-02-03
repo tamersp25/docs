@@ -2,7 +2,7 @@
 title: Developer Benefits
 ---
 
-Veritone has developed a robust developer ecosystem designed to enable cognitive engine, custom application, and data product developers to monetize their intellectual property in an efficient manner.  We rely on developer partners as a critical component of the Veritone business model
+Veritone has developed a robust developer ecosystem designed to enable cognitive engine, custom application, and data product developers to monetize their intellectual property in an efficient manner.  We rely on developer partners as a critical component of the Veritone business model.
 
 Veritone plays the critical roles of aggregating specialized engines across the cognitive spectrum, continuously developing and improving the Veritone aiWARE Platform, and marketing our flexible, future-proof, and easy-to-use platform to significant clients across industries on an international scale through our significant marketing and sales efforts.
 

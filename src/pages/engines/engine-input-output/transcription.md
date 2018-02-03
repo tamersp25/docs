@@ -1,4 +1,7 @@
-# Transcription Input/Output
+---
+title: Transcription
+order: 1
+---
 
 Transcription engines transform recorded speech into actionable assets by capturing and documenting what’s being said in audio and video files. Engines with transcription capabilities are also known as Automatic Speech Recognition (ASR) or Speech-to-Text (STT). The basic transcription engine output features an array of time-based objects with data attributes in a segmented, time-stamped format. 
 

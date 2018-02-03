@@ -1,5 +1,6 @@
 ---
 title: Step 1. Create an Application
+order: 1
 ---
 
 When you create an app in Veritone, you specify general information that defines the basic configuration and settings of your app. Once your application is created, you’ll be provided with unique identifiers that you'll use [in the next section](2-auth) to set up user and API authentication with OAuth 2.0. 

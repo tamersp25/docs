@@ -34,10 +34,10 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 };
 
 exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
-  const { createNodeField, createParentChildLink } = boundActionCreators;  
+  const { createNodeField } = boundActionCreators;  
   return new Promise((resolve, reject) => {
     if (node.internal.type === `MarkdownRemark`) {
-      const slug = createFilePath({ node, getNode, basePath: `pages` });
+      const slug = createFilePath({ node, getNode, basePath: 'pages' });
       const child = (slug.split('/').filter(p => p).length > 1);
 
       createNodeField({
@@ -51,40 +51,56 @@ exports.onCreateNode = ({ node, getNode, getNodes, boundActionCreators }) => {
         name: `rootDir`,
         value: slug.split('/').filter(p => p).length === 1,
       })
-
-      if (child) {
-        const parentPath = node.fields.slug.split('/').slice(0, -2).join('/') + '/';
-        const parentNode = getNodes().filter(n => n.fields && n.fields.slug === parentPath)[0];
-
-        if (parentNode && node) {
-          createParentChildLink({
-            parent: parentNode,
-            child: node
-          })
-        }
-      }
     }
     resolve();
   })
 }
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ getNode, getNodes, graphql, boundActionCreators }) => {
+  const { createPage, createParentChildLink } = boundActionCreators
+
   return new Promise((resolve, reject) => {
     graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+    {
+      allMarkdownRemark(
+        sort: { fields: [frontmatter___order], order: ASC }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+            }
+            internal {
+              content
+            }
+            fields {
+              slug
+              rootDir
+            }
+            children {
+              id
             }
           }
         }
       }
-    `).then(result => {
+    }
+  `).then(result => {
       result.data.allMarkdownRemark.edges.map(({ node }) => {
+        const child = (node.fields.slug.split('/').filter(p => p).length > 1);
+
+        if (child) {
+          const parentPath = node.fields.slug.split('/').slice(0, -2).join('/') + '/';
+          const parentNode = getNodes().filter(n => n.fields && n.fields.slug === parentPath)[0];
+  
+          if (parentNode && node) {
+            createParentChildLink({
+              parent: parentNode,
+              child: node
+            })
+          }
+        }
+
         createPage({
           path: node.fields.slug.toLowerCase(),
           component: path.resolve(`./src/templates/markdown.js`),

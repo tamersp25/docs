@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import { difference } from 'lodash'
+import { difference, sortBy } from 'lodash'
 
-import './Sidebar.css'
+import './Sidebar.scss';
+
+// import ArrowSVG from './arrow-svg.js';
 
 class Sidebar extends Component {
   state = {
@@ -26,6 +28,7 @@ class Sidebar extends Component {
   mapSidebarItems = (node, pages, isChildNode) => {
     const isActive = this.props.location.pathname.includes(node.fields.slug);
     const nodePath = node.fields.slug.split('/').filter(p => p);
+    const hasChildren = node.children.length > 0;
 
     const [subset, superset] = this.state.open.length > nodePath.length ? [nodePath, this.state.open] : [this.state.open, nodePath];    
 
@@ -39,6 +42,8 @@ class Sidebar extends Component {
 
     const isOpen = match && diff <= 1 || sharesParentNode || (isChildOfCurrentNode && this.state.open.length > 2);
 
+    const childNodes = node.children.map(child => pages.find(n => n.node.id === child.id));
+
     return (
       <li
         key={node.id}
@@ -49,17 +54,28 @@ class Sidebar extends Component {
         }}
       >
         <Link to={node.fields.slug} onClick={() => this.handleOnClick(node)}>
+          {/* {isActive ? (
+            <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <strong>{node.frontmatter.title}</strong>
+              <span style={{ marginLeft: '20px' }}>{hasChildren ? <ArrowSVG rotate={180} />: null}</span>
+            </div>
+          ) : (
+            <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+              <span>{node.frontmatter.title}</span>
+              <span style={{ marginLeft: '20px' }}>{hasChildren ? <ArrowSVG />: null}</span>
+            </div>
+            // <div>{node.frontmatter.title} {hasChildren ? 'v' : null}</div>
+          )} */}
           {isActive ? (
             <strong>{node.frontmatter.title}</strong>
           ) : (
-            <div>{node.frontmatter.title}</div>
+            node.frontmatter.title
           )}
         </Link>
-        {node.children.length > 0 && (
+        {hasChildren && (
           <ul>
-            {node.children.map(child => {
-              const childNode = pages.find(n => n.node.id === child.id);
-              return this.mapSidebarItems(childNode.node, pages, true);
+            {sortBy(childNodes, [c => c.node.frontmatter.order]).map(child => {
+              return this.mapSidebarItems(child.node, pages, true);
             })}
           </ul>
         )}
@@ -69,6 +85,7 @@ class Sidebar extends Component {
 
   render() {
     const order = [
+      'Architecture Overview',
       'Developer Benefits',
       'Applications',
       'Engines',

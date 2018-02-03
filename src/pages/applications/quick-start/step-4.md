@@ -1,5 +1,6 @@
 ---
 title: Step 4. Submit your Application for Approval
+order: 4
 ---
 
 When your app has been [created](1-create-application), set up with [OAuth 2.0](2-auth), and development has been completed, the next step is to submit it for review and approval by a member of our team. All applications are required to undergo a Compliance Review prior to deployment to ensure a number of security and integration requirements are met. Please allow 48 business hours for the Compliance Review process to be completed. Once the review is complete, your application will display with one of the following statuses:

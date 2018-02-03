@@ -1,5 +1,6 @@
 ---
 title: Using GraphQL
+order: 1
 ---
 
 ## What is GraphQL?
@@ -34,6 +35,7 @@ For detailed information about GraphQL, see the main GraphQL site (http://graphq
 This document contains a high-level overview and some information specific to Veritone's implementation.
 
 A GraphQL _schema_ defines _types_ and _fields_ on those types. That's it. A schema defines a set of queries as entry points to the data model. In a typical schema you will see something like this:
+
 ```graphql
 schema {  
   query: Query
@@ -45,8 +47,10 @@ type MyObjectType {
   name: String
 }
 ```
+
 However, that's just convention -- a query is, in the schema, just a field on a type. In this example, `query` is the root of our schema.
 To query, you send a string in GraphQL that specifies the fields you want, and any parameters on them. So for this simple schema we might send:
+
 ```graphql
 query {
   objects(objectName: "my sample object?") {
@@ -87,6 +91,7 @@ mutation {
   createMyObject(input: CreateMyObject!): MyObjectType
 }
 ```
+
 We've defined an object type that has some fields provided by the user, and some fields controlled by the server. Our input type contains only those fields that can (and must) be provided by the user. Our mutation take the input type and returns a new object.
 
 ```graphql
@@ -99,6 +104,7 @@ mutation {
     }
 }
 ```
+
 It would return something like:
 
 ```json

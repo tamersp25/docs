@@ -1,5 +1,6 @@
 ---
-title: Object Detection Input/Output
+title: Object Detection
+order: 2
 ---
 
 Object detection engines find instances of real-world objects such as people, animals, and buildings in videos. Object detection algorithms not only recognize and classify every object in an image, they determine the location by drawing a bounding box around it. The basic object detection engine output features an array of objects with data attributes associated with individual observations of detected items within a specified time increment. 

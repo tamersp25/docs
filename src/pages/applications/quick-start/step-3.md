@@ -1,5 +1,6 @@
 ---
 title: Step 3. Build your app using Veritone's APIs
+order: 3
 ---
 
 Veritone provides intelligent APIs that allow you to to easily add intelligent features – such as object detection, face recognition, and transcription – into your application. Once your app has been created and provisioned for OAuth authentication, you’ll use Veritone's API to access functionality, execute operations, and retrieve the data you need.

@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Veritone Docs',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
     // 'gatsby-plugin-remove-trailing-slashes',
     {
       resolve: 'gatsby-source-filesystem',
@@ -18,9 +19,9 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-responsive-iframe',
-          `gatsby-plugin-sharp`,
+          'gatsby-plugin-sharp',
           {
-            resolve: `gatsby-remark-images`,
+            resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
@@ -58,7 +59,7 @@ module.exports = {
             }
           },
           {
-            resolve: "gatsby-remark-external-links"
+            resolve: 'gatsby-remark-external-links'
           }
         ]
       }

@@ -1,5 +1,6 @@
 ---
 title: Authentication
+order: 2
 ---
 
 Veritone uses token-based authentication for accessing the system and resources. Currently, the following authentication types are provided to meet the security needs of specific actions being performed:
@@ -32,4 +33,3 @@ To generate an API Token:
 
 5. Copy your token and click **Close** when finished. 
 *Note*: Once the *Token Generated* window closes, the token code will no longer display. 
-

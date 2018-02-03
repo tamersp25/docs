@@ -72,12 +72,15 @@ TemplateWrapper.propTypes = {
 
 export const query = graphql`
   query IndexQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___order], order: ASC }
+    ) {
       edges {
         node {
           id
           frontmatter {
             title
+            order
           }
           fields {
             slug

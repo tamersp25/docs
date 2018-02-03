@@ -1,6 +1,6 @@
----
+<!-- ---
 title: Labeled Objects
----
+--- -->
 
 Object-related engines output text tags for specific objects found with a corresponding confidence score for each object.  Examples include:
 

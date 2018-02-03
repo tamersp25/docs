@@ -1,5 +1,6 @@
 ---
 title: Error Codes
+order: 3
 ---
 
 Error handling in a GraphQL API is slightly different than error

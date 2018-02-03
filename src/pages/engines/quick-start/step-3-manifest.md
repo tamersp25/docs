@@ -1,5 +1,6 @@
 ---
 title: Step 3 - Create an Engine Manifest File
+order: 3
 ---
 
 #### Overview

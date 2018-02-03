@@ -1,5 +1,6 @@
 ---
-title: Face Detection Input/Output
+title: Face Detection
+order: 3
 ---
 
 Face Detection engines determine the existence of human faces in a given frame of video or an image. Detecting faces is a necessary precursor to further facial analysis such as recognition, demographics, or emotion.

@@ -1,8 +1,9 @@
 ---
 title: Step 5 - Submit a Build for Approval
+order: 5
 ---
 
-After your build has passed the compliance testing and is in the *Available* state, the next step is to submit it to Veritone for review by one of our team members. The review process may take up to a business day to complete. Once reviewed, your build status will change to *Approved* or *Disapproved*. If your build is *Approved*, it&rsquo;s eligible to participate in the Veritone ecosystem and can be  at any time. If your was *Disapproved*, it cannot be deployed to production. Please contact our [support team](mailto:devsupport@veritone.com) for more information.
+After your build has passed the compliance testing and is in the *Available* state, the next step is to submit it to Veritone for review by one of our team members. The review process may take up to a business day to complete. Once reviewed, your build status will change to *Approved* or *Disapproved*. If your build is *Approved*, it&rsquo;s eligible to participate in the Veritone ecosystem and can be [deployed](step-6-deploy-engine/) at any time. If your was *Disapproved*, it cannot be deployed to production. Please contact our [support team](mailto:devsupport@veritone.com) for more information.
 
 |**To submit a build for approval**| |
 |--------|------|

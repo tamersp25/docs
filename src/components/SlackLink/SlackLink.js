@@ -1,5 +1,5 @@
 import React from 'react';
-import './SlackLink.css';
+import './SlackLink.scss';
 
 const SlackLink = () => (
   <a className="link" href="https://chat.veritone.com/" target="_blank">

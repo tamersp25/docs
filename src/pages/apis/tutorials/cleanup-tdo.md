@@ -1,5 +1,5 @@
 ---
-title:  Clean up TDO data
+title: Clean up TDO data
 ---
 
 As part of the cognition workflow, organizations may upload large amounts of content (media files, etc.) to object storage. Furthermore, as engines run, they may store their results in additional assets and tables. Sometimes it may become necessary to clean up, or delete, some of this content either to save space or comply with certain policies. But the organization may not wish to entirely delete all data.

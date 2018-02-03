@@ -1,5 +1,6 @@
 ---
 title: Step 5. Deploy your Application
+order: 5
 ---
 When your application's status shows _Approved_, you can deploy it and make it available to users in your organization.
 

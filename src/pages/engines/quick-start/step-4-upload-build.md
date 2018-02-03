@@ -1,5 +1,6 @@
 ---
 title: Step 4 - Package and Upload an Engine Build
+order: 4
 ---
 
 When your engine container is created, your manifest file is built, and your code is set, it&rsquo;s time to upload a build. A build is uploaded as a Docker image, which is a package that includes everything needed to run your software, including the code, libraries, environment variables, config files, and manifest file. Once your build is uploaded, Veritone will run it through compliance testing to ensure it&rsquo;s ready for prime time. Based on the results of the testing, your build will reflect a status that lets you know how to proceed.

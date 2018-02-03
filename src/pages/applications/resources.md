@@ -1,6 +1,10 @@
 ---
-title: Veritone SDK
+title: Resources
+order: 3
 ---
+
+
+The [Veritone Sample App - React ](https://github.com/veritone/veritone-sample-app-react) is a minimal boilerplate for creating Veritone powered web applications (SPAs).
 
 The [Veritone-SDK](https://github.com/veritone/veritone-sdk) repo on GitHub contains several packages Veritone has created for both internal use and for the use of our developers, to make Veritone platform app development easier.
 
