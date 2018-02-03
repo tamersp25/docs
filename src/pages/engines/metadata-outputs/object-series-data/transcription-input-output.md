@@ -527,7 +527,7 @@ Once the TTML and VLF files are created, make separate requests to the *Upload E
   </tr>
   <tr>
     <td align="right" valign="top"><b>assetType</b><br>body<br>string</td>
-    <td>The type of asset to create. Specify “transcript” as the value for the TTML file and “v-vlf” for the VLF asset request.</td>
+    <td>The type of asset to create. Specify “transcript” as the value for the TTML file and “vlf” for the VLF asset request.</td>
     <td><code>assetType: "transcript"</code></td>
   </tr>
   <tr>
