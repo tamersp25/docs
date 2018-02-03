@@ -1,6 +1,4 @@
----
-title: Transcription - Timed Text Markup Language (TTML)
----
+
 
 TTML is an XML document designed to provide timings for a single path transcript. We require all engines to produce a TTML file, in addition to a VLF file. For engines that produce a multi path VLF, the TTML output should contain the best path forward.
 
