@@ -39,7 +39,7 @@ The face detection engine input requirements are described in the table below.
   </tr>
 </table>
 
-### Output Data Structure ###
+## Output Data Structure ##
 
 When task processing is complete, your engine will write an output summary of the analysis as a JSON file and send it to Veritone to create a new asset. The output structure consists of an array of time-series objects with data attributes for each face found in the input file. Each result in the series includes a label that identifies a detected object as a face, the starting and ending times that the face was identified, and a confidence score. 
 
