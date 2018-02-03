@@ -1,6 +1,4 @@
----
-title: Series Output Format
----
+
 
 ## Overview
 
