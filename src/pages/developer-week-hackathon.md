@@ -50,13 +50,21 @@ and follow the instructions in the [Quick Start section of the README](https://g
 
 #### Option 2: Integrate into an existing app
 
-If you'd like to integrate with another framework or have an existing app you'd
-like to add Veritone services to, the easiest way is to [create an API token](/apis/authentication/) 
-and start making calls through our [GraphQL interface](/apis/using-graphql/).
+If you'd like to integrate with another framework or platform (e.g. mobile) or have 
+an existing app you'd like to add Veritone services to, the easiest way is to 
+[create an API token](/apis/authentication/) and start making calls through our 
+[GraphQL interface](/apis/using-graphql/).
 
 Alternatively, if you're comfortable implementing your own OAuth2 flow, 
 you can [create an application](/applications/quick-start/step-1/) in the 
 Veritone Developer app and use the OAuth flow to get tokens on a user-by-user 
 basis.
+
+#### Useful Tutorials
+
+Regardless of which method of integration you choose, the following tutorials will
+likely prove useful:
+
+* [Looking Up Available Engines](/apis/tutorials/get-engines/)
 
 Happy coding!
