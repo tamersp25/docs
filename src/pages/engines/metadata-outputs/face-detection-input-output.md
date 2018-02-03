@@ -2,7 +2,7 @@
 title: Face Detection Input/Output
 ---
 
-Face Detection engines determine the existence of human faces in a given frame of video or in an image. Detecting faces is a necessary precursor to further facial analysis such as recognition, demographics, or emotion.
+Face Detection engines determine the existence of human faces in a given frame of video or an image. Detecting faces is a necessary precursor to further facial analysis such as recognition, demographics, or emotion.
 
 This section provides input and output data model specifications for face detection engines.  The Input Structure includes data being passed to the engine from Veritone to perform task execution. All data fields expected in the transcription files returned by the engine are described in the Output Structure.
 
@@ -42,7 +42,8 @@ The face detection engine input requirements are described in the table below.
 ### Output Data Structure ###
 
 When task processing is complete, your engine will write an output summary of the analysis as a JSON file and send it to Veritone to create a new asset. The output structure consists of an array of time-series objects with data attributes for each face found in the input file. Each result in the series includes a label that identifies a detected object as a face, the starting and ending times that the face was identified, and a confidence score. 
-To generate an output file, use the data structure described in the table below and save the document with the extension .json. Once your output file is created, call the UploadEngineResult GraphQL mutation to upload the results. (See the Engine Construction Guidelines for full request details.)
+
+To generate an output file, use the data structure described in the table below and save the document with the extension .json. Once your output file is created, call the *UploadEngineResult* GraphQL mutation to upload the results. (See the Engine Construction Guidelines for full request details.)
 
 <table>
   <tr>
