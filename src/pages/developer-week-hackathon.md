@@ -66,5 +66,6 @@ Regardless of which method of integration you choose, the following tutorials wi
 likely prove useful:
 
 * [Looking Up Available Engines](/apis/tutorials/get-engines/)
+* [Uploading and Processing Files](/apis/tutorials/upload-and-process/)
 
 Happy coding!
