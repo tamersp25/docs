@@ -109,6 +109,5 @@ query {
 
 The engine IDs returned are what you would submit as the `engineId` in task definitions.
 The fields returned specify the keys and values you would submit as the `payload` in 
-task definitions.
-
-<!--TODO: Cross-link to engine-firing page-->
+task definitions.  See [Uploading and Processing Files](../upload-and-process/) for
+details on how to use those values.
