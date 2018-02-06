@@ -23,8 +23,8 @@ The [passport-veritone](https://github.com/veritone/veritone-sdk/tree/master/pac
 
 Veritone uses an authorization code flow to verify the identity of users and issue tokens that provide your application with access to user account data. After creating your application’s OAuth credentials, follow the steps below to implement OAuth 2.0 authentication for your app.
 
-1.  Your application sends to the user to the Authorization URL
-2.  User logs in and authorizes your application, and is redirected back to your app's OAuth2 redirect URL
+1.  Your application sends to the user to the Authorization URL.
+2.  The user logs in, authorizes your application, and is redirected back to your app's OAuth2 redirect URL.
 3.  Your application receives an Authorization Code in the query of the request to the OAuth2 redirect URL.
 4.  Your application requests an Access Token from Veritone using the Authorization Code.
 5.  Your application receives the Access Token and uses it to authenticate subsequent requests.
@@ -36,7 +36,7 @@ First, load the authorization URL into a web browser window by sending the user 
 *   **client_id:** The value for Application ID you received when creating your application. You can get the ID of your application from the Application Details page.
 *   **redirect_uri:** The URL value for Redirect URL you set when creating your application. You can access or change the redirect URL of your application from the Application Details page. Remember to URL encode this value. This is where Veritone sends a user after an authorization code is granted.
 *   **response_type:** Set the value as "code" to indicate that your application is requesting an authorization code in the response.
-*   **scope:** Thescope specifies the level of access that your application is requesting. Currently the only permissible value for the scope parameter is "all"
+*   **scope:** The scope specifies the level of access that your application is requesting. Currently the only permissible value for the scope parameter is "all"
 
 #### Sample Request 
 
@@ -65,7 +65,7 @@ The authorization code must be exchanged for an OAuth access token to make API r
 * **client_secret:** The value for Client Secret you received when creating your application. You can get the Client Secret from the Application Details page.
 * **grant_type:** The value must be authorization_code indicating your application is exchanging an authorization code for an access token.
 * **code:** The value for the authorization code your application extracted in the previous step.
-* **redirect_uri:** The URL value for Redirect URL you set when creating your application. You can access or change the redirect URL of your application from the Application Details page.
+* **redirect_uri:** The URL value for Redirect URL you set when creating your application. You can access or change the redirect URL of your application from the *Application Details* page.
 
 #### Sample Request 
 ```
