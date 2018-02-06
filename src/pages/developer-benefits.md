@@ -30,13 +30,13 @@ Over 1 million hours = $Z x 50%
 
 (Discounts are illustrative and subject to negotiation)
 
-Veritone&rsquo;s proprietary technology stack includes Conductor, a machine learning software layer that optimizes results by automatically choosing the best cognitive engine(s) for each processing job based on the combination of accuracy, speed, and cost constraints determined by our clients.  Accuracy is determined by comparative benchmarking across each cognitive class.  Conductor is currently an optional feature available only for transcription, but it will continue to expand to other cognitive classes (intraclass Conductor) and across cognitive classes (interclass Conductor) over time.
+Veritone's proprietary technology stack includes Conductor, a machine learning software layer that optimizes results by automatically choosing the best cognitive engine(s) for each processing job based on the combination of accuracy, speed, and cost constraints determined by our clients.  Accuracy is determined by comparative benchmarking across each cognitive class.  Conductor is currently an optional feature available only for transcription, but it will continue to expand to other cognitive classes (intraclass Conductor) and across cognitive classes (interclass Conductor) over time.
 
 Otherwise, Veritone generally guides its clients to the best engine(s) for each job based on known accuracy, engine output capabilities, deployment model required, processing speed (measured as a proportion of the original media run time) and cost.  Actual processing volume will depend on the number of clients that try and ultimately use the service.
 
-In addition, Veritone operates a substantial pubic media index of television, radio, podcast, and web video processing thousands of hours of media per day.  We continue to add more cognitive processing to this media over time and select the engines to run against this processing volume on the same basis as our clients - speed, accuracy, and cost.  PMI is often a testbed for new engines to understand capabilities and accuracy over a spectrum of media.
+In addition, Veritone operates a substantial pubic media index of television, radio, podcast, and web video processing thousands of hours of media per day. We continue to add more cognitive processing to this media over time and select the engines to run against this processing volume on the same basis as our clients - speed, accuracy, and cost. PMI is often a testbed for new engines to understand capabilities and accuracy over a spectrum of media.
 
-Developer partners must choose the type of deployment for each engine build e.g. Cloud API, On Premise, Hybrid, or Human.  Keep in mind that in the case of Cloud API, the developer partner is bearing the compute cost, while in other deployment models Veritone bears this cost so the price for on-premise deployment should be lower than cloud to account for the shift in compute expenses.
+Developer partners must choose the type of deployment for each engine build (e.g. Cloud API, On Premise, Hybrid, or Human).  Keep in mind that in the case of Cloud API, the developer partner bears the compute cost. In other deployment models, Veritone bears this cost, so the price for on-premise deployment should be lower than Cloud to account for the shift in compute expenses.
 
 Veritone calculates the license fees generated from each individual data processing job, and aggregates this for reporting on a monthly basis.  We intend to soon have developer dashboards that will enable you to view processing hours and license fees for each day.
 
@@ -52,7 +52,7 @@ We will soon be launching the Veritone Marketplace - a hub for developers to off
 - Free Saas model
 - One-time license fee
 
-Application developer partners are entitled to two revenue streams - 65% of any application licensing revenue collected by Veritone (either monthly or one-time), and 7% of ongoing engine processing fees that are utilized by the application in question.
+Application developer partners are entitled to two revenue streams - 70% of any application licensing revenue collected by Veritone (either monthly or one-time), and 7% of ongoing engine processing fees that are utilized by the application in question.
 
 Veritone will collect all application and engine revenues and remit revenue sharing on a monthly basis to application partners.
 
@@ -66,10 +66,10 @@ Currently, Veritone offers e-mail support for Developers with specific questions
 <br>
 E-mail: **[devsupport@veritone.com](mailto:devsupport@veritone.com)**
 
-We also have a Slack channel specifically for Veritone Developer Ecosystem.
+We also have a Slack channel specifically for the Veritone Developer Ecosystem.
 <br>
 Join at [https://chat.veritone.com/](https://chat.veritone.com/)
 
 Please be sure to thoroughly read through all documentation prior to initiating a support request.
 
-Please also review FAQ sections under the Applications and Engines sections for answers to common questions.
+Please also review the FAQs under the Applications and Engines sections for answers to common questions.
