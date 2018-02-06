@@ -3,15 +3,10 @@ title: Cognitive Engine Classes
 order: 2
 ---
 
-Veritone currently supports 7 engine categories. Descriptions for each class are provided below.
+Veritone currently supports 7 engine classes with more than 50 recognized categories. Descriptions for each category are provided below.
 
-We continue to add more classes to meet ever evolving customer needs. If you have an engine that doesn't fit into any existing class, please get in touch with us to discuss consideration.
-
-Use the /api/engine/category endpoint to retrieve the latest available engineCategoryName and engineCategoryId values.
-
-For information about the expected inputs and outputs for engines in each category, click on the category name or refer to the pages for each category under
-
-New CategoriesIf there is a class or category that doesn't fit your particular cognitive engine, please email us at [ecosystem@veritone.com](ecosystem@veritone.com), and we can work with you on supporting your category.
+We're continuously adding new categories to support AI industry growth and the needs of our customers. If you have an engine that doesn't fall into an existing category, please email us at [ecosystem@veritone.com](mailto:ecosystem@veritone.com) and we'll work with you to support your category.
+ 
 
 | Class          | Category                    | Includes                                               | Description                                                                                 |
 | -------------- | --------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
@@ -44,6 +39,7 @@ New CategoriesIf there is a class or category that doesn't fit your particular c
 |                | Motion Tracking             |                                                        | For instance, shop floor or merchandise movement                                            |
 |                | Action Classification       | Gestures, Actions                                      | E.g. running, fighting, car driving, ball in movement, plane flying, etc.                   |
 |                | Visual Anomaly Detection    |                                                        | Detects anomalies in video or images                                                        |
+|                | Scene Description    |                                                        | Identifies and labels scene changes in video                                                        |
 |                |                             |                                                        |                                                                                             |
 | Biometrics     | Face Detection              |                                                        | Returns presence of a human face, often with bounding box                                   |
 |                | Face Recognition            |                                                        | AKA Face Authentication Includes Facial Feature Biometrics (eg. iris, retina, nose, ear)    |
