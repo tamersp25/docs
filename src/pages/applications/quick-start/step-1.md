@@ -3,7 +3,7 @@ title: Step 1. Create an Application
 order: 1
 ---
 
-When you create an app in Veritone, you specify general information that defines the basic configuration and settings of your app. Once your application is created, you’ll be provided with unique identifiers that you'll use [in the next section](2-auth) to set up user and API authentication with OAuth 2.0. 
+When you create an app in Veritone, you specify general information that defines the basic configuration and settings of your app. Once your application is created, you’ll be provided with unique identifiers that you'll use [in the next section](step-2/) to set up user and API authentication with OAuth 2.0. 
 
 ## To create and configure your application
 1\.  Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
@@ -31,7 +31,7 @@ When you create an app in Veritone, you specify general information that defines
 *   If no changes need to be made, no further action is necessary.
 *   If changes are required, make the necessary edits and click _Save_. An "Application updated successfully" message displays momentarily. Note that the _Save_ button remains blue after your changes have been applied. 
 
-Once your app has been created, use the details at the top of the page to [set up your app with OAuth 2.0 authentication](../../oauth). 
+Once your app has been created, use the values at the top of the page to [configure your app with OAuth 2.0 authentication](../../oauth). 
 
 ![VDA-Create-Application-4](VDA-Create-Application-4.png)
 
