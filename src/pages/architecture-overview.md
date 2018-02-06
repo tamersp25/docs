@@ -2,7 +2,7 @@
 title: Architecture Overview
 ---
 
-<img src="architecture-overview.png" />
+![Architecture Overview](architecture-overview.png)
 
 ## 1\. Data Ingestion & Storage
 

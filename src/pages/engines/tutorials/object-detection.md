@@ -1,5 +1,6 @@
 ---
 title: Object Detection (Network Isolated)
+order: 1
 ---
 
 ### Overview
@@ -525,6 +526,7 @@ def run(payload_arg):
 ### Create and Upload a New Asset
 Now that our engine has run successfully, we need to upload the results back to Veritone. To do this we need to execute a
 Multi-Part Form request with the updateAsset mutation and the outputFile.
+
 ```graphql
 mutation {
   createAsset(
@@ -629,6 +631,7 @@ mutation{
 
 #### Task Failure
 On the other hand, if there were some errors processing the file, we should set the task status to failed and add error information as part of the task output.
+
 ```graphql
 mutation{
   updateTask(input :{
@@ -719,7 +722,8 @@ including cloning darknet and copying over our pretrained `yolo.weights` file. I
  make run so our make file is executing the engine using python3.
 
 Our makefile looks like:
-```make
+
+```makefile
 python_version := 3.6
 src_dir := src
 
