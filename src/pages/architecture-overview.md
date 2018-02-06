@@ -97,7 +97,7 @@ each job.
 
 Once the job is completed and the metadata successfully passed back to
 Veritone, the Docker instance will terminate. This architecture is the
-same regardless of aiWARE deployment model (cloud, on prem, etc)
+same regardless of aiWARE deployment model (cloud, on prem, etc).
 
 Docker containers can either be constructed to call an external API
 endpoint for remote processing, run a "network isolated" executable
@@ -129,7 +129,7 @@ output by the engine and stored in Veritone's proprietary hyper-scale,
 time-correlated Temporal Elastic Database (TED<sup>TM</sup>).  
 
 Time correlation based on the media run-time is required to facilitate
-effective multi-variant search by Veritone's suite of end user
+effective multi-variant search by Veritone's suite of end-user
 applications.
 
 ## 5\.  User Interface
@@ -142,7 +142,15 @@ indicating any engine processing that has already been performed on each
 asset.  Note this is the only application where the entire original
 source file resides.
 
-Discovery and Collections are designed to display "Mentions" i.e. the
-aperture that contains a specific search item found, with 30 second of
+Discovery and Collections are designed to display "Mentions" (i.e. the
+aperture that contains a specific search item found) with 30 seconds of
 media before and after the item in question (whether a text word or
-phrase,
+phrase, face, object, location, logo, etc).
+
+## 6\. Search Functionality
+Veritone search intelligence provides a rich set of flexible features that allow users to intuitively search and quickly find the content they’re looking for. The search framework performs application-specific querying against an organization’s private and public indexes to find data based on specific criteria. Our advanced search algorithm supports global free-text and filtered searching and delivers high-quality matches in results for even the most complicated queries. Veritone search features include:
+
+- Searches by keyword, phrase, multiple words in any order, ignored words, date range, and more.
+- Autocomplete suggests results as a user searches for content.
+- Faceted search options refine results by attributes such as watchlists, faces, locations, objects, and tags.
+- Result ranking logic returns the most relevant results by default or can be fine-tuned for specific queries.
