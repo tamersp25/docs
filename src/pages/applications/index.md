@@ -17,7 +17,7 @@ Veritone’s robust APIs provide a wide range of functions that your app can use
 *   Metadata Storage
 *   Administration Tools
 
-Veritone APIs are available via our GraphQL api. Visit our [API section](/api) to learn more.
+Veritone APIs are available via our GraphQL api. Visit our [API section](/apis/) to learn more.
 
 #### Who can use my application?
 
@@ -33,14 +33,14 @@ Integrated Veritone apps use standard OAuth 2.0 protocol to authenticate, provid
 
 Before you start development, it's important to know how all the pieces fit together. Here’s a high-level overview of the process for developing and publishing your app in the Veritone Platform:
 
-1.  Create Your App in Veritone Developer
-2.  Set Up User Authentication Using OAuth 2.0
-3.  Add API to Build Veritone Functionality into Your App
-4.  Submit Your App for Review and Approval by a Member of Our Team
+1.  Create your app in Veritone Developer
+2.  Set up user authentication using OAuth 2.0
+3.  Use APIs to build Veritone functionality into your app
+4.  Submit your app for review and approval
 5.  Install your app in the Veritone Platform
 
-You’ll find complete application development workflow details in our [Quick Start](quick-start) section.
+You’ll find complete application development workflow details in our [Quick Start](quick-start/) section.
 
 #### Where can I get help?
 
-If you need assistance at any point in the process, reach out to our support team on our [Slack channel](https://chat.veritone.com/) for help.
+If you need assistance at any point in the process, reach out to our support team on [Slack](https://chat.veritone.com/) for help.
