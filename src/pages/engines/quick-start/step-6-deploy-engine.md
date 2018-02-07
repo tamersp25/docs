@@ -7,7 +7,7 @@ Congratulations! Your engine has been built, tested, and approved. Now, with the
 
 |**To deploy an Approved engine**| |
 |--------|--------|
-|1.[ Navigate to the *Engines* page](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/19070986/Step+1+Create+an+Engine#Step1:CreateanEngine-NavigatetoEngines) in Veritone Developer and click the desired **engine** in the Engine table. The *Engine Details* page opens to the *Builds* tab.| <div style="width: 500px">![](VDA-Navigate-to-Builds.png)</div> |
+|1.[ Navigate to the *Engines* page](../step-1-create-an-engine#L14/) in Veritone Developer and click the desired **engine** in the Engine table. The *Engine Details* page opens to the *Builds* tab.| <div style="width: 500px">![](VDA-Navigate-to-Builds.png)</div> |
 |2. Scroll down to *Builds* and click the **Deploy** on the right of the *Approved* build in the list. A confirmation message displays and the build is deployed to production in Veritone.|<div style="width: 500px">![](VDA-Deploy-an-Engine.png)</div>|
 
 #### View a Deployed Engine in Veritone CMS
