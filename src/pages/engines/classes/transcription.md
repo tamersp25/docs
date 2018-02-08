@@ -1,6 +1,4 @@
----
-title: Transcription
----
+
 
 Transcription engines take in audio or video files and output a text description of the contents of those files. Such engines are also known as Automatic Speech Recognition (ASR) or Speech-to-Text (STT).  The basic output will include any speech contained in the files but additional value can be derived by describing sounds, speakers and scenarios.
 
