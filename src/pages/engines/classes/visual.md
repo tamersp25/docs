@@ -1,6 +1,4 @@
----
-title: Visual
----
+
 
 Object Recognition engines take videos or still images in as inputs, and output objects found, start and end times when each object appears in the media file and its confidence score. These objects may include people, places and things. Note that we have separate  for Logo Recognition and OCR, which are often considered part of the Object Recognition family.
 
