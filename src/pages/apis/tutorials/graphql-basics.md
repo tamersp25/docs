@@ -29,7 +29,7 @@ use `curl` to demonstrate the basic structure of a request.
 However, once this basic structure is understand, `curl` is
 a poor tool for exploring GraphQL APIs. Use GraphiQL instead.
 
-```
+```bash
 console$ curl https://api.veritone.com/v3/graphql \
 >   -H 'Authorization: Bearer <id>' \
 >   -H 'Content-Type: application/json' \
@@ -48,7 +48,7 @@ Note that:
 be on one line and be properly escaped (note the escaped double quotes).
 
 The API returns plain JSON:
-```
+```json
 {"data":{"asset":{"id":"<your asset ID>","assetType":"transcript"}}}
 ```
 
@@ -75,7 +75,7 @@ query assetById($assetId: ID!) {
 ```
 The client then provides variable values in a separate JSON
 object. Here is the `curl` example:
-```
+```bash
 console$ curl https://api.veritone.com/v3/graphql \
 >   -H 'Authorization: Bearer <token>' \
 >   -H 'Content-Type: application/json' \
@@ -98,7 +98,7 @@ The GraphQL server also accepts multipart form post requests. You can submit pla
 this way if convenient, but the primary purpose of the method is to support file upload for mutations
 that accept them. Here is a `curl` example:
 
-```
+```bash
 curl -v \
 >  -H 'Authorization: Bearer <token>' \
 >  https://api.veritone.com/v3/graphql \
