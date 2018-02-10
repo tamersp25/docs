@@ -26,7 +26,7 @@ Therefore, a non-200 status code indicates that either the query did not reach t
 A HTTP 200 status code will be accompanied by a normal GraphQL response body in JSON format. Fields that were successfully resolved will have their data. Fields that cannot be successfully resolved will have a null value and a corresponding error set in the errors field.
 
 Here's an example where we attempt to create three objects and only one succeeds:
-```
+```graphql
 mutation {
   create1: createAsset(input: {
     containerId: 123
@@ -54,7 +54,7 @@ mutation {
 ```
 
 The response:
-```
+```json
 {
   "data": {
     "create1": null,
@@ -83,7 +83,7 @@ The response:
 ```
 
 Here's another example where we attempt to retrieve three objects, but only one is found:
-```
+```graphql
 query {
   asset1: asset(id: "2426dbe5-eef3-4167-9da8-fb1eeec61c67") {
     id
@@ -98,7 +98,7 @@ query {
 ```
 
 Result:
-```
+```json
 {
   "data": {
     "asset1": null,

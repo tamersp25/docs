@@ -65,7 +65,7 @@ in the variable declaration much match the type where it is
 used (the `id` parameter on `asset`, which is `ID!`).
 
 Here's the rewritten query:
-```
+```graphql
 query assetById($assetId: ID!) {
   asset(id: $assetId) {
     id
@@ -117,7 +117,7 @@ Use of a client library that handles multipart form post is strongly recommended
 
 Below is a bare-bones example using Javascript under NodeJS.
 
-```
+```javascript
 global.fetch = require('node-fetch');;
 const request = require('superagent');
 let size = data.length;
@@ -156,7 +156,7 @@ as an example. However, the request format is exactly the same for all mutations
 that accept file upload (`updateLibraryEngineModel`, `uploadEngineResult`, etc.).
 The only difference is in the GraphQL query string.
 
-```
+```python
 import requests
 import json
 import os
