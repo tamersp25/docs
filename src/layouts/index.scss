@@ -614,7 +614,7 @@ pre tt:after {
   overflow: initial;
   float: left; /* 1 */
   min-width: 100%; /* 2 */
-  max-height: 300px;
+  // max-height: 300px;
 }
 
 .gatsby-highlight pre[class*="language-graphql"] {
