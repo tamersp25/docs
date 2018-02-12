@@ -7,18 +7,20 @@ Engines in Veritone are designed with a functional architecture that ensures eas
 
 This section covers everything you need to properly construct your code for task processing. We&rsquo;ll walk through the entire task workflow in detail and specify behaviors and API calls required for your engine to successfully operate in the Veritone platform. Veritone API is built around the [GraphQL](http://graphql.org/learn/) paradigm and, where applicable in this documentation, we include sample requests configured in cURL and for use in our [GraphiQL interface](https://api.veritone.com/v3/graphiql). Please note that the examples in this documentation do not use client information and are not language specific. For fields that require account-specific data (such as a Recording ID), replace the value with your own. In addition, the sample requests shown are not all-inclusive &mdash; they highlight the minimum requirements and relevant information. Additional attributes for each request can be found in our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
 
-Veritone&rsquo;s GraphiQL interface is recommended for making test API requests, but calls can also be made using other HTTP clients. All requests must be HTTP POST to the [_https://api.veritone.com/v3/graphql_](https://api.veritone.com/v3/graphql) endpoint with *application/json *encoded bodies. In addition, requests must be authenticated [using an API Token](../../api/authentication/). Pass the token in your request using the _Authorization_ header with a value _Bearer <token>_. If you&rsquo;re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
+Veritone&rsquo;s GraphiQL interface is recommended for making test API requests, but calls can also be made using other HTTP clients. All requests must be HTTP POST to the [_https://api.veritone.com/v3/graphql_](https://api.veritone.com/v3/graphql) endpoint with *application/json* encoded bodies. In addition, requests must be authenticated [using an API Token](../../apis/authentication/). Pass the token in your request using the _Authorization_ header with a value _Bearer <token>_. If you're using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
 The task processing workflow is detailed in the steps below:
 
-1. Receive the Task Payload
-2. Set Task Status to Running
-3. Get the Recording Container
-4. Download an Existing Asset
-5. Process the Task
-6. Format and Generate Output
-7. Upload Engine Result & Create a New Asset
-8. Reporting Task Failure
+1. **Receive the Task Payload**
+2. **Set Task Status to Running**
+3. **Get the Recording Container**
+4. **Download an Existing Asset**
+5. **Process the Task**
+6. **Format and Generate Output**
+7. **Upload Engine Result & Create a New Asset**
+8. **Reporting Task Failure**
+
+<br>
 
 **1. Receive the Task Payload**
 
@@ -38,8 +40,9 @@ Sample Task Payload
 | token              | string | A single-use token provided to the engine to access the recording container. All engine requests to the Veritone API must use this token.                                                    |
 | veritoneApiBaseUrl | string | The base URL for making API requests in Veritone. Use the base URL to construct the GraphQL endpoint for your requests. (e.g., graphqlEndpoint = payload.veritoneApiBaseUrl + "/v3/graphql") |
 
-false
-We reserve the right to add additional properties to the payload. Any additional properties in the payload are considered undocumented and unreliable.
+*Note:* We reserve the right to add additional properties to the payload. Any additional properties in the payload are considered undocumented and unreliable.
+
+<br>
 
 **2. Set Task Status to Running**
 
@@ -49,18 +52,17 @@ Once you have the Task Payload, call the _Update Task_ mutation and provide the 
 
 ```graphql
 mutation {
-  # -------request fields-----------
+-----------request fields-----------
   updateTask(
-    input: {
-      # => The mutation type and input variable. (required)
-      id: "string" # => The Task ID received in the Task Payload. (required)
-      status: enum # => The status of the task. Set the value to running (without quotes). (required)
-      jobId: "string" # => The Job ID received in the task payload. (required)
+    input: {           => The mutation type and input variable. (required)
+      id: "string"     => The Task ID received in the Task Payload. (required)
+      status: enum     => The status of the task. Set the value to running (without quotes). (required)
+      jobId: "string"  => The Job ID received in the task payload. (required)
     }
   ) {
-    # -------return fields------------
-    id # => The unique ID associated with the task. (required)
-    status # => The current status of the task. (required)
+-----------return fields-----------
+    id      => The unique ID associated with the task. (required)
+    status  => The current status of the task. (required)
   }
 }
 ```
@@ -106,6 +108,8 @@ curl -X POST \
 }
 ```
 
+<br>
+
 **3. Get the Recording Container**
 
 When the task status is set to _running_, make a request to the _Temporal Data Object_ query with the Recording ID received in the task payload to retrieve the recording container. Your engine will later download one of the assets in the recording container and use it as the base definition file for processing the task. When structuring your query to retrieve the recording container, there are a few core fields you&rsquo;ll want to specify in the request. Additional fields may also be required based on your engine&rsquo;s class. The query fields that apply to most engines are described in the request payload shown below and in the sample requests. A list of all possible request fields can be found in the [Temporal Data Object](https://api.veritone.com/v3/graphqldocs/temporaldataobject.doc.html) schema definition of our GraphQL docs.
@@ -114,23 +118,19 @@ When the task status is set to _running_, make a request to the _Temporal Data O
 
 ```graphql
 query {
-# -------request fields-----------------------
-  temporalDataObject    # => The query operation to retrieve a recording container object. (required)
-  (id: string) {        # => The Recording ID received in the Task Payload. (required)
-    assets              # => The asset object parameter to access the recording’s assets. (required)
-    (type: "string"){   # => A label that classifies an asset, such as “transcript,” “media,” or “text.” The type field can be
-                        #  added as a filter to return a list of assets that match the given value. If the “type” filter is used in
-                        #  the request, a value must be specified. (optional)
-# -------return fields-------------------------
-    records {           # => The records object parameter used to access individual asset data. (required)
-      id                # => The unique ID associated with an asset. (required)
-      contentType       # => The asset’s MIME type (e.g., audio/mp3). (required)
-      type              # => A label that classifies an asset. The type field is helpful in determining whether your engine is
-                        #  able to use an asset for processing. Common types are include “media” (audio/video),
-                        #  “transcript” (TTML format), and “v-vlf” (Veritone Lattice Format). (optional)
-      signedUri         # => The secure URI of an asset. The signed URI value is used to download an asset for processing
-                        #  by your engine. (required)
-      createdDateTime   # => The date and time (in Unix/Epoch format) that an asset was created. (required)
+-----------request fields-----------
+  temporalDataObject    => The query operation to retrieve a recording container object. (required)
+  (id: string) {        => The Recording ID received in the Task Payload. (required)
+    assets              => The asset object parameter to access the recording’s assets. (required)
+    (type: "string"){   => A label that classifies an asset, such as “transcript,” “media,” or “text.” The type field can be added as a filter to return a list of assets that match the given value. If the “type" filter is used in the request, a value must be specified. (optional)                       
+                          
+-----------return fields-----------
+    records {           => The records object parameter used to access individual asset data. (required)
+      id                => The unique ID associated with an asset. (required)
+      contentType       => The asset’s MIME type (e.g., audio/mp3). (required)
+      type              => A label that classifies an asset. The type field is helpful in determining whether your engine is able to use an asset for processing. Common types are include “media” (audio/video), “transcript” (TTML format), and “v-vlf” (Veritone Lattice Format). (optional)
+      signedUri         => The secure URI of an asset. The signed URI value is used to download an asset for processing by your engine. (required)
+      createdDateTime   => The date and time (in Unix/Epoch format) that an asset was created. (required)
     }
   }
 }
@@ -211,47 +211,56 @@ curl -X POST \
 }
 ```
 
+<br>
+
 **4. Download an Existing Asset**
 
 Next, iterate through the retrieved assets and find the most relevant file to use as the input for your engine. Asset data files are stored in Veritone&rsquo;s S3 environment. Once the most relevant asset has been identified, download the file from the signed URI.
 
-_Note:_ Veritone accepts a variety of media formats, so it&rsquo;s important that your code supports all of the applicable formats for your engine&rsquo;s class. Each of your engine&rsquo;s supported format types must also be specified in the *Supported Input Formats *section of the [manifest](../manifest/).
+_Note:_ Veritone accepts a variety of media formats, so it's important that your code supports all of the applicable formats for your engine's class. Each of your engine's supported format types must also be specified in the *Supported Input Formats* section of the [manifest](../manifest/).
 
-_Best Practice Tip:_ A recording&rsquo;s original asset has the highest fidelity. If a recording has multiple assets, it&rsquo;s recommended to sort by _createdDateTime_ and select the oldest asset in a format that your engine can process.
+_Best Practice Tip:_ A recording&rsquo;s original asset has the highest fidelity. If a recording has multiple assets, it's recommended to sort by _createdDateTime_ and select the oldest asset in a format that your engine can process.
+
+<br>
 
 **5. Process the Task**
 
-After downloading the asset, execute your engine&rsquo;s core code against it to process the task.
+After downloading the asset, execute your engine's core code against it to process the task.
+
+<br>
 
 **6. Format and Generate Output**
 
-When processing is complete, convert your engine&rsquo;s raw output to a Veritone-compatible format. Output formats and required fields differ by engine category. Select the engine category below that best matches your environment to view complete output configuration details.
+When processing is complete, convert your engine's raw output to a Veritone-compatible format. Output formats and required fields differ by engine category. Select the engine category below that best matches your environment to view complete output configuration details.
 
-* [Transcription](../classes/transcription/)
-* [Object Recognition](../classes/visual/)
+* [Transcription](../engine-input-output/transcription/)
+* [Object Detection](../engine-input-output/object-detection/)
+* [Face Detection](../engine-input-output/face-detection/)
+
+<br>
 
 **7. Upload Engine Results and Create a New Asset**
 
-Once your output file is created, upload it to Veritone, create a new asset, and set the task status to complete using the Upload Engine Result mutation. If your engine outputted to multiple files, make individual calls to create a separate asset for each file. 
+Once your output file is created, upload it to Veritone, create a new asset, and set the task status to complete using the *Upload Engine Result* mutation. If your engine outputted to multiple files, make individual calls to create a separate asset for each file. 
 
-Upload Engine Result mutation requests are submitted as multipart form post. This type of request is structured in two parts: the form-data that specifies the file information and a query containing details about the asset to create. Specify multipart/form-data as the Content-Type header and use the file and filename parameters to send the file contents in the request. 
+*Upload Engine Result* mutation requests are submitted as multipart form post. This type of request is structured in two parts: the form-data that specifies the file information and a query containing details about the asset to create. Specify *multipart/form-data* as the *Content-Type* header and use the *file* and *filename* parameters to send the file contents in the request. 
 
-Note: GraphiQL does not currently support multipart form requests, so a different HTTP client must be used to make sample requests to the Upload Engine Result mutation.
+*Note:* GraphiQL does not currently support multipart form requests, so a different HTTP client must be used to make sample requests to the *Upload Engine Result* mutation.
 
 #### Upload Engine Result Request Payload
 
 ```bash
 -H 'content-type: => A header that specifies the content type. Enter multipart/form-data as the value. (required)
--F filename       => The name of the file to upload. The value must match the name of the saved file. (required)
--F file           => The path of the file to upload. (required)
+-F filename        => The name of the file to upload. The value must match the name of the saved file. (required)
+-F file            => The path of the file to upload. (required)
 -F 'query=mutation {
--------request fields-----------
+-----------request fields-----------
     uploadEngineResult(input :{ => The Upload Engine Result mutation type and input variable. (required)
       taskId: "string"          => The Task ID received in the Task Payload. (required)
       contentType: "string"     => The MIME type of the asset (e.g., audio/mp3). (required)
       completeTask: Boolean     => A Boolean that marks the task as complete when set to true. Important Note: If you’re creating multiple assets for a task, only set the value to true in the final request. Otherwise, the task status will be marked as complete and additional requests made with the Task ID will result in an error. (required)
   }){
--------return fields------------
+-----------return fields-----------
     id        => The unique ID of the new asset. (required)
     type      => A label that classifies an asset. The returned value reflects the request input value. (required)
     signedUri => The secure URI of the new asset. (required)
@@ -298,6 +307,8 @@ curl -X POST \
 }
 ```
 
+<br>
+
 **8. Reporting Task Failure**
 
 If an error occurs during processing or if your engine does not support the task content type, mark the task status as _failed_ by calling the _Update Task_ mutation. The _output_ parameter should be included in your request and specify a JSON object with the _error_ field to indicate the reason for the task failure. When a task fails, no further engine processing should occur.
@@ -306,18 +317,17 @@ If an error occurs during processing or if your engine does not support the task
 
 ```graphql
 mutation {
-# -------request fields-----------
-  updateTask(input :{       # => The Update Task mutation type and input variable. (required)
-    id: "string"            # => The Task ID received in the Task Payload. (required)
-    jobId: "string"         # => The Job ID received in the Task Payload. (required)
-    status: enum            # => The status of the task. Set the value to failed (without quotes). (required)
-    output:{error: "string" # => A JSON object containing the error field with a free-text value describing the reason
-                            #  for the task failure. (recommended)
+-----------request fields-----------
+  updateTask(input :{       => The Update Task mutation type and input variable. (required)
+    id: "string"            => The Task ID received in the Task Payload. (required)
+    jobId: "string"         => The Job ID received in the Task Payload. (required)
+    status: enum            => The status of the task. Set the value to failed (without quotes). (required)
+    output:{error: "string" => A JSON object containing the error field with a free-text value describing the reason for the task failure. (recommended)
   }){
-# -------return fields------------
-    id     # => The unique ID associated with the task. (required)
-    status # => The current status of the task. (required)
-    output # => The error message value entered in the output parameter of the request. (required)
+-----------return fields-----------
+    id     => The unique ID associated with the task. (required)
+    status => The current status of the task. (required)
+    output => The error message value entered in the output parameter of the request. (required)
   }
 }
 ```
