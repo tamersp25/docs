@@ -2,39 +2,36 @@
 title: APIs
 ---
 
-#### Overview
+Veritone's full suite of APIs enables you to easily to add cognitive functionality and intelligent features to your custom solution. Our API is built around the GraphQL paradigm to provide a more efficient way to deliver data with greater flexibility than a traditional REST approach. GraphQL is a query language that operates over a single endpoint using conventional HTTP requests and returning JSON responses. The structure not only lets you call multiple nested resources in a single query, it also allows you to define requests so that only requested data is sent back.
 
-<span>Veritone provides APIs that allow you to easily access cognitive
-engines within the Veritone Ecosystem.  Through these APIs, you'll be
-able to upload data, summon engines, access the output of the engines,
-and build chained cognitive workflows for your applications.</span>
+### Base URL
 
-<span>Today, we support two means of access for our APIs - RESTful APIs,
-and GraphQL.  </span>
+Veritone’s API uses a single endpoint for requests: https://api.veritone.com/v3/graphql. All requests must be HTTP POST with *application/json* encoded bodies. 
 
-#### RESTful APIs
+### Authentication
 
-<span>Please <span>contact us</span> for specific documentation for our
-REST APIs.</span>
+All API requests must be authenticated using an API Token. To authenticate your calls, provide the token in the *Authentication* header of the request with a value *Bearer \<token\>*. Requests made without this header or with an invalid token will return an error code. For information about generating an API Token, see [Authentication](authentication/).
 
-RESTful APIs will be deprecated
+### GraphiQL Playground
 
-Please note, that we strongly prefer users leveraging our GraphQL APIs
-over our RESTful APIs.  We'll eventually be deprecating access to our
-RESTful APIs in the future.  We'll announce a formal timeframe with
-advance notice.
+To make it easier to explore, write, and test the API, we set up [GraphiQL](https://api.veritone.com/v3/graphiql) — an interactive playground that gives you a code editor with autocomplete, validation, and syntax error highlighting features. Use the GraphiQL interface to construct and execute queries, experiment with different schema modifications, and browse documentation. In addition, GraphiQL bakes authorization right into the schema and automatically passes the *Authentication* header with a valid token when you’re logged into the Veritone system.
 
-<span>The GraphQL API provides access to Veritone’s full suite of APIs,
-with the exception of search. GraphQL is a querying language that
-enables you to make a single call to fetch the information you need
-instead of several REST requests. If you’re not using the Client
-Library, this is the API resource you’ll want to use.</span>
+Veritone’s GraphiQL interface is the recommended method for ad-hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the https://api.veritone.com/v3/graphql endpoint with the *query* parameter and *application/json* encoded bodies. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped. 
 
-#### Client Library
+### API Documentation
 
-<span>To simplify the application integration process, Veritone offers a
-Client Library with built-in OAuth 2.0 logic for user authentication. If
-you code in a supported Client Library language, this is our recommended
-option for accessing APIs. Currently, Veritone offers a JavaScript
-Client Library that can be used in Node or from a browser, and we will
-be adding more languages in the coming weeks.</span>
+For full Veritone API documentation, see our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
+
+### We’re here to help!
+
+We’ve tried to pack our API section with detailed information and a variety of examples to assist you in your development. But if you have questions or need assistance, don’t hesitate to reach out to our Developer Support Team by [email](mailto:devsupport@veritone.com) or on [Slack](https://chat.veritone.com/) for help.
+
+### In this section:
+
+* [Using GraphQL](using-graphql/)
+
+* [Authentication](authentication/)
+
+* [Error Codes](error-codes/)
+
+* [Tutorials](tutorials/) 
