@@ -1,12 +1,16 @@
 ---
-title: APIs
+title: API
 ---
 
-Veritone's full suite of APIs enables you to easily add cognitive functionality and intelligent features to your custom solution. Our API is built around the GraphQL paradigm to provide a more efficient way to deliver data with greater flexibility than a traditional REST approach. GraphQL is a query language that operates over a single endpoint using conventional HTTP requests and returning JSON responses. The structure not only lets you call multiple nested resources in a single query, it also allows you to define requests so that only requested data is sent back.
+Veritone's full suite of APIs enables you to easily add cognitive functionality and intelligent features to your custom solution. Our API is built around the GraphQL paradigm to provide a more efficient way to deliver data with greater flexibility than a traditional REST approach. GraphQL is a query language that operates over a single endpoint using conventional HTTP requests and returning JSON responses. The structure not only lets you call multiple nested resources in a single query, it also allows you to define requests and specify the exact data that you want sent back.
 
 ### Base URL
 
-Veritone’s API uses a single endpoint for requests: https://api.veritone.com/v3/graphql. All requests must be HTTP POST with *application/json* encoded bodies. 
+Veritone API uses a single endpoint for making ad-hoc requests and to integrate API into third-party applications. All requests must be HTTP POST to [https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) with *application/json* encoded bodies. 
+
+**Important Note for Engine Development:**
+
+Engines in Veritone follow a different endpoint protocol for accessing the API. To ensure successful API execution across different environments, the API base URL is passed in the Task Payload at engine runtime. Once your engine receives the Task Payload, use the `veritoneApiBaseUrl` field value to construct the GraphQL endpoint for requests. (e.g., `const apiUrl = payload.veritoneApiBaseUrl+'/v3/graphql';`) It’s important that the standard API endpoint (referenced above) is not hard coded in your engine and that only the base URL provided in the Task Payload is used to make requests. For more information, see the [Engine Construction Guidelines](/engines/guidelines/). 
 
 ### Authentication
 
