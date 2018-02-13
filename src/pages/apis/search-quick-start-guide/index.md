@@ -1,3 +1,1 @@
----
-title: Search Quickstart Guide
----
+coming soon
