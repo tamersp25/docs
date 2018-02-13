@@ -1,6 +1,4 @@
----
-title: DEVELOPER WEEK HACKATHON
----
+
 
 <img src="developer-week-hackathon-banner.png" />
 
