@@ -1,7 +1,4 @@
----
-title: Testing - Generate a JSON payload (Manual)
-order: 6
----
+
 
 ### 1. Get your API token.
 
