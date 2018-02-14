@@ -11,7 +11,7 @@ const IndexPage = () => (
     <h3><strong>Developer Platform and Ecosystem</strong></h3>
     <p><span>The Veritone Developer Application (VDA) allows developers to bring their ideas to life. The VDA connects developers with resources to create, submit, and deploy custom applications, cognitive engines, and data products into Veritone&rsquo;s architecture. </span></p>
     <h3><strong>A Broad and Growing Cognitive Spectrum</strong></h3>
-    <p><span>Veritone unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines. Customers can employ multiple AI engines within the same class and across different classes, at high rates of cognition. Veritone currently offers more than 110 different production engines in 11 cognitive classes, including NLP, &nbsp;Computer Vision, Face Recognition, Sentiment, Translation, Audio Fingerprinting, Geolocation, and Content Moderation. </span></p>
+    <p><span>Veritone unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines. Customers can employ multiple AI engines &mdash; both within the same category and across different categories &mdash; at high rates of cognition. Veritone's hundreds of production engines encompass seven cognitive classes and more than 50 categories, including NLP, Computer Vision, Face Recognition, Sentiment, Translation, Audio Fingerprinting, Geolocation, and Content Moderation. </span></p>
     <h3><strong>Proprietary Conductor</strong><sup><strong>TM</strong></sup><strong> Orchestration</strong></h3>
     <p><span>Proprietary Veritone Conductor technology optimizes the cognitive engine selection process by periodically evaluating the cost, speed, and accuracy of each engine to improve results and achieve higher levels of cognition. It orchestrates and intelligently routes media to the most appropriate cognitive engines within chosen engine classes to generate the best results.</span></p>
     <h3><strong>A Suite of Proprietary Applications &nbsp;</strong></h3>
@@ -39,20 +39,42 @@ const IndexPage = () => (
     <p><strong>Developer</strong></p>
     <p><span>Veritone Developer is a self-service environment where registered AI application and cognitive engine developers alike can access tools, documentation, APIs to build and submit their work for consideration. Transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators are also available within the Veritone Developer Application.</span></p>
     <h1><span>Engine Categories</span></h1>
-    <p><span>Veritone currently supports a portfolio of 11 cognitive engines categories that provide an array of service types and deliver deep, targeted, predictable insight. Customers can employ multiple AI engines in parallel &mdash; within the same category and across different categories &mdash; to enance cognition.</span></p>
-    <p><span><strong>Audio Detection -</strong> Detect characteristics of specific sounds, such as alarms, breaking glass, and gunshots as well as music.</span></p>
-    <p><span><strong>Transcription -</strong> Convert spoken audio and video recordings into readable text. Transcription engines are built to recognize different languages, dialects, and topics. </span></p>
-    <p><span><strong>Face Detection/Recognition -</strong>&nbsp;Detection will dentify and index the presence of human faces in video or still image content and display a snapshot from the source file. Recognition identifies specific people found in an organization&rsquo;s face libraries, by name, displaying a reference image from the library.</span></p>
-    <p><span><strong>Translation -</strong> Translate written text from one language to another and they o en use algorithms to increase the accuracy of sentence structure and parts of speech.</span></p>
-    <p><span><strong>Metadata Extraction -</strong> Analyze files to derive key data points such as file format, audio channels, and video resolution. </span></p>
-    <p><span><strong>Object Recognition -</strong> &nbsp;Pinpoint multiple objects within video or still images, including optical character recognition (OCR), license plate, and logo recognition.</span></p>
-    <p><span><strong>Geolocation -</strong> Associate media with geolocation data points and enable search by location, displaying a map view of media file collections or an association with a library of landmarks.</span><span><br /></span></p>
-    <p><span><strong>Sentiment -</strong> Discern the tone behind a series of words (from text), used to gain an understanding of the attitudes, opinions, and emotions expressed.</span><span><br /></span></p>
-    <p><span><strong>Fingerprinting -</strong> Generate a condensed digital summary, deterministically generated as a reference audio or video clip, that can be used to quickly locate similar items across multiple media files. &nbsp;References can be stored as a Library.</span><span><br /></span></p>
-    <p><span><strong>Transcoding -</strong> Convert file format, bitrate, or resolution programmatically for improved cognitive processing.</span></p>
-    <p><span><strong>OCR -</strong> A type of object recognition, OCR (Optical Character Recognition) engines convert images of typed, handwritten or printed text into machine-coded text. The images may occur in photos, printed or scanned documents, videos, streams or other sources.</span></p>
-    <p><span><strong>Logo Recognition -</strong> Find occurrences of logos, typically corporate or institutional logos, when they appear in video.</span></p>
-    <p>Veritone will be adding support for new Engine Categories over time based on client demand and/or developer interest.</p>
+    <p><span>Veritone's portfolio of seven cognitive engine classes encompasses more than 50 recognized categories to provide an array of service types and deliver deep, targeted, predictable insight. And with Veritone aiWARE technology, customers have the ability to employ multiple AI engines in parallel across any combination of categories to enhance cognition services.</span></p>
+    <table>
+  <tr>
+    <td><strong>Engine Class</strong></td>
+    <td><strong>Included Categories</strong></td>
+  </tr>
+  <tr>
+    <td><strong>Speech</strong></td>
+    <td>Transcription, Speaker Separation, Phonetic Search, Sentiment Analysis, Language Recognition, Speech Detection, Speech Conversational Bot, Keyword Spotting</td>
+  </tr>
+  <tr>
+    <td><strong>Text</strong></td>
+    <td>Translation, Text-to-Speech, Text Keyword/Topic Analysis, Natural Language Generation, Text Analytics, Text Sentiment Analysis, Text Language Recognition, Text Moderation, Text Conversational Bot</td>
+  </tr>
+  <tr>
+    <td><strong>Vision</strong></td>
+    <td>Object Recognition, OCR, Barcode/QR Code Recognition, Image Attributes, Scene Description, Visual Moderation, Object Matching, Motion Tracking, Action Classification, Visual Anomaly Detection, Scene Break Detection</td>
+  </tr>
+  <tr>
+    <td><strong>Biometrics</strong></td>
+    <td>Face Detection, Face Recognition, Face Verification, Face Attributes, Human Markers, Voice Recognition, Voice Analysis, Vital Signs</td>
+  </tr>
+  <tr>
+    <td><strong>Audio</strong></td>
+    <td>Audio Detection, Audio Fingerprinting, Audio Content Recognition, Audio Analytics, Audio Generation</td>
+  </tr>
+  <tr>
+    <td><strong>Data</strong></td>
+    <td>Data Anomaly Detection, Prediction/Trend Analysis, Geolocation, Data Analytics, Metadata Extraction, Optimization, Recommendation</td>
+  </tr>
+  <tr>
+    <td><strong>Transformation</strong></td>
+    <td>Transcoding, Redaction, Normalization/Combination, Editing, Video Synopsis, Text Alignment</td>
+  </tr>
+</table>
+    <p><span>New engine categories will continue to be added over time based on client demand and/or developer interest. </span></p>
     <p><br /></p>
     <p><br /></p>
   </div>
