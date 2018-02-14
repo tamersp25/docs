@@ -11,7 +11,7 @@ const IndexPage = () => (
     <h3><strong>Developer Platform and Ecosystem</strong></h3>
     <p><span>The Veritone Developer Application (VDA) allows developers to bring their ideas to life. The VDA connects developers with resources to create, submit, and deploy custom applications, cognitive engines, and data products into Veritone&rsquo;s architecture. </span></p>
     <h3><strong>A Broad and Growing Cognitive Spectrum</strong></h3>
-    <p><span>Veritone unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines. Customers can employ multiple AI engines &mdash; both within the same category and across different categories &mdash; at high rates of cognition. Veritone's hundreds of production engines encompass seven cognitive classes and more than 50 categories, including NLP, Computer Vision, Face Recognition, Sentiment, Translation, Audio Fingerprinting, Geolocation, and Content Moderation. </span></p>
+    <p><span>Veritone unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines. Customers can employ multiple AI engines &mdash; both within the same category and across different categories &mdash; at high rates of cognition. Veritone&rsquo;s hundreds of production engines encompass seven cognitive classes and more than 50 categories, including NLP, Computer Vision, Face Recognition, Sentiment, Translation, Audio Fingerprinting, Geolocation, and Content Moderation. </span></p>
     <h3><strong>Proprietary Conductor</strong><sup><strong>TM</strong></sup><strong> Orchestration</strong></h3>
     <p><span>Proprietary Veritone Conductor technology optimizes the cognitive engine selection process by periodically evaluating the cost, speed, and accuracy of each engine to improve results and achieve higher levels of cognition. It orchestrates and intelligently routes media to the most appropriate cognitive engines within chosen engine classes to generate the best results.</span></p>
     <h3><strong>A Suite of Proprietary Applications &nbsp;</strong></h3>
@@ -39,7 +39,7 @@ const IndexPage = () => (
     <p><strong>Developer</strong></p>
     <p><span>Veritone Developer is a self-service environment where registered AI application and cognitive engine developers alike can access tools, documentation, APIs to build and submit their work for consideration. Transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators are also available within the Veritone Developer Application.</span></p>
     <h1><span>Engine Categories</span></h1>
-    <p><span>Veritone's portfolio of seven cognitive engine classes encompasses more than 50 recognized categories to provide an array of service types and deliver deep, targeted, predictable insight. And with Veritone aiWARE technology, customers have the ability to employ multiple AI engines in parallel across any combination of categories to enhance cognition services.</span></p>
+    <p><span>Veritone&rsquo;s portfolio of seven cognitive engine classes encompasses more than 50 recognized categories to provide an array of service types and deliver deep, targeted, predictable insight. And with Veritone aiWARE technology, customers have the ability to employ multiple AI engines in parallel across any combination of categories to enhance cognition services.</span></p>
     <table>
   <tr>
     <td><strong>Engine Class</strong></td>
