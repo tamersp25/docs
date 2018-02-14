@@ -39,7 +39,7 @@ We're continuously adding new categories to support AI industry growth and the n
 |                | Motion Tracking             |                                                        | For instance, shop floor or merchandise movement                                            |
 |                | Action Classification       | Gestures, Actions                                      | E.g. running, fighting, car driving, ball in movement, plane flying, etc.                   |
 |                | Visual Anomaly Detection    |                                                        | Detects anomalies in video or images                                                        |
-|                | Scene Description    |                                                        | Identifies and labels scene changes in video                                                        |
+|                | Scene Break Detection    |                                                        | Identifies and labels scene changes in video                                                        |
 |                |                             |                                                        |                                                                                             |
 | Biometrics     | Face Detection              |                                                        | Returns presence of a human face, often with bounding box                                   |
 |                | Face Recognition            |                                                        | AKA Face Authentication Includes Facial Feature Biometrics (eg. iris, retina, nose, ear)    |
