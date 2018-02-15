@@ -89,7 +89,7 @@ class Sidebar extends Component {
       'Developer Benefits',
       'Applications',
       'Engines',
-      'API',
+      'APIs',
       'Terms & Conditions'
     ]
     const pages = this.props.data.allMarkdownRemark.edges.sort(function(a, b) {

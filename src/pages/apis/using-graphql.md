@@ -26,8 +26,8 @@ To get started right away:
 
 * Try a simple query such as me and use <ctrl-space> hints to see the fields available.
 * See static schema documentation at https://api.veritone.com/v3/graphqldocs/
-* Hit the API directly at https://api.veritone.com/v3/graphql. You'll need to provide a valid authentication token as described at [here](https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/13893759/Step+2+Set+Up+User+and+API+Authentication+Using+OAuth+2.0).
-* See [Basics](../tutorials/api/basics/index.md) and [Examples](examples/index.md)
+* Hit the API directly at https://api.veritone.com/v3/graphql. You'll need to provide a valid authentication token as described at [here](../../applications/OAuth/).
+* See [Basics](../tutorials/graphql-basics/) and [Examples](../tutorials/)
 
 ## How do I use GraphQL?
 
