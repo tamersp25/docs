@@ -1,6 +1,6 @@
 ---
 title: Using GraphQL
-order: 1
+order: 2
 ---
 
 ## What is GraphQL?

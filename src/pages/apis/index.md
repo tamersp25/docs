@@ -6,11 +6,11 @@ Veritone's full suite of APIs enables you to easily add cognitive functionality 
 
 ### Base URL
 
-Veritone API uses a single endpoint for making ad-hoc requests and to integrate API into third-party applications. All requests must be HTTP POST to [https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) with *application/json* encoded bodies. 
+Veritone API uses a single endpoint for making ad-hoc requests and to integrate API into third-party applications. All requests must be HTTP POST to [https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) with *application/json* encoded bodies.
 
 **Important Note for Engine Development:**
 
-Engines in Veritone follow a different endpoint protocol for accessing the API. To ensure successful API execution across different environments, the API base URL is passed in the Task Payload at engine runtime. Once your engine receives the Task Payload, use the `veritoneApiBaseUrl` field value to construct the GraphQL endpoint for requests. (e.g., `const apiUrl = payload.veritoneApiBaseUrl+'/v3/graphql';`) It’s important that the standard API endpoint (referenced above) is not hard coded in your engine and that only the base URL provided in the Task Payload is used to make requests. For more information, see the [Engine Construction Guidelines](/engines/guidelines/). 
+Engines in Veritone follow a different endpoint protocol for accessing the API. To ensure successful API execution across different environments, the API base URL is passed in the Task Payload at engine runtime. Once your engine receives the Task Payload, use the `veritoneApiBaseUrl` field value to construct the GraphQL endpoint for requests. (e.g., `const apiUrl = payload.veritoneApiBaseUrl+'/v3/graphql';`) It’s important that the standard API endpoint (referenced above) is not hard coded in your engine and that only the base URL provided in the Task Payload is used to make requests. For more information, see the [Engine Construction Guidelines](/engines/guidelines/).
 
 ### Authentication
 
@@ -20,7 +20,7 @@ All API requests must be authenticated using an API Token. To authenticate your 
 
 To make it easier to explore, write, and test the API, we set up [GraphiQL](https://api.veritone.com/v3/graphiql) — an interactive playground that gives you a code editor with autocomplete, validation, and syntax error highlighting features. Use the GraphiQL interface to construct and execute queries, experiment with different schema modifications, and browse documentation. In addition, GraphiQL bakes authorization right into the schema and automatically passes the *Authentication* header with a valid token when you’re logged into the Veritone system.
 
-Veritone’s GraphiQL interface is the recommended method for ad-hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the https://api.veritone.com/v3/graphql endpoint with the *query* parameter and *application/json* encoded bodies. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped. 
+Veritone’s GraphiQL interface is the recommended method for ad-hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the https://api.veritone.com/v3/graphql endpoint with the *query* parameter and *application/json* encoded bodies. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped (see [GraphQL Basics](tutorials/graphql-basics) for more information).
 
 ### API Documentation
 
@@ -32,10 +32,12 @@ We’ve tried to pack our API section with detailed information and a variety of
 
 ### In this section:
 
+* [The Veritone API Data Model](data-model/)
+
 * [Using GraphQL](using-graphql/)
 
 * [Authentication](authentication/)
 
 * [Error Codes](error-codes/)
 
-* [Tutorials](tutorials/) 
+* [Tutorials](tutorials/)

@@ -1,6 +1,6 @@
 ---
 title: Authentication
-order: 2
+order: 3
 ---
 
 Veritone uses token-based authentication for accessing the system and resources. Currently, the following authentication types are provided to meet the security needs of specific actions being performed:
