@@ -23,11 +23,11 @@ to create your Veritone Developer account (with $300 of free AI processing).
 > a cognitive engine and deploying it via our Veritone Developer application 
 > onto the Veritone aiWARE platform.
 
-[The engine quickstart guide](/engines/quick-start/step-1-create-an-engine/)
+[The engine quickstart guide](/engines/quick-start/step-1-create-an-engine)
 will walk you through all the steps of creating an A.I. engine and uploading
 it to Veritone's platform.
 
-You can find a list of our [sample engines here](/engines/sample-engines/) to
+You can find a list of our [sample engines here](/engines/sample-engines) to
 give you a reference.
 
 ---
@@ -50,11 +50,11 @@ and follow the instructions in the [Quick Start section of the README](https://g
 
 If you'd like to integrate with another framework or platform (e.g. mobile) or have 
 an existing app you'd like to add Veritone services to, the easiest way is to 
-[create an API token](/apis/authentication/) and start making calls through our 
-[GraphQL interface](/apis/using-graphql/).
+[create an API token](/apis/authentication) and start making calls through our 
+[GraphQL interface](/apis/using-graphql).
 
 Alternatively, if you're comfortable implementing your own OAuth2 flow, 
-you can [create an application](/applications/quick-start/step-1/) in the 
+you can [create an application](/applications/quick-start/step-1) in the 
 Veritone Developer app and use the OAuth flow to get tokens on a user-by-user 
 basis.
 
@@ -63,7 +63,7 @@ basis.
 Regardless of which method of integration you choose, the following tutorials will
 likely prove useful:
 
-* [Looking Up Available Engines](/apis/tutorials/get-engines/)
-* [Uploading and Processing Files](/apis/tutorials/upload-and-process/)
+* [Looking Up Available Engines](/apis/tutorials/get-engines)
+* [Uploading and Processing Files](/apis/tutorials/upload-and-process)
 
 Happy coding!
