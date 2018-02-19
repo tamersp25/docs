@@ -3,4 +3,4 @@
 
 #### Engine Tutorials
 
-- [Object Detection](object-detection/)
+- [Object Detection](/engines/tutorials/object-detection/)
