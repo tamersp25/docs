@@ -12,7 +12,7 @@ This quickstart guide provides resources, detailed documentation, and sample req
 
 * [Upload a recording asset](/apis/job-quick-start-guide/upload-asset)
 
-* [Create a job with specific tasks](c/apis/job-quick-start-guide/reate-job)
+* [Create a job with specific tasks](c/apis/job-quick-start-guide/create-job)
 
 * [Check the status of a job](/apis/job-quick-start-guide/check-job-status)
 
