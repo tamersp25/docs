@@ -8,17 +8,17 @@ Veritone API is built around the GraphQL paradigm to provide a more efficient wa
 
 This quickstart guide provides resources, detailed documentation, and sample requests and responses to help get your integration up and running to perform the following actions:
 
-* [Create a TDO/recording container](create-tdo/)
+* [Create a TDO/recording container](/apis/job-quick-start-guide/create-tdo)
 
-* [Upload a recording asset](upload-asset/)
+* [Upload a recording asset](/apis/job-quick-start-guide/upload-asset)
 
-* [Create a job with specific tasks](create-job/)
+* [Create a job with specific tasks](c/apis/job-quick-start-guide/reate-job)
 
-* [Check the status of a job](check-job-status/)
+* [Check the status of a job](/apis/job-quick-start-guide/check-job-status)
 
-* [Retrieve job results](retrieve-job-output/)
+* [Retrieve job results](/apis/job-quick-start-guide/retrieve-job-output)
 
-* [Delete a TDO/recording container](delete-tdo/)
+* [Delete a TDO/recording container](/apis/job-quick-start-guide/delete-tdo)
 
  
 
