@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Veritone Docs</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Veritone Docs">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="apple-touch-icon"
+    sizes="180x180"
+    href="https://static.veritone.com/assets/favicon/apple-touch-icon.png?v=lkgpRBRLYl"
+  >
+  <link rel="icon"
+    type="image/png"
+    href="https://static.veritone.com/assets/favicon/favicon-32x32.png?v=lkgpRBRLYl"
+    sizes="32x32"
+  >
+  <link rel="icon"
+    type="image/png"
+    href="https://static.veritone.com/assets/favicon/favicon-16x16.png?v=lkgpRBRLYl"
+    sizes="16x16"
+  >
+  <link rel="mask-icon"
+    href="https://static.veritone.com/assets/favicon/safari-pinned-tab.svg?v=lkgpRBRLYl"
+    color="#597cb1"
+  >
+  <link rel="shortcut icon"
+    href="https://static.veritone.com/assets/favicon/favicon.ico"
+    type="image/x-icon"
+  >
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
+</head>
+<body>
+  <nav>
+    <a href="https://chat.veritone.com/" target="_blank"><img src="/slack.svg" style="margin-right: 5px"/>Join us on Slack</a>
+  </nav>
+  <div id="app"></div>
+  <script src="//unpkg.com/docsify-copy-code/index.js"></script>
+  <script>
+    window.$docsify = {
+      search: 'auto', // default
+      maxLevel: 1,
+      name: '<div><img src="https://static.veritone.com/assets/favicon/favicon.ico" height="18px" width="18px" style="margin-right: 5px" /> Veritone Docs</div>',
+      repo: '',
+      // routerMode: 'history',
+      subMaxLevel: 2,
+      loadSidebar: true,
+      auto2top: true,
+      plugins: [
+        window.DocsifyCopyCodePlugin.init()
+      ]
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-graphql.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-http.min.js"></script>
+</body>
+</html>
