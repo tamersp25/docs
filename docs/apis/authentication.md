@@ -1,11 +1,4 @@
-<<<<<<< HEAD:src/pages/apis/authentication.md
----
-title: Authentication
-order: 3
----
-=======
 # Authentication
->>>>>>> develop:docs/apis/authentication.md
 
 Veritone uses token-based authentication for accessing the system and resources. Currently, the following authentication types are provided to meet the security needs of specific actions being performed:
 

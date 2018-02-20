@@ -1,11 +1,4 @@
-<<<<<<< HEAD:src/pages/apis/using-graphql.md
----
-title: Using GraphQL
-order: 2
----
-=======
 # Using GraphQL
->>>>>>> develop:docs/apis/using-graphql.md
 
 ## What is GraphQL?
 

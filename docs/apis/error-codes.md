@@ -1,11 +1,4 @@
-<<<<<<< HEAD:src/pages/apis/error-codes.md
----
-title: Error Codes
-order: 4
----
-=======
 # Error Codes
->>>>>>> develop:docs/apis/error-codes.md
 
 Error handling in a GraphQL API is slightly different than error
 handling in a typical REST API:
