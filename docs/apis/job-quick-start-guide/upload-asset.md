@@ -1,6 +1,6 @@
 # Upload an Asset
 
-Once an empty TDO has been created, call the *Create Asset* mutation to add and store a digital media asset (video or audio file) to it for processing. Requests must include the Container ID returned in the [Create a TDO](create-tdo/) response, as well as an asset type and content type. There are two available options for setting up your *Create Asset* request, which are described below.
+Once an empty TDO has been created, call the *Create Asset* mutation to add and store a digital media asset (video or audio file) to it for processing. Requests must include the Container ID returned in the [Create a TDO](/apis/job-quick-start-guide/create-tdo) response, as well as an asset type and content type. There are two available options for setting up your *Create Asset* request, which are described below.
 
 ### Option 1
 ----------
