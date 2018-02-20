@@ -27,6 +27,7 @@
 
 * APIs
 * * [Overview](apis/)
+* * [The Veritone API Data Model](apis/data-model.md)
 * * [Using GraphQL](apis/using-graphql.md)
 * * [Authentication](apis/authentication.md)
 * * [Error Codes](apis/error-codes.md)
