@@ -16,7 +16,7 @@ Send the file contents as part of the request. This option uses the *multipart/f
 -----------request fields-----------
   createAsset(input :{    => The Create Asset mutation type and input variable. (required)
     containerId: "string" => The TDO/Container ID returned in the Create TDO response.  (required)
-    contentType: integer  => The MIME type of the asset (e.g., audio/mp3). (required)
+    contentType: "string" => The MIME type of the asset (e.g., audio/mp3). (required)
     type: "string"        => A label that classifies an asset, such as “transcript,” “media,” or “text.” (required)
     name: "string"        => A user-entered name for the asset. (optional)
   }){
@@ -36,9 +36,22 @@ curl -X POST \
   https://api.veritone.com/v3/graphql \
   -H 'authorization: Bearer 31gcf6:2e76022093e64732b4c48f202234394328abcf72d50e4981b8043a19e8d9baac' \
   -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F 'filename=AM Daily.ttml' \
+  -F 'filename=AM Daily.mp4' \
   -F 'file=@/Users/bobjones/Downloads/AM Daily.mp4' \
-  -d '{"query": "mutation { createAsset( input: { containerId: \"44512341\", contentType: \"video/mp4\", type: \"media\" }) { id, type, contentType, containerId, signedUri } }" }'
+  -F 'query=mutation {
+       createAsset(
+         input: {
+           containerId: "44512341",
+           contentType: "video/mp4",
+           type: "media"
+           }) {
+           id
+           type
+           contentType
+           containerId
+           signedUri
+         }
+       }'
 ```
 
 #### Option 1 Sample Response: Upload an Asset 
@@ -67,7 +80,7 @@ mutation {
 -----------request fields-----------
   createAsset(input :{    => The Create Asset mutation type and input variable. (required)
     containerId: "string" => The TDO/Container ID returned in the Create TDO response.  (required)
-    contentType: integer  => The MIME type of the asset (e.g., audio/mp3). (required)
+    contentType: "string" => The MIME type of the asset (e.g., audio/mp3). (required)
     type: "string"        => A label that classifies an asset, such as “transcript,” “media,” or “text.” (required)
     uri: "string"         => The path to the asset data. (required)
   }){
@@ -107,7 +120,7 @@ curl -X POST \
   https://api.veritone.com/v3/graphql \
   -H 'authorization: Bearer 31gcf6:2e76022093e64732b4c48f202234394328abcf72d50e4981b8043a19e8d9baac' \
   -H 'content-type: application/json' \
-  -d '{"query": "mutation { createAsset( input: { containerId: \"44512341\", contentType: \"video/mp4\", type: \"media\", uri:\" https://www.youtube.com/watch?v=xsK9WsL0fVc\" }) { id, type, contentType, containerId, signedUri } }" }'
+  -d '{"query": "mutation { createAsset( input: { containerId: \"44512341\", contentType: \"video/mp4\", type: \"media\", uri:\"https://www.youtube.com/watch?v=xsK9WsL0fVc\" }) { id, type, contentType, containerId, signedUri } }" }'
 ```
 
 #### Option 2 Sample Response: Upload an Asset 
