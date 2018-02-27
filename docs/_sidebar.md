@@ -30,7 +30,7 @@
 * * [Using GraphQL](apis/using-graphql.md)
 * * [Authentication](apis/authentication.md)
 * * [Error Codes](apis/error-codes.md)
-* * [Job Quickstart Guide](apis/job-quick-start-guide/)
+* * [Job Quickstart Guide](apis/job-quickstart.md)
 * * [Tutorials](apis/tutorials/)
 
 <!-- * Libraries
