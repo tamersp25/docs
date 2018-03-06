@@ -6,6 +6,8 @@ It assumes that you know what GraphQL is
 and understand terms like _schema_, _type_, _field_, _mutation_, and _query_,
 and are ready to start using the Veritone APIs.
 
+This page includes examples using `curl`, Postman, Javascript, and Python.
+
 ## Basic request format
 
 Every request is an HTTP POST.
@@ -49,6 +51,28 @@ The API returns plain JSON:
 {"data":{"asset":{"id":"<your asset ID>","assetType":"transcript"}}}
 ```
 
+You can also use the multipart form POST request format. The response and
+the way authorization is sent are exactly the same. For manual testing
+a form request can be a little easier to format since the GraphQL query
+is sent directly in the `query` form field instead of embedded in JSON.
+Note that double quotes inside the GraphQL query in this format do
+not have to be escaped.
+
+```bash
+curl -v \
+>  -H 'Authorization: Bearer <token>' \
+>  https://api.veritone.com/v3/graphql \
+>  -F query='query { asset(id: "<an asset ID>") { id assetType } }'
+```
+
+Here's an example of a basic request in Postman.
+First we set the `Authorization` header using a valid token:
+![Set auth token in Postman](/apis/tutorials/postman-auth.png)
+
+Then we send the GraphQL query using multipart form post:
+![Send GraphQL query](/apis/tutorials/postman-query.png)
+
+
 ## Using GraphQL Variables
 
 It is often convenient to write GraphQL queries using
@@ -89,9 +113,16 @@ back from the GraphQL server. The error message will indicate the problem. Typic
 GraphQL query
 - variables are referenced in the query but not properly declared or sent in the `variables` parameter
 
+Here's a Postman sample query using variables:
+![GraphQL query with variables](/apis/tutorials/postman-varquery.png)
+
+And here we bind the variable values:
+![GraphQL query with variables](/apis/tutorials/postman-varvars.png)
+
 ## Uploading files with multipart form post
 
-The GraphQL server also accepts multipart form post requests. You can submit plain queries
+The GraphQL server also accepts multipart form post requests as described above.
+You can submit plain queries
 this way if convenient, but the primary purpose of the method is to support file upload for mutations
 that accept them. Here is a `curl` example:
 
@@ -109,6 +140,14 @@ Note the following differences when using multipart form post:
 - variables are defined in a JSON object (exclude this parameter if your query does not use variables)
 - a single `file` element contains the file to upload. This convention is used across all Veritone GraphQL APIs that accept a file upload.
 - all other aspects of the request -- URL, HTTP method, authentication, etc. -- are the same as a plain JSON request.
+
+Here's another example using Postman.
+Here's the mutation:
+![Mutation with file upload](/apis/tutorials/postman-file1.png)
+Now we bind variables:
+![Variables with file upload](/apis/tutorials/postman-file2.png)
+And last, we attach the file:
+![Attaching the file](/apis/tutorials/postman-file3.png)
 
 Use of a client library that handles multipart form post is strongly recommended.
 
