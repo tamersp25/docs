@@ -67,10 +67,10 @@ curl -v \
 
 Here's an example of a basic request in Postman.
 First we set the `Authorization` header using a valid token:
-![Set auth token in Postman](/apis/tutorials/postman-auth.png)
+![Set auth token in Postman](postman-auth.png)
 
 Then we send the GraphQL query using multipart form post:
-![Send GraphQL query](/apis/tutorials/postman-query.png)
+![Send GraphQL query](postman-query.png)
 
 
 ## Using GraphQL Variables
@@ -143,11 +143,11 @@ Note the following differences when using multipart form post:
 
 Here's another example using Postman.
 Here's the mutation:
-![Mutation with file upload](/apis/tutorials/postman-file1.png)
+![Mutation with file upload](postman-file1.png)
 Now we bind variables:
-![Variables with file upload](/apis/tutorials/postman-file2.png)
+![Variables with file upload](postman-file2.png)
 And last, we attach the file:
-![Attaching the file](/apis/tutorials/postman-file3.png)
+![Attaching the file](postman-file3.png)
 
 Use of a client library that handles multipart form post is strongly recommended.
 
