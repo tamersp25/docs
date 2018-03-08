@@ -5,11 +5,11 @@ When you create an app in Veritone, you specify general information that defines
 ### To create and configure your application
 1\.  Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
 
-![VDA-Create-Application-1](/applications/quick-start/VDA-Create-Application-1.png)
+![VDA-Create-Application-1](VDA-Create-Application-1.png)
 
 2\. Click **New Application** in the upper right of the window. The _Basic Application Details_ page opens.
 
-![VDA-Create-Application-2](/applications/quick-start/VDA-Create-Application-2.png)
+![VDA-Create-Application-2](VDA-Create-Application-2.png)
 
 3\. Enter the following basic details to define your application:  
 
@@ -21,7 +21,7 @@ When you create an app in Veritone, you specify general information that defines
 
 4\. Click **Submit** to continue. The application details page opens and an "Application created successfully" message momentarily displays. 
 
-![VDA-Create-Application-3](/applications/quick-start/VDA-Create-Application-3.png)
+![VDA-Create-Application-3](VDA-Create-Application-3.png)
 
 5\. Review your application details.
 
@@ -30,8 +30,8 @@ When you create an app in Veritone, you specify general information that defines
 
 Once your app has been created, use the values at the top of the page to [configure your app with OAuth 2.0 authentication](/applications/oauth). 
 
-![VDA-Create-Application-4](/applications/quick-start/VDA-Create-Application-4.png)
+![VDA-Create-Application-4](VDA-Create-Application-4.png)
 
 6\. To access your app for testing, click the **App Picker** at the top of the window and select your app from the drop-down list.
 
-![VDA Access Application from App Picker](/applications/quick-start/VDA-Access-Application-from-App-Picker.png)
+![VDA Access Application from App Picker](VDA-Access-Application-from-App-Picker.png)

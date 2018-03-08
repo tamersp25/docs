@@ -70,7 +70,7 @@ The `fields` property on the engines defines the set of input parameters the eng
 You can see how the various options behave by running engines against media in CMS using 
 the "Advanced Cognitive Settings" mode and viewing the dropdown options.
 
-![](/apis/tutorials/engine-fields-in-cms.png)
+![](engine-fields-in-cms.png)
 
 In practice, you would probably want to limit your returned dataset by specifying 
 a particular engine category or searching by engine name

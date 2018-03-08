@@ -214,7 +214,7 @@ curl -X POST \
 
 Next, iterate through the retrieved assets and find the most relevant file to use as the input for your engine. Asset data files are stored in Veritone&rsquo;s S3 environment. Once the most relevant asset has been identified, download the file from the signed URI.
 
-_Note:_ Veritone accepts a variety of media formats, so it's important that your code supports all of the applicable formats for your engine's class. Each of your engine's supported format types must also be specified in the *Supported Input Formats* section of the [manifest](../manifest/).
+_Note:_ Veritone accepts a variety of media formats, so it's important that your code supports all of the applicable formats for your engine's class. Each of your engine's supported format types must also be specified in the *Supported Input Formats* section of the [manifest](engines/manifest).
 
 _Best Practice Tip:_ A recording&rsquo;s original asset has the highest fidelity. If a recording has multiple assets, it's recommended to sort by _createdDateTime_ and select the oldest asset in a format that your engine can process.
 

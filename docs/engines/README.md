@@ -61,7 +61,7 @@ An engine in the Veritone Platform follows a logical set of steps to process a t
 
 * **Upload Output:** Submit output data back to Veritone.
 
-![](/engines/VDA-Task-Process-Flow-Diagram.png)
+![](VDA-Task-Process-Flow-Diagram.png)
 
 #### Engine States
 

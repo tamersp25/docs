@@ -10,12 +10,12 @@ To submit your Application for review:
 
 1\. Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
 
-![](/applications/quick-start/VDA-Create-Application-1.png)
+![](VDA-Create-Application-1.png)
 
 2\. Click the **vertical ellipsis** on the right of the application entry in the _Applications_ table and select **Submit for Approval**. The confirmation window opens.
 
-![](/applications/quick-start/VDA-Submit-an-Application-2.png)
+![](VDA-Submit-an-Application-2.png)
 
 3\. Click **Submit**. The confirmation window closes and the application status changes to _Pending_.
 
-![](/applications/quick-start/VDA-Submit-an-Application.png)
+![](VDA-Submit-an-Application.png)

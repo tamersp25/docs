@@ -24,4 +24,4 @@ Scopes are not currently supported and all users have the same Organization scop
 
 Disable the application in Developer App.
 
-![application options](/applications/application-options-dropdown.jpg)
+![application options](application-options-dropdown.jpg)
