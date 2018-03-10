@@ -5,11 +5,13 @@
   "dependencies": {},
   "main": "n/a",
   "scripts": {
-    "start": "docsify serve ./docs",
-    "deploy": "gh-pages -d docs -t --branch master"
+    "start": "./node_modules/.bin/docsify serve ./docs",
+    "deploy": "sh ./schemagen.sh; ./node_modules/.bin/gh-pages -d docs -t --branch master"
   },
   "devDependencies": {
-    "docsify": "^4.6.3",
+    "docsify": "^4.6.7",
+    "docsify-cli": "^4.2.0",
+    "get-graphql-schema": "^2.1.1",
     "gh-pages": "^1.1.0"
   }
 }

@@ -134,6 +134,8 @@ Queries that support paging all use a consistent set of parameters and return fi
 
 Veritone's platform is full-featured and growing constantly, so the schema is necessarily complex. For most users, the best way to explore it is interactively using GraphiQL. You can also consult the static documentation at https://api.veritone.com/v3/graphqldocs/ or review the high-level entity relationship diagram below.
 
+You can find raw GraphQL schema files [here](/apis/schema/listing) .
+
 ## GraphQL hints and tips
 
 Use GraphiQL to explore the schema, make ad hoc queries to find data, and test and debug queries and mutations for your applications.
