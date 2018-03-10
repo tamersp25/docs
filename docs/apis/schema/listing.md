@@ -4,9 +4,8 @@ Some commonly available tooling for GraphQL, including code generators,
 requires a schema reference.
 
 Current V3 schema files are available at:
-* [schema.graphql](/apis/schema/v3/schema.graphql)
-* [schema.json](/apis/schema/v3/schema.json)
-* [v3](/apis/schema/v3.json)
+* [schema.graphql](https://docs.veritone.com/apis/schema/v3/schema.graphql)
+* [schema.json](https://docs.veritone.com/apis/schema/v3/schema.json)
 
 The GraphQL server provides introspection queries that can be used to
 dynamically inspect the schema. These queries have complete access to
