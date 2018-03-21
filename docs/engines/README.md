@@ -12,6 +12,14 @@ Remember that our developer support team is here to answer questions and provide
 
 Within the Veritone Developer application, the word _engine_ is used to reference the external-facing, user-friendly representation of your software. The actual code and processing algorithms are contained in a _build_. A single engine can contain multiple builds, but only one build can deployed in production at a time. The engine and build approach allows you to update, test, and refine your code while offering the latest version of your engine to the marketplace. Once a new build is approved, it can be deployed to production and replace the existing one.
 
+#### [Engine Types](/engines/types/)
+
+Veritone supports two engine types in VDA:
+
+1. __Ingestion:__ Ingestion engines, also referred to as Adapters, are engines that bring data from a location outside of the Veritone platform to inside of the platform where the data can be further processed. Adapters typically handle the connection to the location of the data, passing in credentials if necessary. They are also responsible for scanning or discovering data at the location if needed and then doing the work of ingesting the data.
+
+2. __Cognition:__ Cognition engines are engines that process data to extract value or insight, often through using machine learning technology.
+
 #### [Cognitive Engine Classes](/engines/classes/)
 
 Veritone provides all of the processing power you need to support your machine learning tasks. With a portfolio of more than 50 cognitive engine categories across seven classes, our platform is designed to handle a variety of machine learning frameworks and algorithms. Simply choose the category that's best suited to your needs and follow the provided data structure for rapid development.
@@ -41,7 +49,7 @@ Each build that's uploaded to Veritone is required to undergo compliance testing
 
 When developing your engine, you'll work locally, package and upload your build as a Docker image, then deploy your approved engine container into production.
 
-1. [Create an Engine: ](/engines/quick-start/step-1-create-an-engine)Specify basic information about your engine, including the engine name, description, logo, and deployment model.
+1. [Create an Engine: ](/engines/quick-start/step-1-create-an-engine)Specify basic information about your engine, including the engine name, type, description, logo, and deployment model.
 2. Add APIs and [configure your code](/engines/quick-start/step-2-construct-code) to support Veritone's task processing flow and your engine category's specific input/output fields.
 3. [Create your manifest file](/engines/quick-start/step-3-manifest) with specific details about your engine and how it will run.
 4. [Build a Dockerfile](/engines/quick-start/step-4-upload-build) that packages your code, dependencies, and manifest, and use it to create a Docker image. Then push your Docker image to Veritone's Docker Registry and initiate the compliance testing process.
