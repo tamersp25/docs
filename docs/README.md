@@ -71,8 +71,6 @@ Veritone Admin is used to establish, monitor, and manage account configurations,
 
 Veritone Library provides capabilities for creating a custom database of faces to easily recognize people in video files. Veritone Library also includes a set of pre-defined libraries with more than 10,000 famous faces from around the world, including athletes, TV/news personalities, celebrities, and foreign dignitaries.
 
-
 #### Developer
 
-Veritone Developer is a self-service environment where registered AI application and cognitive engine developers alike can access tools, documentation, APIs to build and submit their work for consideration. Transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators are also available within the Veritone Developer Application.
-
+Veritone Developer is a self-service environment where registered developers can access tools, documentation, APIs to build and submit their AI applications, ingestion engines, cognitive engines or data schemas for consideration. We'll be continuing to add new features to the Veritone Developer application over time, and you can expect to see transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators added in the coming months.
