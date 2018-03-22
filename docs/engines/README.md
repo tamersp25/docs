@@ -12,11 +12,11 @@ Remember that our developer support team is here to answer questions and provide
 
 Within the Veritone Developer application, the word _engine_ is used to reference the external-facing, user-friendly representation of your software. The actual code and processing algorithms are contained in a _build_. A single engine can contain multiple builds, but only one build can deployed in production at a time. The engine and build approach allows you to update, test, and refine your code while offering the latest version of your engine to the marketplace. Once a new build is approved, it can be deployed to production and replace the existing one.
 
-#### [Engine Types](/enginetypes)
+#### [Engine Types](/engines/enginetypes)
 
 Veritone supports two engine types in VDA:
 
-1. __Ingestion:__ Ingestion engines, also referred to as [Adapters](/adapters), are engines that bring data, which may be in the form of a file or stream of structured or unstructured content, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
+1. __Ingestion:__ Ingestion engines, also referred to as [Adapters](/engines/adapters), are engines that bring data, which may be in the form of a file or stream of structured or unstructured content, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
 
 2. __Cognition:__ Cognition engines are engines that process data to extract value or insight, often through using machine learning technology.
 
