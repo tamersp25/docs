@@ -12,11 +12,11 @@ Remember that our developer support team is here to answer questions and provide
 
 Within the Veritone Developer application, the word _engine_ is used to reference the external-facing, user-friendly representation of your software. The actual code and processing algorithms are contained in a _build_. A single engine can contain multiple builds, but only one build can deployed in production at a time. The engine and build approach allows you to update, test, and refine your code while offering the latest version of your engine to the marketplace. Once a new build is approved, it can be deployed to production and replace the existing one.
 
-#### [Engine Types](/engines/types/)
+#### [Engine Types](/enginetypes)
 
 Veritone supports two engine types in VDA:
 
-1. __Ingestion:__ Ingestion engines, also referred to as Adapters, are engines that bring data from a location outside of the Veritone platform to inside of the platform where the data can be further processed. Adapters typically handle the connection to the location of the data, passing in credentials if necessary. They are also responsible for scanning or discovering data at the location if needed and then doing the work of ingesting the data.
+1. __Ingestion:__ Ingestion engines, also referred to as [Adapters](/adapters), are engines that bring data, which may be in the form of a file or stream of structured or unstructured content, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
 
 2. __Cognition:__ Cognition engines are engines that process data to extract value or insight, often through using machine learning technology.
 
@@ -47,7 +47,7 @@ Each build that's uploaded to Veritone is required to undergo compliance testing
 
 #### Engine Development Process
 
-When developing your engine, you'll work locally, package and upload your build as a Docker image, then deploy your approved engine container into production.
+When developing your engine, whether it's an ingestion or cognitive engine, you'll work locally, package and upload your build as a Docker image, then deploy your approved engine container into production.
 
 1. [Create an Engine: ](/engines/quick-start/step-1-create-an-engine)Specify basic information about your engine, including the engine name, type, description, logo, and deployment model.
 2. Add APIs and [configure your code](/engines/quick-start/step-2-construct-code) to support Veritone's task processing flow and your engine category's specific input/output fields.
@@ -61,7 +61,11 @@ Our [Quick Start](/engines/quick-start/) is designed to take you through the eng
 
 #### Task Processing Flow
 
-An engine in the Veritone Platform follows a logical set of steps to process a task. This includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. Each step in the task flow must be built into your code. A high-level overview of the process is described below, and you'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines).
+An engine in the Veritone Platform follows a logical set of steps to process a task. For cognitive engines, this includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. For ingestion engines, the steps are similar, only instead of retrieving the asset, you're retrieving the data, transforming it if needed, and providing it as an asset to Veritone.
+
+Each step in the task flow must be built into your code. A high-level overview of the process is described below, and you'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines).
+
+NEED TO MODIFY THIS FOR ADAPTERS V AND GRAPHIC HAS A TYPO
 
 * **Input:** Veritone passes a payload specifying the resources and operations of the task.
 
