@@ -18,7 +18,7 @@ Veritone supports two engine types in VDA:
 
 1. __Ingestion:__ Ingestion engines, also referred to as [Adapters](/engines/adapters), are engines that bring data, which may be in the form of a file or stream of structured or unstructured content, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
 
-2. __Cognition:__ Cognition engines are engines that process data to extract value or insight, often through using machine learning technology.
+2. __Cognition:__ Cognitive engines are engines that process data to extract value or insight, often through using machine learning technology.
 
 #### [Cognitive Engine Classes](/engines/classes/)
 
