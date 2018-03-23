@@ -20,4 +20,4 @@ Cognitive engines are engines that process data, often using sophisticated algor
 
 Cognitive engines can work on streams of data or more discrete batches or files. MORE ABOUT REAL-TIME ENGINES HERE.
 
-Cognitive engines are the workhorse of the Veritone platform, and if you have a new cognitive engine, you can register it under the Engines of the Veritone Developer App. Just be sure to select the engine type of _Cognition_.
+Cognitive engines are the workhorse of the Veritone platform, and if you have a new cognitive engine, you can register it under the Engines section of the Veritone Developer App. Just be sure to select the engine type of _Cognition_.
