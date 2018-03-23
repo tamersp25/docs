@@ -37,7 +37,7 @@ Veritone now supports real-time ingestion and processing of content. Users can s
 
 ### Expand Your Insights with Structured Data
 
-Veritone now allows you to ingest structured data, either as standalone content or to match up with and enhance another data source. Upload the contents of your database for correlation or use a third-party data feed to ingest and process, all within the Veritone Platform.
+Veritone now allows you to ingest structured data, either as standalone content or to match up with and enhance another data source. Ingest the contents of your private database or use a third-party data feed. Use text data to correlate with what's being shown in a video by time. The possibilities are within reach.
 
 ### Future-Proof and Ever-Evolving
 
