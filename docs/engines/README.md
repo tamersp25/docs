@@ -16,9 +16,9 @@ Within the Veritone Developer application, the word _engine_ is used to referenc
 
 Veritone supports two engine types in VDA:
 
-1. __Ingestion:__ Ingestion engines, also referred to as [Adapters](/engines/adapters), are engines that bring data, which may be in the form of a file or stream of structured or unstructured content, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
+1. __Cognition:__ Cognitive engines are engines that process data to extract value or insight, often through using machine learning technology.
 
-2. __Cognition:__ Cognitive engines are engines that process data to extract value or insight, often through using machine learning technology.
+2. __Ingestion:__ Ingestion engines, also referred to as adapters, are engines that bring data, which may be in the form of a file or stream, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
 
 #### [Cognitive Engine Classes](/engines/classes/)
 
@@ -61,19 +61,17 @@ Our [Quick Start](/engines/quick-start/) is designed to take you through the eng
 
 #### Task Processing Flow
 
-An engine in the Veritone Platform follows a logical set of steps to process a task. For cognitive engines, this includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. For ingestion engines, the steps are similar, only instead of retrieving the asset, you're retrieving the data, transforming it if needed, and providing it as an asset to Veritone.
+An engine in the Veritone Platform follows a logical set of steps to process a task. For cognitive engines, this includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. For ingestion engines, the steps are similar, only instead of retrieving the asset, you're retrieving the raw input data, transforming it if needed, and providing it as an asset to Veritone where it can be processed by cognitive engines.
 
 Each step in the task flow must be built into your code. A high-level overview of the process is described below, and you'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines).
 
-NEED TO MODIFY THIS FOR ADAPTERS V AND GRAPHIC HAS A TYPO
-
 * **Input:** Veritone passes a payload specifying the resources and operations of the task.
 
-* **Processing:** The engine retrieves the asset and processes the data.
+* **Implementation:** The engine retrieves the asset and implements the task.
 
-* **Upload Output:** Submit output data back to Veritone.
+* **Output:** The output from implementing the task is submitted back to Veritone.
 
-![](VDA-Task-Process-Flow-Diagram.png)
+![](VDA-Task-Process-Flow-Diagram_2.png)
 
 #### Engine States
 
