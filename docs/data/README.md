@@ -22,7 +22,7 @@ Note that the same dataset can be used as either primary or secondary data, depe
 
 ## Overview
 
-We'll provide a quick, high-level of the requirements for working with structured data within the Veritone platform, for both primary and secondary data. For step-by-step instructions, check out the [Quick Start Guide](/data/quick-start).
+We'll provide a quick, high-level overview of the requirements for working with structured data within the Veritone platform, for both primary and secondary data. For step-by-step instructions, check out the [Quick Start Guide](/data/quick-start).
 
 **Register a Schema:** To use structured data within the Veritone platform, the first step is to register and upload a schema for your data. The schema, which should be in JSON format, gives Veritone the information needed to properly ingest, store and index your data.
 
