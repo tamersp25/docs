@@ -2,7 +2,7 @@
 
 ##### Q: I'm not that familiar with Docker, is this a requirement for engines?
 
-<p style="font-size: 16px"><strong>A:</strong>  Yes, though a Docker can be developed quite easily with the limited functionality of accepting a JSON payload with instructions, calling your API to hook to any backend technology, and post the results to our database.  Please refer to the documentation regarding Docker here.</p>
+<p style="font-size: 16px"><strong>A:</strong>  Yes, a Docker container can be developed quite easily with the limited functionality of accepting a JSON payload with instructions, calling your API to hook to any backend technology, and post the results to our database.  Please refer to the documentation regarding Docker [here]|(https://docs.docker.com/get-started/).</p>
 
 ##### Q: Will Veritone consider an exclusive deal within a Cognitive Class, in exchange for a discounted engine license price, so that I can be guaranteed my engine will earn more volume?
 
