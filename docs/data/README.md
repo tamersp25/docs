@@ -22,14 +22,12 @@ Note that the same dataset can be used as either primary or secondary data, depe
 
 ## Overview
 
-We'll provide a quick, high-level of the process for working with structured data within the Veritone platform, for both primary and secondary data. For step-by-step instructions, check out our [Quick Start Guide](/data/quick-start).
+We'll provide a quick, high-level of the requirements for working with structured data within the Veritone platform, for both primary and secondary data. For step-by-step instructions, check out our [Quick Start Guide](/data/quick-start).
 
-**Register Schema:** To use structured data within the Veritone platform, the first step is to register and upload a schema for your data. The schema, which should be in JSON format, gives Veritone the information needed to properly ingest, store and index your data.
+**Register a Schema:** To use structured data within the Veritone platform, the first step is to register and upload a schema for your data. The schema, which should be in JSON format, gives Veritone the information needed to properly ingest, store and index your data.
 
-**Select Adapter:** Next, you'll need to ingest the data into the platform using an adapter that can connect to your data source and output it in accordance with your schema. If there isn't an existing adapter that works, you can [build and register one](/engines/quick-start).
+**Select Adapter:** Next, you'll need to ingest the data into the platform using an adapter that can connect to your data source and output it in accordance with your schema. If there isn't an existing adapter that meets your needs, you can [build and register one](/engines/quick-start).
 
-**Create Ingestion Job:** Now you'll create an ingestion job, using the Veritone UI or API, to pull down from your data source using the adapter. Ingestion jobs may have a schedule, and you can set the data ingestion to occur on a one-off, recurring or continuous basis. 
+**Select Cognitive Engine:** To process the data, you'll need to have a compatible engine. In the case of primary data, the engine can transform the structured data and extract cognitive insights. In the case of secondary data, the engine should be able to correlate the structured data to your primary content. In either case, if there isn't an existing engine that meets your needs, you can [build and register one](/engines/quick-start).
 
-**Select Engine:** Once it's ingested into the platform, the next steps depend on whether you want to use the data as primary or secondary data. For primary data, you can select a compatible cognitive engine to process it, and the results will be available as assets that you can download or search for and view in the Veritone UI. For secondary data, you'll need to wait until you have created a job to process your primary content, and as part of the engine workflow selection, you can select a correlation engine that will append your primary content with the secondary structured data. In either case, if you don't see an existing engine that works for your structured data needs, you can [build and register one](/engines/quick-start).
-
-
+**Create Job:** The type of job you create will depend on your use case. For primary data, you'll create an ingestion and processing job, using the Veritone UI or API, to pull the structured data down from your data source using the adapter and then processing it using a cognitive engine. For secondary data, you'll create an ingestion job so that your secondary structured data is available for use within the platform, through the correlation engine. When a job is created for processing content that includes the correlation engine, the structured data will be appended to the results for the content.
