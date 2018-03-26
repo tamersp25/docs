@@ -6,7 +6,9 @@ This section covers everything you need to properly construct your code for task
 
 Veritone&rsquo;s GraphiQL interface is recommended for making test API requests, but calls can also be made using other HTTP clients. All requests must be HTTP POST to the [_https://api.veritone.com/v3/graphql_](https://api.veritone.com/v3/graphql) endpoint with *application/json* encoded bodies. In addition, requests must be authenticated [using an API Token](apis/authentication). Pass the token in your request using the _Authorization_ header with a value _Bearer <token>_. If you&rsquo;re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
-The task processing workflow is detailed in the steps below:
+The steps for constructing an engine are detailed below, starting with cognitive engines. If you are building an ingestion engine or adapter, please also read the information in [Construction Guidelines for Adapters](## Construction Guidelines for Adapters).
+
+## Construction of Cognitive Engines
 
 1. **Receive the Task Payload**
 2. **Set Task Status to Running**
@@ -21,10 +23,9 @@ The task processing workflow is detailed in the steps below:
 
 **1. Receive the Task Payload**
 
-When an engine gets a task to run, a payload with arguments specific to the task and references to media assets is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the the fields specified in the payload.The task payload is accessed through the PAYLOAD_FILE environment variable.
+When an engine gets a task to run, a payload with arguments specific to the task and references to media assets is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the fields specified in the payload. The task payload is accessed through the PAYLOAD_FILE environment variable.
 
 _Best Practice Tip_: For local development, it&rsquo;s recommended to support accepting the payload file location through a command line variable.
-Sample Task Payload
 
 **Task Payload Attributes**
 
@@ -372,4 +373,247 @@ curl -X POST \
     }
   }
 }
+```
+
+## Construction Guidelines for Adapters
+
+As engines with engineType set as ingestion, adapters are constructed very similarly to cognitive engines. The basic job of an adapter is to connect to the data source and bring the data into the platform as an input asset. Beyond that, adapters may also include functionality like authenticating, scanning for new data and scheduling.
+
+The workflow steps are
+
+1. **Receive the Task Payload**
+2. **Set Task Status to Running**
+3. **Process the Task**
+4. **Set Task Status to Completed or Report Errors**
+
+
+**1. Receive the Task Payload**
+
+When an adapter gets a task to run, a payload with arguments specific to the task and references to the data source is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the fields specified in the payload. The task payload is accessed through the PAYLOAD_FILE environment variable.
+
+_Best Practice Tip_: For local development, it&rsquo;s recommended to support accepting the payload file location through a command line variable.
+
+**Task Payload Attributes**
+
+| Field              | Type   | Description                                                                                                                                                                                  |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| applicationId      | string | The application ID associated with the task.                                                                                                                                                 |
+| jobId              | string | The unique ID of the job associated with the task.                                                                                                                                           |
+| taskId             | string | The unique ID associated with the task.                                                                                                                                                      |
+| token              | string | A single-use token provided to the engine to access the recording container. All engine requests to the Veritone API must use this token.                                                    |
+| mode               | string | The mode that the adapter should operate in. Possible values are "scan" or "download"                                                    |
+| fileId             | string | The unique ID of the file associated with the task, only applicable when mode is "download"                                                   |
+| source             | object | Provides more information about the source of the data. See below for the contents of the object.                                                    |
+| metadata           | object | Provides more information to describe the data. See below for the contents of the object.                                                       |
+| job           | object | Contains the task array. See below for the contents of the object.                                                   |
+| veritoneApiBaseUrl | string | The base URL for making API requests in Veritone. Use the base URL to construct the GraphQL endpoint for your requests. (e.g., graphqlEndpoint = payload.veritoneApiBaseUrl + "/v3/graphql") |
+
+*Note:* We reserve the right to add additional properties to the payload. Any additional properties in the payload are considered undocumented and unreliable.
+
+The source object contains user input configurations, including credentials.
+
+```
+  "source": {
+        "ingestionId": string,
+        "ingestionType": string,
+        "name": string,
+        "lastProcessedDateTime": string, (if supported, key name may vary)
+        "config": {
+            "foo": any,
+            "bar": any,
+            ...
+        }
+```
+The metadata object contains additional information that the user would like to attach to the ingested data.
+
+```
+    "metadata": {
+        "date": string,
+        "tags": array,
+        "veritone-program": {
+            "programId": string,
+            "programName": string,
+            "programImage": string,
+            "programLiveImage": string
+        },
+        "veritone-permissions": {
+            "acls": array,
+            "isPublic": boolean
+        }
+    },
+```
+The job object contains the task array, for ingestion jobs that require multiple tasks.
+
+```
+    "job": {
+        "tasks": array
+    }
+```
+
+**2. Set Task Status to Running**
+
+Once you have the Task Payload, call the _Update Task_ mutation and provide the Task ID and Job ID to set the task status to _running_.
+
+#### Request Payload: Set Task Status to Running
+
+```graphql
+mutation {
+-----------request fields-----------
+  updateTask(
+    input: {           => The mutation type and input variable. (required)
+      id: "string"     => The Task ID received in the Task Payload. (required)
+      status: enum     => The status of the task. Set the value to running (without quotes). (required)
+      jobId: "string"  => The Job ID received in the task payload. (required)
+    }
+  ) {
+-----------return fields-----------
+    id      => The unique ID associated with the task. (required)
+    status  => The current status of the task. (required)
+  }
+}
+```
+
+#### GraphiQL Sample Request: Set Task Status to Running
+
+```graphql
+mutation {
+  updateTask(
+    input: {
+      id: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180"
+      jobId: "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49"
+      status: running
+    }
+  ) {
+    id
+    status
+  }
+}
+```
+
+#### cURL Sample Request: Set Task Status to Running
+
+```bash
+curl -X POST \
+  https://api.veritone.com/v3/graphql \
+  -H 'authorization: Bearer <YOUR TOKEN>' \
+  -H 'content-type: application/json' \
+  -d '{"query": "mutation { updateTask( input: { id: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180\", jobId: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49\", status: \"running\" } ) { id,  status } }" }'
+```
+
+#### Sample Response: Set Task Status to Running
+
+```json
+{
+  "data": {
+    "updateTask": {
+      "id":
+        "5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180",
+      "status": "running"
+    }
+  }
+}
+```
+
+**3. Process the Task**
+
+Next, execute your engine's core code against the data source. Some adapters will support two execution modes, specified by the payload's "mode" field:
+
+* "scan": scan the source for any new content since the last execution and create an "ingest" job for each file discovered.
+* "ingest": download a single file, specified by the "fileId" field in the payload, and create a recording and media asset.
+
+**Scan Mode**
+
+Adapters that are scheduled to "watch" a particular source for new content are typically scheduled to run on a regular schedule for some amount of time (for instance, once a day, for up to a month). In order to support this, the "scan" mode of an adapter must support some sort of cursor or bookmark to avoid re-processing the same files and be able to pick up where it last left off. A lot of times this can be supported by keeping track of the "last modified time" of the last file processed and updating it when handing a file off to the "ingest" task. (Note, files will need to be traversed in order of date and time for this to work). Once set, the updated "lastProcessedDateTime" will be provided to each execution of the "scan" mode via the "source" object in the payload. In other cases, a token generated by the provider API can be used as a bookmark.
+
+For each discovered file, the engine must create a new job containing the "ingest" task with its own engineId. This set of tasks is specified under the "job" object in the payload. When creating the job, simply put the "ingest" task as the first task, and append the contents of the job.tasks array from the payload to the tasks. The "ingest" task should also be provided a payload. This payload is specified as the "payload" field of the task and should contain the following fields:
+
+* mode: "ingest"
+* fileId: some kind of unique indentifier to identify which file to download, such as file path (ex: /media/video.mp4) or an ID
+* source: copied from the payload of the "scan" task
+* metadata: copied from the payload of the "scan" task
+
+An example GraphQL query would looks like this:
+
+```
+mutation {
+  createJob(input: {
+    tasks: [{
+      engineId: "my-adapter-engine-id",
+      payload: {
+        mode: "scan",
+        fileId: "/media/video.mp4",
+        source: {},
+        metadata: {}
+      }
+    }, {
+      engineId: "another-engine-id"
+    }, etc...]
+  }) {
+    id
+    tasks {
+      records {
+        id
+        engineId
+      }
+    }
+  }
+}
+```
+Once the ingest job has been created, the cursor/bookmark field and value must be saved to a database record called an "ingestion". This can be accomplished via a GraphQL request, using the "ingestionId" field from the payload. Example:
+
+```
+mutation {
+  updateIngestionConfiguration(input: {
+    id: "329nmv8l"
+    jsondata: {
+      lastProcessedDateTime: "2017-12-21T00:29:07.885Z"
+    }
+  }) {
+    jsondata
+  }
+}
+```
+**Ingest Mode**
+
+In the engine's ingest mode, the adapter must connect to the source and download the file referenced by "fileId" in the payload. The adapter should create a new recording (called a Temporal Data Object, or simply TDO, in the GraphQL API) and upload the file contents as a new recording asset.
+
+When creating the new TDO, use the createTDO mutator and provide the following fields:
+* startDateTime: use the date from the "metadata" object in the payload
+* stopDateTime: use the file duration to determine
+* source: source name from the payload
+* status: "recorded"
+
+After creating the TDO, an asset must be created on the TDO using the ingested file. To do so, the createAsset mutator can be used (follow the documentation from GraphiQL to determine what fields to provide). A few specific ones to note are:
+
+* type should be set to "media"
+* contentType is the MIME type and should be set
+* details should be set to the metadata value provided in the payload
+
+**4. Set Task Status to Completed or Report Errors**
+
+When a task is completed, it should be set to "complete" or "failed" if any errors occurred and the task could not be completed. These can all be accomplished by using the updateTask mutator. The output field of the task should also be updated to include some information about task results. If an error occurred, the task output should include the error message. For example:
+
+```
+{
+    "error": "server returned 404"
+}
+```
+On a successful completion of the "ingest" mode, the task output should, at the minimum, include the ID of the TDO created, specified as the field, "recordingId". Additional data fields from TDO can also be included under a "recording" object. For instance:
+
+```
+{
+    "recordingId": "400001621",
+    "recording": {
+        "id": "400001621",
+        "name": "video.mp4",
+        "startDateTime": "2017-12-21T00:29:07.885Z",
+        "stopDateTime": "2017-12-21T00:30:07.885Z",
+        "assets": [{
+            "id": "8285929482",
+            "type": "media",
+            "contentType": "video/mp4"
+        }]
+    }
+}
+```
 ```
