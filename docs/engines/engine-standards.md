@@ -4,7 +4,7 @@ title: Engine Standards
 
 #### Overview
 
-This document outlines the new proposed standard for Veritone&rsquo;s engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
+This document outlines the new proposed standard for Veritone&rsquo;s cognitive engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
 
 Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition.  
 
@@ -49,7 +49,7 @@ A Contract defines what constitutes an engine in a given category, defined by bo
 
 Contracts provide a signature/definition of the input and output payloads to and from different engines. Any changes in payload structure requires a corresponding redefinition of these asdf;lkj
 
-contracts. The contracts are registered in a central location called the registry. Veritone applications interpret input and output payloads to and from engines exclusively through the payload contracts defined in the registry. Any changes to payloads, in addition to new ones, are achieved by changing or defining a new contract in the registry. Thus, the registry provides a means for the Veritone applications to seamlessly handle changes to existing payloads, in addition to new ones.
+Contracts. The contracts are registered in a central location called the registry. Veritone applications interpret input and output payloads to and from engines exclusively through the payload contracts defined in the registry. Any changes to payloads, in addition to new ones, are achieved by changing or defining a new Contract in the registry. Thus, the registry provides a means for the Veritone applications to seamlessly handle changes to existing payloads, in addition to new ones.
 
 #### Manifest
 
@@ -1000,7 +1000,7 @@ component/metadata-topic
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to object recognition AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1034,7 +1034,7 @@ Yes
 
 Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around object recognition.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
@@ -1080,7 +1080,7 @@ component/metadata-detected-object
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to face detection AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1113,7 +1113,7 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every face detection output.  This is what is returned from the engine.
 
 Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
 
@@ -1157,7 +1157,7 @@ component/metadata-face-detection
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to face recognition AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1190,9 +1190,9 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every face recognition output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around face recognition.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
@@ -1236,7 +1236,7 @@ component/vision-face-recognition
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to machine translation AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1269,9 +1269,9 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every machine translation output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around machine translation.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
