@@ -8,11 +8,11 @@ The general authentication flow consists of a three-part process that starts wit
 
 ![general-flow](VDA-AppQS-Step2-OAuth-General-Flow.png)
 
-1.  A "Sign in with Veritone" button on your app’s login page initiates user authentication. When the user clicks the button, it redirects them to Veritone’s OAuth 2 server to log in, which authenticates their identity and authorizes your application to access their account. Once the user logs in, an authorization grant is sent to your app.
+1.  A "Sign in with Veritone" button on your app’s login page initiates user authentication. When a user clicks the button, it redirects them to Veritone’s OAuth 2 server to log in, which authenticates their identity and authorizes your application to access their account. Once the user logs in, an authorization code is sent to your app.
 
-2.  Your application requests an _Access Token_ from Veritone’s authorization server by presenting credentials to verify its identity and the authorization grant. If the application identity is authenticated and the authorization grant is valid, an _Access Token_ is issued to the application and authorization is complete.
+2.  Your application requests an _Access Token_ from Veritone’s authorization server by presenting the authorization code along with credentials to verify its identity. If your application's identity is authenticated and the authorization code is valid, an _Access Token_ is issued to your application and authorization is complete.
 
-3.  Your application uses the _Access Token_ to request user account resources from the Veritone API (resource server). If the _Access Token_ is valid, the resource server returns the requested resource to the application.
+3.  Your application uses the _Access Token_ to request user account resources from the Veritone API (resource server). If the _Access Token_ is valid, the resource server returns the requested resource to your application.
 
 Depending on the specific flow type that you use, the actual process will differ slightly from the general flow shown above. Veritone supports two flows for authentication:
 
@@ -26,17 +26,17 @@ Detailed information about the different flows is provided later in this documen
 
 Before using OAuth with your application, you must register your application with the Veritone. All registered Veritone-integrated applications are issued a set of authorization credentials that identify the app to Veritone’s OAuth 2.0 server. Once your application is registered, Veritone will issue a _Client ID_ and a _Client Secret_.
 
-* **Application Client ID:** A publicly exposed string that is used by the Veritone API to identify your application. The Client ID is also built into the Authorization URL that authenticates users .
+* **Application Client ID:** A publicly exposed string that is used by the Veritone API to identify your application. The *Client ID* is also built into the Authorization URL that authenticates users .
 
-* **Client Secret:** A unique value used to authenticate the identity of your application to the Veritone API when your application requests to access a user's account. The Client Secret must be kept private.
+* **Client Secret:** A unique value used to authenticate the identity of your application to the Veritone API when your application requests to access a user's account. The *Client Secret* must be kept private.
 
-* **Redirect URI:** The URI where the user will be directed after they authorize your application to access your account. The Redirect URI must point to the part of your application that will handle authorization codes or access tokens.
+* **Redirect URI:** The URI where the user will be directed after they authorize your application to access your account. The *Redirect URI* must point to the part of your application that will handle authorization codes or access tokens.
 
 #### Access the Client ID, Client Secret & Redirect URI
 
 The _Client ID_, _Client Secret_, and _Redirect URI_ are available at the top of the *Application* settings page.
 
-1.  Log into Veritone Developer. Click _Applications_ on the left menu. The _Applications_ dashboard opens.
+1.  Log in to Veritone Developer. Click **Applications** on the left menu. The *Applications Dashboard* opens.
 
 2.  Click the appropriate **application name** in the list. The _Application Settings_ open.![client-secret1](VDA-Oauth-Client-Secret-1.png)
 
@@ -52,29 +52,29 @@ The [passport-veritone](https://github.com/veritone/veritone-sdk/tree/master/pac
 
 ## Implementing the Authorization Code Flow
 
-The authorization code flow is designed for server-side applications where source code is not publicly exposed and the confidentiality of the _Client Secret_ can be maintained. This is a redirection-based flow that begins with user authentication returning an _Authorization Code_ that’s exchanged for an _Access Token_ to access the user’s account. Along with the _Access Token_, you get a _Refresh Token_ that can be saved in your database and used at a later point to generate a new Access Token when the original expires. Because the Authorization Code Flow uses a Client ID and Client Secret to retrieve the tokens from the back end, it has the benefit of not exposing tokens to the web browser.
+The Authorization Code Flow is designed for server-side applications where source code is not publicly exposed and the confidentiality of the _Client Secret_ can be maintained. This is a redirection-based flow that begins with user authentication returning an _Authorization Code_ that’s exchanged for an _Access Token_ to access the user’s account. Along with the _Access Token_, you get a _Refresh Token_ that can be saved in your database and used at a later point to generate a new *Access Token* when the original expires. Because the Authorization Code Flow uses a *Client ID* and *Client Secret* to retrieve the tokens from the back end, it has the benefit of not exposing tokens to the web browser.
 
 At a high-level, the Authorization Code Flow follows these steps when a user attempts to initiate a session with your application by clicking a "Sign In with Veritone" button.</br>
 ![sign-in-button](VDA-AppQS-Step2-OAuth-Sign-in-with-Veritone-Button.png)
 
 1.  Your application redirects the user to the Veritone authorization server, where the user authenticates their identity and authorizes your app to access their account by logging in.
-2.  An Authorization Code is passed to your application from the Veritone authorization server.
-3.  Your application sends the Authorization Code to Veritone, and Veritone returns an Access Token and a Refresh Token.
-4.  Your application can use the Access Token to call the Veritone API and access the user’s account.
+2.  An *Authorization Code* is passed to your application from the Veritone authorization server.
+3.  Your application sends the *Authorization Code* to Veritone, and Veritone returns an *Access Token* and a *Refresh Token*.
+4.  Your application can use the *Access Token* to call the Veritone API and access the user’s account.
 
 ![authorization-code-flow](VDA-AppQS-Step2-OAuth-Authorization-Code-Flow.png)
 
 ### **Step 1: Authenticate User and Get Authorization Code**
 
-A "Sign In With Veritone" button initiates user authentication. When a user clicks the button, you'll send them to an authorization page where they will authenticate their identity and give your application permission to access their account. In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that identify your app. The _Client ID_ and *Redirect URI *that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the _Applications_ dashboard.
+A "Sign In With Veritone" button initiates user authentication. When a user clicks the button, you'll send them to an authorization page where they will authenticate their identity and give your application permission to access their account. In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that identify your app. The _Client ID_ and *Redirect URI* that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the *Applications Dashboard*.
 
 ##### Authorization URL Components
 
 <table>
   <tr>
-    <td>Parameter</td>
-    <td>Type</td>
-    <td>Description</td>
+    <td><b>Parameter</b></td>
+    <td><b>Type</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
     <td>response_type</td>
@@ -110,7 +110,7 @@ When the user clicks the link, they’re prompted to log into Veritone to authen
 
 #### Application Receives Authorization Code
 
-After the user grants access by logging in, they arrive at your application’s Redirect URI with an _Authorization Code_ query parameter appended to the URL. You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone. If the login was unsuccessful, an error response will be returned in place of the *Authorization Code*.
+After the user grants access by logging in, they arrive at your application’s *Redirect URI* with an _Authorization Code_ query parameter appended to the URL. You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone. If the login was unsuccessful, an error response will be returned in place of the *Authorization Code*.
 
 ##### Sample Redirect URI with Authorization Code
 
@@ -122,8 +122,8 @@ https://bestappever.com/oauth/callback?code=U1XbJMBhiRk
 
 <table>
   <tr>
-    <td>Error ID</td>
-    <td>Details</td>
+    <td><b>Error ID</b></td>
+    <td><b>Details</b></td>
   </tr>
   <tr>
     <td>invalid_request</td>
@@ -172,9 +172,9 @@ _Important note:_ To ensure the security of the _Client Secret_, this request mu
 
 <table>
   <tr>
-    <td>Parameter</td>
-    <td>Type</td>
-    <td>Description</td>
+    <td><b>Parameter</b></td>
+    <td><b>Type</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
     <td>client_id</td>
@@ -232,8 +232,8 @@ Your application is now authorized! Use the _Access Token_ to authenticate API r
 
 <table>
   <tr>
-    <td>Error ID</td>
-    <td>Details</td>
+    <td><b>Error ID</b></td>
+    <td><b>Details</b></td>
   </tr>
   <tr>
     <td>invalid_client</td>
@@ -259,7 +259,7 @@ Your application is now authorized! Use the _Access Token_ to authenticate API r
 
 ### **Step 3. Using OAuth 2.0 Access Tokens**
 
-Your application will use the Access Token to access the user's account via the Veritone API. An Access Token is passed as a bearer token in the Authorization http header of requests.
+Your application will use the *Access Token* to access the user's account via the Veritone API. An *Access Token* is passed as a bearer token in the *Authorization* header of requests.
 
 ##### Sample header format
 
@@ -267,11 +267,11 @@ Your application will use the Access Token to access the user's account via the 
 Authorization: Bearer {access token}
 ```
 
-Access tokens expire after seven days and the refresh token may be used to request new a new access token if the initial token expires. If the access token is expired or otherwise invalid, the API will return an error.
+Access tokens expire after seven days and the *Refresh Token* may be used to request new a new *Access Token* if the initial token expires. If the *Access Token* is expired or otherwise invalid, the API will return an error.
 
 ### **Step 4. Using a Refresh Token**
 
-_Access Tokens_ expire every seven days. When an *Access Toke*n expires, using it to make an API request will result in an "Invalid Token Error." You can use the _Refresh Token_ that was included when the original _Access Token_ was issued to get a new _Access Token_ without requiring the user to be redirected.
+_Access Tokens_ expire every seven days. When an *Access Token* expires, using it to make an API request will result in an "Invalid Token Error." You can use the _Refresh Token_ that was included when the original _Access Token_ was issued to get a new _Access Token_ without requiring the user to be redirected.
 
 ##### Request Details
 
@@ -284,9 +284,9 @@ _Access Tokens_ expire every seven days. When an *Access Toke*n expires, using i
 
 <table>
   <tr>
-    <td>Parameter</td>
-    <td>Type</td>
-    <td>Description</td>
+    <td><b>Parameter</b></td>
+    <td><b>Type</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
     <td>client_id</td>
@@ -337,8 +337,8 @@ At a high-level, the Implicit Flow follows these steps when a user attempts to i
 ![sign-in-button](VDA-AppQS-Step2-OAuth-Sign-in-with-Veritone-Button.png)
 
 1.  Your application redirects the user to the Veritone authorization page, where the user authenticates by logging in.
-2.  Upon user login, Veritone redirects the user back to your application’s redirect URI with an Access Token as a URL fragment after the hash.
-3.  Your application extracts the Access Token from the URL and uses it to call the Veritone API and access the user’s account.
+2.  Upon user login, Veritone redirects the user back to your application’s *Redirect URI* with an *Access Token* as a URL fragment after the hash.
+3.  Your application extracts the *Access Token* from the URL and uses it to call the Veritone API and access the user’s account.
 
 ![implicit-flow](VDA-AppQS-Step2-OAuth-Implicit-Flow.png)
 
@@ -351,15 +351,15 @@ _Additional notes:_
 
 When a user attempts to begin a session with your app, they’ll click a "Sign In With Veritone" button on your login page and initiate the authentication process. In this first step, you'll construct an link that sends the user to Veritone’s authorization page and requests an _Access Token_ from the API.
 
-Use the components shown below to build the authorization URL. The _Client ID_ and _Redirect URI_ that you'll need to include can be found in the settings for your app, which you can get to by clicking the name of your app from the Applications dashboard.
+Use the components shown below to build the authorization URL. The _Client ID_ and _Redirect URI_ that you'll need to include can be found in the settings for your app, which you can get to by clicking the name of your app from the *Applications Dashboard*.
 
 ##### Authorization Link Components
 
 <table>
   <tr>
-    <td>Parameter</td>
-    <td>Type</td>
-    <td>Description</td>
+    <td><b>Parameter</b></td>
+    <td><b>Type</b></td>
+    <td><b>Description</b></td>
   </tr>
   <tr>
     <td>response_type</td>
@@ -395,7 +395,7 @@ When the user follows the authorization URL, they’re prompted to log in to Ver
 
 #### Application Receives Access Token
 
-After the user grants access by logging in, they are sent to your application Redirect URI with an _Access Token_ appended to the URL.
+After the user grants access by logging in, they are sent to your application *Redirect URI* with an _Access Token_ appended to the URL.
 
 ##### Sample Redirect URI with Access Token
 
@@ -415,8 +415,8 @@ Any errors are appended to the URI using one of the following Error IDs.
 
 <table>
   <tr>
-    <td>Error ID</td>
-    <td>Details</td>
+    <td><b>Error ID</b></td>
+    <td><b>Details</b></td>
   </tr>
   <tr>
     <td>invalid_request</td>
