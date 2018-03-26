@@ -34,13 +34,13 @@ Before using OAuth with your application, you must register your application wit
 
 #### Access the Client ID, Client Secret & Redirect URI
 
-The _Client ID_, _Client Secret_, and _Redirect URI_ are available at the top of the *Application *settings page.
+The _Client ID_, _Client Secret_, and _Redirect URI_ are available at the top of the *Application* settings page.
 
-1.  Log into Veritone Developer. Click _Overview_ in the upper left of the window and select _Applications_ from the dropdown. The _Applications_ dashboard opens.
+1.  Log into Veritone Developer. Click _Applications_ on the left menu. The _Applications_ dashboard opens.
 
 2.  Click the appropriate **application name** in the list. The _Application Settings_ open.![client-secret1](VDA-Oauth-Client-Secret-1.png)
 
-3.  The _Client ID_, _Client Secret_, and _Redirect URI_ display at the top of the page. To retrieve the _Client Secret_, click **Click to reveal**, enter your Veritone password, and click **Submit** (do not press enter on your keyboard). ![client-secret2](VDA-Oauth-Client-Secret-2.png)
+3.  The _Client ID_, _Client Secret_, and _Redirect URI_ display at the top of the page. To retrieve the _Client Secret_, click **Click to reveal**, enter your Veritone password, and click **Submit**. ![client-secret2](VDA-Oauth-Client-Secret-2.png)
 
 ### Examples and Libraries
 
@@ -66,7 +66,7 @@ At a high-level, the Authorization Code Flow follows these steps when a user att
 
 ### **Step 1: Authenticate User and Get Authorization Code**
 
-A "Sign In With Veritone" button initiates user authentication. When a user clicks the button, you'll send them to an authorization page where they will authenticate their identity and grant access to your application. In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that identify your app. The _Client ID_ and *Redirect URI *that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the _Applications_ dashboard.
+A "Sign In With Veritone" button initiates user authentication. When a user clicks the button, you'll send them to an authorization page where they will authenticate their identity and give your application permission to access their account. In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that identify your app. The _Client ID_ and *Redirect URI *that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the _Applications_ dashboard.
 
 ##### Authorization URL Components
 
@@ -110,7 +110,7 @@ When the user clicks the link, they’re prompted to log into Veritone to authen
 
 #### Application Receives Authorization Code
 
-After the user grants access by logging in, they arrive at your application’s Redirect URI with an _Authorization Code_ query parameter appended to the URL. You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone.
+After the user grants access by logging in, they arrive at your application’s Redirect URI with an _Authorization Code_ query parameter appended to the URL. You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone. If the login was unsuccessful, an error response will be returned in place of the *Authorization Code*.
 
 ##### Sample Redirect URI with Authorization Code
 
@@ -209,7 +209,7 @@ _Important note:_ To ensure the security of the _Client Secret_, this request mu
 curl -X POST \
 https://api.veritone.com/v1/admin/oauth/token \
 -H 'content-type: application/x-www-form-urlencoded' \
--d 'client_id=e6ac4220-5898-456b-b6ae-ff4f4bb6b9bf&client_secret=3GJjP97ryVwKvqXt6L518Hf5wUEZ1Po2lsobEEoAZh1D-WxB35cn-A&code=U1XbJMBhiRk&grant_type=authorization_code&redirect_uri=https://bestappever.com/oauth/callback'
+-d 'client_id=e6ac5a77-5898-456b-b6ae-ff4f4bb6b9bf&client_secret=3GJjP97ryVwKvqXt6L518Hf5wUEo2lsobEEoAZh1D-WxB35cn-A&code=U1XbJMBhiRk&grant_type=authorization_code&redirect_uri=https://bestappever.com/oauth/callback'
 ```
 
 #### Application Receives Access Token
@@ -220,13 +220,13 @@ A successful response from the code exchange request contains the _Access_ and _
 
 ```http
 {
-   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4YTEwZjIxYS1mYzY5LTQ4NTctODkwZS1iMDNmZGU1ZGJlYjMiLCJjb250ZW50QXBwbGljYXRpb25JZCI6ImVkMDc1OTg1LWJjOTQtNDA2Yi04NjM5LTQ0ZDFkYTQyYzNmYiIsIm9yaWdpbkhvc3QiOiJjYXBhcHAuY29tIiwic2NvcGUiOlt7ImFjdGlvbnMiOlsiaW5nZXN0aW9uOmRlbGV0ZSIsImluZ2VzdGlvbjp1cGRhdGUiLCJpbmdlc3Rpb246cmVhZCIsImluZ2VzdGlvbjpjcmVhdGUiLCJqb2I6Y3JlYXRlIiwiam9iOnJlYWQiLCJqb2I6dXBkYXRlIiwiam9iOmRlbGV0ZSIsInRhc2s6dXBkYXRlIiwicmVjb3JkaW5nOmNyZWF0ZSIsInJlY29yZGluZzpyZWFkIiwicmVjb3JkaW5nOnVwZGF0ZSIsInJlY29yZGluZzpkZWxldGUiLCJyZWNvcmRpbmc6Y2xvbmUiLCJyZXBvcnQ6Y3JlYXRlIiwiYW5hbHl0aWNzOnVzYWdlIiwibWVudGlvbjpjcmVhdGUiLCJtZW50aW9uOnJlYWQiLCJtZW50aW9uOnVwZGF0ZSIsIm1lbnRpb246ZGVsZXRlIiwiY29sbGVjdGlvbjpjcmVhdGUiLCJjb2xsZWN0aW9uOnJlYWQiLCJjb2xsZWN0aW9uOnVwZGF0ZSIsImNvbGxlY3Rpb246ZGVsZXRlIiwiYXNzZXQ6dXJpIl19XSwiaWF0IjoxNTIxNTUzMDA3LCJleHAiOjE1MjIxNTc4MDcsInN1YiI6Im9hdXRoMiIsImp0aSI6ImU5M2I1ODI4LTI2ZWEtNDRjZC1iY2RjLTJhODI0NzdjYWUwNCJ9.c8YmVN_R4OhVYFRscBi1wIXIX7MzhPwixHe-UQ05gE0",
-   "refresh_token": "xi_kwP2_laa4t7_Mwu-k0a_dka3V3YWfIH-Nm7C84XaBvkjyUDdS5A",
+   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4YTEwZjIxYS1mYzY5LTQ4NTctODkwZS1iMDNmZGU1ZGJlYjMiLCJjb250ZW50QXBwbGljYXRpb25JZCI6ImVkMDc1OTg1LWJjOTQtNDA2Yi04NjM5LTQ0ZDFkYTQyYzNmYiIsIm9yaWdpbkhvc3QiOiJjYXBhcHAuY29tIiwic2NvcGUiOlt7ImFjdGlvbnMiOlsiaW5nZXN0aW9uOmRlbGV0ZSIsImluZ2Vbjp1cGRhdGUiLCJpbmdlc3Rpb246cmVhZCIsImluZ2VzdGlvbjpjcmVhdGUiLCJqb2I6Y3JlYXRlIiwiam9iOnJlYWQiLCJqb2I6dXBkYXRlIiwiam9iOmRlbGV0ZSIsInRhc2s6dXBkYXRlIiwicmVjb3JkaW5nOmNyZWF0ZSIsInJlY29yZGluZzpyZWFkIiwicmVjb3JkaW5nOnVwZGF0ZSIsInJlY29yZGluZzpkZWxldGUiLCJyZWNvcmRpbmc6Y2xvbmUiLCJyZXBvcnQ6Y3JlYXRlIiwiYW5hbHl0aWNzOnVzYWdlIiwibWVudGlvbjpjcmVhdGUiLCJtZW50aW9uOnJlYWQiLCJtZW50aW9uOnVwZGF0ZSIsIm1lbnRpb246ZGVsZXRlIiwiY29sbGVjdGlvbjpjcmVhdGUiLCJjb2xsZWN0aW9uOnJlYWQiLCJjb2xsZWN0aW9uOnVwZGF0ZSIsImNvbGxlY3Rpb246ZGVsZXRlIiwiYXNzZXQ6dXJpIl19XSwiaWF0IjoxNTIxNTUzMDA3LCJleHAiOjE1MjIxNTc4MDcsInN1YiI6Im9hdXRoMiIsImp0aSI6ImU5M2I1ODI4LTI2ZWEtNDRjZC1iY2RjLTJhODI0NzdjYWUwNCJ9.c8YmVN_R4OhVYFRscBi1wIXIX7MzhPwixHe-UQ05gE0",
+   "refresh_token": "xi_kwP2_laa4t7_Mwu-k0a_dka3V3YWfIH-Nm7C04XaBvkjyUDdS5A",
    "token_type": "Bearer"
 }
 ```
 
-Your application is now authorized! The _Access Token_ is used to authenticate API requests that your app makes to access the user's account.
+Your application is now authorized! Use the _Access Token_ to authenticate API requests that your app makes to access the user's account.
 
 #### Possible Errors
 
@@ -316,7 +316,7 @@ _Access Tokens_ expire every seven days. When an *Access Toke*n expires, using i
 curl -X POST \
 https://api.veritone.com/v1/admin/oauth/token \
 -H 'content-type: application/x-www-form-urlencoded' \
--d 'client_id=e6ac4220-5898-456b-b6ae-ff4f4bb6b9bf&client_secret=3GJjP97ryVwKvqXt6L518Hf5wUEZ1Po2lsobEEoAZh1D-WxB35cn-A&grant_type=authorization_code&refresh_token=xi_kwP2_laa4t7_Mwu-k0a_dka3V3YWfIH-Nm7C84XaBvkjyUDdS5A'
+-d 'client_id=e6ac4220-5898-456b-b6ae-ff4f4bb6b9bf&client_secret=3GJjP97ryVwKvqXt6L518Hf5wUEZ1Po2lsobEEoAZh1D-WxB35cn-A&grant_type=refresh_token&refresh_token=xi_kwP2_laa4t7_Mwu-k0a_dka3V3YWfIH-Nm7C84XaBvkjyUDdS5A'
 ```
 
 ##### Sample Response
@@ -344,8 +344,8 @@ At a high-level, the Implicit Flow follows these steps when a user attempts to i
 
 _Additional notes:_
 
-* The Client Secret is not used with the Implicit Flow since it is not able to be kept confidential.
-* The Implicit Flow does not support Refresh Tokens. As a result, your app must request a new token each time the user logs in (if the token is not stored) or when the Access Token expires.
+* The *Client Secret* is not used with the Implicit Flow since it is not able to be kept confidential.
+* The Implicit Flow does not support *Refresh Tokens*. As a result, the user must log in again each time they visit your app (if the token is not stored) or when the *Access Token* expires.
 
 ### **Step 1: Authenticate User and Get Access Token**
 
@@ -408,7 +408,7 @@ https://bestappever.com/oauth/callback#access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6
 If authorization fails, an error response will be sent to your application redirect URI in the format shown below.
 
 ```http
-http://yourapp.com#error={error_ID}
+http://yourapp.com#error=<error_ID>
 ```
 
 Any errors are appended to the URI using one of the following Error IDs.
@@ -455,7 +455,7 @@ Once your application has an _Access Token_, you can use it to access the user's
 ##### Sample header format
 
 ```http
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4YTEwZjIxYS1mYzY5LTQ4NTctODkwZS1iMDNmZGU1ZGJlYjMiLCJjb250ZW50QXBwbGljYXRpb25JZCI6ImVkMDc1OTg1LWJjOTQtNDA2Yi04NjM5LTQ0ZDFkYTQyYzNmYiIsIm9yaWdpbkhvc3QiOiJjYXBhcHAuY29tIiwic2NvcGUiOlt7ImFjdGlvbnMiOlsiaW5nZXN0aW9uOmRlbGV0ZSIsImluZ2VzdGlvbjp1cGRhdGUiLCJpbmdlc3Rpb246cmVhZCIsImluZ2VzdGlvbjpjcmVhdGUiLCJqb2I6Y3JlYXRlIiwiam9iOnJlYWQiLCJqb2I6dXBkYXRlIiwiam9iOmRlbGV0ZSIsInRhc2s6dXBkYXRlIiwicmVjb3JkaW5nOmNyZWF0ZSIsInJlY29yZGluZzpyZWFkIiwicmVjb3JkaW5nOnVwZGF0ZSIsInJlY29yZGluZzpkZWxldGUiLCJyZWNvcmRpbmc6Y2xvbmUiLCJyZXBvcnQ6Y3JlYXRlIiwiYW5hbHl0aWNzOnVzYWdlIiwibWVudGlvbjpjcmVhdGUiLCJtZW50aW9uOnJlYWQiLCJtZW50aW9uOnVwZGF0ZSIsIm1lbnRpb246ZGVsZXRlIiwiY29sbGVjdGlvbjpjcmVhdGUiLCJjb2xsZWN0aW9uOnJlYWQiLCJjb2xsZWN0aW9uOnVwZGF0ZSIsImNvbGxlY3Rpb246ZGVsZXRlIiwiYXNzZXQ6dXJpIl19XSwiaWF0IjoxNTIxNTUzMTY1LCJleHAiOjE1MjIxNTc5NjUsInN1YiI6Im9hdXRoMiIsImp0aSI6IjQ1OTk3NTBmLWY0ZjYtNGQ4OC05MDAwLTU5M2U1NzI5MmQ5NSJ9.1IduQXLnATUqnJnDKLJ2-uM2iimaT6qEkGetl6qm2Bk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4YTEwZjIxYS1mYzY5LTQ4NTctODkwZS1iMDNmZGU1ZGJlYjMiLCJjb250ZW50QXBwbGljYXRpb25JZCI6ImVkMDc1OTg1LWJjOTQtNDA2Yi04NjM5LTQ0ZDFkYTQyYzNmYiIsIm9yaWdpbkhvc3QiOiJjYXBhcHAuY29tIiwic2NvcGUiOlt7ImFjdGlvbnMiOlsiaW5nZXN0aW9uOmRlbGV0ZSIsImluZ2VzdGlvbjp1cGRhdGUiLCJlc3Rpb246cmVhZCIsImluZ2VzdGlvbjpjcmVhdGUiLCJqb2I6Y3JlYXRlIiwiam9iOnJlYWQiLCJqb2I6dXBkYXRlIiwiam9iOmRlbGV0ZSIsInRhc2s6dXBkYXRlIiwicmVjb3JkaW5nOmNyZWF0ZSIsInJlY29yZGluZzpyZWFkIiwicmVjb3JkaW5nOnVwZGF0ZSIsInJlY29yZGluZzpkZWxldGUiLCJyZWNvcmRpbmc6Y2xvbmUiLCJyZXBvcnQ6Y3JlYXRlIiwiYW5hbHl0aWNzOnVzYWdlIiwibWVudGlvbjpjcmVhdGUiLCJtZW50aW9uOnJlYWQiLCJtZW50aW9uOnVwZGF0ZSIsIm1lbnRpb246ZGVsZXRlIiwiY29sbGVjdGlvbjpjcmVhdGUiLCJjb2xsZWN0aW9uOnJlYWQiLCJjb2xsZWN0aW9uOnVwZGF0ZSIsImNvbGxlY3Rpb246ZGVsZXRlIiwiYXNzZXQ6dXJpIl19XSwiaWF0IjoxNTIxNTUzMTY1LCJleHAiOjE1MjIxNTc5NjUsInN1YiI6Im9hdXRoMiIsImp0aSI6IjQ1OTk3NTBmLWY0ZjYtNGQ4OC05MDAwLTU5M2U1NzI5MmQ5NSJ9.1IduQXLnATUqnJnDKLJ2-uM2iimaT6qEkGetl6qm2Bk
 ```
 
-Access tokens expire after seven days. Unlike the Authorization Code Flow, _Refresh Tokens_ are not issued with the Implicit Flow. Refreshing a token requires use of the Client Secret, which cannot safely be stored with the Implicit Flow. If your application does not store the _Access Token_, users will be required to log in and re-authorize your app with each session. If your application stores the token and sends the user to the authorization page before the _Access Token_ expires, the user will not be prompted to log in and will be immediately redirected to your application. API calls made with an expired or invalid token will result in an error.
+Access tokens expire after seven days. Unlike the Authorization Code Flow, _Refresh Tokens_ are not issued with the Implicit Flow. Refreshing a token requires use of the Client Secret, which cannot safely be stored with the Implicit Flow. If your application does not store the _Access Token_, users will be required to log in each time they use your app. If your application stores the token, you can use it to perform API calls immediately without requiring any additional action from the user. API calls made with an expired or invalid token will result in an error.
