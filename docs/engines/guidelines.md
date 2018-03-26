@@ -584,7 +584,7 @@ In the engine's ingest mode, the adapter must connect to the source and download
 
 The adapter should create a new object, either a TDO or SDO, and upload the file contents as a new input asset.
 
-**TDOs** When creating a new TDO, use the createTDO mutator and provide the following fields:
+**TDOs:** When creating a new TDO, use the createTDO mutator and provide the following fields:
 * startDateTime: use the date from the "metadata" object in the payload
 * stopDateTime: use the file duration to determine
 * source: source name from the payload
@@ -596,7 +596,7 @@ After creating the TDO, an asset must be created on the TDO using the ingested f
 * contentType is the MIME type and should be set
 * details should be set to the metadata value provided in the payload
 
-**SDOs** When creating a new SDO, use the createSDO mutator and provide the following fields:
+**SDOs:** When creating a new SDO, use the createSDO mutator and provide the following fields:
 * startDateTime: use the date from the "metadata" object in the payload
 * stopDateTime: use the file duration to determine
 * source: source name from the payload
