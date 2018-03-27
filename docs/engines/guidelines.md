@@ -377,7 +377,7 @@ curl -X POST \
 
 ## Construction Guidelines for Adapters
 
-As engines with engineType set as ingestion, adapters are constructed very similarly to cognitive engines. The basic job of an adapter is to connect to the data source and bring the data into the platform. Beyond that, adapters may also include functionality like authenticating, scanning for new data on a schedule, and even filtering or transforming the data.
+As engines with engineType set as ingestion, adapters are constructed very similarly to cognitive engines. The basic job of an adapter is to connect to the data source and bring the data into the platform. Beyond that, adapters can also include functionality like managing authentication, scanning for new data on a schedule, and filtering or transforming the data.
 
 The workflow steps for adapters:
 
