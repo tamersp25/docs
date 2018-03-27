@@ -547,7 +547,9 @@ For SDOs, you do not need to create an asset. Once the SDO is created, the data 
 
 **4. Set Task Status to Completed or Report Errors**
 
-When a task is completed, it should be set to "complete" or "failed" if any errors occurred and the task could not be completed. These can all be accomplished by using the updateTask mutator. The output field of the task should also be updated to include some information about task results. If an error occurred, the task output should include the error message. For example:
+When a task is completed, it should be set to "complete" or "failed" if any errors occurred and the task could not be completed. These can all be accomplished by using the updateTask mutator.
+
+The _output_ field of the task should also be updated to include some information about task results. If an error occurred, the task output should include the error message. For example:
 
 ```
 {
