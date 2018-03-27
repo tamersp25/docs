@@ -6,7 +6,7 @@ This section covers everything you need to properly construct your code for task
 
 Veritone&rsquo;s GraphiQL interface is recommended for making test API requests, but calls can also be made using other HTTP clients. All requests must be HTTP POST to the [_https://api.veritone.com/v3/graphql_](https://api.veritone.com/v3/graphql) endpoint with *application/json* encoded bodies. In addition, requests must be authenticated [using an API Token](apis/authentication). Pass the token in your request using the _Authorization_ header with a value _Bearer \<token\>_. If you&rsquo;re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
-The steps for constructing an engine are detailed below, starting with cognitive engines. If you are building an ingestion engine or adapter, you can jump down to [Construction Guidelines for Adapters](## Construction-Guidelines-for-Adapters).
+The steps for constructing an engine are detailed below, starting with cognitive engines. If you are building an ingestion engine or adapter, you can jump down to [Construction Guidelines for Adapters](##Construction-Guidelines-for-Adapters).
 
 ## Construction of Cognitive Engines
 
