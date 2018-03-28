@@ -18,8 +18,6 @@ Before using structured data in the Veritone platform, you need to register a sc
 10. You will see a popup asking you to confirm that you want to publish the schema. Click "Publish" to confirm.
 11. You'll be returned to the My Schema page where you'll see that your schema now has the status of Published. Once published, you can now use the schema to ingest structured data.
 
-The schema is uploaded using the createSt
-
 ### Requirements for Schemas ###
 
 Each schema should contain the following elements:
