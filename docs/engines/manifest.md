@@ -34,11 +34,11 @@ The fields that should be included in manifest.json are listed in the table belo
 | minMemoryRequired     | number           | No       | No | Minimum amount of RAM needed to run in MB.   | "minMemoryRequired": 1024     |
 | engineMode | string | No | No | Indicate the mode for executing your engine. Allowed values are 0 for legacy, 1 for batch, 2 for chunk, 3 for stream. If omitted, we will use 0 for legacy.| "engineMode": 0 |
 | inputEncoding | string | No | No | Indicate the input encoding required for your engine. Please use the labels available from running `ffmpeg -encoders`. | "inputEncoding": "pcm_s16be" |
-| sourceType            | string           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "sourceType": 5  |
-| sourceId          | string           | No       | No | The source that an adapter is tied to. Omit if none applies.  | "source": 5  |
-| schemaId            | string           | No       | No | The schemaId that the engine supports. This is required for ingesting or processing structured data.  | "schemaId": 5  |
+| sourceType            | integer           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "sourceType": 5  |
+| sourceId          | integer           | No       | No | The source that an adapter is tied to. Omit if none applies.  | "source": 210  |
+| schemaId            | integer           | No       | No | The schemaId that the engine supports. This is required for ingesting or processing structured data.  | "schemaId": 231  |
 | schedule | string | No | No | Indicate if your adapter has any restrictions for supporting schedules. Allowed values are "any", "continuous", "periodic", "none". If omitted, we will use "any".| "schedule": "any" |
-| oauth | string | No | No | Indicate the version of OAuth that your adapter supports. Omit if your adapter doesn't support OAuth.| "oauth": 2.0|
+| oauth | string | No | No | Indicate the version of OAuth that your adapter supports. Omit if your adapter doesn't support OAuth.| "oauth": "2.0"|
 | releaseNotes          | string           | No       | No | Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.  | "releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions." |
 
 ## Available cluster sizes
