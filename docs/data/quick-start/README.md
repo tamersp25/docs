@@ -24,7 +24,7 @@ Each schema should contain the following elements:
 
 Field | Field Type | Description | Example
 ----- | ---------- | ----------- | -------
-Required | Array | Indicates the fields that are required to be present in the structured data. If a required field is not present in the structured data, that record will not be saved. | "Require": \["id", "name"]
+Required | Array | Indicates the fields that are required to be present in the structured data. If a required field is not present in the structured data, that record will not be saved. | "Required": \["id", "name"]
 
 
 The schema should fully describe the fields for the structured data that you want Veritone to save. For each field, you should specify the data type. The data types that Veritone supports:
