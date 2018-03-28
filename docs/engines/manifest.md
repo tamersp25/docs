@@ -47,7 +47,6 @@ The fields that should be included in manifest.json are listed in the table belo
 | --- | ----- | ------ | ----- |
 | RAM | 512MB | 2GB    | 6GB   |
 
-## Supported GPUs
 
 ## GPU
 
