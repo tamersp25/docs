@@ -19,7 +19,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | preferredInputFormat  | string           | Yes      | Yes | Identify the MIME type of the input media format that is preferred by your engine. Choose one format only. The options that Veritone currently support are listed below.                         | "preferredInputFormat": "audio/wav" |
 | outputFormats         | array of strings | Yes      | Yes | List all of the MIME types of the media formats that your engine will output. The options that Veritone currently supports are listed below. | "outputFormats": ["application/ttml+xml", "audio/wav"] |
 | clusterSize           | string           | Yes      | Yes | The cluster size on which your engine should run: small, medium, large (defined below)  | "clusterSize": "small" |
-| initialConcurrency    | integer          | No       | No | The initial number of instances of your engine that can run at the same time.If omitted, we will use a value of 50. | "initialConcurrency": 50 |
+| initialConcurrency    | integer          | No       | No | The initial number of instances of your engine that can run at the same time. If omitted, we will use a value of 50. | "initialConcurrency": 50 |
 | maxConcurrency        | integer          | No       | No | The maximum number of instances of your engine that can run at the same time. If omitted, we will use a value of 50. | "maxConcurrency": 50  |
 | url                   | string           | No       | No |The URL of the website where the user can get more information about your engine. | "url": "[https://www.veritone.com/wp/cognitive-engines/transcription-engine/](https://www.veritone.com/wp/cognitive-engines/transcription-engine/)" |
 | externalCalls         | array of strings | No       | No | The domains of any external calls that are required by your code. This should include all calls that require internet access. | "externalCalls": ["[http://s3.amazonaws.com](http://s3.amazonaws.com)", "[http://github.com](http://github.com)"] |
@@ -33,12 +33,12 @@ The fields that should be included in manifest.json are listed in the table belo
 | gpuSupported          | string           | No       | No | List of supported GPU engines See the Supported GPU section belowExamples include: "G2", "G3", "P2"  | "gpuSupported" : "P2"  |
 | minMemoryRequired     | number           | No       | No | Minimum amount of RAM needed to run in MB.   | "minMemoryRequired": 1024     |
 | engineMode | string | No | No | Indicate the mode for executing your engine. Allowed values are 0 for legacy, 1 for batch, 2 for chunk, 3 for stream. If omitted, we will use 0 for legacy| "engineMode": 0 |
-| inputEncoding | string | No | No | Indicate the input encoding required for your engine. Please use the labels available from running ffmpeg -encoders | "inputEncoding": "pcm_s16be" |
-| sourceType            | string           | No       | No | The sourceType that an adapter is tied to (omit if none applies)  | "sourceType": 5  |
+| inputEncoding | string | No | No | Indicate the input encoding required for your engine. Please use the labels available from running `ffmpeg -encoders` | "inputEncoding": "pcm_s16be" |
+| sourceType            | string           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "sourceType": 5  |
 | sourceId          | string           | No       | No | The source that an adapter is tied to  | "source": 5  |
 | schemaId            | string           | No       | No | The schemaId that the engine supports. This is required for ingesting or processing structured data.  | "schemaId": 5  |
 | schedule | string | No | No | Indicate if your adapter has any restrictions for supporting schedules. Allowed values are "any", "continuous", "periodic", "none". If omitted, we will use "any."| "schedule": "any" |
-| oauth | string | No | No | Indicate the version of oAuth that your adapter supports. Omit if your adapter doesn't require oAuth| "oauth": 2.0|
+| oauth | string | No | No | Indicate the version of oAuth that your adapter supports. Omit if your adapter doesn't require OAuth| "oauth": 2.0|
 | releaseNotes          | string           | No       | No | Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.  | "releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions." |
 
 ## Available cluster sizes
