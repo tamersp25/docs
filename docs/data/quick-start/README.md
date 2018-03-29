@@ -16,7 +16,7 @@ Before using structured data in the Veritone platform, you need to register a sc
 | 7. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved as Draft.| <div style="width: 500px">![](7schema_submitted.png)</div> |
 | 8. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved with a status of _Draft_.| <div style="width: 500px">![](7schema_submitted.png)</div> |
 | 9. If you are happy with your schema, you can publish it by clicking on the vertical ellipses on the right hand side and selecting _Publish_. <br> 10. You will see a popup asking you to confirm that you want to publish the schema. Click _Publish_ to confirm.| <div style="width: 500px">![](7schema_submitted.png)</div> |
-| 10. You'll be returned to the My Schema page where you'll see that your schema now has the status of Published. Once published, you can now use the schema to ingest structured data.| <div style="width: 500px">![](7schema_submitted.png)</div> |
+| 11. You'll be returned to the My Schema page where you'll see that your schema now has the status of Published. Once published, you can now use the schema to ingest structured data.| <div style="width: 500px">![](7schema_submitted.png)</div> |
 
 ### Requirements and Best Practices for Schemas ###
 
