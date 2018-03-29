@@ -59,7 +59,7 @@ The fields that should be included in manifest.json are listed in the table belo
 * correlation
 * reduction
 
-## Available categories for ingestion for adapters
+## Available categories for adapters
 
 * pull
 * push
