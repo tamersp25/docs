@@ -23,7 +23,7 @@ Before using structured data in the Veritone platform, you need to register a sc
 Each schema should fully describe the fields for the structured data that you want Veritone to store and index. The schema should contain the following fields:
 
 | Field | Field Type | Required | Description | Example |
-| ----- | ---------- | ----------- | ------- |
+| ----- | ---------- | -------- | ----------- | ------- |
 | Description | string | No | Explains what the schema is about. | "Description": "Employee birthday list" |
 | Type | string | Yes | Indicates the format type of the schema. If omitted, defaults to "object" | "Type": "object" |
 | Required | array | Yes | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "Required": \["id", "name"] |
