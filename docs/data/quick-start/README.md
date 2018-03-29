@@ -40,7 +40,7 @@ Each schema should fully describe the fields for the structured data that you wa
 | geopoint | "34.052235,-118.243683" |
 | datetime | "2018-02-22T01:00:00.000Z" |
 
-_Note that datetime is the UTC format of time per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)_
+_Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)._
 
 
 ## Editing a Schema ##
