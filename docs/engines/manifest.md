@@ -15,7 +15,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | Field   | Format | Required for Cognitive Engines | Required for Adapters | Description  | Example |
 | ------- | ------ | -------------------------------| --------------------- | ------------ | ------- |
 | engineId              | string           | Yes      | Yes | The ID of your engine. You can find your engine ID at the top of the Engines section pages in the Developer Portal.  | "engineId": "f06e3ecb-cb30-3d0f-3268-c08428dc72be"   |
-| category              | string           | Yes      | Yes | The category of the engine that you are providing. The available options for cognitive engines are listed [here](/engines/classes). For adapters, the options are "pull" or "push".  | "category": "transcription" OR "category": "pull" |
+| category              | string           | Yes      | Yes | The category of the engine that you are providing. The available options for cognitive engines are listed [below](##Available-categories-for-cognitive engines). For adapters, the options are "pull" or "push".  | "category": "transcription" OR "category": "pull" |
 | preferredInputFormat  | string           | Yes      | Yes | Identify the MIME type of the input media format that is preferred by your engine. Choose one format only. The options that Veritone currently support are listed [below](##MimeTypes).                         | "preferredInputFormat": "audio/wav" |
 | outputFormats         | array of strings | Yes      | Yes | List all of the MIME types of the media formats that your engine will output. The options that Veritone currently supports are listed [below](##MimeTypes). | "outputFormats": ["application/ttml+xml", "audio/wav"] |
 | clusterSize           | string           | Yes      | Yes | The cluster size on which your engine should run: small, medium, large, which are defined [below](##Available-cluster-sizes).  | "clusterSize": "small" |
@@ -40,6 +40,29 @@ The fields that should be included in manifest.json are listed in the table belo
 | schedule | string | No | No | Indicate if your adapter has any restrictions for supporting schedules. Allowed values are "any", "continuous", "periodic", "none". If omitted, we will use "any".| "schedule": "any" |
 | oauth | string | No | No | Indicate the version of OAuth that your adapter supports. Omit if your adapter doesn't support OAuth.| "oauth": "2.0"|
 | releaseNotes          | string           | No       | No | Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.  | "releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions." |
+
+## Available categories for cognitive engines
+
+* transcode
+* transcription
+* sentiment
+* fingerprint
+* facial detection
+* object detection
+* translate
+* geolocation
+* conductor
+* station playout
+* text recognition
+* logo recognition
+* thumbnail
+* correlation
+* reduction
+
+## Available categories for ingestion for adapters
+
+* pull
+* push
 
 ## Available cluster sizes
 
