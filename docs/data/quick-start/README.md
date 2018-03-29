@@ -19,10 +19,11 @@ Before using structured data in the Veritone platform, you need to register a sc
 
 ### Requirements and Best Practices for Schemas ###
 
-Each schema should fully describe the fields for the structured data that you want Veritone to store and index. The schema should contain the following fields:
+Each schema should fully describe the fields for the structured data that you want Veritone to store and index. The schema should include the following fields:
 
 | Field | Field Type | Required | Description | Example |
 | ----- | ---------- | -------- | ----------- | ------- |
+| $id | string | No | Defines the URI reference to the schema | "$id": "http://example.com/example.json" |
 | Description | string | No | Explains what the schema is about. | "Description": "Employee birthday list" |
 | Type | string | Yes | Indicates the format type of the schema. If omitted, defaults to "object" | "Type": "object" |
 | Required | array | Yes | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "Required": \["id", "name"] |
@@ -37,11 +38,15 @@ Each schema should fully describe the fields for the structured data that you wa
 | string | "string" |
 | array | \["one", "two", "three"]
 | object | {"firstName":{"type":"string"},"lastName":{"type":"string"}} |
+
+Within the string type, we support two specific formats:
+
+| Format | Example |
+| ------ | ------- |
 | geopoint | "34.052235,-118.243683" |
 | datetime | "2018-02-22T01:00:00.000Z" |
 
 _Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)._
-
 
 ## Editing a Schema ##
 
