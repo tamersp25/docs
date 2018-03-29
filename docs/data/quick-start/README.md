@@ -4,7 +4,7 @@ This quick start is designed to take you through the process of registering a st
 
 ## Register a New Schema ##
 
-Before using structured data in the Veritone platform, you need to register a schema for the data. We recommend that you do this within the Veritone App UI by following these steps:
+Before using structured data in the Veritone platform, you need to register a schema for the data. You can do this within the Developer App UI by following these steps:
 
 
 | To create a Schema  |                                                                  |
