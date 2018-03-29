@@ -6,39 +6,43 @@ This quick start is designed to take you through the process of registering a st
 
 Before using structured data in the Veritone platform, you need to register a schema for the data. We recommend that you do this within the Veritone App UI by following these steps:
 
-8. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the x in the upper right to return to the My Schemas page where you can now see your schema is saved as Draft.
-9. If you are happy with your schema, you can publish it by clicking on the vertical ellipses on the right hand side and selecting publish.
-10. You will see a popup asking you to confirm that you want to publish the schema. Click "Publish" to confirm.
-11. You'll be returned to the My Schema page where you'll see that your schema now has the status of Published. Once published, you can now use the schema to ingest structured data.
 
 | To create a Schema  |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | 1. Log into [Veritone Developer](https://developer.veritone.com). Click **Overview** in the upper left of the window and select **Data** from the dropdown. The _Data_ page opens. | <div style="width: 500px">![](NEED SCREENSHOT)</div> |
 | 2. Click **New** in the upper right of the window. The page opens to _New Data Schema Details_. | <div style="width: 500px">![](2schema_new.png)</div> |
 | 3. Enter the following basic details to describe your schema: <br><ul><li>**Data Source**: _(required)_ Enter the source of the data that you're creating the schema for.</li> <br><li>**Schema Description**: _(required)_ Describe what your schema covers in a sentence or two. This description will be displayed to other users of your schema.</li></ul> 4. Click **Next** to continue. The _Create schema_ window opens.| <div style="width: 500px">![](3schema_details.png)</div> |
-| 5. Write out or copy and paste a valid Schema with valid JSON formatting. See the section [below](###Requirements-and-Best-Practices-for-Schemas) for more information about how to create a valid schemas. <br> 6. Click on Submit. If your schema was accepted, you will see a temporary popup message at the bottom of the page that says Data Schema created successfully!" and then the Edit Configuration page appears.| <div style="width: 500px">![](5schema_create.png)</div> |
+| 5. Write out or copy and paste a valid Schema with valid JSON formatting. See the section [below](###Requirements-and-Best-Practices-for-Schemas) for more information about how to create a valid schemas. <br> 6. Click on Submit. If your schema was accepted, you will see a temporary popup message at the bottom of the page that says _Data Schema created successfully!"_ and then the Edit Configuration page appears.| <div style="width: 500px">![](5schema_create.png)</div> |
 | 7. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved as Draft.| <div style="width: 500px">![](7schema_submitted.png)</div> |
-| 8. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved as Draft.| <div style="width: 500px">![](7schema_submitted.png)</div> |
-
+| 8. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved with a status of _Draft_.| <div style="width: 500px">![](7schema_submitted.png)</div> |
+| 9. If you are happy with your schema, you can publish it by clicking on the vertical ellipses on the right hand side and selecting _Publish_. <br> 10. You will see a popup asking you to confirm that you want to publish the schema. Click _Publish_ to confirm.| <div style="width: 500px">![](7schema_submitted.png)</div> |
+| 10. You'll be returned to the My Schema page where you'll see that your schema now has the status of Published. Once published, you can now use the schema to ingest structured data.| <div style="width: 500px">![](7schema_submitted.png)</div> |
 
 ### Requirements and Best Practices for Schemas ###
 
-Each schema should contain the following elements:
+Each schema should fully describe the fields for the structured data that you want Veritone to store and index. The schema should contain the following fields:
 
-Field | Field Type | Description | Example
------ | ---------- | ----------- | -------
-Required | Array | Indicates the fields that are required to be present in the structured data. If a required field is not present in the structured data, that record will not be saved. | "Required": \["id", "name"]
+| Field | Field Type | Required | Description | Example |
+| ----- | ---------- | ----------- | ------- |
+| Description | string | No | Explains what the schema is about. | "Description": "Employee birthday list" |
+| Type | string | Yes | Indicates the format type of the schema. If omitted, defaults to "object" | "Type": "object" |
+| Required | array | Yes | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "Required": \["id", "name"] |
+| Properties | object | Yes | A JSON object containing the names and data types of the fields in the structured data set | "Properties": {"firstName":{"type":"string"},"lastName":{"type":"string"}}|
 
+ The data types that Veritone supports:
 
-The schema should fully describe the fields for the structured data that you want Veritone to save. For each field, you should specify the data type. The data types that Veritone supports:
+| Data Type | Example |
+| --------- | ------- |
+| number | 1, 2.0, 3431455 |
+| boolean | true, false |
+| string | "string" |
+| array | \["one", "two", "three"]
+| object | {"firstName":{"type":"string"},"lastName":{"type":"string"}} |
+| geopoint | "34.052235,-118.243683" |
+| datetime | "2018-02-22T01:00:00.000Z" |
 
-* string
-* number
-* boolean
-* array
-* object
-* geoPoint - NEED MORE DETAIL
-* dateTime  - NEED MORE DETAIL
+_Note that datetime is the UTC format of time per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)_
+
 
 ## Editing a Schema ##
 
