@@ -25,10 +25,10 @@ Each schema should fully describe the fields for the structured data that you wa
 | Field | Field Type | Required | Description | Example |
 | ----- | ---------- | -------- | ----------- | ------- |
 | $id | string | No | Defines the URI reference to the schema | "$id": "http://example.com/example.json" |
-| Description | string | No | Explains what the schema is about. | "Description": "Employee birthday list" |
-| Type | string | Yes | Indicates the format type of the schema. If omitted, defaults to "object" | "Type": "object" |
-| Required | array | Yes | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "Required": \["id", "name"] |
-| Properties | object | Yes | A JSON object containing the names and data types of the fields in the structured data set | "Properties": {"firstName":{"type":"string"},"lastName":{"type":"string"}}|
+| description | string | No | Explains what the schema is about. | "description": "Employee birthday list" |
+| type | string | No | Indicates the format type of the schema. If omitted, defaults to "object" | "type": "object" |
+| required | array | No | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "required": \["id", "name"] |
+| properties | object | No | A JSON object containing the names and data types of the fields in the structured data set | "properties": {"firstName":{"type":"string"},"lastName":{"type":"string"}}|
 
  The data types that Veritone supports:
 
@@ -53,7 +53,9 @@ _Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikip
 
 While a schema has draft status, you can edit the schema by selecting the Edit option to the right of every row in the My Schemas table. You can edit it as many as you need to while the schema is in Draft status.
 
-When you've have elected to publish the schema, the status changes to Published and a version is assigned. If you then edit a Published schema, a new entry will be created with a status of Draft. If you then attempt to publish this new entry, you will be asked to indicate whether the change should be save as a minor or a major version. 
+When you've have elected to publish the schema, the status changes to Published and a version is assigned. If you then edit a Published schema, a new entry will be created with a status of Draft. 
+
+If you attempt to publish this new entry, you will be asked to indicate whether the change should be saved as a minor or a major version. 
 
 Version Type | Definition
 ------------ | -----------
@@ -63,4 +65,7 @@ Major | Major versions are not backwards compatible with the prior version and a
 It's important for Veritone to understand whether each schema edit is a major or minor version so that we can properly store and index any new structured data that conforms to the revised schema. If the schema represents a new major version, then any data ingested against that schema will be stored in a new index, and any users must elect to use that new version as it could be incompatible with any prior usage of the data. If the schema is a new minor version, then any data ingested against that schema will be stored in the same index as the prior version.
 
 **Please note that at this time, Veritone will consider all changes to a published schema to be a major change unless the change consists only of adding new, unrequired fields to the prior version.**
+
+Also note that while you can have multiple major schema versions published at the same time, you can only have one minor version per major version published. For example, you can have schema versions 1.6, 2., and 3.3 all in published state at the same time, but you cannot have 1.1, 1.2 and 1.3 all in published state together.
+
 
