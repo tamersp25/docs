@@ -12,7 +12,7 @@ Before using structured data in the Veritone platform, you need to register a sc
 | 1. Log into [Veritone Developer](https://developer.veritone.com). From the **Overview** page, select **Data** from the menu on left hand side or click on **Build a Schema** on the Data Schemas card on the right side. The _Data_ page opens. | <div style="width: 500px">![](1vdahome.png)</div> |
 | 2. Click **New** in the upper right of the window. The page opens to _New Data Schema Details_. | <div style="width: 500px">![](2schema_new.png)</div> |
 | 3. Enter the following basic details to describe your schema: <br><ul><li>**Data Source**: _(required)_ Enter the source of the data that you're creating the schema for.</li><li>**Schema Name**: _(required)_ Enter a name for the schema.</li><li>**Schema Description**: _(required)_ Describe what your schema covers in a sentence or two. This description will be displayed to users of your schema.</li></ul> 4. Click **Next** to continue. The Create Schema window opens.| <div style="width: 500px">![](3schema_details.png)</div> |
-| 5. Write out or copy and paste a valid Schema with valid JSON formatting. See the section [below](###Requirements-and-Best-Practices-for-Schemas) for more information about how to create a valid schemas. <br> 6. Click on **Submit**. If your schema was accepted, you will see a temporary popup message at the bottom of the page that says _Data Schema created successfully!"_ and then the Edit Configuration page appears.| <div style="width: 500px">![](5schema_bday.png)</div> |
+| 5. Write out or copy and paste a Schema with valid JSON formatting. See the section [below](###Requirements-and-Best-Practices-for-Schemas) for more information about how to create a valid schema. <br> 6. Click on **Submit**. If your schema was accepted, you will see a temporary popup message at the bottom of the page that says _Data Schema created successfully!"_ and then the Edit Configuration page appears.| <div style="width: 500px">![](5schema_bday.png)</div> |
 | 7. At this point, you can edit the information that you entered earlier about your schema if you like or just click on the X in the upper right to return to the My Schemas page where you can now see your schema is saved as Draft.| <div style="width: 500px">![](7schema_submitted.png)</div> |
 | 8. If you are happy with your schema, you can publish it by clicking on the vertical ellipses on the right hand side and selecting **Publish**.| <div style="width: 500px">![](8schema_overflow.png)</div> |
 | 9. You will see a popup asking you to confirm that you want to publish the schema. Click **Publish** to confirm.| <div style="width: 500px">![](9schema_publishmodal.png)</div> |
@@ -53,7 +53,9 @@ _Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikip
 
 While a schema has draft status, you can edit the schema by selecting the Edit option to the right of every row in the My Schemas table. You can edit it as many as you need to while the schema is in Draft status.
 
-When you've have elected to publish the schema, the status changes to Published and a version is assigned. If you then edit a Published schema, a new entry will be created with a status of Draft. 
+When you're ready to publish the schema, the status changes to Published and a version is assigned.
+
+If you edit a Published schema, a new entry will be created with a status of Draft. 
 
 If you attempt to publish this new entry, you will be asked to indicate whether the change should be saved as a minor or a major version. 
 
