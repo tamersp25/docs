@@ -64,6 +64,11 @@ The fields that should be included in manifest.json are listed in the table belo
 * pull
 * push
 
+## Available categories for aggregators
+
+* intracategory
+* intercategory
+
 ## Available cluster sizes
 
 |     | Small | Medium | Large |
