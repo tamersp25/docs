@@ -2,11 +2,11 @@
 title: Engine Types
 --- -->
 
-#### Overview
+# Overview
 
 The Veritone Developer Application now supports three types of engines: cognition, ingestion, and aggregator. The basic process for registering each engine type is the same, but there are some differences in how each of these engine types function.
 
-##### Cognition
+## Cognition
 
 Cognitive engines process data, often using sophisticated algorithms and machine learning techniques, to derive cognitive insights from the data or to transform it for use by another cognitive engine or application. Within the Veritone platform, cognitive engines are assigned into various [classes and categories](/engines/classes).
 
@@ -14,7 +14,7 @@ Cognitive engines can work in real-time or batch mode on the Veritone platform. 
 
 Cognitive engines are the workhorses of the Veritone platform. If you have a new cognitive engine, you can register it under the Engines section of the Veritone Developer App. Just be sure to select the engine type of _Cognition_.
 
-##### Ingestion
+## Ingestion
 
 Ingestion engines are also known as adapters, and we'll often use the term adapter to refer to ingestion engines. Adapters are engines that bring data into the Veritone platform. The data can be in the form of a real-time stream or a bounded file and can be comprised of either structured or unstructured data.
 
@@ -24,7 +24,7 @@ Veritone provides several pull adapters in our platform which are available to a
 
 If you need to ingest data from a source that isn't currently available in Veritone or if you require certain functionality during ingestion that isn't supported now, you can build your own custom adapter and register it under the Engines section of the Veritone Developer Application. Just be sure to select the engine type of _Ingestion_.
 
-##### Aggregator
+## Aggregator
 
 Aggregator engines are a new type of engine that we are introducing to assist in processing data in real-time. The role of an aggregator engine is to process the asset fragments that are output by real-time engines.
 
