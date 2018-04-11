@@ -34,7 +34,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | minMemoryRequired     | number           | No       | No | Minimum amount of RAM needed to run in MB.   | "minMemoryRequired": 1024     |
 | engineMode | string | No | No | The mode for executing your engine. Allowed values are 0 for legacy, 1 for batch, 2 for chunk, 3 for stream. If omitted, we will use 0 for legacy.| "engineMode": 0 |
 | inputEncoding | string | No | No | The input encoding required for your engine. Please use the labels available from running `ffmpeg -encoders`. | "inputEncoding": "pcm_s16be" |
-| sourceType            | integer           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "sourceType": 5  |
+| supportedSourceTypes | array of integers           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "supportedSourceTypes": \[5]\  |
 | sourceId          | integer           | No       | No | The source that an adapter is tied to. Omit if none applies.  | "source": 210  |
 | schemaId            | integer           | No       | No | The schemaId that the engine supports. This is required for ingesting or processing structured data.  | "schemaId": 231  |
 | schedule | string | No | No | Indicate whether your adapter has any restrictions for supporting schedules. Allowed values are "any", "recurring", "continuous", "immediate", "on demand". If omitted, we will use "any".| "schedule": "any" |
