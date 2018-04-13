@@ -527,7 +527,7 @@ Next, execute your ingestion engine's core code against the data source. You wil
 * source: source name from the payload
 * status: "recording" or "downloaded"
 
-After creating the TDO, an asset must be created on the TDO using the ingested file. To do so, the createAsset mutator can be used  A few specific fields to note:
+After creating the TDO, an asset must be created on the TDO using the ingested file. To do so, the createAsset mutator can be used. A few specific fields to note:
 
 * type should be set to "media"
 * contentType is the MIME type and should be set
@@ -535,7 +535,24 @@ After creating the TDO, an asset must be created on the TDO using the ingested f
 
 For both createTDO and createAsset, refer to the documentation from GraphiQL for the full list of fields supported.
 
-On a successful completion of the "ingest" mode, the task output should, at the minimum, include the ID of the TDO created, specified as the field, "recordingId". Additional data fields from TDO can also be included under a "recording" object. For instance:
+On a successful completion of the "ingest" mode, the task output should, at the minimum, include the ID of the TDO created, specified as the field, "recordingId". Additional data fields from TDO can also be included under a "recording" object. Additional data fields from TDO can also be included under a "recording" object. For instance:
+
+```
+{
+    "recordingId": "400001621",
+    "recording": {
+        "id": "400001621",
+        "name": "video.mp4",
+        "startDateTime": "2017-12-21T00:29:07.885Z",
+        "stopDateTime": "2017-12-21T00:30:07.885Z",
+        "assets": [{
+            "id": "8285929482",
+            "type": "media",
+            "contentType": "video/mp4"
+        }]
+    }
+}
+```
 
 **SDOs:** When creating a new SDO, use the createStructuredData mutator and provide the following fields:
 * externalId: if you want to use an ID that you'll remember for future processing, include it here; otherwise Veritone will assign an ID
