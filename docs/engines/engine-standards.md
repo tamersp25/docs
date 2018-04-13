@@ -28,7 +28,7 @@ A Contract defines what constitutes an engine in a given category, defined by bo
 
 #### Cognitive Engine Classes
 
-We recognize six major &ldquo;Classes&rdquo; of Cognition based on primary input types:
+We recognize seven major &ldquo;Classes&rdquo; of Cognition based on primary input types:
 
 - Speech
 - Text
@@ -36,6 +36,7 @@ We recognize six major &ldquo;Classes&rdquo; of Cognition based on primary input
 - Data
 - Audio
 - Biometrics
+- Transformation
 
 Within each Class, there are currently dozens of &ldquo;Categories&rdquo; each representing models that are designed to perform similar tasks, such as Text Sentiment analysis or Face Recognition.  Industry nomenclature applicable to such categorization varies (e.g. detection vs. classification vs. recognition) so we have normalized our categorization and terminology as well.  Veritone currently supports a number of Categories and will continue to add more over time.
 
