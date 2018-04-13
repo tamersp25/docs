@@ -1,14 +1,15 @@
 <!-- ---
 title: Engine Standards
 --- -->
-
-#### Overview
+# Engine Standards
 
 This document outlines the new proposed standard for Veritone&rsquo;s cognitive engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
 
-Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition. Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. Conforming to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple.  However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
+#### Overview
 
-For example, there are many different ways to define a Bounding Box (4 coordinates, 2 coordinates, coordinates with height and width, % of image size, etc), so we have chosen what we believe to be the best and/or most universal definition as our &ldquo;standard&rdquo;.  In cases where nomenclature or definitions do not match our standards, we will normalize to those standards by making translations internally within our platform.
+Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition. Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. Conforming to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple. However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
+
+For example, there are many different ways to define a Bounding Box (4 coordinates, 2 coordinates, coordinates with height and width, % of image size, etc), so we have chosen what we believe to be the best and/or most universal definition as our &ldquo;standard&rdquo;. In cases where nomenclature or definitions do not match our standards, we will normalize to those standards by making translations internally within our platform.
 
 Our Cognitive Engines framework relies on three key elements - Components, Contracts, and Manifests (described below). 
 
@@ -32,11 +33,11 @@ We recognize seven major &ldquo;Classes&rdquo; of Cognition based on primary inp
 - Biometrics
 - Transformation
 
-Within each Class, there are currently dozens of &ldquo;Categories&rdquo; each representing models that are designed to perform similar tasks, such as Text Sentiment analysis or Face Recognition.  Industry nomenclature applicable to such categorization varies (e.g. detection vs. classification vs. recognition) so we have normalized our categorization and terminology as well.  Veritone currently supports a number of Categories and will continue to add more over time.
+Within each Class, there are currently dozens of &ldquo;Categories&rdquo; each representing models that are designed to perform similar tasks, such as Text Sentiment analysis or Face Recognition. Industry nomenclature applicable to such categorization varies (e.g. detection vs. classification vs. recognition) so we have normalized our categorization and terminology as well. Veritone currently supports a number of Categories and will continue to add more over time.
 
 #### Components
 
-The basic building blocks of engine outputs are defined as Components.  Some components such as &ldquo;Confidence&rdquo; are fairly universal, while others are specific to the domain such as &ldquo;Veritone Lattice Format&rdquo; or VLF.  Most engine output will consist of several Components.
+The basic building blocks of engine outputs are defined as Components. Some components such as &ldquo;Confidence&rdquo; are fairly universal, while others are specific to the domain such as &ldquo;Veritone Lattice Format&rdquo; or VLF.  Most engine output will consist of several Components.
 
 #### Contracts
 
