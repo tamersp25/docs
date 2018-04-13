@@ -19,22 +19,28 @@ _Best Practice Tip_: For local development, it&rsquo;s recommended to support ac
 **Task Payload Attributes**
 
 | Field              | Type   | Description                                                                                                                                                                                  |
-| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ------ | -------------------------------------------------------------- |
 | applicationId      | string | The application ID associated with the task.                                                                                                                                                 |
 | jobId              | string | The unique ID of the job associated with the task.                                                                                                                                           |
 | taskId             | string | The unique ID associated with the task.                                                                                                                                                      |
-| token              | string | A single-use token provided to the engine to access the recording container. All engine requests to the Veritone API must use this token.                                                    |
-| source             | object | Provides more information about the source of the data. See below for the contents of the object.                                                    |
-| metadata           | object | Provides more information to describe the data. See below for the contents of the object.                                                       |
-| job           | object | Contains the task array. See below for the contents of the object.                                                   |
+| token              | string | A single-use token provided to the engine to access the recording container. All engine requests to the Veritone API must use this token.  |
+| source             | object | Provides more information about the source of the data, including credentials if needed.  |
+| metadata           | object | Provides labels for the data that can be displayed to end users and/or used to query for the content.  |
+| job           | object | Contains the task array. See below for the contents of the object.                       |
 | veritoneApiBaseUrl | string | The base URL for making API requests in Veritone. Use the base URL to construct the GraphQL endpoint for your requests. (e.g., graphqlEndpoint = payload.veritoneApiBaseUrl + "/v3/graphql") |
 
 *Note:* We reserve the right to add additional properties to the payload. Any additional properties in the payload are considered undocumented and unreliable.
 
-The source object contains user input configurations, including credentials.
-
+***Example Task Payload***
 ```
-  "source": {
+{
+    "applicationId": string,
+    "jobId": string,
+    "taskId": string,
+    "token": string,
+    "mode": "scan"|ingest",
+    "fileId": string, ("ingest" mode only)
+    "source": {
         "ingestionId": string,
         "ingestionType": string,
         "name": string,
@@ -43,13 +49,8 @@ The source object contains user input configurations, including credentials.
             "foo": any,
             "bar": any,
             ...
-        },
-        "schemaId": string (for structured data only)
-   }
-```
-The metadata object contains additional information that the user would like to attach to the ingested data.
-
-```
+        }
+    },
     "metadata": {
         "date": string,
         "tags": array,
@@ -64,13 +65,10 @@ The metadata object contains additional information that the user would like to 
             "isPublic": boolean
         }
     },
-```
-The job object contains the task array, for ingestion jobs that require multiple tasks.
-
-```
     "job": {
         "tasks": array
     }
+}
 ```
 
 **2. Set Task Status to Running**
