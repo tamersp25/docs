@@ -10,14 +10,14 @@ The steps for constructing an engine are detailed below, starting with cognitive
 
 ## Construction of Cognitive Engines
 
-1. **Receive the Task Payload**
-2. **Set Task Status to Running**
-3. **Get the Recording Container**
-4. **Download an Existing Asset**
-5. **Process the Task**
-6. **Format and Generate Output**
-7. **Upload Engine Result & Create a New Asset**
-8. **Reporting Task Failure**
+1. Receive the Task Payload
+2. Set Task Status to Running
+3. Get the Recording Container
+4. Download an Existing Asset
+5. Process the Task
+6. Format and Generate Output
+7. Upload Engine Result & Create a New Asset
+8. Reporting Task Failure
 
 <br>
 
@@ -381,10 +381,10 @@ As engines with engineType set as ingestion, adapters are constructed very simil
 
 The workflow steps for adapters:
 
-1. **Receive the Task Payload**
-2. **Set Task Status to Running**
-3. **Process the Task**
-4. **Set Task Status to Completed or Report Errors**
+1. Receive the Task Payload
+2. Set Task Status to Running
+3. Process the Task
+4. Set Task Status to Completed or Report Errors
 
 
 **1. Receive the Task Payload**
@@ -519,7 +519,7 @@ curl -X POST \
 Next, execute your ingestion engine's core code against the data source. You will need to create a data object for the data ingested. Note that Veritone supports two types of data objects:
 
 * Temporal Data Object (TDO): This is a data object that can be described as a time series. TDOs include audio and video files and streams.
-* Structured Data Object (SDO): This is a structured data object that is described by a schema. Veritone currently supports SDOs with a JSON content type.
+* Structured Data Object (SDO): This is a data object that is described by a schema. Veritone currently supports SDOs with a JSON content type.
 
 **TDOs:** When creating a new TDO, use the createTDO mutator and provide at least the following fields:
 * startDateTime: use the date from the "metadata" object in the payload
