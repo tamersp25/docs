@@ -20,7 +20,7 @@ Veritone supports three engine types in VDA:
 
 2. __Ingestion:__ Ingestion engines, also referred to as adapters, are engines that bring data, which may be in the form of a file or stream, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
 
-3. __Aggregator:__ Aggregator engines work on the output from other engines. They may process the output from a single engine, multiple engines within a single engine category or across multiple categories. Aggregator engines are available on Veritone's real-time framework only.
+3. __Aggregator:__ Aggregator engines work on the output from other engines. They may process the output from a single engine, multiple engines within a single engine category or across multiple categories. Aggregator engines are available on Veritone's real-time framework only. _If you are interested in building and deploying an aggregator engine, please contact [us](https://chat.veritone.com/) for more information._
 
 #### Engine Categories
 
