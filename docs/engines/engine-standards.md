@@ -14,7 +14,7 @@ Our Cognitive Engines framework relies on three key elements - Components, Contr
 
 At a high level, _contracts_ define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
 
-Contracts are composed of a series of _components_.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components
+Contracts are composed of a series of _components_.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components.
 
 _Manifests_ are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
 
