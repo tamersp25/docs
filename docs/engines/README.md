@@ -22,11 +22,11 @@ Veritone supports three engine types in VDA:
 
 3. __Aggregator:__ Aggregator engines work on the output from other engines. They may process the output from a single engine, multiple engines within a single engine category or across multiple categories. Aggregator engines are available on Veritone's real-time framework only.
 
-#### [Engine Categories]
+#### Engine Categories
 
 Within each engine type, choose the best category to describe your engine's function.
 
-For __cognitive engines(/engines/classes/)__, Veritone provides a portfolio of more than 50 categories across seven classes to handle a variety of machine learning frameworks and algorithms. 0
+For __[cognitive engines](/engines/classes/)__, Veritone provides a portfolio of more than 50 categories across seven classes to handle a variety of machine learning frameworks and algorithms. 0
 
 #### [Deployment Models](/engines/quick-start/step-1-create-an-engine?id=choose-a-deployment-model)
 
