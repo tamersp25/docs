@@ -6,25 +6,19 @@ title: Engine Standards
 
 This document outlines the new proposed standard for Veritone&rsquo;s cognitive engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
 
-Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition.  
-
-Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. 
-
-Conformance to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple.  However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
+Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition. Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. Conforming to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple.  However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
 
 For example, there are many different ways to define a Bounding Box (4 coordinates, 2 coordinates, coordinates with height and width, % of image size, etc), so we have chosen what we believe to be the best and/or most universal definition as our &ldquo;standard&rdquo;.  In cases where nomenclature or definitions do not match our standards, we will normalize to those standards by making translations internally within our platform.
 
 Our Cognitive Engines framework relies on three key elements - Components, Contracts, and Manifests (described below). 
 
-At a high level, contracts define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
+At a high level, __contracts__ define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
 
-Contracts are composed of a series of components.  These components are the elemental building blocks that define our data formats.
+Contracts are composed of a series of __components__.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components
 
-Manifests are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
+__Manifests__ are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
 
 All of these key elements combine to allow us to coordinate, normalize, and orchestrate engines as we build out a framework for chained cognition.
-
-A Contract defines what constitutes an engine in a given category, defined by both expected inputs and outputs.  Each Category will have certain mandatory Components and optional yet defined Components.
 
 #### Cognitive Engine Classes
 
