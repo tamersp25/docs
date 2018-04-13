@@ -18,7 +18,7 @@
 * * [Quickstart](engines/quick-start/)
 * * [Cognitive Engine Classes](engines/classes/)
 * * [Engine Manifest](engines/manifest.md)
-* * [Construction Guidelines](engines/guidelines.md)
+* * [Construction Guidelines](engines/guidelines/)
 * * [Engine Input/Output](engines/engine-input-output/)
 * * * [Transcription](engines/engine-input-output/transcription.md)
 * * * [Object Detection](engines/engine-input-output/object-detection.md)
