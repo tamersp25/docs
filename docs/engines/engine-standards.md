@@ -12,11 +12,11 @@ For example, there are many different ways to define a Bounding Box (4 coordinat
 
 Our Cognitive Engines framework relies on three key elements - Components, Contracts, and Manifests (described below). 
 
-At a high level, __contracts__ define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
+At a high level, _contracts_ define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
 
-Contracts are composed of a series of __components__.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components
+Contracts are composed of a series of _components_.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components
 
-__Manifests__ are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
+_Manifests_ are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
 
 All of these key elements combine to allow us to coordinate, normalize, and orchestrate engines as we build out a framework for chained cognition.
 
