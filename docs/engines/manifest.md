@@ -135,31 +135,6 @@ Putting it all together, an example of a manifest.json submission is provided be
     "video/mp4",
     "application/json"
   ],
-  "inputOptions": [
-    {
-      "name": "target",
-      "label": "Output Language",
-      "type": "picklist",
-      "defaultValue": "en-us",
-      "info": "The language that you would like to translate to",
-      "options": {
-        "en-us": "English",
-        "es-mx": "Spanish",
-        "fr-fr": "French"
-      }
-    },
-    {
-      "name": "priority",
-      "label": "Priority",
-      "type": "picklist",
-      "defaultValue": "cost",
-      "info": "The primary criteria for optimizing processing",
-      "options": {
-        "cost": "Minimize Cost",
-        "speed": "Maximize Speed"
-      }
-    }
-  ],
   "outputFormats": ["application/ttml+xml", "audio/wav"],
   "initialConcurrency": 50,
   "maxConcurrency": 50,
