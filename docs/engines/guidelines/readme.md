@@ -4,7 +4,7 @@ Engines in Veritone are designed with a functional architecture that ensures eas
 
 * Cognitive engines will need to fetch the input, retrieve a media asset, process the data, output the results to an asset, and send insights back to Veritone. 
 * Adapters or ingestion engines will need to ingest the raw input data and make it available for use in the platform. 
-* Aggregator engines will fetch the output asset of other engines, perform work, output the results to a different asset, and send insights back to Veritone.
+* Aggregator engines will need to fetch the output asset(s) of other engines, process the data, output the results to a different asset, and send insights back to Veritone.
 
 This section covers everything you need to properly construct your code for task processing. We&rsquo;ll walk through the entire task workflow in detail and specify behaviors and API calls required for your engine to successfully operate in the Veritone platform.
 
