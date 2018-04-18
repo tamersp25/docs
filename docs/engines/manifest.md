@@ -32,7 +32,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | supportedLanguages    | string           | No       | No | Languagues supported in ISO 639-1 Codes,  | "supportedLanguages": [ "en" , "ko" ]  |
 | gpuSupported          | string           | No       | No | List of supported GPU engines See the Supported GPU section [below](##GPU). Examples include: "G2", "G3", "P2"  | "gpuSupported" : "P2"  |
 | minMemoryRequired     | number           | No       | No | Minimum amount of RAM needed to run in MB.   | "minMemoryRequired": 1024     |
-| engineMode | string | No | No | The mode for executing your engine. Allowed values are 0 for legacy, 1 for batch, 2 for chunk, 3 for stream. If omitted, we will use 0 for legacy.| "engineMode": 0 |
+| engineMode | string | No | No | The mode for executing your engine. Allowed values are "legacy", "batch", "chunk", "stream". If omitted, we will use "legacy".| "engineMode": "legacy" |
 | inputEncoding | string | No | No | The input encoding required for your engine. Please use the labels available from running `ffmpeg -encoders`. | "inputEncoding": "pcm_s16be" |
 | supportedSourceTypes | array of integers           | No       | No | The sourceType that an adapter is tied to. Omit if none applies.  | "supportedSourceTypes": \[5]  |
 | sourceId          | integer           | No       | No | The source that an adapter is tied to. Omit if none applies.  | "source": 210  |
