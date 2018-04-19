@@ -18,7 +18,7 @@ Veritone&rsquo;s GraphiQL interface is recommended for making test API requests,
 
 Veritone now supports real-time processing, allowing data to be ingested and processed and insights to be delivered to end users within seconds. Veritone's real-time pipeline uses a [Kafka](https://kafka.apache.org/)-based messaging system to connect and control the various components within the system. Through VDA, you can upload your real-time capable adapters, cognitive engines and aggregator engines for use in real-time processing.
 
-A key field in the manifest is used to help identify engines that are compatible with the real-time framework is engineMode. If you are uploading a build for an adapter or cognitive engine, be sure to specify the correct engineMode in the accompanying manifest.
+A key field in the manifest is used to help identify engines that are compatible with the real-time framework is engineMode. If you are uploading a build for an adapter, cognitive engine or aggregator engine, be sure to specify the correct engineMode in the accompanying manifest.
 
 | engineMode | Adapters | Cognitive Engines or Aggregators |
 | ---------- | -------- | -------------------------------- |
