@@ -22,8 +22,8 @@ A key field in the manifest is used to help identify engines that are compatible
 
 | engineMode | Adapters | Cognitive Engines or Aggregators |
 | ---------- | -------- | -------------------------------- |
-| legacy | N/A for adapters | use if your engine is not real-time capable |
-| batch  | use if your adapter processes data in batches (e.g., files)| use if your real-time engine processes data in batches (e.g., files, records) |
-| chunk  | N/A for adapters | use if your real-time engine processes data in small chunks (e.g., frames, video segments) |
-| stream | use if your adapter processes data in streams | use if your real-time engine processes data in streams |
+| legacy | N/A for adapters | For engines that are not real-time capable |
+| batch  | For adapters that process data in batches (e.g., files)| For real-time engines that process data in batches (e.g., files, records) |
+| chunk  | N/A for adapters | For real-time engines that process data in small chunks (e.g., frames, video segments) |
+| stream | For adapters that process data in streams | For real-time engines that process data in streams |
  
