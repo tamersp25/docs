@@ -6,7 +6,7 @@ When uploading a build for a real-time adapter, be sure to set the engineMode to
 
 ## Constructing a Real-time Pull Adapter
 
-The basic steps for constructing a real-time pull adapter:
+The basic steps for a real-time pull adapter:
 
 1. Receive the task payload
 1. Ingest the data per the configuration specified in the task payload
