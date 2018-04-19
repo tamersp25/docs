@@ -1,23 +1,8 @@
-# Real-time Processing
-
-Veritone now supports real-time processing, allowing data to be ingested and processed and insights to be delivered to end users within seconds. Veritone's real-time pipeline uses a [Kafka](https://kafka.apache.org/)-based messaging system to connect and control the various components within the system. Through VDA, you can upload your real-time capable adapters, cognitive engines and aggregator engines for use in real-time processing.
-
-A key field in the manifest is used to help identify engines that are compatible with the real-time framework is engineMode. If you are uploading a build for an adapter or cognitive engine, be sure to specify the correct engineMode in the accompanying manifest.
-
-| engineMode | Adapters | Cognitive Engines |
-| ---------- | -------- | ----------------- |
-| legacy | N/A for adapters | use if your engine is not real-time capable |
-| batch  | use if your adapter processes data in batches| use if your real-time engine processes data in batches |
-| chunk  | N/A for adapters | use if your real-time engine processes data in small chunks |
-| stream | use if your adapter processes data in streams | use if your real-time engine processes data in streams |
-
-More details about how to construct a real-time adapter and a real-time cognitive engine on Veritone are provided below. 
-
-## Adapters
+# Real-time Adapters
 
 There are two types of adapters that can operate on the real-time pipeline: pull, which is the most common type of adapter where the adapter does the work of pulling the raw data from the source where the data is located, and push, where the source pushes data to a service on the Veritone platform, which then ingests the data onto the platform. We'll focus on pull adapters here, but if you're interested in push scenarios, check out our HTTP Push adapter in CMS or contact us for more information.
 
-### Constructing a Real-Time Pull Adapter
+## Constructing a Real-time Pull Adapter
 
 The basic steps for constructing a real-time pull adapter:
 
@@ -29,7 +14,7 @@ The basic steps for constructing a real-time pull adapter:
     1. When all of the data has been ingested, write a `stream_eof` message
 1. Throughout this process, write an `engine_hearbeat` message every 5 seconds or 20 messages to let us know that your adapter is functioning correctly.
 
-#### Example Adapter Payloads
+### Example Adapter Payloads
 
 For a video file:
 ```
@@ -78,7 +63,7 @@ To ingest a stream and produce chunks:
 
 Note that if user credentials are required to access the data source, they may be included in the taskPayload or passed in as a `sourceId`, which can be retrieved by querying on the `source` object using the GraphQL API.
 
-#### Message Formats
+## Message Formats
 
 `stream_init`: _Context information about a stream, sent as the first message on a stream topic._
 ```
