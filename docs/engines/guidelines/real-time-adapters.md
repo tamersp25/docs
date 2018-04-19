@@ -2,6 +2,8 @@
 
 There are two types of adapters that can operate on the real-time pipeline: pull, which is the most common type of adapter where the adapter does the work of pulling the raw data from the source where the data is located, and push, where the source pushes data to a service on the Veritone platform, which then ingests the data onto the platform. We'll focus on pull adapters here, but if you're interested in push scenarios, check out our HTTP Push adapter in CMS or contact us for more information.
 
+When creating a real-time adapter, be sure to set the engineMode to 'stream' in the manifest.
+
 ## Constructing a Real-time Pull Adapter
 
 The basic steps for constructing a real-time pull adapter:
@@ -65,7 +67,14 @@ Note that if user credentials are required to access the data source, they may b
 
 ## Message Formats
 
-`stream_init`: _Context information about a stream, sent as the first message on a stream topic._
+The message formats that adapters may encounter are documented below.
+
+### stream_init ###
+Context information about a stream, sent as the first message on a stream topic.
+
+Key: `stream_init`
+
+Value: JSON
 ```
 {
     "type": "stream_init",
@@ -80,6 +89,7 @@ Note that if user credentials are required to access the data source, they may b
     "ffmpegFormat": string
 }
 ```
+
 | field | definition |
 | ----- | ---------- |
 | type	| message type ("stream_init") |
@@ -93,14 +103,79 @@ Note that if user credentials are required to access the data source, they may b
 | mimeType	| MIME type of the stream contents. Can be a container format like "video/x+matroska" or a raw audio/video stream type, such as "video/h264" |
 | ffmpegFormat	| The FFMPEG format name of the stream contents. Ex: "webm", "pcm_s16le", "h264" |
 
+### raw_stream ###
+A chunk of raw bytes from a stream.
 
-`raw_stream`: _A chunk of raw bytes from a stream._
+Key: `raw_stream`
 
-`engine_heartbeat`: _Heartbeat message._
+Value: Raw bytes (up to 10KB)
+
+### engine_heatbeat ###
+Heartbeat message.
+
+Key: {engineInstanceId}
+
+Value: JSON
+
 ```
+{
+    "type": "engine_heartbeat",
+    "timestampUTC": int64,
+    "engineId": string,
+    "engineInstanceId": string,
+    "taskId": string,
+    "tdoId": string,
+    "jobId": string,
+    "count": int64,
+    "status": string,
+    "upTime": int64,
+    "bytesRead": int64,
+    "bytesWritten": int64,
+    "messagesWritten": int64,
+    "errorMsg": string
+}
 ```
 
+| field | definition |
+| ----- | ---------- |
+| type	| message type (constant string "engine_heartbeat") |
+| timestampUTC	| UTC timestamp (milliseconds since epoch) when message created |
+| engineId	| engineId of producer of heartbeat |
+| engineInstanceId	| instanceId to distinguish multiple instances of same engine (can be AMI + containerId) |
+| taskId	| taskId engine is working on |
+| tdoId	| tdoId engine is working on |
+| count	| the heartbeat count, starting at 1 and incrementing on each heartbeat |
+| status | Signal for whether an engine terminates unexpectedly or expectedly.  It helps with cleaning up after engine terminates and also to gather better metrics on system health. </br>Possible values: </br>"RUNNING" - engine is running and will send further heartbeats </br>"DONE" - engine will terminate successfully and this is last heartbeat message </br> "FAILED" - engine will terminate due to failure and this is last heartbeat message |
+| upTime	| continuous time (in milliseconds) engine instance has been running. |
+| bytesRead	| cummulative number of bytes read (for engines that read streams) |
+| bytesWritten	| cummulative number of bytes written (for engines that write streams) |
+| messagesWritten	| cummulative number of messages published (for engines that write chunks) |
+| errorMsg	| an optional error message if the heartbeat indicates a failure status |
 
 
+### stream_eof ###
+Indicates when the stream has reached its end.
 
+Key: stream_eof
 
+Value: JSON
+
+```
+{
+    "type": "stream_eof",
+    "timestampUTC": int64,
+    "taskId": string,
+    "tdoId": string,
+    "jobId": string,
+    "forcedEOF": boolean
+}
+```
+
+| field | definition |
+| ----- | ---------- |
+| type | message type (constant string "stream_eof") |
+| timestampUTC | UTC timestamp (milliseconds since epoch) when message created |
+| taskId | taskId of the producer instance |
+| tdoId | ID of the TDO the engine results/assets should be written to |
+| jobId | ID of the job being processed on stream |
+| forcedEOF | Set to true if the EOF was forced due to terminatation of a stream task. Coordinator should disregard messages with this flag set.|
