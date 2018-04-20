@@ -1,12 +1,14 @@
 # Real-time Adapters
 
-There are two types of adapters that can operate on the real-time pipeline: pull, which is the most common type of adapter where the adapter does the work of pulling the raw data from the source where the data is located, and push, where the source pushes data to a service on the Veritone platform, which then ingests the data onto the platform. We'll focus on pull adapters here, but if you're interested in push scenarios, check out our HTTP Push adapter in CMS or contact us for more information.
+There are two types of adapters that can operate on the real-time pipeline: _pull_, which is the most common type of adapter where the adapter does the work of pulling the raw data from the source where the data is located, and _push_, where the source pushes data to a service on the Veritone platform, which then ingests the data onto the platform. We'll focus on pull adapters here, but if you're interested in push scenarios, check out our HTTP Push adapter in CMS or contact us for more information.
 
 When uploading a build for a real-time adapter, be sure to set the engineMode to 'stream' in the manifest.
 
-## Constructing a Real-time Pull Adapter
+Note: Adapters can also operate in 'batch' mode and work on the real-time pipeline, although the ingestion and processing doesn't take place in real-time.
 
-The basic steps for a real-time pull adapter:
+## Constructing a Stream Pull Adapter
+
+The basic steps for a real-time stream pull adapter:
 
 1. Receive the task payload
 1. Ingest the data per the configuration specified in the task payload
