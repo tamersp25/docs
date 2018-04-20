@@ -26,7 +26,7 @@ Veritone supports three engine types in VDA:
 
 Within each engine type, choose the best category to describe your engine's function.
 
-For __[cognitive engines](/engines/classes/)__, Veritone provides a portfolio of more than 50 categories across seven classes to handle a variety of machine learning frameworks and algorithms. 0
+For __[cognitive engines](/engines/classes/)__, Veritone provides a portfolio of more than 50 categories across seven classes to handle a variety of machine learning frameworks and algorithms.
 
 #### [Deployment Models](/engines/quick-start/step-1-create-an-engine?id=choose-a-deployment-model)
 
