@@ -66,15 +66,13 @@ Our [Quick Start](/engines/quick-start/) is designed to take you through the eng
 
 An engine in the Veritone Platform follows a logical set of steps to process a task. For cognitive engines, this includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. For ingestion engines, the steps are similar, only instead of retrieving the asset, you're retrieving the raw input data, transforming it if needed, and providing it as an asset to Veritone where it can be processed by cognitive engines.
 
-Each step in the task flow must be built into your code. A high-level overview of the process is described below, and you'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines).
+Each step in the task flow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines), but at a high level, the workflow involves:
 
 * **Input:** Veritone passes a payload specifying the resources and operations of the task.
 
 * **Implementation:** The engine retrieves the asset and implements the task.
 
 * **Output:** The output from implementing the task is submitted back to Veritone.
-
-![](VDA-Task-Process-Flow-Diagram_2.png)
 
 #### Engine States
 
