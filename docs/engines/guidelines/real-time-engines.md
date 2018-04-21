@@ -25,7 +25,7 @@ The basic work steps for a 'chunk' engine:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `media_chunk` messages from its KAFKA_INPUT_TOPIC.
 1. For each `media_chunk` message, the engine does its processing.
-1. When processing of each `media_chunk` is done, the engine produces `engine_output` messages to KAFKA_CHUNK_TOPIC, along with a ChunkProcessedStatus message.
+1. When processing of each `media_chunk` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC, along with a ChunkProcessedStatus message.
 1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.
 1. If there is no work for the engine within the timeframe set in END_IF_IDLE_SECS, the engine shuts itself down.
 
@@ -204,7 +204,7 @@ The basic work steps for a 'stream' engine:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `raw_stream` messages from its KAFKA_INPUT_TOPIC.
 1. For each `raw_stream` message, the engine does its processing.
-1. When processing of each `raw_stream` is done, the engine produces `engine_output` messages to KAFKA_CHUNK_TOPIC
+1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC
 1. When the entire stream is processed (the engine should receive a `stream_eof` message), produce a `stream_eof` message.
 1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.
 
