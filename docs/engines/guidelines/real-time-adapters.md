@@ -112,7 +112,7 @@ Key: `raw_stream`
 
 Value: Raw bytes (up to 10KB)
 
-### engine_heatbeat ###
+### engine_heartbeat ###
 Heartbeat message.
 
 Key: {engineInstanceId}
