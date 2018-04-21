@@ -16,7 +16,7 @@ The basic steps for a real-time stream pull adapter:
     1. First message written to the topic is a `stream_init` message
     1. Then write a sequence of `raw_stream` messsages containing up to 10 KB of data each
     1. When all of the data has been ingested, write a `stream_eof` message
-1. Throughout this process, write an `engine_hearbeat` message every 5 seconds or 20 messages to let us know that your adapter is functioning correctly.
+1. Throughout this process, write an `engine_heartbeat` message every 5 seconds or 20 messages to let us know that your adapter is functioning correctly.
 
 ### Example Adapter Payloads
 
