@@ -16,7 +16,11 @@ More information about how to construct each type of engine is provided below.
 
 ## Constructing an Engine in Batch Mode
 
-TBD
+Batch Mode engines process and complete an entire task in one invocation.
+
+1. The Docker container for your engine will be started up with the environment variables set.
+1. The engine will receive a payload with information about where to retrieve the input data from Core (GraphQL).
+1. The engine will process the payload, update the task status, create any updates assets, and exit.
 
 ## Constructing an Engine in Chunk Mode
 
