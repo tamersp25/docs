@@ -6,9 +6,9 @@ At a high level, the workflow of a real-time cognitive engine on Veritone's real
 * chunk
 * stream
 
-__[Batch engines](#constructing-an-engine-in-batch-mode)__ process data in large discrete quantities, and as such, there can be considerable delay from the time that the data was generated and saved to when it's available for processing by a cognitive engine. The input to a batch engine can be a file or a record, and the output is an asset file.
+__[Batch engines](#constructing-an-engine-in-batch-mode)__ process data in discrete quantities serially. The contents of a particular batch are processed by the engine before moving on to the next batch. The input to a batch engine is a file, and the output is an asset file.
 
-__[Chunk engines](#constructing-an-engine-in-chunk-mode)__ process data in small discrete quantities, like image frames, which are produced by segmenting the input data into chunks. Chunk engines operate out of a stateless queue, where they can process each small bit of content without having any knowledge of the content that came before or after the bit of content that they are processing. The output of a chunk engine is an engine output fragment. Example: an engine that performs object or face detection on frames of a video stream.
+__[Chunk engines](#constructing-an-engine-in-chunk-mode)__ process data in small discrete quantities, which are produced by segmenting the input data into chunks. Chunk engines operate out of a stateless queue, where they can process each small bit of content without having any knowledge of the content that came before or after the bit of content that they are processing. The output of a chunk engine is an engine output fragment. Example: an engine that performs object or face detection on frames of a video stream.
 
 __[Stream engines](#constructing-an-engine-in-stream-mode)__ process data in streams, where the stream is broken up into stream bytes. Stream engines operate out of a stateful queue, where the order of the data does matter. The output of a stream engine is an engine output fragment. Example: a transcription engine or a gesture identification engine.
 
