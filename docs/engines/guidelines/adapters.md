@@ -4,7 +4,7 @@ As engines with engineType set as ingestion, adapters are constructed very simil
 
 At a high level, the VDA platform allows you to create and upload two types of adapters: _pull_, which is the most common type of adapter where the adapter does the work of pulling the raw data from the source where the data is located, and _push_, where the source pushes data to a service on the Veritone platform, which then ingests the data onto the platform. We'll focus on pull adapters here, but if you're interested in push scenarios, check out our HTTP Push adapter in CMS or contact us for more information.
 
-When uploading an adapter build through VDA, be sure to set the engineMode to 'batch' or 'stream' in the manifest. Adapters that work in batch mode will ingest the entire file or record and then upload it as a new asset, either a Temporal Data Object (TDO) or an Structured Data Object (SDO). Adapters that work in stream mode will ingest small bytes of the data and make it immediately available for processing by real-time engines. The steps for each of these types of adapters are described in more detail below.
+When uploading an adapter build through VDA, be sure to set the engineMode to 'batch' or 'stream' in the manifest. Adapters that work in batch mode will ingest the entire file or record and then upload it as a new asset, either as a Temporal Data Object (TDO) or a Structured Data Object (SDO). Adapters that work in stream mode will ingest small bytes of the data and make it immediately available for processing by real-time engines. The steps for each of these types of adapters are described in more detail below.
 
 ## Constructing a Batch Pull Adapter
 
@@ -15,9 +15,7 @@ The basic steps for a batch adapter:
 1. Perform the task.
     1. First create the TDO or SDO.
     1. Then ingest the data and store it using the API.
-1. When the task is complete, send a EOF message to the Kafka queue from the task payload or report any errors.
-
-**NEED EOF MESSAGE FORMAT AND TOPIC DEFINED IN PAYLOAD
+1. When the task is complete, use the API to change the status of the task to Complete, or to report any Errors.
 
 More details and examples for API calls are provided below.
 
