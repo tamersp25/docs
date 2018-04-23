@@ -19,8 +19,8 @@ More information about how to construct each type of engine is provided below.
 Batch Mode engines process and complete an entire task in one invocation.
 
 1. The Docker container for your engine will be started up with the environment variables set.
-1. The engine will receive a payload with information about where to retrieve the input data from Core (GraphQL).
-1. The engine will process the payload, update the task status, create any updates assets, and exit.
+1. The engine will receive a payload with information about where to retrieve the input data from the GraphQL API.
+1. The engine will process the payload, update the task status, create any updated assets, and exit.
 
 ## Constructing an Engine in Chunk Mode
 
@@ -29,8 +29,7 @@ The basic work steps for a 'chunk' engine:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `media_chunk` messages from its KAFKA_INPUT_TOPIC.
 1. For each `media_chunk` message, the engine does its processing.
-1. When processing of each `media_chunk` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC, along with a ChunkProcessedStatus message.
-1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.
+1. When processing of each `media_chunk` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC, along with a `ChunkProcessedStatus` message.
 1. If there is no work for the engine within the timeframe set in END_IF_IDLE_SECS, the engine shuts itself down.
 
 
@@ -44,7 +43,7 @@ The basic work steps for a 'chunk' engine:
 | ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
 | ENGINE_INSTANCE_ID | The engine instance ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3_324" |
 | KAFKA_INPUT_TOPIC | The Kafka topic the engine should consume chunks from | "chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
-| KAFKA_CONSUMER_GROUP | The consumer group the engine must use (shared with all other chunk engines consuming that topic | example |
+| KAFKA_CONSUMER_GROUP | The consumer group the engine must use (shared with all other chunk engines consuming that topic | "cg_chunk_in_de8a5455-fe50-4b17-aac1-4b631cdc7cc3" |
 | END_IF_IDLE_SECS | Number of seconds to wait for a job (idle) before killing self.  Default will be 3600 (1 hour). If not present then engine can sit idle indefinitely. | 3600 |
 
 ### Message Formats
