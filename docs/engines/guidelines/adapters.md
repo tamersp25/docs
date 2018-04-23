@@ -70,7 +70,7 @@ _Best Practice Tip_: For local development, it&rsquo;s recommended to support ac
 
 Once you have the Task Payload, call the _Update Task_ mutation and provide the Task ID and Job ID to set the task status to _running_.
 
-#### Request Payload: Set Task Status to Running
+**Request Payload: Set Task Status to Running
 
 ```graphql
 mutation {
@@ -89,7 +89,7 @@ mutation {
 }
 ```
 
-#### GraphiQL Sample Request: Set Task Status to Running
+**GraphiQL Sample Request: Set Task Status to Running
 
 ```graphql
 mutation {
@@ -106,7 +106,7 @@ mutation {
 }
 ```
 
-#### cURL Sample Request: Set Task Status to Running
+**cURL Sample Request: Set Task Status to Running
 
 ```bash
 curl -X POST \
@@ -116,7 +116,7 @@ curl -X POST \
   -d '{"query": "mutation { updateTask( input: { id: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49-8d70f376-377c-499e-adf4-e85ab70b4180\", jobId: \"5fa1b7d7-db54-4c8e-8f1f-6cb8029e2e49\", status: \"running\" } ) { id,  status } }" }'
 ```
 
-#### Sample Response: Set Task Status to Running
+**Sample Response: Set Task Status to Running
 
 ```json
 {
@@ -252,11 +252,11 @@ To ingest a stream and produce chunks:
 
 Note that if user credentials are required to access the data source, they may be included in the taskPayload or passed in as a `sourceId`, which can be retrieved by querying on the `source` object using the GraphQL API.
 
-## Message Formats
+### Message Formats
 
 The message formats that adapters may encounter are documented below.
 
-### stream_init ###
+**stream_init
 Context information about a stream, sent as the first message on a stream topic.
 
 Key: `stream_init`
@@ -290,14 +290,14 @@ Value: JSON
 | mimeType	| MIME type of the stream contents. Can be a container format like "video/x+matroska" or a raw audio/video stream type, such as "video/h264" |
 | ffmpegFormat	| The FFMPEG format name of the stream contents. Ex: "webm", "pcm_s16le", "h264" |
 
-### raw_stream ###
+**raw_stream**
 A chunk of raw bytes from a stream.
 
 Key: `raw_stream`
 
 Value: Raw bytes (up to 10KB)
 
-### engine_heartbeat ###
+**engine_heartbeat**
 Heartbeat message.
 
 Key: {engineInstanceId}
@@ -340,7 +340,7 @@ Value: JSON
 | errorMsg	| an optional error message if the heartbeat indicates a failure status |
 
 
-### stream_eof ###
+**stream_eof**
 Indicates when the stream has reached its end.
 
 Key: stream_eof
