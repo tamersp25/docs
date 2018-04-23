@@ -89,7 +89,7 @@ Value: JSON
 | taskPayload	| task payload for engine | no |
 | chunkUUID	| UUID for this chunk, used to report status for the chunk  | no |
 
-### engine_output
+#### engine_output
 An engine_output fragment available for processing or to be written as output.
 
 Key: {taskId}
@@ -129,7 +129,7 @@ Value: JSON
 | taskPayload	| task payload for next engine |
 | chunkUUID	| UUID for this chunk, used to report status for the chunk |
 
-### engine_heartbeat ###
+#### engine_heartbeat ###
 Heartbeat message.
 
 Key: {engineInstanceId}
@@ -226,14 +226,14 @@ The basic work steps for a 'stream' engine:
 
 The message formats that real-time 'stream' engines may encounter are documented below.
 
-### raw_stream ###
+#### raw_stream ###
 A chunk of raw bytes from a stream.
 
 Key: `raw_stream`
 
 Value: Raw bytes (up to 10KB)
 
-### engine_output
+#### engine_output
 An engine_output fragment available for processing or to be written as output.
 
 Key: {taskId}
@@ -273,7 +273,7 @@ Value: JSON
 | taskPayload	| task payload for next engine |
 | chunkUUID	| UUID for this chunk, used to report status for the chunk |
 
-### engine_heartbeat ###
+#### engine_heartbeat ###
 Heartbeat message.
 
 Key: {engineInstanceId}
@@ -316,7 +316,7 @@ Value: JSON
 | errorMsg	| an optional error message if the heartbeat indicates a failure status |
 
 
-### stream_eof ###
+#### stream_eof ###
 Indicates when the stream has reached its end.
 
 Key: stream_eof
