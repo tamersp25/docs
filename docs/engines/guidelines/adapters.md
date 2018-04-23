@@ -256,9 +256,7 @@ Note that if user credentials are required to access the data source, they may b
 
 The message formats that adapters may encounter are documented below.
 
-**stream_init**
-
-Context information about a stream, sent as the first message on a stream topic.
+**stream_init:** Context information about a stream, sent as the first message on a stream topic.
 
 Key: `stream_init`
 
@@ -291,17 +289,13 @@ Value: JSON
 | mimeType	| MIME type of the stream contents. Can be a container format like "video/x+matroska" or a raw audio/video stream type, such as "video/h264" |
 | ffmpegFormat	| The FFMPEG format name of the stream contents. Ex: "webm", "pcm_s16le", "h264" |
 
-**raw_stream**
-
-A chunk of raw bytes from a stream.
+**raw_stream:** A chunk of raw bytes from a stream.
 
 Key: `raw_stream`
 
 Value: Raw bytes (up to 10KB)
 
-**engine_heartbeat**
-
-Heartbeat message.
+**engine_heartbeat:** Heartbeat message.
 
 Key: {engineInstanceId}
 
@@ -343,9 +337,7 @@ Value: JSON
 | errorMsg	| an optional error message if the heartbeat indicates a failure status |
 
 
-**stream_eof**
-
-Indicates when the stream has reached its end.
+**stream_eof:** Indicates when the stream has reached its end.
 
 Key: stream_eof
 
