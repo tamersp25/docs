@@ -22,6 +22,8 @@ Batch Mode engines process and complete an entire task in one invocation.
 1. The engine will receive a payload with information about where to retrieve the input data from the GraphQL API.
 1. The engine will process the payload, update the task status, create any updated assets, and exit.
 
+Contact us if you are interested in a building a batch engine.
+
 ## Constructing an Engine in Chunk Mode
 
 The basic work steps for a 'chunk' engine:
@@ -31,7 +33,6 @@ The basic work steps for a 'chunk' engine:
 1. For each `media_chunk` message, the engine does its processing.
 1. When processing of each `media_chunk` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC, along with a `ChunkProcessedStatus` message.
 1. If there is no work for the engine within the timeframe set in END_IF_IDLE_SECS, the engine shuts itself down.
-
 
 ### Environment Variables for Engines in Chunk Mode
 
@@ -132,49 +133,6 @@ Value: JSON
 | taskPayload	| task payload for next engine |
 | chunkUUID	| UUID for this chunk, used to report status for the chunk |
 
-#### engine_heartbeat ###
-Heartbeat message.
-
-Key: {engineInstanceId}
-
-Value: JSON
-
-```
-{
-    "type": "engine_heartbeat",
-    "timestampUTC": int64,
-    "engineId": string,
-    "engineInstanceId": string,
-    "taskId": string,
-    "tdoId": string,
-    "jobId": string,
-    "count": int64,
-    "status": string,
-    "upTime": int64,
-    "bytesRead": int64,
-    "bytesWritten": int64,
-    "messagesWritten": int64,
-    "errorMsg": string
-}
-```
-
-| field | definition |
-| ----- | ---------- |
-| type	| message type (constant string "engine_heartbeat") |
-| timestampUTC	| UTC timestamp (milliseconds since epoch) when message created |
-| engineId	| engineId of producer of heartbeat |
-| engineInstanceId	| instanceId to distinguish multiple instances of same engine |
-| taskId	| taskId engine is working on |
-| tdoId	| tdoId engine is working on |
-| count	| the heartbeat count, starting at 1 and incrementing on each heartbeat |
-| status | Signal for whether an engine terminates unexpectedly or expectedly.  It helps with cleaning up after engine terminates and also to gather better metrics on system health. </br>Possible values: </br>"RUNNING" - engine is running and will send further heartbeats </br>"DONE" - engine will terminate successfully and this is last heartbeat message </br> "FAILED" - engine will terminate due to failure and this is last heartbeat message |
-| upTime	| continuous time (in milliseconds) engine instance has been running. |
-| bytesRead	| cummulative number of bytes read (for engines that read streams) |
-| bytesWritten	| cummulative number of bytes written (for engines that write streams) |
-| messagesWritten	| cummulative number of messages published (for engines that write chunks) |
-| errorMsg	| an optional error message if the heartbeat indicates a failure status |
-
-
 #### ChunkProcessedStatus
 Status of the chunk processed, to be sent after processing the chunk.
 
@@ -207,7 +165,7 @@ The basic work steps for a 'stream' engine:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `raw_stream` messages from its KAFKA_INPUT_TOPIC.
 1. For each `raw_stream` message, the engine does its processing.
-1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC
+1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message to KAFKA_CHUNK_TOPIC.
 1. When the entire stream is processed (the engine should receive a `stream_eof` message), produce a `stream_eof` message.
 1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.
 
@@ -344,5 +302,5 @@ Value: JSON
 | taskId | taskId of the producer instance |
 | tdoId | ID of the TDO the engine results/assets should be written to |
 | jobId | ID of the job being processed on stream |
-| forcedEOF | Set to true if the EOF was forced due to terminatation of a stream task. Coordinator should disregard messages with this flag set.|
+| forcedEOF | Set to true if the EOF was forced due to termination of a stream task.|
 
