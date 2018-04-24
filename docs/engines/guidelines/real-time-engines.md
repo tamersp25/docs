@@ -44,7 +44,7 @@ The basic work steps for a 'chunk' engine:
 | ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
 | ENGINE_INSTANCE_ID | The engine instance ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3_324" |
 | KAFKA_INPUT_TOPIC | The Kafka topic the engine should consume chunks from | "chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
-| KAFKA_CONSUMER_GROUP | The consumer group the engine must use (shared with all other chunk engines consuming that topic | "cg_chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
+| KAFKA_CONSUMER_GROUP | The consumer group the engine must use (shared with all other chunk engines consuming that topic) | "cg_chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
 | END_IF_IDLE_SECS | Number of seconds to wait for a job (idle) before killing self.  Default will be 3600 (1 hour). If not present then engine can sit idle indefinitely. | 3600 |
 
 ### Message Formats
