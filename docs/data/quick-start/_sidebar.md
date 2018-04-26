@@ -16,13 +16,6 @@
 * Engines
 * * [Overview](engines/)
 * * [Quickstart](engines/quick-start/)
-* * * [Step 1 - Create An Engine](engines/quick-start/step-1-create-an-engine.md)
-* * * [Step 2 - Construct Your Code for the Veritone Platform](engines/quick-start/step-2-construct-code.md)
-* * * [Step 3 - Create an Engine Manifest File](engines/quick-start/step-3-manifest.md)
-* * * [Step 4 - Package and Upload an Engine Build](engines/quick-start/step-4-upload-build.md)
-* * * [Step 5 - Submit a Build for Approval](engines/quick-start/step-5-submit-build.md)
-* * * [Step 6 - Deploy an Engine](engines/quick-start/step-6-deploy-engine.md)
-* * * [Step 7 - Manage an Active Engine or Build](engines/quick-start/step-7-manage-engine.md)
 * * [Cognitive Engine Classes](engines/classes/)
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
@@ -30,6 +23,10 @@
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
+
+* Data
+* * [Overview](data/)
+* * [Quickstart](data/quick-start/)
 
 * APIs
 * * [Overview](apis/)

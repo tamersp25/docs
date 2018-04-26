@@ -1,15 +1,15 @@
 # Veritone Overview
 
-Veritone unlocks insights hidden within unstructured audio and video with the power of a single, SaasS-based, artificial intelligence (AI) platform. Pairing a portfolio of best-of-breed cognitive engines with an advanced suite of applications, Veritone delivers the value of artificial intelligence in a way that&rsquo;s accessible, understandable, and useful for a wide spectrum of customers &mdash; from individuals to large organizations. Every frame of video and second of audio can be searched for objects, license plates, faces, voices, brands, and more. With potent content ingestion, indexing, search, correlation, analytics, sharing, and collaboration capabilities, Veritone equips users with tools and insights to make smarter, more well-informed business decisions. <br /> <br />The Veritone Platform is designed to seamlessly integrate with external applications via a robust API. In addition, the Veritone Developer Application allows developers of custom applications, cognitive engines, and data sets/streams to build on the Veritone technology stack and provide their technology to customers through the Veritone Platform.
+Veritone unlocks insights hidden within unstructured audio and video with the power of a single, SaaS-based, artificial intelligence (AI) platform. Pairing a portfolio of best-of-breed cognitive engines with an advanced suite of applications, Veritone delivers the value of artificial intelligence in a way that&rsquo;s accessible, understandable, and useful for a wide spectrum of customers &mdash; from individuals to large organizations. Every frame of video and second of audio can be searched for objects, license plates, faces, voices, brands, and more. With potent content ingestion, indexing, search, correlation, analytics, sharing, and collaboration capabilities, Veritone equips users with tools and insights to make smarter, more well-informed business decisions. <br /> <br />The Veritone Platform is designed to seamlessly integrate with external applications via a robust API. In addition, the Veritone Developer Application allows developers of custom applications, cognitive engines, and data sets/streams to build on the Veritone technology stack and provide their technology to customers through the Veritone Platform.
 
 ## Key Platform Features
 
 ### Ingestion
-Veritone ingests both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP. The architecture inherently supports simple and rapid addition of new ingestion adaptors.
+Veritone ingests both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP. The architecture inherently supports simple and rapid addition of new ingestion adapters. You can even write your own.
 
 ### Developer Platform and Ecosystem
 
-The Veritone Developer Application (VDA) allows developers to bring their ideas to life. The VDA connects developers with resources to create, submit, and deploy custom applications, cognitive engines, and data products into Veritone&rsquo;s architecture.
+The Veritone Developer Application (VDA) allows developers to bring their ideas to life. The VDA connects developers with resources to create, submit, and deploy custom adapters, applications, cognitive engines, and data products into Veritone&rsquo;s architecture.
 
 ### A Broad and Growing Cognitive Spectrum
 
@@ -21,14 +21,23 @@ Proprietary Veritone Conductor technology optimizes the cognitive engine selecti
 
 ### A Suite of Proprietary Applications
 
-Veritone&rsquo;s suite of native applications to enable users to ingest, process, index, manage, search, and share their cognitively-enriched content
-
+Veritone&rsquo;s suite of native applications to enable users to ingest, process, index, manage, search, and share their cognitively-enriched content.
 
 ### Philosophy of Open Data
 
 This is a central tenet of the Veritone value proposition, embracing the philosophy of openly sharing the world&rsquo;s data to accelerate the global pace of machine learning via accessible and ever growing training data sets.
-Flexible Deployment Models &nbsp;
-The Veritone Platform offers a variety of implementation and media storage options to match the technical environment and security requirements of clients. Current deployment options include Amazon Web Services (AWS) and Microsoft Azure Government in the United States. Additional deployment options for AWS in the United Kingdom, AWS Government in the United States, and a hybrid on-premise cloud version of the award-winning solution are in development and scheduled for release in the second half of 2017.
+
+### Flexible Deployment Models
+
+The Veritone Platform offers a variety of implementation and media storage options to match the technical environment and security requirements of clients. Current deployment options include Amazon Web Services (AWS), AWS Government, Microsoft Azure Government in the United States, plus AWS in the United Kingdom. We also offer a hybrid on-premise cloud version of our award-winning solution, and a fully on-premise cognition and API suite.
+
+### Process Data in Real-time
+
+Veritone now supports real-time ingestion and processing of content. Users can stream live content through the platform, run cognitive engines on the content, and get the results back immediately, as the content continues to stream.
+
+### Expand Your Insights with Structured Data
+
+Veritone now allows you to ingest structured data, either as standalone content or to match up with and enhance another data source. Ingest the contents of your private database or use a third-party data feed. Use text data to correlate with what's being shown in a video by time. The possibilities are within reach.
 
 ### Future-Proof and Ever-Evolving
 
@@ -37,7 +46,7 @@ The Veritone ecosystem of best-of-breed AI cognitive engines in a single platfor
 
 ## Veritone Application Suite
 
-Veritone&rsquo;s suite of powerful AI applications enables users to organize, manage, search, analyze and extend their cognitively-enriched content. The Platform includes the following native, general-purpose AI applications:
+Veritone&rsquo;s suite of powerful AI applications enables users to organize, manage, search, analyze, and extend their cognitively-enriched content. The Platform includes the following native, general-purpose AI applications:
 
 #### CMS
 Veritone CMS (Content Management System) is used to ingest/add media, delete media, define cognitive workflows, process new or previously processed media with additional artificial intelligence engines, organize ingested media, check the status of artificial intelligence engine execution, and view summary statistics for all ingested media.
@@ -62,49 +71,6 @@ Veritone Admin is used to establish, monitor, and manage account configurations,
 
 Veritone Library provides capabilities for creating a custom database of faces to easily recognize people in video files. Veritone Library also includes a set of pre-defined libraries with more than 10,000 famous faces from around the world, including athletes, TV/news personalities, celebrities, and foreign dignitaries.
 
-
 #### Developer
 
-Veritone Developer is a self-service environment where registered AI application and cognitive engine developers alike can access tools, documentation, APIs to build and submit their work for consideration. Transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators are also available within the Veritone Developer Application.
-
-## Engine Categories
-Veritone&rsquo;s portfolio of seven cognitive engine classes encompasses more than 50 recognized categories to provide an array of service types and deliver deep, targeted, predictable insight. And with Veritone aiWARE technology, customers have the ability to employ multiple AI engines in parallel across any combination of categories to enhance cognition services.
-
-<table>
-<tr>
-  <td><strong>Engine Class</strong></td>
-  <td><strong>Included Categories</strong></td>
-</tr>
-<tr>
-  <td><strong>Speech</strong></td>
-  <td>Transcription, Speaker Separation, Phonetic Search, Sentiment Analysis, Language Recognition, Speech Detection, Speech Conversational Bot, Keyword Spotting</td>
-</tr>
-<tr>
-  <td><strong>Text</strong></td>
-  <td>Translation, Text-to-Speech, Text Keyword/Topic Analysis, Natural Language Generation, Text Analytics, Text Sentiment Analysis, Text Language Recognition, Text Moderation, Text Conversational Bot</td>
-</tr>
-<tr>
-  <td><strong>Vision</strong></td>
-  <td>Object Recognition, OCR, Barcode/QR Code Recognition, Image Attributes, Scene Description, Visual Moderation, Object Matching, Motion Tracking, Action Classification, Visual Anomaly Detection, Scene Break Detection</td>
-</tr>
-<tr>
-  <td><strong>Biometrics</strong></td>
-  <td>Face Detection, Face Recognition, Face Verification, Face Attributes, Human Markers, Voice Recognition, Voice Analysis, Vital Signs</td>
-</tr>
-<tr>
-  <td><strong>Audio</strong></td>
-  <td>Audio Detection, Audio Fingerprinting, Audio Content Recognition, Audio Analytics, Audio Generation</td>
-</tr>
-<tr>
-  <td><strong>Data</strong></td>
-  <td>Data Anomaly Detection, Prediction/Trend Analysis, Geolocation, Data Analytics, Metadata Extraction, Optimization, Recommendation</td>
-</tr>
-<tr>
-  <td><strong>Transformation</strong></td>
-  <td>Transcoding, Redaction, Normalization/Combination, Editing, Video Synopsis, Text Alignment</td>
-</tr>
-</table>
-  <p><span>New engine categories will continue to be added over time based on client demand and/or developer interest. </span></p>
-  <p><br /></p>
-  <p><br /></p>
-</div>
+Veritone Developer is a self-service environment where registered developers can access tools, documentation, APIs to build and submit their AI applications, ingestion engines, cognitive engines or data schemas for consideration. We'll be continuing to add new features to the Veritone Developer application over time, and you can expect to see transparent usage and revenue reporting, competitive benchmarking, and other key performance indicators added in the coming months.

@@ -23,7 +23,7 @@
 * * [Quickstart](engines/quick-start/)
 * * [Cognitive Engine Classes](engines/classes/)
 * * [Engine Manifest](engines/manifest.md)
-* * [Construction Guidelines](engines/guidelines.md)
+* * [Construction Guidelines](engines/guidelines/)
 * * [Engine Input/Output](engines/engine-input-output/)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)

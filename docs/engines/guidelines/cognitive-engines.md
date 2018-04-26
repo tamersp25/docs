@@ -1,30 +1,23 @@
-# Construction Guidelines
+# Construction of Cognitive Engines
 
-Engines in Veritone are designed with a functional architecture that ensures easy integration to receive tasks, perform work, and return responses. The task processing pipeline follows a logical sequence of actions to fetch the input, retrieve a media asset, process the data, output the results to an asset, and send insights back to Veritone.
+The basic steps for constructing a cognitive engine:
 
-This section covers everything you need to properly construct your code for task processing. We&rsquo;ll walk through the entire task workflow in detail and specify behaviors and API calls required for your engine to successfully operate in the Veritone platform. Veritone API is built around the [GraphQL](http://graphql.org/learn/) paradigm and, where applicable in this documentation, we include sample requests configured in cURL and for use in our [GraphiQL interface](https://api.veritone.com/v3/graphiql). Please note that the examples in this documentation do not use client information and are not language specific. For fields that require account-specific data (such as a Recording ID), replace the value with your own. In addition, the sample requests shown are not all-inclusive &mdash; they highlight the minimum requirements and relevant information. Additional attributes for each request can be found in our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
-
-Veritone&rsquo;s GraphiQL interface is recommended for making test API requests, but calls can also be made using other HTTP clients. All requests must be HTTP POST to the [_https://api.veritone.com/v3/graphql_](https://api.veritone.com/v3/graphql) endpoint with *application/json* encoded bodies. In addition, requests must be authenticated [using an API Token](apis/authentication). Pass the token in your request using the _Authorization_ header with a value _Bearer <token>_. If you&rsquo;re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
-
-The task processing workflow is detailed in the steps below:
-
-1. **Receive the Task Payload**
-2. **Set Task Status to Running**
-3. **Get the Recording Container**
-4. **Download an Existing Asset**
-5. **Process the Task**
-6. **Format and Generate Output**
-7. **Upload Engine Result & Create a New Asset**
-8. **Reporting Task Failure**
+1. [Receive the Task Payload](#1.-receive-the-task-payload)
+2. [Set Task Status to Running](#2.-set-task-status-to-running)
+3. [Get the Recording Container](#3.-get-the-recording-container)
+4. [Download an Existing Asset](#4.-download-an-existing-asset)
+5. [Process the Task](#5.-process-the-task)
+6. [Format and Generate Output](#6.-format-and-generate-output)
+7. [Upload Engine Result & Create a New Asset](#7.-upload-engine-results-and-create-a-new-asset)
+8. [Reporting Task Failure](#8.-reporting-task-failure)
 
 <br>
 
 **1. Receive the Task Payload**
 
-When an engine gets a task to run, a payload with arguments specific to the task and references to media assets is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the the fields specified in the payload.The task payload is accessed through the PAYLOAD_FILE environment variable.
+When an engine gets a task to run, a payload with arguments specific to the task and references to media assets is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the fields specified in the payload. The task payload is accessed through the PAYLOAD_FILE environment variable.
 
 _Best Practice Tip_: For local development, it&rsquo;s recommended to support accepting the payload file location through a command line variable.
-Sample Task Payload
 
 **Task Payload Attributes**
 
@@ -119,7 +112,7 @@ query {
   temporalDataObject    => The query operation to retrieve a recording container object. (required)
   (id: string) {        => The Recording ID received in the Task Payload. (required)
     assets              => The asset object parameter to access the recording’s assets. (required)
-    (type: "string"){   => A label that classifies an asset, such as “transcript,” “media,” or “text.” The type field can be added as a filter to return a list of assets that match the given value. If the “type" filter is used in the request, a value must be specified. (optional)                       
+    (type: ["string"]){ => A label that classifies an asset, such as “transcript,” “media,” or “text.” The type field can be added as a filter to return a list of assets that match the given value. If the “type" filter is used in the request, a value must be specified. (optional)                       
                           
 -----------return fields-----------
     records {           => The records object parameter used to access individual asset data. (required)
@@ -127,7 +120,7 @@ query {
       contentType       => The asset’s MIME type (e.g., audio/mp3). (required)
       type              => A label that classifies an asset. The type field is helpful in determining whether your engine is able to use an asset for processing. Common types are include “media” (audio/video), “transcript” (TTML format), and “v-vlf” (Veritone Lattice Format). (optional)
       signedUri         => The secure URI of an asset. The signed URI value is used to download an asset for processing by your engine. (required)
-      createdDateTime   => The date and time (in Unix/Epoch format) that an asset was created. (required)
+      createdDateTime   => The date and time (in ISO8601 format) that an asset was created. (required)
     }
   }
 }
@@ -173,7 +166,7 @@ curl -X POST \
             "id": "af206121-7238-490d-9b7f-51a3be38cce3",
             "contentType": "video/mp4",
             "assetType": "media",
-            "createdDateTime": "1509387272",
+            "createdDateTime": "2016-10-19T01:08:46.000Z",
             "signedUri":
               "https://inspirent.s3.amazonaws.com/assets/39528568/e212ae40-c570-49c3-ab5d-c6595a2067bb.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=e8e3ea1f163539cee439b100262c7f72eb5c6edd7a7edf5b23e5ea4387043549&X-Amz-SignedHeaders=host"
           },
@@ -181,7 +174,7 @@ curl -X POST \
             "id": "6504ad93-edb5-4e5c-a0a8-8edb915bd921",
             "contentType": "application/ttml+xml",
             "assetType": "transcript",
-            "createdDateTime": "1509383487",
+            "createdDateTime": "2016-10-19T01:08:46.000Z",
             "signedUri":
               "https://inspirent.s3.amazonaws.com/assets/39528568/2e446059-3958-479e-b333-d3a77d0b7b56.ttml?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=2d8f79d6ec73ab9d7c8a1bb554047c58e9d941e74b544afbd730594ead9cc665&X-Amz-SignedHeaders=host"
           },
@@ -189,7 +182,7 @@ curl -X POST \
             "id": "d7133668-79f3-4682-bff5-94be751318a4",
             "contentType": "image/jpeg",
             "assetType": "thumbnail",
-            "createdDateTime": "1509382441",
+            "createdDateTime": "2016-10-19T01:08:46.000Z",
             "signedUri":
               "https://inspirent.s3.amazonaws.com/assets/39528568/8d78a978-890c-406f-afc1-8d495d20f3ad.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=4902cd2d518dd14369063667fea27877020d425b928cea78e9912b55ba12526b&X-Amz-SignedHeaders=host"
           },
@@ -197,7 +190,7 @@ curl -X POST \
             "id": "7d7b04a9-a1b8-432b-86d8-8150ee61c3a7",
             "contentType": "video/mp4",
             "assetType": "media",
-            "createdDateTime": "1509382096",
+            "createdDateTime": "2016-10-19T01:08:46.000Z",
             "signedUri":
               "https://inspirent.s3.amazonaws.com/assets/39528568/909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"
           }

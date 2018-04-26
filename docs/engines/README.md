@@ -12,9 +12,21 @@ Remember that our developer support team is here to answer questions and provide
 
 Within the Veritone Developer application, the word _engine_ is used to reference the external-facing, user-friendly representation of your software. The actual code and processing algorithms are contained in a _build_. A single engine can contain multiple builds, but only one build can deployed in production at a time. The engine and build approach allows you to update, test, and refine your code while offering the latest version of your engine to the marketplace. Once a new build is approved, it can be deployed to production and replace the existing one.
 
-#### [Cognitive Engine Classes](/engines/classes/)
+#### [Engine Types](/engines/enginetypes)
 
-Veritone provides all of the processing power you need to support your machine learning tasks. With a portfolio of more than 50 cognitive engine categories across seven classes, our platform is designed to handle a variety of machine learning frameworks and algorithms. Simply choose the category that's best suited to your needs and follow the provided data structure for rapid development.
+Veritone supports three engine types in VDA:
+
+1. __Cognition:__ Cognitive engines are engines that process data to extract value or insight, often through using machine learning technology.
+
+2. __Ingestion:__ Ingestion engines, also referred to as adapters, are engines that bring data, which may be in the form of a file or stream, from a location outside of the Veritone platform to inside of the platform where it can be further processed.
+
+3. __Aggregator:__ Aggregator engines work on the output from other engines. They may process the output from a single engine, multiple engines within a single engine category or across multiple categories. Aggregator engines are available on Veritone's real-time framework only. _If you are interested in building and deploying an aggregator engine, please contact [us](https://chat.veritone.com/) for more information._
+
+#### Engine Categories
+
+Within each engine type, choose the best category to describe your engine's function.
+
+For __[cognitive engines](/engines/classes/)__, Veritone provides a portfolio of more than 50 categories across seven classes to handle a variety of machine learning frameworks and algorithms.
 
 #### [Deployment Models](/engines/quick-start/step-1-create-an-engine?id=choose-a-deployment-model)
 
@@ -29,21 +41,20 @@ The manifest is a JSON-formatted text file that describes the aspects of your en
 Veritone's suite of APIs allow you to build the core strengths of the Veritone Platform into your technology. Our collection of GraphQL APIs support the entire task processing processing lifecycle &mdash; including payload retrieval, task statusing, returning output, and indexing results.
 
 #### [Input/Output Models](/engines/engine-input-output/)
-When constructing your engine, data fields must be used to define the inputs to and outputs from your service. Each engine category follows a unique model with supported data types and required fields, and there are advanced options you can set to control other aspects of how data is delivered to its defined output.
+When constructing your engine, data fields must be used to define the inputs to and outputs from your service. Each engine type and category has supported data types and required fields, and there are advanced options you can set to control other aspects of how data is delivered to its defined output.
 
 #### [Compliance Testing](/engines/quick-start/step-4-upload-build#L111)
 Each build that's uploaded to Veritone is required to undergo compliance testing to ensure it works securely and meets the needs of our customers. Part of this testing includes a vulnerability scan of the Docker image to detect security issues and potential vulnerabilities. A build must pass the compliance testing before it can be deployed to production in Veritone. If security issues are found, a report that details the results of the testing is provided to give insight as to why the build did not pass.
-
 
 ### The Engine Processes
 
 #### Engine Development Process
 
-When developing your engine, you'll work locally, package and upload your build as a Docker image, then deploy your approved engine container into production.
+When developing your engine, regardless of what type of engine it is, you'll work locally, package and upload your build as a Docker image, then deploy your approved engine container into production.
 
-1. [Create an Engine: ](/engines/quick-start/step-1-create-an-engine)Specify basic information about your engine, including the engine name, description, logo, and deployment model.
+1. [Create an Engine: ](/engines/quick-start/step-1-create-an-engine)Specify basic information about your engine, including the engine name, type, description, logo, and deployment model.
 2. Add APIs and [configure your code](/engines/quick-start/step-2-construct-code) to support Veritone's task processing flow and your engine category's specific input/output fields.
-3. [Create your manifest file](/engines/quick-start/step-3-manifest) with specific details about your engine and how it will run.
+3. [Create your manifest file](/engines/quick-start/step-3-manifest) with details about your engine and how it will run.
 4. [Build a Dockerfile](/engines/quick-start/step-4-upload-build) that packages your code, dependencies, and manifest, and use it to create a Docker image. Then push your Docker image to Veritone's Docker Registry and initiate the compliance testing process.
 5. [Submit your build for approval](/engines/quick-start/step-5-submit-build) by a member of our team.
 6. [Deploy your approved engine](/engines/quick-start/step-6-deploy-engine) to production in the Veritone Platform.
@@ -53,15 +64,15 @@ Our [Quick Start](/engines/quick-start/) is designed to take you through the eng
 
 #### Task Processing Flow
 
-An engine in the Veritone Platform follows a logical set of steps to process a task. This includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. Each step in the task flow must be built into your code. A high-level overview of the process is described below, and you'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines).
+An engine in the Veritone Platform follows a logical set of steps to process a task. For cognitive engines, this includes receiving the payload from Veritone with the task details, retrieving the asset, analyzing and transforming the data into actionable information, generating output data, and returning insights to Veritone. For ingestion engines, the steps are similar, only instead of retrieving the asset, you're retrieving the raw input data, transforming it if needed, and providing it as an asset to Veritone where it can be processed by cognitive engines.
+
+Each step in the task flow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Engine Construction Guidelines](/engines/guidelines), but at a high level, the workflow involves:
 
 * **Input:** Veritone passes a payload specifying the resources and operations of the task.
 
-* **Processing:** The engine retrieves the asset and processes the data.
+* **Implementation:** The engine retrieves the asset and implements the task.
 
-* **Upload Output:** Submit output data back to Veritone.
-
-![](VDA-Task-Process-Flow-Diagram.png)
+* **Output:** The output from implementing the task is submitted back to Veritone.
 
 #### Engine States
 

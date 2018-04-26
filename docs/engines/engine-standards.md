@@ -1,34 +1,29 @@
 <!-- ---
 title: Engine Standards
 --- -->
+# Engine Standards
+
+This document outlines the new proposed standard for Veritone&rsquo;s cognitive engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
 
 #### Overview
 
-This document outlines the new proposed standard for Veritone&rsquo;s engine inputs and outputs.  This document will serve as a guide for how our engine inputs and outputs will be normalized for processing.  
+Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition. Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. Conforming to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple. However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
 
-Veritone has architected its platform to be flexible and extensible to accommodate development partners across many different categories of cognition.  
-
-Due to the wide variety in cognitive engine capabilities, inputs/outputs, and parameter settings potentially available from ecosystem partners, we have created a modular framework that seeks to normalize and standardize engine outputs. 
-
-Conformance to Veritone&rsquo;s normalized Component standards is ideal, and makes onboarding to our aiWARE platform relatively simple.  However, we recognize that many developers utilize different nomenclature, definitions, and parameters for commonly used outputs.  
-
-For example, there are many different ways to define a Bounding Box (4 coordinates, 2 coordinates, coordinates with height and width, % of image size, etc), so we have chosen what we believe to be the best and/or most universal definition as our &ldquo;standard&rdquo;.  In cases where nomenclature or definitions do not match our standards, we will normalize to those standards by making translations internally within our platform.
+For example, there are many different ways to define a Bounding Box (4 coordinates, 2 coordinates, coordinates with height and width, % of image size, etc), so we have chosen what we believe to be the best and/or most universal definition as our &ldquo;standard&rdquo;. In cases where nomenclature or definitions do not match our standards, we will normalize to those standards by making translations internally within our platform.
 
 Our Cognitive Engines framework relies on three key elements - Components, Contracts, and Manifests (described below). 
 
-At a high level, contracts define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
+At a high level, _contracts_ define how engines are supposed to work.  Contracts outline the expected inputs and outputs, and list the capabilities of a given engine.  
 
-Contracts are composed of a series of components.  These components are the elemental building blocks that define our data formats.
+Contracts are composed of a series of _components_.  These components are the elemental building blocks that define our data formats. Each Category will have certain mandatory Components and optional yet defined Components.
 
-Manifests are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
+_Manifests_ are implementations of the the engine contracts.  The manifest will be the primary means of defining engines and their characteristics.
 
 All of these key elements combine to allow us to coordinate, normalize, and orchestrate engines as we build out a framework for chained cognition.
 
-A Contract defines what constitutes an engine in a given category, defined by both expected inputs and outputs.  Each Category will have certain mandatory Components and optional yet defined Components.
-
 #### Cognitive Engine Classes
 
-We recognize six major &ldquo;Classes&rdquo; of Cognition based on primary input types:
+We recognize seven major &ldquo;Classes&rdquo; of Cognition based on primary input types:
 
 - Speech
 - Text
@@ -36,12 +31,13 @@ We recognize six major &ldquo;Classes&rdquo; of Cognition based on primary input
 - Data
 - Audio
 - Biometrics
+- Transformation
 
-Within each Class, there are currently dozens of &ldquo;Categories&rdquo; each representing models that are designed to perform similar tasks, such as Text Sentiment analysis or Face Recognition.  Industry nomenclature applicable to such categorization varies (e.g. detection vs. classification vs. recognition) so we have normalized our categorization and terminology as well.  Veritone currently supports a number of Categories and will continue to add more over time.
+Within each Class, there are currently dozens of &ldquo;Categories&rdquo; each representing models that are designed to perform similar tasks, such as Text Sentiment analysis or Face Recognition. Industry nomenclature applicable to such categorization varies (e.g. detection vs. classification vs. recognition) so we have normalized our categorization and terminology as well. Veritone currently supports a number of Categories and will continue to add more over time.
 
 #### Components
 
-The basic building blocks of engine outputs are defined as Components.  Some components such as &ldquo;Confidence&rdquo; are fairly universal, while others are specific to the domain such as &ldquo;Veritone Lattice Format&rdquo; or VLF.  Most engine output will consist of several Components.
+The basic building blocks of engine outputs are defined as Components. Some components such as &ldquo;Confidence&rdquo; are fairly universal, while others are specific to the domain such as &ldquo;Veritone Lattice Format&rdquo; or VLF.  Most engine output will consist of several Components.
 
 #### Contracts
 
@@ -49,7 +45,7 @@ A Contract defines what constitutes an engine in a given category, defined by bo
 
 Contracts provide a signature/definition of the input and output payloads to and from different engines. Any changes in payload structure requires a corresponding redefinition of these asdf;lkj
 
-contracts. The contracts are registered in a central location called the registry. Veritone applications interpret input and output payloads to and from engines exclusively through the payload contracts defined in the registry. Any changes to payloads, in addition to new ones, are achieved by changing or defining a new contract in the registry. Thus, the registry provides a means for the Veritone applications to seamlessly handle changes to existing payloads, in addition to new ones.
+Contracts. The contracts are registered in a central location called the registry. Veritone applications interpret input and output payloads to and from engines exclusively through the payload contracts defined in the registry. Any changes to payloads, in addition to new ones, are achieved by changing or defining a new Contract in the registry. Thus, the registry provides a means for the Veritone applications to seamlessly handle changes to existing payloads, in addition to new ones.
 
 #### Manifest
 
@@ -1000,7 +996,7 @@ component/metadata-topic
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to object recognition AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1034,7 +1030,7 @@ Yes
 
 Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around object recognition.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
@@ -1080,7 +1076,7 @@ component/metadata-detected-object
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to face detection AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1113,7 +1109,7 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every face detection output.  This is what is returned from the engine.
 
 Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
 
@@ -1157,7 +1153,7 @@ component/metadata-face-detection
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to face recognition AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1190,9 +1186,9 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every face recognition output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around face recognition.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
@@ -1236,7 +1232,7 @@ component/vision-face-recognition
 
 ##### Input Data Structures
 
-This input data structure outlines the expected and optional data structures to be passed in to transcription AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
+This input data structure outlines the expected and optional data structures to be passed in to machine translation AI engines.  Required input data structures are data fields that are expected in message inputs. Optional data structures are defined in the corresponding standards body.
 
 Engines may take in one or multiple input payloads.
 
@@ -1269,9 +1265,9 @@ Yes
 
 #### Output Data Structures
 
-Required data structures are data fields that are expected in every transcription output.  This is what is returned from the engine.
+Required data structures are data fields that are expected in every machine translation output.  This is what is returned from the engine.
 
-Optional data structures are JSON data components that describe additional feature elements around transcription.  These data component structures are be interchangeable as defined by the component data format. 
+Optional data structures are JSON data components that describe additional feature elements around machine translation.  These data component structures are be interchangeable as defined by the component data format. 
 
 Engines may output one or multiple output payloads.
 
