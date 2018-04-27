@@ -2,14 +2,14 @@
 
 The basic steps for constructing a cognitive engine:
 
-1. [Receive the Task Payload](#1.-receive-the-task-payload)
-2. [Set Task Status to Running](#2.-set-task-status-to-running)
-3. [Get the Recording Container](#3.-get-the-recording-container)
-4. [Download an Existing Asset](#4.-download-an-existing-asset)
-5. [Process the Task](#5.-process-the-task)
-6. [Format and Generate Output](#6.-format-and-generate-output)
-7. [Upload Engine Result & Create a New Asset](#7.-upload-engine-results-and-create-a-new-asset)
-8. [Reporting Task Failure](#8.-reporting-task-failure)
+1. [Receive the Task Payload](/engines/guidelines/cognitive-engines?id=_1-receive-the-task-payload)
+2. [Set Task Status to Running](/engines/guidelines/cognitive-engines?id=_2-set-task-status-to-running)
+3. [Get the Recording Container](/engines/guidelines/cognitive-engines?id=_3-get-the-recording-container)
+4. [Download an Existing Asset](/engines/guidelines/cognitive-engines?id=_4-download-an-existing-asset)
+5. [Process the Task](/engines/guidelines/cognitive-engines?id=_5-process-the-task)
+6. [Format and Generate Output](/engines/guidelines/cognitive-engines?id=_6-format-and-generate-output)
+7. [Upload Engine Result & Create a New Asset](/engines/guidelines/cognitive-engines?id=_7-upload-engine-results-and-create-a-new-asset)
+8. [Reporting Task Failure](/engines/guidelines/cognitive-engines?id=_8-reporting-task-failure)
 
 <br>
 
