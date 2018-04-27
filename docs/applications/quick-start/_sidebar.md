@@ -30,6 +30,10 @@
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
 
+* Data
+* * [Overview](data/)
+* * [Quickstart](data/quick-start/)
+
 * APIs
 * * [Overview](apis/)
 * * [The Veritone API Data Model](apis/data-model.md)
