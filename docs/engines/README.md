@@ -12,7 +12,7 @@ Remember that our developer support team is here to answer questions and provide
 
 Within the Veritone Developer application, the word _engine_ is used to reference the external-facing, user-friendly representation of your software. The actual code and processing algorithms are contained in a _build_. A single engine can contain multiple builds, but only one build can deployed in production at a time. The engine and build approach allows you to update, test, and refine your code while offering the latest version of your engine to the marketplace. Once a new build is approved, it can be deployed to production and replace the existing one.
 
-#### [Engine Types](/engines/enginetypes)
+#### [Engine Types](/engines/types)
 
 Veritone supports three engine types in VDA:
 
