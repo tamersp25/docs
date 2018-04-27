@@ -8,7 +8,7 @@ The Veritone Developer Application now supports three types of engines: cognitio
 
 ## Cognition
 
-Cognitive engines process data, often using sophisticated algorithms and machine learning techniques, to derive cognitive insights from the data or to transform it for use by another cognitive engine or application. Within the Veritone platform, cognitive engines are assigned into various [classes and categories](/engines/classes).
+Cognitive engines process data, often using sophisticated algorithms and machine learning techniques, to derive cognitive insights from the data or to transform it for use by another cognitive engine or application. Within the Veritone platform, cognitive engines are assigned into various [classes and categories](/engines/classes/).
 
 Cognitive engines can work in real-time or batch mode on the Veritone platform. Real-time engines should be packaged as microservices so that they can be bought up quickly to process data in the form of a stream segment or chunk (e.g., an image or a frame from a stream).
 
