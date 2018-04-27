@@ -17,6 +17,7 @@
 * * [Overview](engines/)
 * * [Quickstart](engines/quick-start/)
 * * [Cognitive Engine Classes](engines/classes/)
+* * [Engine Types](engines/types)
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
 * * * [Constructing Cognitive Engines](engines/guidelines/cognitive-engines.md)

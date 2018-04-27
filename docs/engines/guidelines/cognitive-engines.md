@@ -13,7 +13,7 @@ The basic steps for constructing a cognitive engine:
 
 <br>
 
-**1. Receive the Task Payload**
+## 1. Receive the Task Payload
 
 When an engine gets a task to run, a payload with arguments specific to the task and references to media assets is passed as a JSON file. In order for your engine to accept and execute on the task sent from Veritone, your code must support the fields specified in the payload. The task payload is accessed through the PAYLOAD_FILE environment variable.
 
@@ -34,7 +34,7 @@ _Best Practice Tip_: For local development, it&rsquo;s recommended to support ac
 
 <br>
 
-**2. Set Task Status to Running**
+## 2. Set Task Status to Running
 
 Once you have the Task Payload, call the _Update Task_ mutation and provide the Task ID and Job ID to set the task status to _running_.
 
@@ -100,7 +100,7 @@ curl -X POST \
 
 <br>
 
-**3. Get the Recording Container**
+## 3. Get the Recording Container
 
 When the task status is set to _running_, make a request to the _Temporal Data Object_ query with the Recording ID received in the task payload to retrieve the recording container. Your engine will later download one of the assets in the recording container and use it as the base definition file for processing the task. When structuring your query to retrieve the recording container, there are a few core fields you&rsquo;ll want to specify in the request. Additional fields may also be required based on your engine&rsquo;s class. The query fields that apply to most engines are described in the request payload shown below and in the sample requests. A list of all possible request fields can be found in the [Temporal Data Object](https://api.veritone.com/v3/graphqldocs/temporaldataobject.doc.html) schema definition of our GraphQL docs.
 
@@ -203,7 +203,7 @@ curl -X POST \
 
 <br>
 
-**4. Download an Existing Asset**
+## 4. Download an Existing Asset
 
 Next, iterate through the retrieved assets and find the most relevant file to use as the input for your engine. Asset data files are stored in Veritone&rsquo;s S3 environment. Once the most relevant asset has been identified, download the file from the signed URI.
 
@@ -213,13 +213,13 @@ _Best Practice Tip:_ A recording&rsquo;s original asset has the highest fidelity
 
 <br>
 
-**5. Process the Task**
+## 5. Process the Task
 
 After downloading the asset, execute your engine's core code against it to process the task.
 
 <br>
 
-**6. Format and Generate Output**
+## 6. Format and Generate Output
 
 When processing is complete, convert your engine's raw output to a Veritone-compatible format. Output formats and required fields differ by engine category. Select the engine category below that best matches your environment to view complete output configuration details.
 
@@ -229,7 +229,7 @@ When processing is complete, convert your engine's raw output to a Veritone-comp
 
 <br>
 
-**7. Upload Engine Results and Create a New Asset**
+## 7. Upload Engine Results and Create a New Asset
 
 Once your output file is created, upload it to Veritone, create a new asset, and set the task status to complete using the *Upload Engine Result* mutation. If your engine outputted to multiple files, make individual calls to create a separate asset for each file. 
 
@@ -299,7 +299,7 @@ curl -X POST \
 
 <br>
 
-**8. Reporting Task Failure**
+## 8. Reporting Task Failure
 
 If an error occurs during processing or if your engine does not support the task content type, mark the task status as _failed_ by calling the _Update Task_ mutation. The _output_ parameter should be included in your request and specify a JSON object with the _error_ field to indicate the reason for the task failure. When a task fails, no further engine processing should occur.
 

@@ -24,6 +24,7 @@
 * * * [Step 6 - Deploy an Engine](engines/quick-start/step-6-deploy-engine.md)
 * * * [Step 7 - Manage an Active Engine or Build](engines/quick-start/step-7-manage-engine.md)
 * * [Cognitive Engine Classes](engines/classes/)
+* * [Engine Types](engines/types)
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
 * * [Engine Input/Output](engines/engine-input-output/)
