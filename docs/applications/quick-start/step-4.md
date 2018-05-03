@@ -4,7 +4,7 @@ When your app has been [created](/applications/quick-start/step-1), set up with 
 
 * **Approved:** Your application passed the Compliance Review and it can be [deployed to production](/applications/quick-start/step-5) immediately.
 
-* **Rejected:** Your application did not pass the Compliance Review due to one or more requirements not being met. Your application cannot be deployed until the issues have been addressed and your app is reviewed again. If your application was not approved, please contact our developer support team to discuss the Compliance Review results.    
+* **Rejected:** Your application did not pass the Compliance Review due to one or more requirements not being met. Your application cannot be deployed until the issues have been addressed and your app is reviewed again. If your application was not approved, please contact our developer support team to discuss the Compliance Review results.
 
 To submit your Application for review:
 

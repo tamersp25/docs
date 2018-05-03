@@ -11,7 +11,7 @@
 * * [Quickstart](applications/quick-start/)
 * * * [Step 1 - Create an Application](applications/quick-start/step-1.md)
 * * * [Step 2 - Authentication](applications/quick-start/step-2.md)
-* * * [Step 3 - Build an app using our APIs](applications/quick-start/step-3.md)
+* * * [Step 3 - Build an Application](applications/quick-start/step-3.md)
 * * * [Step 4 - Submit an Application](applications/quick-start/step-4.md)
 * * * [Step 5 - Deploy an Application](applications/quick-start/step-5.md)
 * * [OAuth](applications/oauth.md)

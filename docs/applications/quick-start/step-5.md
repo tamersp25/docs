@@ -4,9 +4,7 @@ When your application's status shows _Approved_, you can deploy it and make it a
 
 To deploy an Approved application:
 
-  
-
-1\.  Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
+1\. Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
 
 ![](VDA-Create-Application-1.png)
 
