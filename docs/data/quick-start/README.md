@@ -32,9 +32,10 @@ Each schema should fully describe the fields for the structured data that you wa
 
  The data types that Veritone supports:
 
-| Data Type | Example |
+| Data Type | Example Values |
 | --------- | ------- |
 | number | 1, 2.0, 3431455 |
+| integer | 1, 4, 34, 32134 |
 | boolean | true, false |
 | string | "string" |
 | array | \["one", "two", "three"]
@@ -45,19 +46,15 @@ Within the string type, we support two specific formats:
 | Format | Example |
 | ------ | ------- |
 | geopoint | "34.052235,-118.243683" |
-| datetime | "2018-02-22T01:00:00.000Z" |
+| datetime | "2018-02-22T01\:00\:00.000Z" |
 
-_Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)._
+*Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).*
 
 ## Editing a Schema ##
 
-While a schema has draft status, you can edit the schema by selecting the Edit option to the right of every row in the My Schemas table. You can edit it as many as you need to while the schema is in Draft status.
+While a schema has draft status, you can edit the schema by selecting the Edit option to the right of every row in the My Schemas table. You can edit it as many as you need to while the schema is in Draft status. When you're ready to publish the schema, the status changes to Published and a version is assigned.
 
-When you're ready to publish the schema, the status changes to Published and a version is assigned.
-
-If you edit a Published schema, a new entry will be created with a status of Draft. 
-
-If you attempt to publish this new entry, you will be asked to indicate whether the change should be saved as a minor or a major version. 
+If you edit a Published schema, a new entry will be created with a status of Draft. If you attempt to publish this new entry, you will be asked to indicate whether the change should be saved as a minor or a major version. 
 
 Version Type | Definition
 ------------ | -----------
