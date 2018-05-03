@@ -44,5 +44,8 @@
 * * * [Error Handling in the GraphQL API](apis/tutorials/graphql-error-handling.md)
 * * * [Uploading and Processing Files](apis/tutorials/upload-and-process.md)
 
-<!-- * Libraries
-* * [Overview](libraries.md) -->
+* Libraries
+* * [Overview](libraries/)
+* * [Library-enabled Engines](libraries/engines.md)
+* * [Training Engines](libraries/training.md)
+* * [Running Engines](libraries/running.md)
