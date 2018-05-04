@@ -43,5 +43,8 @@
 * * [Job Quickstart Guide](apis/job-quick-start-guide/)
 * * [Tutorials](apis/tutorials/)
 
-<!-- * Libraries
-* * [Overview](libraries.md) -->
+* Libraries
+* * [Overview](libraries/)
+* * [Library-enabled Engines](libraries/engines.md)
+* * [Training Engines](libraries/training.md)
+* * [Running Engines](libraries/running.md)

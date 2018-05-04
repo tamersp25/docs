@@ -44,5 +44,8 @@
 * * * [Delete a TDO and/or it's Content](apis/job-quick-start-guide/delete-tdo.md)
 * * [Tutorials](apis/tutorials/)
 
-<!-- * Libraries
-* * [Overview](libraries.md) -->
+* Libraries
+* * [Overview](libraries/)
+* * [Library-enabled Engines](libraries/engines.md)
+* * [Training Engines](libraries/training.md)
+* * [Running Engines](libraries/running.md)
