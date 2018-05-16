@@ -43,6 +43,7 @@
 * * * [Lookup Available Engines](apis/tutorials/get-engines.md)
 * * * [Error Handling in the GraphQL API](apis/tutorials/graphql-error-handling.md)
 * * * [Uploading and Processing Files](apis/tutorials/upload-and-process.md)
+* * * [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
 
 * Libraries
 * * [Overview](libraries/)
