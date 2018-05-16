@@ -80,7 +80,7 @@ mutation {
     userName: "sampleuser@veritone.com"
     password: "sample password"
   }) {
-		token
+    token
   }
 }
 ```
