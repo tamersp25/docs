@@ -184,7 +184,8 @@ The response contains the following key fields:
 In a typical workflow you will use `getSignedWritableUrl` to get the
 URLs, then PUT to the `url` value:
 
-```bash$ curl -v -X PUT "https://s3.amazonaws.com/prod-api.veritone.com/3e1bc99b-9c5e-4280-87a7-3ac70dd39482?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSGMPJHUC4ZLIYMQ%2F20180507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180507T223634Z&X-Amz-Expires=10800&X-Amz-Signature=1eed5e973043e397510def0325437571d350b3ad90320a4f8dc9f4d9b503f798&X-Amz-SignedHeaders=host" -d @test.mp4
+```bash
+bash$ curl -v -X PUT "https://s3.amazonaws.com/prod-api.veritone.com/3e1bc99b-9c5e-4280-87a7-3ac70dd39482?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJSGMPJHUC4ZLIYMQ%2F20180507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180507T223634Z&X-Amz-Expires=10800&X-Amz-Signature=1eed5e973043e397510def0325437571d350b3ad90320a4f8dc9f4d9b503f798&X-Amz-SignedHeaders=host" -d @test.mp4
 ```
 
 If you receive a 403 error back, verify that you are doing an HTTP PUT (not GET
