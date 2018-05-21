@@ -46,7 +46,23 @@
       // routerMode: 'history',
       subMaxLevel: 2,
       loadSidebar: true,
-      auto2top: true
+      auto2top: true,
+      // notFoundPage: {
+      //   '\/(.*)(?<!\/)$': '1$/'
+      // }
+      alias: {
+        '^\/applications$': '/applications/',
+        '^\/engines$': '/engines/',
+        '^\/data$': '/data/',
+        '^\/apis$': '/apis/',
+        '^\/libraries$': '/libraries/',
+        '^\/engines\/classes$': '/engines/classes/',
+        '^\/engines\/guidelines$': '/engines/guidelines/',
+        '^\/engines\/engine-input-output$': '/engines/engine-input-output/',
+        '^\/engines\/tutorials$': '/engines/tutorials/',
+        '^\/apis\/tutorials$': '/apis/tutorials/',
+        '(.*)\/quick-start$': '$1/quick-start/'
+      }
       // plugins: [
       //   window.DocsifyCopyCodePlugin.init()
       // ]
