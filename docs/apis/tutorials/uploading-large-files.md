@@ -208,7 +208,7 @@ by any authorized client.
 In some cases you might _want_ the URL to expire so that clients do not have
 unlimited access. In this case, use the `getUrl` value.
 
-Here's an example using the raw, permanent URL with with `createAsset` as above:
+Here's an example using the raw, permanent URL with `createAsset` as above:
 ```graphql
 mutation {
   createAsset(input: {
