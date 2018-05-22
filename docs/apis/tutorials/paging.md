@@ -27,20 +27,21 @@ For example, `names: [String]` would be an array of strings.
 
 Some fields on the Veritone schema use simple arrays.
 For example, the `User` type has a list of user settings.
+Here's the schema definition:
 
 ```
 # Settings for the user
 userSettings: [UserSetting!]
 ```
-
+And here's a sample query:
 ```graphql
 query {
-	me {
-  	userSettings {
-    	key
-    	value
-  	}
-	}
+  me {
+    userSettings {
+       key
+       value
+    }
+  }
 }
 ```
 
