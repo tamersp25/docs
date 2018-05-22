@@ -133,6 +133,11 @@ The response includes both raw (permanent) and signed URLs:
 ```
 
 `createAsset` can _also_ take a URL instead of the actual file.
+In this usage, the URI is saved as a reference directly on the asset (the URI contents 
+are not downloaded and transferred).
+An example of this usage is shown below (after the `getSignedWritableUrl` definition).
+Specify the `url` parameter instead of uploading a file.
+
 You can create assets of nearly any size by streaming directly to the storage
 location and then passing the resulting URL to the mutation.
 You can, if desired, use your own storage for this purpose. However, the
@@ -202,3 +207,33 @@ by any authorized client.
 
 In some cases you might _want_ the URL to expire so that clients do not have
 unlimited access. In this case, use the `getUrl` value.
+
+Here's an example using the raw, permanent URL with `createAsset` as above:
+```graphql
+mutation {
+  createAsset(input: {
+    containerId: 400005063
+    assetType: "media"
+    contentType: "video/mp4"
+    uri: "https://inspirent.s3.amazonaws.com/assets/670005063/b8ad4c2d-6539-4627-8095-9843901d494d.mp4"
+  }) {
+    id
+    uri
+    signedUri
+  }
+}
+```
+
+Returning the same type of result: 
+```
+{
+  "data":{
+    "createAsset":{
+      "id":"e97680db-0882-4333-81a7-b069d2b6be47",
+      "uri":"https://inspirent.s3.amazonaws.com/assets/670005063/b8ad4c2d-6539-4627-8095-9843901d494d.mp4",
+      "signedUri":"https://inspirent.s3.amazonaws.com/assets/400005063/a8ad3b2d-6539-4627-8095-9843901d494d.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20180507%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20180507T222856Z&X-Amz-Expires=3600&X-Amz-Signature=55ca05b8edbefe1bb0ece70c0b40562f69b5be147c88e8c8c19e25dc73dc741d&X-Amz-SignedHeaders=host"
+    }
+  }
+}
+```
+
