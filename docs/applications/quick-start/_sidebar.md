@@ -14,6 +14,7 @@
 * * * [Step 3 - Build an Application](applications/quick-start/step-3.md)
 * * * [Step 4 - Submit an Application](applications/quick-start/step-4.md)
 * * * [Step 5 - Deploy an Application](applications/quick-start/step-5.md)
+* * [Context Menu Extensions](applications/context-menu-extensions.md)
 * * [OAuth](applications/oauth.md)
 * * [Resources](applications/resources.md)
 * * [FAQ](applications/faq.md)
