@@ -16,8 +16,12 @@ Here you will see various supported object types that you can register context m
 
 Each extension requires both an `action name (label)` and a `URL`. The action name is what will be shown to users who have access to your application when interacting with the resource type context menus across the Veritone Platform. Upon clicking this label they will be taken to the URL that is defined in the URL field with the resource type id template string being replaced with the id of the resource that the context menu belongs to.
 
+Note -
 
-An example -
+The URL must contain a template string that correlates to the resource type, i.e `mention -> ${mentionId}`, `tdo => ${tdoId}` etc.
+
+
+Example:
 
 If you register a context menu extension with the following -
 
