@@ -9,7 +9,7 @@ to be your quickest path to the money.
 
 ### Getting Started: Register as a Veritone Developer
 
-1. [start here](https://www.veritone.com/onboarding/#/signUp?type=developer) 
+1. [Start here](https://www.veritone.com/onboarding/#/signUp?type=developer) 
 to create your Veritone Developer account (with $300 of free AI processing).
 
 2. Consider signing up for our [Veritone Developer Slack](https://chat.veritone.com).
