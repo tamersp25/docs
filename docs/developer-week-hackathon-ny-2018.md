@@ -16,11 +16,11 @@ to create your Veritone Developer account (with $300 of free AI processing).
 
 ---
 
-### Challenge: Build an Innovative AI-Powered Application on an OS for AI
+### Challenge: Build an Innovative AI-Powered Application on the OS for AI
 
 > Show off your technical skill and imagination by building or integrating 
 > an application experience leveraging one of the cognitive engine categories 
-> in the Veritone Ecosystem via API and deploying it within our Veritone 
+> in the Veritone Ecosystem via API and deploying it through our Veritone 
 > Developer application.
 
 #### Option 1: Start an app from scratch
