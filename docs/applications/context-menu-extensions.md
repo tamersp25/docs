@@ -7,9 +7,10 @@ A Context Menu contains a list of additional commands that a user can select to 
 
 You can add any number of extensions to the following Context Menu types: 
  <ol type="a">
-  <li>**Watchlist:** A Watchlist is a saved set of criteria that Veritone performs continuous searches against to find matching content in the database index. Veritone creates a folder in Discovery for each watchlist and automatically adds content (known as “Mentions”) that matches the search criteria. The Watchlist Context Menu is located on the right of a Watchlist name in the left menu of Discovery.</li>
-  <li>**Mention:** A Mention is a matching result for a Watchlist’s criteria. The Mentions Context Menu is located on the far right of an individual Mention in Discovery.</li>
+  <li><b>Watchlist:</b> A Watchlist is a saved set of criteria that Veritone performs continuous searches against to find matching content in the database index. Veritone creates a folder in Discovery for each watchlist and automatically adds content (known as “Mentions”) that matches the search criteria. The Watchlist Context Menu is located on the right of a Watchlist name in the left menu of Discovery.</li>
+ <li><b>Mention:</b> A Mention is a matching result for a Watchlist’s criteria. The Mentions Context Menu is located on the far right of an individual Mention in Discovery.</li>
 </ol>
+
 ![View-Context-Menu](context-menu-view-watchlist-mention.png)
 
 ### Create a Context Menu Extension
@@ -25,10 +26,10 @@ The step to add Context Menu Extensions for a new application is built directly 
 
 #### Add a Context Menu Extension
 1. Choose the Context Menu type where you’d like your extension to appear.
- *   **Mention:** On the far right of a Mention in Discovery.
- *   **Watchlist:** A W On the right of a Watchlist name in the left menu of Discovery.
- *   **Media:** *Coming soon!*
- *   **Collections:** *Coming soon!*
+   *   **Mention:** On the far right of a Mention in Discovery.
+   *   **Watchlist:** A W On the right of a Watchlist name in the left menu of Discovery.
+   *   **Media:** *Coming soon!*
+   *   **Collections:** *Coming soon!*
 
 2. Enter an `Action Name` (label) for your extension. The `Action Name` is the text that’s shown to users in the menu. The name should be short and describe the behavior your extension performs. (e.g., "Send to Pet Finder")
 
