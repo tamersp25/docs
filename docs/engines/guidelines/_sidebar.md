@@ -1,5 +1,8 @@
 <!-- docs/_sidebar.md -->
 
+* Developer Week NYC
+* * [Hackathon](developer-week-hackathon-ny-2018.md)
+
 * Getting Started
 * * [Overview](/)
 * * [Architecture Overview](architecture-overview.md)
