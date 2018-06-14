@@ -47,7 +47,15 @@ basis.
 Regardless of which method of integration you choose, the following tutorials will
 likely prove useful:
 
+* [Using GraphQL](/apis/using-graphql)
+* [GraphQL Basics](apis/tutorials/graphql-basics)
+* [GraphQL Error Handling](apis/tutorials/graphql-error-handling)
+* [Job Quickstart Guide](/apis/job-quickstart)
 * [Looking Up Available Engines](/apis/tutorials/get-engines)
 * [Uploading and Processing Files](/apis/tutorials/upload-and-process)
+* [Uploading Large Files](/apis/tutorials/uploading-large-files)
+* [Cleaning Up TDO Data](/apis/tutorials/cleanup-tdo)
+* [Pagination](/apis/tutorials/paging)
+* [Tokens](/apis/tutorials/tokens)
 
 Happy coding!
