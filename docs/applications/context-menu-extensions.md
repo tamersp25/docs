@@ -3,15 +3,22 @@
 
 
 ### Overview
-A Context Menu contains a list of additional commands that a user can select to perform various actions on selected content. Veritone presents different Context Menus throughout the UI that appear when a user clicks the **more options icon** (vertical ellipsis). As a VDA developer, you can add custom Context Menu Extensions in various sections of the Veritone UI and create a shortcut for users to access your application. When creating Context Menu Extensions, you choose the name that will display and provide a redirect URL where users will be taken when your item is selected from the menu. Once an extension is added, any Veritone user of your application can view and interact with it when the associated Context Menu is open.
+A Context Menu is a list of actions that a user can perform on a selected resource. This menu appears when a user clicks the **more options icon** (vertical ellipsis) on an individual resource. Veritone provides Context Menus across all of the core platform applications that feature options specific to a resource type. As a Veritone developer, you can add custom Context Menu Extensions for individual resource types that provides users a shortcut to access your application's functionality. When creating an extension, you select the resource type where your Context Menu item will appear, enter the name that will display, and provide a  URL where users will be taken when your item is selected from the menu. Once an extension is registered, any Veritone user of your application can view and interact with it from the associated Context Menu. 
 
-You can add any number of extensions to the following Context Menu types: 
- <ol type="a">
-  <li><b>Watchlist:</b> A Watchlist is a saved set of criteria that Veritone performs continuous searches against to find matching content in the database index. Veritone creates a folder in Discovery for each watchlist and automatically adds content (known as “Mentions”) that matches the search criteria. The Watchlist Context Menu is located on the right of a Watchlist name in the left menu of Discovery.</li>
- <li><b>Mention:</b> A Mention is a matching result for a Watchlist’s criteria. The Mentions Context Menu is located on the far right of an individual Mention in Discovery.</li>
-</ol>
+Custom Context Menu Extensions can be added to any of the following resource types:
+
+*  **Watchlist (a):** A Watchlist is a saved set of criteria that Veritone performs continuous searches against to find matching content in the database index. Veritone creates a folder in Discovery for each watchlist and automatically adds content (known as “Mentions”) that matches the search criteria. The Watchlist Context Menu is located on the right of a Watchlist name in the left menu of Discovery.
+*  **Mention (b):** A Mention is a matching result for a Watchlist’s criteria. The Mentions Context Menu is located on the far right of an individual Mention in the Veritone Discovery and Veritone Collections applications.
 
 ![View-Context-Menu](context-menu-view-watchlist-mention.png)
+
+*  **Media:** Media represents an organization’s content that’s ingested and stored in Veritone CMS. The Media Context Menu is located on the upper right of a file tile in CMS.
+
+![View-Context-Menu-Media](context-menu-view-media.png)
+
+*  **Collections:** A Collection is a grouping of individual Mentions or Media selected by a user. The Collections Context Menu is located on the upper right of an individual file tile in the Veritone Collections application.
+
+![View-Context-Menu-Collections](context-menu-view-collection.png)
 
 ### Create a Context Menu Extension
 *Context Menu Extensions* can be added in [Veritone Developer App (VDA)](https://developer.veritone.com/applications/overview) when creating a new application or by modifying an existing application’s settings.
@@ -25,11 +32,11 @@ The step to add Context Menu Extensions for a new application is built directly 
 ![Access-Context-Menu-Settings-2](context-menu-access-2.png)
 
 #### Add a Context Menu Extension
-1. Choose the Context Menu type where you’d like your extension to appear.
-   *   **Mention:** On the far right of a Mention in Discovery.
-   *   **Watchlist:** A W On the right of a Watchlist name in the left menu of Discovery.
-   *   **Media:** *Coming soon!*
-   *   **Collections:** *Coming soon!*
+1. Choose the the resource type where you’d like your Context Menu Extension to appear.
+   *   **Mentions:** On the far right of a Mention in Discovery.
+   *   **Watchlists:** A W On the right of a Watchlist name in the left menu of Discovery.
+   *   **Media:** On the upper right of a file tile in CMS.
+   *   **Collections:** On the upper right of a file tile in Collections.
 
 2. Enter an `Action Name` (label) for your extension. The `Action Name` is the text that’s shown to users in the menu. The name should be short and describe the behavior your extension performs. (e.g., "Send to Pet Finder")
 
@@ -73,6 +80,24 @@ query{
 ```graphql
 query{
     watchlist(id: "watchlistId") {
+      id
+    }  
+}
+```
+
+**Media**
+```graphql
+query{
+    temporalDataObject(id: "tdoId") {
+      id
+    }  
+}
+```
+
+**Collection**
+```graphql
+query{
+    collection(id: "collectionId") {
       id
     }  
 }
