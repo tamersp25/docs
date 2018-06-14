@@ -3,86 +3,76 @@
 
 
 ### Overview
+A Context Menu contains a list of additional commands that a user can select to perform various actions on selected content. Veritone presents different Context Menus throughout the UI that appear when a user clicks the **more options icon** (vertical ellipsis). As a VDA developer, you can add custom Context Menu Extensions in various sections of the Veritone UI and create a shortcut for users to access your application. When creating Context Menu Extensions, you choose the name that will display and provide a redirect URL where users will be taken when your item is selected from the menu. Once an extension is added, any Veritone user of your application can view and interact with it when the associated Context Menu is open.
 
-Context menu extensions allow your application to register custom actions for various object types across the Veritone platform, such as mentions, TDOs, watchlists, and collections. Any user who has access to your application will be able to view and interact with your registered context menu extensions whenever they open a context menu (vertical ... menu) for an object of the registered type across our Veritone applications.
+You can add any number of extensions to the following Context Menu types: 
+ <ol type="a">
+  <li>**Watchlist:** A Watchlist is a saved set of criteria that Veritone performs continuous searches against to find matching content in the database index. Veritone creates a folder in Discovery for each watchlist and automatically adds content (known as “Mentions”) that matches the search criteria. The Watchlist Context Menu is located on the right of a Watchlist name in the left menu of Discovery.</li>
+  <li>**Mention:** A Mention is a matching result for a Watchlist’s criteria. The Mentions Context Menu is located on the far right of an individual Mention in Discovery.</li>
+</ol>
+![View-Context-Menu](context-menu-view-watchlist-mention.png)
 
-### How to register a context menu extension
+### Create a Context Menu Extension
+*Context Menu Extensions* can be added in [Veritone Developer App (VDA)](https://developer.veritone.com/applications/overview) when creating a new application or by modifying an existing application’s settings.
 
-You can register a new context menu extension by going to [Veritone Developer App (VDA)](https://developer.veritone.com/applications/overview) and either creating a new application or choosing an existing one and clicking on the context menu extensions tab.
+#### Access Context Menu Extension Settings
+The step to add Context Menu Extensions for a new application is built directly into the [application registration workflow](/applications/quick-start/step-1). To access the *Context Menu Extensions* page for an existing app, log in to Veritone Developer and follow the steps below.
+1. Select **Applications** on the left menu of the Veritone Developer homepage. A list of your organization’s *Applications* displays.
+2. Select the **application name** in the list where the Context Menu Extension will be added. The selected application’s settings open.
+![Access-Context-Menu-Settings-1](context-menu-access-1.png)
+3. Click the **Context Menu Extensions** tab. The *Context Menu Extensions* settings open.
+![Access-Context-Menu-Settings-2](context-menu-access-2.png)
 
+#### Add a Context Menu Extension
+1. Choose the Context Menu type where you’d like your extension to appear.
+ *   **Mention:** On the far right of a Mention in Discovery.
+ *   **Watchlist:** A W On the right of a Watchlist name in the left menu of Discovery.
+ *   **Media:** *Coming soon!*
+ *   **Collections:** *Coming soon!*
 
-Here you will see various supported object types that you can register context menu extensions for.
+2. Enter an `Action Name` (label) for your extension. The `Action Name` is the text that’s shown to users in the menu. The name should be short and describe the behavior your extension performs. (e.g., "Send to Pet Finder")
 
+3. Enter the `URL` where users will be taken when your Context Menu item is clicked. A Context Menu `URL` is constructed of two parts: the URL of your application’s external server location and an appended template string that extracts the ID of the resource where the menu item was clicked. Template strings are similar in structure but differ between the Context Menu types (e.g., Mention: `${mentionId}`, Watchlist: `${watchlistId}`). Full URL configuration examples are provided as a reference for each Context Menu type and can be viewed by clicking in the `URL` field.
 
-Each extension requires both an `action name (label)` and a `URL`. The action name is what will be shown to users who have access to your application when interacting with the resource type context menus across the Veritone Platform. Upon clicking this label they will be taken to the URL that is defined in the URL field with the resource type id template string being replaced with the id of the resource that the context menu belongs to.
+4. Click **+** to add an additional item to the menu, if desired.
 
-Note -
+5. Add extensions to additional Context Menu types, as desired. Click **Save** when all Context Menu Extensions have been added.
+![Create-Context-Menu](context-menu-create.png)
 
-The URL must contain a template string that correlates to the resource type, i.e `mention -> ${mentionId}`, `tdo => ${tdoId}` etc.
+##### Example
 
-
-Example:
-
-If you register a context menu extension with the following -
-
+The example below creates an extension that displays as `Send to Pet Tracker` on the Context Menu for Mentions. When a user clicks `Send to Pet Tracker`, they will be routed to the URL that's registered in the Context Menu Extensions settings (`www.pettracker.com/${mentionId}`). In addition, the template string (`${mentionId}`) will automatically be replaced with the unique ID of the Mention where the `Send to Pet Tracker` Context Menu Extension was selected (`www.pettracker.com?mentionId=12345`).
 ```json
-label: Send to SuperApp
-url: www.superapp.com?mentionId=${mentionId}
+label: Send to Pet Tracker
+url: www.pettracker.com?mentionId=${mentionId}
 ```
 
-If a user opens up a context menu of a mention within one of the Veritone applications, they will see `Go to Veritone` as a menu item. If the user clicks the menu item, they will be redirected to the URL that was registered i.e `www.superapp.com/${mentionId}` with the template string `${mentionId}` being replaced by the id of the mention i.e `www.superapp.com?mentionId=12345`.
+### Handling the Redirect URL
 
-Note -
-* All redirects are via `GET`. You will need to parse the resource id from the params; see the next section for more info.
+When a user clicks on your Context Menu Extension, Veritone sends a GET request that includes the captured resource ID to your URL. To ensure proper handling of Context Menu redirects, it’s recommended to set up URL routing rules for the receiving server to accept GET requests. 
 
+In order to use the resource ID, you'll need to parse the URL down to its components. Depending on how the URL was constructed when the Context Menu Extension was created, the ID will either be parsed from the request parameters or from the query string. 
 
-### Handling the redirect (external)
+**Example:**
+* Parse from parameters: `www.pettracker.com/12345/example` 
+* Parse from query string: `www.pettracker.com?mentionId=12345` 
 
-You will need to parse the resource id from the params of the redirect in order to do something with it. To do this, ensure you have a route set up on the server of the URL that you registered for the context menu extension which accepts GET requests.
+Once the URL is parsed, pass the resource ID in the correlating query below to fetch the full resource.
 
-Depending on how you constructed the URL, you can expect to either parse the id from the params or the query string of the request. See below.
-
-* `www.superapp.com/${mentionId}/example` -> params
-* `www.superapp.com?mentionId=${mentionId}` -> query string
-
-Once you've parsed the resource id, you can use our graphQL API to fetch the resource and do something with it. See below for example queries for each resource type.
-
-Mention:
-
+**Mention**
 ```graphql
-{
-  mention(mentionId: "mentionId") {
-    id
-  }
+query{
+    mention(mentionId: "mentionId") {
+      id
+    }  
 }
 ```
 
-TDO:
-
+**Watchlist**
 ```graphql
-{
-  temporalDataObject(id: "tdoId") {
-    id
-  }
-}
-```
-
-Watchlist:
-
-```graphql
-{
-  watchlist(id: "watchlistId") {
-    id
-  }
-}
-```
-
-Collection:
-
-```graphql
-{
-  collection(id: "collectionId") {
-    id
-  }
+query{
+    watchlist(id: "watchlistId") {
+      id
+    }  
 }
 ```
