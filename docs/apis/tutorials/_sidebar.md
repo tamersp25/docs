@@ -12,6 +12,7 @@
 * Applications
 * * [Overview](applications/)
 * * [Quickstart](applications/quick-start/)
+* * [Context Menu Extensions](applications/context-menu-extensions.md)
 * * [OAuth](applications/oauth.md)
 * * [Resources](applications/resources.md)
 * * [FAQ](applications/faq.md)
