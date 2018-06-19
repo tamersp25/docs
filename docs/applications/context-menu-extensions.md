@@ -34,7 +34,7 @@ The step to add Context Menu Extensions for a new application is built directly 
 #### Add a Context Menu Extension
 1. Choose the the resource type where you’d like your Context Menu Extension to appear.
    *   **Mentions:** On the far right of a Mention in Discovery.
-   *   **Watchlists:** A W On the right of a Watchlist name in the left menu of Discovery.
+   *   **Watchlists:** On the right of a Watchlist name in the left menu of Discovery.
    *   **Media:** On the upper right of a file tile in CMS.
    *   **Collections:** On the upper right of a file tile in Collections.
 
