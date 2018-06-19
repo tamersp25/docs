@@ -20,10 +20,10 @@ Veritone now supports real-time processing, allowing data to be ingested and pro
 
 A key field in the manifest is used to help identify engines that are compatible with the real-time framework is engineMode. If you are uploading a build for an adapter, cognitive engine or aggregator engine, be sure to specify the correct engineMode in the accompanying manifest.
 
-| engineMode | Adapters | Cognitive Engines or Aggregators |
-| ---------- | -------- | -------------------------------- |
-| legacy | N/A for adapters | For engines that are not real-time capable |
-| batch  | For adapters that process data in batches (e.g., files)| For real-time engines that process data in batches (e.g., files) |
-| chunk  | N/A for adapters | For real-time engines that process data in small chunks (e.g., frames, video segments) |
-| stream | For adapters that process data in streams | For real-time engines that process data in streams |
+| engineMode | Adapters                                                | Cognitive Engines or Aggregators                                                       |
+| ---------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| legacy     | N/A for adapters                                        | For engines that are not real-time capable                                             |
+| batch      | For adapters that process data in batches (e.g., files) | For real-time engines that process data in batches (e.g., files)                       |
+| chunk      | N/A for adapters                                        | For real-time engines that process data in small chunks (e.g., frames, video segments) |
+| stream     | For adapters that process data in streams               | For real-time engines that process data in streams                                     |
  
