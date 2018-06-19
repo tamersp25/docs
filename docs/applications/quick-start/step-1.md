@@ -5,7 +5,7 @@ Registering your app allows you to specify general information and basic configu
 ### To register your application
 1\.  Log into Veritone Developer. Click **New** in the upper left of the window and select **Applications** from the dropdown. The *New Application* window opens to the _Basic Application Details_ page. 
 
-![VDA-Create-App-1](App-QS-step1-1.png)
+![VDA-Create-App-1](App-QS-Step1-1.png)
 
 2\. Enter the following information about your application:  
 
@@ -18,13 +18,13 @@ Registering your app allows you to specify general information and basic configu
 
 4\. Click **Next**. The *Context Menu Extensions* page opens.
 
-![VDA-Create-App-2](App-QS-step1-2.png)
+![VDA-Create-App-2](App-QS-Step1-2.png)
 
 5\. Enter the **Action Name** and **URL** to create one or more *Context Menu Extensions*. (Optional) See the [Context Menu Extensions](/applications/context-menu-extensions) section of our docs to learn more.
 
 6\. Click **Submit** to continue. A "Application created successfully" confirmation message momentarily displays and the app is added to Veritone in a *Draft* state. 
 
-![VDA-Create-App-3](App-QS-step1-3.png)
+![VDA-Create-App-3](App-QS-Step1-3.png)
 
 7\. Review your application details.
 
@@ -34,7 +34,7 @@ Registering your app allows you to specify general information and basic configu
 
 Once your app is registered, use the values at the top of the page to [configure your app with OAuth 2.0 authentication](/applications/oauth). 
 
-![VDA-Create-App-4](App-QS-step1-4.png)
+![VDA-Create-App-4](App-QS-Step1-4.png)
 
 ### View and Access Your Application 
 Your registered applications can be viewed and accessed in the following ways:
@@ -44,5 +44,5 @@ Your registered applications can be viewed and accessed in the following ways:
   <li><b>App Picker:</b> Registered applications display by clicking the <i>App Picker</i> icon in the upper right of the window. The App Picker provides an easy way for users to find and access applications that have been enabled for their organization.</li>
 </ol>
 
-![VDA-View-and-Access-Apps](App-QS-step1-5.png)
+![VDA-View-and-Access-Apps](App-QS-Step1-5.png)
 
