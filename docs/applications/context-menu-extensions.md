@@ -3,7 +3,7 @@
 
 
 ### Overview
-A Context Menu (also known as a pop-up or shortcut menu) displays when a user clicks the **more options icon** (vertical ellipsis) on an single resource, such as a media file or watchlist. It provides relevant actions that a user can perform on a selected resource. As a Veritone developer, you can add custom extensions to a variety of Context Menus that provide users a shortcut for sending the selected resource to your application. Simply choose the resource type where your Context Menu Extension will appear, enter the name that will display, and provide the URL where users will be taken when your menu item is selected. Once an extension is registered, any Veritone user of your application can view and interact with it from the associated Context Menu. 
+A Context Menu (also known as a pop-up or shortcut menu) displays when a user clicks the **more options icon** (vertical ellipsis) on a resource, such as a media file or watchlist. It presents options that allow users to perform various actions relevant to the resource where the menu was opened. As a Veritone developer, you can add custom extensions to a number of different Context Menus across the platform and provide a shortcut for sending a selected resource to your application. Simply choose the resource type where your Context Menu Extension will appear, enter the name that will display, and provide the URL where users will be taken when your menu item is selected. Once an extension is registered, any Veritone user of your application can view and interact with it from the associated Context Menu. 
 
 You can create Context Menu Extensions for any of the following resource types:
 
