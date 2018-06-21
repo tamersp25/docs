@@ -1,21 +1,25 @@
-# Step 4. Submit your Application for Approval
+# Step 4. Submit Your Application for Review
 
-When your app has been [created](/applications/quick-start/step-1), set up with [OAuth 2.0](/applications/oauth), and development is complete, the next step is to submit it for review and approval by a member of our team. All applications are required to undergo a Compliance Review prior to deployment to ensure a number of security and integration requirements are met. Please allow 48 business hours for the Compliance Review process to be completed. Once the review is complete, your application will display with one of the following statuses:
+When your app has been [registered](/applications/quick-start/step-1), set up with [OAuth 2.0](/applications/oauth), and development is complete, you'll submit it for review by our Veritone's development team. All applications must pass a Compliance Review prior to deployment to ensure certain security and integration requirements are met. Most apps pass the review with no further development required. 
 
-* **Approved:** Your application passed the Compliance Review and it can be [deployed to production](/applications/quick-start/step-5) immediately.
+### To submit your application for review:
 
-* **Rejected:** Your application did not pass the Compliance Review due to one or more requirements not being met. Your application cannot be deployed until the issues have been addressed and your app is reviewed again. If your application was not approved, please contact our developer support team to discuss the Compliance Review results.
+1\. Log into Veritone Developer and click **Applications** on the left menu. The _Applications_ dashboard opens.
 
-To submit your Application for review:
+2\. Click the **vertical ellipsis icon** on the far right of the application name and select **Submit for Approval** from the dropdown. The submission confirmation window opens.
 
-1\. Log into Veritone Developer. Click **Overview** in the upper left of the window and select **Applications** from the dropdown. The _Applications_ page opens.
+![](App-QS-Step4-1.png)
 
-![](VDA-Create-Application-1.png)
+3\. Click **Submit**. The *Applications* dashboard reopens and the application status displays as _Pending_.
 
-2\. Click the **vertical ellipsis** on the right of the application entry in the _Applications_ table and select **Submit for Approval**. The confirmation window opens.
+![](App-QS-Step4-2.png)
 
-![](VDA-Submit-an-Application-2.png)
+## Compliance Review Results
 
-3\. Click **Submit**. The confirmation window closes and the application status changes to _Pending_.
+Compliance Review results are available within two business days of submission. Once the review process is complete, your application will be updated with one of the following statuses: 
 
-![](VDA-Submit-an-Application.png)
+* **Approved:** Your application passed the Compliance Review and it can be [deployed to production](/applications/quick-start/step-5) at any time.
+
+* **Rejected:** Your application did not pass the Compliance Review and it cannot currently be deployed. This status is issued when one or more security or integration requirements are not met. If your application fails the Compliance Review, contact our developer support team to review the results and disuss possible courses of action for correction. Once the identified issues have been resolved, resubmit your app for a follow-up review.
+
+![](App-QS-Step4-3.png) 
