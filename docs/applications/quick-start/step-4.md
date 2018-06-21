@@ -23,3 +23,5 @@ Compliance Review results are available within two business days of submission. 
 * **Rejected:** Your application did not pass the Compliance Review and it cannot currently be deployed. This status is issued when one or more security or integration requirements are not met. If your application fails the Compliance Review, contact our developer support team to review the results and disuss possible courses of action for correction. Once the identified issues have been resolved, resubmit your app for a follow-up review.
 
 ![](App-QS-Step4-3.png) 
+
+When your app is approved and you're ready to deploy, [proceed to Step 5](/applications/quick-start/step-5).
