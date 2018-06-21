@@ -2,8 +2,8 @@
 
 Registering your app allows you to specify general information and basic configuration details about your application and add it to the Veritone platform in a draft state. Once your app is registered, you'll be provided with a unique Application ID and other credentials that your app will use to configure [user authentication](/applications/quick-start/step-2). 
 
-### To register your application
-1\.  Log into Veritone Developer. Click **New** in the upper left of the window and select **Applications** from the dropdown. The *New Application* window opens to the _Basic Application Details_ page. 
+### To register your application:
+1\.  Log into Veritone Developer. Click **New** in the upper left of the window and select **Application** from the dropdown. The *New Application* window opens to the _Basic Application Details_ page. 
 
 ![VDA-Create-App-1](App-QS-Step1-1.png)
 
