@@ -1,4 +1,4 @@
-# Job Quickstart Guide
+# Search Quickstart Guide
 
 ## Getting Started
 
