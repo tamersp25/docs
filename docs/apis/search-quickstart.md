@@ -61,23 +61,23 @@ An API Token can be generated in the Veritone Admin App by your organization adm
 
 Search operations return results in order of relevance — the result that’s most relevant to the search query is the first item in the result set, and the least relevant is last. Relevance scoring is based on three primary factors:
 
-- **Term Frequency:** How often does the term appear in the field? The more often, the more relevant. A field containing five instances of the same term is more likely to be relevant than a field containing just one mention.
-- **Inverse Index Frequency:** How often does each term appear in the index? The more often, the less relevant. Terms that appear in many records have a lower weight than more-uncommon terms.
-- **Field Length:** How long is the field? The longer it is, the less likely it is that words in the field will be relevant. A term appearing in a field with a short title carries more weight than the same term appearing in a long content field.
+*  **Term Frequency:** How often does the term appear in the field? The more often, the more relevant. A field containing five instances of the same term is more likely to be relevant than a field containing just one mention.
+*  **Inverse Index Frequency:** How often does each term appear in the index? The more often, the less relevant. Terms that appear in many records have a lower weight than more-uncommon terms.
+*  **Field Length:** How long is the field? The longer it is, the less likely it is that words in the field will be relevant. A term appearing in a field with a short title carries more weight than the same term appearing in a long content field.
 
 ## Search Query Basics & Syntax
 Veritone Search API gives you the flexibility to build a variety of query types to search and retrieve indexed media and mentions content. The Search API allows you to combine a series of simple elements together to construct queries as simple or as complex as you’d like in JSON format. Although queries are customizable, there is a common structure and set of core parameters that each must use. In addition, there are a number of optional filters, components, and syntax options that can be specified to modify a query.
 
 ### Content Type
 Searches in Veritone are performed against two types of content: media and mentions. Each request must specify one of the following search content types as the root operation of the request.
--       **Search Media:** The *Search Media* operation searches media files and assets for matching records.<br>
--       **Search Mentions:** The *Search Mentions* operation searches for matching records in mentions and watchlists.
+*  **Search Media:** The *Search Media* operation searches media files and assets for matching records.<br>
+*  **Search Mentions:** The *Search Mentions* operation searches for matching records in mentions and watchlists.
 
 #### **Required Query Parameters**
 
 Regardless of the level of complexity, each search query in Veritone operates on four core elements: an *index*, a *field*, an *operator*, and an operator value or variable(s).
 
-##### **Index  **
+##### **Index**
 All search functionality runs against Veritone’s public and private index databases. The *index* field defines whether to search the organization’s public or private index (or both) for matching documents. There are two possible *index* values: "global," which refers to the public media index, and "mine", which refers to private media uploaded to an account. Each request must specify at least one *index* value enclosed in brackets.
 
 ##### **Field**
@@ -523,7 +523,7 @@ The example below is a search for records where "Kobe Bryant" along with either 
 
 ## **Sample Requests and Responses**
 
-Veritone’s GraphiQL interface is a service you can use to easily interact with the Search API. We recommend using GraphiQL ([https://api.veritone.com/v3/graphiql](https://api.veritone.com/v3/graphiql)) for making test API requests, but calls can also be made using a different HTTP client. All requests must be HTTP POST to the[ https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) endpoint with the *query* parameter and *application/json *encoded body. In addition, requests must be authenticated with an API Token. Pass the token in your request using the *Authorization* header with a value *Bearer <token>*. If you’re using a raw HTTP client, the query body contents must be sent in a string (not an object) with all quotes escaped.
+Veritone’s GraphiQL interface is a service you can use to easily interact with the Search API. We recommend using GraphiQL ([https://api.veritone.com/v3/graphiql](https://api.veritone.com/v3/graphiql)) for making test API requests, but calls can also be made using a different HTTP client. All requests must be HTTP POST to the Veritone GraphQL endpoint with the *query* parameter and *application/json* encoded bodies. In addition, requests must be authenticated with an API Token. Pass the token in your request using the *Authorization* header with a value *Bearer <token>*. If you’re using a raw HTTP client, the query body contents must be sent in a string (not an object) with all quotes escaped.
 
 Following are a variety of example queries that demonstrate how to put everything together. The sample requests provided are structured for use in our GraphiQL interface, but we’ve also included the basic cURL structure for your reference below. Please note that the examples shown do not use client information and are not language specific. For fields that require account-specific data (such as a Recording ID), replace the value with your own.
 
@@ -1277,7 +1277,7 @@ Searches for various aspects of recordings in public and private indexes.</td>
   <td>absoluteStartTimeMs</td>
   <td>integer</td>
   <td>Absolute start date and time in Unix/Epoch timestamp format.<br><br>
-·  Must use range operator.</td>
+* Must use range operator.</td>
   <td>operator: "range"<br>
 field: "absoluteStartTimeMs"<br>
 gte: "1497808410"</td>
