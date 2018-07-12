@@ -37,6 +37,7 @@
 * * [Authentication](apis/authentication.md)
 * * [Error Codes](apis/error-codes.md)
 * * [Job Quickstart Guide](apis/job-quickstart.md)
+* * [Search Quickstart Guide](apis/search-quickstart.md)
 * * [Tutorials](apis/tutorials/)
 
 * Libraries
