@@ -65,7 +65,7 @@ Search operations return results in order of relevance — the result that’s m
 *  **Inverse Index Frequency:** How often does each term appear in the index? The more often, the less relevant. Terms that appear in many records have a lower weight than more-uncommon terms.
 *  **Field Length:** How long is the field? The longer it is, the less likely it is that words in the field will be relevant. A term appearing in a field with a short title carries more weight than the same term appearing in a long content field.
 
-## Search Query Basics & Syntax
+## Query Basics & Syntax
 Veritone Search API gives you the flexibility to build a variety of query types to search and retrieve indexed media and mentions content. The Search API allows you to combine a series of simple elements together to construct queries as simple or as complex as you’d like in JSON format. Although queries are customizable, there is a common structure and set of core parameters that each must use. In addition, there are a number of optional filters, components, and syntax options that can be specified to modify a query.
 
 ### Content Type
@@ -157,7 +157,7 @@ Use a single backslash to escape quotes around a phrase in a query string. The e
 value: "\"kobe bryant\" AND (basketball OR lakers)"
 ```
 
-## **Query Schema and Types**
+## Query Schema and Types
 
 Veritone Search API accepts a variety of query types, features, and options that make it easy to build queries as simple or complex as you’d like.
 
@@ -521,7 +521,7 @@ The example below is a search for records where "Kobe Bryant" along with either 
 }
 ```
 
-## **Sample Requests and Responses**
+## Sample Requests and Responses
 
 Veritone’s GraphiQL interface is a service you can use to easily interact with the Search API. We recommend using GraphiQL ([https://api.veritone.com/v3/graphiql](https://api.veritone.com/v3/graphiql)) for making test API requests, but calls can also be made using a different HTTP client. All requests must be HTTP POST to the Veritone GraphQL endpoint with the *query* parameter and *application/json* encoded bodies. In addition, requests must be authenticated with an API Token. Pass the token in your request using the *Authorization* header with a value *Bearer <token>*. If you’re using a raw HTTP client, the query body contents must be sent in a string (not an object) with all quotes escaped.
 
@@ -1052,7 +1052,7 @@ query{
 }
 ```
 
-## **Sample Request 7: Mentions Search Using the "and" Operator**
+### **Sample Request 7: Mentions Search Using the "and" Operator**
 
 The example below is a search for mentions with the name "Dallas Cowboys Super Bowl" and have a verification status of “Pending”.
 ```graphql
@@ -1258,7 +1258,7 @@ query{
   }
 }
 ```
-## **Appendix 1: Fields**
+## Appendix 1: Fields
 
 The table below defines the possible values currently available for the *field* property. Fields are grouped by category and include a name, a type, and one or more possible values.
 
@@ -2622,7 +2622,7 @@ values: ["CA", "NY", "WA"]</td>
 
 ## Appendix 2: Markets
 
-The following list of market IDs provides possible values for the *field* values *veritone-public.markets* and *veritone-public.primaryMarket*.
+The following list provides the possible market ID values for the *veritone-public.markets* and *veritone-public.primaryMarket* fields in Appendix 1.
 
 <table>
 <tr>
