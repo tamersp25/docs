@@ -8,7 +8,4 @@ New sample engines in other languages will be added here in the coming weeks. Be
 
 | Language | Engine Category  | Github Repository                                         | Notes                            |
 | -------- | ---------------- | --------------------------------------------------------- | -------------------------------- |
-| Python   | Translation      | https://github.com/veritone/veritone-sample-engine-py/    | Translates text into morse code. |
-| Python   | Object Detection | https://github.com/veritone/veritone-sample-engine-yolo   | Yolo                             |
-| Node     | Face Detection   | https://github.com/veritone/veritone-sample-engine-amazon | Amazon Rekognition               |
-| Go       | Coming soon      | Coming soon                                               |                                  |
+| Go       | Translation      | hhttps://github.com/veritone/task-rt-test-engine/         | This is an updated GO engine for the real time framework |
