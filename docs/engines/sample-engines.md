@@ -8,4 +8,4 @@ New sample engines in other languages will be added here in the coming weeks. Be
 
 | Language | Engine Category  | Github Repository                                         | Notes                            |
 | -------- | ---------------- | --------------------------------------------------------- | -------------------------------- |
-| Go       | Translation      | hhttps://github.com/veritone/task-rt-test-engine/         | This is an updated GO engine for the real time framework |
+| Go       | Translation      | https://github.com/veritone/task-rt-test-engine/         | This is an updated GO engine for the real time framework |
