@@ -97,19 +97,20 @@ Upload a file from your local system by doing a multipart/form-data HTTP request
  -F query=mutation {
 -----------request fields-----------
   createTDOWithAsset(input:{  => The mutation type and input variable. (required)
-    startDateTime: integer    => The starting date and time of the file to be uploaded in [Unix/Epoch (https://www.epochconverter.com/) timestamp format. (required)
-    stopDateTime: integer     => The ending date and time in [Unix/Epoch](https://www.epochconverter.com/) timestamp format. The value is calculated by adding the length of the file to the startDateTime.(required)
-    contentType: "string"     => The MIME type of the file being uploaded (e.g., audio/mp3). (required)
-    assetType: "string"       => A label that classifies the file to be uploaded, such as “transcript,” “media,” or “text.” For audio and video files, set the value as "media". (required)
+    startDateTime: "string"   => The starting date and time of the file to be uploaded in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. (required)
+    stopDateTime: "string"    => The ending date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. The value is calculated by adding the length of the file to the startDateTime value. If a value is not provided, a 15-minute default value will be applied. (optional)
+    contentType: "string"     => The MIME type of the file being uploaded (e.g., "audio/mp3"). If a value is not provided, the default value "video/mp4" will be applied. (optional)
+    assetType: "string"       => A label that classifies the file to be uploaded, such as "transcript," "media," or "text." If a value is not specified, the default value "media" will be applied. (optional)
+    addToIndex:               => A Boolean that adds the uploaded file to the search index when set to true. (optional and recommended) 
   }){
 -----------return fields-----------
     id              => The unique ID associated with the TDO/container, provided by the server. (required)
     status          => The status of the request’s progress. (required)
     assets{         => The Assets object parameter that contains the TDO's assets. (required)
-      records {     => The Records object parameter that contains data specific to individual assets. (required))
+      records {     => The Records object parameter that contains data specific to individual assets. (required)
         id          => The unique ID of the new asset, provided by the server. (required)
-        type        => A label that classifies the asset. This value reflects the value specified in the request. (required)
-        contentType => The MIME type of the asset (e.g., audio/mp3). (required)
+        type        => A label that classifies the asset. This reflects the value specified in the request or the default value "media" if no request value was set. (required)
+        contentType => The MIME type of the asset (e.g., "audio/mp3"). (required)
         signedUri   => The secure URI of the asset. (required)
       }
     }    
@@ -132,6 +133,7 @@ curl -X POST \
       stopDateTime: 1507128542
       contentType: "video/mp4"
       assetType: "media"
+      addToIndex: true
     } ) {
     id
     status
@@ -179,21 +181,21 @@ If the file you want to upload is publicly available online, you can pass the HT
 mutation {
 -----------request fields-----------
   createTDOWithAsset(input:{  => The mutation type and input variable. (required)
-    startDateTime: integer    => The starting date and time of the file to be uploaded in [Unix/Epoch (https://www.epochconverter.com/) timestamp format. (required)
-    stopDateTime: integer     => The ending date and time in [Unix/Epoch](https://www.epochconverter.com/) timestamp format, calculated by adding the length of the file to the startDateTime. If a value is not specified, a 15-minute default value will be applied. (optional)
-    addToIndex:               => A Boolean that adds the uploaded file to the search index when set to true. (optional and recommended) 
-    contentType: "string"     => The MIME type of the file being uploaded (e.g., audio/mp3). If a value is not specified, the default value "video/mp4" will be applied. (optional)
-    assetType: "string"       => A label that classifies the file to be uploaded, such as “transcript,” “media,” or “text.” If a value is not specified, the default value "media" will be applied. (optional)
+    startDateTime: "string"   => The starting date and time of the file to be uploaded in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. (required)
+    stopDateTime: "string"    => The ending date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. The value is calculated by adding the length of the file to the startDateTime value. If a value is not provided, a 15-minute default value will be applied. (optional)
+    contentType: "string"     => The MIME type of the file being uploaded (e.g., "audio/mp3"). If a value is not provided, the default value "video/mp4" will be applied. (optional)
+    assetType: "string"       => A label that classifies the file to be uploaded, such as "transcript," "media," or "text." If a value is not specified, the default value "media" will be applied. (optional)
+    addToIndex:               => A Boolean that adds the uploaded file to the search index when set to true. (optional and recommended)
     uri: "string"             => The publicly available URL to the file. (required)
   }){
 -----------return fields-----------
     id              => The unique ID associated with the TDO/container, provided by the server. (required)
     status          => The status of the request’s progress. (required)
     assets{         => The Assets object parameter that contains the TDO's assets. (required)
-      records {     => The Records object parameter that contains data specific to individual assets. (required))
+      records {     => The Records object parameter that contains data specific to individual assets. (required)
         id          => The unique ID of the new asset, provided by the server. (required)
         type        => A label that classifies the asset. This is the value specified in the request or the default value "media" if no request value was set. (required)
-        contentType => The MIME type of the asset (e.g., audio/mp3). (required)
+        contentType => The MIME type of the asset (e.g., "audio/mp3"). (required)
         signedUri   => The secure URI of the asset. (required)
       }
     }    
@@ -210,6 +212,7 @@ mutation {
       stopDateTime: 1507128542
       contentType: "video/mp4"
       assetType: "media"
+      addToIndex: true
       uri: "https://www.youtube.com/watch?v=LUzGYV-_qkQ"
     }
   ) {
