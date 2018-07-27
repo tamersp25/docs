@@ -13,8 +13,8 @@ The transcription engine input requirements are described in the table below.
 
 <table>
   <tr>
-    <td width="20%"><h3 class="text-left">Data Structure</h3></td>
-    <td width="80%"><h3 class="text-left">Description</h3></td>
+    <td width="20%"><h5 class="text-left">Data Structure</h5></td>
+    <td width="80%"><h5 class="text-left">Description</h5></td>
   </tr>
   <tr valign="top">
    <td align="right"><b>Task Payload</b><br>object
@@ -27,14 +27,14 @@ The transcription engine input requirements are described in the table below.
 </td>
     <td>The format (MIME type) of the input file. 
 
-<code>"contentType": "video/mp4"</code></td>
+<code>contentType: "video/mp4"</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>Input Asset URI</b><br>string
 </td>
     <td>The signed URI of the input asset to be transcribed. This property must use a URI located on Veritone’s S3 as the value. 
      
-<code>"signedUri": "https://inspirent.s3.amazonaws.com/assets/39528568/909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"</code></td>
+<code>signedUri: "https://inspirent.s3.amazonaws.com/assets/39528568/909b4ac0-3218-4026-812d-afca91ba0d14.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAI7L6G7PCOOOLA7MQ%2F20171116%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171116T180716Z&X-Amz-Expires=604800&X-Amz-Signature=26447f611793e8a7e6b510b174d7ffd0b94a84fda9cbf59a79a8e936f17dc009&X-Amz-SignedHeaders=host"</code></td>
   </tr>
 </table>
 
@@ -45,17 +45,17 @@ When task processing is complete, your engine will write an output summary of th
 
 Once your output files are created, upload them to Veritone using the *Upload Engine Result* mutation. See the Engine Construction Guidelines for details.
 
-**Timed Text Markup Language/TTML**
+#### Timed Text Markup Language/TTML
 
-[TTML (Timed Text Markup Language)](https://www.w3.org/TR/ttaf1-dfxp/) is a widely supported XML format that consists of a collection of nested, time-based, text elements. A TTML file includes the root element "\<tt>\" that contains document-level metadata followed by the "\<body>\" and a "\<div>\" element that contains the timing cues. The actual times (begin, end) and associated text are set inside opening and closing paragraph tags (\<p>\, \</p>\). Blank lines and white space are ignored, and multiple lines are defined by \<br/>\ tags.
+[TTML (Timed Text Markup Language)](https://www.w3.org/TR/ttaf1-dfxp/) is a widely supported XML format that consists of a collection of nested, time-based, text elements. A TTML file includes the root element `<tt>` that contains document-level metadata followed by the `<body>` and a `<div>` element that contains the timing cues. The actual times (begin, end) and associated text are set inside opening and closing paragraph tags (`<p>`, `</p>`). Blank lines and white space are ignored, and multiple lines are defined by `<br/>` tags.
 
 To generate a TTML file, use the data structure described in the table below and save the document with the extension .ttml. When uploading the file to Veritone, specify "application/ttml+xml" as the content type for the asset.
 
 <table>
   <tr>
-    <td width="18%"><h3 class="text-left">Field</h3></td>
-    <td width="57%"><h3 class="text-left">Description</h3></td>
-    <td width="25%"><h3 class="text-left">Example</h3></td>
+    <td width="18%"><h5 class="text-left">Field</h5></td>
+    <td width="57%"><h5 class="text-left">Description</h5></td>
+    <td width="25%"><h5 class="text-left">Example</h5></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>p</b><br>element<br>required</td>
@@ -64,12 +64,12 @@ To generate a TTML file, use the data structure described in the table below and
   </tr>
   <tr valign="top">
     <td align="right"><b>begin</b><br>string attribute<br>required</td>
-    <td>The starting time of the paragraph in HH:MM:SS.mmm from the beginning of the file.</td>
+    <td>The starting time of the paragraph in HH&#058;MM:SS.mmm from the beginning of the file.</td>
     <td><code>begin="00:00:01.360"</code></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>end</b><br>string attribute<br>required</td>
-    <td>The ending time of the paragraph in HH:MM:SS.mmm from the beginning of the file.</td>
+    <td>The ending time of the paragraph in HH&#058;MM:SS.mmm from the beginning of the file.</td>
     <td><code>end="00:00:02.520"</code></td>
   </tr>
 </table>
@@ -91,19 +91,19 @@ To generate a TTML file, use the data structure described in the table below and
 ```
 
 
-**Veritone Lattice Format/VLF**
+#### Veritone Lattice Format/VLF
 
 VLF (Veritone Lattice Format) is a search-optimized JSON format that describes a transcript's lattice in an indexed list of n-best, word-level, timestamped results. It can be used to denote single and multi path transcripts, as well as spanning words.
 
-The output format is an object with zero-indexed keys. Each key's object represents a single utterance consisting of timing information and a *words* object that contains a specific spoken word, a confidence score, and path information.
+The output format is an object with zero-indexed keys. Each key's object represents a single utterance consisting of timing information and a `words` object that contains a specific spoken word, a confidence score, and path information.
 
 To generate a VLF file from your engine’s raw output, use the data structure described in the table below and save the document with the extension .vlf. When uploading the file to Veritone, specify "application/json" as the content type for the asset.
 
 <table>
   <tr>
-    <td width="18%"><h3 class="text-left">Field</h3></td>
-    <td width="57%"><h3 class="text-left">Description</h3></td>
-    <td width="25%"><h3 class="text-left">Example</h3></td>
+    <td width="18%"><h5 class="text-left">Field</h5></td>
+    <td width="57%"><h5 class="text-left">Description</h5></td>
+    <td width="25%"><h5 class="text-left">Example</h5></td>
   </tr>
   <tr valign="top">
     <td align="right"><b>parent key</b><br>integer<br>required</td>
@@ -143,9 +143,9 @@ To generate a VLF file from your engine’s raw output, use the data structure d
 
 <table>
   <tr>
-    <td width="18%"><h3 class="text-left">Field</h3></td>
-    <td width="57%"><h3 class="text-left">Description</h3></td>
-    <td width="25%"><h3 class="text-left">Example</h3></td>
+    <td width="18%"><h5 class="text-left">Field</h5></td>
+    <td width="57%"><h5 class="text-left">Description</h5></td>
+    <td width="25%"><h5 class="text-left">Example</h5></td>
   </tr>
   <tr>
     <td align="right"><b>words</b><br>array<br>required</td>
@@ -191,7 +191,7 @@ word: "!silence"</code></td>
 </table>
 
 
-## **Sample Single-Path VLF Data Structure**
+#### Sample Single-Path VLF Data Structure
 
 ```json
 {
@@ -283,7 +283,7 @@ word: "!silence"</code></td>
 }
 ```
 
-## **Sample Multi-Path VLF with Spanning Words Data Structure** 
+#### Sample Multi-Path VLF with Spanning Words Data Structure
 
 ```json
 {
@@ -491,15 +491,15 @@ word: "!silence"</code></td>
 }
 ```
 
-## Upload Engine Result
+### Upload Engine Result
 
 Once the TTML and VLF files are created, make separate requests to the *Upload Engine Result* mutation to upload the files and create new assets. The table below describes the required fields for creating an asset. For complete request details, refer to the Engine Construction Guidelines.
 
 <table>
   <tr>
-    <td width="18%"><h3 class="text-left">Field</h3></td>
-    <td width="57%"><h3 class="text-left">Description</h3></td>
-    <td width="25%"><h3 class="text-left">Example</h3></td>
+    <td width="18%"><h5 class="text-left">Field</h5></td>
+    <td width="57%"><h5 class="text-left">Description</h5></td>
+    <td width="25%"><h5 class="text-left">Example</h5></td>
   </tr>
   <tr>
     <td align="right" valign="top"><b>content-type</b><br>header<br>string</td>
