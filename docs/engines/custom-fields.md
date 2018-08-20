@@ -2,7 +2,7 @@
 
 Depending on the type of your engine, it may require certain parameters to be input by the user in order to process their task. For example a detection based engine may need to know the minimum confidence level for a result to be considered valid. `Custom Fields` allow you to define these parameters which are then configurable by the end users of your engine. These configured parameters will be available to your engine inside of the payload it receives at runtime.
 
-You can create custom fields inside of VDA both during the creation of a new engine, as well as on the details page of a previously created engine.
+You can create custom fields inside of VDA both during the creation of a new engine, as well as on the details page of an existing engine.
 
 On the custom fields table, click on `New Field`.
 
