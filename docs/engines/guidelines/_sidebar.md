@@ -25,6 +25,7 @@
 * * * [Constructing Real-time Engines](engines/guidelines/real-time-engines.md)
 * * * [Constructing Adapters](engines/guidelines/adapters.md)
 * * [Engine Input/Output](engines/engine-input-output/)
+* * [Testing & Debugging](engines/testing-and-debugging)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
