@@ -24,6 +24,7 @@
 * * * [Constructing Cognitive Engines](engines/guidelines/cognitive-engines.md)
 * * * [Constructing Real-time Engines](engines/guidelines/real-time-engines.md)
 * * * [Constructing Adapters](engines/guidelines/adapters.md)
+* * [Custom Fields](engines/custom-fields)
 * * [Engine Input/Output](engines/engine-input-output/)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)

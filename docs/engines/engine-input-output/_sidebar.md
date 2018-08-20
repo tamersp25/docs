@@ -21,6 +21,7 @@
 * * [Engine Types](engines/types)
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
+* * [Custom Fields](engines/custom-fields)
 * * [Engine Input/Output](engines/engine-input-output/)
 * * * [Transcription](engines/engine-input-output/transcription.md)
 * * * [Object Detection](engines/engine-input-output/object-detection.md)
