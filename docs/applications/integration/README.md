@@ -18,4 +18,4 @@ Once the user interfaces have been integrated, data integration would be the nex
 
 * Pull data from the Veritone platform - [info here](http://docs.veritone.com/#/applications/context-menu-extensions?id=handling-the-redirect-url)
 * Process data on your application
-* Return the results back to Veritone 
+* Return the results back to Veritone - [info here](https://docs.veritone.com/#/apis/tutorials/engine-results)
