@@ -28,7 +28,7 @@ If your engine requires a library or requires any parameters then you will also 
 
 Once you are done click on submit. You will then be redirected back to the tasks page where you will see the new test task in the tasks table.
 
-4\. Expand the task by clicking on the row. You may notice that the payload is not yet available and instead you're met with a message and a retry spinner. This is normal; there are several tasks running in the background that need to finish in order to generate a payload for you to consume. This normally takes a few minutes but varies depending on the size of the media file that you chosen to process.
+4\. Expand the task by clicking on the row. You may notice that the payload is not yet available and instead you're met with a message and a retry spinner. This is normal; there are several tasks running in the background that need to finish in order to generate a payload for you to consume. This normally takes a few minutes but varies depending on the size of the media file that you have chosen to process.
 
 ![waiting for payload](images/testing-and-debugging/waiting-for-payload.png)
 
