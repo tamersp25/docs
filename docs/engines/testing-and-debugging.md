@@ -19,8 +19,8 @@ When either a Batch or Legacy engine is deployed to Veritone, a `PAYLOAD_FILE` e
 ![browse to upload](images/testing-and-debugging/browse-to-upload.png)
 
 
-3\.Once you have chosen an appropiate media file, click Next to proceed to the next step `Select Options`.
-From the dropdown, select the option `Local` in order to create a test task.
+3\. Once you have chosen an appropiate media file, click Next to proceed to the next step `Select Options`.
+From the dropdown, select the build version `Local` in order to create a test task.
 
 ![select build](images/testing-and-debugging/select-build.png)
 
@@ -28,7 +28,7 @@ If your engine requires a library or requires any parameters then you will also 
 
 Once you are done click on submit. You will then be redirected back to the tasks page where you will see the new test task in the tasks table.
 
-4\. Expand the task by clicking on the row. You may notice that the payload is not yet available and instead you're met with a message and a retry spinner. This is normal, there are several different tasks running asynchronously that need to finish in order to generate a payload for you to consume. This normally takes a few mins but varies depending on the size of the media file that you chose to process.
+4\. Expand the task by clicking on the row. You may notice that the payload is not yet available and instead you're met with a message and a retry spinner. This is normal; there are several tasks running in the background that need to finish in order to generate a payload for you to consume. This normally takes a few minutes but varies depending on the size of the media file that you chosen to process.
 
 ![waiting for payload](images/testing-and-debugging/waiting-for-payload.png)
 
@@ -52,7 +52,7 @@ Example payload:
 
 5\. Now that you have generated a valid payload, copy and save its contents into a `.json` file on your computer.
 
-As mentioned previously, when an engine of one of these types are deployed to Veritone a `PAYLOAD_FILE` environment variable is passed to them at runtime which contains the location of the payload file they need to process.
+As mentioned previously, when this type of engine is deployed to Veritone a `PAYLOAD_FILE` environment variable is passed to it at runtime which contains the location of the payload file it needs to process.
 
 You can simulate this by creating an environment variable locally called `PAYLOAD_FILE` and setting it's value to the file path of the file you have just created. Once you have done that, you can now run your engine locally using a valid payload in order to test your engine end to end to ensure it behaves correctly.
 
@@ -68,13 +68,13 @@ Once you have created the initial test payload, you may optionally prefer to cre
   https://api.veritone.com/v3/graphql \
   -H 'authorization: Bearer <insert your bearer token goes here>' \
   -H 'content-type: application/json' \
-  -d '{"query":"mutation{createJob(input:{targetId:\"85250949\" tasks:[{engineId:\"af72433e-76d1-49b4-855b-758c87c5768d\" testTask:true}]}){id}}"}'
+  -d '{"query":"mutation{createJob(input:{targetId:\"<the recordingId>\" tasks:[{engineId:\"<your engineId>\" testTask:true}]}){id}}"}'
 ```
 
 
 #### Testing a VDA build
 
-Before submitting your build, we also recommend testing it on our platform. To do this you should follow the same steps listed for testing your engine locally, except that you should now choose the build version that correlates to your uploaded build when asked to select a build on the select options page. This will create a real job that will be processed in the Veritone platform by your uploaded build, instead of creating a test task as is the case when you select `Local` as your build version.
+Before submitting your build, we also recommend testing it on our platform. To do this you should follow the same steps listed for testing your engine locally, except that you should now choose the build version that correlates to your uploaded build when asked to select a build on the select options page. This will create a job that will be processed in the Veritone platform by your uploaded build, instead of creating a test task as is the case when you select `Local` as your build version.
 
 
 ## Chunk & Stream Engines
@@ -83,9 +83,9 @@ Before submitting your build, we also recommend testing it on our platform. To d
 
 The recommended way to test these types of engines locally is by simulating and verifying locally that your engine can consume and produce the messages documented in the construction guidelines listed below.
 
-* [Chunk Engine Construction Guidelines.](https://docs.veritone.com/#/engines/guidelines/real-time-engines?id=constructing-an-engine-in-chunk-mode)
+* [Chunk Engine Construction Guidelines](https://docs.veritone.com/#/engines/guidelines/real-time-engines?id=constructing-an-engine-in-chunk-mode)
 
-* [Stream Engine Construction Guidelines.](https://docs.veritone.com/#/engines/guidelines/real-time-engines?id=constructing-an-engine-in-stream-mode)
+* [Stream Engine Construction Guidelines](https://docs.veritone.com/#/engines/guidelines/real-time-engines?id=constructing-an-engine-in-stream-mode)
 
 #### Testing a VDA build
 
@@ -102,7 +102,7 @@ You can test your uploaded build in CMS by following the steps below.
 
 ![select an adapter](images/testing-and-debugging/select-an-adapter.png)
 
-3\. Click on the `Select a Source` dropdown and then click on `Create New Source`
+3\. If you don't have any existing sources, click on the `Select a Source` dropdown and then click on `Create New Source`
 
 
 ![create new source](images/testing-and-debugging/create-new-source.png)
@@ -129,19 +129,19 @@ You can test your uploaded build in CMS by following the steps below.
 ![advanced workflow](images/testing-and-debugging/advanced-workflow.png)
 
 
-8\. On the Advanced Cognitive Workflow page, click on the dropdown under Available Engines and choose the category which correlates to your engine. You will then see your engine in the engine list. Click on the green plus icon to select your engine and move it to the Selected Engines panel. If your engine requires either engine parameters or requires a library, you will now be asked to input these. After configuring your engine parameters, click on `Next`.
+8\. On the Advanced Cognitive Workflow page, click on the dropdown under Available Engines and choose the category that corresponds to your engine. You will then see your engine in the engine list. Click on the green plus icon to select your engine and move it to the Selected Engines panel. If your engine requires either engine parameters or a library you will now be asked to input these. After configuring your engine parameters, click `Next`.
 
 ![select engine](images/testing-and-debugging/select-engine.png)
 
-9\. Click `Next` on the Content Templates step which will take you to the final step `Customize`. Fill out the `Customize` step with anything you like, and finally click `Save` to finish, which will then be redirect you to the main page of CMS.
+9\. Click `Next` on the Content Templates step which will take you to the final step `Customize`. Fill out the `Customize` step with any information you'd like, and finally click `Save` to finish.  That will redirect you to the CMS main page.
 
 
 ![customize step](images/testing-and-debugging/customize-step.png)
 
 
-10\. You have now successfully created an ingestion job which your engine build will be asked to process. You can click on the `Processing Status` button in the left navigation panel to view the processing list, which gives an overview of all of the recently processed files and their status. You can also click on a file in the processing list to view its media details page where you can view the output of a successfully processed file, as well as make additional actions against the file such as reprocessing.
+10\. You have now successfully created an ingestion job, which your engine build will be asked to process. You can click on the `Processing Status` button in the left navigation panel to view the processing list, which gives an overview of all of the recently processed files and their status. You can also click on a file in the processing list to view its media details page where you can view the output of a successfully processed file, as well as make additional actions against the file such as reprocessing.
 
-If your ingestion job results in an error then please read our section on debugging to get a better understanding of how to debug your engine in the Veritone Platform.
+If your ingestion job results in an error, please read the section below on debugging to get a better understanding of how to debug your engine in the Veritone Platform.
 
 
 ## Debugging
@@ -152,7 +152,7 @@ By expanding the task row, you will be able to view additional information about
 
 ##### Payload
 
-The payload tab displays the JSON payload specific to that task which your engine will receive at runtime. You should verify that you are handling the payload correctly in your engine and also that the correct parameters (custom fields) are being passed to your engine inside of the payload.
+The payload tab displays the JSON payload that your engine will receive at runtime. You should verify that you are handling the payload correctly in your engine and also that the correct parameters (custom fields) are being passed to your engine inside of the payload.
 
 You can view your task payload via graphql by using the snippet below:
 
@@ -166,7 +166,7 @@ query {
 
 ##### Task Log
 
-The task log tab displays your engines task log in JSON format. The task log is the primary way for you to debug as it allows you to view the standard output (stdout) of your engine. The only exception to this is for Chunk engines, where we do not attach stdout as part of the task log. For both Stream and Chunk engines you will also be able to view kafka events here if they are related to your task.
+The task log tab displays your engines task log in JSON format. The task log is the primary way for you to debug as it allows you to view the standard output (stdout) of your engine. The only exception to this is for Chunk engines, for which we do not attach stdout as part of the task log. For both Stream and Chunk engines you will also be able to view kafka events here if they are related to your task.
 
 <b>Note</b> - We only return the task log for completed or failed tasks so it is vital that your engine correctly updates the task status in response to both success/errors in order for you to view your logs.
 
@@ -201,9 +201,9 @@ query {
 ```
 
 ##### Assets
-The assets tab displays all of the assets that were produced by your engine for that particular task. This allows you to view the type of asset that was produced, and also allows you to view the source by clicking on the asset id. This is useful for verifying the the assets produced have been processed by your engine correctly.
+The assets tab displays all of the assets that were produced by your engine for that particular task. This allows you to view the type of asset that was produced, and also allows you to view the source by clicking on the asset ID. This is useful for verifying that the assets produced have been processed by your engine correctly.
 
-You can also view the assets created by your engine by using the graphql query below, just be sure to replace the id `replaceMe` with the `recordingId` from your task payload.
+You can also view the assets created by your engine by using the graphql query below.  Replace the ID `replaceMe` with the `recordingId` from your task payload.
 
 ```graphql
 query{
@@ -222,13 +222,14 @@ query{
 }
 ```
 
-This is orders by assets by the most recent asset first. Use the `signedUri` value to view the asset in your browser. You can also filter by specific types of assets by including the `type` filter. This filters against the `assetType` of the asset. See the query below for an example.
+This query orders the assets by when they were created, with the most recent asset first. Use the `signedUri` value to view the asset in your browser.
 
+You can also filter by specific types of assets by including the `type` filter. This filters against the `assetType` of the asset. See the query below for an example.
 
 ```graphql
 query{
   temporalDataObject(id:"replaceMe"){
-    assets(type: "transcript" orderBy:createdDateTime) {
+    assets(type: "vtn-standard" orderBy:createdDateTime) {
       records  {
         id
         assetType
