@@ -242,8 +242,3 @@ query{
   }
 }
 ```
-
-<!-- Talk about VDA tasklog / task output / assets.
-Show how to debug via graphql examples.
-
-Chunk engines are multi-tenant so are often processing chunks from a variety of different jobs at any given time. -->
