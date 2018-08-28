@@ -25,6 +25,7 @@
 * * * [Transcription](engines/engine-input-output/transcription.md)
 * * * [Object Detection](engines/engine-input-output/object-detection.md)
 * * * [Face Detection](engines/engine-input-output/face-detection.md)
+* * [Testing & Debugging](engines/testing-and-debugging)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)

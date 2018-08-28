@@ -57,7 +57,7 @@ Key: `{taskId}`
 
 Value: JSON
 
-```
+```json
     "type": "media_chunk",
     "timestampUTC": int64,
     "mimeType": string,
@@ -100,7 +100,7 @@ Key: {taskId}
 
 Value: JSON
 
-```
+```json
 {
     "type": "engine_output",
     "timestampUTC": int64,
@@ -140,12 +140,12 @@ Key: `chunkprocessedstatus`
 
 Value: JSON
 
-```
+```json
 ChunkProcessedStatus: {
-    "chunkUUID": uuid
-    "timestampUTC": int64
-    "status": Success|Error
-    "errorMsg": string (optional in case of error)
+    "chunkUUID": uuid,
+    "timestampUTC": int64,
+    "status": Success|Error,
+    "errorMsg": string (optional in case of error),
     "infoMsg": string (optional)
 }
 ```
@@ -201,7 +201,7 @@ Key: {taskId}
 
 Value: JSON
 
-```
+```json
 {
     "type": "engine_output",
     "timestampUTC": int64,
@@ -241,7 +241,7 @@ Key: {engineInstanceId}
 
 Value: JSON
 
-```
+```json
 {
     "type": "engine_heartbeat",
     "timestampUTC": int64,
@@ -284,7 +284,7 @@ Key: stream_eof
 
 Value: JSON
 
-```
+```json
 {
     "type": "stream_eof",
     "timestampUTC": int64,

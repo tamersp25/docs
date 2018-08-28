@@ -41,13 +41,13 @@ _Best Practice Tip_: For local development, it&rsquo;s recommended to support ac
 *Note:* We reserve the right to add additional properties to the payload. Any additional properties in the payload are considered undocumented and unreliable.
 
 **Example Task Payload**
-```
+```json
 {
     "applicationId": string,
     "jobId": string,
     "taskId": string,
     "token": string,
-    "mode": "scan"|ingest",
+    "mode": "scan"|"ingest",
     "fileId": string, ("ingest" mode only)
     "source": {
         "ingestionId": string,
@@ -153,7 +153,7 @@ For both createTDO and createAsset, refer to the documentation from GraphiQL for
 
 On a successful completion of the "ingest" mode, the task output should, at the minimum, include the ID of the TDO created, specified as the field, "recordingId". Additional data fields from TDO can also be included under a "recording" object. Additional data fields from TDO can also be included under a "recording" object. For instance:
 
-```
+```json
 {
     "recordingId": "400001621",
     "recording": {
@@ -184,7 +184,7 @@ When a task is completed, a status message should be written that set to "comple
 
 The _output_ field of the task should also be updated to include some information about task results. If an error occurred, the task output should include the error message. For example:
 
-```
+```json
 {
     "error": "server returned 404"
 }
@@ -206,7 +206,7 @@ The basic steps for a real-time stream pull adapter:
 ### Example Adapter Payloads
 
 For a video file:
-```
+```json
 {
   "jobId": "8cf4c75f-5f5e-45cf-9331-3877a6782955",
   "taskId": "8cf4c75f-5f5e-45cf-9331-3877a6782955-2cd7faf5-4f60-4da3-be02-d2d391c6d176",
@@ -219,7 +219,7 @@ For a video file:
 ```
 
 For a live stream:
-```
+```json
 {
   "jobId": "89259689-966d-4e03-91b7-fb1509050a7e",
   "taskId": "89259689-966d-4e03-91b7-fb1509050a7e-2357fa3b-da3b-481f-afbc-8cde95ac193a",
@@ -234,7 +234,7 @@ For a live stream:
 ```
 
 To ingest a stream and produce chunks:
-```
+```json
 {
 	"jobId": "89259689-966d-4e03-91b7-fb1509050a7e",
 	"taskId": "89259689-966d-4e03-91b7-fb1509050a7e-2357fa3b-da3b-481f-afbc-8cde95ac193a",
@@ -263,7 +263,7 @@ Context information about a stream, sent as the first message on a stream topic.
 Key: `stream_init`
 
 Value: JSON
-```
+```json
 {
     "type": "stream_init",
     "timestampUTC": int64,
@@ -307,7 +307,7 @@ Key: {engineInstanceId}
 
 Value: JSON
 
-```
+```json
 {
     "type": "engine_heartbeat",
     "timestampUTC": int64,
@@ -351,7 +351,7 @@ Key: stream_eof
 
 Value: JSON
 
-```
+```json
 {
     "type": "stream_eof",
     "timestampUTC": int64,

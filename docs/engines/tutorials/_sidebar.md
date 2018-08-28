@@ -22,6 +22,7 @@
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
 * * [Engine Input/Output](engines/engine-input-output/)
+* * [Testing & Debugging](engines/testing-and-debugging)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * * [Object Detection](engines/tutorials/object-detection.md)
