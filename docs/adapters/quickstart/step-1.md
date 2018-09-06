@@ -11,7 +11,7 @@ The wizard includes three pages:
 
 The steps for completing the wizard are described in detail below. When finished, your registered adapter will be listed on your account’s *Adapters* dashboard where you can upload builds to it, edit the configuration settings, and more.
   
-### 1. Enter Basic Adapter Details
+## 1. Enter Basic Adapter Details
 
 Provide basic details about your adapter.
 
@@ -20,7 +20,7 @@ Provide basic details about your adapter.
 | 1. Log into [Veritone Developer](https://developer.veritone.com). Click **New** in the upper left of the window and select **Adapters** from the dropdown. The _Basic Adapter Details_ page opens. | <div style="width: 500px">![](open-adapter-wizard.png)</div> |
 | 2. **Adapter Name**: _(required)_ Enter the name of your adapter as you would like it to appear to users. </br><br>3. **Adapter Category**: _(required)_ Select the category from the drop-down that describes your adapter's operation type. </br><br>4. **Adapter Description**: _(required)_ Briefly describe the adapter's purpose and function. This description displays to users on the new ingestion job configuration page. </br><br>5. **Icon**: _(optional)_ Upload an icon for your adapter from your local file system as a 128x128 PNG or JPG file. The image displays with your adapter's name on the new ingestion job configuration page. </br><br>6. **Logo**: _(required)_ Upload a logo image for your engine from your local file system as a 500x250 PNG or JPG file. The logo is used to identify your engine on the _Select Adapter_ page of Veritone CMS. It's important to note that the logo is the only identifier users will see &mdash; your adapter's name will not display. To ensure your adapter is easily identified, it's recommended to incorporate the adapter name into your logo image. </br><br>7. Click **Next** to continue. The _Select your deployment model_ window opens. | <div style="width: 500px">![](basic-adapter-details.png)</div>  |
 
-### 2. Choose a Deployment Model
+## 2. Choose a Deployment Model
 
 The deployment model indicates what type of network access your adapter requires to run. Veritone supports two deployment models that describe how and where your adapter will be made available to users. Selecting the best model depends on your business needs — the environment should promote availability and connectivity while providing maximum security, performance, and scalability.
 
@@ -40,7 +40,7 @@ _Additional Notes About Deployment Models:_
 |--------------------------------- | --- |
 | 1. Click the checkbox on a **deployment model option** to select it. The selected model's checkbox is enabled. <br></br> 2. Click **Next**. The _Custom Fields_ page opens. | <div style="width: 500px">![](choose-adapter-deployment-model.png)</div> |
 
-### 3. Add Custom Fields (optional)
+## 3. Add Custom Fields (optional)
 
 The data that’s collected from an external source is defined by the schema of the Source Type specified in your manifest file. Depending on the external source that your adapter connects to, the list of fields provided in the schema may not fully support your needs. *Custom Fields* allows you define special parameters not included in the Source Type schema to retrieve additional types of data from the external source. These fields will be available for users to select when creating a new ingestion job in Veritone CMS.
 
@@ -53,7 +53,7 @@ Custom Fields are optional and can be added in the Registration Wizard when sett
 | 4. Repeat the previous steps to create additional Custom Fields, if necessary. When all Custom Fields are created, click **Submit**. The Adapter Registration Wizard closes and the _Upload a New Build_ page opens. | <div style="width: 500px">![](adapter-custom-fields-3.png)</div> |
 | 5. The registration process is complete. Click **Adapters** on the left menu to view and your new adapter on the _Adapters_ dashboard.  | <div style="width: 500px">![](adapter-custom-fields-4.png)</div> |
 
-### Adapter States
+## Adapter States
 
 Veritone Developer uses *Adapter States* to capture the most relevant aspects of an adapter's lifecycle and operations and to help you easily identify and track your adapter's progression through the development workflow. 
 
@@ -68,7 +68,7 @@ The table below provides additional information about each of the *Adapter State
 | **Active**      | The _Active_ state is system-triggered and takes effect when a build is deployed.                                                                                                                                                                                                                                                              | Edit, Disable, Delete |
 | **Disabled**    | The _Disabled_ state is user-enabled. Disabling an adapter prevents it from running and processing new tasks. Any tasks that are in progress when the adapter is disabled will finish processing. In addition, when a build is *Disabled,* the _Deploy_ option will be removed from any _Approved_ builds. An adapter can only be set to _Disabled_ from the _Ready_ or _Active_ states. | Enable |
 
-### Find Your Adapter ID
+## Find Your Adapter ID
 
 Upon completion of the registration process your adapter was assigned a unique ID number. You'll use this ID to identify your adapter in various places throughout the development process, so it's important to know where to find it.
 
