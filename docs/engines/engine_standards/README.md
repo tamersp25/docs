@@ -20,7 +20,7 @@ Engines are grouped into engine classes, where each class represents general cap
 
 For example, there are many AI models in the Vision sphere.  Logo recognition models operate and behave differently than motion detection engines, and require a different format to describe what is happening.  Within a video, logos may only be detected sporatically throughout, and be described by the brand detected, and a series of bounding boxes against a time series.  Motion detection may only detect the presence of motion, and be only defined by a time stamp.  
 
-Please refer to the full list of 
+Please refer to the [full list of engine capabilities](/engines/engine_standards/classes_and_capabilities)
 
 
 ## Structure
