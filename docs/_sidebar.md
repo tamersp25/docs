@@ -8,6 +8,7 @@
 
 * Applications
 * * [Overview](applications/)
+* * [Application Integration](applications/integration/)
 * * [Quickstart](applications/quick-start/)
 * * [Context Menu Extensions](applications/context-menu-extensions.md)
 * * [OAuth](applications/oauth.md)
@@ -21,6 +22,7 @@
 * * [Engine Types](engines/types)
 * * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
+* * [Engine Output Standards](engines/engine_standards/)
 * * [Custom Fields](engines/custom-fields)
 * * [Engine Input/Output](engines/engine-input-output/)
 * * [Testing & Debugging](engines/testing-and-debugging)
