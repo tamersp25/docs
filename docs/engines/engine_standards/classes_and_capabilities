@@ -1,0 +1,80 @@
+* Engine Classes and Capabilities
+
+|  Class | Capability | Definition | Link |
+|  ------ | ------ | ------ | ------ |
+|  Speech | Transcription | Speech recognition converts speech audio to text. Generally less accurate but significantly faster and more cost-effective than human transcription. | [Speech_Transcription](Transcription) |
+|  Speech | Language Identification | Identifies the natural human language(s) spoken in an audio file. | [Speech_Language Identification](Language Identification) |
+|  Speech | Speech Detection | Detects the presence or absence of human speechin an audio file. | [Speech_Speech Detection](Speech Detection) |
+|  Speech | Diarization | Partitions an input audio stream into homogeneous segmenta according to speaker. | [Speech_Diarization](Diarization) |
+|  Speech | Keyword Spotting | Finds specific words in an audio recording, without producing a transcript. | [Speech_Keyword Spotting](Keyword Spotting) |
+|  Speech | Speaker Identification | Recognizes individual speakers based on each person's voice.  | [Speech_Speaker Identification](Speaker Identification) |
+|  Speech | Vocal Emotion | Detects emotion from voice. May include factors such as pitch, tone and amplitude. | [Speech_Vocal Emotion](Vocal Emotion) |
+|  Text | Translation | Translates natural language, from source (input) text to target (output) text. | [Text_Translation](Translation) |
+|  Text | Text-to-Speech | Generates spoken word from text. Configurations may include output voice gender and accent. | [Text_Text-to-Speech](Text-to-Speech) |
+|  Text | Natural Language Generation | Creates written natural language from a knowledge base, logical form, or structured data. | [Text_Natural Language Generation](Natural Language Generation) |
+|  Text | Entity Extraction | AKA Named-entity recognition. Classifies named entities from text into pre-defined categories such as people, organizations and locations. | [Text_Entity Extraction](Entity Extraction) |
+|  Text | Keywords and Phrases | Identifies the key terms and/or phrases which appear across one or multiple documents, based on parts of speech, salience or other mechanisms. | [Text_Keywords and Phrases](Keywords and Phrases) |
+|  Text | Summarization | Generates a synopsis, ie. condensed version, of written text. | [Text_Summarization](Summarization) |
+|  Text | Topics & Concepts | Discovers abstract topics and concepts which occur across one or multiple documents. Does not require topics or concepts to be explicitly mentioned in the document(s) themselves; based on assignment of tags. | [Text_Topics & Concepts](Topics & Concepts) |
+|  Text | Content Classification | Categorizes one or multiple documents according to a pre-defined ontology. | [Text_Content Classification](Content Classification) |
+|  Text | Language Identification | Detects one or multiple natural languages in text. | [Text_Language Identification](Language Identification) |
+|  Text | Persona | Determines author persona, which may include bias, intent or tone. | [Text_Persona](Persona) |
+|  Text | Sentiment | Classifies text according to sentiment. May include a score representing negative, neutral or positive, or include a wider breadth of tags such as 'happy' or 'excited'. | [Text_Sentiment](Sentiment) |
+|  Text | Syntax | Describes the structure or formal grammar components of the input text. | [Text_Syntax](Syntax) |
+|  Text | Semantic Similarity | Approximates the likeness of a set of terms or documents, based on the distance between terms on an ontological map. | [Text_Semantic Similarity](Semantic Similarity) |
+|  Text | Vector | Represents text as a mathematical vector, typically used for indexing. | [Text_Vector](Vector) |
+|  Text | Text Moderation | Tags text files which may contain offensive, undesireable or highly secure information. | [Text_Text Moderation](Text Moderation) |
+|  Text | PII Detection | Tags text files which may contain personally identifiable informaion (PII), such as a social security number or an address. | [Text_PII Detection](PII Detection) |
+|  Vision | General Object Detection | AKA Image recognition. Detects multiple objects or concepts in an image or video, eg. 'car', 'desk' or 'person'. | [Vision_General Object Detection](General Object Detection) |
+|  Vision | Color | Recognizes colors in an image or video, such as 'blue' or 'electric red'. | [Vision_Color](Color) |
+|  Vision | Logo | Identifies brand logos in image or video, such as 'Veritone' or 'Wazee Digital'. | [Vision_Logo](Logo) |
+|  Vision | Vehicle | Classifies vehicles in an image or video, typically according to year, make, model and/or color, eg. 'white Tesla Model X'. | [Vision_Vehicle](Vehicle) |
+|  Vision | Food | Determines which food item(s) appear in an image or video, eg. 'kale' or 'pizza'. | [Vision_Food](Food) |
+|  Vision | Art | Recognizes works of art as they appear in an image or video, eg. 'Sunflowers' or 'Sunflowers by Vincent Van Gogh'. | [Vision_Art](Art) |
+|  Vision | Apparel | Catalogs clothing according to clothing type, eg. 'shirt', and/or brand. | [Vision_Apparel](Apparel) |
+|  Vision | Landmark | Identifies known physical landmarks as they appear in an image or video, eg. 'Eiffel Tower'. | [Vision_Landmark](Landmark) |
+|  Vision | Weapon | Recognizes weapons to varying degrees of specificity. Examples may include 'gun' or 'AK-47'. | [Vision_Weapon](Weapon) |
+|  Vision | Nature | Tags nature-related imagery to varying degrees of specificity. Examples may include 'tree' or 'pine tree'. | [Vision_Nature](Nature) |
+|  Vision | Visual Moderation | Tags an image or video which likely contains explicit content. May include content type, such as 'gore' or 'sexual'. | [Vision_Visual Moderation](Visual Moderation) |
+|  Vision | Pose | Detects various human poses in an image or video, such as 'standing' or 'reaching'. | [Vision_Pose](Pose) |
+|  Vision | Text Recognition (OCR) | AKA Optical Character Recognition. Converts alphanumeric characters in a document, image or video, to text. | [Vision_Text Recognition (OCR)](Text Recognition (OCR)) |
+|  Vision | License Plate (ALPR) | Produces a text string of alphanumeric characters for each license plate recognized in an image or video. | [Vision_License Plate (ALPR)](License Plate (ALPR)) |
+|  Vision | Handwriting | Converts handwritten alphanumeric characters in a document, image or video, to text. | [Vision_Handwriting](Handwriting) |
+|  Vision | Barcode/QR Code | Recognizes barcodes or QR codes in an image or video. | [Vision_Barcode/QR Code](Barcode/QR Code) |
+|  Vision | Scene Description | Interprets visual scene(s) in an image or video, producing a brief text summary. | [Vision_Scene Description](Scene Description) |
+|  Vision | Scene Break | Segments a video by identifying each instance of a scene change. | [Vision_Scene Break](Scene Break) |
+|  Vision | Motion Detection | Detects motion in an otherwise still video scene. | [Vision_Motion Detection](Motion Detection) |
+|  Vision | Action Classification | Recognizes actions in an image or video, eg. 'walking' or 'picking something up'. | [Vision_Action Classification](Action Classification) |
+|  Vision | Visual Similarity | Assesses the likeness of an image or video to one or multiple other image(s) or video(s). | [Vision_Visual Similarity](Visual Similarity) |
+|  Vision | Visual Content Generation | Produces an image or video. May be based on one or multiple keywords or other input. | [Vision_Visual Content Generation](Visual Content Generation) |
+|  Vision | Gesture | Identifies gestures in an image or video, especially of the hands and arms. For example, 'raising hand' or 'pointing at an object'. | [Vision_Gesture](Gesture) |
+|  Biometrics | Face Detection | Detects the presence of one or multiple faces in an image or video. | [Biometrics_Face Detection](Face Detection) |
+|  Biometrics | Face Recognition | Identifies one or multiple people in an image or video by associating each individual's face to their name. | [Biometrics_Face Recognition](Face Recognition) |
+|  Biometrics | Face Verification (Matching) | Compares two images or videos containing a face to verify whether the face belongs to the same person. | [Biometrics_Face Verification (Matching)](Face Verification (Matching)) |
+|  Biometrics | Ethnicity | Estimates ethnic background based on recognizing distinct facial features common to a particular ethnicity. | [Biometrics_Ethnicity](Ethnicity) |
+|  Biometrics | Gender | Predicts the likelihood a detected person is male, female, or neutral. | [Biometrics_Gender](Gender) |
+|  Biometrics | Age | Estimates age or age range, based on recognizing distinct facial features common to a particular age or age range. | [Biometrics_Age](Age) |
+|  Biometrics | Face Emotion | Interprets emotion from facial expression, eg. frowning may imply an individual is 'sad' or 'upset'. | [Biometrics_Face Emotion](Face Emotion) |
+|  Biometrics | Gait | Identifies variation in gait, or walking style. May be used to recognize individuals based on their unique gait. | [Biometrics_Gait](Gait) |
+|  Biometrics | Iris | Recognizes or verifies a person's identity based on an image or video of their unique iris, ie. colored part of their eye. | [Biometrics_Iris](Iris) |
+|  Biometrics | Voice Mimicry | Produces a speech or other audio file which mimics or imitates a person's voice. | [Biometrics_Voice Mimicry](Voice Mimicry) |
+|  Audio | Audio Detection | Detects the presence of audio in an audio or video file. | [Audio_Audio Detection](Audio Detection) |
+|  Audio | Audio Fingerprinting | Recognizes a specific audio segment, eg. a radio advertisement, as it appears in a longer audio file or on its own. | [Audio_Audio Fingerprinting](Audio Fingerprinting) |
+|  Audio | Music Detection | Detects the presence of music in an audio or video file. | [Audio_Music Detection](Music Detection) |
+|  Audio | Music Generation | Composes music which may be used by advertising agencies, game studios, film directors and the like. | [Audio_Music Generation](Music Generation) |
+|  Data | Anomaly | Detects anomalies, or outliers, in data. | [Data_Anomaly](Anomaly) |
+|  Data | Prediction | Estimates an event that will likely happen in the future, as a consequence of one or multiple historical events. | [Data_Prediction](Prediction) |
+|  Data | Correlation | Associates two data products based on some commonality, such as occurence over time. For example, may associate weather data on a given date with stock prices on that date. | [Data_Correlation](Correlation) |
+|  Data | Classification | Categorizes data according to a defined ontology, or based on shared qualities or characteristics. | [Data_Classification](Classification) |
+|  Data | Geolocation | Identifies the geographic location of a person or object in the real world or some virtual equivalent. | [Data_Geolocation](Geolocation) |
+|  Data | Optimization | Increases efficiency or effectiveness of a given process or resource. | [Data_Optimization](Optimization) |
+|  Data | Resource Allocation | Delegates tasks or other items to various individuals or groups in an automated fashion. | [Data_Resource Allocation](Resource Allocation) |
+|  Data | Recommendation | Suggests content or some decision path based on a user profile or other accumulation of data trends. | [Data_Recommendation](Recommendation) |
+|  Data | Telematics | Makes predictions based on IoT or other similar input in the realm of telecommunications or transportation. | [Data_Telematics](Telematics) |
+|  Transformation | Transcoding | Converts one input file format to another. | [Transformation_Transcoding](Transcoding) |
+|  Transformation | Orchestration | Arranges and combines various processes in order to optimize output. | [Transformation_Orchestration](Orchestration) |
+|  Transformation | Text Redaction | Censors or obscures parts of text, such as personally identifiable or otherwise sensitive information. | [Transformation_Text Redaction](Text Redaction) |
+|  Transformation | Audio Redaction | Censors or obscures parts of an audio file, such as obscene language. | [Transformation_Audio Redaction](Audio Redaction) |
+|  Transformation | Visual Redaction | Censors or obscures parts of an image or video, such as an individual's face. | [Transformation_Visual Redaction](Visual Redaction) |
+|  Transformation | Video Summarization | Condenses video to a relatively shorter video segment. May be done by concatenating video segments containing some criteria, eg. of an input video recording of a parking lot, produce an output video which concatenates only the video segments containing cars; ie. remove all video segments of an empty parking lot from the original video. | [Transformation_Video Summarization](Video Summarization) |
+|  Transformation | Video Editing | Modifies video to rearrange component parts, shorten the video or produce other manipulations. | [Transformation_Video Editing](Video Editing) |
