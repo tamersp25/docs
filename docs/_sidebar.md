@@ -33,7 +33,7 @@
 * Adapters
 * * [Overview](adapters/overview.md)
 * * [Quickstart](adapters/quickstart/)
-* * [Construction Guidelines](adapters/guidelines/)
+* * [Construction Guidelines](adapters/guidelines.md)
 * * [Adapter Manifest](adapters/manifest.md)
 
 * Data
