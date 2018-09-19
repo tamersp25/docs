@@ -11,11 +11,11 @@ When uploading an adapter build through VDA, be sure to set the engineMode to 'b
 The basic steps for a batch adapter:
 
 1. Receive the task payload.
-1. Set the task to running.
-1. Perform the task.
-    1. First create the TDO or SDO.
-    1. Then ingest the data and store it using the API.
-1. When the task is complete, use the API to change the status of the task to Complete, or to report any Errors.
+2. Set the task to running.
+3. Perform the task.
+    a. First create the TDO or SDO.
+    b. Then ingest the data and store it using the API.
+4. When the task is complete, use the API to change the status of the task to Complete, or to report any Errors.
 
 More details and examples for API calls are provided below.
 
