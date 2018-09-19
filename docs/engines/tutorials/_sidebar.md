@@ -29,6 +29,12 @@
 * * * [Object Detection](engines/tutorials/object-detection.md)
 * * [FAQ](engines/faq.md)
 
+* Adapters
+* * [Overview](adapters/overview.md)
+* * [Quickstart](adapters/quickstart/)
+* * [Construction Guidelines](adapters/guidelines.md)
+* * [Adapter Manifest](adapters/manifest.md)
+
 * Data
 * * [Overview](data/)
 * * [Quickstart](data/quick-start/)
