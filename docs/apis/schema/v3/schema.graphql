@@ -718,6 +718,26 @@ type Cluster {
   cachedDateTime: DateTime
   default: Boolean
   bypassAllowedEngines: Boolean
+  collaborators: ClusterCollaboratorList
+}
+
+# A source ACL grants a single organization limited rights to a private clusters
+type ClusterCollaborator {
+  # The permission granted.
+  permission: ClusterPermission!
+
+  # Organization ID the cluster was shared with
+  organizationId: ID!
+
+  # The organization the cluster was shared with
+  organization: Organization
+}
+
+type ClusterCollaboratorList implements Page {
+  records: [ClusterCollaborator!]!
+  offset: Int!
+  limit: Int!
+  count: Int
 }
 
 type ClusterList implements Page {
@@ -739,6 +759,11 @@ type ClusterNodeList implements Page {
   count: Int!
   offset: Int!
   limit: Int!
+}
+
+enum ClusterPermission {
+  owner
+  viewer
 }
 
 enum ClusterSize {
@@ -975,6 +1000,19 @@ input CreateCluster {
   # format such as 8gb, 1024mb, etc.
   storageSize: String
   bypassAllowedEngines: Boolean
+
+  # Permissions granted to other organizations. Only the cluster owner
+  # can view or edit this field.
+  collaborators: [CreateClusterCollaborator!]
+}
+
+input CreateClusterCollaborator {
+  # ID of the organization to share
+  organizationId: ID!
+
+  # Permission to grant cluster. Can be `viewer`.
+  # Set to `none` to revoke permissions for this organization.
+  permission: SetClusterPermission!
 }
 
 input CreateClusterNode {
@@ -1205,6 +1243,27 @@ input CreateEntityType {
   schema: JSON!
 }
 
+input CreateEvent {
+  # Name of the event to be created
+  eventName: String!
+
+  # The type of event
+  eventType: String!
+
+  # Identifier of the app using the event
+  application: String!
+
+  # Event visibility. Private event is only visible to the app publisher.
+  public: Boolean! = false
+
+  # General description of the event
+  description: String
+
+  # Optional schema. Accept on Protocol buffer format. If not provided,
+  # Custom message schema is inferred
+  schemaData: String
+}
+
 type CreateExecutionLocation {
   clusterId: ID!
   nodeId: ID
@@ -1419,6 +1478,7 @@ input CreateMention {
   programId: ID!
   mentionDateTime: DateTime!
   mentionHitCount: Int!
+  mentionStatusId: Int
   watchlistId: ID
   cognitiveEngineResultsString: String
   snippetsString: String
@@ -1496,6 +1556,15 @@ input CreatePasswordUpdateRequest {
   skipPasswordResetEmail: Boolean
 }
 
+input CreateProgramAffiliate {
+  sourceId: ID!
+  scheduledDay: DayOfWeek!
+  startDateTime: DateTime!
+  stopDateTime: DateTime!
+  startTime: Time!
+  stopTime: Time!
+}
+
 input CreateRecurringSchedulePart {
   repeatIntervalUnit: IntervalUnit!
   repeatInterval: Int!
@@ -1546,6 +1615,7 @@ input CreateScheduledJob {
   # Only Veritone administrators can create public scheduled jobs.
   # Other users will get an error if they attempt to set this value to true.
   isPublic: Boolean = false
+  affiliates: [CreateProgramAffiliate!]
 }
 
 input CreateScheduledJobCollaborator {
@@ -1763,6 +1833,14 @@ input CreateTask {
   # Optionally, provide a task definition that will be executed if
   # and only if this one fails. Standby tasks can be nested.
   standbyTask: CreateTask
+}
+
+input CreateTaskLog {
+  # ID of the task which the task long belongs to.
+  taskId: ID!
+
+  # A file to upload. Use multipart form POST to submit this field.
+  file: UploadedFile
 }
 
 input CreateTaskTemplate {
@@ -2242,6 +2320,20 @@ enum DeploymentModel {
 
   # Human review of engine results is required. Numerical code 3.
   HumanReview
+}
+
+input EmitEvent {
+  # Event name
+  eventName: String!
+
+  # Existing event type
+  eventType: String!
+
+  # Identifier of the app using the event
+  applicationId: String!
+
+  # string payload, it should be serialized Protobuf data with base64 encoding
+  payload: String!
 }
 
 type Engine {
@@ -2865,12 +2957,47 @@ type EntityType {
   schema: JSON!
 }
 
+type Event {
+  id: ID!
+  eventName: String!
+  eventType: String!
+  application: String!
+  public: Boolean!
+  description: String
+  schemaData: String!
+  schemaHash: String!
+  createdDateTime: DateTime!
+  createdBy: String!
+}
+
+input EventDelivery {
+  name: EventDeliveryType!
+  params: JSON!
+}
+
+enum EventDeliveryType {
+  # Webhook protocol should provide the following kvp in the json structure of
+  # "url":"<protocol>://<your_url>"
+  # "encoding":"[protobuf|protobuf_base64|json]
+  # "template": string
+  Webhook
+
+  # SMS protocol should provide the following kvp in the json structure of
+  # "number": ##########
+  SMS
+
+  # Email protocol should provide the following kvp in the json structure of
+  # "address":"<your_address>@<your_domain>"
+  Email
+}
+
 type ExecutionLocation {
   id: ID!
   clusterId: ID!
   cluster: Cluster!
   nodeId: ID
   node: ClusterNode
+  data: JSON!
 }
 
 type ExecutionLocationList implements Page {
@@ -3171,9 +3298,6 @@ type Job {
 
     # Specify a list of IDs to filter by task target ID
     targetId: [ID]
-
-    # Specify a list of application IDs to filter by application
-    applicationId: [ID]
     hasSourceAsset: Boolean
   ): TaskList
 
@@ -3271,6 +3395,8 @@ enum JobStatusFilter {
   pending
   running
   complete
+  cancelled
+  queued
 }
 
 # A job template is a reusable template for job creation.
@@ -3603,6 +3729,12 @@ type Mention {
   hitStartDateTime: DateTime
   hitEndDateTime: DateTime
   endDateTime: DateTime
+  scheduledJob: ScheduledJob
+  temporalDataObject: TemporalDataObject
+  organization: Organization!
+  watchlist: Watchlist
+  advertiser: JSON
+  brand: JSON
 }
 
 type MentionComment {
@@ -3617,6 +3749,19 @@ type MentionComment {
   modifiedDateTime: DateTime
 }
 
+enum MentionDateTimeField {
+  mentionDate
+  endDateTime
+  hitStartDateTime
+  hitStopDateTime
+}
+
+input MentionDateTimeFilter {
+  toDateTime: DateTime
+  fromDateTime: DateTime
+  field: MentionDateTimeField!
+}
+
 type MentionHit {
   queryTerm: String
   startTime: Float
@@ -3628,6 +3773,19 @@ type MentionList implements Page {
   limit: Int!
   count: Int
   records: [Mention!]
+}
+
+input MentionOrderBy {
+  field: MentionOrderByField!
+  direction: OrderDirection = desc
+}
+
+enum MentionOrderByField {
+  id
+  mentionDate
+  hitStartDateTime
+  hitEndDateTime
+  endDateTime
 }
 
 type MentionRating {
@@ -3731,6 +3889,13 @@ type Mutation {
     # for details. If not provided, the server will use default settings.
     options: [TDOCleanupOption!] = [storage, searchIndex]
   ): DeletePayload
+
+  # Create a task log by using
+  # multipart form POST.
+  createTaskLog(
+    # Fields needed to create a task log.
+    input: CreateTaskLog!
+  ): TaskLog
 
   # Create a media asset. Optionally, upload content using
   # multipart form POST.
@@ -3926,6 +4091,13 @@ type Mutation {
     # Provide the ID of the library to delete.
     id: ID!
   ): DeletePayload
+
+  # Publish a new version of a library.
+  # Increments library version by one and trains compatible engines.
+  publishLibrary(
+    # ID of the library to publish
+    id: ID!
+  ): Library
 
   # Create a new entity.
   createEntity(
@@ -4335,6 +4507,21 @@ type Mutation {
 
   # Create Mention in bulk. The input should be an array of createMentions
   createMentions(input: CreateMentions!): MentionList
+
+  # Create a new event
+  createEvent(input: CreateEvent!): Event!
+
+  # Update an event
+  updateEvent(input: UpdateEvent!): Event!
+
+  # Subscribe to an event
+  subscribeEvent(input: SubscribeEvent!): ID!
+
+  # Unsubscribe to an event
+  unsubscribeEvent(id: ID!): UnsubscribeEvent!
+
+  # Emit an event
+  emitEvent(input: EmitEvent!): ID!
   createCluster(input: CreateCluster!): Cluster
   updateCluster(input: UpdateCluster!): Cluster
   deleteCluster(id: ID!): DeletePayload
@@ -4345,6 +4532,7 @@ type Mutation {
   deleteClusterNode(id: ID!): DeletePayload
   createScheduledJob(input: CreateScheduledJob!): ScheduledJob!
   cloneScheduledJob(input: CloneScheduledJob!): ScheduledJob!
+  revertScheduledJob(input: RevertScheduledJob!): ScheduledJob!
   updateScheduledJob(input: UpdateScheduledJob!): ScheduledJob!
   deleteScheduledJob(id: ID!): DeletePayload
 
@@ -4764,6 +4952,10 @@ type Query {
 
     # Filter by date/time field
     dateTimeFilter: [JobDateTimeFilter!]
+
+    # Provide list of application IDs to filter jobs.
+    # Defaults to the user's own application.
+    applicationIds: [ID]
   ): JobList
 
   # Retrieve a single job
@@ -5189,7 +5381,7 @@ type Query {
   dataRegistry(id: ID!): DataRegistry
   subscription(id: ID!): Subscription!
   cognitiveSearch(id: ID!): CognitiveSearch!
-  collections(id: ID, offset: Int = 0, limit: Int = 30): CollectionList!
+  collections(id: ID, mentionId: ID, offset: Int = 0, limit: Int = 30): CollectionList!
   collection(id: ID!): Collection!
   mentions(
     id: ID
@@ -5202,6 +5394,20 @@ type Query {
 
     # Get mentions associated with sources of the specified source type
     sourceTypeId: ID
+
+    # Get mentions associated directly with the specific TDO
+    tdoId: ID
+
+    # Specify date/time filters against mention fields.
+    # Querying for mentions can be expensive. If the query does not
+    # include a filter by `id`, `tdoId`, `sourceId`, `watchlistId`, or
+    # a user-provided `dateTimeFilter`, a default filter of the
+    # past 7 days is applied.
+    dateTimeFilter: [MentionDateTimeFilter!]
+
+    # Set order information on the query. Multiple fields
+    # are supported.
+    orderBy: [MentionOrderBy!]
     offset: Int = 0
     limit: Int = 30
   ): MentionList
@@ -5278,6 +5484,12 @@ type Query {
   ): ExportRequestList!
   exportRequest(id: ID!): ExportRequest!
 
+  # Retrieve a event by id
+  event(id: ID!): Event!
+
+  # Retrieve a list of events by application
+  events(application: String!): [Event!]
+
   # This query returns information about time zones recognized by this
   # server. The information is static and does not change.
   timeZones: [TimeZone!]!
@@ -5344,6 +5556,9 @@ type Query {
     orderBy: [AuditLogOrderBy!]
   ): AuditLogEntryList!
 
+  # Get the specific Mention shared
+  sharedMention(id: ID!, offset: Int = 0, limit: Int = 0): MentionList
+
   # Retrieve a single schedule
   scheduledJob(id: ID!): ScheduledJob
 
@@ -5362,6 +5577,7 @@ type Query {
     # Specify isActive true or false to filter by active state
     isActive: Boolean
     engineId: ID
+    engineCategoryId: ID
     engineType: [EngineTypeFilter!]
 
     # Specify an offset to retrieve additional pages
@@ -5529,6 +5745,10 @@ input RequestClone {
   cloneBlobs: Boolean = false
 }
 
+input RevertScheduledJob {
+  id: ID!
+}
+
 type RightsListing {
   operations: [String!]!
   resources: JSON
@@ -5664,6 +5884,7 @@ type ScheduledJob {
   permission: ScheduledJobPermission
   primarySourceTypeId: ID
   primarySourceType: SourceType
+  ingestionStatusId: ID
   ingestionStatus: String
   affiliates: ProgramAffiliateList!
 }
@@ -5835,7 +6056,9 @@ type SchemaProperty {
   majorVersion: Int!
   schema: Schema!
   path: String!
+  searchPath: String!
   type: String!
+  title: String
 }
 
 type SchemaPropertyList implements Page {
@@ -5944,6 +6167,11 @@ input SetAssetSourceData {
   # This will usually be assets with edits to a previous
   # asset.
   assetId: ID
+}
+
+enum SetClusterPermission {
+  viewer
+  none
 }
 
 input SetEngineBlacklist {
@@ -6415,6 +6643,20 @@ type StructuredJSONSchema {
   id: ID!
   ownerOrganizationId: ID!
   organization: Organization!
+}
+
+input SubscribeEvent {
+  # Existing event name
+  eventName: String
+
+  # Existing event type
+  eventType: String
+
+  # Identifier of the app using the event
+  application: String!
+
+  # a string payload, it should be serialized Protobuf data with base64 encoding
+  delivery: EventDelivery!
 }
 
 type Subscription {
@@ -6938,6 +7180,14 @@ input UnpauseCluster {
   id: ID!
 }
 
+type UnsubscribeEvent {
+  # ID of the object that was deleted
+  id: ID!
+
+  # Message
+  message: String
+}
+
 input UpdateApplication {
   id: ID!
   name: String
@@ -6996,13 +7246,17 @@ input updateBundleStatusAsCluster {
 
 input UpdateCluster {
   id: ID!
-  name: String!
-  allowedEngines: [String]!
+  name: String
+  allowedEngines: [String]
   dockerCredentials: JSON
   containerTag: String
   memorySize: Int
   storageSize: Int
   bypassAllowedEngines: Boolean
+
+  # Permissions granted to other organizations. Only the cluster owner
+  # can view or edit this field.
+  collaborators: [CreateClusterCollaborator!]
 }
 
 input UpdateClusterNode {
@@ -7061,7 +7315,7 @@ input UpdateCurrentUser {
   lastName: String
 
   # New image URL for the current user, optional
-  image: String
+  imageUrl: String
 }
 
 input UpdateDataRegistry {
@@ -7130,6 +7384,16 @@ input UpdateEntity {
   name: String
   description: String
   profileImageUrl: String
+
+  # GraphQL-formatted JSON-like structure containing freeform metadata.
+  # If a schema is associated with the entity type, the input will be
+  # validated against the schema. Use this field _or_ `jsonstring`, not both.
+  jsondata: JSON
+
+  # A string containing valid JSON with freeform metadata.
+  # If a schema is associated with the entity type, the input will be
+  # validated against the schema. Use this field _or_ `jsondata`, not both.
+  jsonstring: String
 }
 
 input UpdateEntityIdentifier {
@@ -7137,6 +7401,16 @@ input UpdateEntityIdentifier {
   title: String
   isPriority: Boolean
   url: String
+
+  # GraphQL-formatted JSON-like structure containing freeform metadata.
+  # If a schema is associated with the entity type, the input will be
+  # validated against the schema. Use this field _or_ `jsonstring`, not both.
+  jsondata: JSON
+
+  # A string containing valid JSON with freeform metadata.
+  # If a schema is associated with the entity type, the input will be
+  # validated against the schema. Use this field _or_ `jsondata`, not both.
+  jsonstring: String
 }
 
 input UpdateEntityIdentifierType {
@@ -7152,6 +7426,14 @@ input UpdateEntityType {
   name: String
   namePlural: String
   schema: JSON
+}
+
+input UpdateEvent {
+  # ID of event
+  id: ID!
+
+  # General description of the event
+  description: String
 }
 
 type UpdateExecutionLocation {
@@ -7359,6 +7641,11 @@ input UpdateScheduledJob {
   # Only Veritone administrators can create public scheduled jobs.
   # Other users will get an error if they attempt to set this value to true.
   isPublic: Boolean = false
+  affiliates: [CreateProgramAffiliate!]
+
+  # Indicates whether or not the scheduled job we should upgrade this schedule job
+  # to the new data model if an upgrade is possible.
+  migrateIfLegacy: Boolean = false
 }
 
 input UpdateSchemaState {
@@ -7470,6 +7757,9 @@ input UpdateTask {
 
   # Update the task with a new payload
   payload: JSON
+
+  # Save execution location metadata
+  executionLocationData: JSON
 }
 
 enum UpdateTaskStatus {

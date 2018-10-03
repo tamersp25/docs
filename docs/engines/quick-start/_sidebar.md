@@ -1,5 +1,7 @@
 <!-- docs/_sidebar.md -->
 
+<!-- docs/_sidebar.md -->
+
 * Getting Started
 * * [Overview](/)
 * * [Architecture Overview](architecture-overview.md)
@@ -8,6 +10,7 @@
 
 * Applications
 * * [Overview](applications/)
+* * [Application Integration](applications/integration/)
 * * [Quickstart](applications/quick-start/)
 * * [Context Menu Extensions](applications/context-menu-extensions.md)
 * * [OAuth](applications/oauth.md)
@@ -24,13 +27,15 @@
 * * * [Step 5 - Submit a Build for Approval](engines/quick-start/step-5-submit-build.md)
 * * * [Step 6 - Deploy an Engine](engines/quick-start/step-6-deploy-engine.md)
 * * * [Step 7 - Manage an Active Engine or Build](engines/quick-start/step-7-manage-engine.md)
-* * [Cognitive Engine Classes](engines/classes/)
 * * [Engine Types](engines/types)
-* * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
-* * [Custom Fields](engines/custom-fields)
-* * [Engine Input/Output](engines/engine-input-output/)
-* * [Testing & Debugging](engines/testing-and-debugging)
+* * * [Engine Standards](engines/engine_standards/)
+* * * * [Capabilities](engines/engine_standards/capability/)
+* * * [VERI Standard](engines/engine_standards/veri_standards.md)
+* * * [Engine Manifest](engines/manifest.md)
+* * * [Custom Fields](engines/custom-fields)
+* * * [Testing & Debugging](engines/testing-and-debugging)
+* * * [Engine Input/Output](engines/engine-input-output/)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
@@ -51,7 +56,8 @@
 * * [Using GraphQL](apis/using-graphql.md)
 * * [Authentication](apis/authentication.md)
 * * [Error Codes](apis/error-codes.md)
-* * [Job Quickstart Guide](apis/job-quick-start-guide/)
+* * [Job Quickstart Guide](apis/job-quickstart.md)
+* * [Search Quickstart Guide](apis/search-quickstart.md)
 * * [Tutorials](apis/tutorials/)
 
 * Libraries

@@ -1,5 +1,7 @@
 <!-- docs/_sidebar.md -->
 
+<!-- docs/_sidebar.md -->
+
 * Getting Started
 * * [Overview](/)
 * * [Architecture Overview](architecture-overview.md)
@@ -22,13 +24,15 @@
 * Engines
 * * [Overview](engines/)
 * * [Quickstart](engines/quick-start/)
-* * [Cognitive Engine Classes](engines/classes/)
 * * [Engine Types](engines/types)
-* * [Engine Manifest](engines/manifest.md)
 * * [Construction Guidelines](engines/guidelines/)
-* * [Custom Fields](engines/custom-fields)
-* * [Engine Input/Output](engines/engine-input-output/)
-* * [Testing & Debugging](engines/testing-and-debugging)
+* * * [Engine Standards](engines/engine_standards/)
+* * * * [Capabilities](engines/engine_standards/capability/)
+* * * [VERI Standard](engines/engine_standards/veri_standards.md)
+* * * [Engine Manifest](engines/manifest.md)
+* * * [Custom Fields](engines/custom-fields)
+* * * [Testing & Debugging](engines/testing-and-debugging)
+* * * [Engine Input/Output](engines/engine-input-output/)
 * * [Sample Engines](engines/sample-engines.md)
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
@@ -49,7 +53,8 @@
 * * [Using GraphQL](apis/using-graphql.md)
 * * [Authentication](apis/authentication.md)
 * * [Error Codes](apis/error-codes.md)
-* * [Job Quickstart Guide](apis/job-quick-start-guide/)
+* * [Job Quickstart Guide](apis/job-quickstart.md)
+* * [Search Quickstart Guide](apis/search-quickstart.md)
 * * [Tutorials](apis/tutorials/)
 
 * Libraries

@@ -27,16 +27,15 @@ Please refer to the [full list of engine capabilities](/engines/engine_standards
 
 The VERI Engine Standard is the output format the all of our engines aims to conform.  The format allows for describing a single data object (SDO) or a series of time based data objects (a.k.a. temporal data objects - TDOs).
 
-Engine output
-  |
-  +-- Message Envelope
-     |
-     +-- Metadata
-     |
-     +-- Single Data Object
-        |
-        +-- Object Series (Temporal Data Objects)
-
+Engine output  
+&nbsp;&nbsp;|  
+&nbsp;&nbsp;+-- Message Envelope  
+&nbsp;&nbsp;&nbsp;&nbsp;|  
+&nbsp;&nbsp;&nbsp;&nbsp;+-- Metadata  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-- Single Data Object  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-- Object Series (Temporal Data Objects)
 
 At the top level, each task's output will contain a message envelop that describes information on the schema references, engines correlated to the data output, the data format, and any singular data components (e.g. confidence intervals, sentiment, location data, etc.)
 
