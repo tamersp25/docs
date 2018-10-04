@@ -1,18 +1,15 @@
 .DS_Store
+.cache
 .idea
-*.iml
+.vscode
+
 node_modules
-build
+
+build/*
+public/
+
 *.log*
 npm-debug.log
 
-# Webstorm
-.idea
-
 # fixme
 yarn.lock
-
-public/
-.cache
-
-.vscode
