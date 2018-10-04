@@ -5,7 +5,7 @@
   "dependencies": {},
   "main": "n/a",
   "scripts": {
-    "build": "sh ./schemagen.sh && cp -r docs/* build/",
+    "build": "sh ./schemagen.sh && mkdir build && cp -r docs/* build/",
     "lint": "echo \"No tests\" && exit 0",
     "start": "./node_modules/.bin/docsify serve ./docs",
     "test": "echo \"No tests\" && exit 0"
