@@ -7,12 +7,12 @@ If you find something you think is inaccurate, feel free to [create an issue](ht
 ## Contributing
 
 If you would like to suggest an edit to the docs, feel free to submit a pull request.
-You'll probably want to chat with us in our [Slack community](veri-slack) first if it's a large change 
+You'll probably want to chat with us in our [Slack community][veri-slack] first if it's a large change 
 to make sure we're in alignment.
 
 ### Overview
 
-Veritone Docs is static site built using Markdown files and powered by [Docsify](docsify).
+Veritone Docs is static site built using Markdown files and powered by [Docsify][docsify].
 
 ### Quick Start
 
@@ -66,8 +66,8 @@ See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/qui
 
 ### Useful Resources
 
-- [Markdown Cheatsheet](markdown-cheat)
-- [Docsify Docs](docsify)
+- [Markdown Cheatsheet][markdown-cheat]
+- [Docsify Docs][docsify]
 
 # License
 Copyright 2017, Veritone Inc.
