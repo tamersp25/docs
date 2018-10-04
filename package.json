@@ -6,12 +6,11 @@
   "main": "n/a",
   "scripts": {
     "start": "./node_modules/.bin/docsify serve ./docs",
-    "deploy": "sh ./schemagen.sh; ./node_modules/.bin/gh-pages -d docs -t --branch master"
+    "build": "sh ./schemagen.sh && cp -r docs/* build/"
   },
   "devDependencies": {
     "docsify": "^4.6.7",
     "docsify-cli": "^4.2.0",
-    "get-graphql-schema": "^2.1.1",
-    "gh-pages": "^1.1.0"
+    "get-graphql-schema": "^2.1.1"
   }
 }
