@@ -5,8 +5,10 @@
   "dependencies": {},
   "main": "n/a",
   "scripts": {
+    "build": "sh ./schemagen.sh && cp -r docs/* build/",
+    "lint": "echo \"No tests\" && exit 0",
     "start": "./node_modules/.bin/docsify serve ./docs",
-    "build": "sh ./schemagen.sh && cp -r docs/* build/"
+    "test": "echo \"No tests\" && exit 0"
   },
   "devDependencies": {
     "docsify": "^4.6.7",
