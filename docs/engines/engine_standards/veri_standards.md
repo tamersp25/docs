@@ -2,6 +2,9 @@
 
 For reference, please refer to the [engine standards overview](/engines/engine_standards/).
 
+The following example uses all of the supported fields and is annotated with Javascript comments.
+Actual VERI standard documents would include a subset of these fields.
+
 ```javascript
 var sample = {
     // Preamble
@@ -219,10 +222,6 @@ var sample = {
             'value': 'bar2'
           }],
 
-          // Optional
-          // Language BCP-47
-          'language': "en-US",
-
           'summary': "", // OPTIONAL. String.  Summary of time slice
 
           // Optional
@@ -246,11 +245,10 @@ var sample = {
             'bestPath': true,
             // Number of consecutive time-slices the utterance spans.
             // example: of->thrones----->
-            of - > their-- > own - >
-            // utteranceLenght: thrones: 2; their,own: 1
+            //          of->their-->own->
+            // utteranceLength: thrones: 2; their,own: 1
             'utteranceLength': 1
           }],
-
 
           // Optional for series
           // Language Identification: BCP-47 https://tools.ietf.org/rfc/bcp/bcp47.txt
@@ -294,7 +292,7 @@ var sample = {
             // Time stamp indicates absolute time of frame determined by offset into media relative to start time of TDO
             // e.g. 2017-12-18T15:53:00 or 2017-12-18T15:53:00.250
             // Format: /media-streamer/image/<tdoId>/<ISO 8601 time_stamp>?x[0]=<x0-coord>&y[0]=<y0-coord>&...&x[i]=<xi-coord>&y[i]=<yi-coord>
-            'uri': '<URI>'
+            'uri': '<URI>',
 
             // Optional: Entity
             'entityId': '<GUID>',
@@ -399,5 +397,6 @@ var sample = {
           'vendor': {
 
           }
-        };
+    }]
+};
 ```
