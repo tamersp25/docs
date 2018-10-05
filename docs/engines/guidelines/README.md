@@ -17,9 +17,9 @@ A key field in the manifest is used to help identify engines that are compatible
 | engineMode | Adapters                                                | Cognitive Engines or Aggregators                                                       |
 | ---------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | legacy     | N/A for adapters                                        | For engines that are not real-time capable                                             |
-| batch      | For adapters that process data in batches (e.g., files) | For real-time engines that process data in batches (e.g., files)                       |
-| chunk      | N/A for adapters                                        | For real-time engines that process data in small chunks (e.g., frames, video segments) |
-| stream     | For adapters that process data in streams               | For real-time engines that process data in streams                                     |
+| [batch](/engines/guidelines/real-time-engines?id=constructing-an-engine-in-batch-mode)      | For adapters that process data in batches (e.g., files) | For real-time engines that process data in batches (e.g., files)                       |
+| [chunk](/engines/guidelines/real-time-engines?id=constructing-an-engine-in-chunk-mode)      | N/A for adapters                                        | For real-time engines that process data in small chunks (e.g., frames, video segments) |
+| [stream](/engines/guidelines/real-time-engines?id=constructing-an-engine-in-stream-mode)     | For adapters that process data in streams               | For real-time engines that process data in streams                                     |
 
 ## GraphQL
 
