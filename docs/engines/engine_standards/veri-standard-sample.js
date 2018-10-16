@@ -305,10 +305,6 @@ var sample = {
       "emotionConfidence": 0.88 // OPTIONAL: 0 = 0, 1.0 = 100%
     }],
 
-    // Entity
-    "entityId": "<GUID>",
-    "libraryId": "<GUID>",
-
     // OPTIONAL:
     // Object (Face, Object, Logo, OCR, ..)
     // This is for detecting something
