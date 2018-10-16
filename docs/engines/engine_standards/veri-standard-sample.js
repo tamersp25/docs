@@ -103,7 +103,7 @@ var sample = {
       'label': 'Satya Nadella', // Tag/main label
 
       // Type: object, face, libraryEntity, licensePlate, speakerId, soundId, concept, keyword, namedEntity
-      'type': 'library_entity',
+      'type': 'libraryEntity',
       'uri': '<URI>', // Used in the UI.  E.g., image of the face or object to use in search results
 
       // Optional: Entity
