@@ -339,10 +339,6 @@ sample = {
       "emotionConfidence": 0.88 // OPTIONAL: 0 = 0, 1.0 = 100%
     }],
 
-    // Entity reference (optional)
-    "entityId": "<GUID>",
-    "libraryId": "<GUID>",
-
     // Object (Face, Object, Logo, OCR, ..) (optional)
     "object": {
 
