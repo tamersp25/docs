@@ -7,7 +7,7 @@ If you find something you think is inaccurate, feel free to [create an issue](ht
 ## Contributing
 
 If you would like to suggest an edit to the docs, feel free to submit a pull request.
-You'll probably want to chat with us in our [Slack community][veri-slack] first if it's a large change 
+You'll probably want to chat with us in our [Slack community][veri-slack] first if it's a large change
 to make sure we're in alignment.
 
 ### Overview
@@ -68,6 +68,22 @@ See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/qui
 
 - [Markdown Cheatsheet][markdown-cheat]
 - [Docsify Docs][docsify]
+
+## Docker Test
+
+This is just to test locally. Production builds will happen by Jenkins
+
+```bash
+# First, connect to VPN
+# Export github access token
+export GITHUB_ACCESS_TOKEN=redacted
+
+# Build
+docker build --build-arg GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN --build-arg ENVIRONMENT=dev -t docs .
+
+# Run
+docker run -it --rm -p 9000:9000 docs:latest
+```
 
 # License
 Copyright 2017, Veritone Inc.
