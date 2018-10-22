@@ -8,6 +8,7 @@
     "build": "sh ./schemagen.sh && mkdir build && cp -r docs/* build/",
     "lint": "echo \"No tests\" && exit 0",
     "start": "./node_modules/.bin/docsify serve ./docs",
+    "sync-master": "git checkout master && git fetch origin && git reset --hard origin/master",
     "test": "echo \"No tests\" && exit 0"
   },
   "devDependencies": {
