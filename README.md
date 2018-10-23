@@ -25,7 +25,7 @@ npm install
 npm start
 ```
 
-This will spin up a local instance of the docs at http://localhost:3000
+This will spin up a local instance of the docs at http://localhost:3000.
 
 ### Submitting Changes
 
