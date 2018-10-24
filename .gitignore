@@ -11,5 +11,4 @@ public/
 *.log*
 npm-debug.log
 
-# fixme
-yarn.lock
+package-lock.json
