@@ -58,6 +58,7 @@
 * * * [Error Handling in the GraphQL API](apis/tutorials/graphql-error-handling.md)
 * * * [Uploading and Processing Files](apis/tutorials/upload-and-process.md)
 * * * [Uploading Large Files](apis/tutorials/uploading-large-files.md)
+* * * [Handling File Upload Errors](apis/tutorials/file-upload-error-handling.md)
 * * * [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
 * * * [Paging](apis/tutorials/paging.md)
 
