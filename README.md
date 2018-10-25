@@ -12,22 +12,27 @@ to make sure we're in alignment.
 
 ### Overview
 
-Veritone Docs is static site built using Markdown files and powered by [Docsify][docsify].
+Veritone Docs is a static site built using Markdown files and powered by [Docsify][docsify].
 
-### Quick Start
+### Requirements
 
-Dev -
+- node 8
 
-```bash
-npm install
-npm start
-```
-
-Deploy -
+### Developing Locally
 
 ```bash
-npm run deploy
+yarn install
+yarn start
 ```
+
+This will spin up a local instance of the docs at http://localhost:3000.
+
+### Submitting Changes
+
+To submit changes, create a branch off master, add your commits, and create a pull request from your branch to master.
+If the branch is in this repo (not a fork) and the name begins with `feature/VTN-` (internal Veritone users only), 
+our build system will build it and let you know if it passed in the PR.
+Once the PR is merged into master, it will be auto-deployed to docs.veritone.com.
 
 ### How to add code examples
 
