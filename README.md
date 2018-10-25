@@ -21,8 +21,8 @@ Veritone Docs is a static site built using Markdown files and powered by [Docsif
 ### Developing Locally
 
 ```bash
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 This will spin up a local instance of the docs at http://localhost:3000.
