@@ -1,7 +1,7 @@
 ## Step 1: Are you in the right place?
 
   * For typos, errors, omissions, etc. in the documentation, complete the questions below and submit.
-  * For general technical questions [Join us on Slack](https://chat.veritone.com/).
+  * For general technical questions, [join us on Slack](https://chat.veritone.com/).
 
 ## Step 2: Check [x] the type of issue being reported:
 
