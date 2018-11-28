@@ -19,15 +19,15 @@ The fields that should be included in manifest.json are listed in the table belo
 | preferredInputFormat  | string           | Yes      | Yes | The MIME type of the input media format that is preferred by your engine. Choose one format only. The options that Veritone currently support are listed [below](engines/manifest?id=mimetypes).                         | "preferredInputFormat": "audio/wav" |
 | outputFormats         | array of strings | Yes      | Yes | List of the MIME types of the media formats that your engine will output. The options that Veritone currently supports are listed [below](engines/manifest?id=mimetypes). | "outputFormats": ["application/ttml+xml", "audio/wav"] |
 | clusterSize           | string           | Yes      | Yes | The cluster size on which your engine should run: small, medium, large, which are defined [below](engines/manifest?id=available-cluster-sizes).  | "clusterSize": "small" |
+| supportedInputFormats | array of strings | Yes      | Yes | List of the MIME types of the input media formats that your engine can support. Include your preferred Input format here as well. The options that Veritone currently support are listed [below](engines/manifest?id=mimetypes).| "supportedInputFormats": ["audio/wav", "audio/mpeg", "audio/flac", "video/mp4", "application/json"] |
 | initialConcurrency    | integer          | No       | No | The initial number of instances of your engine that can run at the same time. If omitted, we will use a value of 50. | "initialConcurrency": 50 |
 | maxConcurrency        | integer          | No       | No | The maximum number of instances of your engine that can run at the same time. If omitted, we will use a value of 50. | "maxConcurrency": 50  |
 | url                   | string           | No       | No |The URL of the website where the user can get more information about your engine. | "url": "[https://www.veritone.com/wp/cognitive-engines/transcription-engine/](https://www.veritone.com/wp/cognitive-engines/transcription-engine/)" |
 | externalCalls         | array of strings | No       | No | The domains of any external calls that are required by your code. This should include all calls that require internet access. | "externalCalls": ["[http://s3.amazonaws.com](http://s3.amazonaws.com)", "[http://github.com](http://github.com)"] |
-| supportedInputFormats | array of strings | No       | No | List of the MIME types of the input media formats that your engine can support. Include your preferred Input format here as well. The options that Veritone currently support are listed [below](engines/manifest?id=mimetypes).| "supportedInputFormats": ["audio/wav", "audio/mpeg", "audio/flac", "video/mp4", "application/json"] |
 | libraries             | string           | No       | No | List any dependent libraries required by your engine.            | "libraries": ["tensorflow", "apache mahout"] |
 | maxFileMb             | float            | No       | No | The maximum file size that your engine can process, in megabytes. Omit this field if you engine can process any size of file. | "maxFileMb": 1200.0  |
 | minMediaLengthMs      | integer          | No       | No | The minimum duration of the media file that your engine requires for processing, expressed in milliseconds. Omit this field if your engine can process any length of media. | "minMediaLengthMs": 1000  |
-| maxMediaLengthMs      | integer          | No       | No | The maximum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.  | "maxMediaLengthMs": 900000 |       
+| maxMediaLengthMs      | integer          | No       | No | The maximum duration of the media file that your engine can process, expressed in milliseconds. Omit this field if your engine can process any length of media.  | "maxMediaLengthMs": 900000 |
 | trainableViaApi       | boolean          | No       | No | Describes whether an API is available for training | "trainableViaApi": true |
 | supportedLanguages    | string           | No       | No | Languagues supported in ISO 639-1 Codes,  | "supportedLanguages": [ "en" , "ko" ]  |
 | gpuSupported          | string           | No       | No | List of supported GPU engines See the Supported GPU section [below](engines/manifest?id=gpu). Examples include: "G2", "G3", "P2"  | "gpuSupported" : "P2"  |
@@ -39,6 +39,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | schemaId            | integer           | No       | No | The schemaId that the engine supports. This is required for ingesting or processing structured data.  | "schemaId": 231  |
 | schedule | string | No | No | Indicate whether your adapter has any restrictions for supporting schedules. Allowed values are "any", "recurring", "continuous", "immediate", "on demand". If omitted, we will use "any".| "schedule": "any" |
 | oauth | string | No | No | Indicate the version of OAuth that your adapter supports. Omit if your adapter doesn't support OAuth.| "oauth": "2.0"|
+| serverCountry | string | No | No | Indicate the ISO codes of the country where the server is located if the engine makes external calls. | "serverCountry": "US"|
 | releaseNotes          | string           | No       | No | Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.  | "releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions." |
 
 ## Available categories for cognitive engines
@@ -115,7 +116,7 @@ _Contact us if your engine supports a MIME type that is not currently listed._
 * video/x-m4v
 * video/x-ms-wmv
 * video/x-msvideo
- 
+
 
 ## Example
 
