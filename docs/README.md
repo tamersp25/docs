@@ -21,7 +21,7 @@ Proprietary Veritone Conductor technology optimizes the cognitive engine selecti
 
 ### A Suite of Proprietary Applications
 
-Veritone&rsquo;s suite of native applications to enable users to ingest, process, index, manage, search, and share their cognitively-enriched content.
+Veritones suite of native applications to enable users to ingest, process, index, manage, search, and share their cognitively-enriched content.
 
 ### Philosophy of Open Data
 
