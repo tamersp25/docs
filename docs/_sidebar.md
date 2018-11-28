@@ -56,3 +56,8 @@
 * * [Library-enabled Engines](libraries/engines.md)
 * * [Training Engines](libraries/training.md)
 * * [Running Engines](libraries/running.md)
+
+* Workflow
+* * [Overview](workflow/)
+* * [Veritone API Node](workflow/api.md)
+* * [Event Node](workflow/event.md)
