@@ -36,7 +36,7 @@ query{
 
 #### Sample Request: Retrieve a Transcript
 ```graphql
-query:{
+query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
     target {
       id
