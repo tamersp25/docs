@@ -1,9 +1,20 @@
-Overview
+# Network Isolated
+ 
+# External Access
 
-Network Isolated
+## Overview
+The engine performs processing within its container and does not send user data off the container.  
+It requires internet access for tasks such as license checks and database updates.
 
-External Access
+## Use Cases
 
-External Processing
 
-Human Review
+## Implications
+ - Security
+ 	<risks>
+ - Selection for use by 3rd Parties in aiWARE
+ 	<risks>
+ 
+# External Processing
+ 
+# Human Review
