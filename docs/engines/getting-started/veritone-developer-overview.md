@@ -1,7 +1,9 @@
 Overview of Veritone Developer Application 
 
 ## aiWARE is Built for Developers
-Veritone's aiWARE platform is purpose built for extensibility by developers on multiple levels.  In many ways our developer community is the lifeblood of the entire aiWARE software platform, enabling the platform to expand organically through the addition of new capabilities and functionality.  Our goal is to make it possible for developers all all shapes and sizes to interact with the platform through the Developer Application in an intuitive and efficient way.  aiWARE can be a very effective tool to monetize existing software and algorithms, create new bespoke applications, develop methods of ingesting and processing virtually any type of data, integrate with our APIs, or add new data for training or correlation.
+Veritone's aiWARE platform is purpose built for extensibility by developers on multiple levels.  In many ways our developer community is the lifeblood of the entire aiWARE software platform, enabling the platform to expand organically through the addition of new capabilities and functionality.  
+
+Our goal is to make it possible for developers all all shapes and sizes to interact with and customize the platform through the Veritone Developer Application.  aiWARE can be a very effective tool to monetize existing software and algorithms, create new bespoke applications, develop methods of ingesting and processing virtually any type of data, integrate with our APIs, or add new data for training or correlation.
 
 As a developer, Veritone can provide a distribution channel for your software products without the need for you to create all of the "plumbing" of a full software stack, or the need to directly market and sell to end-clients. If you choose, you can simply focus on developing killer algorithms, data sets, or applications on top of aiWARE.  Through Veritone, developers gain access to significant clients across industries on an international scale through our significant marketing and sales efforts.
 
