@@ -21,11 +21,11 @@ Veritone Developer enables users to extend the native capabilities of aiWARE by 
 ### App Packages (Coming Soon)
 Veritone is currently working on a new toolkit that simplifies provisioning, management and distribution of user-facing solutions on top of aiWARE. All necessary App components can be easily grouped and associated with a new Package entity within Developer. 
 
-### Dataset Providers
+## Dataset Providers
 Datasets can take several forms within Developer App, and Veritone continues to add new features and functionality to extend capabilities related to making useful datasets avaialble for model training, augmentation of or correlation to metadata, or to add context to the UI presentation of cognitive processing. Our roadmap includes a marketplace for data to enable users to license their data products within Developer App.
 
 ## IT Professionals
-Veritone Developer is useful to Systems Integrators and 
+Veritone Developer is useful to Systems Integrators and internal IT departments to build and deploy integrations to existing or new systems and platforms using Veritone's APIs.  They can also integrate proprietary engines, applicatations and datasets to customize aiWARE to specific use cases. 
 
 ### Workflow Application (Coming Soon)
 <describe tools and opportunities>
@@ -34,8 +34,6 @@ Veritone Developer is useful to Systems Integrators and
 
 ### Virtuous Cycle
 <describe tools and opportunities>
-
-
 
 ### Benchmarking
 <describe tools and opportunities>
