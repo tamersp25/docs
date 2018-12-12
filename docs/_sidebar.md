@@ -31,6 +31,9 @@
 * * [Tutorials](engines/tutorials/)
 * * [FAQ](engines/faq.md)
 
+* Engine Processing Mode
+* * [Engine Processing Overview](engines/engine-processing/)
+
 * Adapters
 * * [Overview](adapters/overview.md)
 * * [Quickstart](adapters/quickstart/)
