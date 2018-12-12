@@ -21,6 +21,9 @@
 * * * [Message Engine Processing](engines/processing-modes/message-processing/)
 * * * [Stream Engine Processing](engines/processing-modes/stream-processing/)
 
+* Engine Processing Mode
+* * [Engine Processing Overview](engines/engine-processing/)
+
 * Adapters
 * * [Overview](adapters/overview.md)
 * * [Quickstart](adapters/quickstart/)
