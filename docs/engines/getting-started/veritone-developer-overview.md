@@ -21,7 +21,7 @@ In basic terms, "Cognitive Engine" is the term used by Veritone for software tha
 ## For Application Developers
 Veritone Developer enables users to extend the native capabilities of aiWARE by creating new unique applications, with or without a UI.  App developers can take advantage not only of Veritone's leading cognitive processing capabilities, but also modular UI elements, data and metadata storage, search functionality, data sets and other features.
 
-### App Packages (Coming Soon)
+### > App Packages (Coming Soon)
 Veritone is currently working on a new toolkit that simplifies provisioning, management and distribution of user-facing solutions on top of aiWARE. All necessary App components can be easily grouped and associated with a new Package entity within Developer. Packages allow developers to discover available components, build and improve your application incrementally, prototype a solution with limited or no code required, add or replace components as they become available, and manage your app requirements and dependencies all in one place.
 
 ## For Dataset Providers
@@ -30,14 +30,14 @@ Datasets can take several forms within Developer App, and Veritone continues to 
 ## For IT Professionals
 Veritone Developer is useful to Systems Integrators and internal IT departments to build and deploy integrations to existing or new systems and platforms using Veritone's APIs.  They can also integrate proprietary engines, applicatations and datasets to customize aiWARE to specific use cases. 
 
-### Workflow Application (Coming Soon)
+### > Workflow Application (Coming Soon)
 Veritone Workflow is a new application that makes it easy to define custom, event-based workflows using the multitude of tools and elements resident in aiWARE.
 
 ## For Data Scientists
 Developer App is currently used by in-house Data Scientists and external DS teams to rapidly deploy the results of their modeling, and to enable end users to utilize the resulting cognitive processing for existing use cases and entirely new, bespoke data analysis projects.  Veritone continues to iterate on tools and functionality relevant to Data Scientists, including Virtuous Cycle and Benchmarking as outlined below.
 
-### Virtuous Cycle (Coming Soon)
+### > Virtuous Cycle (Coming Soon)
 Veritone is actively working toward a workflow embedded in aiWARE that will enable continuous training and validation of certain types of trainable Engines, including a human-in-the-loop component.  The benefit of this Virtuous Cycle will be the ability to custom train some engines specifically on real client data such that accuracy improves incrementally over time.
 
-### Benchmarking (Coming Soon)
+### > Benchmarking (Coming Soon)
 Our developer community has provided valuable feedback that understanding how Engines stack up against others within a given Capability is very important to iterative improvement over time - which benefits you as a developer and Veritone by extension.  We are working on exposing the results of our programmatic benchmarking in Developer Application in an elegant way that will provide insight into your specific engine performance and cost in the context of other (anonymized) competitors and colleagues.
