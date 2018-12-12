@@ -17,19 +17,11 @@
 
 * Engines
 * * [Overview](engines/)
-* * [Quickstart](engines/quick-start/)
-* * [Engine Types](engines/types)
-* * [Construction Guidelines](engines/guidelines/)
-* * * [Engine Standards](engines/engine_standards/)
-* * * * [Capabilities](engines/engine_standards/capability/)
-* * * [VERI Standard](engines/engine_standards/veri_standards.md)
-* * * [Engine Manifest](engines/manifest.md)
-* * * [Custom Fields](engines/custom-fields)
-* * * [Testing & Debugging](engines/testing-and-debugging)
-* * * [Engine Input/Output](engines/engine-input-output/)
-* * [Sample Engines](engines/sample-engines.md)
-* * [Tutorials](engines/tutorials/)
-* * [FAQ](engines/faq.md)
+* * [Engine Approval Process](engines/engine-approval-process/)
+* * [Engine Development Quick Start](engines/engine-approval-process/stream-processing/)
+* * [Processing Modes](engines/processing-modes/)
+* * [Message Engine Processing](engines/processing-modes/message-processing/)
+* * [Stream Engine Processing](engines/processing-modes/stream-processing/)
 
 * Adapters
 * * [Overview](adapters/overview.md)
