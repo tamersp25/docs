@@ -4,14 +4,14 @@ At a high level, aiWARE engines, receive input data, process that data, and put 
 The format of the input and output depends on the engine's mode (defined in the [manifest file]<!-- TODO: Link to manifest -->).
 Engines can run in two modes on Veritone's real-time pipeline:
 
-- `message`
+- `chunk`
 - `stream`
 
-## Message Engines
+## Chunk Engines
 
-[](_message-processing-overview.md ':include')
+[](_chunk-processing-overview.md ':include')
 
-For construction guidelines, see [Message Engine Processing](/engines/processing-modes/message-processing/).
+For construction guidelines, see [Chunk Engine Processing](/engines/processing-modes/chunk-processing/).
 
 > Examples: an engine that performs object or face detection on frames of a video stream
 
