@@ -1,0 +1,740 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://veritone.com/vtn-standard.schema.json",
+  "title": "vtn-standard",
+  "description": "Standard engine output at Veritone",
+  "type": "object",
+
+  "properties": {
+    "schemaId": {
+      "description": "Schema version to validate engine outputs against. Example: https://www.veritone.com/schema/engine/20180524",
+      "type": "string"
+    },
+    "sourceEngineId": {
+      "description": "Denotes the engine that created it. GUID. Provided by Veritone",
+      "type": "string"
+    },
+    "sourceEngineName": {
+      "description": "Engine name used to generate output. Provided by Veritone",
+      "type": "string"
+    },
+    "taskPayload": {
+      "description": "key:value pairs from the payload for this task. Describes the associated tasks that summon the engine. Provided by Veritone",
+      "type": "object"
+    },
+    "taskId": {
+      "description": "The associated task. Provided by Veritone",
+      "type": "string"
+    },
+    "generatedDateUtc": {
+      "description": "Date this document was generated. Set by Veritone if not included. Format: ISO8601",
+      "type": "string"
+    },
+    "externalSourceId": {
+      "description": "Vendor specific reference. Used to map engine output against vendor referenced data ID",
+      "type": "string"
+    },
+    "validationContracts": {
+      "description": "Specification for the contracts used for output validation. See http://docs.veritone.com/#/engines/engine_standards/capability/ for more information",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "description": "Tags associated with this file. For ground truth:  Set tag to be 'groundTruth': '<provider>'. For content moderation, Key must be: moderation:adult, moderation:violence, moderation:nsfw, moderation:nudity, moderation:fakeNews, moderation:pii. For gender: gender[value=male|female]",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "description": "If 'value' not specified - 'value' defaults to true",
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          }
+        },
+        "required": [ "key" ]
+      }
+    },
+    "language": {
+      "description": "Language Identification. Format: BCP-47 https://tools.ietf.org/rfc/bcp/bcp47.txt",
+      "type": "string"
+    },
+    "summary": {
+      "description": "Summary of document",
+      "type": "string"
+    },
+    "entityId": {
+      "description": "Entity reference. GUID",
+      "type": "string"
+    },
+    "libraryId": {
+      "description": "Library reference for the entity. GUID",
+      "type": "string"
+    },
+    "sentiment": {
+      "description": "Sentiment. -1.00 (negative) to 1.00 (positive). For this file, provides a scale of how negative to positive it is. If a single number is returned, then positive must be used",
+      "type": "object",
+      "properties": {
+        "positiveValue": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "positiveConfidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "negativeValue": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 0
+        },
+        "negativeConfidence": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 0
+        }
+      },
+      "required": [ "positiveValue" ]
+    },
+    "gps": {
+      "description": "GPS coordinates for this file. Format: UTM (preferred) | WGS 1984",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          },
+          "precision": {
+            "description": "in meters",
+            "type": "number"
+          },
+          "direction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 360
+          },
+          "velocity": {
+            "description": "in meters",
+            "type": "number"
+          },
+          "altitude": {
+            "description": "in meters",
+            "type": "number"
+          }
+        }
+      }
+    },
+    "emotions": {
+      "description": "Can be specified for whole file (here) for overall tone",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "emotion": {
+            "description": "angry, happy, sad.  Can be any string field",
+            "type": "string"
+          },
+          "emotionValue": {
+            "description": "How strong",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "emotionConfidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [ "emotion" ]
+      }
+    },
+    "vendor": {
+      "description": "Custom data for this document. You can add any arbitrary data inside this object. It will not be indexed, searchable, or have any impact on the system. But it will be returned when reading the data back out. Custom key:value pairs.",
+      "type": "object"
+    },
+    "object": {
+      "description": "Data in this section applies to things (e.g. faces, objects, logos, OCR) detected in the file but not in a specific time range.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "description": "Main label for this object",
+            "type": "string"
+          },
+          "type": {
+            "description": "Object type. Options: object (Object detection), face (Face detection), libraryEntity (Library-based object/face recognition), licensePlate (License plate detection), speakerId (Speaker recognition), soundId (Sound recognition), concept (Concept recognition), keyword (Keyword detection), namedEntity",
+            "type": "string"
+          },
+          "uri": {
+            "description": "URI to thumbnail to show in the UI. If not provided but boundingPoly is provided, one can be constructed dynamically from the boundingPoly",
+            "type": "string"
+          },
+          "entityId": {
+            "description": "Entity reference. GUID",
+            "type": "string"
+          },
+          "libraryId": {
+            "description": "Library reference for the entity. GUID",
+            "type": "string"
+          },
+          "confidence": {
+            "description": "Confidence score",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "text": {
+            "description": "Text found (REQUIRED for OCR)",
+            "type": "string"
+          },
+          "emotions": {
+            "description": "Emotions for an object (e.g. face detection, voice analysis, text analysis) in the whole file",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "emotion": {
+                  "description": "angry, happy, sad.  Can be any string field",
+                  "type": "string"
+                },
+                "emotionValue": {
+                  "description": "How strong",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "emotionConfidence": {
+                  "description": "Emotion confidence score",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [ "emotion" ]
+            }
+          },
+          "age": {
+            "description": "Age in years",
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "minimum": 0
+              },
+              "max": {
+                "type": "number",
+                "minimum": 0
+              },
+              "confidence": {
+                "description": "Confidence score",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "faceLandmarks": {
+            "description": "Face landmarks",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "mouth | nose | etc..",
+                  "type": "string"
+                },
+                "locationPoly": {
+                  "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "objectCategory": {
+            "description": "Object detection / keyword detection",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "class": {
+                  "description": "animal | human | material | etc.. any string",
+                  "type": "string"
+                },
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "region": {
+            "description": "Specifies the region match was found. Valid values: left, right, top, bottom",
+            "type": "string"
+          },
+          "boundingPoly": {
+            "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            }
+          },
+          "gps": {
+            "description": "GPS coordinates for this object. Format: UTM (preferred) | WGS 1984",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "precision": {
+                  "description": "in meters",
+                  "type": "number"
+                },
+                "direction": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 360
+                },
+                "velocity": {
+                  "description": "in meters",
+                  "type": "number"
+                },
+                "altitude": {
+                  "description": "in meters",
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "structuredData": {
+            "description": "Structured data values for this object per schema. Keyed by the GUID of the aiWARE schema ID this structured data object conforms to: '<schemaGuid>': { '<key>': '<value>', ... '<keyN>': '<value>' }",
+            "type": "object"
+          },
+          "vendor": {
+            "description": "Custom data for this object. You can add any arbitrary data inside this object. It will not be indexed, searchable, or have any impact on the system. But it will be returned when reading the data back out. Custom key:value pairs.",
+            "type": "object"
+          }
+        },
+        "required": [ "label", "type" ]
+      }
+    },
+    "series": {
+      "description": "Data in this section applies to a specific time ranges within the file. This is the most common section used for insights from audio and video files.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "startTimeMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "stopTimeMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "tags": {
+            "description": "Tags associated with this time slice. Format: { 'key': '<name>', 'value': '<value>' }. For speech detected: speech=true. For silence detected: silence=true. For partial output: partial=true. For ground truth:  Set tag to be 'groundTruth': '<provider>'. For content moderation, Key must be: moderation:adult, moderation:violence, moderation:nsfw, moderation:nudity, moderation:fakeNews, moderation:pii. For gender: gender[value=male|female]",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "value": {
+                  "description": "If 'value' not specified - 'value' defaults to true",
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number"
+                }
+              },
+              "required": [ "key" ]
+            }
+          },
+          "summary": {
+            "description": "Summary of time slice",
+            "type": "string"
+          },
+          "speakerId": {
+            "description": "Speaker identification. Example: 'channel0', 'speaker1', etc. Can be '<libraryId>:<entityId>'",
+            "type": "string"
+          },
+          "words": {
+            "description": "Transcript. JSON utterance (all word edges between 2 time nodes). Array of n objects describing each alternative word",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "word": {
+                  "description": "The word spoken. Could be: !silence",
+                  "type": "string"
+                },
+                "confidence": {
+                  "description": "The confidence level of the detected word spoken",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "bestPath": {
+                  "description": "Is this word included in the best path through a transcript lattice?",
+                  "type": "boolean"
+                },
+                "utteranceLength": {
+                  "description": "Number of consecutive time-slices the utterance spans. example: of->thrones----->of->their-->own-> utteranceLength: thrones: 2; their,own: 1",
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [ "word" ]
+            }
+          },
+          "language": {
+            "description": "Language Identification. Format: BCP-47 https://tools.ietf.org/rfc/bcp/bcp47.txt",
+            "type": "string"
+          },
+          "sentiment": {
+            "description": "Sentiment. -1.00 (negative) to 1.00 (positive). For this time slice, provides a scale of how negative to positive it is. If a single number is returned, then positive must be used",
+            "type": "object",
+            "properties": {
+              "positiveValue": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "positiveConfidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "negativeValue": {
+                "type": "number",
+                "minimum": -1,
+                "maximum": 0
+              },
+              "negativeConfidence": {
+                "type": "number",
+                "minimum": -1,
+                "maximum": 0
+              }
+            },
+            "required": [ "positiveValue" ]
+          },
+          "emotions": {
+            "description": "Emotions detected",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "emotion": {
+                  "description": "angry, happy, sad.  Can be any string field",
+                  "type": "string"
+                },
+                "emotionValue": {
+                  "description": "How strong",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "emotionConfidence": {
+                  "description": "Emotion confidence score.",
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [ "emotion" ]
+            }
+          },
+          "entityId": {
+            "description": "Entity reference. GUID",
+            "type": "string"
+          },
+          "libraryId": {
+            "description": "Library reference for the entity. GUID",
+            "type": "string"
+          },
+          "object": {
+            "description": "Object (Face, Object, Logo, OCR, ..)",
+            "type": "object",
+            "properties": {
+              "label": {
+                "description": "Main label for this object",
+                "type": "string"
+              },
+              "type": {
+                "description": "Object type. Options: object (Object detection), face (Face detection), libraryEntity (Library-based object/face recognition), licensePlate (License plate detection), speakerId (Speaker recognition), soundId (Sound recognition), concept (Concept recognition), keyword (Keyword detection), namedEntity",
+                "type": "string"
+              },
+              "uri": {
+                "description": "URI to thumbnail to show in the UI. If not provided but boundingPoly is provided, one can be constructed dynamically from the boundingPoly",
+                "type": "string"
+              },
+              "entityId": {
+                "description": "Entity reference. GUID",
+                "type": "string"
+              },
+              "libraryId": {
+                "description": "Library reference for the entity. GUID",
+                "type": "string"
+              },
+              "confidence": {
+                "description": "Confidence score",
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "text": {
+                "description": "Text found (REQUIRED for OCR)",
+                "type": "string"
+              },
+              "emotions": {
+                "description": "Emotions for an object (e.g. face detection, voice analysis, text analysis) in the whole file",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "emotion": {
+                      "description": "angry, happy, sad.  Can be any string field",
+                      "type": "string"
+                    },
+                    "emotionValue": {
+                      "description": "How strong",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "emotionConfidence": {
+                      "description": "Emotion confidence score",
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": [ "emotion" ]
+                }
+              },
+              "age": {
+                "description": "Age in years",
+                "type": "object",
+                "properties": {
+                  "min": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "max": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "confidence": {
+                    "description": "Confidence score",
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              },
+              "faceLandmarks": {
+                "description": "Face landmarks",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "description": "mouth | nose | etc..",
+                      "type": "string"
+                    },
+                    "locationPoly": {
+                      "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "y": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "objectCategory": {
+                "description": "Object detection / keyword detection",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "class": {
+                      "description": "animal | human | material | etc.. any string",
+                      "type": "string"
+                    },
+                    "@id": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "region": {
+                "description": "Specifies the region match was found. Valid values: left, right, top, bottom",
+                "type": "string"
+              },
+              "boundingPoly": {
+                "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  }
+                }
+              },
+              "gps": {
+                "description": "GPS coordinates for this object. Format: UTM (preferred) | WGS 1984",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": {
+                      "type": "number"
+                    },
+                    "longitude": {
+                      "type": "number"
+                    },
+                    "precision": {
+                      "description": "in meters",
+                      "type": "number"
+                    },
+                    "direction": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 360
+                    },
+                    "velocity": {
+                      "description": "in meters",
+                      "type": "number"
+                    },
+                    "altitude": {
+                      "description": "in meters",
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "structuredData": {
+                "description": "Structured data values for this object per schema. Keyed by the GUID of the aiWARE schema ID this structured data object conforms to: '<schemaGuid>': { '<key>': '<value>', ... '<keyN>': '<value>' }",
+                "type": "object"
+              },
+              "vendor": {
+                "description": "Custom data for this object. You can add any arbitrary data inside this object. It will not be indexed, searchable, or have any impact on the system. But it will be returned when reading the data back out. Custom key:value pairs.",
+                "type": "object"
+              }
+            },
+            "required": [ "label", "type" ]
+          },
+          "gps": {
+            "description": "GPS coordinates for this time-series entry. Format: UTM (preferred) | WGS 1984",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "type": "number"
+                },
+                "longitude": {
+                  "type": "number"
+                },
+                "precision": {
+                  "description": "in meters",
+                  "type": "number"
+                },
+                "direction": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 360
+                },
+                "velocity": {
+                  "description": "in meters",
+                  "type": "number"
+                },
+                "altitude": {
+                  "description": "in meters",
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "structuredData": {
+            "description": "Structured data values for this time-series entry per schema. Keyed by the GUID of the aiWARE schema ID this structured data object conforms to: '<schemaGuid>': { '<key>': '<value>', ... '<keyN>': '<value>' }",
+            "type": "object"
+          },
+          "vendor": {
+            "description": "Custom data for this time-series entry. You can add any arbitrary data inside this object. It will not be indexed, searchable, or have any impact on the system. But it will be returned when reading the data back out. Custom key:value pairs.",
+            "type": "object"
+          }
+        },
+        "required": [ "startTimeMs", "stopTimeMs" ]
+      }
+    }
+  }
+}

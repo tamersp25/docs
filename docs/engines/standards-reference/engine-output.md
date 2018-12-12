@@ -6,7 +6,7 @@ Standard engine output json that Veritone APIs and UI understand.
 
 ###**Full Specification**
 
-[](veri-standard-sample.js ':include :type=code javascript')
+[](veri-standard.scheam.json ':include :type=code javascript')
 
 ###**Extending The Standard**
 You can extend the standard with your custom data by:
