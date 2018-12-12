@@ -1,17 +1,18 @@
-###Engine Outputs - VTN Standard
+### Engine Outputs - VTN Standard
 
-###**Overview**
+# Overview
 
 Standard engine output json that Veritone APIs and UI understand.
 
-###**Full Specification**
+### Full Specification
 
 [](veri-standard.scheam.json ':include :type=code javascript')
 
-###**Extending The Standard**
-You can extend the standard with your custom data by:
+### Extending The Standard
+You can extend the standard with your custom data:
 
-##### Adding custom fields and values to the 'vendor'  object property.
+##### By adding custom fields and values to the 'vendor'  object property.
+
  The values must be valid JSON data types. 
  *Note:* these fields and values will be stored in the asset but will not be indexed or available for search at Veritone system.
  * At the asset level:
@@ -79,7 +80,7 @@ You can extend the standard with your custom data by:
     ```
     
 
-##### By Leveraging Structured Data.
+###### By Leveraging Structured Data.
 Describe a schema(s) for you data. Then data that conforms to that schema(s) could be stored under the 'structuredData' property, keyed by your schema(s) id(s)
 *Note:* these data will be indexed and available for search at Veritone system through structured data search. 
  * At the asset *'object'* property, on the object item:
