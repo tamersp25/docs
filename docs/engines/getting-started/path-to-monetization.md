@@ -11,9 +11,13 @@ We usually compensate engine developers based on variable engine usage, measured
 A typical tiered structure would look like this (illustration only):
 
 0-1,000 hours = $Z
+
 1,000-10,000 hours = $Z x 90%
+
 10,000 - 100,000 hours = $Z x 75%
+
 100,000 - 1 million hours = $Z x $60%
+
 Over 1 million hours = $Z x 50%
 
 Veritone's proprietary technology stack includes Conductor, which optimizes results by automatically choosing the best cognitive engine(s) for each processing job based on a combination of accuracy, processing speed, and client cost constraints. Accuracy and processing speed are predicted based on previous behavior. Conductor is currently an optional feature available only for transcription, but it will continue to expand to other cognitive classes (intraclass Conductor) and across cognitive classes (interclass Conductor) over time.
