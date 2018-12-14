@@ -87,6 +87,7 @@
           "maximum": 1
         },
         "positiveConfidence": {
+          "description": "Positive value confidence score. 0.00 = 0% to 1.00 = 100%",
           "type": "number",
           "minimum": 0,
           "maximum": 1
@@ -97,6 +98,7 @@
           "maximum": 0
         },
         "negativeConfidence": {
+          "description": "Negative value confidence score. 0.00 = 0% to 1.00 = 100%",
           "type": "number",
           "minimum": -1,
           "maximum": 0
@@ -121,6 +123,7 @@
             "type": "number"
           },
           "direction": {
+            "description": "Direction in degrees 0.00 to 360.00",
             "type": "number",
             "minimum": 0,
             "maximum": 360
@@ -147,12 +150,13 @@
             "type": "string"
           },
           "emotionValue": {
-            "description": "How strong",
+            "description": "How strong. 0.00 to 1.00",
             "type": "number",
             "minimum": 0,
             "maximum": 1
           },
           "emotionConfidence": {
+            "description": "Emotion confidence score. 0.00 = 0% to 1.00 = 100%",
             "type": "number",
             "minimum": 0,
             "maximum": 1
@@ -192,7 +196,7 @@
             "type": "string"
           },
           "confidence": {
-            "description": "Confidence score",
+            "description": "Confidence score. 0.00 = 0% to 1.00 = 100%",
             "type": "number",
             "minimum": 0,
             "maximum": 1
@@ -212,13 +216,13 @@
                   "type": "string"
                 },
                 "emotionValue": {
-                  "description": "How strong",
+                  "description": "How strong. 0.00 to 1.00",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 1
                 },
                 "emotionConfidence": {
-                  "description": "Emotion confidence score",
+                  "description": "Emotion confidence score. 0.00 = 0% to 1.00 = 100%",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 1
@@ -240,7 +244,7 @@
                 "minimum": 0
               },
               "confidence": {
-                "description": "Confidence score",
+                "description": "Confidence score. 0.00 = 0% to 1.00 = 100%",
                 "type": "number",
                 "minimum": 0,
                 "maximum": 1
@@ -258,7 +262,7 @@
                   "type": "string"
                 },
                 "locationPoly": {
-                  "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                  "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first. 0.00 = 0% to 1.00 = 100%",
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -300,7 +304,7 @@
             "type": "string"
           },
           "boundingPoly": {
-            "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+            "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first. 0.00 = 0% to 1.00 = 100%",
             "type": "array",
             "items": {
               "type": "object",
@@ -335,6 +339,7 @@
                   "type": "number"
                 },
                 "direction": {
+                  "description": "Direction in degrees 0.00 to 360.00",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 360
@@ -415,7 +420,7 @@
                   "type": "string"
                 },
                 "confidence": {
-                  "description": "The confidence level of the detected word spoken",
+                  "description": "The confidence level of the detected word spoken. 0.00 = 0% to 1.00 = 100%",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 1
@@ -447,6 +452,7 @@
                 "maximum": 1
               },
               "positiveConfidence": {
+                "description": "Positive value confidence score. 0.00 = 0% to 1.00 = 100%",
                 "type": "number",
                 "minimum": 0,
                 "maximum": 1
@@ -457,6 +463,7 @@
                 "maximum": 0
               },
               "negativeConfidence": {
+                "description": "Negative value confidence score. 0.00 = 0% to 1.00 = 100%",
                 "type": "number",
                 "minimum": 0,
                 "maximum": 1
@@ -475,13 +482,13 @@
                   "type": "string"
                 },
                 "emotionValue": {
-                  "description": "How strong",
+                  "description": "How strong. 0.00 to 1.00",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 1
                 },
                 "emotionConfidence": {
-                  "description": "Emotion confidence score.",
+                  "description": "Emotion confidence score. 0.00 = 0% to 1.00 = 100%",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 1
@@ -523,7 +530,7 @@
                 "type": "string"
               },
               "confidence": {
-                "description": "Confidence score",
+                "description": "Confidence score. 0.00 = 0% to 1.00 = 100%",
                 "type": "number",
                 "minimum": 0,
                 "maximum": 1
@@ -543,13 +550,13 @@
                       "type": "string"
                     },
                     "emotionValue": {
-                      "description": "How strong",
+                      "description": "How strong. 0.00 to 1.00",
                       "type": "number",
                       "minimum": 0,
                       "maximum": 1
                     },
                     "emotionConfidence": {
-                      "description": "Emotion confidence score",
+                      "description": "Emotion confidence score. 0.00 = 0% to 1.00 = 100%",
                       "type": "number",
                       "minimum": 0,
                       "maximum": 1
@@ -571,7 +578,7 @@
                     "minimum": 0
                   },
                   "confidence": {
-                    "description": "Confidence score",
+                    "description": "Confidence score. 0.00 = 0% to 1.00 = 100%",
                     "type": "number",
                     "minimum": 0,
                     "maximum": 1
@@ -589,7 +596,7 @@
                       "type": "string"
                     },
                     "locationPoly": {
-                      "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                      "description": "Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first. 0.00 = 0% to 1.00 = 100%",
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -631,7 +638,7 @@
                 "type": "string"
               },
               "boundingPoly": {
-                "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first",
+                "description": "Bounding polygon. Ordered array of (x,y) coordinates in percentage of axis. Implicit line from last to first. 0.00 = 0% to 1.00 = 100%",
                 "type": "array",
                 "items": {
                   "type": "object",
@@ -666,6 +673,7 @@
                       "type": "number"
                     },
                     "direction": {
+                      "description": "Direction in degrees 0.00 to 360.00",
                       "type": "number",
                       "minimum": 0,
                       "maximum": 360
@@ -709,6 +717,7 @@
                   "type": "number"
                 },
                 "direction": {
+                  "description": "Direction in degrees 0.00 to 360.00",
                   "type": "number",
                   "minimum": 0,
                   "maximum": 360
