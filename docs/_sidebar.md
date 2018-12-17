@@ -56,3 +56,4 @@
 * * [Library-enabled Engines](libraries/engines.md)
 * * [Training Engines](libraries/training.md)
 * * [Running Engines](libraries/running.md)
+* * [Dataset Library](libraries/dataset_library.md)
