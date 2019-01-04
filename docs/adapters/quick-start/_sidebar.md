@@ -33,13 +33,13 @@
 
 * Adapters
 * * [Overview](adapters/overview.md)
-* * [Quickstart](adapters/quickstart/)
-* * * [Step 1 - Register Your Adapter](adapters/quickstart/step-1.md)
-* * * [Step 2 - Construct Your Code for the Veritone Platform](adapters/quickstart/step-2.md)
-* * * [Step 3 - Create Your Manifest File](adapters/quickstart/step-3.md)
-* * * [Step 4 - Package and Upload a Build](adapters/quickstart/step-4.md)
-* * * [Step 5 - Submit Your Build for Approval](adapters/quickstart/step-5.md)
-* * * [Step 6 - Deploy Your Adapter](adapters/quickstart/step-6.md)
+* * [Quickstart](adapters/quick-start/)
+* * * [Step 1 - Register Your Adapter](adapters/quick-start/step-1.md)
+* * * [Step 2 - Construct Your Code for the Veritone Platform](adapters/quick-start/step-2.md)
+* * * [Step 3 - Create Your Manifest File](adapters/quick-start/step-3.md)
+* * * [Step 4 - Package and Upload a Build](adapters/quick-start/step-4.md)
+* * * [Step 5 - Submit Your Build for Approval](adapters/quick-start/step-5.md)
+* * * [Step 6 - Deploy Your Adapter](adapters/quick-start/step-6.md)
 * * [Construction Guidelines](adapters/guidelines.md)
 * * [Adapter Manifest](adapters/manifest.md)
 
