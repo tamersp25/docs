@@ -38,7 +38,7 @@
 
 * Adapters
 * * [Overview](adapters/overview.md)
-* * [Quickstart](adapters/quickstart/)
+* * [Quickstart](adapters/quick-start/)
 * * [Construction Guidelines](adapters/guidelines.md)
 * * [Adapter Manifest](adapters/manifest.md)
 
