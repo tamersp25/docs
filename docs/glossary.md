@@ -4,7 +4,8 @@ This section includes definitions of common words and phrases that you will enoc
 
 
 #### Adapter
-> Better known as an [Ingestion Engine](#ingestion).
+> A docker container that ingest data from an external source and provides the extract, transform, load (ETL) logic to import that data into aiWARE.
+Data may be in the form of a file or stream.
 
 #### Aggregator
 > Something (like a program or website) that collects related data to organize it. **Aggregator Engines** process the output from one or more engines.
@@ -52,7 +53,9 @@ This section includes definitions of common words and phrases that you will enoc
 > A query language for APIs and a runtime for fulfilling those queries with your existing data.
 
 #### Ingestion
-> Refers to bringing external data into the Veritone platform where it can be processed. **Ingestion Engines**, also referred to as [Adapters](#adapters), are engines that ingest data. Data may be in the form of a file or stream.
+> Refers to bringing external data into the Veritone platform where it can be processed.
+[Adapters](#adapter) are docker containers that ingest data into aiWARE.
+Data may be in the form of a file or stream.
 
 #### Job
 > A discrete process or task running on an engine.
