@@ -4,6 +4,7 @@
 * * [Overview](/)
 * * [Architecture Overview](architecture-overview.md)
 * * [Developer Benefits](developer-benefits.md)
+* * [Glossary](glossary.md)
 * * [Terms & Conditions](terms-and-conditions.md)
 
 * Applications
