@@ -2,6 +2,7 @@
 
 * Getting Started
 * * [Overview](/)
+* * [Veritone Developer Overview](veritone-developer-overview.md)
 * * [Architecture Overview](architecture-overview.md)
 * * [Developer Benefits](developer-benefits.md)
 * * [Terms & Conditions](terms-and-conditions.md)
