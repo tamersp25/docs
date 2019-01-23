@@ -2,6 +2,7 @@
 
 * Getting Started
 * * [Overview](/)
+* * [Veritone Developer Overview](veritone-developer-overview.md)
 * * [Architecture Overview](architecture-overview.md)
 * * [Developer Benefits](developer-benefits.md)
 * * [Terms & Conditions](terms-and-conditions.md)
@@ -19,6 +20,8 @@
 * * [Overview](engines/)
 * * [Quickstart](engines/quick-start/)
 * * [Engine Types](engines/types)
+* * [Getting Started](engines/getting-started/)
+* * * [Path to Monetization](engines/getting-started/path-to-monetization.md)
 * * [Construction Guidelines](engines/guidelines/)
 * * * [Engine Standards](engines/engine_standards/)
 * * * * [Capabilities](engines/engine_standards/capability/)
