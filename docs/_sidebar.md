@@ -20,6 +20,8 @@
 * * [Overview](engines/)
 * * [Quickstart](engines/quick-start/)
 * * [Engine Types](engines/types)
+* * [Getting Started](engines/getting-started/)
+* * * [Path to Monetization](engines/getting-started/path-to-monetization.md)
 * * [Construction Guidelines](engines/guidelines/)
 * * * [Engine Standards](engines/engine_standards/)
 * * * * [Capabilities](engines/engine_standards/capability/)
