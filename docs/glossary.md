@@ -1,13 +1,13 @@
 # Glossary of Terms
 
-This section includes definitions of common words and phrases that you will enocunter in the **Engines** section.
+This section includes definitions of common words and phrases that you will encounter in the **Engines** section.
 
 
 #### Adapter
-> A docker container that ingest data from an external source and provides the extract, transform, load (ETL) logic to import that data into aiWARE.
+> A docker container that ingests data from an external source and provides the extract, transform, load (ETL) logic to import that data into aiWARE.
 Data may be in the form of a file or stream.
 
-#### Aggregator
+#### Aggregator Engine
 > A docker container that collects related data to organize it.
 **Aggregator Engines** process the output from one or more engines.
 
@@ -15,7 +15,7 @@ Data may be in the form of a file or stream.
 > The brand name of Veritone's AI operation system (or platform).
 
 #### API
-> Veritone's primary Application Program Interface (API) is a GraphQL REST interface.
+> Veritone's primary application programming interface (API) is a GraphQL REST interface.
 Basically, an API specifies how software components should interact.
 
 #### Build
@@ -35,26 +35,24 @@ For example, determining if an image is of an object, animal or person.
 #### Data Science
 > A study which deals with identification, representation and extraction of meaningful information from data sources to be used for business purposes.
 
-#### Dataset
-> A collection of high-quality, organized and labeled data used to train machine learning engines.
-
 #### Detection
-> Distinct from [Recognition](#recognition) *which*, detection determines *where* an object is in unstructured data.
+> The process of determining *where* an object is in unstructured data.
 For example, finding the faces in an image.
+This is distinct from [recognition](#recognition) which determines which thing is in the unstructured data. 
 
 #### Docker
 > A computer program that performs operating-system-level virtualization, also known as "containerization".
 See [docker.com](https://www.docker.com/).
 
 #### Engine
-> A processing algorithm that performs some transformation on data.
+> A processing algorithm that takes some data in and outputs some insights or calculations regarding that data.
 Veritone has three types of engines: Aggregator, Cognition and Ingestion.
 
 #### Engine Training
-> The technique of giving an engine a [dataset](#dataset) that will "teach" the engine to (ideally) produce better results.
+> The technique of giving an engine a [library](#dataset) that will "teach" the engine to (ideally) produce better results.
 
 #### Engine Processing Mode
-> The way in which an engine can consume data: [segment](#message-mode) or [stream](#stream-mode).
+> The way in which an engine can consume data: [segment](#segment-engine-mode) or [stream](#stream-mode).
 
 #### Entity
 > Represents an aggregation of assets (Entity Identifiers) for a defined concept, such as a person, company, organization, advertising campaign, type of object, etc.
@@ -68,30 +66,35 @@ Veritone has three types of engines: Aggregator, Cognition and Ingestion.
 Data may be in the form of a file or stream.
 
 #### Job
-> A list of [Tasks](#task) to run against a piece of data.
+> A list of [tasks](#task) to run against a piece of data.
+
+#### Library
+> A collection of named [entities](#entity), along with files that act as identifiers for those entities.
+Libraries are used to [train engines](#engine-training).
 
 #### Manifest
-> A JSON-formatted text file that describes the aspects of an engine [build](#build).
+> A JSON-formatted text file that describes the characteristics of an engine [build](#build).
 
 #### Natural Language Processing
 > A branch of AI that understands, interprets and manipulates human language.
 
-#### OCR
-> Optical Character Recognition is the ability of a program to identify characters and words in unstructured data.
+#### Optical Character Recognition (OCR)
+> The ability of a program to identify characters and words in unstructured data.
 
 #### Orchestration
 > The automated arrangement, coordination, and management of computer systems, middleware, and services.
 Here, this would predominantly reference the coordination of engines.
 
 #### Predictive Modeling
-> Exploits patterns found in historical and transactional data to identify risks and opportunities in future data.
+> Exploiting patterns found in historical and transactional data to identify risks and opportunities in future data.
 
 #### Real-Time Processing
-> Basically, processing data and returning results without significant delay.
+> Processing data and returning results without significant delay.
 
 #### Recognition
-> Distinct from [Detection](#detection) *where*, recognition identifies *which* object is in the unstructured data.
-For example, whose face is in the image.
+> The process of determining *which* object is in some unstructured data.
+For example, whose face is in the image?
+This is distinct from [detection](#detection) which determines where an object is. 
 
 #### Segment Engine Mode
 > An engine processing mode that accepts a discrete chunk of data (i.e. file, video frame, audio segment).
@@ -99,14 +102,16 @@ For example, whose face is in the image.
 #### Sentiment Analysis
 > Determines the attitude, contextual polarity or emotional reaction of a speaker or writer with respect to some topic, document, interaction or event. 
 
-#### Stream Mode
-> An engine processing mode that accepts a time-based series of data.
+#### Stream Engine Mode
+> An engine processing mode that accepts the raw byte stream of incoming data.
+Because it accepts the full byte stream, it can save some state and output results based on past behavior.
 
 #### Structured Data
-> Refers to data that resides in a recognizable structure (relational databases and spreadsheets). AI attempts to mine meaning in unstuctured data and produce structured data.
+> Refers to data that resides in a recognizable structure (relational databases and spreadsheets).
+AI attempts to mine meaning in unstructured data and produce structured data results.
 
 #### Task
-> A request for a single engine to be run against a piece of data.
+> A request for a single [engine](#engine) to be run against a piece of data.
 A task also includes all the parameters, libraries, and other configuration needed to run the cognition properly.
 
 #### Training Model
