@@ -5,6 +5,7 @@
 * * [Veritone Developer Overview](veritone-developer-overview.md)
 * * [Architecture Overview](architecture-overview.md)
 * * [Developer Benefits](developer-benefits.md)
+* * [Glossary](glossary.md)
 * * [Terms & Conditions](terms-and-conditions.md)
 
 * Applications
