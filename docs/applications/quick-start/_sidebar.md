@@ -28,7 +28,7 @@
 * * [Construction Guidelines](engines/guidelines/)
 * * * [Engine Standards](engines/engine_standards/)
 * * * * [Capabilities](engines/engine_standards/capability/)
-* * * [VERI Standard](engines/engine_standards/veri_standards.md)
+* * * [VERI Standard](engines/standards-reference/engine-output.md)
 * * * [Engine Manifest](engines/manifest.md)
 * * * [Custom Fields](engines/custom-fields)
 * * * [Testing & Debugging](engines/testing-and-debugging)
