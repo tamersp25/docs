@@ -1,31 +1,40 @@
 # Glossary of Terms
 
-This section includes definitions of common words and phrases that you will encounter in the **Engines** section.
+This section includes definitions of common words and phrases that you will encounter when learning about aiWARE.
 
 
 #### Adapter
-> A docker container that ingests data from an external source and provides the extract, transform, load (ETL) logic to import that data into aiWARE.
-Data may be in the form of a file or stream.
+> A [docker](#docker) container that ingests data from an external source and provides the extract, transform, load (ETL) logic to import that data into aiWARE.
+Data may be in the form of a file or [stream](#stream-engine-mode).
+More information can be found in the [adapters](adapters/) section of this site.
 
 #### Aggregator Engine
-> A docker container that collects related data to organize it.
-**Aggregator Engines** process the output from one or more engines.
+> A [docker](#docker) container that collects related data to organize it.
+**Aggregator Engines** process the output from one or more other engines.
 
 #### aiWARE
 > The brand name of Veritone's AI operation system (or platform).
 
 #### API
-> Veritone's primary application programming interface (API) is a GraphQL REST interface.
-Basically, an API specifies how software components should interact.
+> An API specifies how software components can be interacted with programmatically.
+Veritone's primary application programming interface (API) is a [GraphQL](#graphql) interface.
+It is located at https://api.veritone.com/v3/graphql and can be accessed just like other HTTP APIs (e.g. REST) with POST requests.
+More information can be found in the [APIs](apis/) section of this site.
+
+#### Application
+> In aiWARE, a bundle of software that can be installed into an organization and provisioned to users.
+An application usually has a URL, may call aiWARE's [API](#api), may process ingest data using [adapters](#adapter) or process data using [engines](#engine), 
+and may define particular data structures through [schemas](#schema).
+More information can be found in the [applications](applications/) section of this site.
 
 #### Build
-> An uploaded docker container containing the code for a particular version of an [engine](#engine).
+> An uploaded [docker](#docker) container containing the code for a particular version of an [engine](#engine).
 
 #### Capabilities
-> Abilities of AI with analogs to human senses and cognition: speech, text, vision, biometrics, audio, data, transformation, etc.
+> Abilities of AI with analogs to human senses and cognition (e.g. natural language processing, object detection, face recognition).
 
 #### Classification
-> The act of determining to what group a certain observation belongs.
+> In data science, the act of determining to what group a certain observation belongs.
 For example, determining if an image is of an object, animal or person.
 
 #### Cognition
@@ -34,6 +43,9 @@ For example, determining if an image is of an object, animal or person.
 
 #### Data Science
 > A study which deals with identification, representation and extraction of meaningful information from data sources to be used for business purposes.
+
+#### Dataset
+> In data science, a collection of data used to [train an engine](#training).
 
 #### Detection
 > The process of determining *where* an object is in unstructured data.
@@ -45,32 +57,35 @@ This is distinct from [recognition](#recognition) which determines which thing i
 See [docker.com](https://www.docker.com/).
 
 #### Engine
-> A processing algorithm that takes some data in and outputs some insights or calculations regarding that data.
-Veritone has three types of engines: Aggregator, Cognition and Ingestion.
-
-#### Engine Training
-> The technique of giving an engine a [library](#dataset) that will "teach" the engine to (ideally) produce better results.
+> An algorithm that takes some data in and outputs some insights or calculations regarding that data.
+Veritone has three main types of engines: [cognition](#cognition), [aggregator](#aggregator-engine), and [ingestion](#ingestion).
+More information can be found in the [engines](engines/) section of this site.
 
 #### Engine Processing Mode
-> The way in which an engine can consume data: [segment](#segment-engine-mode) or [stream](#stream-mode).
+> The way in which an engine consumes data: either by [segment](#segment-engine-mode) or by [stream](#stream-engine-mode).
 
 #### Entity
-> Represents an aggregation of assets (Entity Identifiers) for a defined concept, such as a person, company, organization, advertising campaign, type of object, etc.
+> A record of a defined concept, such as a person, company, organization, advertising campaign, type of object, etc. in a [library](#library).
+Each entity is given an ID, which can be referenced by engines and other parts of aiWARE.
+Each entity can have one or more identifiers (i.e. picture of a face, audio clip) that can be used to train engines to find that entity.
 
 #### GraphQL
 > A query language for APIs and a runtime for fulfilling those queries with your existing data.
+See [graphql.org](https://graphql.org/) for more information.
 
 #### Ingestion
-> Refers to bringing external data into the Veritone platform where it can be processed.
+> Refers to bringing external data into aiWARE where it can be processed.
 [Adapters](#adapter) are docker containers that ingest data into aiWARE.
-Data may be in the form of a file or stream.
+Data may be in the form of a file or [stream](#stream-engine-mode).
 
 #### Job
 > A list of [tasks](#task) to run against a piece of data.
 
 #### Library
 > A collection of named [entities](#entity), along with files that act as identifiers for those entities.
-Libraries are used to [train engines](#engine-training).
+Libraries allow engines to tag their results with entity IDs that point to a specific person, place, thing, etc. rather than just using textual descriptions.
+To make an engine aware of a library, it must be [trained](#training) against that library.
+More information can be found in the [libraries](libraries/) section of this site.
 
 #### Manifest
 > A JSON-formatted text file that describes the characteristics of an engine [build](#build).
@@ -83,7 +98,7 @@ Libraries are used to [train engines](#engine-training).
 
 #### Orchestration
 > The automated arrangement, coordination, and management of computer systems, middleware, and services.
-Here, this would predominantly reference the coordination of engines.
+In aiWARE, this predominantly refers to the coordination of multiple engines to accomplish a common task.
 
 #### Predictive Modeling
 > Exploiting patterns found in historical and transactional data to identify risks and opportunities in future data.
@@ -94,7 +109,12 @@ Here, this would predominantly reference the coordination of engines.
 #### Recognition
 > The process of determining *which* object is in some unstructured data.
 For example, whose face is in the image?
-This is distinct from [detection](#detection) which determines where an object is. 
+This is distinct from [detection](#detection) which determines where an object is.
+
+#### Schema
+> A definition of the structure a piece of structured data must conform to.
+In aiWARE, schemas can be registered in Veritone Developer and are written using [json-schema](https://json-schema.org/).
+See the [data](data/) section of this documentation for more information.
 
 #### Segment Engine Mode
 > An engine processing mode that accepts a discrete chunk of data (i.e. file, video frame, audio segment).
@@ -107,18 +127,22 @@ This is distinct from [detection](#detection) which determines where an object i
 Because it accepts the full byte stream, it can save some state and output results based on past behavior.
 
 #### Structured Data
-> Refers to data that resides in a recognizable structure (relational databases and spreadsheets).
+> Refers to data that resides in a recognizable structure (e.g. relational databases and spreadsheets).
+In aiWARE, structured data often conforms to a known [schema](#schema).
 AI attempts to mine meaning in unstructured data and produce structured data results.
 
 #### Task
 > A request for a single [engine](#engine) to be run against a piece of data.
-A task also includes all the parameters, libraries, and other configuration needed to run the cognition properly.
+A task also includes all the parameters, [libraries](#library), and other configuration needed to run the cognition properly.
+
+#### Training
+> The technique of giving an engine a [dataset](#dataset) or [library](#library) that will "teach" the engine to produce better or more specific results.
 
 #### Training Model
 > Data generated during an engine's training step.
 The model is (in some cases) provided to an engine when the engine is run.
-A model can optionally contain an asset representing the model data.
-For example, a face recognition engine trained on a library of people might generate a model with an asset containing all the maps of face hashes to entity IDs.
+A model can optionally contain a file representing the model data.
+For example, a face recognition engine trained on a [library](#library) of people [entities](#entity) might generate a model as a file containing all the maps of face hashes to entity IDs.
 When a picture of a face is passed to the engine - along with the library of people specified in the task's payload - 
 the training model (and its associated asset) would be used by the engine to return the correct entity ID. 
 
