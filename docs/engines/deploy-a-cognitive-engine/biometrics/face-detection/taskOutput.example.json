@@ -1,0 +1,17 @@
+{
+  "series": [
+    {
+      "end": 17200,
+      "start": 9800,
+      "faceSetId": "c8b470d9-324a-48b3-bdd1-b8b225d67673",
+      "originalImage": "aedae542-97d0-46f1-89f9-48df4ba0ace2/52108807/b368891c-1d1e-4f10-99d2-48805d86cf48/setId-0_frame-294.png",
+      "trainingImage": "aedae542-97d0-46f1-89f9-48df4ba0ace2/52108807/b368891c-1d1e-4f10-99d2-48805d86cf48/setId-0_frame-294_train.png",
+      "boundingBox:": {
+        "left": 100,
+        "top": 100,
+        "imageWidth": 400,
+        "imageHeight": 400
+      }
+    }
+  ]
+}
