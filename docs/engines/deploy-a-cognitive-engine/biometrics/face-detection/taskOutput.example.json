@@ -9,8 +9,10 @@
       "boundingBox:": {
         "left": 100,
         "top": 100,
-        "imageWidth": 400,
-        "imageHeight": 400
+        "width": 400,
+        "height": 400,
+        "imageWidth": 1280,
+        "imageHeight": 720
       }
     }
   ]
