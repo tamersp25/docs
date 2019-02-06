@@ -1,0 +1,12 @@
+{
+  "series": [
+    {
+      "startTimeMs": 11000,
+      "stopTimeMs": 16000,
+      "object": {
+        "label": "Veritone",
+        "confidence": 0.2406960129737854
+      }
+    }
+  ]
+}
