@@ -1,4 +1,6 @@
-# Introduction
+# ![Engine Toolkit Logo](engine-toolkit-logo.png)
+
+## Introduction
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
@@ -17,12 +19,12 @@ To deploy an engine into production, you will need to perform the following task
 
 The rest of this guide describes how to do this, and provides additional reading for more advanced use cases.
 
-# How to build an engine
+## How to build an engine
 
 An engine is an executable program, packaged along with its dependencies, into a [Docker container](#writing-a-dockerfile).
 Engines listen on an HTTP address and implement [Webhooks](#webhooks), which are called when they receive work.
 
-## Sample engines
+### Sample engines
 
 To see the code for a complete working engine, choose from the list below:
 
@@ -31,7 +33,7 @@ To see the code for a complete working engine, choose from the list below:
 
 > If you would like to contribute an additional example engine, please [open an issue to start a conversation](https://github.com/veritone/engine-toolkit/issues/new?title=sample+project).
 
-## Webhooks
+### Webhooks
 
 Engines must implement the following webhooks:
 
@@ -44,7 +46,7 @@ Each webhook provides unique functionality, and is therefore triggered by a uniq
 
 The webhooks are expected to return a `200 OK` successful response, otherwise the engine toolkit will retry the operation by making the same requests again.
 
-### Ready webhook
+#### Ready webhook
 
 The Ready webhook is used to determine if the engine is ready to start doing work or not.
 
@@ -54,7 +56,7 @@ GET /ready
 
 The webhook should reply with a `503 Service Unavailable` status until the engine is ready to receive work, at which point it should reply to this webhook with a simple `200 OK` response.
 
-### Process webhook
+#### Process webhook
 
 The Process webhook is used to perform some processing on a file (like the frame from a video).
 
@@ -84,13 +86,13 @@ The following advanced fields are also included:
 
 > As the Engine Toolkit evolves, we expect to add more fields here. If you notice something missing, please [open an issue and let us know](https://github.com/veritone/engine-toolkit/issues/new?title=request+fields).
 
-#### Process webhook response
+##### Process webhook response
 
 The handler for the Process webhook should return the results by writing a JSON response.
 
 > Most languages and frameworks have very easy ways of consuming HTTP endpoints and writing JSON responses. It is recommended that you use existing libraries where possible.
 
-##### Example webhook response: Faces
+###### Example webhook response: Faces
 
 The following JSON is an example showing some faces that were found in the image.
 
@@ -132,23 +134,23 @@ The following JSON is an example showing some faces that were found in the image
 
 > If you have a question about what your engine should output and this documentation doesn't cover it, please [open an issue to start a conversation](https://github.com/veritone/engine-toolkit/issues/new).
 
-#### Ignoring chunks
+##### Ignoring chunks
 
 If your engine is not going to process a chunk, the Process webhook should return a `204 No Content` response.
 
 The Engine Toolkit will report the chunk as ignored.
 
-## Testing your webhooks
+### Testing your webhooks
 
 Since the [Webhooks](#webhooks) are just HTTP endpoints, you can test them by making your own HTTP requests directly.
 
-## Download the Engine Toolkit SDK
+### Download the Engine Toolkit SDK
 
 To get started, you need to download the Engine Toolkit SDK. It contains tools that will be bundled into the Docker container when you deploy your engine to the Veritone platform.
 
 * [Download the Engine Toolkit SDK from our GitHub project](https://github.com/veritone/engine-toolkit/releases/latest)
 
-## Writing a `Dockerfile`
+### Writing a `Dockerfile`
 
 Veritone engines are Docker containers that run in the platform. To provide an engine, you must 
 build a Docker container (or image) that can encapsulate your dependencies and execute your code.
@@ -183,11 +185,11 @@ The most common commands in a `Dockerfile` are:
 
 > If you want to dig deeper into what can be done in your `Dockerfile`, you can [read the Dockerfile reference manual](https://docs.docker.com/engine/reference/builder/#from) or continue reading for a light overview.
 
-### Understand the `Dockerfile`
+#### Understand the `Dockerfile`
 
 The `Dockerfile` above describes a simple but complete engine. This section explains the components that make up an engine.
 
-#### Manifest file
+##### Manifest file
 
 ```docker
 ADD manifest.json /var/manifest.json
@@ -199,7 +201,7 @@ The `manifest.json` file is a JSON configuration file the describes details abou
 
 Usually your `manifest.json` file sits alongside your `Dockerfile` in your engine project folder.
 
-#### The `engine` executable
+##### The `engine` executable
 
 ```docker
 ADD ./dist/engine /app/engine
@@ -216,7 +218,7 @@ Specifically, it:
 
 It is available when you [download the Engine Toolkit SDK](#download-the-engine-toolkit-sdk).
 
-#### Webhook environment variables
+##### Webhook environment variables
 
 ```docker
 ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8888/readyz"
@@ -228,7 +230,7 @@ The environment variables specified with the `ENV` command inform the `engine` t
 * `VERITONE_WEBHOOK_READY` - (string) Complete URL (usually local) of your Ready webhook
 * `VERITONE_WEBHOOK_PROCESS` - (string) Complete URL (usually local) of your Process webhook
 
-#### Engine entrypoint
+##### Engine entrypoint
 
 ```docker
 ENTRYPOINT [ "/app/engine", "/app/your-engine", "--your-arg-1", "--your-arg-2" ]
@@ -240,7 +242,7 @@ The `ENTRYPOINT` must always be the [`engine` executable](#the-engine-executable
 * `/app/your-engine` - (required string) The path and name of your custom engine executable
 * `--your-arg-n` - (optional strings) Additional arguments to pass when running your custom engine executable
 
-# Deploy to Veritone
+## Deploy to Veritone
 
 To deploy your code in Veritone, you must first create an engine on the platform.
 
@@ -259,17 +261,17 @@ To deploy your code in Veritone, you must first create an engine on the platform
 
 Your engine will be created and you'll be redirected to its console page.
 
-## Automatically generate your manifest file
+### Automatically generate your manifest file
 
 In the in-app documentation of your [engine's console page](https://developer.veritone.com), click <strong>GENERATE MANIFEST FILE</strong> to have the platform generate your [manifest.json file](#manifest-file).
 
 The rest of the in-app documentation explains how to authenticate the Docker tools and use them to tag and push your engine.
 
-# Development guides
+## Development guides
 
 This section includes some helpful guides for how to solve common problems when building engines.
 
-## Regions
+### Regions
 
 To specify a region (such as an area on an image) the Veritone platform expects a relative array of `x,y` points where each value is between `0` and `1`, with `0` being the left or top of an image and `1` being the right or bottom.
 
@@ -288,7 +290,7 @@ Relative (or ratio) values are used so that they remain correct regardless of th
 
 The following diagram represents the points for a box describing an object that is `50x50` in the center of a `100x100` image:
 
-![](/veritone/engine-toolkit/static/boundingpoly.png)
+![bounding polygon illustration](boundingpoly.png)
 
 The `boundingPoly` array for this object would be:
 
@@ -301,7 +303,7 @@ The `boundingPoly` array for this object would be:
 ]
 ```
 
-### Calculating the ratio value
+#### Calculating the ratio value
 
 To calculate the `x` and `y` ratio values, you divide `x` by the width and `y` by the height:
 

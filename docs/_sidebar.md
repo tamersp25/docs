@@ -39,12 +39,12 @@
 * * * [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 * * * [Engine Manifest](engines/standards/engine-manifest.md)
 * * * [Message Types](engines/standards/message-types.md)
-* * [Capabilities](engines/engine_standards/capability/)
-* * [Custom Fields](engines/custom-fields)
-* * [Testing & Debugging](engines/testing-and-debugging)
-* * [Sample Engines](engines/sample-engines.md)
-* * [Tutorials](engines/tutorials/)
-* * [FAQ](engines/faq.md)
+* * [Engine Toolkit](engines/toolkit/)
+<!--* * Custom Fields-->
+<!--* * Testing & Debugging-->
+<!--* * Sample Engines-->
+<!--* * Tutorials-->
+<!--* * FAQ-->
 
 * Adapters
 * * [Overview](adapters/overview.md)
