@@ -1,4 +1,4 @@
-# Correlation Engine Output Example
+# Data Correlation Engine Output Example
 
 [](vtn-standard.example.json ':include :type=code javascript')
 

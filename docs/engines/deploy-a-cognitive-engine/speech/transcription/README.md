@@ -1,4 +1,4 @@
-# Transcription Engine Output Example
+# Speech Transcription Engine Output Example
 
 [](vtn-standard.example.json ':include :type=code javascript')
 
