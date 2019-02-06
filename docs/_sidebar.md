@@ -24,6 +24,12 @@
 * * [Getting Started](engines/getting-started/)
 * * * [Path to Monetization](engines/getting-started/path-to-monetization.md)
 * * * [Technologies Used](engines/getting-started/technologies.md)
+* * Engine Output Examples
+* * * [Audio Fingerprinting](engines/deploy-a-cognitive-engine/audio/audio-fingerprinting/)
+* * * [Face Detection](engines/deploy-a-cognitive-engine/biometrics/face-detection/)
+* * * [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
+* * * [Data Correlation](engines/deploy-a-cognitive-engine/data/correlation/)
+* * * [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
 * * [Engine Standards](engines/engine_standards/)
 * * * [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 * * * [Engine Manifest](engines/standards/engine-manifest.md)
