@@ -29,6 +29,7 @@
 * * * [Face Detection](engines/deploy-a-cognitive-engine/biometrics/face-detection/)
 * * * [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
 * * * [General Object Detection](engines/deploy-a-cognitive-engine/vision/general-object-detection/)
+* * * [Logo Detection](engines/deploy-a-cognitive-engine/vision/logo-detection/)
 * * * [Text Recognition](engines/deploy-a-cognitive-engine/vision/text-recognition/)
 * * * [Data Correlation](engines/deploy-a-cognitive-engine/data/correlation/)
 * * * [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
