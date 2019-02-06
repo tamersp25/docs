@@ -1,3 +1,5 @@
-Current engine outputs taskOutput but is converted to vtn-standard by engineResults query
+# Audio Fingerprinting Engine Output Example
 
-Source: https://github.com/veritone/core-graphql-server/blob/master/dal/taskOutputConversionUtil.js#L287
+[](vtn-standard.example.json ':include :type=code javascript')
+
+[Primary Source](https://github.com/veritone/core-graphql-server/blob/master/dal/taskOutputConversionUtil.js#L287)
