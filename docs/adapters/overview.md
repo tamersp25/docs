@@ -3,7 +3,7 @@ The first step toward realizing the full potential of data is getting it into th
 
 The adapter infrastructure provides mechanisms for ingesting structured or unstructured data in the form of a real-time stream or a bounded file. Veritone offers a set of out-of-the-box adapters for popular sources such as Amazon Web Services S3, YouTube, Google Drive, Box, Dropbox, and RSS feeds. Depending on your needs, you may require the use of a custom adapter. With Veritone Developer, you can quickly build an adapter to ingest data from an external source that’s not already supported. Custom adapters are created based on the data source, the format of the incoming data, and the proprietary logic written in the code. In addition, they include various elements configured together to deliver data to and publish data from the adapter. These elements include environment variables, a task payload, APIs, and a data source type schema — all of which can be configured in a number of combinations. 
 
-Before you begin development, it’s important to get a sense of how adapters interact with Veritone and understand how all of the pieces and processes work together. Understanding the structure of data, the way Veritone handles data, and how data maps to the Veritone UI may influence your design and development strategy. The topics that follow summarize the key concepts of how adapter technology is used in Veritone. Each of these is covered in more detail in our [Quickstart](https://docs.veritone.com/#/adapters/quickstart/) guide and throughout the remaining sections of the adapter documentation.
+Before you begin development, it’s important to get a sense of how adapters interact with Veritone and understand how all of the pieces and processes work together. Understanding the structure of data, the way Veritone handles data, and how data maps to the Veritone UI may influence your design and development strategy. The topics that follow summarize the key concepts of how adapter technology is used in Veritone. Each of these is covered in more detail in our [Quickstart](https://docs.veritone.com/#/adapters/quick-start/) guide and throughout the remaining sections of the adapter documentation.
 
 Remember that our developer support team is here to answer questions and provide assistance. Reach out to us on our [Slack channel](https://chat.veritone.com/) any time you need help.
 
@@ -53,7 +53,7 @@ The basic adapter workflow consists of the following steps:
 
 5. Each of the segments is written to Kafka as a separate task that can be passed on to other parts of the system for processing.
 
-Each step in the workflow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Construction Guidelines](/adapters/quickstart/step-2) section of the Quickstart.
+Each step in the workflow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Construction Guidelines](/adapters/quick-start/step-2) section of the Quickstart.
 
 ### Manifest
 
@@ -170,20 +170,20 @@ The build state allows you easily identify and track a build's progression throu
 
 When developing your adapter, you'll work locally, package and upload your build as a Docker image, then deploy your approved container to production.
 
-1. [Register your adapter](https://docs.veritone.com/#/adapters/quickstart/step-1) by specifying basic information about your adapter, including the name, type, description, logo, and deployment model.
+1. [Register your adapter](https://docs.veritone.com/#/adapters/quick-start/step-1) by specifying basic information about your adapter, including the name, type, description, logo, and deployment model.
 
-2. Add APIs and [configure your code](https://docs.veritone.com/#/adapters/quickstart/step-2) to support Veritone's task processing flow and your adapter’s specific input/output fields.
+2. Add APIs and [configure your code](https://docs.veritone.com/#/adapters/quick-start/step-2) to support Veritone's task processing flow and your adapter’s specific input/output fields.
 
-3. [Create your manifest file](https://docs.veritone.com/#/adapters/quickstart/step-3) with details about your adapter and how it will run.
+3. [Create your manifest file](https://docs.veritone.com/#/adapters/quick-start/step-3) with details about your adapter and how it will run.
 
-4. [Build a Dockerfile](https://docs.veritone.com/#/adapters/quickstart/step-4) that packages your code, dependencies, and manifest, and use it to create a Docker image. Then push your Docker image to Veritone's Docker Registry and initiate the compliance testing process.
+4. [Build a Dockerfile](https://docs.veritone.com/#/adapters/quick-start/step-4) that packages your code, dependencies, and manifest, and use it to create a Docker image. Then push your Docker image to Veritone's Docker Registry and initiate the compliance testing process.
 
-5. [Submit your build for approval](https://docs.veritone.com/#/adapters/quickstart/step-5) by a member of our team.
+5. [Submit your build for approval](https://docs.veritone.com/#/adapters/quick-start/step-5) by a member of our team.
 
-6. [Deploy your approved ](https://docs.veritone.com/#/adapters/quickstart/step-6)adapter to production in the Veritone Platform.
+6. [Deploy your approved ](https://docs.veritone.com/#/adapters/quick-start/step-6)adapter to production in the Veritone Platform.
 
 
-Our [Quickstart](https://docs.veritone.com/#/adapters/quickstart/) is designed to take you through the development workflow as quickly as possible. By the end, you'll have created and deployed a custom adapter in the Veritone Platform.
+Our [Quickstart](https://docs.veritone.com/#/adapters/quick-start/) is designed to take you through the development workflow as quickly as possible. By the end, you'll have created and deployed a custom adapter in the Veritone Platform.
 
 ### Help and Resources
 
