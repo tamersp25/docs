@@ -5,7 +5,7 @@
       "stopTimeMs": 17200,
       "object": {
         "type": "face",
-        "confidence": 95,
+        "confidence": 0.95,
         "boundingPoly": [
           {
             "x": 100,
