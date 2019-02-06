@@ -30,6 +30,7 @@
 * * * [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
 * * * [Data Correlation](engines/deploy-a-cognitive-engine/data/correlation/)
 * * * [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
+* * * [Speaker Separation](engines/deploy-a-cognitive-engine/speech/speaker-separation/)
 * * [Engine Standards](engines/engine_standards/)
 * * * [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 * * * [Engine Manifest](engines/standards/engine-manifest.md)
