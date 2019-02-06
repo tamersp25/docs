@@ -18,13 +18,11 @@
 * * [FAQ](applications/faq.md)
 
 * Engines
-* * [Overview](engines/)
-* * [Quickstart](engines/quick-start/)
-* * [Engine Types](engines/types)
-* * [Getting Started](engines/getting-started/)
+<!--* * Overview-->
+* * Getting Started
 * * * [Path to Monetization](engines/getting-started/path-to-monetization.md)
 * * * [Technologies Used](engines/getting-started/technologies.md)
-* * Engine Output Examples
+* * Deploy a Cognitive Engine
 * * * [Audio Fingerprinting](engines/deploy-a-cognitive-engine/audio/audio-fingerprinting/)
 * * * [Face Detection](engines/deploy-a-cognitive-engine/biometrics/face-detection/)
 * * * [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
@@ -35,7 +33,7 @@
 * * * [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
 * * * [Speaker Separation](engines/deploy-a-cognitive-engine/speech/speaker-separation/)
 * * * [Text Translation](engines/deploy-a-cognitive-engine/text/translation/)
-* * [Engine Standards](engines/engine_standards/)
+* * [Engine Standards](engines/standards/)
 * * * [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 * * * [Engine Manifest](engines/standards/engine-manifest.md)
 * * * [Message Types](engines/standards/message-types.md)
