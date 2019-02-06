@@ -28,6 +28,7 @@
 * * * [Audio Fingerprinting](engines/deploy-a-cognitive-engine/audio/audio-fingerprinting/)
 * * * [Face Detection](engines/deploy-a-cognitive-engine/biometrics/face-detection/)
 * * * [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
+* * * [General Object Detection](engines/deploy-a-cognitive-engine/vision/general-object-detection/)
 * * * [Data Correlation](engines/deploy-a-cognitive-engine/data/correlation/)
 * * * [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
 * * * [Speaker Separation](engines/deploy-a-cognitive-engine/speech/speaker-separation/)
