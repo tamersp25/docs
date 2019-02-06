@@ -1,0 +1,14 @@
+{
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 10000,
+      "speakerId": "<libraryId>:<entityId>"
+    },
+    {
+      "startTimeMs": 10000,
+      "stopTimeMs": 20000,
+      "speakerId": "<libraryId>:<entityId>"
+    }
+  ]
+}
