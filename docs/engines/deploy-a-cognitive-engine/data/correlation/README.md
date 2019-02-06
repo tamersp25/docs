@@ -4,5 +4,5 @@
 
 [Primary Source](https://github.com/veritone/task-simple-correlator/blob/master/app.js#L178)
 
-> Similar to other engine capabilities, it is highly likely that the only required data is what is under `series`.
-The rest is likely superfluous.
+> Similar to other engine capabilities, the only required data is what is under `series`.
+The rest is informational only.
