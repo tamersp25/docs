@@ -1,3 +1,6 @@
+TODO: Move to its own top-level section.  remove "quick start guide" from the name
+TODO: Incorporate PR https://github.com/veritone/docs/pull/36
+
 Taxonomy
 -Engine Types
 <Adapter, Cognition, Aggregator>

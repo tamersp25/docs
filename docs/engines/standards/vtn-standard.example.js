@@ -325,6 +325,7 @@ sample = {
       // - face: Face detection
       // - libraryEntity: Library-based object/face recognition
       // - licensePlate: License plate detection
+      // - fingerprint: Audio fingerprinting
       // - speakerId: Speaker recognition
       // - soundId: Sound recognition
       // - concept: Concept recognition

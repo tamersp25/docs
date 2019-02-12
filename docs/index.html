@@ -30,6 +30,13 @@
   >
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
+
+  <!--Custom CSS for collapsing all but current page-->
+  <style>
+    .sidebar-nav .collapse ul {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -79,5 +86,67 @@
   <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-http.min.js"></script>
+
+  <!--Custom script to collapse all other sidebar links besides active page-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var RECURSION_LIMIT = 50;
+    var collapseNavElRecursion = 0;
+    var collapseExtendedFamilyRecursion = 0;
+
+    window.$docsify.plugins = [function (hook, vm) {
+      hook.doneEach(function onPageChanged() {
+        collapseExtendedFamilyRecursion = 0;
+        collapseExtendedFamily($('.sidebar-nav .active'));
+      });
+    }].concat(window.$docsify.plugins || []);
+
+
+    function collapseExtendedFamily(el) {
+      collapseExtendedFamilyRecursion++;
+      if (collapseExtendedFamilyRecursion > RECURSION_LIMIT) {
+        console.error('collapseExtendedFamily recursion limit reached!');
+        return;
+      }
+      var siblings = el.siblings();
+      for (var i = 0; i < siblings.length; i++) {
+        var sibling = $(siblings[i]);
+        collapseNavElRecursion = 0;
+        collapseNavEl(sibling);
+      }
+      var parentEl = el.parent().parent();  // li > ul > li
+      if (!el.hasClass('sidebar-nav')) {
+        collapseExtendedFamily(parentEl);
+      }
+    }
+
+    /**
+     * Collapses the first level of the nav el that has links
+     * Prevents us from collapsing a nav el that can't be expanded
+     * @param el
+     */
+    function collapseNavEl(el) {
+      collapseNavElRecursion++;
+      if (collapseNavElRecursion > RECURSION_LIMIT) {
+        console.error('collapseNavEl recursion limit reached!');
+        return;
+      }
+      if (el.children()[0].tagName.toLowerCase() === 'a') {
+        // Non-top-level link.  Collapse it.
+        el.addClass('collapse');
+      } else if (el.children()[0].tagName.toLowerCase() === 'p' &&
+        $(el.children()[0]).children().length > 0 &&
+        $(el.children()[0]).children()[0].tagName.toLowerCase() === 'a') {
+        // Top-level link.  Collapse it.
+        el.addClass('collapse');
+      } else if (el.find('ul a').length) {
+        // It's not a link but there's one in its children somewhere.  Go find it.
+        var subNavEls = $(el.children()[1]).children();  // Kinda poorly assuming el.children[1] is ul
+        for (var i = 0; i < subNavEls.length; i++) {
+          collapseNavEl($(subNavEls[i]));
+        }
+      }
+    }
+  </script>
 </body>
 </html>

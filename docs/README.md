@@ -1,3 +1,8 @@
+TODO: Incorporate PR with additional content
+https://github.com/veritone/docs/pull/45
+
+TODO: Update sidebar
+
 # Veritone Overview
 
 Veritone unlocks insights hidden within unstructured audio and video with the power of a single, SaaS-based, artificial intelligence (AI) platform. Pairing a portfolio of best-of-breed cognitive engines with an advanced suite of applications, Veritone delivers the value of artificial intelligence in a way that&rsquo;s accessible, understandable, and useful for a wide spectrum of customers &mdash; from individuals to large organizations. Every frame of video and second of audio can be searched for objects, license plates, faces, voices, brands, and more. With potent content ingestion, indexing, search, correlation, analytics, sharing, and collaboration capabilities, Veritone equips users with tools and insights to make smarter, more well-informed business decisions. <br /> <br />The Veritone Platform is designed to seamlessly integrate with external applications via a robust API. In addition, the Veritone Developer Application allows developers of custom applications, cognitive engines, and data sets/streams to build on the Veritone technology stack and provide their technology to customers through the Veritone Platform.
@@ -61,7 +66,7 @@ Veritone Collections presents groupings of search results or Watchlists in share
 
 #### Analytics
 
-Veritione Analytics features a set of dashboards that provide metrics on top-valued reporting measures and tools, allowing users to intuitively interact with and explore their data. &nbsp;Currently embedded in Discovery App.
+Veritone Analytics features a set of dashboards that provide metrics on top-valued reporting measures and tools, allowing users to intuitively interact with and explore their data. &nbsp;Currently embedded in Discovery App.
 
 #### Admin
 

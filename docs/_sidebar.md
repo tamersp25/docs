@@ -1,62 +1,97 @@
 <!-- docs/_sidebar.md -->
 
-* Getting Started
-* * [Overview](/)
-* * [Veritone Developer Overview](veritone-developer-overview.md)
-* * [Architecture Overview](architecture-overview.md)
-* * [Developer Benefits](developer-benefits.md)
-* * [Glossary](glossary.md)
-* * [Terms & Conditions](terms-and-conditions.md)
+- Getting Started
+  - [Overview](/)
+  - [Veritone Developer Overview](veritone-developer-overview.md)
+  - [Architecture Overview](architecture-overview.md)
+  - [Developer Benefits](developer-benefits.md)
+  - [Glossary](glossary.md)
+  - [Terms & Conditions](terms-and-conditions.md)
 
-* Applications
-* * [Overview](applications/)
-* * [Application Integration](applications/integration/)
-* * [Quickstart](applications/quick-start/)
-* * [Context Menu Extensions](applications/context-menu-extensions.md)
-* * [OAuth](applications/oauth.md)
-* * [Resources](applications/resources.md)
-* * [FAQ](applications/faq.md)
+- Applications
+  - [Overview](applications/)
+  - [Application Integration](applications/integration/)
+  - [Quickstart](applications/quick-start/)
+    - [Step 1 - Register Your Application](applications/quick-start/step-1.md)
+    - [Step 2 - Set Up Authentication](applications/quick-start/step-2.md)
+    - [Step 3 - Add APIs and Components](applications/quick-start/step-3.md)
+    - [Step 4 - Submit Your Application](applications/quick-start/step-4.md)
+    - [Step 5 - Deploy Your Application](applications/quick-start/step-5.md)
+  - [Context Menu Extensions](applications/context-menu-extensions.md)
+  - [OAuth](applications/oauth.md)
+  - [Resources](applications/resources.md)
+  - [FAQ](applications/faq.md)
 
-* Engines
-* * [Overview](engines/)
-* * [Quickstart](engines/quick-start/)
-* * [Engine Types](engines/types)
-* * [Getting Started](engines/getting-started/)
-* * * [Path to Monetization](engines/getting-started/path-to-monetization.md)
-* * * [Technologies Used](engines/getting-started/technologies.md)
-* * [Engine Standards](engines/engine_standards/)
-* * * [Engine Output (vtn-standard)](engines/standards/engine-output.md)
-* * * [Engine Manifest](engines/standards/engine-manifest.md)
-* * * [Message Types](engines/standards/message-types.md)
-* * [Capabilities](engines/engine_standards/capability/)
-* * [Custom Fields](engines/custom-fields)
-* * [Testing & Debugging](engines/testing-and-debugging)
-* * [Sample Engines](engines/sample-engines.md)
-* * [Tutorials](engines/tutorials/)
-* * [FAQ](engines/faq.md)
+- Engines
+  - [Getting Started](engines/getting-started/)
+    - [Path to Monetization](engines/getting-started/path-to-monetization.md)
+    - [Technologies Used](engines/getting-started/technologies.md)
+  - [Deploy a Cognitive Engine](engines/deploy-a-cognitive-engine/)
+    - [Audio Fingerprinting](engines/deploy-a-cognitive-engine/audio/audio-fingerprinting/)
+    - [Face Detection](engines/deploy-a-cognitive-engine/biometrics/face-detection/)
+    - [Face Recognition](engines/deploy-a-cognitive-engine/biometrics/face-recognition/)
+    - [General Object Detection](engines/deploy-a-cognitive-engine/vision/general-object-detection/)
+    - [Logo Detection](engines/deploy-a-cognitive-engine/vision/logo-detection/)
+    - [Text Recognition](engines/deploy-a-cognitive-engine/vision/text-recognition/)
+    - [Data Correlation](engines/deploy-a-cognitive-engine/data/correlation/)
+    - [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
+    - [Speaker Separation](engines/deploy-a-cognitive-engine/speech/speaker-separation/)
+    - [Text Translation](engines/deploy-a-cognitive-engine/text/translation/)
+  - [Engine Standards](engines/standards/)
+    - [Engine Output (vtn-standard)](engines/standards/engine-output.md)
+<!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->
+<!--    - [Message Types](engines/standards/message-types.md)-->
+  - [Engine Toolkit](engines/toolkit/)
+<!--* * Custom Fields-->
+<!--* * Testing & Debugging-->
+<!--* * Sample Engines-->
+<!--* * Tutorials-->
+<!--* * FAQ-->
 
-* Adapters
-* * [Overview](adapters/overview.md)
-* * [Quickstart](adapters/quickstart/)
-* * [Construction Guidelines](adapters/guidelines.md)
-* * [Adapter Manifest](adapters/manifest.md)
+- Adapters
+  - [Overview](adapters/overview.md)
+  - [Quickstart](adapters/quickstart/)
+    - [Step 1 - Register Your Adapter](adapters/quickstart/step-1.md)
+    - [Step 2 - Construct Your Code for the Veritone Platform](adapters/quickstart/step-2.md)
+    - [Step 3 - Create Your Manifest File](adapters/quickstart/step-3.md)
+    - [Step 4 - Package and Upload a Build](adapters/quickstart/step-4.md)
+    - [Step 5 - Submit Your Build for Approval](adapters/quickstart/step-5.md)
+    - [Step 6 - Deploy Your Adapter](adapters/quickstart/step-6.md)
+  - [Construction Guidelines](adapters/guidelines.md)
+  - [Adapter Manifest](adapters/manifest.md)
 
-* Data
-* * [Overview](data/)
-* * [Quickstart](data/quick-start/)
+- Data
+  - [Overview](data/)
+  - [Quickstart](data/quick-start/)
 
-* APIs
-* * [Overview](apis/)
-* * [The Veritone API Data Model](apis/data-model.md)
-* * [Using GraphQL](apis/using-graphql.md)
-* * [Authentication](apis/authentication.md)
-* * [Error Codes](apis/error-codes.md)
-* * [Job Quickstart Guide](apis/job-quickstart.md)
-* * [Search Quickstart Guide](apis/search-quickstart.md)
-* * [Tutorials](apis/tutorials/)
+- APIs
+  - [Overview](apis/)
+  - [The Veritone API Data Model](apis/data-model.md)
+  - [Using GraphQL](apis/using-graphql.md)
+  - [Authentication](apis/authentication.md)
+  - [Error Codes](apis/error-codes.md)
+  - [Job Quickstart Guide](apis/job-quickstart.md)
+    - [Create a TDO (Recording Container)](apis/job-quick-start-guide/create-tdo.md)
+    - [Upload an Asset](apis/job-quick-start-guide/upload-asset.md)
+    - [Create a Job with Cognitive Processing Tasks](apis/job-quick-start-guide/create-job.md)
+    - [Check a Job Status](apis/job-quick-start-guide/check-job-status.md)
+    - [Retrieve Job Output](apis/job-quick-start-guide/retrieve-job-output.md)
+    - [Delete a TDO and/or it's Content](apis/job-quick-start-guide/delete-tdo.md)
+  - [Search Quickstart Guide](apis/search-quickstart.md)
+  - [Tutorials](apis/tutorials/)
+    - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
+    - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
+    - [Uploading Engine Results](apis/tutorials/engine-results.md)
+    - [Lookup Available Engines](apis/tutorials/get-engines.md)
+    - [Error Handling in the GraphQL API](apis/tutorials/graphql-error-handling.md)
+    - [Uploading and Processing Files](apis/tutorials/upload-and-process.md)
+    - [Uploading Large Files](apis/tutorials/uploading-large-files.md)
+    - [Handling File Upload Errors](apis/tutorials/file-upload-error-handling.md)
+    - [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
+    - [Paging](apis/tutorials/paging.md)
 
-* Libraries
-* * [Overview](libraries/)
-* * [Library-enabled Engines](libraries/engines.md)
-* * [Training Engines](libraries/training.md)
-* * [Running Engines](libraries/running.md)
+- Libraries
+  - [Overview](libraries/)
+  - [Library-enabled Engines](libraries/engines.md)
+  - [Training Engines](libraries/training.md)
+  - [Running Engines](libraries/running.md)
