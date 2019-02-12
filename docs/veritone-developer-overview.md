@@ -33,10 +33,10 @@ Most often an Engine will consist of a Docker container image containing executa
 Veritone Developer enables users to define a new engine conforming to engine Veritone specifications such as Class, Capability, Engine Processing Mode, Deployment Mode etc and then a series of Builds for that Engine.
 After UAT and deployment by Veritone, an Engine becomes available to aiWARE users either as a Public or Private engine.
 
-## Tools
+### Tools
 - **Training Data**: Engine developers have access to collections of data entities grouped as libraries. Developers can also upload additional data entities and create their own libraries.
 
-## Opportunities
+### Opportunities
  - **Monetization**: Receive payment upfront for use of your engines.
  - **Competitive Positioning**: Discover ways to differentiate your offering through feature and capability comparisons.
 
