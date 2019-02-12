@@ -1,4 +1,5 @@
 TODO: Update sidebar
+TODO: Replace all references to "VDA", "Developer Application", and "Developer App" with "Veritone Developer"
 
 # Veritone Overview
 
