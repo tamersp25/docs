@@ -3,6 +3,8 @@
 Stream Engines process data in streams, where the stream is broken up into stream bytes.
 They operate out of a stateful queue, where the order of the data does matter.
 
+> The "stream" engine mode is identified as `EngineMode=Stream` in the GraphQL API
+
 ## Use Cases
 
 Stream engines are used when the engine wants to work directly on the raw stream of data or needs to store state.

@@ -4,7 +4,9 @@
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
-This toolkit is aimed at Cognition engines processing chunks. For example, images, frames from videos, video clips, and audio files. If you are building a different kind of engine, you may need to use lower level APIs.
+This toolkit is aimed at [cognitive engines](engines/deploy-a-cognitive-engine/) processing [segments](engines/processing-modes/segment-processing/).
+For example, images, frames from videos, video clips, and audio files.
+If you are building a different kind of engine, you may need to use lower level APIs.
 
 Engines are deployed to the Veritone platform in Docker containers, which can be thought of as being like lightweight virtual machines. The platform will automatically spin up instances of your engine to meet demand.
 
@@ -159,7 +161,7 @@ A `Dockerfile` explains the steps that Docker needs to take in order to build a 
 
 The following is an example of an engine `Dockerfile`:
 
-```docker
+```dockerfile
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 
@@ -191,7 +193,7 @@ The `Dockerfile` above describes a simple but complete engine. This section expl
 
 ##### Manifest file
 
-```docker
+```dockerfile
 ADD manifest.json /var/manifest.json
 ```
 
@@ -203,7 +205,7 @@ Usually your `manifest.json` file sits alongside your `Dockerfile` in your engin
 
 ##### The `engine` executable
 
-```docker
+```dockerfile
 ADD ./dist/engine /app/engine
 ```
 
@@ -220,7 +222,7 @@ It is available when you [download the Engine Toolkit SDK](#download-the-engine-
 
 ##### Webhook environment variables
 
-```docker
+```dockerfile
 ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8888/readyz"
 ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8888/process"
 ```
@@ -232,7 +234,7 @@ The environment variables specified with the `ENV` command inform the `engine` t
 
 ##### Engine entrypoint
 
-```docker
+```dockerfile
 ENTRYPOINT [ "/app/engine", "/app/your-engine", "--your-arg-1", "--your-arg-2" ]
 ```
 

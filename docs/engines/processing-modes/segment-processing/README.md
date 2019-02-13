@@ -1,11 +1,9 @@
 # Segment Engine Processing
 
-TODO: Replace all references to "chunk" engines with "segment" engines
-
-Message engines process data in small discrete quantities, which are produced by segmenting the input data into messages.
+Segment engines process data in small discrete quantities, which are produced by segmenting the input data into messages.
 They operate out of a stateless queue, where they can process each small bit of content without having any knowledge of the content that came before or after the piece of content that they are processing.
 
-TODO: Note on how segment is often called "chunk" in the API
+> The "segment" engine mode is identified as `EngineMode=Chunk` in the GraphQL API
 
 ?> The **[Engine Toolkit SDK (BETA)](engines/toolkit/)**
 is an alternative interface for building message engines.
@@ -14,10 +12,9 @@ you might consider using it instead of the specifications below.
 
 ## Use Cases
 
-Message engines are currently the most commonly used engine mode due to the simplicity of how they process data.
-For media files, message engines are often given a particular piece of a larger media file (i.e. a single frame of a video)
-and output results only for that single piece of data.
-Because they do not store state, message engines can scale horizontally.
+Segment engines are currently the most commonly used engine mode due to the simplicity of how they process data.
+For media files, segment engines are often given a particular piece of a larger media file (i.e. a single frame of a video) and output results only for that single piece of data.
+Because they do not store state, segment engines can scale horizontally.
 
 They are often used in situations like:
 
@@ -32,7 +29,7 @@ They are often used in situations like:
 
 ## Basic Steps
 
-The basic lifecycle for a message engine is as follows:
+The basic lifecycle for a segment engine is as follows:
 
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `media_chunk` messages from its `KAFKA_INPUT_TOPIC`.
@@ -56,7 +53,7 @@ The basic lifecycle for a message engine is as follows:
 
 ## Messages
 
-Message engines deal with three different Kafka messages:
+segment engines deal with three different Kafka messages:
 
 - `media_chunk`
 - `engine_output`

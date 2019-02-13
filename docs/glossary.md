@@ -117,7 +117,7 @@ In aiWARE, schemas can be registered in Veritone Developer and are written using
 See the [data](data/) section of this documentation for more information.
 
 #### Segment Engine Mode
-> An engine processing mode that accepts a discrete chunk of data (i.e. file, video frame, audio segment).
+> An engine processing mode that accepts a discrete "chunk" of data (i.e. file, video frame, audio segment).
 
 #### Sentiment Analysis
 > Determines the attitude, contextual polarity or emotional reaction of a speaker or writer with respect to some topic, document, interaction or event. 

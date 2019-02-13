@@ -8,8 +8,8 @@ Before submitting your build, use the following information to test it thoroughl
 
 The recommended way to test these types of engines locally is by simulating and verifying locally that your engine can consume and produce the messages documented in the construction guidelines listed below.
 
-* [Chunk Engine Construction Guidelines](TODO: Link to chunk engine construction guidelines)
-* [Stream Engine Construction Guidelines](TODO: Link to stream engine construction guidelines)
+* [Segment Engine Construction Guidelines](engines/processing-modes/segment-processing/)
+* [Stream Engine Construction Guidelines](engines/processing-modes/stream-processing/)
 
 ### Testing in aiWARE
 
@@ -69,7 +69,8 @@ If your ingestion job results in an error, please read the section below on debu
 
 ## Testing a Legacy (Batch) Engine
 
-!> Legacy engines are deprecated. If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](TODO: link to segment engine docs).
+!> Legacy batch engines are deprecated.
+If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](engines/processing-modes/segment-processing/).
 
 Information on testing legacy engines is available [here](engines/testing-and-debugging/batch-engines/). 
 
@@ -95,9 +96,12 @@ query {
 
 ##### Task Log
 
-The task log tab displays your engines task log in JSON format. The task log is the primary way for you to debug as it allows you to view the standard output (stdout) of your engine. The only exception to this is for Chunk engines, for which we do not attach stdout as part of the task log. For both Stream and Chunk engines you will also be able to view kafka events here if they are related to your task.
+The task log tab displays your engines task log in JSON format.
+The task log is the primary way for you to debug as it allows you to view the standard output (stdout) of your engine.
+The only exception to this is for Segment engines, for which we do not attach stdout as part of the task log.
+For both Stream and Segment engines you will also be able to view kafka events here if they are related to your task.
 
-<b>Note</b> - We only return the task log for completed or failed tasks so it is vital that your engine correctly updates the task status in response to both success/errors in order for you to view your logs.
+> We only return the task log for completed or failed tasks so it is vital that your engine correctly updates the task status in response to both success/errors in order for you to view your logs.
 
 
 You can view your task log via graphql by using the snippet below:
