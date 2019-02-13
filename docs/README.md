@@ -1,6 +1,17 @@
+TODO: Update sidebar
+TODO: Replace all references to "VDA", "Developer Application", and "Developer App" with "Veritone Developer"
+
 # Veritone Overview
 
-Veritone unlocks insights hidden within unstructured audio and video with the power of a single, SaaS-based, artificial intelligence (AI) platform. Pairing a portfolio of best-of-breed cognitive engines with an advanced suite of applications, Veritone delivers the value of artificial intelligence in a way that&rsquo;s accessible, understandable, and useful for a wide spectrum of customers &mdash; from individuals to large organizations. Every frame of video and second of audio can be searched for objects, license plates, faces, voices, brands, and more. With potent content ingestion, indexing, search, correlation, analytics, sharing, and collaboration capabilities, Veritone equips users with tools and insights to make smarter, more well-informed business decisions. <br /> <br />The Veritone Platform is designed to seamlessly integrate with external applications via a robust API. In addition, the Veritone Developer Application allows developers of custom applications, cognitive engines, and data sets/streams to build on the Veritone technology stack and provide their technology to customers through the Veritone Platform.
+Veritone is a provider of artificial intelligence (AI) technology and solutions to the media and entertainment, legal and compliance, government, and more industries. 
+
+Our proprietary **aiWARE** platform, much like a traditional operating system, provides a common, open software infrastructure that lets you build and use end-to-end, AI-powered solutions — from data ingestion to intelligent data analysis — accessible in the application of your choice. 
+
+This approach combined with our proprietary orchestration technology, **Conductor**, makes it possible to quickly and accurately analyze massive amounts of diverse information — audio, video, image, text, and more — from multiple sources and formats to produce actionable intelligence in a faster, more scalable, and more cost-effective way than humans can.
+
+We believe in the wisdom of the crowd. That’s why we built a machine learning ecosystem comprised of third-party cognitive engines and native, trainable machine learning models to achieve the breadth of capabilities and depth of specialization needed in AI applications to meet virtually any use case you might have. Today, our developer ecosystem supports over 30 different cognitive capabilities and counting within the speech, text, vision, biometrics, audio, data, and transformation cognitive classes.
+
+If you’re looking for a sales channel for your AI software products, to add intelligent features to an existing application, or to leverage robust infrastructure for AI development and custom machine learning model training - Veritone’s aiWARE platform can help.
 
 ## Key Platform Features
 
@@ -61,7 +72,7 @@ Veritone Collections presents groupings of search results or Watchlists in share
 
 #### Analytics
 
-Veritione Analytics features a set of dashboards that provide metrics on top-valued reporting measures and tools, allowing users to intuitively interact with and explore their data. &nbsp;Currently embedded in Discovery App.
+Veritone Analytics features a set of dashboards that provide metrics on top-valued reporting measures and tools, allowing users to intuitively interact with and explore their data. &nbsp;Currently embedded in Discovery App.
 
 #### Admin
 

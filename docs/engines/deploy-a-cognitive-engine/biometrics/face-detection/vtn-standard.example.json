@@ -1,0 +1,30 @@
+{
+  "series": [
+    {
+      "startTimeMs": 9800,
+      "stopTimeMs": 17200,
+      "object": {
+        "type": "face",
+        "confidence": 0.95,
+        "boundingPoly": [
+          {
+            "x": 100,
+            "y": 100
+          },
+          {
+            "x": 100,
+            "y": 500
+          },
+          {
+            "x": 500,
+            "y": 500
+          },
+          {
+            "x": 500,
+            "y": 100
+          }
+        ]
+      }
+    }
+  ]
+}

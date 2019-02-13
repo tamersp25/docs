@@ -1,2 +1,0 @@
-Interclass
-Intraclass

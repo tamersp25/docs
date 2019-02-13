@@ -1,3 +1,7 @@
+TODO: Incorporate PR https://github.com/veritone/docs/pull/46
+
+TODO: Change name to just "engine approval process" and separate from engine development quick start
+
 Quick Start Guide
 
 Overview of the engine approval process

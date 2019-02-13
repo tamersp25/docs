@@ -1,0 +1,22 @@
+{
+  "series": [
+    {
+      "end": 17200,
+      "start": 9800,
+      "entityId": "11a14999-0531-4d3e-9a44-68cdd4f93659",
+      "libraryId": "13e6f4a3-0d5c-4e11-9a30-913e981cb9ad",
+      "confidence": 97.72560119628906,
+      "similarity": 95.474365234375,
+      "boundingBox": {
+        "top": 100,
+        "left": 100,
+        "width": 400,
+        "height": 400,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "externalImageId": "11a14999-0531-4d3e-9a44-68cdd4f93659_351a7b0c-e82d-4467-abd9-65cfaf0c550d",
+        "entityIdentifierId": "351a7b0c-e82d-4467-abd9-65cfaf0c550d"
+      }
+    }
+  ]
+}

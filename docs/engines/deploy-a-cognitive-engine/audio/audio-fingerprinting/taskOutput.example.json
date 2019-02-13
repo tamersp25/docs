@@ -1,0 +1,13 @@
+{
+  "series": [
+    {
+      "end": 817001,
+      "score": 0.002928053541550474,
+      "start": 817000,
+      "entityId": "e4f95344-622b-42bb-8e82-514d96d2df88",
+      "libraryId": "0fb79432-dcb1-40b0-bb6a-3f7e481aae3e",
+      "durationMs": 28000,
+      "entityIdentifierId": "b123077a-af75-4cc7-b7f0-79a645cddcc0"
+    }
+  ]
+}

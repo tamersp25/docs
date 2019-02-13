@@ -14,7 +14,7 @@ The fields that should be included in manifest.json are listed in the table belo
 
 | Field   | Format | Required | Description  | Example |
 | ------- | ------ | -------- | ------------ | ------- |
-| engineId              | string           | Yes | The ID of your adapter. To [find your adapter ID](/adapters/quickstart/step-1?id=find-your-adapter-id), open the adapter in Veritone Developer. The ID is located under the adapter name at the top of the window.  | "engineId": "f06e3ecb-cb30-3d0f-3268-c08428dc72be"   |
+| engineId              | string           | Yes | The ID of your adapter. To [find your adapter ID](/adapters/quick-start/step-1?id=find-your-adapter-id), open the adapter in Veritone Developer. The ID is located under the adapter name at the top of the window.  | "engineId": "f06e3ecb-cb30-3d0f-3268-c08428dc72be"   |
 | category              | string           | Yes | The category of the adapter. Possible values: "pull", "push"  | "category": "pull" |
 | preferredInputFormat  | string           | Yes | Your adapter's preferred MIME type for input files. Enter only one option. The MIME type options supported by Veritone are listed [below](adapters/manifest?id=mimetypes).                         | "preferredInputFormat": "audio/wav" |
 | outputFormats         | array of strings | Yes | A comma-separated list of MIME types your adapter will output. The MIME type options supported by Veritone are listed [below](adapters/manifest?id=mimetypes). | "outputFormats": ["application/ttml+xml", "audio/wav"] |
