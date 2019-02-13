@@ -1,5 +1,7 @@
 # Adapter Manifest
 
+TODO: Consider how this intersect with the engines manifest doc
+
 ## Overview
 
 Every container uploaded to Veritone for an adapter should include a manifest.json file, which contains important information about your adapter and build. Veritone relies on the information in the manifest to correctly operate the adapter on our platform, so please be as accurate and comprehensive as you can. Omitting the manifest.json file or neglecting to use the proper engineId will result in your build not being registered with the system. If you have pushed an adapter to our Docker registry and it is not showing up, check that your manifest is properly formatted and stored in the correct location (/var/manifest.json).
