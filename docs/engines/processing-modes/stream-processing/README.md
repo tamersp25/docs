@@ -1,6 +1,7 @@
 # Stream Engine Processing
 
-[](_overview.md ':include')
+Stream Engines process data in streams, where the stream is broken up into stream bytes.
+They operate out of a stateful queue, where the order of the data does matter.
 
 ## Use Cases
 
@@ -69,3 +70,5 @@ Stream engines deal with four different Kafka messages:
 ## Sample Engines
 
 Please contact us directly for sample stream engine code.
+
+TODO: Verify sample engines

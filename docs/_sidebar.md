@@ -39,6 +39,8 @@
     - [Text Translation](engines/deploy-a-cognitive-engine/text/translation/)
   - [Deployment Models](engines/deployment-model/)
   - [Processing Modes](engines/processing-modes/)
+    - [Segment Engine Processing](engines/processing-modes/segment-processing/)
+    - [Stream Engine Processing](engines/processing-modes/stream-processing/)
   - [Engine Standards](engines/standards/)
     - [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 <!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->

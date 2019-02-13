@@ -2,7 +2,8 @@
 
 TODO: Replace all references to "chunk" engines with "segment" engines
 
-[](_overview.md ':include')
+Message engines process data in small discrete quantities, which are produced by segmenting the input data into messages.
+They operate out of a stateless queue, where they can process each small bit of content without having any knowledge of the content that came before or after the piece of content that they are processing.
 
 TODO: Note on how segment is often called "chunk" in the API
 
@@ -76,3 +77,5 @@ Message engines deal with three different Kafka messages:
 ## Sample Engines
 
 - https://github.com/veritone/task-rt-test-engine/
+
+TODO: Verify sample engines
