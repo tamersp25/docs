@@ -1,4 +1,4 @@
-# Engine Deployment Model
+# Engine Deployment Models
 The engine **deployment model** indicates what type of network access the engine requires.
 It is important for customers when it comes to the security and location of their data.
 
