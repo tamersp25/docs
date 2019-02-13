@@ -41,8 +41,8 @@
     - [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 <!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->
 <!--    - [Message Types](engines/standards/message-types.md)-->
-  - [Engine Toolkit](engines/toolkit/)
-<!--* * Custom Fields-->
+  - [Custom Fields](engines/custom-fields/)
+  - [Engine Toolkit (Beta)](engines/toolkit/)
 <!--* * Testing & Debugging-->
 <!--* * Sample Engines-->
 <!--* * Tutorials-->

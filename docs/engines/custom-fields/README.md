@@ -6,7 +6,7 @@ You can create custom fields inside of VDA both during the creation of a new eng
 
 On the custom fields table, click on `New Field`.
 
-![custom fields table](custom-fields-table.png)
+![custom fields table](table.png)
 
 You will then be presented with the `Add Field` modal which contains a list of fields that we provide for defining custom fields on an engine. The purpose of each field is outlined below.
 
