@@ -42,11 +42,8 @@
 <!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->
 <!--    - [Message Types](engines/standards/message-types.md)-->
   - [Custom Fields](engines/custom-fields/)
+  - [Testing & Debugging](engines/testing-and-debugging/)
   - [Engine Toolkit (Beta)](engines/toolkit/)
-<!--* * Testing & Debugging-->
-<!--* * Sample Engines-->
-<!--* * Tutorials-->
-<!--* * FAQ-->
 
 - Adapters
   - [Overview](adapters/overview.md)
