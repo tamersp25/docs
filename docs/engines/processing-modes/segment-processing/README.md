@@ -34,7 +34,7 @@ The basic lifecycle for a segment engine is as follows:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `media_chunk` messages from its `KAFKA_INPUT_TOPIC`.
 1. For each `media_chunk` message, the engine does its processing.
-1. When processing of each `media_chunk` is done, the engine compiles an `engine_output` message conforming to the vtn-standard format. <!-- TODO: Link to vtn-standard format -->
+1. When processing of each `media_chunk` is done, the engine compiles an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output).
 1. The engine produces the `engine_output` message to `KAFKA_CHUNK_TOPIC`, along with a `ChunkProcessedStatus` message.
 1. If there is no work for the engine within the timeframe set in `END_IF_IDLE_SECS`, the engine shuts itself down.
 

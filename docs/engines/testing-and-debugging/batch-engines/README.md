@@ -1,6 +1,6 @@
 # Testing Legacy (Batch) Engines
 
-!> Legacy engines are deprecated. If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](TODO: link to segment engine docs).
+!> Legacy engines are deprecated. If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](/engines/processing-modes/segment-processing/).
 
 When either a Batch or Legacy engine is deployed to Veritone, a `PAYLOAD_FILE` environment variable is passed to them at runtime which contains the location of the payload file they need to process.
 The payload file itself contains all of the information the engine needs in order to process the job correctly.
