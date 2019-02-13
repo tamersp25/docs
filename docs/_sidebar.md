@@ -37,6 +37,7 @@
     - [Speech Transcription](engines/deploy-a-cognitive-engine/speech/transcription/)
     - [Speaker Separation](engines/deploy-a-cognitive-engine/speech/speaker-separation/)
     - [Text Translation](engines/deploy-a-cognitive-engine/text/translation/)
+  - [Deployment Model](engines/deployment-model/)
   - [Engine Standards](engines/standards/)
     - [Engine Output (vtn-standard)](engines/standards/engine-output.md)
 <!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->

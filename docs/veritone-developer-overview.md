@@ -30,7 +30,7 @@ An overview of capabilities and features relevant to different types of develope
 ## For Engine Developers
 In basic terms, "Cognitive Engine" is the term used by Veritone for software that facilitates the processing of data to produce metadata.
 Most often an Engine will consist of a Docker container image containing executable code for a local ML algorithm or one hosted remotely and accessible via API.
-Veritone Developer enables users to define a new engine conforming to engine Veritone specifications such as Class, Capability, Engine Processing Mode, Deployment Mode etc and then a series of Builds for that Engine.
+Veritone Developer enables users to define a new engine conforming to engine Veritone specifications such as Class, Capability, Engine Processing Mode, Deployment Model, etc and then a series of Builds for that Engine.
 After UAT and deployment by Veritone, an Engine becomes available to aiWARE users either as a Public or Private engine.
 
 ### Tools
