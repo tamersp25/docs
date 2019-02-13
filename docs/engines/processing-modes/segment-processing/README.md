@@ -1,8 +1,12 @@
-# Chunk Engine Processing
+# Segment Engine Processing
 
-[](../_chunk-processing-overview.md ':include')
+TODO: Replace all references to "chunk" engines with "segment" engines
 
-?> The **[Engine Toolkit SDK (BETA)](https://machinebox.io/experiments/engine-toolkit)**
+[](_overview.md ':include')
+
+TODO: Note on how segment is often called "chunk" in the API
+
+?> The **[Engine Toolkit SDK (BETA)](engines/toolkit/)**
 is an alternative interface for building message engines.
 If you'd like a simpler interface and are comfortable using beta software in production, 
 you might consider using it instead of the specifications below.

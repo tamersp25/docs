@@ -1,25 +1,26 @@
-# Engine Modes
+# Engine Processing Modes
 
-At a high level, aiWARE engines, receive input data, process that data, and put processing results back onto the platform.
-The format of the input and output depends on the engine's mode (defined in the [manifest file]<!-- TODO: Link to manifest -->).
-Engines can run in two modes on Veritone's real-time pipeline:
+TODO: Things are going weird with includes in this section
 
-- `chunk`
-- `stream`
+TODO: Incorporate all comments from PR https://github.com/veritone/docs/pull/30
 
-## Chunk Engines
+At a high level aiWARE engines, receive input data, process that data, and put processing results back onto the platform.
+The format of the input and output depends on the engine's processing mode (defined in the [manifest file](engines/standards/engine-manifest)).
+Engines can run in two modes on aiWARE's processing pipeline: `segment` and `stream`.
 
-[](_chunk-processing-overview.md ':include')
+## Segment Engines
 
-For construction guidelines, see [Chunk Engine Processing](/engines/processing-modes/chunk-processing/).
+[](segment-processing/_overview.md ':include')
+
+For construction guidelines, see [Segment Engine Processing](engines/processing-modes/segment-processing/).
 
 > Examples: an engine that performs object or face detection on frames of a video stream
 
 ## Stream Engines
 
-[](_stream-processing-overview.md ':include')
+[](stream-processing/_overview.md ':include')
 
-For construction guidelines, see [Stream Engine Processing](/engines/processing-modes/stream-processing/).
+For construction guidelines, see [Stream Engine Processing](engines/processing-modes/stream-processing/).
 
 > Examples: a transcription engine or a gesture identification engine
 
@@ -30,4 +31,4 @@ For construction guidelines, see [Stream Engine Processing](/engines/processing-
 Previously, aiWARE supported engines that processed and completed an entire file and task in one invocation and communicated directly with the GraphQL API.
 This engine mode has since been deprecated
 
-Please contact us directly for support with legacy batch engines.
+Please [contact us](mailto:ecosystem@veritone.com) directly for support with legacy batch engines.
