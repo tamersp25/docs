@@ -24,18 +24,19 @@ They are often used in situations like:
 The lifecycle for a stream engine is as follows:
 
 1. The Docker container for your engine will be started up with the environment variables set.
-1. The engine consumes `raw_stream` messages from its `KAFKA_INPUT_TOPIC`.
+1. The engine consumes `raw_stream` messages from the topic defined by the `STREAM_INPUT_TOPIC` environment variable.
 1. For each `raw_stream` message, the engine does its processing.
-1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output).
+1. When the engine has some output to report, it creates an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output).
 1. The engine produces the `engine_output` message to `KAFKA_CHUNK_TOPIC`.
 1. When the entire stream is processed (the engine should receive a `stream_eof` message), produce a `stream_eof` message.
-1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.
+1. Throughout this process, the engine needs to produce an `engine_heartbeat` message every 5-10 seconds to let aiWARE know that it is working correctly.
 
 ## Environment Variables
 
 | Key Name | Description | Example |
 | -------- | ----------- | ------- |
 | KAFKA_BROKERS | Comma-separated list of Kafka Broker addresses | "kafka1:9092,kafka2:9092" |
+| STREAM_INPUT_TOPIC | The Stream Queue Kafka topic | <!--TODO: Need example--> |
 | KAFKA_CHUNK_TOPIC | The Chunk Queue Kafka topic | "chunk_all" |
 | VERITONE_API_BASE_URL | Base URL for Veritone APIs | "https://api.veritone.com" |
 | ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
