@@ -36,7 +36,7 @@ The lifecycle for a stream engine is as follows:
 | Key Name | Description | Example |
 | -------- | ----------- | ------- |
 | KAFKA_BROKERS | Comma-separated list of Kafka Broker addresses | "kafka1:9092,kafka2:9092" |
-| STREAM_INPUT_TOPIC | The Stream Queue Kafka topic | <!--TODO: Need example--> |
+| STREAM_INPUT_TOPIC | The Stream Queue Kafka topic | `"stream_buffer:526:19020714_3a2DSokfrPi3WDk__"` |
 | KAFKA_CHUNK_TOPIC | The Chunk Queue Kafka topic | "chunk_all" |
 | VERITONE_API_BASE_URL | Base URL for Veritone APIs | "https://api.veritone.com" |
 | ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
