@@ -23,6 +23,7 @@
   - [FAQ](applications/faq.md)
 
 - Engines
+  - [Overview](engines/)
   - [Getting Started](engines/getting-started/)
     - [Path to Monetization](engines/getting-started/path-to-monetization.md)
     - [Technologies Used](engines/getting-started/technologies.md)
@@ -50,7 +51,7 @@
   - [Engine Toolkit (Beta)](engines/toolkit/)
 
 - Adapters
-  - [Overview](adapters/overview.md)
+  - [Overview](adapters/)
   - [Quickstart](adapters/quickstart/)
     - [Step 1 - Register Your Adapter](adapters/quickstart/step-1.md)
     - [Step 2 - Construct Your Code for the Veritone Platform](adapters/quickstart/step-2.md)

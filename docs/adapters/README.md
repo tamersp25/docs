@@ -7,6 +7,8 @@ Before you begin development, it’s important to get a sense of how adapters in
 
 Remember that our developer support team is here to answer questions and provide assistance. Reach out to us on our [Slack channel](https://chat.veritone.com/) any time you need help.
 
+> In the GraphQL API, adapters are identified as `engines` where `EngineType=Ingestion`
+
 ### Adapter Categories
 
 Adapters fall into two categories, which are defined by the way data is served up from the source. The protocol follows a client-server approach for communication between the data source and the adapter. Based on the nature of the interaction, an adapter will operate in either a push- or a pull-based manner for retrieving data records. 
