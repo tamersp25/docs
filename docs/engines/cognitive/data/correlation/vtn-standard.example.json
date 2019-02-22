@@ -1,0 +1,28 @@
+{
+  "assetType": "vtn-standard",
+  "contentType": "application/json",
+  "validationContracts": [  // TODO: add to ALL examples
+    "structuredData"
+  ],
+  "taskId": "<task ID goes here>",
+  "sourceEngineId": "<engine ID goes here>",
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 10000,
+      "structuredData": {
+        "<schema ID goes here>": {
+          // Content of structured data result goes here
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "schemaIds": [
+      "<schema ID goes here>"
+    ],
+    "taskId": "<task ID goes here>",
+    "jobId": "<job ID goes here>",
+    "sourceEngineId": "<engine ID goes here>"
+  }
+}
