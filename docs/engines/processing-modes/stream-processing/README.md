@@ -72,5 +72,3 @@ Stream engines deal with four different Kafka messages:
 ## Sample Engines
 
 Please contact us directly for sample stream engine code.
-
-TODO: Verify sample engines

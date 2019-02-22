@@ -74,5 +74,3 @@ segment engines deal with three different Kafka messages:
 ## Sample Engines
 
 - https://github.com/veritone/task-rt-test-engine/
-
-TODO: Verify sample engines
