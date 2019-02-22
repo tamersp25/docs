@@ -31,7 +31,7 @@ sample = {
   // Specification for the contracts used for output validation (optional)
   // See http://docs.veritone.com/#/engines/engine_standards/capability/ for more information
   "validationContracts": [
-    "ocr", "face", // ...
+    "ocr", "face", // ...  // TODO: These should be engine category GUIDs
   ],
 
   /**
@@ -67,14 +67,10 @@ sample = {
   // Summary of document (optional)
   "summary": "",
 
-  // Entity reference (optional)
-  "entityId": "<GUID>",
-  "libraryId": "<GUID>",
-
   // Sentiment (optional)
-  // -1.00 (negative) to 1.00 (positive)
-  // For this file, provides a scale of how negative to positive it is
+  // Provides a scale of how negative to positive it is
   // If a single number is returned, then positive must be used
+  // Scale: 0 to 1.00 for all fields
   "sentiment": {
     "positiveValue": 0.12, // REQUIRED
     "positiveConfidence": 0.12, // OPTIONAL
@@ -120,14 +116,13 @@ sample = {
     // Options:
     // - object: Object detection
     // - face: Face detection
-    // - libraryEntity: Library-based object/face recognition
     // - licensePlate: License plate detection
     // - speakerId: Speaker recognition
     // - soundId: Sound recognition
     // - concept: Concept recognition
     // - keyword: Keyword detection
     // - namedEntity
-    "type": "library_entity",
+    "type": "object",
 
     // URI to thumbnail to show in the UI (optional)
     // If not provided but boundingPoly is provided,
@@ -143,6 +138,17 @@ sample = {
 
     // Text found (REQUIRED for OCR)
     "text": "The quick brown fox jumped over the brown fence",
+
+    // Sentiment (optional)
+    // Provides a scale of how negative to positive it is
+    // If a single number is returned, then positive must be used
+    // Scale: 0 to 1.00 for all fields
+    "sentiment": {
+      "positiveValue": 0.12, // REQUIRED
+      "positiveConfidence": 0.12, // OPTIONAL
+      "negativeValue": 0.12, // OPTIONAL
+      "negativeConfidence": 0.12 // OPTIONAL
+    },
 
     // Emotions (optional)
     // For an object (e.g. face detection, voice analysis, text analysis) in the whole file
@@ -292,14 +298,14 @@ sample = {
     "language": "en-US",
 
     // Sentiment (optional)
-    // -1.00 (negative) to 1.00 (positive)
-    // For this file, provides a scale of how negative to positive it is
+    // Provides a scale of how negative to positive it is
     // If a single number is returned, then positive must be used
+    // Scale: 0 to 1.00 for all fields
     "sentiment": {
       "positiveValue": 0.12, // REQUIRED
       "positiveConfidence": 0.12, // OPTIONAL
       "negativeValue": 0.12, // OPTIONAL
-      "negativeConfidence": 0.12, // OPTIONAL
+      "negativeConfidence": 0.12 // OPTIONAL
     },
 
     // Emotions detected (optional)
