@@ -1,9 +1,9 @@
 {
   "series": [
     {
+      "startTimeMs": 817000,
+      "stopTimeMs": 845000,
       "object": {
-        "startTimeMs": 817000,
-        "stopTimeMs": 845000,
         "type": "fingerprint",
         "entityId": "e4f95344-622b-42bb-8e82-514d96d2df88",
         "libraryId": "0fb79432-dcb1-40b0-bb6a-3f7e481aae3e",
