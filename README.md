@@ -76,7 +76,7 @@ See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/qui
 
 ## Docker Test
 
-This is just to test locally. Production builds will happen by Jenkins
+To test the Docker build locally (internal Veritone users only), you can do the following:
 
 ```bash
 # First, connect to VPN
@@ -89,6 +89,8 @@ docker build --build-arg GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN --build-arg EN
 # Run
 docker run -it --rm -p 9000:9000 docs:latest
 ```
+
+This is for local testing only.  Production builds happen through Jenkins.
 
 # License
 Copyright 2017, Veritone Inc.
