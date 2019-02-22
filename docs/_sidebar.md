@@ -27,6 +27,7 @@
   - [Getting Started](engines/getting-started/)
     - [Path to Monetization](engines/getting-started/path-to-monetization.md)
     - [Technologies Used](engines/getting-started/technologies.md)
+  - [Approval Process](engines/approval/)
   - [Deploy a Cognitive Engine](engines/cognitive/)
     - [Audio Fingerprinting](engines/cognitive/audio/audio-fingerprinting/)
     - [Face Detection](engines/cognitive/biometrics/face-detection/)
