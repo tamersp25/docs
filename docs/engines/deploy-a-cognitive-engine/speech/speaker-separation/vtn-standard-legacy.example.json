@@ -1,0 +1,9 @@
+{
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 10000,
+      "speakerId": "<libraryId>:<entityId> (if it maps to an entity, otherwise just a label)"
+    }
+  ]
+}
