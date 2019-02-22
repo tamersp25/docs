@@ -16,6 +16,8 @@ This is what the image becomes in memory when executed.
 When an engine needs to process tasks, one or more containers (or instances) of that engine may be started to process that task.
 When all tasks are complete, containers will be shut down to conserve resources.
 
+aiWARE currently only supports Windows docker containers.
+
 ### Other Resources
 You can find more information on Docker here:
 - https://docs.docker.com/get-started/
