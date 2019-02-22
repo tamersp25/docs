@@ -4,7 +4,7 @@
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
-This toolkit is aimed at [cognitive engines](engines/deploy-a-cognitive-engine/) processing [segments](engines/processing-modes/segment-processing/).
+This toolkit is aimed at [cognitive engines](engines/cognitive/) processing [segments](engines/processing-modes/segment-processing/).
 For example, images, frames from videos, video clips, and audio files.
 If you are building a different kind of engine, you may need to use lower level APIs.
 

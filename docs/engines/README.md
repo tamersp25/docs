@@ -28,7 +28,7 @@ Veritone provides several pull adapters that are available to all users, includi
 There is also a File Upload adapter that allows you to select a file from your personal computer.  
 
 ### Cognitive Engines
-[Cognitive engines](/engines/deploy-a-cognitive-engine/) are the workhorses of aiWare.
+[Cognitive engines](/engines/cognitive/) are the workhorses of aiWare.
 They process the data brought in by adapters and employ sophisticated algorithms and machine learning techniques to produce even more data from which you can derive actionable insights.
 Examples of what a cognition engine does include natural language processing, transcription, and object detection.
 
@@ -49,7 +49,7 @@ They include speech, text, vision, biometrics, audio, data, and transformation.
 Each engine class has multiple capabilities.
 For example, some capabilities under the vision class include object detection, text recognition, and license plate recognition. 
 
-For a full list of engine classes and capabilities currently supported by aiWARE, see the guide for [deploying a cognitive engine](/engines/deploy-a-cognitive-engine/).
+For a full list of engine classes and capabilities currently supported by aiWARE, see the guide for [deploying a cognitive engine](/engines/cognitive/).
 
 ### Aggregator Engines
 **Aggregator engines** consolidate the outputs from all the cognitive engines run within a job and create a new output data set for use in aiWare.
