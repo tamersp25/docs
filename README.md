@@ -17,6 +17,7 @@ Veritone Docs is a static site built using Markdown files and powered by [Docsif
 ### Requirements
 
 - node 8
+- yarn
 
 ### Developing Locally
 
