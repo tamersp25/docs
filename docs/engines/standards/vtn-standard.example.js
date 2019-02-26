@@ -109,9 +109,6 @@ sample = {
   // Object (Face, Object, Logo, OCR, ..) (optional)
   "object": [{
 
-    // Main label for this object (REQUIRED)
-    "label": "Satya Nadella",
-
     // Object type (REQUIRED)
     // Options:
     // - object: Object detection
@@ -121,8 +118,13 @@ sample = {
     // - soundId: Sound recognition
     // - concept: Concept recognition
     // - keyword: Keyword detection
-    // - namedEntity
+    // - text: Recognized or extracted text (OCR / text extraction)
+    // - namedEntity: Entity extraction
     "type": "object",
+
+    // Main label for this object (optional)
+    // REQUIRED if no other identifying information (e.g. text, entityId) is specified
+    "label": "dog",
 
     // URI to thumbnail to show in the UI (optional)
     // If not provided but boundingPoly is provided,
@@ -134,10 +136,19 @@ sample = {
     "libraryId": "<GUID>",
 
     // Confidence score (optional)
-    "confidence": 0.99234, //0-1.00
+    "confidence": 0.99234, // 0-1
 
-    // Text found (REQUIRED for OCR)
-    "text": "The quick brown fox jumped over the brown fence",
+    // Text found (optional)
+    // REQUIRED for OCR and text extraction
+    "text": "The quick brown fox jumped over the lazy dog",
+
+    // Document location (optional)
+    // For referencing where in a document recognized text or entities or occur.
+    // It is highly recommended to define at least one to ensure proper ordering for indexing.
+    // For non-paginated document types like plain text files you can simply enumerate paragraphs based on line breaks.
+    "page": 5,
+    "paragraph": 3,
+    "sentence": 2,
 
     // Sentiment (optional)
     // Provides a scale of how negative to positive it is
@@ -162,7 +173,7 @@ sample = {
     "age": {
       "min": 20,
       "max": 50,
-      "confidence": 0.2
+      "confidence": 0.2 // 0-1
     },
 
     // Face landmarks (optional)
@@ -269,8 +280,6 @@ sample = {
     // Example: "channel0", "speaker1", ...
     "speakerId": "<Speaker Identifier>", // can be "<libraryId>:<entityId>"
 
-    // TODO: Continue...
-
     // Optional
     // Transcript (optional)
     // JSON utterance (all word edges between 2 time nodes)
@@ -322,9 +331,6 @@ sample = {
     // Object (Face, Object, Logo, OCR, ..) (optional)
     "object": {
 
-      // Main label for this object (REQUIRED)
-      "label": "Satya Nadella", // Tag/main label
-
       // Object type (REQUIRED)
       // Options:
       // - object: Object detection
@@ -336,9 +342,14 @@ sample = {
       // - soundId: Sound recognition
       // - concept: Concept recognition
       // - keyword: Keyword detection
-      // - namedEntity
+      // - text: Recognized or extracted text (OCR / text extraction)
+      // - namedEntity: Entity extraction
       // - barcode
-      "type": "libraryEntity",
+      "type": "object",
+
+      // Main label for this object (optional)
+      // REQUIRED if no other identifying information (e.g. text, entityId) is specified
+      "label": "cat",
 
       // URI to thumbnail to show in the UI (optional)
       // If not provided but boundingPoly is provided,
@@ -350,10 +361,11 @@ sample = {
       "libraryId": "<GUID>",
 
       // Confidence score (optional)
-      "confidence": 0.99234, //0-1.00
+      "confidence": 0.99234, // 0-1
 
-      // Text found (REQUIRED FOR OCR)
-      "text": "The quick brown fox jumped over the brown fence",
+      // Text found (optional)
+      // REQUIRED for OCR and text extraction
+      "text": "The quick brown fox jumped over the lazy dog",
 
       // Emotions (optional)
       // For an object (e.g. face detection, voice analysis, text analysis) in the series
@@ -367,7 +379,7 @@ sample = {
       "age": {
         "min": 20,
         "max": 50,
-        "confidence": 0.2
+        "confidence": 0.2 // 0-1
       },
 
       // Face landmarks (optional)

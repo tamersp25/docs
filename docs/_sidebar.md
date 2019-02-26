@@ -38,7 +38,9 @@
     - [Data Correlation](engines/cognitive/data/correlation/)
     - [Speech Transcription](engines/cognitive/speech/transcription/)
     - [Speaker Separation](engines/cognitive/speech/speaker-separation/)
-    - [Text Translation](engines/cognitive/text/translation/)
+    - Text
+      - [Text Extraction](engines/cognitive/text/text-extraction/)
+      - [Translation](engines/cognitive/text/translation/)
   - [Deployment Models](engines/deployment-model/)
   - [Processing Modes](engines/processing-modes/)
     - [Segment Engine Processing](engines/processing-modes/segment-processing/)
