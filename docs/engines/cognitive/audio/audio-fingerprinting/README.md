@@ -7,7 +7,7 @@
 Audio fingerprinting engines identify pre-recorded audio snippets in audio files based on a particular signature or "fingerprint."
 
 In aiWARE, audio fingerprinting engines are always trained based on one or more libraries containing entities with audio fingerprint identifiers.
-The engines report time spans where one of these audio snippets has been matched
+The engines report time spans where one of these audio snippets has been matched.
 
 ## Use Cases
 
