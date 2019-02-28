@@ -6,36 +6,27 @@
   "series": [
     {
       "startTimeMs": 0,
-      "stopTimeMs": 300,
+      "stopTimeMs": 200,
       "words": [
         {
           "word": "veritone",
-          "confidence": 0.9,
+          "confidence": 0.7,
           "bestPath": true,
           "utteranceLength": 2
         },
         {
           "word": "baritone",
-          "confidence": 0.5,
-          "bestPath": false,
+          "confidence": 0.1,
           "utteranceLength": 2
-        }
-      ]
-    },
-    {
-      "startTimeMs": 0,
-      "stopTimeMs": 180,
-      "words": [
+        },
         {
           "word": "very",
-          "confidence": 0.3,
-          "bestPath": false,
+          "confidence": 0.1,
           "utteranceLength": 1
         },
         {
           "word": "berry",
           "confidence": 0.1,
-          "bestPath": false,
           "utteranceLength": 1
         }
       ]
@@ -45,15 +36,24 @@
       "stopTimeMs": 300,
       "words": [
         {
+          "word": "veritone",
+          "confidence": 0.7,
+          "bestPath": true,
+          "utteranceLength": 1
+        },
+        {
+          "word": "baritone",
+          "confidence": 0.1,
+          "utteranceLength": 1
+        },
+        {
           "word": "tone",
-          "confidence": 0.5,
-          "bestPath": false,
+          "confidence": 0.1,
           "utteranceLength": 1
         },
         {
           "word": "phone",
-          "confidence": 0.2,
-          "bestPath": false,
+          "confidence": 0.1,
           "utteranceLength": 1
         }
       ]
