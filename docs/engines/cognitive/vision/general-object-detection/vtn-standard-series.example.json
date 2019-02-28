@@ -1,16 +1,16 @@
 {
   "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
   "validationContracts": [
-    "face"
+    "object"
   ],
-  "series": [
-    {
-      "startTimeMs": 9800,
-      "stopTimeMs": 17200,
-      "object": {
-        "type": "face",
-        "confidence": 0.95,
-        "boundingPoly": [
+  "series": [{
+    "startTimeMs": 2000,
+    "stopTimeMs": 2100,
+    "object": {
+      "type": "object",
+      "label": "dog",
+      "confidence": 0.9,
+      "boundingPoly": [
           {
             "x": 100,
             "y": 100
@@ -28,7 +28,14 @@
             "y": 100
           }
         ]
-      }
     }
-  ]
+  }, {
+    "startTimeMs": 2100,
+    "stopTimeMs": 2200,
+    "object": {
+      "type": "object",
+      "label": "cat",
+      "confidence": 0.55
+    }
+  }]
 }

@@ -1,4 +1,8 @@
 {
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "text"
+  ],
   "language": "en-US",
   "object": [
     {

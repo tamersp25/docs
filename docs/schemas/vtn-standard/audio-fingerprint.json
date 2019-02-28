@@ -1,0 +1,102 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://docs.veritone.com/schemas/vtn-standard/audio-fingerprint.json",
+  "type": "object",
+  "title": "vtn-standard for Audio Fingerprinting engines",
+  "required": [
+    "series"
+  ],
+  "properties": {
+    "schemaId": {
+      "type": "string",
+      "const": "https://docs.veritone.com/schemas/vtn-standard/master.json"
+    },
+    "validationContracts": {
+      "type": "array",
+      "title": "Validation contracts",
+      "description": "Engine category contracts to validate this engine output against",
+      "contains": {
+        "type": "string",
+        "description": "The audio fingerprinting engine category ID",
+        "const": "17d62b84-8b49-465b-a6be-fe3ea3bc8f05"
+      }
+    },
+    "series": {
+      "type": "array",
+      "title": "Time series objects",
+      "items": {
+        "type": "object",
+        "title": "Time series object",
+        "required": [
+          "startTimeMs",
+          "stopTimeMs",
+          "object"
+        ],
+        "properties": {
+          "startTimeMs": {
+            "type": "integer",
+            "title": "Start time (ms)",
+            "description": "The time in milliseconds from the beginning of the file where this observation starts occurring",
+            "minimum": 0,
+            "examples": [
+              817000
+            ]
+          },
+          "stopTimeMs": {
+            "type": "integer",
+            "title": "Stop time (ms)",
+            "description": "The time in milliseconds from the beginning of the file where this observation stops occurring.  Needs to be greater than or equal to startTimeMs.",
+            "minimum": 0,
+            "examples": [
+              845000
+            ]
+          },
+          "object": {
+            "type": "object",
+            "title": "Object observation",
+            "description": "Used for specifying observations of \"objects\" (i.e. \"things\")",
+            "required": [
+              "type",
+              "entityId"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "title": "Object type",
+                "description": "Must be \"fingerprint\" for audio fingerprint engines",
+                "const": "fingerprint"
+              },
+              "entityId": {
+                "type": "string",
+                "title": "Entity ID",
+                "description": "The ID of the matched entity",
+                "examples": [
+                  "e4f95344-622b-42bb-8e82-514d96d2df88"
+                ]
+              },
+              "libraryId": {
+                "type": "string",
+                "title": "Library ID",
+                "description": "The ID of the library the matched entity is contained in (optional)",
+                "examples": [
+                  "0fb79432-dcb1-40b0-bb6a-3f7e481aae3e"
+                ]
+              },
+              "confidence": {
+                "type": "number",
+                "title": "Confidence",
+                "description": "The engine's confidence in this observation (as a percentage)",
+                "minimum": 0,
+                "maximum": 1,
+                "examples": [
+                  0.002928053541550474
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

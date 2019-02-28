@@ -1,0 +1,26 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "license-plate"
+  ],
+  "series": [
+    {
+      "startTimeMs": 20000,
+      "stopTimeMs": 21000,
+      "object": {
+        "confidence": 0.949964599609375,
+        "label": "4CZH511",
+        "type": "licensePlate"
+      }
+    },
+    {
+      "startTimeMs": 14000,
+      "stopTimeMs": 15000,
+      "object": {
+        "confidence": 0.9494956970214844,
+        "label": "VER1TON",
+        "type": "licensePlate"
+      }
+    }
+  ]
+}

@@ -9,7 +9,7 @@ text **extraction** engines are used to extract text content from *semi-structur
 
 ## Engine Output
 
-Most text extraction engine output should be stored in the non-time-based `object` array in vtn-standard.
+Most text extraction engine output should be stored in the non-time-based `object` array in [vtn-standard](/engines/standards/engine-output/).
 Each string of text is represented as an object of type `text`.
 Each object may include any or all of the page/paragraph/sentence indexes.
 They are all optional but it is highly recommended to include at least one so that order is explicitly preserved.

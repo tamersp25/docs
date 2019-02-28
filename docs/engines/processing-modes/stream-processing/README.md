@@ -26,7 +26,7 @@ The lifecycle for a stream engine is as follows:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `raw_stream` messages from its `KAFKA_INPUT_TOPIC`.
 1. For each `raw_stream` message, the engine does its processing.
-1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output).
+1. When processing of each `raw_stream` is done, the engine produces an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output/).
 1. The engine produces the `engine_output` message to `KAFKA_CHUNK_TOPIC`.
 1. When the entire stream is processed (the engine should receive a `stream_eof` message), produce a `stream_eof` message.
 1. Throughout this process, produce an `engine_heartbeat` message every 5-10 seconds to let us know that your engine is working correctly.

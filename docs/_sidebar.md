@@ -29,26 +29,33 @@
     - [Technologies Used](engines/getting-started/technologies.md)
   - [Approval Process](engines/approval/)
   - [Deploy a Cognitive Engine](engines/cognitive/)
-    - [Audio Fingerprinting](engines/cognitive/audio/audio-fingerprinting/)
-    - [Face Detection](engines/cognitive/biometrics/face-detection/)
-    - [Face Recognition](engines/cognitive/biometrics/face-recognition/)
-    - [General Object Detection](engines/cognitive/vision/general-object-detection/)
-    - [Logo Detection](engines/cognitive/vision/logo-detection/)
-    - [Text Recognition](engines/cognitive/vision/text-recognition/)
-    - [Data Correlation](engines/cognitive/data/correlation/)
-    - [Speech Transcription](engines/cognitive/speech/transcription/)
-    - [Speaker Separation](engines/cognitive/speech/speaker-separation/)
+    - Audio
+      - [Audio Fingerprinting](engines/cognitive/audio/audio-fingerprinting/)
+    - Biometrics
+      - [Face Detection](engines/cognitive/biometrics/face-detection/)
+      - [Face Recognition](engines/cognitive/biometrics/face-recognition/)
+    - Data
+      - [Data Correlation](engines/cognitive/data/correlation/)
+      - [Geolocation](engines/cognitive/data/geolocation/)
+    - Speech
+      - [Speaker Separation](engines/cognitive/speech/speaker-separation/)
+      - [Transcription](engines/cognitive/speech/transcription/)
     - Text
       - [Text Extraction](engines/cognitive/text/text-extraction/)
       - [Translation](engines/cognitive/text/translation/)
+    - Vision
+      - [General Object Detection](engines/cognitive/vision/general-object-detection/)
+      - [License Plate Recognition (ALPR)](engines/cognitive/vision/license-plate/)
+      - [Logo Detection](engines/cognitive/vision/logo-detection/)
+      - [Text Recognition (OCR)](engines/cognitive/vision/text-recognition/)
   - [Deployment Models](engines/deployment-model/)
   - [Processing Modes](engines/processing-modes/)
     - [Segment Engine Processing](engines/processing-modes/segment-processing/)
     - [Stream Engine Processing](engines/processing-modes/stream-processing/)
   - [Engine Standards](engines/standards/)
-    - [Engine Output (vtn-standard)](engines/standards/engine-output.md)
-<!--    - [Engine Manifest](engines/standards/engine-manifest.md)-->
-<!--    - [Message Types](engines/standards/message-types.md)-->
+    - [Engine Output (vtn-standard)](engines/standards/engine-output/)
+<!--    - [Engine Manifest](engines/standards/engine-manifest/)-->
+<!--    - [Message Types](engines/standards/message-types/)-->
   - [Custom Fields](engines/custom-fields/)
   - [Testing & Debugging](engines/testing-and-debugging/)
   - [Engine Toolkit (Beta)](engines/toolkit/)

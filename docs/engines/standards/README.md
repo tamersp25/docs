@@ -5,6 +5,6 @@ These standards help ensure that all engines are "speaking the same language" wh
 sending messages, and reporting the insights they uncover.
 
 The three types of engine standards are:
-- [Engine Manifest](engines/standards/engine-manifest.md) (i.e. `manifest.json`): A file included in an engine build that explains how the engine behaves.
-- [Engine Output](engines/standards/engine-output.md) (i.e. `vtn-standard`): A specification for how an engine can report its insights as output.
-- [Message Types](engines/standards/message-types.md): The types of messages engines can read and write to/from the edge kafka queue.
+- [Engine Manifest](engines/standards/engine-manifest/) (i.e. `manifest.json`): A file included in an engine build that explains how the engine behaves.
+- [Engine Output](engines/standards/engine-output/) (i.e. `vtn-standard`): A specification for how an engine can report its insights as output.
+- [Message Types](engines/standards/message-types/): The types of messages engines can read and write to/from the edge kafka queue.

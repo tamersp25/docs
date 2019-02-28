@@ -1,28 +1,20 @@
 {
-  "assetType": "vtn-standard",
-  "contentType": "application/json",
-  "validationContracts": [  // TODO: add to ALL examples
-    "structuredData"
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "structured-data"
   ],
-  "taskId": "<task ID goes here>",
-  "sourceEngineId": "<engine ID goes here>",
   "series": [
     {
       "startTimeMs": 0,
       "stopTimeMs": 10000,
       "structuredData": {
         "<schema ID goes here>": {
-          // Content of structured data result goes here
+          "key": "value",
+          "1": 23,
+          "any": "data you'd like",
+          "as_long": "as it conforms to the schema"
         }
       }
     }
-  ],
-  "metadata": {
-    "schemaIds": [
-      "<schema ID goes here>"
-    ],
-    "taskId": "<task ID goes here>",
-    "jobId": "<job ID goes here>",
-    "sourceEngineId": "<engine ID goes here>"
-  }
+  ]
 }

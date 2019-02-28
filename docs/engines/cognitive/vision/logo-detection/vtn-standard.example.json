@@ -1,9 +1,14 @@
 {
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "logo"
+  ],
   "series": [
     {
       "startTimeMs": 11000,
       "stopTimeMs": 16000,
       "object": {
+        "type": "logo",
         "label": "Veritone",
         "confidence": 0.2406960129737854
       }

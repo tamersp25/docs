@@ -1,4 +1,8 @@
 {
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "face"
+  ],
   "series": [
     {
       "startTimeMs": 9800,

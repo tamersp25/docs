@@ -1,0 +1,23 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "object",
+    "geolocation"
+  ],
+  "series": [
+    {
+      "startTimeMs": 5000,
+      "stopTimeMs": 6000,
+      "object": {
+        "type": "object",
+        "label": "Eiffel Tower",
+        "gps": [
+          {
+            "latitude": 48.858461,
+            "longitude": 2.294351
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "transcript"
+  ],
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 300,
+      "words": [
+        {
+          "word": "veritone",
+          "confidence": 0.9,
+          "bestPath": true,
+          "utteranceLength": 2
+        },
+        {
+          "word": "baritone",
+          "confidence": 0.5,
+          "bestPath": false,
+          "utteranceLength": 2
+        }
+      ]
+    },
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 180,
+      "words": [
+        {
+          "word": "very",
+          "confidence": 0.3,
+          "bestPath": false,
+          "utteranceLength": 1
+        },
+        {
+          "word": "berry",
+          "confidence": 0.1,
+          "bestPath": false,
+          "utteranceLength": 1
+        }
+      ]
+    },
+    {
+      "startTimeMs": 200,
+      "stopTimeMs": 300,
+      "words": [
+        {
+          "word": "tone",
+          "confidence": 0.5,
+          "bestPath": false,
+          "utteranceLength": 1
+        },
+        {
+          "word": "phone",
+          "confidence": 0.2,
+          "bestPath": false,
+          "utteranceLength": 1
+        }
+      ]
+    }
+  ]
+}

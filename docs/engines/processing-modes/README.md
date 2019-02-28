@@ -3,7 +3,7 @@
 TODO: Incorporate edge-messages from https://github.com/veritone/edge-messages
 
 At a high level aiWARE engines, receive input data, process that data, and put processing results back onto the platform.
-The format of the input and output depends on the engine's processing mode (defined in the [manifest file](engines/standards/engine-manifest)).
+The format of the input and output depends on the engine's processing mode (defined in the [manifest file](engines/standards/engine-manifest/)).
 Engines can run in two modes on aiWARE's processing pipeline: `segment` and `stream`.
 
 ## Segment Engines {docsify-ignore}
