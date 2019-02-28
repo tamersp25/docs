@@ -5,7 +5,7 @@ sample = {
    */
 
   // Schema version to validate engine outputs against (optional)
-  "schemaId": "https://www.veritone.com/schema/engine/20180524",
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
 
   // Denotes the engine that created it (optional, provided by Veritone)
   "sourceEngineId": "<GUID>",
@@ -31,7 +31,7 @@ sample = {
   // Specification for the contracts used for output validation (optional)
   // See http://docs.veritone.com/#/engines/engine_standards/capability/ for more information
   "validationContracts": [
-    "ocr", "face", // ...  // TODO: These should be engine category GUIDs
+    "text", "face", // ...
   ],
 
   /**
