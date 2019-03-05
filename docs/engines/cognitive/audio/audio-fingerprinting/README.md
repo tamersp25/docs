@@ -50,6 +50,8 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 Since all audio fingerprinting engines identify entities, they are all required to be [trainable via libraries](/libraries/engines).
 
+## Engine Input
+
 TODO: Point to the [stream processing](/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
 
 ## Engine Output
