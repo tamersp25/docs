@@ -1,0 +1,20 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "text"
+  ],
+  "language": "en-US",
+  "object": [
+    {
+      "type": "text",
+      "text": "The quick brown fox jumped over the lazy dog.",
+      "confidence": 0.99234,
+      "sentence": 1
+    }, {
+      "type": "text",
+      "text": "That freaked out the dog.",
+      "confidence": 0.85,
+      "sentence": 2
+    }
+  ]
+}
