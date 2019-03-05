@@ -37,6 +37,17 @@ Once the PR is merged into master, it will be auto-deployed to docs.veritone.com
 
 ### How to add code examples
 
+Note the code type distinction after the 3 backticks.  It can be any of the following codes:
+
+- graphql
+- json
+- javascript
+- python
+- bash
+- http
+- css
+- html
+
 ```graphql
 query {
   temporalDataObjects {
@@ -58,17 +69,17 @@ query {
 
 ### How to add important content or general tip snippets.
 
-https://docsify.js.org/#/helpers
+See the [docsify documentation](https://docsify.js.org/#/helpers) for the available helpers.
+Our conventions for this repo are as follows:
+
+- `>` is used for generally helpful hints and tips.
+- `?>` is used for more important hints and tips.
+While `>` notes could probably be skipped over by the reader and they'd still be successful, we expect they need to read the `?>` notes. 
+- `!>` is used for warnings about deprecated or otherwise problematic "land mines" the user should stay away from.
 
 ### How to add a new link to the side bar
 
-To add a new link to the sidebar, please add a new entry to
-https://github.com/veritone/veritone.github.io/blob/develop/docs/_sidebar.md.
-
-### How to add a new child link to an existing side bar link
-
-To add a child link to the sidebar, navigate to the child folder and update the `_sidebar.md` file to include the child link.
-See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/quick-start/_sidebar.md for an example.
+To add a new link to the sidebar, please add a new entry to the [_sidebar.md file](docs/_sidebar.md)
 
 ### Useful Resources
 
