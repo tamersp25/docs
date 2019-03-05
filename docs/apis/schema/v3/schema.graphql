@@ -73,6 +73,41 @@ directive @featureFlag(
 
 directive @audit(objectType: String, action: AuditAction, skip: Boolean) on MUTATION
 
+directive @limit(cost: Int) on QUERY | MUTATION | FIELD
+
+input AddLibraryDataset {
+  # Id of the selected library
+  libraryId: ID!
+
+  # List of tdo ids to add to the selected library
+  tdoIds: [ID]!
+}
+
+input AddTask {
+  id: ID!
+  jobId: ID!
+  engineId: ID!
+  buildId: ID!
+  status: TaskStatus!
+  createdDateTime: DateTime!
+  payload: JSON
+  parentTaskId: ID
+}
+
+input AddTasksToJobs {
+  tasks: [AddTask!]
+}
+
+type AddTasksToJobsError {
+  id: ID
+  message: String
+}
+
+type AddTasksToJobsResponse {
+  createdTasks: [Task]
+  errors: [AddTasksToJobsError]
+}
+
 # An application is a set of Veritone functionality that customers can sign up for.
 type Application {
   id: ID!
@@ -224,7 +259,11 @@ type Asset {
 
   # Freeform application-defined metadata. This field may contain information
   # specific to the object type, such as image or video metadata.
-  details: JSON
+  details(
+    # optionally, specify a path to retrieve only a specific property
+    # within the details JSON
+    path: String
+  ): JSON
 
   # Metadata as raw JSON string
   jsonstring(indent: Int = 2): String
@@ -631,6 +670,18 @@ input BundleStatus {
   markAsCompleted: Boolean
 }
 
+type Campaign {
+  id: ID!
+  name: String!
+  startDate: DateTime
+  stopDate: DateTime
+  budget: Int
+  organizationId: ID!
+  advertiserId: ID
+  brandId: ID
+  notes: String
+}
+
 input ChangePassword {
   # The current user's old password. Must be provided even if the
   # user is otherwise authenticated as an additional security check.
@@ -978,10 +1029,17 @@ input CreateAsset {
 
   # Set to true if this asset was created by editing another asset.
   isUserEdited: Boolean = false
+
+  # Set to true if the container stopDateTime needs to be updated by
+  # the duration of the asset
+  updateContainerStopDateTime: Boolean = false
 }
 
 input CreateBuild {
   engineId: ID!
+  taskRuntime: JSON
+  dockerImage: String
+  manifest: JSON
 }
 
 input CreateCluster {
@@ -1074,16 +1132,53 @@ input CreateContextMenuExtensions {
   collections: [CreateContextMenuExtension] = []
 }
 
-input CreateDataRegistry {
-  # Optionally provide a forced ID
-  id: ID
+input CreateCreative {
   name: String!
+  keywords: String
+  brandId: ID
+  advertiserId: ID
+}
+
+input CreateDataRegistry {
+  # Optionally, provide a forced ID. It must be a valid UUID.
+  id: ID
+
+  # Provide a name for the new data registry.
+  name: String!
+
+  # Provide a description for the new data registry.
   description: String!
+
+  # Provide source information. If in doubt, set this
+  # field to the same value as name.
   source: String!
+
+  # Defines a Veritone platform system data registry.
+  # Only platform components can set this value.
+  isSystem: Boolean
+}
+
+input CreateDatasetConfidence {
+  # Mininum Confidence Filter. Sources with confidence lower than this will be ignore
+  min: Float = 0
+
+  # Maximum Confidence Filter. Sources with confidence higher than this will be ignore
+  max: Float = 100
+
+  # allow sources with null confidence values
+  allowNull: Boolean = true
+}
+
+type CreatedMediaShare {
+  id: String!
+  url: String!
 }
 
 # Input fields used to create a new engine.
 input CreateEngine {
+  # Optional given id
+  id: ID
+
   # Indicates whether or not the engine should be public -- visible to and
   # usable by users outside the creator's organization.
   # Typically an engine should not be made public until it has been fully
@@ -1250,7 +1345,7 @@ input CreateEvent {
   # The type of event
   eventType: String!
 
-  # Identifier of the app using the event
+  # Identifier of the app using the event. Using "system" as application will throw error
   application: String!
 
   # Event visibility. Private event is only visible to the app publisher.
@@ -1278,7 +1373,7 @@ input CreateExportRequest {
   tdoData: [CreateExportRequestForTDO!]!
 
   # Information on the export output configuration
-  outputConfigurations: [CreateExportRequestOutputConfig!]
+  outputConfigurations: [CreateExportRequestOutputConfig!] = []
 }
 
 input CreateExportRequestFormatConfig {
@@ -1401,6 +1496,7 @@ input CreateJob {
   # Optional job config information. Typically used only by Veritone
   # platform components.
   jobConfig: JSON
+  isReprocessJob: Boolean
 }
 
 input CreateJobPipeline {
@@ -1444,6 +1540,27 @@ input CreateLibrary {
   description: String
 }
 
+input CreateLibraryConfiguration {
+  # ID of the selected library where this config appliess to
+  libraryId: ID!
+
+  # ID of the engine category this config applies to
+  engineCategoryId: ID!
+
+  # List of selected engines for training
+  targetEngineIds: [ID]!
+
+  # This option is used for Dataset Library Only
+  # List of selected engine where tdos are extracted from for training data
+  # TDOs are extracted from higher ranked engines first then fallback to the lower
+  # ones if the priors don't have any matching tdo
+  rankedSourceEngineIds: [ID]
+
+  # This option is used for Dataset Library Only
+  # Dataset TDOs confidence filters
+  confidence: CreateDatasetConfidence
+}
+
 input CreateLibraryEngineModel {
   # ID of the engine the model is used by
   engineId: ID!
@@ -1463,6 +1580,8 @@ input CreateLibraryEngineModel {
 
   # Optional free-form block containing engine-specific metadata.
   jsondata: JSON
+  accuracy: Int
+  configurationId: ID
 }
 
 input CreateLibraryType {
@@ -1473,6 +1592,23 @@ input CreateLibraryType {
   entityType: CreateEntityType!
 }
 
+input CreateMediaShare {
+  mediaType: String!
+
+  # sourceId OR tdoId is required
+  sourceId: ID
+  tdoId: ID
+  scheduledJobId: ID
+  startDateTime: DateTime
+  stopDateTime: DateTime
+  startOffsetMs: Int
+  stopOffsetMs: Int
+  expireDateTime: DateTime
+
+  # various settings for diffrent types of media. like audio only for videos
+  settings: JSON
+}
+
 input CreateMention {
   mediaId: ID!
   programId: ID!
@@ -1481,16 +1617,58 @@ input CreateMention {
   mentionStatusId: Int
   watchlistId: ID
   cognitiveEngineResultsString: String
+  cognitiveEngineResults: JSON
   snippetsString: String
+  snippets: JSON
   hitStartDateTime: DateTime
   hitEndDateTime: DateTime
   mentionEndDateTime: DateTime
   metadata: JSON
+  queryTerm: String
 }
 
 input CreateMentionComment {
   mentionId: ID!
   commentText: String!
+}
+
+input CreateMentionExportRequest {
+  # Filter information will be received to export data from
+  mentionFilters: CreateMentionExportRequestFilter!
+
+  # User local timezone
+  userTimeZone: String = "America/Los_Angeles"
+}
+
+input CreateMentionExportRequestFilter {
+  # List optional programIds will be filtered to export data
+  programIds: [ID]
+
+  # List optional marketIds will be filtered to export data
+  marketIds: [ID]
+
+  # List optional sourceIds will be filtered to export data
+  mediaSourceIds: [ID]
+
+  # List optional sourceTypeIds will be filtered to export data
+  mediaSourceTypeIds: [ID]
+
+  # List optional mentionStatusIds will be filtered to export data
+  statusIds: [ID]
+
+  # List optional spotTypeIds will be filtered to export data
+  spotTypeList: [ID]
+
+  # Filter mentionDate from/to
+  date: CreateMentionExportRequestFilterDate
+
+  # List optional watchlistIds will be filtered to export data
+  watchlistIds: [ID]
+}
+
+input CreateMentionExportRequestFilterDate {
+  from: DateTime
+  to: DateTime
 }
 
 input CreateMentionRating {
@@ -1536,6 +1714,22 @@ input CreateNextPipelineJobsTargetInfo {
   endOffsetMs: Int
 }
 
+input CreateOrganization {
+  name: String!
+  applications: JSON
+
+  # Metadata in JSON format.
+  metadata: JSON!
+  adminSeatLimit: Int
+  seatLimit: Int
+  status: OrganizationStatus = active
+  maxAiwareNodes: Int
+  maxAiwareClusters: Int
+  businessUnit: String!
+  integrations: JSON
+  types: [OrganizationType]
+}
+
 input CreatePasswordResetRequest {
   # Optionally specify whether we should skip sending the reset email.
   skipPasswordResetEmail: Boolean
@@ -1554,6 +1748,11 @@ input CreatePasswordUpdateRequest {
 
   # Optionally specify whether we should skip sending the reset email.
   skipPasswordResetEmail: Boolean
+}
+
+input CreateProcessTemplate {
+  name: String!
+  taskList: JSON!
 }
 
 input CreateProgramAffiliate {
@@ -1989,6 +2188,9 @@ input CreateTDOWithAsset {
   # chunk size of 15 minutes.
   stopDateTime: DateTime
 
+  # determine stopDateTime based on the length of the media asset
+  updateStopDateTimeFromAsset: Boolean = false
+
   # The ingestion source ID for this file
   sourceId: ID
 
@@ -2136,7 +2338,7 @@ input CreateWatchlist {
   stopDateTime: DateTime!
   cognitiveSearches: [CreateCognitiveSearchInWatchlist!]
   name: String!
-  sourceTypeIds: [ID!] = [5]
+  sourceTypeIds: [ID!]
 
   # Optional ID for a folder the watchlist should be filed in
   parentFolderId: ID
@@ -2156,22 +2358,43 @@ input CreateWeeklySchedulePart {
 }
 
 input CreateWidget {
-  widgetId: String
   collectionId: ID!
-  organizationId: String
   folderId: String
   name: String
-  adScript: String
-  width: Int
-  numberOfMentionsToShow: Int
-  displayLogo: Boolean
-  displayCollectionName: Boolean
-  displayMentionIntro: Boolean
-  displayTranscription: Boolean
-  seoTags: [String]
-  backgroundColor: String
-  borderColor: String
-  textColor: String
+  adScript: String = ""
+  width: Int = 600
+  numberOfMentionsToShow: Int = 10
+  displayLogo: Boolean = false
+  displayCollectionName: Boolean = false
+  displayMentionIntro: Boolean = false
+  displayTranscription: Boolean = false
+  displayCollectionDescription: Boolean = false
+  displayMentionDescription: Boolean = false
+  seoTags: [String] = []
+  backgroundColor: String = "FFFFFF"
+  borderColor: String = "D8D8D8"
+  textColor: String = "000000"
+  nextButtonColor: String
+}
+
+input CreateWorkflowRuntimeStorageData {
+  # Unique lookup id for the workflowRuntimeData
+  storageKey: String!
+
+  # Data content - base64 encoded binary, plain string or encoded JSON
+  storageData: String!
+
+  # Optional metadata for the workflowRuntimeData
+  storageMetadata: String
+}
+
+type Creative {
+  id: ID!
+  name: String!
+  keywords: String
+  organizationId: ID!
+  advertiserId: ID
+  brandId: ID
 }
 
 enum CredentialType {
@@ -2221,6 +2444,7 @@ type DataRegistry {
   # The currently published schema version for convenient access.
   # This field will be empty if there is no published schema.
   publishedSchema: Schema
+  ingestionToken: String
 }
 
 type DataRegistryList implements Page {
@@ -2251,6 +2475,17 @@ input DataRegistryVersion {
   majorVersion: Int! = 1
 }
 
+type DatasetConfidence {
+  # Mininum Confidence Filter. Sources with confidence lower than this will be ignore
+  min: Float
+
+  # Maximum Confidence Filter. Sources with confidence higher than this will be ignore
+  max: Float
+
+  # allow sources with null confidence values
+  allowNull: Boolean
+}
+
 # Date/time custom scalar type
 scalar DateTime
 
@@ -2276,6 +2511,25 @@ input DeleteFolder {
   orderIndex: Int!
 }
 
+input DeleteLibraryDataset {
+  # Id of the selected library
+  libraryId: ID!
+
+  # List of tdo ids to remove to the selected library
+  tdoIds: [ID]!
+}
+
+type DeleteLibraryDatasetPayload {
+  # Id of the selected library
+  libraryId: ID
+
+  # List of tdos removed from dataset library
+  tdoIds: [ID]
+
+  # Delete status
+  message: String
+}
+
 input DeleteMentionComment {
   mentionId: ID!
   commentId: ID!
@@ -2299,6 +2553,13 @@ type DeletePayload {
 
   # a message
   message: String
+}
+
+input DeleteStructuredData {
+  id: ID!
+
+  # Id of the schema used to validate this object
+  schemaId: ID!
 }
 
 # Deployment models describe how an engine or application operates on the network
@@ -2330,10 +2591,25 @@ input EmitEvent {
   eventType: String!
 
   # Identifier of the app using the event
-  applicationId: String!
+  application: String!
 
-  # string payload, it should be serialized Protobuf data with base64 encoding
+  # string payload, it should be serialized Protobuf data with base64 encoding or escaped JSON string
   payload: String!
+}
+
+type EmitEventResponse {
+  id: ID!
+
+  # the decoder that GQL used to interpret your event before sending
+  decoder: String!
+}
+
+input EmitSystemEvent {
+  # A topic
+  topic: String!
+
+  # The event payload
+  payload: JSON!
 }
 
 type Engine {
@@ -2383,6 +2659,10 @@ type Engine {
     # Specify maximum number of results to retrieve in this result. Page size.
     limit: Int = 30
     id: ID
+
+    # Filter the tasks by date/time field.
+    # If a filter is not provided, a default of `createdDateTime` between
+    # three months ago and the current date will be applied.
     dateTimeFilter: [TaskDateTimeFilter]
     hasSourceAsset: Boolean
   ): TaskList
@@ -2450,6 +2730,10 @@ type Engine {
   # Get oauth information based on the deployed build. If there is no deployed
   # build, this field will be null.
   oauth: String
+
+  # Get engine flag which determines whether the engine is a conductor,
+  # this field will be null
+  isConductor: Boolean
 
   # List of schedule types that the engine supports,
   # based on the latest deployed build.
@@ -2739,14 +3023,8 @@ type EngineRun {
   # Engine status derived from the written engine output or task status. See TaskStatus enum for details.
   status: TaskStatus
 
-  # All in-flight tasks for the given engine
-  activeTasks(
-    # Provide an offset to skip to a certain element in the result, for paging.
-    offset: Int = 0
-
-    # Maximum number of results to retrieve in this query
-    limit: Int = 100
-  ): TaskList
+  # Last run task for this engine and tdo
+  task: Task
 
   # Whether or not the engine run has user edits
   hasUserEdits: Boolean
@@ -2912,6 +3190,21 @@ enum EntityIdentifierDataType {
   video
   text
   pdf
+  tdo
+}
+
+type EntityIdentifierItem {
+  libraryTypeId: String!
+  entityIdentifierTypeId: String!
+  minItems: Int
+  maxItems: Int
+}
+
+type EntityIdentifierItemList {
+  records: [EntityIdentifierItem]
+  limit: Int!
+  offset: Int!
+  count: Int
 }
 
 type EntityIdentifierList implements Page {
@@ -2928,6 +3221,7 @@ type EntityIdentifierType {
   iconClass: String
   description: String
   dataType: EntityIdentifierDataType!
+  entityIdentifierItems: [EntityIdentifierItem]
 }
 
 type EntityIdentifierTypeList implements Page {
@@ -2991,6 +3285,17 @@ enum EventDeliveryType {
   Email
 }
 
+type EventList implements Page {
+  records: [Event]
+
+  # The starting index for records that were returned in this query.
+  offset: Int!
+  limit: Int!
+
+  # Number of records returned in this response
+  count: Int
+}
+
 type ExecutionLocation {
   id: ID!
   clusterId: ID!
@@ -3040,6 +3345,11 @@ type ExportRequest {
   # The signed URI to the object that contains, or will contain,
   # export results.
   assetUri: String
+}
+
+enum ExportRequestEvent {
+  exportRequest
+  mentionExportRequest
 }
 
 type ExportRequestList implements Page {
@@ -3119,7 +3429,11 @@ type Folder {
   parent: Folder
 
   # The subfolders of this folder
+  # Deprecated: Use paginated childFolders instead.
   subfolders: [Folder!]
+
+  # A paginated list of child folders of this folders
+  childFolders(offset: Int = 0, limit: Int = 30): FolderList
 
   # The organization that owns this folder
   organization: Organization
@@ -3160,6 +3474,19 @@ type FolderContentTemplate {
   modifiedDateTime: DateTime
 }
 
+type FolderList implements Page {
+  records: [Folder]
+
+  # Provide an offset to skip to a certain element in the result, for paging.
+  offset: Int!
+
+  # Maximum number of results that were retrieved in this query; page size
+  limit: Int!
+
+  # Number of records returned in this response
+  count: Int
+}
+
 enum FolderStatus {
   active
   inactive
@@ -3194,6 +3521,7 @@ type GraphQLServiceInfo {
   # JSON structure containing build information, such as the build number and date.
   buildInfo: JSON
   featureFlags: JSON
+  heartbeatStats: JSON
 }
 
 type Group {
@@ -3309,6 +3637,7 @@ type Job {
 
   # ID of the cluster where this job will be executed
   clusterId: ID
+  jobConfig: JSON
 
   # ID of the template from which this job was created, if applicable.
   templateId: ID
@@ -3522,6 +3851,12 @@ type Library {
 
   # Retrieve engine models for a library
   engineModels(id: ID): LibraryEngineModelList
+
+  # Retrieve library model configurations
+  configurations(limit: Int, offset: Int): LibraryConfigurationList
+
+  # Retrieve dataset library tdos
+  dataset: LibraryDataset
   entities(
     # Provide an ID to retrieve a single specific entity.
     id: ID
@@ -3567,6 +3902,48 @@ type LibraryCollaboratorList {
   count: Int
 }
 
+type LibraryConfiguration {
+  # library configuration id
+  id: ID
+
+  # ID of the selected library where this config applies to
+  libraryId: ID
+
+  # ID of the engine category this config applies to
+  engineCategoryId: ID
+
+  # List of selected engine ids for training
+  targetEngineIds: [ID]
+
+  # This option is used for Dataset Library Only
+  # List of selected engine where tdos are extracted from for training data
+  # TDOs are extracted from higher ranked engines first then fallback to the lower
+  # ones if the priors don't have any matching tdo
+  rankedSourceEngineIds: [ID]
+
+  # This option is used for Dataset Library Only
+  # Dataset tdos confidence filters
+  confidence: DatasetConfidence
+}
+
+type LibraryConfigurationList implements Page {
+  # The starting index for records that were returned in this query.
+  offset: Int!
+  limit: Int!
+
+  # Number of records returned in this response
+  count: Int
+  records: [LibraryConfiguration]
+}
+
+type LibraryDataset {
+  # Id of the selected library
+  libraryId: ID
+
+  # List of tdo ids in the selected library
+  tdoIds: [ID]
+}
+
 type LibraryEngineModel {
   id: ID!
   createdDateTime: DateTime
@@ -3584,6 +3961,8 @@ type LibraryEngineModel {
   # Will be empty if no data file is attached to the engine model.
   contentType: String
   jsondata: JSON
+  accuracy: Int
+  configurationId: ID
 }
 
 type LibraryEngineModelList implements Page {
@@ -3697,6 +4076,28 @@ type LoginInfo {
   user: User
 }
 
+type MediaShare {
+  mediaType: String!
+  serviceName: String!
+
+  # sourceId OR tdoId is required
+  sourceId: ID
+  tdoId: ID
+  scheduledJobId: ID
+  startDateTime: DateTime
+  stopDateTime: DateTime
+  startOffsetMs: Int
+  stopOffsetMs: Int
+
+  # various settings for diffrent types of media. like audio only for videos
+  settings: JSON
+}
+
+type MediaShareInfo {
+  token: String!
+  isSegmented: Boolean
+}
+
 type Mention {
   id: ID!
   organizationId: ID!
@@ -3724,7 +4125,7 @@ type Mention {
   adCreative: JSON
   fingerprint: JSON
   cognitiveEngineResults: JSON
-  comments: [MentionComment]
+  comments: MentionCommentList
   hash: ID
   hitStartDateTime: DateTime
   hitEndDateTime: DateTime
@@ -3735,6 +4136,11 @@ type Mention {
   watchlist: Watchlist
   advertiser: JSON
   brand: JSON
+  queryTerm: String
+  ratings(userId: ID): MentionRatingList
+  privateNote: String
+  publicNote: String
+  campaign: Campaign
 }
 
 type MentionComment {
@@ -3747,6 +4153,13 @@ type MentionComment {
   commentText: String
   createdDateTime: DateTime
   modifiedDateTime: DateTime
+}
+
+type MentionCommentList implements Page {
+  offset: Int!
+  limit: Int!
+  count: Int
+  records: [MentionComment]
 }
 
 enum MentionDateTimeField {
@@ -3791,10 +4204,17 @@ enum MentionOrderByField {
 type MentionRating {
   ratingId: ID!
   mentionId: ID
-  userID: ID
+  userId: ID
   ratingValue: Int
   createdDateTime: DateTime
   modifiedDateTime: DateTime
+}
+
+type MentionRatingList implements Page {
+  offset: Int!
+  limit: Int!
+  count: Int
+  records: [MentionRating]
 }
 
 type MentionSnippets {
@@ -3813,8 +4233,9 @@ type MentionUserSnippets {
   text: String
   startTime: Float
   endTime: Float
-  transcriptStartDate: String
-  transcriptEndDate: String
+  transcriptStartDate: DateTime
+  transcriptEndDate: DateTime
+  snippets: [MentionSnippets]
 }
 
 interface Metadata {
@@ -3973,6 +4394,7 @@ type Mutation {
     # Fields required to update a task.
     input: UpdateTask
   ): Task
+  addTasksToJobs(input: AddTasksToJobs): AddTasksToJobsResponse
 
   # Poll a task
   pollTask(
@@ -4002,6 +4424,7 @@ type Mutation {
     # Supply the ID of the job to retry.
     id: ID!
   ): Job
+  updateJobs(input: UpdateJobs!): JobList
 
   # Create a new application. An application must
   # go through a sequence of workflow steps before
@@ -4156,6 +4579,30 @@ type Mutation {
     id: ID!
   ): DeletePayload
 
+  # Create Dataset Library Configuration
+  createLibraryConfiguration(
+    # Fields required to create library configuration
+    input: CreateLibraryConfiguration!
+  ): LibraryConfiguration
+
+  # Update Dataset Library Configuration
+  updateLibraryConfiguration(
+    # Fields required to create library configuration
+    input: UpdateLibraryConfiguration!
+  ): LibraryConfiguration
+
+  # Delete Dataset Library Configuration
+  deleteLibraryConfiguration(
+    # Supply configuration ID to delete.
+    id: ID!
+  ): DeletePayload
+
+  # Add recordings to a dataset library
+  addLibraryDataset(input: AddLibraryDataset!): LibraryDataset
+
+  # Remove recordings from a dataset library
+  deleteLibraryDataset(input: DeleteLibraryDataset!): DeleteLibraryDatasetPayload
+
   # Apply an application workflow step, such as "submit" or "approve"
   applicationWorkflow(
     # Fields required to apply a application workflow step
@@ -4197,6 +4644,12 @@ type Mutation {
     # Fields needed to create a user.
     input: CreateUser
   ): User
+
+  # Create a new organization.
+  createOrganization(
+    # Fields needed to create an organization.
+    input: CreateOrganization!
+  ): Organization
 
   # Update an existing user
   updateUser(
@@ -4247,6 +4700,9 @@ type Mutation {
   # Create (ingest) a structured data object
   createStructuredData(input: CreateStructuredData!): StructuredData
 
+  # Delete a structured data object
+  deleteStructuredData(input: DeleteStructuredData!): DeletePayload
+
   # Create (ingest) a structured data object
   createCollection(
     # Fields required to create new collection
@@ -4280,6 +4736,12 @@ type Mutation {
     # Fields needed to share a mention
     input: ShareMentionFromCollection
   ): Share
+
+  # Share mention
+  shareMention(input: ShareMention): Share
+
+  # Share mentions in bulk
+  shareMentionInBulk(input: ShareMentionInBulk): [Share]
 
   # Add a mention to a collection
   createCollectionMention(
@@ -4379,6 +4841,12 @@ type Mutation {
 
   # Create a mention object
   createMention(input: CreateMention!): Mention
+
+  # Update a mention object
+  updateMention(input: UpdateMention!): Mention
+
+  # Update a set of mentions
+  updateMentions(input: UpdateMentions!): [Mention]
 
   # Create root folder for an organization
   createRootFolders(
@@ -4508,6 +4976,12 @@ type Mutation {
   # Create Mention in bulk. The input should be an array of createMentions
   createMentions(input: CreateMentions!): MentionList
 
+  # Create Media Share. Returning the url of the share
+  createMediaShare(input: CreateMediaShare!): CreatedMediaShare!
+
+  # Create or Update Workflow data.
+  setWorkflowRuntimeStorageData(workflowRuntimeId: ID!, input: CreateWorkflowRuntimeStorageData!): WorkflowRuntimeStorageData!
+
   # Create a new event
   createEvent(input: CreateEvent!): Event!
 
@@ -4521,7 +4995,46 @@ type Mutation {
   unsubscribeEvent(id: ID!): UnsubscribeEvent!
 
   # Emit an event
-  emitEvent(input: EmitEvent!): ID!
+  emitEvent(input: EmitEvent!): EmitEventResponse!
+
+  # Start a Veritone Workflow instance
+  startWorkflowRuntime(workflowRuntimeId: ID!, orgId: ID!, generateAuthToken: Boolean = false): WorkflowRuntimeResponse!
+
+  # Shutdown Veritone Workflow instance
+  stopWorkflowRuntime(workflowRuntimeId: ID!): WorkflowRuntimeResponse!
+
+  # Create a processTemplate in CMS
+  createProcessTemplate(input: CreateProcessTemplate!): ProcessTemplate!
+
+  # Update a processTemplate by ID in CMS
+  updateProcessTemplate(input: UpdateProcessTemplate!): ProcessTemplate!
+
+  # Create a mention export request. The requested mentionFilters including
+  # The mention export file csv will be exported offline.
+  createMentionExportRequest(
+    # Input data required to create the export request
+    input: CreateMentionExportRequest!
+  ): ExportRequest!
+
+  # Update status or assetURI of a mentionExportRequest
+  # Often use when the file export was completed or downloaded
+  updateMentionExportRequest(input: UpdateMentionExportRequest!): ExportRequest!
+
+  # Create a creative
+  createCreative(input: CreateCreative!): Creative!
+
+  # Update a creative
+  updateCreative(input: UpdateCreative!): Creative!
+
+  # Delete a creative
+  deleteCreative(id: ID!): DeletePayload!
+
+  # Emit a system-level emit. This mutation is used only by
+  # Veritone platform components.
+  emitSystemEvent(
+    # Data required to create the event
+    input: EmitSystemEvent!
+  ): SystemEventInfo!
   createCluster(input: CreateCluster!): Cluster
   updateCluster(input: UpdateCluster!): Cluster
   deleteCluster(id: ID!): DeletePayload
@@ -4687,6 +5200,11 @@ enum OrganizationStatus {
   deleted
 }
 
+enum OrganizationType {
+  agency
+  broadcaster
+}
+
 # Common fields used by queries and fields that support paging to represent
 # a single page of results.
 interface Page {
@@ -4733,6 +5251,20 @@ input PollTask {
   pollPayload: JSON
 }
 
+type ProcessTemplate {
+  id: ID!
+  organizationId: ID!
+  name: String!
+  taskList: JSON!
+}
+
+type ProcessTemplateList implements Page {
+  records: [ProcessTemplate!]
+  offset: Int!
+  limit: Int!
+  count: Int
+}
+
 # Metadata that represents a program.
 type Program implements Metadata {
   id: ID
@@ -4747,6 +5279,9 @@ type ProgramAffiliate {
   scheduledJobId: ID!
   scheduledJob: ScheduledJob
   scheduledDay: DayOfWeek
+
+  # The day of week adjusted to source live timezone
+  scheduledDayLocal: DayOfWeek
   startDateTime: DateTime
   stopDateTime: DateTime
   startTime: Time
@@ -4946,6 +5481,9 @@ type Query {
     # Provide a list of scheduled job IDs to get jobs associated with the scheduled jobs
     scheduledJobIds: [ID!]
 
+    # Return only jobs that are (true) or are not (false) associated with a scheduled job
+    hasScheduledJobId: Boolean
+
     # Provide sort information. The default is to sort by
     # createdDateTime descending.
     orderBy: [JobSortField!]
@@ -5071,6 +5609,12 @@ type Query {
     orderBy: LibraryEntityOrderBy
     orderDirection: OrderDirection
   ): EntityList
+
+  # Retrieve library configuration
+  libraryConfiguration(
+    # Provide configuration id
+    id: ID!
+  ): LibraryConfiguration
 
   # Retrieve applications. These are custom applications integrated into
   # the Veritone platform using the VDA framework.
@@ -5205,6 +5749,12 @@ type Query {
     # The user who owns the mention.
     userId: String
   ): Mention
+
+  # Retrieve a shared mention
+  sharedMention(
+    # share token
+    shareId: ID!
+  ): SharedMention
 
   # Search for mentions across an index.
   # This query requires a user token.
@@ -5343,8 +5893,10 @@ type Query {
 
     # Schema Id for the structured data object to retrieve
     schemaId: ID!
+    orderBy: [StructuredDataOrderBy!]
     limit: Int = 30
     offset: Int = 0
+    owned: Boolean
 
     # Query to filter SDO. Supports operations such as and, or, eq, gt, lt, etc.
     # TODO link to syntax documentation
@@ -5370,6 +5922,15 @@ type Query {
     # a file name, a UUID will be appended.
     key: String
   ): WritableUrlInfo
+
+  # Return writable storage URLs in bulk.
+  # A maximum of 1000 can be created in one call.
+  # See `getSignedWritableUrl` for details on usage of the
+  # response contents.
+  getSignedWritableUrls(
+    # Number of signed URLs to return
+    number: Int!
+  ): [WritableUrlInfo!]!
   myRights: RightsListing
 
   # Retrieve the shared folders for an organization
@@ -5381,7 +5942,7 @@ type Query {
   dataRegistry(id: ID!): DataRegistry
   subscription(id: ID!): Subscription!
   cognitiveSearch(id: ID!): CognitiveSearch!
-  collections(id: ID, mentionId: ID, offset: Int = 0, limit: Int = 30): CollectionList!
+  collections(id: ID, name: String, mentionId: ID, offset: Int = 0, limit: Int = 30): CollectionList!
   collection(id: ID!): Collection!
   mentions(
     id: ID
@@ -5481,14 +6042,34 @@ type Query {
 
     # Provide a list of status options to filter by status
     status: [ExportRequestStatus!]
+
+    # Provide an event to retrieve export request. Should be 'exportRequest' or 'mentionExportRequest'
+    # Default value is 'exportRequest'
+    event: ExportRequestEvent = exportRequest
   ): ExportRequestList!
-  exportRequest(id: ID!): ExportRequest!
+  exportRequest(
+    id: ID!
+
+    # Provide an event to retrieve export request. Should be 'exportRequest' or 'mentionExportRequest'
+    # Default value is 'exportRequest'
+    event: ExportRequestEvent = exportRequest
+  ): ExportRequest!
 
   # Retrieve a event by id
   event(id: ID!): Event!
 
   # Retrieve a list of events by application
-  events(application: String!): [Event!]
+  events(
+    # Provide an application to retrieve all its events.
+    # Use 'system' to list all public system events.
+    application: String!
+
+    # Provide an offset to skip to a certain element in the result, for paging.
+    offset: Int = 0
+
+    # Specify maximum number of results to retrieve in this result. Page size.
+    limit: Int = 30
+  ): EventList!
 
   # This query returns information about time zones recognized by this
   # server. The information is static and does not change.
@@ -5556,8 +6137,43 @@ type Query {
     orderBy: [AuditLogOrderBy!]
   ): AuditLogEntryList!
 
-  # Get the specific Mention shared
-  sharedMention(id: ID!, offset: Int = 0, limit: Int = 0): MentionList
+  # Get the media share by media shareId
+  mediaShare(id: ID!): MediaShare!
+
+  # Retrieve a shared collection
+  sharedCollection(
+    # share token
+    shareId: ID!
+  ): SharedCollection
+
+  # Retrieve Veritone Workflow instance status by id
+  workflowRuntime(workflowRuntimeId: ID!): WorkflowRuntimeResponse!
+
+  # Get a specific workflowRuntimeData based on dataKey
+  workflowRuntimeStorageData(
+    # Unique id of the workflow instance
+    workflowRuntimeId: ID!
+
+    # The unique id to rertrieve a single workflow data
+    storageKey: String
+
+    # A prefix filter used to return a set of workflow data
+    # items whose dataKey starts with dataKeyPrefix
+    storageKeyPrefix: String
+
+    # Offset for paging
+    offset: Int = 0
+
+    # Limit on result size, for paging (page size).
+    # workflowRuntimeData can be arbitrary large therefore smaller paging shoulf be preffered
+    limit: Int = 30
+  ): WorkflowRuntimeStorageDataList!
+
+  # Get list process templates by id or current organizationId
+  processTemplates(id: ID, offset: Int = 0, limit: Int = 30): ProcessTemplateList!
+
+  # Get creative by id with current organizationId
+  creative(id: ID!): Creative!
 
   # Retrieve a single schedule
   scheduledJob(id: ID!): ScheduledJob
@@ -5587,6 +6203,9 @@ type Query {
     limit: Int = 30
     dateTimeFilter: [ScheduledJobDateTimeFilter!]
 
+    # Time filter is in station local time
+    partTimeFilter: [ScheduledJobPartTimeFilter!]
+
     # Optionally, specify one or more source IDs. Scheduled jobs with
     # any of the given sources as their primary source will be returned.
     primarySourceId: [ID!]
@@ -5606,6 +6225,9 @@ type Query {
     # Specify a permission level to retrieve scheduled jobs to which you
     # have at least that permission.
     permission: ScheduledJobPermission = viewer
+
+    # Specify clusterId to filter scheduled jobs that run on specified cluster
+    clusterId: ID
   ): ScheduledJobList
 
   # Retrieve a single engine configuration
@@ -5840,7 +6462,9 @@ type ScheduledJob {
     # createdDateTime descending.
     orderBy: [JobSortField!]
 
-    # Optionally, specify filters on date/time fields
+    # Optionally, specify filters on date/time fields.
+    # If a filter is not provided here, the query will
+    # default to the past 3 months.
     dateTimeFilter: [JobDateTimeFilter!]
 
     # Provide a list of status strings to filter by status
@@ -5956,6 +6580,17 @@ enum ScheduledJobOrderField {
   isActive
 }
 
+enum ScheduledJobPartTimeField {
+  startTime
+  endTime
+}
+
+input ScheduledJobPartTimeFilter {
+  toTime: Time
+  fromTime: Time
+  field: ScheduledJobPartTimeField!
+}
+
 # Permissions or roles on source objects
 enum ScheduledJobPermission {
   # A source editor can make updates to some source fields, but cannot
@@ -5972,6 +6607,9 @@ enum ScheduledJobPermission {
 
 type SchedulePart {
   scheduleType: ScheduleType!
+
+  # The day of week adjusted to source live timezone
+  scheduledDayLocal: DayOfWeek
   scheduledDay: DayOfWeek
   startTime: Time
   stopTime: Time
@@ -6255,6 +6893,7 @@ type Share {
   shareOptionsJson: JSON
   folderId: ID
   mentionId: ID
+  mediaShare: MediaShareInfo
 }
 
 input ShareCollection {
@@ -6267,8 +6906,68 @@ input ShareCollection {
   # list of recipients
   recipients: [String]
 
-  # Collection image
+  # collection specific share options
   shareOptions: ShareOptions
+}
+
+type SharedCollection {
+  name: String
+  image: String
+  folderId: ID
+  folderTypeId: ID
+  organizationId: ID
+  programCount: Int
+  shareInfo: Share
+  mentions: SharedMentionList
+}
+
+type SharedMention {
+  id: ID!
+  organizationId: ID!
+  sourceTypeId: ID
+  sourceId: ID
+  scheduledJobId: ID
+  mediaId: ID
+  advertiserId: ID
+  brandId: ID
+  campaignId: ID
+  watchlistId: ID
+  statusId: ID
+  complianceStatusId: ID
+  spotTypeId: ID
+  audienceMarketCount: Int
+  audienceAffiliateCount: Int
+  mentionHitCount: Int
+  audience: Int
+  mentionRating: Int
+  isMatch: Boolean
+  mentionDate: DateTime
+  metadata: JSON
+  mentionSnippets: [MentionSnippets]
+  userSnippets: [MentionUserSnippets]
+  adCreative: JSON
+  fingerprint: JSON
+  cognitiveEngineResults: JSON
+  comments: [MentionComment]
+  hash: ID
+  hitStartDateTime: DateTime
+  hitEndDateTime: DateTime
+  organization: JSON
+  temporalDataObject: JSON
+  scheduledJob: JSON
+  share: Share
+  watchlist: JSON
+}
+
+type SharedMentionList implements Page {
+  records: [SharedMention]
+
+  # The starting index for records that were returned in this query.
+  offset: Int!
+  limit: Int!
+
+  # Number of records returned in this response
+  count: Int
 }
 
 type SharedWith {
@@ -6290,6 +6989,26 @@ input ShareFolderInput {
   writeOrganizationIds: [Int]
 }
 
+input ShareMention {
+  # id of the mention
+  mentionId: ID!
+
+  # message in email
+  shareMessage: String
+
+  # list of recipients
+  recipients: [String]
+
+  # Collection image
+  shareOptions: JSON
+
+  # Internal API token can create shared mention for other orgs
+  organizationId: ID
+
+  # UserID the shared mention is being created for
+  userId: ID
+}
+
 input ShareMentionFromCollection {
   # id of the mention from collection
   mentionId: ID!
@@ -6307,6 +7026,20 @@ input ShareMentionFromCollection {
   shareOptions: ShareOptions
 }
 
+input ShareMentionInBulk {
+  # Array ids of the mentions
+  mentionIds: [ID!]!
+
+  # message in email
+  shareMessage: String
+
+  # list of recipients
+  recipients: [String]
+
+  # Collection image
+  shareOptions: JSON
+}
+
 input ShareOptions {
   showImage: Boolean
   showComments: Boolean
@@ -6319,6 +7052,8 @@ input ShareOptions {
   showAffiliateStripdown: Boolean
   showDownload: Boolean
   showDescription: Boolean
+  mentionPrePaddingSeconds: Float
+  mentionPostPaddingSeconds: Float
 }
 
 # A source represents a source of data and is used by adapters to ingest
@@ -6371,7 +7106,7 @@ type Source {
 
   # Permissions granted to other organizations. Only the source owner
   # can view or edit this field.
-  collaborators: SourceCollaboratorList!
+  collaborators(orderBy: SourceCollaboratorOrderBy = organizationId, orderDirection: OrderDirection = asc): SourceCollaboratorList!
 
   # Current state for the source object. This is controlled by
   # the adapters that use the source and should not be set by
@@ -6396,6 +7131,11 @@ type SourceCollaboratorList implements Page {
   offset: Int!
   limit: Int!
   count: Int
+}
+
+enum SourceCollaboratorOrderBy {
+  organizationId
+  permission
 }
 
 type SourceContentTemplate {
@@ -6624,6 +7364,23 @@ type StructuredDataList implements Page {
   count: Int
   offset: Int!
   limit: Int!
+  owned: Boolean
+  orderBy: [StructuredDataOrderByType!]
+}
+
+input StructuredDataOrderBy {
+  field: StructuredDataOrderByField!
+  direction: OrderDirection = desc
+}
+
+enum StructuredDataOrderByField {
+  createdDateTime
+  modifiedDateTime
+}
+
+type StructuredDataOrderByType {
+  field: StructuredDataOrderByField!
+  direction: OrderDirection!
 }
 
 # An object containing custom structured data.
@@ -6709,6 +7466,13 @@ enum SupportedGPU {
   P2
 }
 
+type SystemEventInfo {
+  topic: String!
+  payload: JSON!
+  timestamp: DateTime!
+  id: ID!
+}
+
 # Represents a single engine task
 type Task {
   # The task ID
@@ -6777,6 +7541,8 @@ type Task {
   # The ID of the source asset for this task, if there is one.
   sourceAssetId: ID
   mediaLengthSec: Int
+  mediaStorageBytes: Int
+  mediaFileName: String
 
   # The incoming task payload, in JSON format
   payload: JSON
@@ -6871,6 +7637,7 @@ enum TaskStatus {
   standby_pending
   waiting
   resuming
+  aborted
 }
 
 type TaskTemplate {
@@ -6997,7 +7764,11 @@ type TemporalDataObject {
 
   # Direct access to metadata in raw JSON format
   jsondata: JSON
-  details: JSON
+  details(
+    # optionally, specify a path to retrieve only a specific property
+    # within the details JSON
+    path: String
+  ): JSON
 
   # Assets this object contains. Can be of any size.
   # This field does not support paging.
@@ -7022,7 +7793,13 @@ type TemporalDataObject {
     limit: Int = 30
     orderBy: AssetOrderBy = createdDateTime
     orderDirection: OrderDirection = desc
+
+    # Whether or not to include a virtual media asset
+    # that streams together all segments on a segmented
+    # TDO. Most clients should use the default for this.
+    includeVirtualMediaAsset: Boolean = true
   ): AssetList
+  assetCount: Int!
 
   # Retrieve the primary asset of a given type
   primaryAsset(assetType: String!): Asset
@@ -7044,7 +7821,16 @@ type TemporalDataObject {
   status: String
 
   # Tasks running against this TemporalDataObject
-  tasks(id: ID, offset: Int = 0, limit: Int = 30, hasSourceAsset: Boolean): TaskList
+  tasks(
+    id: ID
+    offset: Int = 0
+    limit: Int = 30
+    hasSourceAsset: Boolean
+
+    # If a filter is not provided, a default of `createdDateTime` between
+    # the TDO creation time and the current date will be applied.
+    dateTimeFilter: [TaskDateTimeFilter]
+  ): TaskList
 
   # Jobs running against this temporalDataObject
   jobs: JobList
@@ -7298,6 +8084,14 @@ input UpdateContextMenuExtensions {
   collections: [UpdateContextMenuExtension] = []
 }
 
+input UpdateCreative {
+  id: ID!
+  name: String
+  keywords: String
+  brandId: ID
+  advertiserId: ID
+}
+
 input UpdateCurrentUser {
   # Required if updating the MFA phone number
   passwordToken: String
@@ -7323,6 +8117,17 @@ input UpdateDataRegistry {
   name: String!
   description: String!
   source: String!
+}
+
+input UpdateDatasetConfidence {
+  # Mininum Confidence Filter. Ignore sources having confidence lower than this
+  min: Float
+
+  # Maximum Confidence Filter. Ignore sources having confidence higher than this
+  max: Float
+
+  # allow sources with null confidence values
+  allowNull: Boolean
 }
 
 # Input fields used to update an existing engine.
@@ -7502,6 +8307,15 @@ input UpdateJobPipeline {
   isPublic: Boolean
 }
 
+input UpdateJobs {
+  ids: [ID!]
+  status: UpdateJobsStatus
+}
+
+enum UpdateJobsStatus {
+  queued
+}
+
 input UpdateJobTemplate {
   id: ID!
 
@@ -7518,6 +8332,24 @@ input UpdateLibrary {
   description: String
   libraryTypeId: ID
   version: Int
+}
+
+input UpdateLibraryConfiguration {
+  # library configuration id
+  id: ID!
+
+  # List of selected engines for training
+  targetEngineIds: [ID]
+
+  # This option is used for Dataset Library Only
+  # List of selected engine where tdos are extracted from for training data
+  # TDOs are extracted from higher ranked engines first then fallback to the lower
+  # ones if the priors don't have any matching tdo
+  rankedSourceEngineIds: [ID]
+
+  # This option is used for Dataset Library Only
+  # Dataset TDOs confidence filters
+  confidence: UpdateDatasetConfidence
 }
 
 input UpdateLibraryEngineModel {
@@ -7551,6 +8383,8 @@ input UpdateLibraryEngineModel {
   # uploaded, the server will store it and then set `dataUrl` to
   # its location.
   file: UploadedFile
+  accuracy: Int
+  configurationId: ID
 }
 
 input UpdateLibraryType {
@@ -7561,16 +8395,43 @@ input UpdateLibraryType {
   entityType: UpdateEntityType
 }
 
+input UpdateMention {
+  id: ID!
+  privateNote: String
+  publicNote: String
+  complianceStatusId: ID
+  spotTypeId: ID
+  statusId: ID
+  adCreative: JSON
+  userSnippets: JSON
+}
+
 input UpdateMentionComment {
   mentionId: ID!
   commentId: ID!
   commentText: String!
 }
 
+input UpdateMentionExportRequest {
+  # The required mentionExportRequestId will be used for update
+  id: ID!
+
+  # Status of mentionExportRequest record
+  status: ExportRequestStatus
+
+  # The asset URI
+  assetUri: String
+}
+
 input UpdateMentionRating {
   mentionId: ID!
   ratingId: ID!
   ratingValue: Int!
+}
+
+input UpdateMentions {
+  ids: [ID!]!
+  statusId: ID
 }
 
 input UpdateMFAInfo {
@@ -7604,6 +8465,11 @@ input UpdateOrganization {
   # Updating this field will completely replacing the existing engine
   # and whitelist with the IDs provided.
   whitelist: SetEngineWhitelist
+}
+
+input UpdateProcessTemplate {
+  id: ID!
+  taskList: JSON!
 }
 
 input UpdateScheduledJob {
@@ -7760,6 +8626,17 @@ input UpdateTask {
 
   # Save execution location metadata
   executionLocationData: JSON
+
+  # Optional timestamp used to control change ordering.
+  # The client may set this to the `modifiedDateTime` value
+  # of most recent copy of the task it has before making the
+  # update. The server will _only_ update the task with the
+  # requested changes _if_ and only if the current
+  # `modifiedDateTime` value is equal to or earlier than
+  # the supplied `clientTimestamp` value. Thus, changes
+  # that were made after the client last retrieved the task
+  # data will not be overwritten.
+  clientTimestamp: DateTime
 }
 
 enum UpdateTaskStatus {
@@ -7854,23 +8731,23 @@ input UpdateWatchlist {
 }
 
 input UpdateWidget {
-  id: ID
-  widgetId: String
+  id: ID!
   name: String
-  organizationId: ID
-  collectionId: ID!
-  displayCollectionName: Boolean
-  displayTranscription: Boolean
+  adScript: String
   width: Int
   numberOfMentionsToShow: Int
-  adScript: String
+  displayLogo: Boolean
+  displayCollectionName: Boolean
+  displayMentionIntro: Boolean
+  displayTranscription: Boolean
+  displayCollectionDescription: Boolean
+  displayMentionDescription: Boolean
   seoTags: [String]
   backgroundColor: String
   borderColor: String
   textColor: String
   createdDateTime: DateTime
-  displayLogo: Boolean
-  displayMentionIntro: Boolean
+  nextButtonColor: String
 }
 
 # A custom scalar type representing a file upload in the asset input types
@@ -7882,19 +8759,22 @@ input UploadEngineResult {
   taskId: ID!
 
   # A string containing the engine result.
-  # Use either this field, `output`, or `file` with multipart form POST, but not
+  # Use either this field, `output`, `uri`, or `file` with multipart form POST, but not
   # more than one.
   outputString: String
 
   # JSON data containing the engine result.
   # A string containing the engine result.
-  # Use either this field, `outputString`, or `file` with multipart form POST, but not
+  # Use either this field, `outputString`, `uri`, or `file` with multipart form POST, but not
   # more than one.
   output: JSON
 
   # A file to upload. Use multipart form POST to submit this field.
-  # Use either this field or the `outputString` field, not both.
+  # Use this field, the `output`, `outputString`, or `uri` field, not more than one.
   file: UploadedFile
+
+  # A URI to the file. Use one and only one of `uri`, `file`, or `output`/`outputString`.
+  uri: String
 
   # The file name
   filename: String
@@ -8123,6 +9003,21 @@ type Watchlist {
   # Get mentions generated for this watchlist
   mentions(offset: Int = 0, limit: Int = 30): MentionList
 
+  # ID of the advertiser directly with the watchlist
+  advertiserId: ID
+
+  # ID of the brand directly with the watchlist
+  brandId: ID
+
+  # advertiser associated with the watchlist
+  advertiser: JSON
+
+  # brand associated with the watchlist
+  brand: JSON
+
+  # creative associated with the watchlist
+  creative: Creative
+
   # Contains the list of all source type IDs
   # associated with this watchlist, including
   # those for sources on schedules.
@@ -8162,7 +9057,11 @@ type Widget {
   collection: Collection
   collectionId: ID!
   displayCollectionName: Boolean
+  displayCollectionDescription: Boolean
   displayTranscription: Boolean
+  displayMentionDescription: Boolean
+  displayMentionIntro: Boolean
+  displayLogo: Boolean
   width: Int
   numberOfMentionsToShow: Int
   adScript: String
@@ -8170,6 +9069,7 @@ type Widget {
   backgroundColor: String
   borderColor: String
   textColor: String
+  nextButtonColor: String
   createdDateTime: DateTime
 }
 
@@ -8186,6 +9086,38 @@ type WidgetList implements Page {
   count: Int
 }
 
+type WorkflowRuntimeResponse {
+  success: Boolean!
+
+  # Error message if success is false
+  message: String
+
+  # uri of veritone workflow instance.
+  # This is only available when Workflow request is successful
+  uri: String
+
+  # Authentication token used for webhooks
+  authToken: String
+}
+
+type WorkflowRuntimeStorageData {
+  # Unique lookup id for the workflowRuntimeData
+  storageKey: String!
+
+  # Data content - base64 encoded binary, plain string or encoded JSON
+  storageData: String!
+
+  # Optional metadata for the workflowRuntimeData
+  storageMetadata: String
+}
+
+type WorkflowRuntimeStorageDataList implements Page {
+  records: [WorkflowRuntimeStorageData]
+  count: Int
+  offset: Int!
+  limit: Int!
+}
+
 # Contains information about a signed writable URL retrieved from the
 # getSignedWritableUrl mutation.
 type WritableUrlInfo {
@@ -8195,8 +9127,11 @@ type WritableUrlInfo {
   # The storage object key
   key: String!
 
-  # Time internal, in seconds, after which this URL is expired and no longer valid.
+  # Time interval, in seconds, after which this URL is expired and no longer valid.
   expiresInSeconds: Int!
+
+  # Absolute time at which this URL expires
+  expiresAtDateTime: DateTime!
 
   # The signed URL, which can be uploaded to with an HTTP PUT (note:  PUT is
   # required. POST will generate an error).
