@@ -7,12 +7,12 @@
   "object": [
     {
       "type": "text",
-      "text": "The contents of line 1",
+      "text": "Translated contents of line 1",
       "confidence": 0.99234,
       "paragraph": 1
     }, {
       "type": "text",
-      "text": "The contents of line 2",
+      "text": "Translated contents of line 2",
       "confidence": 0.85,
       "paragraph": 2
     }
