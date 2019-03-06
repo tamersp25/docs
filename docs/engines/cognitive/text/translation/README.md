@@ -18,7 +18,7 @@ All translation engines should specify the following parameters in their build m
 | `supportedInputFormats` | `["text/plain"]` |
 | `engineMode` | `"chunk"` |
 
-Here is a minimal example `manifest.json` that could apply to an audio fingerprinting engine:
+Here is a minimal example `manifest.json` that could apply to a translation engine:
 
 [](manifest.example.json ':include :type=code json')
 
