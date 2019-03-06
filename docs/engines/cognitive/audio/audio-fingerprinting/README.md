@@ -9,6 +9,7 @@ Audio fingerprinting engines identify pre-recorded audio snippets in audio files
 In aiWARE, audio fingerprinting engines are always trained based on one or more libraries containing entities with audio fingerprint identifiers.
 The engines report time spans where one of these audio snippets has been matched.
 
+<!--TODO: Add these sections back in when we have good content for them
 ## Use Cases
 
 TODO: Document use cases
@@ -30,8 +31,9 @@ TODO: What goes here?  A full tutorial for creating the build?  If so, let's :in
 - [ ] Item 2
 
 TODO: Note that audio fingerprinting engines are typically network isolated due to requiring libraries and engine models.
+-->
 
-### Recommended Manifest Fields
+## Engine Manifest
 
 Manifest fields of unique importance for audio fingerprinting engines include:
 
@@ -50,9 +52,11 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 Since all audio fingerprinting engines identify entities, they are all required to be [trainable via libraries](/libraries/engines).
 
+<!--
 ## Engine Input
 
 TODO: Point to the [stream processing](/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
+-->
 
 ## Engine Output
 
@@ -69,4 +73,4 @@ Here is an example of proper engine output:
 > The official engine output json-schema validation contract is available
 [here](/schemas/vtn-standard/audio-fingerprint.json ':ignore').
 
-TODO: Include info on logging, etc.?  This would be global to all.
+<!--TODO: Include info on logging, etc.?  This would be global to all.-->

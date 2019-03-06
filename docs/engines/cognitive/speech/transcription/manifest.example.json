@@ -1,0 +1,14 @@
+{
+  "engineId": "<your engine ID from Veritone Developer>",
+  "preferredInputFormat": "audio/wav",
+  "supportedInputFormats": [
+    "audio/mp4",
+    "audio/mpeg",
+    "audio/webm"
+  ],
+  "outputFormats": [
+    "application/json"
+  ],
+  "engineMode": "stream",
+  "clusterSize": "small"
+}

@@ -1,0 +1,13 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "text"
+  ],
+  "language": "en-US",
+  "object": [
+    {
+      "type": "text",
+      "text": "The entire translated contents can be written here.\nWith escaped line breaks if needed.\n(with UTF-8 encoding)"
+    }
+  ]
+}

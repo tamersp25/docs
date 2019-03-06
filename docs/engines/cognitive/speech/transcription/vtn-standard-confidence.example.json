@@ -1,0 +1,18 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "transcript"
+  ],
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 300,
+      "words": [
+        {
+          "word": "this",
+          "confidence": 0.45
+        }
+      ]
+    }
+  ]
+}

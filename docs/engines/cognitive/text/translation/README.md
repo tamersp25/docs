@@ -6,9 +6,7 @@
 
 Translation engines take the content of a file and translate it to another language, ideally outputting it in the same format as the input.
 
-## Engine Build Construction Guidelines
-
-### Recommended Manifest Fields
+## Engine Manifest
 
 All translation engines should specify the following parameters in their build manifest:
 
@@ -45,4 +43,11 @@ For plain text files that contain full sentences, the input document should be b
 
 If the input document does not have sentences and the most appropriate way to break up the file for translation is line-by-line, then the output may be indexed by `paragraph` representing the lines.
 
-[](vtn-standard-sentence.example.json ':include :type=code json')
+[](vtn-standard-line.example.json ':include :type=code json')
+
+### Full-Text Output
+
+If there are no logical breaks in the translated text, the engine could output the entire contents to a single `text` block.
+The downside to this is that when users search for results within the translated contents of a document, they may not be able to easily locate where in the document the result is found.
+
+[](vtn-standard-block.example.json ':include :type=code json')
