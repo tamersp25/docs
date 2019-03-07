@@ -24,7 +24,8 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 <!--
 ## Engine Input
 
-TODO: Point to the [stream processing](/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
+TODO: Point to engine toolkit documentation and explain some of the things to expect re: chunk boundaries and stuff.
+TODO: Talk about how if they want real-time-capable stateful stream processing, they should talk to us.
 -->
 
 ## Engine Output
