@@ -1,5 +1,9 @@
 # Building a Text Extraction Engine
 
+![](badge/API/Yes/green)
+![](badge/Search/Yes/green)
+![](badge/UI/Yes/green)
+
 Text extraction engines process documents to extract the textual information from them and express that extracted text in a structured format.
 
 They are similar to [text recognition](/engines/cognitive/vision/text-recognition/)
