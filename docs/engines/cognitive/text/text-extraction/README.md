@@ -1,4 +1,4 @@
-# Text Extraction
+# Building a Text Extraction Engine
 
 Text extraction engines process documents to extract the textual information from them and express that extracted text in a structured format.
 
@@ -31,5 +31,5 @@ All indexes are optional but it is highly recommended to include at least one so
 The output can also include a language code and confidence scores if desired.
 
 ### Example
-
+ 
 [](vtn-standard.example.json ':include :type=code javascript')
