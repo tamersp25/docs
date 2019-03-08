@@ -1,10 +1,27 @@
-# General Object Detection Engine Output Example
+# Building a General Object Detection Engine
+
+A general object recognition engine detects one or more objects in an image or video, based on a general (high level) ontology.
+For example, the engine might detect objects such as `person`, `desk`, or `aircraft`.
+
+## Engine Manifest
+
+Here is a minimal example `manifest.json` that could apply to a general object detection engine:
+
+<!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
+
+See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+
+<!-- ## Engine Input -->
+
+<!-- TODO -->
 
 ## Engine Output
 
 General detected objects can be reported in engine output by specifying an `object` of `type: object`.
 An object definition can exist in either the object array (for non-time-based detections)
 or in an `object` key in the `series` array (for time-based detections).
+
+### Example 
 
 Here is an example of proper engine output for objects detected within a time series:
 
@@ -14,3 +31,4 @@ TODO: Add an example for objects outside a time series
 
 The official engine output json-schema is available
 [here](/schemas/vtn-standard/object.json ':ignore').
+
