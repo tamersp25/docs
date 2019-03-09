@@ -1,16 +1,14 @@
-<!-- ---
-title: Libraries
---- -->
+# Working with Libraries
 
-### Overview
+Veritone's Library Application enables collections of digital assets to be created for custom engine training.
+After successful training, each engine can then process media and identify specific "entities" that it was trained to identify.
+Libraries can be private to an organization and shared between organizations if needed.
 
-Veritone's Library Application enables collections of digital assets to be created for custom engine training. After successful training, each engine can then process media and identify specific "entities" that it was trained to identify.  Libraries can be publicly available, or private, depending on the needs of the client organization.
-
-### Purpose
+## Purpose
 
 A Library's purpose is to provide a structured technical architecture and user-friendly UI to manage digital assets for the training of engines.
 
-### Technical Architecture
+## Technical Architecture
 
 **Library**\- A named collection of entities an organization is interested in identifying in media, e.g. American Politicians. A Library's type defines what type of entities it can hold.
 
@@ -34,8 +32,6 @@ A Library's purpose is to provide a structured technical architecture and user-f
 
 **Cross-Engine** **Identification**\- The idea that the same entity can be identified by different engines trained using the same library.
 
-### Basic Relation Diagram
-
-<br>
+## Basic Relation Diagram
 
 ![](library-design.jpg)

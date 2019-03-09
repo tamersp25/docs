@@ -1,4 +1,4 @@
-# Applications
+# Building Applications
 
 ### Introduction
 Veritone puts the power of AI in developers’ hands with tools to create and integrate applications that build on the Veritone Platform. 

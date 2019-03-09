@@ -31,10 +31,22 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
 
-  <!--Custom CSS for collapsing all but current page-->
+  <!--Custom Veritone CSS-->
   <style>
+
+    /* For collapsing all but current page */
     .sidebar-nav .collapse ul {
       display: none;
+    }
+
+    /**
+     * For highlighting the currently selected page
+     * Because the default assumes you only want things highlighted if they don't have any subpages
+     **/
+    .sidebar-nav .active > a {
+      border-right: 2px solid;
+      color: var(--theme-color,#42b983);
+      font-weight: 600;
     }
   </style>
 </head>
@@ -60,16 +72,29 @@
       // }
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
-        '^\/applications$': '/applications/',
-        '^\/engines$': '/engines/',
-        '^\/data$': '/data/',
+
+        // TODO: Figure out how to make these redirects instead of aliases
+
+        // Permalinks to support legacy developer-only file structure
+        '^\/applications/(.*)$': '/developer/applications/$1',
+        '^\/data/(.*)$': '/developer/data/$1',
+        '^\/engines/(.*)$': '/developer/engines/$1',
+        '^\/libraries/(.*)$': '/developer/libraries/$1',
+        '^\/veritone-developer-overview(|.md)$': '/developer/',
+        '^\/developer-benefits(|.md)$': '/developer/benefits',
+        '^\/terms-and-conditions(|.md)$': '/developer/terms-and-conditions',
+
+        // TODO: change convention to use README files and just always alias no-trailing-slash to trailing-slash
         '^\/apis$': '/apis/',
-        '^\/libraries$': '/libraries/',
+        '^\/apis\/tutorials$': '/apis/tutorials/',
+        '^\/developer\/applications$': '/developer/applications/',
+        '^\/developer\/data$': '/developer/data/',
+        '^\/developer\/engines$': '/developer/engines/',
+        '^\/developer/libraries$': '/developer/libraries/',
         '^\/engines\/classes$': '/engines/classes/',
         '^\/engines\/guidelines$': '/engines/guidelines/',
         '^\/engines\/engine-input-output$': '/engines/engine-input-output/',
         '^\/engines\/tutorials$': '/engines/tutorials/',
-        '^\/apis\/tutorials$': '/apis/tutorials/',
         '(.*)\/quick-start$': '$1/quick-start/'
       }
       // plugins: [
@@ -100,12 +125,15 @@
 
       /**
        * Sidebar Collapse
-       * Collapses all sidebar elements that are cousins (1st, 2nd, whatever) of the current page
+       * Makes all elements of the sidebar that aren't directly around the current node collapse
+       * Leaves only the parent hierarchy leading to the current node and the first-level children of the current node expanded.
        **/
       function (hook, vm) {
         hook.doneEach(function onPageChanged() {
           collapseExtendedFamilyRecursion = 0;
-          collapseExtendedFamily($('.sidebar-nav .active'));
+          var activeEl = $('.sidebar-nav .active');
+          collapseChildren(activeEl);
+          collapseExtendedFamily(activeEl);
         });
       },
 
@@ -124,7 +152,19 @@
     ].concat(window.$docsify.plugins || []);
 
 
+    function collapseChildren(el) {
+      el = getSidebarNode(el);
+      var subNavEls = getChildren(el);
+      for (var i = 0; i < subNavEls.length; i++) {
+        collapseNavEl($(subNavEls[i]));
+      }
+    }
+
+    /**
+     * Collapses all sidebar elements that are cousins (1st, 2nd, whatever) of the element
+     **/
     function collapseExtendedFamily(el) {
+      el = getSidebarNode(el);
       collapseExtendedFamilyRecursion++;
       if (collapseExtendedFamilyRecursion > RECURSION_LIMIT) {
         console.error('collapseExtendedFamily recursion limit reached!');
@@ -140,6 +180,7 @@
       if (!el.hasClass('sidebar-nav')) {
         collapseExtendedFamily(parentEl);
       }
+      // TODO: It's currently recursing out of .sidebar-nav.  We should stop that once it gets to that point.
     }
 
     /**
@@ -163,11 +204,27 @@
         el.addClass('collapse');
       } else if (el.find('ul a').length) {
         // It's not a link but there's one in its children somewhere.  Go find it.
-        var subNavEls = $(el.children()[1]).children();  // Kinda poorly assuming el.children[1] is ul
-        for (var i = 0; i < subNavEls.length; i++) {
-          collapseNavEl($(subNavEls[i]));
-        }
+        collapseChildren(el);
       }
+    }
+
+    /**
+     * @todo: Kinda poorly assumes el.children[1] is ul
+     **/
+    function getChildren(el) {
+      return $(el.children()[1]).children();
+    }
+
+    /**
+     * Returns the correct sidebar element to collapse based off of
+     * The top level of the sidebar only sets .active on a child <p> so we need to go up to the
+     * @param el
+     */
+    function getSidebarNode(el) {
+      if (el[0].tagName.toLowerCase() === 'p' && el.hasClass('active')) {
+        return el.parent();
+      }
+      return el;
     }
   </script>
 </body>

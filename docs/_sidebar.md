@@ -1,83 +1,14 @@
 <!-- docs/_sidebar.md -->
 
-- Getting Started
-  - [Overview](/)
-  - [Veritone Developer Overview](veritone-developer-overview.md)
+<!--TODO: Need to change the overview stuff based on this new re-org-->
+- [aiWARE Overview](/)
   - [Architecture Overview](architecture-overview.md)
-  - [Developer Benefits](developer-benefits.md)
   - [Glossary](glossary.md)
-  - [Terms & Conditions](terms-and-conditions.md)
-
-- Applications
-  - [Overview](applications/)
-  - [Application Integration](applications/integration/)
-  - [Quickstart](applications/quick-start/)
-    - [Step 1 - Register Your Application](applications/quick-start/step-1.md)
-    - [Step 2 - Set Up Authentication](applications/quick-start/step-2.md)
-    - [Step 3 - Add APIs and Components](applications/quick-start/step-3.md)
-    - [Step 4 - Submit Your Application](applications/quick-start/step-4.md)
-    - [Step 5 - Deploy Your Application](applications/quick-start/step-5.md)
-  - [Context Menu Extensions](applications/context-menu-extensions.md)
-  - [OAuth](applications/oauth.md)
-  - [Resources](applications/resources.md)
-  - [FAQ](applications/faq.md)
-
-- Engines
-  - [Overview](engines/)
-  - [Getting Started](engines/getting-started/)
-    - [Path to Monetization](engines/getting-started/path-to-monetization.md)
-    - [Technologies Used](engines/getting-started/technologies.md)
-  - [Approval Process](engines/approval/)
-  - [Build a Cognitive Engine](engines/cognitive/)
-    - Audio
-      - [Audio Fingerprinting](engines/cognitive/audio/audio-fingerprinting/)
-    - Biometrics
-      - [Face Detection](engines/cognitive/biometrics/face-detection/)
-      - [Face Recognition](engines/cognitive/biometrics/face-recognition/)
-    - Data
-      - [Data Correlation](engines/cognitive/data/correlation/)
-      - [Geolocation](engines/cognitive/data/geolocation/)
-    - Speech
-      - [Speaker Separation](engines/cognitive/speech/speaker-separation/)
-      - [Transcription](engines/cognitive/speech/transcription/)
-    - Text
-      - [Text Extraction](engines/cognitive/text/text-extraction/)
-      - [Translation](engines/cognitive/text/translation/)
-    - Vision
-      - [General Object Detection](engines/cognitive/vision/general-object-detection/)
-      - [License Plate Recognition (ALPR)](engines/cognitive/vision/license-plate/)
-      - [Logo Detection](engines/cognitive/vision/logo-detection/)
-      - [Text Recognition (OCR)](engines/cognitive/vision/text-recognition/)
-  - [Deployment Models](engines/deployment-model/)
-  - [Processing Modes](engines/processing-modes/)
-    - [Segment Engine Processing](engines/processing-modes/segment-processing/)
-    - [Stream Engine Processing](engines/processing-modes/stream-processing/)
-  - [Engine Standards](engines/standards/)
-    - [Engine Output (vtn-standard)](engines/standards/engine-output/)
-<!--    - [Engine Manifest](engines/standards/engine-manifest/)-->
-<!--    - [Message Types](engines/standards/message-types/)-->
-  - [Custom Fields](engines/custom-fields/)
-  - [Testing & Debugging](engines/testing-and-debugging/)
-  - [Engine Toolkit (Beta)](engines/toolkit/)
-
-- Adapters
-  - [Overview](adapters/)
-  - [Quickstart](adapters/quickstart/)
-    - [Step 1 - Register Your Adapter](adapters/quickstart/step-1.md)
-    - [Step 2 - Construct Your Code for the Veritone Platform](adapters/quickstart/step-2.md)
-    - [Step 3 - Create Your Manifest File](adapters/quickstart/step-3.md)
-    - [Step 4 - Package and Upload a Build](adapters/quickstart/step-4.md)
-    - [Step 5 - Submit Your Build for Approval](adapters/quickstart/step-5.md)
-    - [Step 6 - Deploy Your Adapter](adapters/quickstart/step-6.md)
-  - [Construction Guidelines](adapters/guidelines.md)
-  - [Adapter Manifest](adapters/manifest.md)
-
-- Data
-  - [Overview](data/)
-  - [Quickstart](data/quick-start/)
-
-- APIs
-  - [Overview](apis/)
+  
+- [Applications](apps/)
+  - [Admin](apps/admin/)
+  
+- [APIs](apis/)
   - [The Veritone API Data Model](apis/data-model.md)
   - [Using GraphQL](apis/using-graphql.md)
   - [Authentication](apis/authentication.md)
@@ -102,8 +33,76 @@
     - [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
     - [Paging](apis/tutorials/paging.md)
 
-- Libraries
-  - [Overview](libraries/)
-  - [Library-enabled Engines](libraries/engines.md)
-  - [Training Engines](libraries/training.md)
-  - [Running Engines](libraries/running.md)
+- [Developer](developer/)
+  - [Developer Benefits](developer/benefits.md)
+  
+  - [Building Applications](developer/applications/)
+    - [Application Integration](developer/applications/integration/)
+    - [Quickstart](developer/applications/quick-start/)
+      - [Step 1 - Register Your Application](developer/applications/quick-start/step-1.md)
+      - [Step 2 - Set Up Authentication](developer/applications/quick-start/step-2.md)
+      - [Step 3 - Add APIs and Components](developer/applications/quick-start/step-3.md)
+      - [Step 4 - Submit Your Application](developer/applications/quick-start/step-4.md)
+      - [Step 5 - Deploy Your Application](developer/applications/quick-start/step-5.md)
+    - [Context Menu Extensions](developer/applications/context-menu-extensions.md)
+    - [OAuth](developer/applications/oauth.md)
+    - [Resources](developer/applications/resources.md)
+    - [FAQ](developer/applications/faq.md)
+  
+  - [Building Engines](developer/engines/)
+    - [Getting Started](developer/engines/getting-started/)
+      - [Path to Monetization](developer/engines/getting-started/path-to-monetization.md)
+      - [Technologies Used](developer/engines/getting-started/technologies.md)
+    - [Approval Process](developer/engines/approval/)
+    - [Build a Cognitive Engine](developer/engines/cognitive/)
+      - Audio
+        - [Audio Fingerprinting](developer/engines/cognitive/audio/audio-fingerprinting/)
+      - Biometrics
+        - [Face Detection](developer/engines/cognitive/biometrics/face-detection/)
+        - [Face Recognition](developer/engines/cognitive/biometrics/face-recognition/)
+      - Data
+        - [Data Correlation](developer/engines/cognitive/data/correlation/)
+        - [Geolocation](developer/engines/cognitive/data/geolocation/)
+      - Speech
+        - [Speaker Separation](developer/engines/cognitive/speech/speaker-separation/)
+        - [Transcription](developer/engines/cognitive/speech/transcription/)
+      - Text
+        - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
+        - [Translation](developer/engines/cognitive/text/translation/)
+      - Vision
+        - [General Object Detection](developer/engines/cognitive/vision/general-object-detection/)
+        - [License Plate Recognition (ALPR)](developer/engines/cognitive/vision/license-plate/)
+        - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
+        - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
+    - [Deployment Models](developer/engines/deployment-model/)
+    - [Processing Modes](developer/engines/processing-modes/)
+      - [Segment Engine Processing](developer/engines/processing-modes/segment-processing/)
+      - [Stream Engine Processing](developer/engines/processing-modes/stream-processing/)
+    - [Engine Standards](developer/engines/standards/)
+      - [Engine Output (vtn-standard)](developer/engines/standards/engine-output/)
+        <!-- - [Engine Manifest](developer/engines/standards/engine-manifest/)-->
+        <!-- - [Message Types](developer/engines/standards/message-types/)-->
+    - [Custom Fields](developer/engines/custom-fields/)
+    - [Testing & Debugging](developer/engines/testing-and-debugging/)
+    - [Engine Toolkit (Beta)](developer/engines/toolkit/)
+  
+  - [Building Adapters](developer/adapters/)
+    - [Quickstart](developer/adapters/quickstart/)
+      - [Step 1 - Register Your Adapter](developer/adapters/quickstart/step-1.md)
+      - [Step 2 - Construct Your Code for the Veritone Platform](developer/adapters/quickstart/step-2.md)
+      - [Step 3 - Create Your Manifest File](developer/adapters/quickstart/step-3.md)
+      - [Step 4 - Package and Upload a Build](developer/adapters/quickstart/step-4.md)
+      - [Step 5 - Submit Your Build for Approval](developer/adapters/quickstart/step-5.md)
+      - [Step 6 - Deploy Your Adapter](developer/adapters/quickstart/step-6.md)
+    - [Construction Guidelines](developer/adapters/guidelines.md)
+    - [Adapter Manifest](developer/adapters/manifest.md)
+  
+  - [Working with Data](developer/data/)
+    - [Quickstart](developer/data/quick-start/)
+  
+  - [Working with Libraries](developer/libraries/)
+    - [Library-enabled Engines](developer/libraries/engines.md)
+    - [Training Engines](developer/libraries/training.md)
+    - [Running Engines](developer/libraries/running.md)
+
+  - [Terms & Conditions](developer/terms-and-conditions.md)

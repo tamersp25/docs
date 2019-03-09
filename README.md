@@ -35,7 +35,28 @@ If the branch is in this repo (not a fork) and the name begins with `feature/VTN
 our build system will build it and let you know if it passed in the PR.
 Once the PR is merged into master, it will be auto-deployed to docs.veritone.com.
 
-### How to add code examples
+### Formatting conventions
+
+In general, try to keep everything as simple as possible.
+Use heading 1s (`# Title`) for the page title, then heading 2s (`## Title`) for major sections, section 3s for subsections and so on.
+Don't choose headings based on the font size.
+
+Separate sentences with a single carriage return.
+When rendered this will just put a single space between the sentences.
+Keeping sentences on separate lines helps to keep the markdown easily viewable without paragraphs running way off the screen.
+For an actual paragraph break, separate with two carriage returns.
+
+#### How to add important content or general tip snippets.
+
+See the [docsify documentation](https://docsify.js.org/#/helpers) for the available helpers.
+Our conventions for this repo are as follows:
+
+- `>` is used for generally helpful hints and tips.
+- `?>` is used for more important hints and tips.
+While `>` notes could probably be skipped over by the reader and they'd still be successful, we expect they need to read the `?>` notes. 
+- `!>` is used for warnings about deprecated or otherwise problematic "land mines" the user should stay away from.
+
+#### How to add code examples
 
 Note the code type distinction after the 3 backticks.  It can be any of the following codes:
 
@@ -67,15 +88,28 @@ query {
 }
 ```
 
-### How to add important content or general tip snippets.
+#### Using Tables
 
-See the [docsify documentation](https://docsify.js.org/#/helpers) for the available helpers.
-Our conventions for this repo are as follows:
+Tables are great for displaying multi-dimensional information.
+Unfortunately, they're a bit of a pain to deal with in Markdown.
+Don't try to line everything up perfectly in the markdown; just ensure you have all the right separators.
+Line up the table headers and the line under them, and for the rows, just add separators where appropriate.
 
-- `>` is used for generally helpful hints and tips.
-- `?>` is used for more important hints and tips.
-While `>` notes could probably be skipped over by the reader and they'd still be successful, we expect they need to read the `?>` notes. 
-- `!>` is used for warnings about deprecated or otherwise problematic "land mines" the user should stay away from.
+```markdown
+| Parameter | Value |
+| --------- | ----- |
+| `preferredInputFormat` | `"text/plain"` |
+| `supportedInputFormats` | `["text/plain"]` |
+| `engineMode` | `"chunk"` |
+```
+
+#### Advanced Formatting
+
+If needed, Markdown does support using HTML directly inside of it, but try to avoid it wherever possible.
+For example, don't sprinkle around a bunch of `<br>` tags just to get more spacing; let the site handle the formatting for you.
+If we start to see that we need extra padding after h3s for example, we can apply it globally in the future.
+
+If there is an advanced feature that you want added to lots of different places, consider building a plugin to render it based on very simple markdown (e.g. )
 
 ### How to add a new link to the side bar
 
