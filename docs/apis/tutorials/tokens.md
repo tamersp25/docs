@@ -1,7 +1,3 @@
-<!-- ---
-title: Authentication and Authorization Tokens
---- -->
-
 # Authentication and Authorization Tokens
 
 This tutorial covers some common questions Veritone API users might have, such as

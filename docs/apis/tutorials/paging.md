@@ -1,7 +1,3 @@
-<!-- ---
-title: Paging
---- -->
-
 # Paging
 
 Many queries can return a large number of results. Consider

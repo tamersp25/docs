@@ -1,8 +1,4 @@
-<!-- ---
-title: Running library-enabled engines
---- -->
-
-# Running library-enabled engines
+# Running Library-Enabled engines
 
 When run in `library-run` mode, the payload will once again contain  `libraryId` and `libraryEngineModelId` parameters. It is the engine's task to fetch necessary information from the provided library engine model and do its job. To get the library engine model, execute a GraphQL query like the following:
 

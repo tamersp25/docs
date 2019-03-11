@@ -1,8 +1,4 @@
-<!-- ---
-title: Training library-enabled engines
---- -->
-
-# Training library-enabled Engines
+# Training Library-Enabled Engines
 
 The Veritone platform automatically triggers training jobs for
 all compatible engines whenever a given library is published.
