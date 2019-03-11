@@ -8,12 +8,14 @@ A speaker separation (aka *diarization*) engine partitions an audio stream into 
 
 ## Engine Manifest
 
+<!-- TODO
 All speaker separation engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
 | --------- | ----- |
 | `TODO` | `TODO` |
 | `TODO` | `TODO` |
+-->
 
 <!--TODO:  Here is a minimal example `manifest.json` that could apply to a speaker separation engine: -->
 

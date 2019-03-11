@@ -9,14 +9,14 @@ Logo detection engines are designed to detect one or more logos or branding elem
 <!-- TODO
 ## Engine Manifest
 
-All face recognition engines should specify the following parameters in their build manifest:
+All logo detection engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
 | --------- | ----- |
 | `TODO` | `TODO` |
 | `TODO` | `TODO` |
 
-Here is a minimal example `manifest.json` that could apply to a face recognition engine:
+Here is a minimal example `manifest.json` that could apply to a logo detection engine:
 -->
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->

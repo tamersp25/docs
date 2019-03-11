@@ -45,11 +45,11 @@ Text recognition engines are required to be [trainable via libraries](/developer
 
 Text recognition engine output can follow two forms, depending on whether the file being processed is time-based file (e.g. audio, video) or a non-time-based (e.g. image).
 
-### Example - Time-Based
+### Example &mdash; Time-Based
 
 [](vtn-standard-series.example.json ':include :type=code json')
 
-### Example - Non-Time-Based
+### Example &mdash; Non-Time-Based
 
 [](vtn-standard-object.example.json ':include :type=code json')
 

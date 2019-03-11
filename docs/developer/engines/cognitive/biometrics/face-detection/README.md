@@ -10,28 +10,35 @@ It does not try to identify the face or match it to other data.
 
 ## Engine Manifest
 
+<!-- TODO
 All face detection engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
 | --------- | ----- |
 | `TODO` | `TODO` |
 | `TODO` | `TODO` |
+-->
 
-Here is a minimal example `manifest.json` that could apply to a face detection engine:
+<!-- Here is a minimal example `manifest.json` that could apply to a face detection engine: -->
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
+<!-- TODO
 ## Engine Input
 
 TODO
+-->
 
 ## Engine Output
-
-TODO
 
 ### Example
 Here is an example of the simplest type of face detection output:
 
 [](vtn-standard.example.json ':include :type=code json')
+
+<!-- TODO    Need this:
+> The official engine output json-schema validation contract is available
+[here](/schemas/vtn-standard/audio-fingerprint.json ':ignore').
+-->

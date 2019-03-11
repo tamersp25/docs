@@ -4,7 +4,7 @@
 ![](badge/Search/Yes/green)
 ![](badge/UI/Yes/green)
 
-Text extraction engines process documents to extract the textual information from them and express that extracted text in a structured format.
+Text extraction engines extract textual information from documents, and express that extracted text in a structured format.
 
 They are similar to [text recognition](/developer/engines/cognitive/vision/text-recognition/)
 engines in their output data structure.
@@ -35,5 +35,7 @@ All indexes are optional but it is highly recommended to include at least one so
 The output can also include a language code and confidence scores if desired.
 
 ### Example
+ 
+ The following simple example shows what the output of a text extraction engine could look like:
  
 [](vtn-standard.example.json ':include :type=code javascript')

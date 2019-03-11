@@ -35,6 +35,8 @@ If entity extraction engines are made [trainable with libraries](/developer/libr
 
 ## Engine Output
 
+### Example
+
 This is an example output that maps an extracted entity to an engine-specific category system that includes the category `"person"`.
 
 [](vtn-standard.example.json ':include :type=code json')

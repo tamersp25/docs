@@ -4,7 +4,7 @@
 ![](badge/Search/Yes/green)
 ![](badge/UI/Yes/green)
 
-Transcription engines - often known as "speech-to-text" or natural language processing (NLP) - take recorded speech audio and output the words that were said.
+Transcription engines &mdash; often known as "speech-to-text" or natural language processing (NLP) &mdash; take recorded speech audio and output the words that were said.
 Depending on the engine's capabilities, the output could be a simple sequence of words or a "lattice of confidence" expressing multiple options for how the words were spoken.
 
 ## Engine Manifest

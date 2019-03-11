@@ -8,6 +8,8 @@ Face recognition engines can analyze human faces in media assets, and score them
 
 ## Engine Manifest
 
+<!-- TODO
+
 All face recognition engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
@@ -16,12 +18,13 @@ All face recognition engines should specify the following parameters in their bu
 | `TODO` | `TODO` |
 
 Here is a minimal example `manifest.json` that could apply to a face recognition engine:
+-->
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
-## Engine Input
+<!-- TODO ## Engine Input -->
 
 <!-- TODO -->
 

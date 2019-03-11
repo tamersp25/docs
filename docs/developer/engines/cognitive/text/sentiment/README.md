@@ -4,14 +4,20 @@
 ![](badge/Search/No/red)
 ![](badge/UI/No/red)
 
+A sentiment analysis engine classifies text according to sentiment, which may be a score representing negative, positive, or neutral sentiment, or could include a wider breadth of tags (such as "happy" or "excited").
+
 <!--TODO: Add additional sections-->
 
 ## Engine Output
+
+### Example 1: Simple Output
 
 The simplest possible sentiment output involves reporting a single positive sentiment value for the entire document.
 Such an analysis would be reported like this:
 
 [](vtn-standard-simple-doc.example.json ':include :type=code json')
+
+### Example 2: Richer Output
 
 If you need to report more complex sentiment or emotions, additional fields are available.
 
@@ -22,9 +28,9 @@ The value of the `emotion` field can include any descriptor you'd like.
 
 [](vtn-standard-complex-doc.example.json ':include :type=code json')
 
-### Per-Phrase Reporting
+### Example 3: Per-Phrase Reporting
 
-Both `sentiment` and `emotions` can be reported at a pre-phrase resolution by putting them within a `text` object
+Both `sentiment` and `emotions` can be reported at a per-phrase resolution by putting them within a `text` object
 and optionally referencing the page, paragraph, and/or sentence index where they occur.
 
 [](vtn-standard-complex-phrase.example.json ':include :type=code json')
