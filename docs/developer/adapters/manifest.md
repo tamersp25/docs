@@ -1,6 +1,6 @@
 # Adapter Manifest
 
-TODO: Consider how this intersect with the engines manifest doc
+<!--TODO: Consider how this intersect with the engines manifest doc-->
 
 ## Overview
 

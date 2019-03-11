@@ -1,5 +1,4 @@
 <!--TODO: Replace all references to "VDA", "Developer Application", and "Developer App" with "Veritone Developer"-->
-<!--TODO: Rewrite this big overview in light of the restructuring-->
 
 # Veritone aiWARE Overview
 

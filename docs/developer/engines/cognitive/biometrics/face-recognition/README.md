@@ -20,7 +20,7 @@ All face recognition engines should specify the following parameters in their bu
 Here is a minimal example `manifest.json` that could apply to a face recognition engine:
 -->
 
-<!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
+<!--TODO: Define [](manifest.example.json ':include :type=code json')-->
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 

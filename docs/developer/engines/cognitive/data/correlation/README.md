@@ -18,7 +18,7 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 ### Example
 
-[](vtn-standard.example.json ':include :type=code javascript')
+[](vtn-standard.example.json ':include :type=code json')
 
 [Primary Source](https://github.com/veritone/task-simple-correlator/blob/master/app.js#L178)
 

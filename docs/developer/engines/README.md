@@ -1,7 +1,15 @@
 # Building Engines
 
-TODO: Write an overall engines summary
-<!--TODO: Specify only LINUX docker containers supported-->
+**Engines** are the main unit of cognitive computing in aiWARE.
+Engines are discreet units of code that process data using various algorithms or machine learning techniques.
+Within aiWARE's engine processing architecture, engines are primarily implemented as Docker containers.
+
+Developers can extend aiWARE's capabilities and add their own logic by writing their own custom engines and pushing them to Veritone Developer as Docker containers.
+
+> Notes on Docker container support:
+> - aiWARE is able to leverage engines that require GPU computing by specifying the required architecture in the `gpuSupported` field of the [engine manifest](/developer/engines/standards/engine-manifest/).
+> - Windows Docker containers are not supported by aiWARE at this time.
+
 <!--TODO: Add other legacy pages in with deprecated flag and no place in the TOC-->
 
 ## Engine Types {docsify-ignore}
@@ -26,31 +34,24 @@ A **push adapter** is an engine that listens for data sent to it from an externa
 An example of a push adapter a WebRTC server that records from a WebRTC connection in real-time.
 
 Veritone provides several pull adapters that are available to all users, including some to pull content from Amazon S3, YouTube, Google Drive, Box, Dropbox, RSS and FTP.
-There is also a File Upload adapter that allows you to select a file from your personal computer.  
+There is also a File Upload adapter that allows you to select a file from your personal computer.
+
+> For information on building adapters, see the [Building Adapters](/developer/adapters/) guide.  
 
 ### Cognitive Engines
-[Cognitive engines](/developer/engines/cognitive/) are the workhorses of aiWare.
-They process the data brought in by adapters and employ sophisticated algorithms and machine learning techniques to produce even more data from which you can derive actionable insights.
-Examples of what a cognition engine does include natural language processing, transcription, and object detection.
 
-You can build a pipeline of cognitive engines, to be run sequentially or in parallel, each one enhancing the target output data set.  For example, a pipeline could include the following engines:
-1. Ingest video stream (Adapter)
-2. Transcribe video to text (Cognitive)
-3. Translate to another language (Cognitive)
-4. Do sentiment analysis (Cognitive)
-
-Each cognitive engine conforms to a particular [class and capability](TODO: Link to discussion of classes and capabilities).
+[](cognitive/_summary.md ':include')
 
 #### Classes
-[Engine classes](TODO: Link to writeup on engine classes) refer to the class of information the cognitive engine analyzes.
+[Engine classes](/developer/engines/cognitive/?id=classes) refer to the class of information the cognitive engine analyzes.
 They include speech, text, vision, biometrics, audio, data, and transformation.
 
 #### Capabilities
-[Engine capabilities](TODO: Link to writeup on engine capabilities) refer to what type of information the cognitive engine outputs.
+[Engine capabilities](/developer/engines/cognitive/?id=capabilities) refer to what type of information the cognitive engine outputs.
 Each engine class has multiple capabilities.
 For example, some capabilities under the vision class include object detection, text recognition, and license plate recognition. 
 
-For a full list of engine classes and capabilities currently supported by aiWARE, see the guide for [deploying a cognitive engine](/developer/engines/cognitive/).
+> For a full list of engine classes and capabilities currently supported by aiWARE, see the guide to [Building a Cognitive Engine](/developer/engines/cognitive/).
 
 ### Aggregator Engines
 **Aggregator engines** consolidate the outputs from all the cognitive engines run within a job and create a new output data set for use in aiWare.

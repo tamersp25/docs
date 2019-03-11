@@ -19,7 +19,7 @@ All logo detection engines should specify the following parameters in their buil
 Here is a minimal example `manifest.json` that could apply to a logo detection engine:
 -->
 
-<!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
+<!--TODO: Define [](manifest.example.json ':include :type=code json')-->
 
 <!-- ## Engine Input -->
 

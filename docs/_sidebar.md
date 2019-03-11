@@ -44,7 +44,7 @@
       - [Path to Monetization](developer/engines/getting-started/path-to-monetization.md)
       - [Technologies Used](developer/engines/getting-started/technologies.md)
     - [Approval Process](developer/engines/approval/)
-    - [Build a Cognitive Engine](developer/engines/cognitive/)
+    - [Building a Cognitive Engine](developer/engines/cognitive/)
       - Audio
         - [Audio Fingerprinting](developer/engines/cognitive/audio/audio-fingerprinting/)
       - Biometrics
@@ -63,9 +63,9 @@
         - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
         - [Translation](developer/engines/cognitive/text/translation/)
       - Vision
-        - [General Object Detection](developer/engines/cognitive/vision/general-object-detection/)
         - [License Plate Recognition (ALPR)](developer/engines/cognitive/vision/license-plate/)
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
+        - [Object Detection](developer/engines/cognitive/vision/object-detection/)
         - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
     - [Deployment Models](developer/engines/deployment-model/)
     - [Processing Modes](developer/engines/processing-modes/)

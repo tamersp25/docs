@@ -1,19 +1,19 @@
-# Building a General Object Detection Engine
+# Building an Object Detection Engine
 
 ![](badge/API/Yes/green)
 ![](badge/Search/No/red)
 ![](badge/UI/Partial/yellow)
 
-A general object recognition engine detects one or more objects in an image or video, based on a general (high level) ontology.
+An object detection engine detects one or more objects in an image or video, based on a general (high level) ontology.
 For example, the engine might detect objects such as `person`, `desk`, or `aircraft`.
 
 ## Engine Manifest
 
 <!-- TODO 
-Here is a minimal example `manifest.json` that could apply to a general object detection engine:
+Here is a minimal example `manifest.json` that could apply to an object detection engine:
 -->
 
-<!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
+<!--TODO: Define [](manifest.example.json ':include :type=code json')-->
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
