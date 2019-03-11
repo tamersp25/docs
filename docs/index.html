@@ -65,8 +65,8 @@
 </head>
 <body>
   <nav>
-    <a href="https://chat.veritone.com/" target="_blank"><img src="/slack.svg" style="margin-right: 5px"/>Join us on Slack</a>
-    <a id="new-issue-link" href="javascript:void(0)"><img src="/github.png" style="width:16px; margin-right: 5px"/>File an Issue</a>
+    <a href="https://chat.veritone.com/" target="_blank"><img src="/_media/slack.svg" style="margin-right: 5px"/>Join us on Slack</a>
+    <a id="new-issue-link" href="javascript:void(0)"><img src="/_media/github.png" style="width:16px; margin-right: 5px"/>File an Issue</a>
   </nav>
   <div id="app"></div>
   <!-- <script src="//unpkg.com/docsify-copy-code/index.js"></script> -->
@@ -98,7 +98,8 @@
         '^\/terms-and-conditions(|.md)$': '/developer/terms-and-conditions',
 
         // TODO: change convention to use README files and just always alias no-trailing-slash to trailing-slash
-        '^\/architecture-overview$': '/architecture-overview/',
+        '^\/architecture-overview(|.md)$': '/architecture-overview/',
+        '^\/glossary(|.md)': '/glossary/',
         '^\/apis$': '/apis/',
         '^\/apis\/tutorials$': '/apis/tutorials/',
         '^\/developer\/applications$': '/developer/applications/',
