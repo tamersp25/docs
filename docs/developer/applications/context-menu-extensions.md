@@ -1,8 +1,5 @@
 # Context Menu Extensions
 
-
-
-### Overview
 A Context Menu (also known as a pop-up or shortcut menu) displays when a user clicks the **more options icon** (vertical ellipsis) on a resource, such as a media file or watchlist. It presents options that allow users to perform various actions relevant to the resource where the menu was opened. As a Veritone developer, you can add custom extensions to a number of different Context Menus across the platform and provide a shortcut for sending a selected resource to your application. Simply choose the resource type where your Context Menu Extension will appear, enter the name that will display, and provide the URL where users will be taken when your menu item is selected. Once an extension is registered, any Veritone user of your application can view and interact with it from the associated Context Menu. 
 
 You can create Context Menu Extensions for any of the following resource types:
@@ -20,10 +17,10 @@ You can create Context Menu Extensions for any of the following resource types:
 
 ![View-Context-Menu-Collections](context-menu-view-collection.png)
 
-### Create a Context Menu Extension
+## Create a Context Menu Extension
 *Context Menu Extensions* can be added in [Veritone Developer App (VDA)](https://developer.veritone.com/applications/overview) when creating a new application or by modifying an existing application’s settings.
 
-#### Access Context Menu Extension Settings
+### Access Context Menu Extension Settings
 The step to add Context Menu Extensions for a new application is built directly into the [application registration workflow](/developer/applications/quick-start/step-1). To access the *Context Menu Extensions* page for an existing app, log in to Veritone Developer and follow the steps below.
 1. Select **Applications** on the left menu of the Veritone Developer homepage. A list of your organization’s *Applications* displays.
 2. Select the **application name** in the list where the Context Menu Extension will be added. The selected application’s settings open.
@@ -31,7 +28,7 @@ The step to add Context Menu Extensions for a new application is built directly 
 3. Click the **Context Menu Extensions** tab. The *Context Menu Extensions* settings open.
 ![Access-Context-Menu-Settings-2](context-menu-access-2.png)
 
-#### Add a Context Menu Extension
+### Add a Context Menu Extension
 1. Choose the the resource type where you’d like your Context Menu Extension to appear.
    *   **Mentions:** On the far right of a Mention in Discovery.
    *   **Watchlists:** On the right of a Watchlist name in the left menu of Discovery.
@@ -47,7 +44,7 @@ The step to add Context Menu Extensions for a new application is built directly 
 5. Add extensions to additional Context Menu types, as desired. Click **Save** when all Context Menu Extensions have been added.
 ![Create-Context-Menu](context-menu-create.png)
 
-##### Example
+#### Example
 
 The example below creates an extension that displays as `Send to Pet Tracker` on the Context Menu for Mentions. When a user clicks `Send to Pet Tracker`, they will be routed to the URL that's registered in the Context Menu Extensions settings (`www.pettracker.com/${mentionId}`). In addition, the template string (`${mentionId}`) will automatically be replaced with the unique ID of the Mention where the `Send to Pet Tracker` Context Menu Extension was selected (`www.pettracker.com?mentionId=12345`).
 ```json
@@ -55,7 +52,7 @@ label: Send to Pet Tracker
 url: www.pettracker.com?mentionId=${mentionId}
 ```
 
-### Handling the Redirect URL
+## Handling the Redirect URL
 
 When a user clicks on your Context Menu Extension, Veritone sends a GET request that includes the captured resource ID to your URL. To ensure proper handling of Context Menu redirects, it’s recommended to set up URL routing rules for the receiving server to accept GET requests. 
 

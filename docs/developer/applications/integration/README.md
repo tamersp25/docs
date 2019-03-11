@@ -1,4 +1,4 @@
-# Integration
+# Application Integration
 
 If you have an existing application and looking to integrate your application to our marketplace or our aiWare platform, you can choose how to best intgrate with the Veritone platform.
 
