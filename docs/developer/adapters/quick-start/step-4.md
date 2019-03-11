@@ -34,7 +34,7 @@ If your build instructions are minimized, click on the down arrowhead next to th
 
 #### Create a Dockerfile ####
 
-Uploading a build in Veritone begins with building a Dockerfile. A Dockerfile is a text file that contains a set of instructions to create your Docker image. These instructions should include any configuration files required by your adapter, such as API URLs (Veritone's API, your API, etc), authentication tokens (a Veritone token will be provided in the task payload), etc. If you'd like to get a sense of the different adapter components that should be included in your Dockerfile, take a look at our [Sample Engines](/engines/sample-engines).
+Uploading a build in Veritone begins with building a Dockerfile. A Dockerfile is a text file that contains a set of instructions to create your Docker image. These instructions should include any configuration files required by your adapter, such as API URLs (Veritone's API, your API, etc), authentication tokens (a Veritone token will be provided in the task payload), etc. If you'd like to get a sense of the different adapter components that should be included in your Dockerfile, take a look at our [Sample Engines](/developer/engines/sample-engines).
 
 **Important Notes Regarding Dockerfile Construction:**  
 

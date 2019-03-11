@@ -19,7 +19,7 @@ Here is a minimal example `manifest.json` that could apply to a transcription en
 
 [](manifest.example.json ':include :type=code json')
 
-See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 <!--
 ## Engine Input

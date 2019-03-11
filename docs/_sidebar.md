@@ -5,8 +5,8 @@
   - [Architecture Overview](architecture-overview.md)
   - [Glossary](glossary.md)
   
-- [Applications](apps/)
-  - [Admin](apps/admin/)
+- [Applications](/apps/)
+  - [Admin](/apps/admin/)
   
 - [APIs](apis/)
   - [The Veritone API Data Model](apis/data-model.md)
@@ -87,13 +87,13 @@
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
   
   - [Building Adapters](developer/adapters/)
-    - [Quickstart](developer/adapters/quickstart/)
-      - [Step 1 - Register Your Adapter](developer/adapters/quickstart/step-1.md)
-      - [Step 2 - Construct Your Code for the Veritone Platform](developer/adapters/quickstart/step-2.md)
-      - [Step 3 - Create Your Manifest File](developer/adapters/quickstart/step-3.md)
-      - [Step 4 - Package and Upload a Build](developer/adapters/quickstart/step-4.md)
-      - [Step 5 - Submit Your Build for Approval](developer/adapters/quickstart/step-5.md)
-      - [Step 6 - Deploy Your Adapter](developer/adapters/quickstart/step-6.md)
+    - [Quickstart](developer/adapters/quick-start/)
+      - [Step 1 - Register Your Adapter](developer/adapters/quick-start/step-1.md)
+      - [Step 2 - Construct Your Code for the Veritone Platform](developer/adapters/quick-start/step-2.md)
+      - [Step 3 - Create Your Manifest File](developer/adapters/quick-start/step-3.md)
+      - [Step 4 - Package and Upload a Build](developer/adapters/quick-start/step-4.md)
+      - [Step 5 - Submit Your Build for Approval](developer/adapters/quick-start/step-5.md)
+      - [Step 6 - Deploy Your Adapter](developer/adapters/quick-start/step-6.md)
     - [Construction Guidelines](developer/adapters/guidelines.md)
     - [Adapter Manifest](developer/adapters/manifest.md)
   

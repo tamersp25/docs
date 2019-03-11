@@ -21,7 +21,7 @@ All entity extraction engines should specify the following parameters in their b
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
 
-See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 ## Engine Input
 
@@ -29,7 +29,7 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 ### Training and Libraries
 
-<!-- Since all entity extraction engines identify entities, they are all required to be [trainable via libraries](/libraries/engines). -->
+<!-- Since all entity extraction engines identify entities, they are all required to be [trainable via libraries](/developer/libraries/engines). -->
 
 ## Engine Output
 

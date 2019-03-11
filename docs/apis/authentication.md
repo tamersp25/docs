@@ -2,7 +2,7 @@
 
 Veritone uses token-based authentication for accessing the system and resources. Currently, the following authentication types are provided to meet the security needs of specific actions being performed:
 
-* **Application:** Third-party applications use OAuth2 protocol for authentication and authorization. OAuth2 provides SSO and generates tokens for users to securely access data without revealing username and password credentials. See [OAuth2 Authentication and Authorization](/applications/oauth) for more information.
+* **Application:** Third-party applications use OAuth2 protocol for authentication and authorization. OAuth2 provides SSO and generates tokens for users to securely access data without revealing username and password credentials. See [OAuth2 Authentication and Authorization](/developer/applications/oauth) for more information.
 
 * **Engine:** Veritone uses JSON Web Tokens (JWT) for engine authentication. JWTs provide access to resources specifically related to processing tasks (e.g., a TDO’s media assets) and are passed to engines in the Task Payload at engine runtime.
 

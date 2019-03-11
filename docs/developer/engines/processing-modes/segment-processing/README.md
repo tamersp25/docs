@@ -5,7 +5,7 @@ They operate out of a stateless queue, where they can process each small bit of 
 
 > In the GraphQL API, "segment" engine mode is identified as `EngineMode=Chunk`
 
-?> The **[Engine Toolkit SDK (BETA)](engines/toolkit/)**
+?> The **[Engine Toolkit SDK (BETA)](/developer/engines/toolkit/)**
 is an alternative interface for building message engines.
 If you'd like a simpler interface and are comfortable using beta software in production, 
 you might consider using it instead of the specifications below.
@@ -34,7 +34,7 @@ The basic lifecycle for a segment engine is as follows:
 1. The Docker container for your engine will be started up with the environment variables set.
 1. The engine consumes `media_chunk` messages from its `KAFKA_INPUT_TOPIC`.
 1. For each `media_chunk` message, the engine does its processing.
-1. When processing of each `media_chunk` is done, the engine compiles an `engine_output` message conforming to the [vtn-standard format](/engines/standards/engine-output/).
+1. When processing of each `media_chunk` is done, the engine compiles an `engine_output` message conforming to the [vtn-standard format](/developer/engines/standards/engine-output/).
 1. The engine produces the `engine_output` message to `KAFKA_CHUNK_TOPIC`, along with a `ChunkProcessedStatus` message.
 1. If there is no work for the engine within the timeframe set in `END_IF_IDLE_SECS`, the engine shuts itself down.
 

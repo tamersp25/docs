@@ -110,4 +110,4 @@ mutation {
 ```
 This query will return the libraryEngineModelId that can be used in your sample payload. It can be re-used as necessary.
 
-Continue on to [training engines](/libraries/training).
+Continue on to [training engines](/developer/libraries/training).

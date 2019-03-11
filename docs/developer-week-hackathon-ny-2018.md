@@ -38,7 +38,7 @@ an existing app you'd like to add Veritone services to, the easiest way is to
 [GraphQL interface](/apis/using-graphql).
 
 Alternatively, if you're comfortable implementing your own OAuth2 flow, 
-you can [create an application](/applications/quick-start/step-1) in the 
+you can [create an application](/developer/applications/quick-start/step-1) in the 
 Veritone Developer app and use the OAuth flow to get tokens on a user-by-user 
 basis.
 

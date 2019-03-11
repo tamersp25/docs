@@ -6,14 +6,14 @@
 
 Text extraction engines process documents to extract the textual information from them and express that extracted text in a structured format.
 
-They are similar to [text recognition](/engines/cognitive/vision/text-recognition/)
+They are similar to [text recognition](/developer/engines/cognitive/vision/text-recognition/)
 engines in their output data structure.
 But where text recognition engines are used to recognize text in *unstructured* files like images,
 text **extraction** engines are used to extract text content from *semi-structured* files like PDFs or Microsoft Word documents.
 
 ## Engine Output
 
-Most text extraction engine output should be stored in the non-time-based `object` array in [vtn-standard](/engines/standards/engine-output/).
+Most text extraction engine output should be stored in the non-time-based `object` array in [vtn-standard](/developer/engines/standards/engine-output/).
 Each string of text is represented as an object of type `text`.
 
 ### Ordering Indexes

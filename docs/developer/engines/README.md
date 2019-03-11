@@ -8,7 +8,7 @@ TODO: Write an overall engines summary
 There are three main types of engines in aiWare: adapters (a.k.a ingestion engines), cognitive engines, and aggregator engines.
 
 ### Adapters (a.k.a. Ingestion Engines)
-[Adapters](/adapters/), also known as ingestion engines, bring data from other sources into aiWare.
+[Adapters](/developer/adapters/), also known as ingestion engines, bring data from other sources into aiWare.
 The data can either be a real-time stream or a bounded file, and can be structured or unstructured.
 Once the data is in aiWare, it can be processed by cognitive engines to derive insights for your end users.
 
@@ -29,7 +29,7 @@ Veritone provides several pull adapters that are available to all users, includi
 There is also a File Upload adapter that allows you to select a file from your personal computer.  
 
 ### Cognitive Engines
-[Cognitive engines](/engines/cognitive/) are the workhorses of aiWare.
+[Cognitive engines](/developer/engines/cognitive/) are the workhorses of aiWare.
 They process the data brought in by adapters and employ sophisticated algorithms and machine learning techniques to produce even more data from which you can derive actionable insights.
 Examples of what a cognition engine does include natural language processing, transcription, and object detection.
 
@@ -50,7 +50,7 @@ They include speech, text, vision, biometrics, audio, data, and transformation.
 Each engine class has multiple capabilities.
 For example, some capabilities under the vision class include object detection, text recognition, and license plate recognition. 
 
-For a full list of engine classes and capabilities currently supported by aiWARE, see the guide for [deploying a cognitive engine](/engines/cognitive/).
+For a full list of engine classes and capabilities currently supported by aiWARE, see the guide for [deploying a cognitive engine](/developer/engines/cognitive/).
 
 ### Aggregator Engines
 **Aggregator engines** consolidate the outputs from all the cognitive engines run within a job and create a new output data set for use in aiWare.

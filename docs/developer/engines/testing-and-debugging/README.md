@@ -8,8 +8,8 @@ Before submitting your build, use the following information to test it thoroughl
 
 The recommended way to test these types of engines locally is by simulating and verifying locally that your engine can consume and produce the messages documented in the construction guidelines listed below.
 
-* [Segment Engine Construction Guidelines](engines/processing-modes/segment-processing/)
-* [Stream Engine Construction Guidelines](engines/processing-modes/stream-processing/)
+* [Segment Engine Construction Guidelines](/developer/engines/processing-modes/segment-processing/)
+* [Stream Engine Construction Guidelines](/developer/engines/processing-modes/stream-processing/)
 
 ### Testing in aiWARE
 
@@ -70,9 +70,9 @@ If your ingestion job results in an error, please read the section below on debu
 ## Testing a Legacy (Batch) Engine
 
 !> Legacy batch engines are deprecated.
-If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](engines/processing-modes/segment-processing/).
+If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](/developer/engines/processing-modes/segment-processing/).
 
-Information on testing legacy engines is available [here](engines/testing-and-debugging/batch-engines/). 
+Information on testing legacy engines is available [here](/developer/engines/testing-and-debugging/batch-engines/). 
 
 ## Debugging
 

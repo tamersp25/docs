@@ -9,5 +9,5 @@ Table goes here
 
 | Class | Category | Description |
 | ----- | -------- | ------------|
-| Audio | [Audio Fingerprinting](/engines/cognitive/audio/audio-fingerprinting/) | Recognize a specific audio segment, eg. a radio advertisement, as it appears in a longer audio file or on its own. |
+| Audio | [Audio Fingerprinting](/developer/engines/cognitive/audio/audio-fingerprinting/) | Recognize a specific audio segment, eg. a radio advertisement, as it appears in a longer audio file or on its own. |
 | 

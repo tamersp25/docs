@@ -29,7 +29,7 @@ Before you start development, it's important to know how all the pieces fit toge
 4.  Submit your app for review and approval
 5.  Install your app in the Veritone Platform
 
-You’ll find complete application development workflow details in our [Quick Start](/applications/quick-start/) section.
+You’ll find complete application development workflow details in our [Quick Start](/developer/applications/quick-start/) section.
 
 #### Integrating an existing Application
 
@@ -43,7 +43,7 @@ We recommend starting your integration at a high level starting with the UI, and
 4.  Integrate the data to pull data from Veritone, process it on your application, and write the metadata to Veritone
 5.  Submit your app for review and approval
 
-For more information, please refer to the [Application Integration](/applications/integration/) section.
+For more information, please refer to the [Application Integration](/developer/applications/integration/) section.
 
 #### Who can use my application?
 

@@ -19,7 +19,7 @@ All speaker separation engines should specify the following parameters in their 
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
 
-See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 <!-- ## Engine Input -->
 
@@ -27,7 +27,7 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 ## Engine Output
 
-Within the time-based `series` array (see [vtn-standard](/engines/standards/engine-output/)) in the engine's output, each speaker separation record (that is, each `series` entry) should contain an `object` of type `speaker`. 
+Within the time-based `series` array (see [vtn-standard](/developer/engines/standards/engine-output/)) in the engine's output, each speaker separation record (that is, each `series` entry) should contain an `object` of type `speaker`. 
 Because each speaker maps back to an entity in a library, each `object` should include the `entityId` of that original entity, along with the `libraryId` where it can be found.
 
 Here is an example of the simplest type of speaker separation output:

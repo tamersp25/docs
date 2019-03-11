@@ -55,7 +55,7 @@ The basic adapter workflow consists of the following steps:
 
 5. Each of the segments is written to Kafka as a separate task that can be passed on to other parts of the system for processing.
 
-Each step in the workflow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Construction Guidelines](/adapters/quick-start/step-2) section of the Quickstart.
+Each step in the workflow must be built into your code. You'll find detailed information and step-by-step instructions on adding the task processing flow to your code in the [Construction Guidelines](/developer/adapters/quick-start/step-2) section of the Quickstart.
 
 ### Manifest
 

@@ -2,7 +2,7 @@
 
 Once the engine is pushed to the Veritone Docker registry various checks are performed before the engine is ready for use.
 During the initial upload process, the manifest.json is extracted from the Docker image.
-The content of the manifest is then checked against the [manifest standards](/engines/standards/engine-manifest/).
+The content of the manifest is then checked against the [manifest standards](/developer/engines/standards/engine-manifest/).
 Next the layers of the Docker image are analyzed for critical security flaws.
 If the engine passes both tests, it should appear in the builds section on the engine page.
 It is then ready to be submitted for final human approval.
@@ -23,7 +23,7 @@ If your engine does not appear in the builds table for an extended amount of tim
 
 ### Common Output Issues
 
-Issues with outputs are often caused by outputs that do not follow the Veritone [engine output standard](/engines/standards/engine-output/).
+Issues with outputs are often caused by outputs that do not follow the Veritone [engine output standard](/developer/engines/standards/engine-output/).
 If your result does not appear in CMS, first make sure the engine output is created by the task, then check to see if the output follows the Veritone standard.
 
 ### Logging
@@ -37,4 +37,4 @@ The best way to test locally is to generate a real task from the API.
 Visit the Tasks tab on the engine's page of [Veritone Developer](https://developer.veritone.com) to create a task for your engine to run.
 You can run the task locally by passing the payload into your engine as an environment variable.
 
-Alternatively, if you are using the [engine toolkit (beta)](/engines/toolkit/) to build your engine there is a local testing harness available as part of toolkit SDK.
+Alternatively, if you are using the [engine toolkit (beta)](/developer/engines/toolkit/) to build your engine there is a local testing harness available as part of toolkit SDK.

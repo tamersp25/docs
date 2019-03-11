@@ -46,21 +46,21 @@ Here is a minimal example `manifest.json` that could apply to an audio fingerpri
 
 [](manifest.example.json ':include :type=code json')
 
-See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 ### Training and Libraries
 
-Since all audio fingerprinting engines identify entities, they are all required to be [trainable via libraries](/libraries/engines).
+Since all audio fingerprinting engines identify entities, they are all required to be [trainable via libraries](/developer/libraries/engines).
 
 <!--
 ## Engine Input
 
-TODO: Point to the [stream processing](/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
+TODO: Point to the [stream processing](/developer/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
 -->
 
 ## Engine Output
 
-Audio fingerprinting engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/engines/standards/engine-output/).
+Audio fingerprinting engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/developer/engines/standards/engine-output/).
 Each detected section of audio is represented as an object of type `fingerprint`.
 Because audio fingerprints always map back to an entity in a library, they should always include the `entityId` of the fingerprint in their output.
 

@@ -59,7 +59,7 @@ See [docker.com](https://www.docker.com/).
 #### Engine
 > An algorithm that takes some data in and outputs some insights or calculations regarding that data.
 Veritone has three main types of engines: [cognition](#cognition), [aggregator](#aggregator-engine), and [ingestion](#ingestion).
-More information can be found in the [engines](engines/) section of this site.
+More information can be found in the [engines](/developer/engines/) section of this site.
 
 #### Engine Processing Mode
 > The way in which an engine consumes data: either by [segment](#segment-engine-mode) or by [stream](#stream-engine-mode).

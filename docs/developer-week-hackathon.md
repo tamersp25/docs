@@ -23,11 +23,11 @@ to create your Veritone Developer account (with $300 of free AI processing).
 > a cognitive engine and deploying it via our Veritone Developer application 
 > onto the Veritone aiWARE platform.
 
-[The engine quickstart guide](/engines/quick-start/step-1-create-an-engine)
+[The engine quickstart guide](/developer/engines/quick-start/step-1-create-an-engine)
 will walk you through all the steps of creating an A.I. engine and uploading
 it to Veritone's platform.
 
-You can find a list of our [sample engines here](/engines/sample-engines) to
+You can find a list of our [sample engines here](/developer/engines/sample-engines) to
 give you a reference.
 
 ---
@@ -54,7 +54,7 @@ an existing app you'd like to add Veritone services to, the easiest way is to
 [GraphQL interface](/apis/using-graphql).
 
 Alternatively, if you're comfortable implementing your own OAuth2 flow, 
-you can [create an application](/applications/quick-start/step-1) in the 
+you can [create an application](/developer/applications/quick-start/step-1) in the 
 Veritone Developer app and use the OAuth flow to get tokens on a user-by-user 
 basis.
 

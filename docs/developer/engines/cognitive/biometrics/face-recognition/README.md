@@ -19,7 +19,7 @@ Here is a minimal example `manifest.json` that could apply to a face recognition
 
 <!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
 
-See the full documentation for [engine manifest standards](/engines/standards/engine-manifest/) for more details.
+See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 ## Engine Input
 
@@ -27,11 +27,11 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 ### Training and Libraries
 
-Since all face recognition engines identify entities, they are all required to be [trainable via libraries](/libraries/engines).
+Since all face recognition engines identify entities, they are all required to be [trainable via libraries](/developer/libraries/engines).
 
 ## Engine Output
 
-Face recognition engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/engines/standards/engine-output/).
+Face recognition engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/developer/engines/standards/engine-output/).
 Each `object` should be of type `face`, and because each recognized face always maps back to an entity in a library, each object should always include the `entityId` of that original entity in its output, along with the `libraryId` where it can be found.
 
 

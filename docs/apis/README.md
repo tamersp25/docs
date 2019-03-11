@@ -8,7 +8,7 @@ Veritone API uses a single endpoint for making ad-hoc requests and to integrate 
 
 **Important Note for Engine Development:**
 
-Engines in Veritone follow a different endpoint protocol for accessing the API. To ensure successful API execution across different environments, the API base URL is passed in the Task Payload at engine runtime. Once your engine receives the Task Payload, use the `veritoneApiBaseUrl` field value to construct the GraphQL endpoint for requests. (e.g., `const apiUrl = payload.veritoneApiBaseUrl+'/v3/graphql';`) It’s important that the standard API endpoint (referenced above) is not hard coded in your engine and that only the base URL provided in the Task Payload is used to make requests. For more information, see the [Engine Construction Guidelines](/engines/guidelines).
+Engines in Veritone follow a different endpoint protocol for accessing the API. To ensure successful API execution across different environments, the API base URL is passed in the Task Payload at engine runtime. Once your engine receives the Task Payload, use the `veritoneApiBaseUrl` field value to construct the GraphQL endpoint for requests. (e.g., `const apiUrl = payload.veritoneApiBaseUrl+'/v3/graphql';`) It’s important that the standard API endpoint (referenced above) is not hard coded in your engine and that only the base URL provided in the Task Payload is used to make requests. For more information, see the [Engine Construction Guidelines](/developer/engines/guidelines).
 
 ### Authentication
 

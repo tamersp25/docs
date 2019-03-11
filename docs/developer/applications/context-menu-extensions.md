@@ -24,7 +24,7 @@ You can create Context Menu Extensions for any of the following resource types:
 *Context Menu Extensions* can be added in [Veritone Developer App (VDA)](https://developer.veritone.com/applications/overview) when creating a new application or by modifying an existing application’s settings.
 
 #### Access Context Menu Extension Settings
-The step to add Context Menu Extensions for a new application is built directly into the [application registration workflow](/applications/quick-start/step-1). To access the *Context Menu Extensions* page for an existing app, log in to Veritone Developer and follow the steps below.
+The step to add Context Menu Extensions for a new application is built directly into the [application registration workflow](/developer/applications/quick-start/step-1). To access the *Context Menu Extensions* page for an existing app, log in to Veritone Developer and follow the steps below.
 1. Select **Applications** on the left menu of the Veritone Developer homepage. A list of your organization’s *Applications* displays.
 2. Select the **application name** in the list where the Context Menu Extension will be added. The selected application’s settings open.
 ![Access-Context-Menu-Settings-1](context-menu-access-1.png)
