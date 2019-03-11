@@ -25,7 +25,7 @@ Note that the same dataset can be used as either primary or secondary data, depe
 
 We'll provide a quick, high-level overview of the requirements for working with structured data within the Veritone platform, for both primary and secondary data. 
 
-**Register a Schema:** To use structured data within the Veritone platform, the first step is to register and upload a schema for your data. The schema, which should be in JSON format, gives Veritone the information needed to properly ingest, store and index your data. For step-by-step instruction on how to register a schema, check out the [Quick Start Guide](/data/quick-start/).
+**Register a Schema:** To use structured data within the Veritone platform, the first step is to register and upload a schema for your data. The schema, which should be in JSON format, gives Veritone the information needed to properly ingest, store and index your data. For step-by-step instruction on how to register a schema, check out the [Quick Start Guide](/developer/data/quick-start/).
 
 **Select Adapter:** Next, you'll need to ingest the data into the platform using an adapter that can connect to your data source and generate the output in accordance with your schema. If there isn't an existing adapter that meets your needs, you can [build and register one](/developer/engines/quick-start/).
 

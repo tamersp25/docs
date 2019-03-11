@@ -100,7 +100,7 @@ The four places you can add data to `vendor` sections are:
 
 If you would like your data to be displayed in a table in the user interface and indexed for searching against via the search API,
 you can add your data to the vtn-standard file in one of the `structuredData` sections.
-To do this, you first need to [register a schema through Veritone Developer](data/quick-start/) that expresses the structure of your data.
+To do this, you first need to [register a schema through Veritone Developer](/developer/data/quick-start/) that expresses the structure of your data.
 Then you can reference the schema ID in the `structuredData` section and include your custom data under it.
  
  * At the `object` level (applies to a particular object in the whole file):
