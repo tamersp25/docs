@@ -1,5 +1,5 @@
 - [aiWARE Overview](/)
-  - [Architecture Overview](architecture-overview.md)
+  - [Architecture Overview](architecture-overview/)
   - [Glossary](glossary.md)
   
 - [Applications](/apps/)

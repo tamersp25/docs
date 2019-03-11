@@ -1,11 +1,11 @@
-# Architecture Overview
+# aiWARE Architecture Overview
 
 
 ![Architecture Overview](architecture-overview.png)
 
 ## Data Ingestion & Storage
 
-The Veritone platform has been designed with flexibility to ingest and
+aiWARE has been designed with flexibility to ingest and
 store virtually any type of structured or unstructured data, from
 storage or live streams.  
 
@@ -26,19 +26,18 @@ storage, local storage, web sources, live streams, etc.  Currently
 available adapters include:
 
   - Upload from local computer or network drive
-  - Cloud storage - Google Drive, [Box.com](http://Box.com), Dropbox
+  - Cloud storage - Google Drive, Box.com, Dropbox
   - Web video - YouTube, Vimeo
   - FTP/SFTP
   - RSS including Podcast RSS
   - Amazon AWS
-  - More coming soon\!
+  - More coming soon!
 
-Once ingested, source data is stored in Veritone's Amazon S3
-environment.  Veritone then passes secure URLs to its engine partners
-for them to access and process source media files.
+Once ingested, source data is stored securely in aiWARE and accessible
+via the [GraphQL API](apis/).
 
-Veritone generally transcodes to create a copy of media files in a
-standard format for playback in the Veritone UI, e.g. 480p video or .wav
+aiWARE generally transcodes to create a copy of media files in a
+standard format for playback in aiWARE apps, e.g. 480p video or .wav
 files for audio.
 
 Alternatively, the aiWARE platform can be deployed as an on-premise
@@ -57,10 +56,9 @@ For instance, broadcast television clients may choose to run
 transcription, OCR, Face Recognition, and Logo Recognition on all
 inbound media automatically upon ingestion.  
 
-Veritone utilizes [Iron.io](http://Iron.io) to queue and route
-processing jobs across its compute infrastructure.  Each individual
-Docker container that processes a job is terminated once processing is
-completed.
+aiWARE's real-time engine architecture means that processing results
+can be delivered in seconds or even sub-second depending on the latency
+of the input source.
 
 Increasingly, engine processing is orchestrated by Veritone's
 proprietary Conductor<sup>TM</sup> technology.  Veritone's Data Science
@@ -88,15 +86,11 @@ Each engine process selected (whether programmatically by
 auto-ingestion, by an end user, or by Conductor) will create a unique
 "job" for a given piece of media.
 
-Veritone operates a scalable architecture for engine processing
-utilizing Docker on Linux.  Each new processing job for a given piece of
-media will be queued by [Iron.io](http://Iron.io) and assigned to a
-compute cluster, then Iron will instantiate a new Docker container for
-each job.  
-
-Once the job is completed and the metadata successfully passed back to
-Veritone, the Docker instance will terminate. This architecture is the
-same regardless of aiWARE deployment model (cloud, on prem, etc).
+Veritone operates a scalable architecture for engine processing utilizing various engine runtimes.
+The most commonly used and most robust runtime is Docker on Linux.
+Under this runtime, each new processing job for a given piece of media is given an ID and distributed to a specific edge cluster for processing.
+The edge cluster is responsible for orchestrating the running of Docker containers to complete the job.
+This architecture is the same regardless of aiWARE deployment model (cloud, on-premise, or hybrid).
 
 Docker containers can either be constructed to call an external API
 endpoint for remote processing, run a "network isolated" executable
@@ -118,8 +112,9 @@ transcription job has been processed.  Same is true of translation,
 where a French to French transcription is first performed, then the
 resulting French transcript (in words) is then translated to English.
 
-The Veritone UI in CMS application displays to the end user the jobs
-that are queued, in process, and completed.
+[Veritone CMS](apps/?id=cms) displays to the end user the jobs that are queued, in process, and completed.
+
+> For more information on engines, including runtimes, processing modes, deployment models, and more, please see the documentation for [Building Engines](/developer/engines/).
 
 ## Metadata Indexing and Storage
 
@@ -131,25 +126,25 @@ Time correlation based on the media run-time is required to facilitate
 effective multi-variant search by Veritone's suite of end-user
 applications.
 
+> For more information on the types of data available to be indexed, see the [engine output specifications](developer/engines/standards/engine-output/).
+
 ## User Interface
 
-Veritone provides a suite of native applications for end users to
-utilize and extract value from the aiWARE platform.
+Veritone provides a suite of native applications for end users to utilize and extract value from the aiWARE platform.
+aiWARE applications range from general-purpose applications to supporting very specific use cases.
 
-Veritone CMS is the repository for accessing source media files,
-indicating any engine processing that has already been performed on each
-asset.  Note this is the only application where the entire original
-source file resides.
-
-Discovery and Collections are designed to display "Mentions" (i.e. the
-aperture that contains a specific search item found) with 30 seconds of
-media before and after the item in question (whether a text word or
-phrase, face, object, location, logo, etc).
+> See the [applications](apps/) section for more information.
 
 ## Search Functionality
-Veritone search intelligence provides a rich set of flexible features that allow users to intuitively search and quickly find the content they’re looking for. The search framework performs application-specific querying against an organization’s private and public indexes to find data based on specific criteria. Our advanced search algorithm supports global free-text and filtered searching and delivers high-quality matches in results for even the most complicated queries. Veritone search features include:
+
+Veritone search intelligence provides a rich set of flexible features that allow users to intuitively search and quickly find the content they’re looking for.
+The search framework performs application-specific querying against an organization’s private and public indexes to find data based on specific criteria.
+Our advanced search algorithm supports global free-text and filtered searching and delivers high-quality matches in results for even the most complicated queries.
+Veritone search features include:
 
 - Searches by keyword, phrase, multiple words in any order, ignored words, date range, and more.
 - Autocomplete suggests results as a user searches for content.
 - Faceted search options refine results by attributes such as watchlists, faces, locations, objects, and tags.
 - Result ranking logic returns the most relevant results by default or can be fine-tuned for specific queries.
+
+> For more information on the search API, see the [search quickstart guide](../apis/search-quickstart.md).
