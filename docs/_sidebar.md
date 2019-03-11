@@ -1,6 +1,3 @@
-<!-- docs/_sidebar.md -->
-
-<!--TODO: Need to change the overview stuff based on this new re-org-->
 - [aiWARE Overview](/)
   - [Architecture Overview](architecture-overview.md)
   - [Glossary](glossary.md)
@@ -99,4 +96,4 @@
     - [Training Engines](developer/libraries/training.md)
     - [Running Engines](developer/libraries/running.md)
 
-  - [Terms & Conditions](developer/terms-and-conditions.md)
+  - [Developer Terms & Conditions](developer/terms-and-conditions.md)
