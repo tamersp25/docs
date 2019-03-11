@@ -1,9 +1,9 @@
-TODO: Update sidebar
-TODO: Replace all references to "VDA", "Developer Application", and "Developer App" with "Veritone Developer"
+<!--TODO: Replace all references to "VDA", "Developer Application", and "Developer App" with "Veritone Developer"-->
+<!--TODO: Rewrite this big overview in light of the restructuring-->
 
-# Veritone Overview
+# Veritone aiWARE Overview
 
-Veritone is a provider of artificial intelligence (AI) technology and solutions to the media and entertainment, legal and compliance, government, and more industries. 
+**Veritone** is a provider of artificial intelligence (AI) technology and solutions to the media and entertainment, legal and compliance, government, and more industries. 
 
 Our proprietary **aiWARE** platform, much like a traditional operating system, provides a common, open software infrastructure that lets you build and use end-to-end, AI-powered solutions — from data ingestion to intelligent data analysis — accessible in the application of your choice. 
 

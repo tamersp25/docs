@@ -30,7 +30,7 @@
 - [Developer](developer/)
   - [Developer Benefits](developer/benefits.md)
   
-  - [Building Applications](developer/applications/)
+  - [Building **Applications**](developer/applications/)
     - [Application Integration](developer/applications/integration/)
     - [Quickstart](developer/applications/quick-start/)
       - [Step 1 - Register Your Application](developer/applications/quick-start/step-1.md)
@@ -43,7 +43,7 @@
     - [Resources](developer/applications/resources.md)
     - [FAQ](developer/applications/faq.md)
   
-  - [Building Engines](developer/engines/)
+  - [Building **Engines**](developer/engines/)
     - [Getting Started](developer/engines/getting-started/)
       - [Path to Monetization](developer/engines/getting-started/path-to-monetization.md)
       - [Technologies Used](developer/engines/getting-started/technologies.md)
@@ -80,7 +80,7 @@
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
   
-  - [Building Adapters](developer/adapters/)
+  - [Building **Adapters**](developer/adapters/)
     - [Quickstart](developer/adapters/quick-start/)
       - [Step 1 - Register Your Adapter](developer/adapters/quick-start/step-1.md)
       - [Step 2 - Construct Your Code for the Veritone Platform](developer/adapters/quick-start/step-2.md)
@@ -91,10 +91,10 @@
     - [Construction Guidelines](developer/adapters/guidelines.md)
     - [Adapter Manifest](developer/adapters/manifest.md)
   
-  - [Working with Data](developer/data/)
+  - [Working with **Data**](developer/data/)
     - [Quickstart](developer/data/quick-start/)
   
-  - [Working with Libraries](developer/libraries/)
+  - [Working with **Libraries**](developer/libraries/)
     - [Library-enabled Engines](developer/libraries/engines.md)
     - [Training Engines](developer/libraries/training.md)
     - [Running Engines](developer/libraries/running.md)
