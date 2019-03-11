@@ -1,8 +1,8 @@
 - [aiWARE Overview](/)
   - [Architecture Overview](architecture-overview/)
-  - [Glossary](glossary.md)
+  - [Glossary](glossary/)
   
-- [Applications](/apps/)
+- [Applications](apps/)
   
 - [APIs](apis/)
   - [The Veritone API Data Model](apis/data-model.md)
