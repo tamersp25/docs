@@ -23,24 +23,24 @@ Our future roadmap includes tools, reporting, and new functionality that will ma
 We want and need our partners to be successful so your candid feedback is always welcome as we look to improve.
 Look for novel innovations in the months to come - including App Packages, Workflow App, Virtuous Cycle, and Benchmarking.
 
-# Developer Personas
+## Developer Personas
 Veritone Developer has been designed to serve many different constituent groups and developer types, in conjunction with other ongoing platform features and capabilities available via aiWARE.
 An overview of capabilities and features relevant to different types of developers is below.  
 
-## For Engine Developers
+### For Engine Developers
 In basic terms, "Cognitive Engine" is the term used by Veritone for software that facilitates the processing of data to produce metadata.
 Most often an Engine will consist of a Docker container image containing executable code for a local ML algorithm or one hosted remotely and accessible via API.
 Veritone Developer enables users to define a new engine conforming to engine Veritone specifications such as Class, Capability, Engine Processing Mode, Deployment Model, etc and then a series of Builds for that Engine.
 After UAT and deployment by Veritone, an Engine becomes available to aiWARE users either as a Public or Private engine.
 
-### Tools
+#### Tools
 - **Training Data**: Engine developers have access to collections of data entities grouped as libraries. Developers can also upload additional data entities and create their own libraries.
 
-### Opportunities
+#### Opportunities
  - **Monetization**: Receive payment upfront for use of your engines.
  - **Competitive Positioning**: Discover ways to differentiate your offering through feature and capability comparisons.
 
-## For Application Developers
+### For Application Developers
 
 aiWARE provides the building blocks and tools needed to build AI-powered solutions, even without any Machine Learning knowledge.
 Veritone Developer enables you to use the best mix of cognitive capabilities, modular UI elements, data ingestion, metadata storage, search functionality, and more.
@@ -49,14 +49,14 @@ You can choose to make your application available directly through aiWARE, eithe
 Moreover, Veritone enables you to reach new customers for your application.
 Developer partners are entitled to two revenue streams: 70% of any application licensing revenue collected by Veritone, and 7% of ongoing cognitive processing fees that are utilized by the application.
 
-## For Dataset Providers
+### For Dataset Providers
 Datasets can take several forms within Veritone Developer, and Veritone continues to add new features and functionality to extend capabilities related to making useful datasets available for model training, augmentation of or correlation to metadata, or to add context to the UI presentation of cognitive processing.
 Our roadmap includes a marketplace for data to enable users to license their data products within Veritone Developer.
 
-## For IT Professionals
+### For IT Professionals
 Veritone Developer is useful to Systems Integrators and internal IT departments to build and deploy integrations to existing or new systems and platforms using Veritone's APIs.
 They can also integrate proprietary engines, applications and datasets to customize aiWARE to specific use cases. 
 
-## For Data Scientists
+### For Data Scientists
 Developer App is currently used by in-house Data Scientists and external data science teams to rapidly deploy the results of their modeling, and to enable end users to utilize the resulting cognitive processing for existing use cases and entirely new, bespoke data analysis projects.
 Veritone continues to iterate on tools and functionality relevant to data scientists, including Virtuous Cycle and Benchmarking.

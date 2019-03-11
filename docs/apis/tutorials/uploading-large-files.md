@@ -1,6 +1,3 @@
-<!-- ---
-title: Uploading Large Files
---- -->
 # Uploading Large Files
 
 Veritone provides API for securely and reliably uploading files to your account. Several mutations in the Veritone API accept file upload, but if your data is large in size or exceeds the maximum upload limit, you may experience slower upload speed, timeouts, or failed requests. 
@@ -19,10 +16,9 @@ This tutorial includes everything you need to know about performing successful f
 * [HTTP/HTTPS URL File Upload](#direct-httphttps-url-upload)
 * [Pre-signed URL Upload](#pre-signed-url-upload)
 * [Handling Errors](#handling-errors)
-<br>
-<br>
 
-# Content Storage and Upload Concepts
+## Content Storage and Upload Concepts
+
 ### Content Storage Overview
 
 Content that’s ingested and stored in Veritone is organized as *containers* and *assets*. 
@@ -34,9 +30,8 @@ Content that’s ingested and stored in Veritone is organized as *containers* an
 ### File Upload Process Overview
 
 The general file upload process consists of two distinct functions that occur in a single request. A call to the `createTDOWithAsset` mutation first creates an empty container (or TDO) and then uploads the file to it. Once a file is successfully uploaded, it’s stored as an asset and can be used as the input for performing other actions, such as cognitive processing. 
-<br>
-<br>
-# Size Limitations
+
+## Size Limitations
 
 To safeguard the performance and integrity of the system, the Veritone API has built-in size limiting mechanisms on inbound requests and file uploads. These limits apply to both the `application/json` and `multipart/form-data` request protocols. The following sections provide details on the the limits accepted by Veritone to help you in setting up and managing your requests. 
 
@@ -91,29 +86,24 @@ Upload the file via URL</td>
     <td colspan="4">*Note:*  Although there are no restrictions imposed by Veritone for URL uploads, it’s important to note that cognition engines may set their own limits for data processing and analysis. Therefore, it’s recommended to split large files into smaller chunks to optimize performance and reduce the risk of error. </td>
   </tr>
 </table>
-<br>
-<br>
 
-# Local File System Upload
+## Local File System Upload
 
 You can upload files from your local system up to 100MB in a single operation by doing a `multipart/form-data` HTTP request. This method structures requests in multiple parts that represent different characteristics of the file. In each request, form field data specifying information about the file and a query containing details about the asset are sent along with `Authentication` and `Content-Type` headers. When a file is successfully uploaded, a `TDO/container ID` and `URL` to the file’s storage location are returned in the response. These values can then be used with other Veritione API to perform additional actions, such as cognitive processing. 
 
 Files that are larger than the 100MB limit can be split into smaller, more manageable pieces and uploaded independently, in any order, and in parallel. All file chunks should be the same size (up to 100MB each), except for the last chunk, which can be any size under 100MB. If you want to send a large file without dividing it, you can use the raw or pre-signed URL upload method.
 
-**Errors** <br>
-If you encounter an error during a local file upload, see the [Handling Errors](#handling-errors) section for possible error codes that can be returned along with suggested actions you can take to resolve them.
-
-### Upload a Local File
+> If you encounter an error during a local file upload, see the [Handling Errors](#handling-errors) section for possible error codes that can be returned along with suggested actions you can take to resolve them.
 
 To upload a local file, make a request to the `createTdoWithAsset` mutation. When structuring your request, be sure to set the `Content-Type` header to `multipart/form-data` and use the `form-data` keys `query`, `file`, and `filename` in the body. Currently, GraphiQL does not support multipart/form requests, so a different HTTP client must be used for making sample calls.
 
 If you’re uploading a large file that’s segmented into smaller parts, upload the first chunk of the file in the `createTdoWithAsset` request and then use the `TDO ID` returned in the response to upload the remaining chunks to the same container in the `createAsset` mutation.
 
-#### Step 1. Create Container and Upload File
+### Step 1. Create Container and Upload File
 
 Create the TDO/container and upload a local file up to 100 MB or the primary file chunk of a larger, split file. 
 
-**Sample Request Payload — Create TDO with Asset (local file upload)**
+#### Sample Request Payload — Create TDO with Asset (local file upload)
 
 ```graphql
 -H content-type:  => A header that specifies the content type. Enter "multipart/form-data" as the value.(required)
@@ -122,7 +112,7 @@ Create the TDO/container and upload a local file up to 100 MB or the primary fil
 -F query=mutation {
 -----------request fields-----------
   createTDOWithAsset(input:{  => The mutation type and input variable. (required)
-  startDateTime: "string"    => The starting date and time of the file to be uploaded in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. (required)
+   startDateTime: "string"    => The starting date and time of the file to be uploaded in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. (required)
    stopDateTime: "string"    => The ending date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. The value is calculated by adding the length of the file to the startDateTime value. If a value is not provided, a 15-minute default value will be applied. (optional)
    contentType: "string"     => The MIME type of the file being uploaded (e.g., "audio/mp3"). If a value is not provided, the default value "video/mp4" will be applied. (optional)
    assetType: "string"       => A label that classifies the file to be uploaded, such as "transcript," "media," or "text." If a value is not specified, the default value "media" will be applied. (optional)
@@ -139,7 +129,7 @@ Create the TDO/container and upload a local file up to 100 MB or the primary fil
        signedUri   => The secure URI of the asset. (required)
 ```
 
-**Sample Request: Create TDO with Asset (local file upload)**
+#### Sample Request: Create TDO with Asset (local file upload)
 
 ```bash
 curl -X POST \
@@ -172,7 +162,7 @@ curl -X POST \
 }'
 ```
 
-**Sample Response: Create TDO with Asset (local file upload)**
+#### Sample Response: Create TDO with Asset (local file upload)
 
 ```json
 {
@@ -195,11 +185,12 @@ curl -X POST \
 }
 ```
 
-#### Step 2. Upload Additional File Chunks (Split Files Only)
+### Step 2. Upload Additional File Chunks (Split Files Only)
 
 Once the TDO is created and primary file chunk is uploaded, use the `TDO/container ID` returned in the response from the previous step and make individual calls to the `createAsset` mutation to upload each of the remaining file chunks. 
 
-**Sample Request Payload — Create Asset (local file upload)**
+#### Sample Request Payload — Create Asset (local file upload)
+
 ```graphql
 -H content-type:  => A header that specifies the content type. Enter "multipart/form-data" as the value.(required)
 -F filename       => The name of the file chunk to upload. The value must match the name of the saved file. (required)      
@@ -219,7 +210,7 @@ Once the TDO is created and primary file chunk is uploaded, use the `TDO/contain
     signedUri   => The secure URI of the asset. (required)
 ```
 
-**Sample Request — Create Asset (local file upload)**
+#### Sample Request — Create Asset (local file upload)
 
 ```bash
 curl -X POST \
@@ -247,7 +238,7 @@ curl -X POST \
   -F 'file=@/Users/lisafontaine/Downloads/rescued puppies road trip.mp4'
 ```
 
-**Sample Response — Create Asset (local file upload)**
+#### Sample Response — Create Asset (local file upload)
 
 ```json
 {
@@ -263,19 +254,19 @@ curl -X POST \
 }
 ```
 
-# Direct HTTP/HTTPS URL Upload 
+## Direct HTTP/HTTPS URL Upload 
 
 If the file you want to upload is publicly available online, you can pass the HTTP or HTTPS URL in the request instead of uploading the actual file data. This method allows you to upload files of almost any size, making it useful for adding large files that exceed 100MB in size. Although Veritone does not impose any limits on the size of the file being uploaded using a URL, it’s important to note that cognition engines can set their own limits for data processing and analysis. To prevent performance degradation and to ensure data processing reliability, it’s recommended to follow the [file size limit](#size-limitations) best practices. 
 
 When uploading a file from a URL, include the `uri` parameter in the request with the publicly accessible URL to the file set as the value. Files uploaded from a URL are not saved in the database — only the URL path is stored, which is used to redirect users directly to the file location. This provides you with additional privacy and management of your data by allowing you to control how long the file is available. If a saved URL becomes invalid, the file is no longer accessible. 
 
-#### Upload a File via URL
+### Upload a File via URL
 
 To upload a file using a URL, make a call to the `createTDOWithAsset` mutation and pass the URL in the input body of the request. 
 
 The following example creates a TDO/container and uploads a file from the specified URL location.
 
-**Sample Request Payload — Create TDO with Asset (URL upload)**
+#### Sample Request Payload — Create TDO with Asset (URL upload)
 
 ```graphql
 mutation {
@@ -300,7 +291,7 @@ mutation {
         signedUri   => The secure URI of the asset. 
 ```
 
-**Sample Request — Create TDO with Asset (URL upload)**
+#### Sample Request — Create TDO with Asset (URL upload)
 
 ```graphql
 mutation {
@@ -327,7 +318,7 @@ mutation {
 }
 ```
 
-**Sample Response — Create TDO with Asset (URL upload)**
+#### Sample Response — Create TDO with Asset (URL upload)
 
 ```json
 {
@@ -350,34 +341,32 @@ mutation {
 }
 ```
 
-# Pre-Signed URL Upload
+## Pre-Signed URL Upload
 
 For added security, you can use a pre-signed URL to upload a file of nearly any size from your own server. A pre-signed URL is a temporary link that can be used access to a file in your storage facility and upload it directly to Veritone’s S3 without making it publicly available. 
 
 Pre-signed URLs are scoped to allow access to a specific operation (PUT), bucket, and key for a limited amount of time. They also account for security permissions required to access the file once it’s been uploaded to Veritone. Uploading a file with this method involves the following steps:
 
-**1. Generate a pre-signed URL.**<br>
-**2. Make an HTTP PUT request to the signed URL to upload the file.**<br>
-**3. Create an asset with the uploaded file.**
+1. Generate a pre-signed URL.
+2. Make an HTTP PUT request to the signed URL to upload the file.
+3. Create an asset with the uploaded file.
 
 In addition to generating the pre-signed `url`, requests will also return an `unsignedUrl` and a `getUrl`. These additional URLs are used for different purposes and are only effective once the file has been uploaded to Veritone. The `unsignedUrl` indicates the upload location of the file and is used to create an asset with the uploaded file. The `getUrl` allows the file object to be retrieved after the pre-signed URL expires. This is useful if you want to make the file data available without giving free-range access to your storage. 
 
-**Additional Notes**
+### Additional Notes
 
 * By default, a pre-signed URL is valid for 10,800 seconds (or three hours). 
 * Veritone does not impose any limits on the size of the file being uploaded with a pre-signed URL, but it’s important to note that cognition engines can set their own limits for data processing. To prevent performance degradation and to ensure the reliability of data processing, it’s recommended to follow the best practices related to file size limits. 
 * A separate pre-signed URL must be created for each chunk in a large file upload. 
 * To upload a file using your own pre-signed URL, follow the [Direct HTTP/HTTPS Upload](#direct-httphttps-url-upload) instructions and provide the path in the `uri` field of the request. 
 
-**Errors**
+> If you encounter an error using the pre-signed URL upload method, see the [Handling Errors](#handling-errors) section for a list of possible error codes that can be returned along with suggested actions you can take to resolve them.
 
-If you encounter an error using the pre-signed URL upload method, see the [Handling Errors](#handling-errors) section for a list of possible error codes that can be returned along with suggested actions you can take to resolve them.
-
-#### Step 1 — Generate a Pre-Signed URL
+### Step 1 — Generate a Pre-Signed URL
 
 To generate a pre-signed URL, make a request to the `getSignedWritableUrl` query as demonstrated in the example below. 
 
-**Sample Request Payload — Get Signed Writable URL**
+#### Sample Request Payload — Get Signed Writable URL
 
 ```graphql
 query {
@@ -396,7 +385,7 @@ query {
 }
 ```
 
-**Sample Request — Get Signed Writable URL**
+#### Sample Request — Get Signed Writable URL
 
 ```graphql
 query {
@@ -411,7 +400,7 @@ query {
 }
 ```
 
-**Sample Response — Get Signed Writable URL**
+#### Sample Response — Get Signed Writable URL
 
 ```json
 {
@@ -428,11 +417,11 @@ query {
 }
 ```
 
-#### Step 2. Use the Pre-Signed URL to Upload a File
+### Step 2. Use the Pre-Signed URL to Upload a File
 
 To upload the file using the pre-signed URL, make a PUT request to the `url` value returned in the previous step. Successful requests will return a 200 response with no additional data. 
 
-**Sample Request Structure — Upload File Using Pre-Signed URL**
+#### Sample Request Structure — Upload File Using Pre-Signed URL
 
 ```bash
 curl
@@ -440,7 +429,7 @@ curl
   -d "@/path/to/filename"
 ```
 
-**Sample Request — Upload File Using Pre-Signed URL**
+#### Sample Request — Upload File Using Pre-Signed URL
 
 ```bash
 curl -v
@@ -449,11 +438,11 @@ curl -v
   -d "@rescued-puppies-roadtrip.mp4"
 ```
 
-#### Step 3. Create an Asset
+### Step 3. Create an Asset
 
 Once the file is uploaded, pass the `unsignedUrl` value returned in the response of Step 1 to the `createTDOWithAsset` mutation to create a TDO/container and file asset. 
 
-**Sample Request Payload — Create TDO with Asset (pre-signed URL upload)**
+#### Sample Request Payload — Create TDO with Asset (pre-signed URL upload)
 
 ```graphql
 mutation {
@@ -481,7 +470,7 @@ mutation {
 }
 ```
 
-**Sample Request — Create TDO with Asset (pre-signed URL upload)**
+#### Sample Request — Create TDO with Asset (pre-signed URL upload)
 
 ```graphql
 mutation {
@@ -508,7 +497,7 @@ mutation {
 }
 ```
 
-**Sample Response — Create TDO with Asset (pre-signed URL upload)**
+#### Sample Response — Create TDO with Asset (pre-signed URL upload)
 
 ```json
 {
@@ -531,9 +520,9 @@ mutation {
 }
 ```
 
-# Handling Errors
+## Handling Errors
 
-#### Query Size Error
+### Query Size Error
 Requests that exceed the maximum allowed query size will return a HTTP 413 response with the following message in the response body:
 
 ```json
@@ -554,15 +543,15 @@ Requests that exceed the maximum allowed query size will return a HTTP 413 respo
 
 Typically, this error is encountered when the request payload exceeds the maximum 10MB limit. Below we describe two common causes of this error and some suggested courses of action for correction. 
 
-**Automated Querying**<br>
+#### Automated Querying
 A manually constructed query is unlikely to exceed the size capacity. However, queries that are machine-generated through a loop or other input type may attempt to retrieve or edit too many objects in batch and, as a result, they will exceed the allowable limit. You can work around this issue by modifying your code and splitting the query into batches of bounded size. Then, submit the smaller queries using multiple sequential requests. 
 
-**Arbitrary JSON Input**<br>
+#### Arbitrary JSON Input
 Although some mutation and data type fields take arbitrary JSON as input, these fields are not designed to consume large objects. An input field with a large JSON representation could alone exceed the allowable 10MB limit and cause the request to fail. For example, the output field of the updateTask mutation could contain a large JSON input value. In this case, even though the base GraphQL query may be small, the size of the output field value could exceed the maximum query size limit. 
 
 To work around this issue, simply reduce the size of the payload by either splitting the input into multiple objects or by uploading it as a file.
 
-#### Local System File Upload Error
+### Local System File Upload Error
 Attempting to upload or attach a file that exceeds 100MB will return an HTTP 413 error response that looks similar to the following: 
 ```json
 {
@@ -588,7 +577,7 @@ If your file exceeds the allowable limit, there are two options to work around t
 * Split the file into smaller chunks. Although 100MB is a reasonable size for most artifacts (such as long multimedia recordings), cognitive engine processing and analysis performs more efficiently and reliably with smaller object sizes. 
 * If you’re unable to divide a file larger than 100MB, use the [raw](#direct-httphttps-url-upload) or [pre-signed](#pre-signed-url-upload) URL methods to upload the file without splitting it.
 
-#### Pre-Signed URL Upload Errors
+### Pre-Signed URL Upload Errors
 
 If you receive a 403 error, there are a few things you can check.
 
