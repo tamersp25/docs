@@ -1,10 +1,8 @@
-<!-- TODO: Incorporate PR https://github.com/veritone/docs/pull/42 -->
-
 # Building an Entity Extraction Engine
 
 ![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+![](badge/Search/No/red)
+![](badge/UI/No/red)
 
 Entity extraction engines classify named entities, located in unstructured text, into predefined categories such as People, Organizations, and/or Locations.
 
@@ -14,31 +12,33 @@ All entity extraction engines should specify the following parameters in their b
 
 | Parameter | Value |
 | --------- | ----- |
-| `TODO` | `TODO` |
-| `TODO` | `TODO` |
+| `preferredInputFormat` | `"text/plain"` |
+| `supportedInputFormats` | `["text/plain"]` |
+| `engineMode` | `"chunk"` |
 
-<!-- Here is a minimal example `manifest.json` that could apply to an entity extraction engine: -->
+Here is a minimal example `manifest.json` that could apply to an entity extraction engine:
 
-<!--TODO: Define [](manifest.example.json ':include :type=code javascript')-->
+[](manifest.example.json ':include :type=code json')
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
 ## Engine Input
 
-<!-- TODO -->
+Entity extraction engines can specify `supportedInputFormats` in their [manifest](/developer/engines/standards/engine-manifest/) for mime types they can support natively (e.g. `text/plain`, `application/pdf`).
+In this case, engines are given the entire file as their input and are responsible for outputting the entire list of extracted entities in their `vtn-standard` output.
 
-### Training and Libraries
+> In the future, entity extraction engines will also be able to accept `vtn-standard` [text extraction output](/developer/engines/cognitive/text/text-extraction/?id=engine-output) as their input, opening up processing to any file types supported by text extraction engines.
 
-<!-- Since all entity extraction engines identify entities, they are all required to be [trainable via libraries](/developer/libraries/engines). -->
+### Training and Libraries	
+
+If entity extraction engines are made [trainable with libraries](/developer/libraries/engines) then they can map their output back to entities in the libraries they were trained on by including an `entityId` in their engine output.
 
 ## Engine Output
 
-<!-- TODO -->
-
-### Example
-<!-- TODO   Here is an example of the simplest type of entity extraction output: -->
+This is an example output that maps an extracted entity to an engine-specific category system that includes the category `"person"`.
 
 [](vtn-standard.example.json ':include :type=code json')
 
-[Primary Source](https://github.com/veritone/core-graphql-server/blob/master/dal/taskOutputConversionUtil.js#L133)
+This is an example output that maps an extracted entity back to an aiWARE library entity.
 
+[](vtn-standard-library-entity.example.json ':include :type=code json')

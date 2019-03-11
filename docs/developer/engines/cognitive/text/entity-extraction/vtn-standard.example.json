@@ -1,0 +1,14 @@
+{
+  "object": [
+    {
+      "type": "namedEntity",
+      "objectCategory": [
+        {
+          "class": "person"
+        }
+      ],
+      "label": "John",
+      "sentence": 1
+    }
+  ]
+}

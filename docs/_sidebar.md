@@ -58,6 +58,9 @@
         - [Speaker Separation](developer/engines/cognitive/speech/speaker-separation/)
         - [Transcription](developer/engines/cognitive/speech/transcription/)
       - Text
+        - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)
+        - [Keyword Extraction](developer/engines/cognitive/text/keyword-extraction/)
+        - [Sentiment Analysis](developer/engines/cognitive/text/sentiment/)
         - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
         - [Translation](developer/engines/cognitive/text/translation/)
       - Vision

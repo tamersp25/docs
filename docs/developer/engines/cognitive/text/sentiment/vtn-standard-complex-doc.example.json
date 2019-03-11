@@ -1,0 +1,18 @@
+{
+  "sentiment": {
+    "positiveValue": 0.56,
+    "positiveConfidence": 0.80,
+    "negativeValue": 0.20,
+    "negativeConfidence": 0.50
+  },
+
+  "emotions": [{
+    "emotion": "angry",
+    "emotionValue": 0.14,
+    "emotionConfidence": 0.88
+  }, {
+    "emotion": "confused",
+    "emotionValue": 0.82,
+    "emotionConfidence": 0.75
+  }]
+}

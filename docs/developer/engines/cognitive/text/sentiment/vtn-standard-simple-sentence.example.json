@@ -1,0 +1,13 @@
+{
+  "object": [
+    {
+      "type": "text",
+      "text": "John was a true gentleman, very clean, quiet, pleasant and courteous.",
+      "sentence": 1,
+
+      "sentiment": {
+        "positiveValue": 0.9765505194664001
+      }
+    }
+  ]
+}
