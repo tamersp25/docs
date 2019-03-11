@@ -3,7 +3,6 @@
   - [Glossary](glossary.md)
   
 - [Applications](/apps/)
-  - [Admin](/apps/admin/)
   
 - [APIs](apis/)
   - [The Veritone API Data Model](apis/data-model.md)
