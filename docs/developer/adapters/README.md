@@ -9,19 +9,19 @@ Remember that our developer support team is here to answer questions and provide
 
 > In the GraphQL API, adapters are identified as `engines` where `EngineType=Ingestion`
 
-### Adapter Categories
+## Adapter Categories
 
 Adapters fall into two categories, which are defined by the way data is served up from the source. The protocol follows a client-server approach for communication between the data source and the adapter. Based on the nature of the interaction, an adapter will operate in either a push- or a pull-based manner for retrieving data records. 
 
-**Pull Adapters**
+### Pull Adapters
 
 Pull adapters are the most common type of adapter implementation. With this adapter type, data is pulled from a server by a client-initiated request, and a separate request is made each time data is to be retrieved. Pull adapters are services that work "by reference" (being instructed to fetch media based on some pointer, such as an S3 bucket or Dropbox folder)
 
-**Push Adapters**
+### Push Adapters
 
 With push adapters, the data source serves as the client and drives the transfer operation by notifying the adapter (server) whenever new data is available. After the initial request, data continues to be pushed from the source to the adapter without any subsequent requests.
 
-### Kafka
+## Kafka
 
 Veritone's real-time pipeline uses [Kafka](https://kafka.apache.org/) to connect and manage communication between various components in the system. Kafka is a distributed pub-sub messaging system rethought as a distributed commit log. Kafka works by storing messages in topics that are partitioned and replicated across multiple brokers. Producers write data to topics and consumers read from topics using a topic subscription.
 
@@ -107,7 +107,7 @@ query getSourceType {
 }
 ```
 
-*Note:* Although a schema cannot be modified, Veritone supports adding a subset of Custom Fields to the query.
+> Although a schema cannot be modified, Veritone supports adding a subset of Custom Fields to the query.
 
 ### Payload and Environment Variables
 
@@ -115,7 +115,8 @@ Upon execution, your adapter receives a standard set of environment variables th
 
 ### APIs
 
-Veritone's suite of APIs allow you to build the core strengths of the Veritone Platform into your technology. Our collection of GraphQL APIs support the entire task processing processing lifecycle — including payload retrieval, task statusing, returning output, and indexing results.
+[Veritone's suite of APIs](/apis/) allow you to build the core strengths of the Veritone Platform into your technology.
+Our collection of GraphQL APIs support the entire task processing processing lifecycle — including payload retrieval, task statusing, returning output, and indexing results.
 
 ### Input/Output Models
 
