@@ -13,7 +13,7 @@ We believe in the wisdom of the crowd. That’s why we built a machine learning 
 
 If you’re looking for a sales channel for your AI software products, to add intelligent features to an existing application, or to leverage robust infrastructure for AI development and custom machine learning model training - Veritone’s aiWARE platform can help.
 
-## Key Platform Features
+## Key Platform Features {docsify-ignore}
 
 ### Ingestion
 Veritone ingests both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP. The architecture inherently supports simple and rapid addition of new ingestion adapters. You can even write your own.
@@ -55,7 +55,9 @@ Veritone now allows you to ingest structured data, either as standalone content 
 The Veritone ecosystem of best-of-breed AI cognitive engines in a single platform eliminates the need for businesses, agencies, and individuals to select one vendor from the landscape of thousands of engines. This effectively future-proofs AI technology choices and ensures timely and common access to the latest AI advances.
 
 
-## Veritone Application Suite
+## Veritone Application Suite {docsify-ignore}
+
+<!--TODO: Probably just direct toward the dedicated apps section instead-->
 
 Veritone&rsquo;s suite of powerful AI applications enables users to organize, manage, search, analyze, and extend their cognitively-enriched content. The Platform includes the following native, general-purpose AI applications:
 

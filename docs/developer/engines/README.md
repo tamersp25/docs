@@ -4,7 +4,7 @@ TODO: Write an overall engines summary
 <!--TODO: Specify only LINUX docker containers supported-->
 <!--TODO: Add other legacy pages in with deprecated flag and no place in the TOC-->
 
-## Engine Types
+## Engine Types {docsify-ignore}
 There are three main types of engines in aiWare: adapters (a.k.a ingestion engines), cognitive engines, and aggregator engines.
 
 ### Adapters (a.k.a. Ingestion Engines)
