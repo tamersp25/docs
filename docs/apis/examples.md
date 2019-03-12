@@ -191,24 +191,24 @@ mutation runRTEngineJob {
 ```graphql
 mutation createTranscriptionJobWithStandby {
   createJob(input: {
-      targetId: "53796349",
-      tasks: [{
+    targetId: "53796349",
+    tasks: [{
+      engineId: "transcribe-speechmatics-container-en-us",
+      standbyTask: {
         engineId: "transcribe-speechmatics-container-en-us",
         standbyTask: {
-          engineId: "transcribe-speechmatics-container-en-us",
-          standbyTask: {
-            engineId: "transcribe-voicebase",
-            payload: { language: "en-US", priority: "low" }
-          }
+          engineId: "transcribe-voicebase",
+          payload: { language: "en-US", priority: "low" }
         }
-      }]
-    }) {
+      }
+    }]
+  }) {
       id
       tasks {
         records {
           id
         }
-    }
+      }
   }
 }
 ```
@@ -928,17 +928,17 @@ In this case, we're looking for media where the `QUANTITY` value equals `2` or t
 ```graphql
 query searchSDO {
     searchMedia(search: {
-        index: ["mine"],
-        limit: 20,
-        offset: 0,
-        query: {
-            conditions: [
-                { operator: "term", field: "QUANTITY", value: 2 }
-               	{ operator: "term", field: "ORD_ID", value: "12343" }
-            ],
-            operator: "or"
-        },
-        type: "schemaId"
+      index: ["mine"],
+      limit: 20,
+      offset: 0,
+      query: {
+          conditions: [
+            { operator: "term", field: "QUANTITY", value: 2 }
+            { operator: "term", field: "ORD_ID", value: "12343" }
+          ],
+          operator: "or"
+      },
+      type: "schemaId"
     })
     {
         jsondata
@@ -1520,12 +1520,3 @@ query getEngineResults {
   }
 }
 ```
-
-
-
-
-
-
-
-
-
