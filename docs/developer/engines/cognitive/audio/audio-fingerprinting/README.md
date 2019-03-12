@@ -12,25 +12,25 @@ The engines report time spans where one of these audio snippets has been matched
 <!--TODO: Add these sections back in when we have good content for them
 ## Use Cases
 
-TODO: Document use cases
+Document use cases
 
 ## Engine Profile Creation Checklist
 
-TODO: What goes here?  A full tutorial for creating the engine?  If so, let's :include a lot of that content
+What goes here?  A full tutorial for creating the engine?  If so, let's :include a lot of that content
 
 - [ ] Item 1
 - [ ] Item 2
 
-TODO: Note that library required should be checked (cuz all audio fingerprint engines are trainable)
+Note that library required should be checked (cuz all audio fingerprint engines are trainable)
 
 ## Engine Build Checklist
 
-TODO: What goes here?  A full tutorial for creating the build?  If so, let's :include a lot of that content
+What goes here?  A full tutorial for creating the build?  If so, let's :include a lot of that content
 
 - [ ] Item 1
 - [ ] Item 2
 
-TODO: Note that audio fingerprinting engines are typically network isolated due to requiring libraries and engine models.
+Note that audio fingerprinting engines are typically network isolated due to requiring libraries and engine models.
 -->
 
 ## Engine Manifest
@@ -55,7 +55,7 @@ Since all audio fingerprinting engines identify entities, they are all required 
 <!--
 ## Engine Input
 
-TODO: Point to the [stream processing](/developer/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
+Point to the [stream processing](/developer/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
 -->
 
 ## Engine Output

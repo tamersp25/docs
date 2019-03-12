@@ -21,11 +21,11 @@ Here is a minimal example `manifest.json` that could apply to a transcription en
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
-<!--
+<!--TODO: Define
 ## Engine Input
 
-TODO: Point to engine toolkit documentation and explain some of the things to expect re: chunk boundaries and stuff.
-TODO: Talk about how if they want real-time-capable stateful stream processing, they should talk to us.
+Point to engine toolkit documentation and explain some of the things to expect re: chunk boundaries and stuff.
+Talk about how if they want real-time-capable stateful stream processing, they should talk to us.
 -->
 
 ## Engine Output

@@ -9,8 +9,7 @@ A geolocation engine identifies the location (lat/long) of a person or object wi
 Geolocation data conforms to the `geolocation` validation contract and is identified by the `gps` key.
 It can be added to multiple parts of an engine's output.
 
-<1-- 
-TODO: Show examples of reporting geolocation at the doc, object, series, and series-object levels.
+<!--TODO: Show examples of reporting geolocation at the doc, object, series, and series-object levels.
 Look at this for inspiration: https://github.com/veritone/docs/pull/59/files#diff-ba4cda0a29f49605adac1e478ca37e8dR5
 -->
 
