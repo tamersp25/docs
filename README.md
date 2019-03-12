@@ -110,10 +110,17 @@ For example, don't sprinkle around a bunch of `<br>` tags just to get more spaci
 If we start to see that we need extra padding after h3s for example, we can apply it globally in the future.
 
 If there is an advanced feature that you want added to lots of different places, consider building a plugin to render it based on very simple markdown (e.g. )
+See the [docsify documentation](https://docsify.js.org/#/helpers) for the available helpers.
+Our conventions for this repo are as follows:
 
 ### How to add a new link to the side bar
 
-To add a new link to the sidebar, please add a new entry to the [_sidebar.md file](docs/_sidebar.md)
+To add a new link to the sidebar, please add a new entry to the [_sidebar.md file](docs/_sidebar.md).
+
+### How to add a new child link to an existing side bar link
+
+To add a child link to the sidebar, navigate to the child folder and update the `_sidebar.md` file to include the child link.
+See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/quick-start/_sidebar.md for an example.
 
 ### Useful Resources
 
