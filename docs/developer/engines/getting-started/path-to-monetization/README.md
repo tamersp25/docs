@@ -1,4 +1,5 @@
-# Earn Revenue with Veritone 
+# Path to Monetization - Earn Revenue with Veritone
+
 As a developer partner in the Veritone Ecosystem, there are several ways to earn revenue from your software products.
 
 It is our goal to provide significant and tangible revenue to developer partners.  In fact several of our partners have already earned seven figures based on the millions of media hours we process, and the multiplying factor of utilizing several engines at once for some client use cases.
@@ -6,6 +7,7 @@ It is our goal to provide significant and tangible revenue to developer partners
 Veritone can serve as your primary sales channel, but we also help established businesses with existing direct or indirect sales channels. You can also choose to white-label so as not to interfere with other channels or create pricing conflict if you want.
 
 ## Engine Licensing Fees
+
 We usually compensate engine developers based on variable engine usage, measured in either hours of media processed or API calls made. Rates are negotiated with each partner, and we prefer tiered pricing based on volume with no guarantees. We are open to discussing other models as well, including flat fees, perpetual licenses, or per feed fees, but we generally prefer a variable cost structure. 
 
 A typical tiered structure would look like this (illustration only):

@@ -12,6 +12,8 @@ Developers can extend aiWARE's capabilities and add their own logic by writing t
 
 <!--TODO: Add other legacy pages in with deprecated flag and no place in the TOC-->
 
+?> See the [Getting Started](/developer/engines/getting-started/) guide for a quick rundown of the usual steps involved with building engines on aiWARE.
+
 ## Engine Types {docsify-ignore}
 There are three main types of engines in aiWare: adapters (a.k.a ingestion engines), cognitive engines, and aggregator engines.
 

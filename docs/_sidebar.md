@@ -41,9 +41,9 @@
   
   - [Building **Engines**](developer/engines/)
     - [Getting Started](developer/engines/getting-started/)
-      - [Path to Monetization](developer/engines/getting-started/path-to-monetization.md)
-      - [Technologies Used](developer/engines/getting-started/technologies.md)
-    - [Approval Process](developer/engines/approval/)
+      - [Path to Monetization](developer/engines/getting-started/path-to-monetization/)
+      - [Support](developer/engines/getting-started/support/)
+      - [Technologies Used](developer/engines/getting-started/technologies/)
     - [Building a Cognitive Engine](developer/engines/cognitive/)
       - Audio
         - [Audio Fingerprinting](developer/engines/cognitive/audio/audio-fingerprinting/)
@@ -67,6 +67,7 @@
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
         - [Object Detection](developer/engines/cognitive/vision/object-detection/)
         - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
+    - [Approval Process](developer/engines/approval/)
     - [Deployment Models](developer/engines/deployment-model/)
     - [Processing Modes](developer/engines/processing-modes/)
       - [Segment Engine Processing](developer/engines/processing-modes/segment-processing/)

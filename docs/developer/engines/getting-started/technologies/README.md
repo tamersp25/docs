@@ -23,7 +23,9 @@ You can find more information on Docker here:
 - https://docs.docker.com/get-started/
 - https://docs.docker.com/
 
+<!--TODO: Document
 ## GraphQL
 
 <describe usage in VDA>
 <external resources>
+-->
