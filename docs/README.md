@@ -39,7 +39,7 @@ It orchestrates and intelligently routes media to the most appropriate cognitive
 
 ### A Suite of Proprietary Applications
 
-Veritone's [suite of native applications](apps/) to enable users to ingest, process, index, manage, search, and share their cognitively-enriched content.
+Veritone's [suite of native applications](apps/) enables users to ingest, process, index, manage, search, and share their cognitively-enriched content.
 
 ### Philosophy of Open Data
 
