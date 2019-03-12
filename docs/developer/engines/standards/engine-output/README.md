@@ -12,16 +12,16 @@ For specifications and examples for individual engine capabilities, please see t
 
 ## Full Specification
 
+<!--TODO: Review
 The official specification is expressed in json-schema format and is [available here](https://github.com/veritone/docs/tree/master/docs/engines/standards/vtn-standard.schema.json)
-TODO: Review
+-->
 
-An annotated example is shown below demonstrating most of the capabilities:
+An annotated example of the full specification is shown below demonstrating most of the capabilities:
 
 [](vtn-standard.example.js ':include :type=code javascript')
-TODO: Review.  Find the "TODO: Continue..."
 
 ## Extending The Standard
-TODO: Move to a separate page (so we can link from the Developer UI)
+<!--TODO: Move to a separate page (so we can link from the Developer UI)-->
 You can extend the standard with your custom data in multiple ways depending on your needs.
 
 ### By adding to the vendor section
