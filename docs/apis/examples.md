@@ -113,7 +113,7 @@ mutation createTDOWithAsset {
 
 ### Create Empty TDO (No Asset)
 
-Note: This can be used in conjunction with the "Download File and Run Engine" query in the "Processing" section.
+This can be useful for creating a container TDO that you can upload assets into later with the `createAsset` mutation.
 
 ```graphql
 mutation createTDO {
