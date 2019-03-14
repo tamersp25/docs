@@ -140,6 +140,11 @@ This ensures that you cannot commit unless tests are passing.
 To quickly run the test suite manually while you already have a docs instance running on port 3000 (via `yarn start`)
 you can run `yarn test:only` in another console.
 
+### JUnit Test Results
+
+All the test scripts are configured to output basic information to stdout and to also write a JUnit test result report at `test-results.xml`.
+The JUnit results should then be able to be visualized in CI pipelines like Jenkins or other tools.
+
 ### Pretty Test Results
 
 To generate a nice pretty interactive report of test results, you can run `yarn test`.

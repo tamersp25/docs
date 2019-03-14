@@ -34,6 +34,15 @@ exports.config = {
       enabled: GENERATE_REPORT
     }
   },
-  mocha: {},
+  mocha: {
+    reporterOptions: {
+      'codeceptjs-cli-reporter': {
+        stdout: '-'
+      },
+      'mocha-junit-reporter': {
+        stdout: 'test/e2e/output/junit-console.log'
+      }
+    }
+  },
   name: 'docs'
 };

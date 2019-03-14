@@ -8,7 +8,7 @@
     "build": "sh ./schemagen.sh && rm -rf build-${ENVIRONMENT:-local} && mkdir build-${ENVIRONMENT:-local} && cp -r docs/* build-${ENVIRONMENT:-local}/",
     "lint": "echo \"No lint\" && exit 0",
     "start": "./node_modules/.bin/docsify serve ./docs",
-    "test": "./node_modules/.bin/codeceptjs run",
+    "test": "./node_modules/.bin/codeceptjs run --reporter mocha-multi",
     "test:full": "HTTP_PORT=3333 && yarn && yarn build && yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
     "test:report": "E2E_GENERATE_REPORT=true yarn test:full; ./node_modules/.bin/allure serve test/e2e/output"
@@ -25,6 +25,8 @@
     "docsify-cli": "^4.2.0",
     "get-graphql-schema": "^2.1.1",
     "husky": "^1.3.1",
+    "mocha-junit-reporter": "^1.18.0",
+    "mocha-multi": "^1.0.1",
     "puppeteer": "^1.13.0"
   }
 }

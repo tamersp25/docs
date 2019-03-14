@@ -11,6 +11,7 @@ build-local/*
 public/
 
 test/e2e/output
+test-results.xml
 
 *.log*
 npm-debug.log
