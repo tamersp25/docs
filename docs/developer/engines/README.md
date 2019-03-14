@@ -3,7 +3,7 @@
 <!--TODO: Need to re-document builds, states, all that stuff.  Can pull from previous docs.-->
 
 **Engines** are the main unit of cognitive computing in aiWARE.
-Engines are discreet units of code that process data using various algorithms or machine learning techniques.
+Engines are discrete units of code that process data using various algorithms or machine learning techniques.
 Within aiWARE's engine processing architecture, engines are primarily implemented as Docker containers.
 
 Developers can extend aiWARE's capabilities and add their own logic by writing their own custom engines and pushing them to Veritone Developer as Docker containers.
@@ -17,16 +17,17 @@ Developers can extend aiWARE's capabilities and add their own logic by writing t
 ?> See the [Getting Started](/developer/engines/getting-started/) guide for a quick rundown of the usual steps involved with building engines on aiWARE.
 
 ## Engine Types {docsify-ignore}
-There are three main types of engines in aiWare: adapters (a.k.a ingestion engines), cognitive engines, and aggregator engines.
+There are three main types of engines in aiWARE: adapters (a.k.a ingestion engines), cognitive engines, and aggregator engines.
 
 ### Adapters (a.k.a. Ingestion Engines)
-[Adapters](/developer/adapters/), also known as ingestion engines, bring data from other sources into aiWare.
+[Adapters](/developer/adapters/), also known as ingestion engines, bring data from other sources into aiWARE.
+
 The data can either be a real-time stream or a bounded file, and can be structured or unstructured.
 Once the data is in aiWare, it can be processed by cognitive engines to derive insights for your end users.
 
 > In the GraphQL API, adapters are identified as engines where `EngineType=Ingestion`
 
-The are two types of adapters: `pull` and `push`.
+There are two types of adapters: `pull` and `push`.
 
 #### Pull Adapter
 A **pull adapter** retrieves data from a source, typically a URI, and brings it into aiWare.
@@ -40,7 +41,7 @@ An example of a push adapter a WebRTC server that records from a WebRTC connecti
 Veritone provides several pull adapters that are available to all users, including some to pull content from Amazon S3, YouTube, Google Drive, Box, Dropbox, RSS and FTP.
 There is also a File Upload adapter that allows you to select a file from your personal computer.
 
-> For information on building adapters, see the [Building Adapters](/developer/adapters/) guide.  
+> For information on building adapters, see the [Building Adapters](/developer/adapters/) guide.
 
 ### Cognitive Engines
 
