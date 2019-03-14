@@ -124,7 +124,6 @@
         '^\/engines\/engine_standards\/?$': '/developer/engines/standards/engine-output/',
         '^\/engines\/engine_standards\/capability\/?': '/developer/engines/cognitive/',
         '^\/engines\/engine_standards\/veri_standards$': '/developer/engines/standards/engine-output/',
-        // TODO: Copy content over from old page
         '^\/engines\/manifest\/?$': '/developer/engines/standards/engine-manifest/',
         '^\/engines\/custom-fields$': '/developer/engines/custom-fields/',
         '^\/engines\/testing-and-debugging$': '/developer/engines/testing-and-debugging/',
@@ -132,7 +131,7 @@
         '^\/engines\/engine-input-output\/transcription$': '/developer/engines/cognitive/speech/transcription/',
         '^\/engines\/engine-input-output\/object-detection$': '/developer/engines/cognitive/vision/object-detection/',
         '^\/engines\/engine-input-output\/face-detection$': '/developer/engines/cognitive/biometrics/face-detection/',
-        // TODO: Copy over the FAQ?
+        '^\/engines\/faq$': '/developer/engines/faq/',
 
         // Permalinks to support legacy developer-only file structure
         '^\/applications(|/.*)$': '/developer/applications$1',
@@ -210,7 +209,7 @@
                 newRoute = newRoute.replace('$' + i, testResult[i]);
               }
               console.log('Alias detected.  Redirecting from ' + vm.route.path + ' to ' + newRoute);
-              window.location.href = window.location.origin + window.location.pathname + '#' + newRoute;
+              window.location.replace(window.location.origin + window.location.pathname + '#' + newRoute);
               return true;
             }
           });
