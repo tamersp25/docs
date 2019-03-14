@@ -92,7 +92,7 @@
     - [Construction Guidelines](developer/adapters/guidelines.md)
     - [Adapter Manifest](developer/adapters/manifest.md)
   
-  - [Working with **Data**](developer/data/)
+  - [Working with **Structured Data**](developer/data/)
     - [Quickstart](developer/data/quick-start/)
   
   - [Working with **Libraries**](developer/libraries/)

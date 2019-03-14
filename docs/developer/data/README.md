@@ -1,4 +1,4 @@
-# Working with Data
+# Working with Structured Data
 
 The Veritone Developer platform supports structured data.
 Together with other capabilities for unstructured data, the Veritone platform can process and transform a vast swath of the world's data, to extract actionable intelligence for our users.

@@ -9,7 +9,7 @@
     "lint": "echo \"No lint\" && exit 0",
     "start": "./node_modules/.bin/docsify serve ./docs",
     "test": "./node_modules/.bin/codeceptjs run --reporter mocha-multi",
-    "test:full": "HTTP_PORT=3333 && yarn && yarn build && yarn test",
+    "test:full": "yarn && yarn build && HTTP_PORT=3333 yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
     "test:report": "E2E_GENERATE_REPORT=true yarn test:full; ./node_modules/.bin/allure serve test/e2e/output"
   },
