@@ -135,10 +135,10 @@
         // TODO: Copy over the FAQ?
 
         // Permalinks to support legacy developer-only file structure
-        '^\/applications/(.*)$': '/developer/applications/$1',
-        '^\/data/(.*)$': '/developer/data/$1',
-        '^\/engines/(.*)$': '/developer/engines/$1',
-        '^\/libraries/(.*)$': '/developer/libraries/$1',
+        '^\/applications(|/.*)$': '/developer/applications$1',
+        '^\/data/(|/.*)$': '/developer/data$1',
+        '^\/engines(|/.*)$': '/developer/engines$1',
+        '^\/libraries(|/.*)$': '/developer/libraries$1',
         '^\/veritone-developer-overview(|.md)$': '/developer/',
         '^\/developer-benefits(|.md)$': '/developer/benefits',
         '^\/terms-and-conditions(|.md)$': '/developer/terms-and-conditions',

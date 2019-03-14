@@ -10,6 +10,8 @@ build/*
 build-local/*
 public/
 
+test/e2e/output
+
 *.log*
 npm-debug.log
 

@@ -127,6 +127,26 @@ See https://github.com/veritone/veritone.github.io/blob/develop/docs/engines/qui
 - [Markdown Cheatsheet][markdown-cheat]
 - [Docsify Docs][docsify]
 
+## Testing
+
+There is a suite of end-to-end tests at [test/e2e](test/e2e).
+They are written using [CodeceptJS with Puppeteer](https://codecept.io/puppeteer).
+To add a test file, just add any file under the test/e2e with `.test.js` at the end of it.
+
+The test suite is run automatically as part of the Jenkins and Docker builds.
+The test suite is also run as a git commit hook.
+This ensures that you cannot commit unless tests are passing.
+
+To quickly run the test suite manually while you already have a docs instance running on port 3000 (via `yarn start`)
+you can run `yarn test:only` in another console.
+
+### Pretty Test Results
+
+To generate a nice pretty interactive report of test results, you can run `yarn test`.
+It will run the full test suite in a way that generates detailed results and then open a UI called [Allure](http://allure.qatools.ru/) to view those results in an interactive web report.
+
+> Allure requires Java to be installed
+
 ## Docker Test
 
 To test the Docker build locally (internal Veritone users only), you can do the following:
