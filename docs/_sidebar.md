@@ -12,7 +12,7 @@
   - [API Examples](apis/examples.md)
   - [Job Quickstart Guide](apis/job-quickstart.md)
   - [Search Quickstart Guide](apis/search-quickstart.md)
-  - [Tutorials](apis/tutorials/)
+  - Tutorials
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
     - [Uploading Engine Results](apis/tutorials/engine-results.md)
