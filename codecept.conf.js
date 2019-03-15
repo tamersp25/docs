@@ -1,5 +1,5 @@
-const HTTP_ROOT = process.env.HTTP_ROOT || 'http://localhost';
-const HTTP_PORT = process.env.HTTP_PORT || 3000;
+const HTTP_ROOT = process.env.HTTP_ROOT || 'https://www.stage.veritone.com/login';
+// const HTTP_PORT = process.env.HTTP_PORT || 3000;
 const SKIP_BOOTSTRAP = process.env.E2E_SKIP_BOOTSTRAP === 'true';
 const GENERATE_REPORT = process.env.E2E_GENERATE_REPORT === 'true';
 
@@ -14,10 +14,15 @@ exports.config = {
   output: './test/e2e/output',
   helpers: {
     Puppeteer: {
-      url: `${HTTP_ROOT}:${HTTP_PORT}`,
+      // url: `${HTTP_ROOT}:${HTTP_PORT}`,
+      url: `${HTTP_ROOT}`,
       chrome: {
         args: ['--no-sandbox'],
       },
+      windowSize: '1200x1000',
+      show: true,
+      restart: false,
+      keepBrowserState: true,
       executablePath: 'google-chrome-unstable'
     }
   },
