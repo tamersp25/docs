@@ -38,7 +38,3 @@ Here is an example of proper engine output for objects detected within a time se
 [](vtn-standard.example.json ':include :type=code json')
 
 <!-- TODO: Add an example for objects outside a time series -->
-
-The official engine output json-schema is available
-[here](/schemas/vtn-standard/logo.json ':ignore').
-

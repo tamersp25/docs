@@ -33,13 +33,12 @@ TODO
 
 ## Engine Output
 
+Face detection engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/developer/engines/standards/engine-output/).
+Each `object` should be of type `face` and should include the bounding polygon and optionally a `label`.
+The `label` can be used for grouping together multiple faces that likely belong to the same individual (e.g. "Person 1").
+
 ### Example
 
 Here is an example of the simplest type of face detection output:
 
 [](vtn-standard.example.json ':include :type=code json')
-
-<!-- TODO    Need this:
-> The official engine output json-schema validation contract is available
-[here](/schemas/vtn-standard/audio-fingerprint.json ':ignore').
--->

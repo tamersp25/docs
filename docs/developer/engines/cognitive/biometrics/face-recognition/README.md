@@ -5,6 +5,7 @@
 ![](badge/UI/Yes/green)
 
 Face recognition engines can analyze human faces in media assets, and score them as to similarity with known faces.
+They expand upon the capabilities of [face detection](/developer/engines/cognitive/face-detection/) engines by identifying the individual whose face was detected in addition to specifying where in the image the face is located.
 
 ## Engine Manifest
 
@@ -42,5 +43,3 @@ Each `object` should be of type `face`, and because each recognized face always 
 Here is an example of the simplest type of face recognition output:
 
 [](vtn-standard.example.json ':include :type=code json')
-
-[Primary Source](https://github.com/veritone/core-graphql-server/blob/master/dal/taskOutputConversionUtil.js#L133)
