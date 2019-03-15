@@ -1,8 +1,8 @@
 # Building an Object Detection Engine
 
 ![](badge/API/Yes/green)
-![](badge/Search/No/red)
-![](badge/UI/Partial/yellow)
+![](badge/Search/Yes/green)
+![](badge/UI/Yes/green)
 
 An object detection engine detects one or more objects in an image or video, based on a general (high level) ontology.
 For example, the engine might detect objects such as `person`, `desk`, or `aircraft`.
@@ -34,7 +34,3 @@ Here is an example of proper engine output for objects detected within a time se
 [](vtn-standard-series.example.json ':include :type=code json')
 
 <!-- TODO: Add an example for objects outside a time series -->
-
-The official engine output json-schema is available
-[here](/schemas/vtn-standard/object.json ':ignore').
-

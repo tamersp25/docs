@@ -1,8 +1,8 @@
 # Building a License Plate Recognition (ALPR) Engine
 
 ![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+![](badge/Search/No/red)
+![](badge/UI/No/red)
 
 An automated license plate recognition (ALPR) engine extracts text strings from images or videos of vehicle license plates.
 
@@ -40,7 +40,3 @@ Here is an example of proper engine output for objects detected within a time se
 [](vtn-standard.example.json ':include :type=code json')
 
 <!-- TODO: Add an example for objects outside a time series -->
-
-The official engine output json-schema is available
-[here](/schemas/vtn-standard/license-plate.json ':ignore').
-
