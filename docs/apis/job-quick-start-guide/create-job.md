@@ -7,6 +7,7 @@ Uploaded assets can be processed to detect objects, transcribe the file’s audi
 Because translation engines use text to translate one language to another, a file must first be processed for transcription before it can be translated. Transcription can occur separately or in the same job with translation.
 
 #### Request Payload: Create a Job
+
 ```graphql
 mutation{
 -------request fields-----------
@@ -15,15 +16,15 @@ mutation{
     tasks: [{ object   => The tasks object parameter with data specific to the job’s tasks. (required)
       engineId: "string"    => The ID of the engine that will process the task. See the Task Engines table for possible values. (required)
         payload: {          => An object with required data to upload with an engine task. See the Engine Task Payloads table later in this section for options. (required by some engines)
-           target: "string" => The task payload option and value. (required by payload)    
+           target: "string" => The task payload option and value. (required by payload)
         },
-      {  
-      engineId: "fc004413-89f0-132a-60b2-b94522fb7e66" => The task engine ID that transcodes the file into a supported format for processing. Video files are transcoded to MP4 and audio files to MP3. Use the exact value shown. (required)                                             
+      {
+      engineId: "fc004413-89f0-132a-60b2-b94522fb7e66" => The task engine ID that transcodes the file into a supported format for processing. Video files are transcoded to MP4 and audio files to MP3. Use the exact value shown. (required)
         payload: {           => The payload object for transcoding. (required)
           setAsPrimary: true => A Boolean set to true to ensure the file is transcoded prior to running any other task in the job. (required)
         },
       {
-      engineId: "c2aaa6d7-14fa-f840-f77e-4d2c0b857fa8" => A task engine ID that indexes output data and makes it searchable in Veritone. Use the exact value shown. This engine does not require a payload. (required)     
+      engineId: "c2aaa6d7-14fa-f840-f77e-4d2c0b857fa8" => A task engine ID that indexes output data and makes it searchable in Veritone. Use the exact value shown. This engine does not require a payload. (required)
       }
   }){
 -------return fields------------
@@ -44,6 +45,7 @@ mutation{
 ```
 
 #### Task Engines
+
 <table>
   <tr>
     <td><b>Engine Category</b></td>
@@ -223,6 +225,7 @@ mutation{
 </table>
 
 #### Engine Task Payloads
+
 <table>
   <tr>
     <td width="15%"><b>Task Type</b></td>
@@ -248,7 +251,7 @@ mutation{
 tasks: [
 {engineId:"762bf9a0-fc08-7fbb-4ba0-21a3cee6edaf"}
 ]<br><br>
- 
+
 <b>With language option:</b><br>
 tasks: [
 {engineId:"762bf9a0-fc08-7fbb-4ba0-21a3cee6edaf", payload:{language: "en"}}
@@ -264,7 +267,7 @@ tasks: [
 tasks: [
 {engineId:"cdf1097a-d6c3-bdcf-accb-59e811cc5ef0"}
 ]<br><br>
- 
+
 <b>With language option:</b><br>
 tasks: [
 {engineId:"cdf1097a-d6c3-bdcf-accb-59e811cc5ef0", payload:{language: "en-US"}}]</td>
@@ -296,7 +299,7 @@ tasks: [
 tasks: [
 {engineId:"dbdc137d-8437-40d7-bf74-4e3d739e154c "}
 ]<br><br>
- 
+
 <b>With language option:</b><br>
 tasks: [
 {engineId:"dbdc137d-8437-40d7-bf74-4e3d739e154c", payload:{language: "en-US"}}]</td>
@@ -311,7 +314,7 @@ false (no diarization)</td>
 tasks: [
 {engineId:"2b06ec74-2e70-5f1a-f834-2bd7d6fdfdf2"}
 ]<br><br>
- 
+
 <b>With diarization option:</b><br>
 tasks: [
 {engineId:"2b06ec74-2e70-5f1a-f834-2bd7d6fdfdf2", payload:{diarize: true}}
@@ -332,21 +335,21 @@ tasks: [
 "fr-FR" (French)<br>
 "it-IT" (Italian)<br>
 "nl-NL" (Dutch)<br><br>
- 
+
 <b>priority</b><br>
 Processing time preference for the task.<br><br>
- 
+
 "low" (average turnaround 8 hours) Default<br>
 "normal" (average turnaround 15 minutes)<br>
 "high" (average turnaround 5 minutes)<br><br>
- 
+
 <b>terms</b><br>
 Comma separated list of user-entered words or phrases.</td>
     <td><b>Without an option:</b><br>
 tasks: [
 {engineId:" f44aa80e-4650-c55c-58e7-49c965019790", payload:{language:"en-US", priority: "normal"}}
 ]<br><br>
- 
+
 <b>With an option (all 3 options shown below):</b><br>
 tasks: [
 {engineId:" f44aa80e-4650-c55c-58e7-49c965019790", payload:{terms: "Bailout, Bondover, Bond", language: "en-UK", priority: "low"}}
@@ -540,6 +543,7 @@ tasks: [
 </table>
 
 #### Sample Request: Create a Job
+
 The example below shows a request for a job with four tasks: transcoding (first engine ID), transcription (second engine ID), translation of the transcript into Spanish (third engine ID), and insert-into-index (fourth engine ID).
 ```graphql
 mutation {
@@ -558,7 +562,7 @@ mutation {
       {
         engineId: "b00fc05e-3502-e8da-4871-7182dc1aa9f2"
         payload: {
-          target: "Spanish:es" 
+          target: "Spanish:es"
         },
       },
       {
@@ -580,7 +584,8 @@ mutation {
   }
 }
 ```
-#### Sample Response: Create a Job 
+#### Sample Response: Create a Job
+
 ```json
 {
   "data": {

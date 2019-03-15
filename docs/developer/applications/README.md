@@ -1,7 +1,8 @@
 # Building Applications
 
 ### Introduction
-Veritone puts the power of AI in developers’ hands with tools to create and integrate applications that build on the Veritone Platform. 
+
+Veritone puts the power of AI in developers’ hands with tools to create and integrate applications that build on the Veritone Platform.
 
 Our app development framework is flexible and open, so you can easily add the cognitive power of Veritone to your solution and install it in our Platform. By extending the capabilities of Veritone through APIs, we do all the heavy lifting, which allows you to focus on what counts — building your application.
 
@@ -33,7 +34,7 @@ You’ll find complete application development workflow details in our [Quick St
 
 #### Integrating an existing Application
 
-If you have an existing applications, you can easily integrate that onto our platform.  
+If you have an existing applications, you can easily integrate that onto our platform.
 
 We recommend starting your integration at a high level starting with the UI, and working down the stack to the data level.  The steps for integration will be similar to creating a new application:
 

@@ -97,7 +97,6 @@ This user token can then be used to authenticate to the API.
 _Important_:  An application should log in _once_ and use the resulting
 token for the duration of the session. Do _not_ log in before every request!
 
-
 ## API Keys
 
 Some ecosystem developers only build system integrations or engines
@@ -140,7 +139,6 @@ operation, and API keys has implicit access to all of your organization's
 data. For example, an API key with the 'read TDO' right can read
 _all_ of your organization's TDOs.
 
-
 ## Engine Tokens
 
 Engine processing poses a complex authorization problem.
@@ -170,7 +168,7 @@ files to CMS:
 
 Each upload results in a new TDO with a single media asset.
 You then use the CMS interface to run the default transcription engine
-against `meetingRecording.mp4`. This creates a new job with several tasks:  
+against `meetingRecording.mp4`. This creates a new job with several tasks:
 one for transcoding, one for transcription, perhaps others.
 
 The transcription engine will use the Veritone API to retrieve and process your content and store its results.

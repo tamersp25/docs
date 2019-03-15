@@ -21,6 +21,7 @@ An annotated example of the full specification is shown below demonstrating most
 [](vtn-standard.example.js ':include :type=code javascript')
 
 ## Extending The Standard
+
 <!--TODO: Move to a separate page (so we can link from the Developer UI)-->
 You can extend the standard with your custom data in multiple ways depending on your needs.
 
@@ -43,7 +44,7 @@ The four places you can add data to `vendor` sections are:
       }
     }
     ```
- 
+
  * At the `object` level (applies to a particular object in the whole file):
     ```json
     {
@@ -76,7 +77,7 @@ The four places you can add data to `vendor` sections are:
       ]
     }
     ```
-    
+
  * At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
     ```json
     {
@@ -89,14 +90,14 @@ The four places you can add data to `vendor` sections are:
             "type": "object",
             "vendor": {
               "myCustomKey1": "custom string value",
-              "piNumber": 3.14  
+              "piNumber": 3.14
             }
           }
         }
       ]
     }
     ```
-    
+
 
 ### By leveraging structured data
 
@@ -104,7 +105,7 @@ If you would like your data to be displayed in a table in the user interface and
 you can add your data to the vtn-standard file in one of the `structuredData` sections.
 To do this, you first need to [register a schema through Veritone Developer](/developer/data/quick-start/) that expresses the structure of your data.
 Then you can reference the schema ID in the `structuredData` section and include your custom data under it.
- 
+
  * At the `object` level (applies to a particular object in the whole file):
     ```json
     {
@@ -151,7 +152,7 @@ Then you can reference the schema ID in the `structuredData` section and include
       ]
     }
     ```
-    
+
  * At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
     ```json
     {
@@ -177,7 +178,7 @@ Then you can reference the schema ID in the `structuredData` section and include
         }
       ]
     }
-    ``` 
+    ```
 
 ### By extending the specification itself
 

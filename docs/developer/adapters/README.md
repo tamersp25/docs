@@ -1,7 +1,8 @@
 # Building Adapters
-The first step toward realizing the full potential of data is getting it into the Veritone platform. Adapters solve this challenge by providing content ingestion capabilities to consume data from external sources. They work by establishing a connection with a source and then acquiring, parsing, and outputting data in a format that can be processed in Veritone. 
 
-The adapter infrastructure provides mechanisms for ingesting structured or unstructured data in the form of a real-time stream or a bounded file. Veritone offers a set of out-of-the-box adapters for popular sources such as Amazon Web Services S3, YouTube, Google Drive, Box, Dropbox, and RSS feeds. Depending on your needs, you may require the use of a custom adapter. With Veritone Developer, you can quickly build an adapter to ingest data from an external source that’s not already supported. Custom adapters are created based on the data source, the format of the incoming data, and the proprietary logic written in the code. In addition, they include various elements configured together to deliver data to and publish data from the adapter. These elements include environment variables, a task payload, APIs, and a data source type schema — all of which can be configured in a number of combinations. 
+The first step toward realizing the full potential of data is getting it into the Veritone platform. Adapters solve this challenge by providing content ingestion capabilities to consume data from external sources. They work by establishing a connection with a source and then acquiring, parsing, and outputting data in a format that can be processed in Veritone.
+
+The adapter infrastructure provides mechanisms for ingesting structured or unstructured data in the form of a real-time stream or a bounded file. Veritone offers a set of out-of-the-box adapters for popular sources such as Amazon Web Services S3, YouTube, Google Drive, Box, Dropbox, and RSS feeds. Depending on your needs, you may require the use of a custom adapter. With Veritone Developer, you can quickly build an adapter to ingest data from an external source that’s not already supported. Custom adapters are created based on the data source, the format of the incoming data, and the proprietary logic written in the code. In addition, they include various elements configured together to deliver data to and publish data from the adapter. These elements include environment variables, a task payload, APIs, and a data source type schema — all of which can be configured in a number of combinations.
 
 Before you begin development, it’s important to get a sense of how adapters interact with Veritone and understand how all of the pieces and processes work together. Understanding the structure of data, the way Veritone handles data, and how data maps to the Veritone UI may influence your design and development strategy. The topics that follow summarize the key concepts of how adapter technology is used in Veritone. Each of these is covered in more detail in our [Quickstart](https://docs.veritone.com/#/adapters/quick-start/) guide and throughout the remaining sections of the adapter documentation.
 
@@ -11,7 +12,7 @@ Remember that our developer support team is here to answer questions and provide
 
 ## Adapter Categories
 
-Adapters fall into two categories, which are defined by the way data is served up from the source. The protocol follows a client-server approach for communication between the data source and the adapter. Based on the nature of the interaction, an adapter will operate in either a push- or a pull-based manner for retrieving data records. 
+Adapters fall into two categories, which are defined by the way data is served up from the source. The protocol follows a client-server approach for communication between the data source and the adapter. Based on the nature of the interaction, an adapter will operate in either a push- or a pull-based manner for retrieving data records.
 
 ### Pull Adapters
 
@@ -25,33 +26,33 @@ With push adapters, the data source serves as the client and drives the transfer
 
 Veritone's real-time pipeline uses [Kafka](https://kafka.apache.org/) to connect and manage communication between various components in the system. Kafka is a distributed pub-sub messaging system rethought as a distributed commit log. Kafka works by storing messages in topics that are partitioned and replicated across multiple brokers. Producers write data to topics and consumers read from topics using a topic subscription.
 
-To understand how Kafka works, we define some of the key concepts below. For additional information, visit [Kafka’s website](https://kafka.apache.org/). 
+To understand how Kafka works, we define some of the key concepts below. For additional information, visit [Kafka’s website](https://kafka.apache.org/).
 
-**Message:** A record or unit of data within Kafka. Messages are byte arrays that can store any object in any format. Each message has a key and a value, and optional headers. 
+**Message:** A record or unit of data within Kafka. Messages are byte arrays that can store any object in any format. Each message has a key and a value, and optional headers.
 
 **Producer:** Producers publish messages to Kafka topics. Producers decide which topic partition to publish to either randomly (round-robin) or using a partitioning algorithm based on a message’s key.
 
 **Broker:** Kafka runs in a distributed system or cluster. Each node in the cluster is called a broker.
 
-**Topic:** A topic is a category to which data records—or messages—are published. Adapters define where data should be copied to and from and publish data to a specific topic. 
+**Topic:** A topic is a category to which data records—or messages—are published. Adapters define where data should be copied to and from and publish data to a specific topic.
 
 **Topic partition:** Topics are divided into partitions, and each message is given an offset. Each partition is typically replicated at least once or twice. Each partition has a leader and one or more replicas (copies of the data) that exist on followers, providing protection against a broker failure. All brokers in the cluster are both leaders and followers, but a broker has at most one replica of a topic partition. The leader is used for all reads and writes.
 
 **Consumer:** Consumers subscribe to topic partitions in order to read the data written to them. The consumer then processes the message to accomplish whatever work is required.
 
-## Adapter Workflow 
+## Adapter Workflow
 
-The adapter workflow is structured as a sequence of actions that are executed one after the other to process a task from start to finish. Fundamentally, the workflow consists of three basic concepts: receiving a task, executing it, and outputting the results. The adapter workflow is initiated when an ingestion task is created for an adapter to perform. Based on the information described in the task payload, the adapter will acquire specific data from an external source, break it into a set of time-segmented chunks, and output the chunks in a format that can be used for processing.  
+The adapter workflow is structured as a sequence of actions that are executed one after the other to process a task from start to finish. Fundamentally, the workflow consists of three basic concepts: receiving a task, executing it, and outputting the results. The adapter workflow is initiated when an ingestion task is created for an adapter to perform. Based on the information described in the task payload, the adapter will acquire specific data from an external source, break it into a set of time-segmented chunks, and output the chunks in a format that can be used for processing.
 
 The basic adapter workflow consists of the following steps:
 
-1. A new job is created with an ingestion task targeted at the adapter. 
+1. A new job is created with an ingestion task targeted at the adapter.
 
-2. The adapter is triggered to run by the events queue. A new instance is created that receives a JSON payload with the task details and environment variables.  
+2. The adapter is triggered to run by the events queue. A new instance is created that receives a JSON payload with the task details and environment variables.
 
-3. The adapter instance reads the message and calls the external system and coordinates the data collection task. 
+3. The adapter instance reads the message and calls the external system and coordinates the data collection task.
 
-4. The adapter acquires the raw data from the input source and parses the received content into a set of time-based segments. 
+4. The adapter acquires the raw data from the input source and parses the received content into a set of time-based segments.
 
 5. Each of the segments is written to Kafka as a separate task that can be passed on to other parts of the system for processing.
 
@@ -61,9 +62,9 @@ Each step in the workflow must be built into your code. You'll find detailed inf
 
 To create a custom adapter, you'll need to provide a manifest file that contains specific information required to deploy and use your connector in Veritone. The manifest is a JSON-formatted text file that defines the type of data that your adapter handles and contains format-specific settings for connecting to and collecting data from the external source. It also sets execution options and provides any authentication details necessary to access the source. Each build must reference a unique manifest file in the Dockerfile in order to be deployed. Any time a build is modified, a new manifest must be created.
 
-### Source Type and Schema 
+### Source Type and Schema
 
-An adapter references a Source Type and contains a schema that describes the structure for incoming data. Together, a Source Type and schema define a set of fields that can be queried. When your adapter runs, it runs against the schema of the `Source Type ID` received in the task payload. 
+An adapter references a Source Type and contains a schema that describes the structure for incoming data. Together, a Source Type and schema define a set of fields that can be queried. When your adapter runs, it runs against the schema of the `Source Type ID` received in the task payload.
 
 Veritone has a large and growing number of Source Types with preconfigured schemas that support a variety of types of data sources. Your adapter must specify what Source Type(s) it supports by declaring an array of Source Type IDs in the manifest file:
 
@@ -76,7 +77,6 @@ Veritone has a large and growing number of Source Types with preconfigured schem
 }</td>
   </tr>
 </table>
-
 
 A list of Source Types can be retrieved by calling the `getSourceTypes` query.
 
@@ -128,7 +128,7 @@ Throughout Veritone Developer, the term *adapter* is used to reference the exter
 
 ### Deployment Models
 
-Adapters can be deployed in different ways to satisfy a broad set of security and compliance requirements. Veritone supports two deployment models that describe how and where your adapter will be made available to users: 
+Adapters can be deployed in different ways to satisfy a broad set of security and compliance requirements. Veritone supports two deployment models that describe how and where your adapter will be made available to users:
 
 * **Network Isolated:** The adapter is fully isolated and runs solely within Veritone's infrastructure. It does not require network access.
 
@@ -142,9 +142,9 @@ Each build that's uploaded to Veritone is required to undergo compliance testing
 
 ### Adapter States
 
-Veritone Developer uses *Adapter States* to capture the most relevant aspects of an adapter's lifecycle and operations and to help you easily identify and track your adapter's progression through the development workflow. 
+Veritone Developer uses *Adapter States* to capture the most relevant aspects of an adapter's lifecycle and operations and to help you easily identify and track your adapter's progression through the development workflow.
 
-There are four available states for adapters, three of which apply to workflow stages. Workflow-related states are automatically set by the system and transition from one to the next when certain functions are carried out. Upon registration, an adapter enters the *Pending* state. From there, it progresses to *Ready* when a build is approved, and it becomes *Active* when it's live in the Veritone platform. The final non-workflow state allows you to manually *Disable* an adapter and stop it from processing new tasks. 
+There are four available states for adapters, three of which apply to workflow stages. Workflow-related states are automatically set by the system and transition from one to the next when certain functions are carried out. Upon registration, an adapter enters the *Pending* state. From there, it progresses to *Ready* when a build is approved, and it becomes *Active* when it's live in the Veritone platform. The final non-workflow state allows you to manually *Disable* an adapter and stop it from processing new tasks.
 
 The table below provides additional information about each of the adapter States, including details about transitions and optional actions that can be performed.
 
@@ -184,7 +184,6 @@ When developing your adapter, you'll work locally, package and upload your build
 5. [Submit your build for approval](https://docs.veritone.com/#/adapters/quick-start/step-5) by a member of our team.
 
 6. [Deploy your approved ](https://docs.veritone.com/#/adapters/quick-start/step-6)adapter to production in the Veritone Platform.
-
 
 Our [Quickstart](https://docs.veritone.com/#/adapters/quick-start/) is designed to take you through the development workflow as quickly as possible. By the end, you'll have created and deployed a custom adapter in the Veritone Platform.
 

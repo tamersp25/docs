@@ -3,6 +3,7 @@
 To check the status of the job and its tasks, make a call to the Job query and provide the Job ID returned by the *Create Job* request. Successful calls return a Job object with a status and a list of tasks with requested details. Unsuccessful calls will result in an error.
 
 #### Request Payload: Check a Job Status
+
 ```graphql
 query{
 -------request fields-----------
@@ -22,6 +23,7 @@ query{
 ```
 
 #### Sample Request: Check a Job Status
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -39,6 +41,7 @@ query{
 ```
 
 #### Sample Response: Check a Job Status
+
 ```json
 {
   "data": {

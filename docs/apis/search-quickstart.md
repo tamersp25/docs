@@ -8,7 +8,6 @@ Veritone API is built around the GraphQL paradigm to provide a more efficient wa
 
 To make effective use of the Search API, you’ll need to know a few things about how data is stored in Veritone, the various options for structuring queries, and requirements for performing successful requests. This quickstart guide provides everything you need to help get your integration up and running as quickly as possible. We designed this quickstart to be user-friendly and example-filled, but if you have any questions, please don’t hesitate to reach out to our [Developer Support Team](mailto:devsupport@veritone.com) for help.
 
-
 ### **Base URL**
 
 Veritone uses a single endpoint for accessing the API. All calls to the API are *POST* requests and are served over *http* with *application/json* encoded bodies. The base URL varies based on the geographic region where the services will run. When configuring your integration, choose the base URL that supports your geographic location from the list below.
@@ -27,7 +26,7 @@ Veritone uses a single endpoint for accessing the API. All calls to the API are 
     <td>[https://api.uk.veritone.com/v3/graphql](https://api.uk.veritone.com/v3/graphql)</td>
   </tr>
 </table>
-  
+
 *Note:* The above base URLs are provided for use within SaaS environments. On-prem deployments access the API using an endpoint that's custom configured to the environment.
 
 ### **Making Sample Requests**
@@ -36,12 +35,11 @@ To make it easier to explore, write, and test the API, we set up [GraphiQL](http
 
 Veritone’s GraphiQL interface is the recommended method for ad hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the base URL for your geographic region with the *query* parameter and *application/json* encoded bodies. In addition, requests must be authenticated using an API Token. Pass the token in your request using the *Authorization* header with a value *Bearer token*. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
-
 ### **Authentication**
 
 Veritone Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the *Authentication* header of the request with the value *Bearer token*. Requests made without this header or with an invalid token will return an error code.
 
-An API Token can be generated in the Veritone Admin App by your organization administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance. 
+An API Token can be generated in the Veritone Admin App by your organization administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
 
 **To generate an API Token:**
 1. Log into the Veritone Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
@@ -53,7 +51,7 @@ An API Token can be generated in the Veritone Admin App by your organization adm
 
     ![Get API Token](Get-API-Token-2.png)
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated* window opens.
-5. Copy your token and click **Close** when finished. 
+5. Copy your token and click **Close** when finished.
 
 *Note:* Once the *Token Generated* window closes, the token code no longer displays and it cannot be viewed again.
 
@@ -66,11 +64,13 @@ Search operations return results in order of relevance — the result that’s m
 *  **Field Length:** How long is the field? The longer it is, the less likely it is that words in the field will be relevant. A term appearing in a field with a short title carries more weight than the same term appearing in a long content field.
 
 ## Query Basics & Syntax
+
 Veritone Search API gives you the flexibility to build a variety of query types to search and retrieve indexed media and mentions content. The Search API allows you to combine a series of simple elements together to construct queries as simple or as complex as you’d like in JSON format. Although queries are customizable, there is a common structure and set of core parameters that each must use. In addition, there are a number of optional filters, components, and syntax options that can be specified to modify a query.
 
 ### Content Type
+
 Searches in Veritone are performed against two types of content: media and mentions. Each request must specify one of the following search content types as the root operation of the request.
-*  **Search Media:** The *Search Media* operation searches media files and assets for matching records.<br>
+*  **Search Media:** The *Search Media* operation searches media files and assets for matching records.
 *  **Search Mentions:** The *Search Mentions* operation searches for matching records in mentions and watchlists.
 
 #### **Required Query Parameters**
@@ -78,13 +78,16 @@ Searches in Veritone are performed against two types of content: media and menti
 Regardless of the level of complexity, each search query in Veritone operates on four core elements: an *index*, a *field*, an *operator*, and an operator value or variable(s).
 
 ##### **Index**
+
 All search functionality runs against Veritone’s public and private index databases. The *index* field defines whether to search the organization’s public or private index (or both) for matching documents. There are two possible *index* values: "global," which refers to the public media index, and "mine", which refers to private media uploaded to an account. Each request must specify at least one *index* value enclosed in brackets.
 
 ##### **Field**
+
 Content in Veritone is made searchable by mapping to specific document and data types. The *field* parameter defines the type of data/document to be searched, and each query must specify a value for the *field* property to be successful. If a *field* value is not provided, an empty result set will be returned. The *field* parameter uses a definitive set of values. See *Appendix 1: Fields* for more information.
 
 ##### **Operator**
-Operators are the heart of the query — they describe the type of search that will be performed. Each *operator* uses one or more additional properties that add greater definition to the query criteria. All queries must specify at least one *operator*. 
+
+Operators are the heart of the query — they describe the type of search that will be performed. Each *operator* uses one or more additional properties that add greater definition to the query criteria. All queries must specify at least one *operator*.
 
 The table below provides an overview of the different operators that can be used. Additional information about each of the operators is provided in the section on *Query Schema and Types*.
 
@@ -135,7 +138,7 @@ The table below provides an overview of the different operators that can be used
 
 To apply two or more Booleans to a single field, group multiple terms or clauses together with parenthesis.
 
-Below is an example of a search for Kobe or Bryant and basketball or Lakers. 
+Below is an example of a search for Kobe or Bryant and basketball or Lakers.
 
 ```
 value: "(kobe OR bryant) AND (basketball OR lakers)"
@@ -168,6 +171,7 @@ Queries can be constructed in multiple ways to search terms, phrases, ranges of 
 A schema is created by supplying a *Search Media* or *Search Mentions* content type as the root operation and then providing a query object with an *operator*, *index*, *field*, and a list of other properties that describe the data you want to retrieve. All search requests specify JSON data as the response field.
 
 #### **Sample Search Query Schema**
+
 ```graphql
  query{                 => The base query parameter used to set up the GraphQL query object. (required)
  -------request fields-----------
@@ -184,7 +188,7 @@ A schema is created by supplying a *Search Media* or *Search Mentions* content t
     jsondata:       	=> A JSON object with response data. Each search request must specify jsondata as the return field. (required)
   }
 }
-``` 
+```
 
 ### **Query Types**
 
@@ -196,21 +200,21 @@ The *term/terms* operators are used to find exact matches of keywords or phrases
 
 *Important Notes:*
 -       Enclose single keywords and phrases in quotation marks (e.g., "basketball", “Mike Jones”).
--       A phrase includes two or more words together, separated by a space (e.g., "free throw line"). The order of the terms in a phrase is respected. Only instances where the words appear in the same order as the input value are returned. 
+-       A phrase includes two or more words together, separated by a space (e.g., "free throw line"). The order of the terms in a phrase is respected. Only instances where the words appear in the same order as the input value are returned.
 
 **Search by Term**<br>
 The *term* operator is used to find an exact match for a single keyword or phrase.
 
 The following example shows a *term* search against the global index to find media files where the word "Mike" appears in the program name.
- 
+
 ```
 query: {
   	operator: "term"
   	field: "programName"
   	value:  "mike"
   }
-}  
-``` 
+}
+```
 
 **Search by Terms**<br>
 The *terms* operator allows you to search for multiple keywords or phrases. Search terms can include any string of words or phrases separated by commas. When submitting multiple search terms, search uses a default *OR* behavior and will return results that contain an exact match of any of the words/phrases.
@@ -223,7 +227,7 @@ query: {
   	operator: "terms"
   	field: "transcript.transcript"
   	values: ["football", "touchdown"]
-  } 
+  }
 ```
 
 #### **Date/Time Range Search**
@@ -272,13 +276,13 @@ query: {
   	lt:  1498199400000
   }
 }
-```  
+```
 
 **Open-Ended Date Range**
 
 To search with an open-ended range (e.g., find files before a specified date), use just one of the comparison property options.
 
-The example below shows a search for the 30 most recent media files in the public index timestamped after 3/15/2017 at 6&#058;30:00 AM. 
+The example below shows a search for the 30 most recent media files in the public index timestamped after 3/15/2017 at 6&#058;30:00 AM.
 ```
 query: {
   	operator: "range"
@@ -345,7 +349,7 @@ While the *terms* query searches for specified terms in the exact order as the i
     <td>The number of non-search words that can separate the specified terms to be found. To match words in the same order as the input value, use a distance value of 0. (Note that a 0 value sets inOrder to true.) To transpose two words, enter a value of 1.</td>
     <td>distance: 10</td>
   </tr>
-</table> 
+</table>
 
 The following query finds the terms "NFL," “football,” and “game” in transcript text when they appear within 10 words of one another in any order.
 ```
@@ -355,7 +359,7 @@ The following query finds the terms "NFL," “football,” and “game” in tra
      values: ["nfl football game"]
  	inOrder: false
      distance: 10
-   }   
+   }
 ```
 
 #### **Exists**
@@ -368,7 +372,7 @@ query: {
   	operator: "exists"
   	name: "veritone-file.mimetype"
   }
-``` 
+```
 
 #### **And / Or (as Query Operators)**
 
@@ -396,7 +400,7 @@ The search below returns results for "Morning Show AM" mentions found on Novembe
   	 ]
   }
 ```
- 
+
 **or Operator**
 
 The *or* operator connects two conditions and returns results if either condition is true.
@@ -450,7 +454,7 @@ The example below is a search for records found between November 17, 2017 at 9:0
           	}
    	]
 }
-``` 
+```
 
 #### **Query Object**
 
@@ -477,7 +481,7 @@ The below example is a search for an ESPN logo or the words "touchdown" and “r
         	value: "touchdown AND (ruled OR college)"
       	}
      	]
-  	} 
+  	}
 ```
 
 ### **Query Modifiers**
@@ -494,7 +498,7 @@ The below example is a search that excludes the terms "NFL," “football,” and
   	values: ["nfl", "football", "game"]
   	not: true
       distance: 10
-}  
+}
 ```
 
 #### **Wildcard Searches**
@@ -528,6 +532,7 @@ Veritone’s GraphiQL interface is a service you can use to easily interact with
 Following are a variety of example queries that demonstrate how to put everything together. The sample requests provided are structured for use in our GraphiQL interface, but we’ve also included the basic cURL structure for your reference below. Please note that the examples shown do not use client information and are not language specific. For fields that require account-specific data (such as a Recording ID), replace the value with your own.
 
 ### **Basic cURL Structure**
+
 ```bash
 curl -X POST \
   https://api.veritone.com/v3/graphql \
@@ -574,6 +579,7 @@ query{
 ```
 
 #### **Sample Response 1: Query Object Search**
+
 ```json
 {
   "data": {
@@ -643,6 +649,7 @@ query{
 ```
 
 #### **Sample Response 2: Exists Query**
+
 ```json
 {
   "data": {
@@ -726,6 +733,7 @@ query{
 ```
 
 #### **Sample Response 3: "or" Query with Negation**
+
 ```json
 {
   "data": {
@@ -804,6 +812,7 @@ query{
 ```
 
 #### **Sample Response 4: Word Proximity Search**
+
 ```json
 {
   "data": {
@@ -897,6 +906,7 @@ query{
 ```
 
 #### **Sample Response 5: Query String with Negation**
+
 ```json
 {
   "data": {
@@ -996,6 +1006,7 @@ query{
 ```
 
 #### **Sample Response 6: Compound Query**
+
 ```json
 {
   "data": {
@@ -1081,6 +1092,7 @@ query{
 ```
 
 #### **Sample Response 7: Mentions Search Using "and" Operator**
+
 ```json
 {
   "data": {
@@ -2618,7 +2630,6 @@ field: "veritone-public.states"<br>
 values: ["CA", "NY", "WA"]</td>
 </tr>
 </table>
-
 
 ## Appendix 2: Markets
 

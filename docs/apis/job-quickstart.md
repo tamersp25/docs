@@ -34,7 +34,7 @@ Veritone uses a single endpoint for accessing the API. All calls to the API are 
     <td>[https://api.uk.veritone.com/v3/graphql](https://api.uk.veritone.com/v3/graphql)</td>
   </tr>
 </table>
-  
+
 *Note:* The above base URLs are provided for use within SaaS environments. Applications using an on-prem deployment access the API via an endpoint that's custom configured to the private network.
 
 ### **Making Sample Requests**
@@ -59,7 +59,7 @@ curl -X POST \
 
 Veritone Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the `Authentication` header of the request with the value `Bearer token`. Requests made without this header or with an invalid token will return an error code.
 
-An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance. 
+An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
 
 **To generate an API Token:**
 
@@ -73,7 +73,7 @@ An API Token can be generated in the Veritone Admin App by your Organization Adm
 ![Get API Token](Get-API-Token-2.png)
 
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated *window opens.
-5. Copy your token and click **Close** when finished. 
+5. Copy your token and click **Close** when finished.
 
 *Note:* Once the *Token Generated* window closes, the token code no longer displays and it cannot be viewed again.
 
@@ -83,17 +83,18 @@ In Veritone, audio and video files are uploaded to a container called a Temporal
 
 There are two available options for uploading files, which are described below. Before getting started, we recommend reviewing our [Uploading Large Files](apis/tutorials/uploading-large-files) tutorial to learn about the size limitations for queries and files.
 
-### Option 1: Upload a Local System File 
+### Option 1: Upload a Local System File
+
 ----------
 
 Upload a file from your local system by doing a multipart/form-data HTTP request. This option structures requests in multiple parts that represent different characteristics of the file. In each request, form field data containing information about the file is sent along with the `Authentication` and `Content-Type` headers. When structuring your request, be sure to set the `Content-Type` header to `multipart/form-data` and use the form-data keys `query`, `file`, and `filename` in the body. Currently, GraphiQL does not support multipart/form requests, so a different HTTP client must be used for making sample calls.
- 
 
 #### Option 1 Request Payload: Create a TDO with an Asset
+
 ```graphql
  -H content-type:  => A header that specifies the content type. Enter "multipart/form-data" as the value.(required)
- -F filename       => The name of the file to upload. The value must match the name of the saved file. (required)      
- -F file           => The path of the file to upload. (required)                                                          
+ -F filename       => The name of the file to upload. The value must match the name of the saved file. (required)
+ -F file           => The path of the file to upload. (required)
  -F query=mutation {
 -----------request fields-----------
   createTDOWithAsset(input:{  => The mutation type and input variable. (required)
@@ -101,7 +102,7 @@ Upload a file from your local system by doing a multipart/form-data HTTP request
     stopDateTime: "string"    => The ending date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. The value is calculated by adding the length of the file to the startDateTime value. If a value is not provided, a 15-minute default value will be applied. (optional)
     contentType: "string"     => The MIME type of the file being uploaded (e.g., "audio/mp3"). If a value is not provided, the default value "video/mp4" will be applied. (optional)
     assetType: "string"       => A label that classifies the file to be uploaded, such as "transcript," "media," or "text." If a value is not specified, the default value "media" will be applied. (optional)
-    addToIndex:               => A Boolean that adds the uploaded file to the search index when set to true. (optional and recommended) 
+    addToIndex:               => A Boolean that adds the uploaded file to the search index when set to true. (optional and recommended)
   }){
 -----------return fields-----------
     id              => The unique ID associated with the TDO/container, provided by the server. (required)
@@ -113,12 +114,13 @@ Upload a file from your local system by doing a multipart/form-data HTTP request
         contentType => The MIME type of the asset (e.g., "audio/mp3"). (required)
         signedUri   => The secure URI of the asset. (required)
       }
-    }    
+    }
   }
 }
 ```
 
 #### Option 1 Sample Request: Create a TDO with an Asset
+
 ```bash
 curl -X POST \
   https://api.veritone.com/v3/graphql \
@@ -144,12 +146,13 @@ curl -X POST \
         contentType
         signedUri
       }
-    }    
+    }
   }
 }'
 ```
 
 #### Option 1 Sample Response: Create a TDO with an Asset
+
 ```json
 {
   "data": {
@@ -171,12 +174,14 @@ curl -X POST \
 }
 ```
 
-### Option 2: Pass the file URL 
+### Option 2: Pass the file URL
+
 ----------
 
-If the file you want to upload is publicly available online, you can pass the HTTP or HTTPS URL in the request instead of uploading the actual file data. When uploading a file from a URL, include the `uri` parameter in the request with the file's raw URL set as the value. 
+If the file you want to upload is publicly available online, you can pass the HTTP or HTTPS URL in the request instead of uploading the actual file data. When uploading a file from a URL, include the `uri` parameter in the request with the file's raw URL set as the value.
 
 #### Option 2 Request Payload: Create a TDO with an Asset
+
 ```graphql
 mutation {
 -----------request fields-----------
@@ -198,12 +203,13 @@ mutation {
         contentType => The MIME type of the asset (e.g., "audio/mp3"). (required)
         signedUri   => The secure URI of the asset. (required)
       }
-    }    
+    }
   }
 }
 ```
 
 #### Option 2 Sample Request: Create a TDO with an Asset
+
 ```graphql
 mutation {
   createTDOWithAsset(
@@ -231,6 +237,7 @@ mutation {
 ```
 
 #### Option 2 Sample Response: Create a TDO with an Asset
+
 ```json
 {
   "data": {
@@ -257,15 +264,18 @@ Once the file is uploaded and saved as an asset, you’ll create job to perform 
 
 A call to the `Create Job` mutation creates a new job with one or more tasks to be processed, according to the Engine ID(s) specified in the request body. Depending on the engine or the type of task, additional payload parameters that define options about how the service is to be performed (e.g., translation language) may be required. Each job request must also include a `Transcoding` task to convert the file to a supported format for processing. In addition, the `Insert Into Index` task is required to ensure output data is indexed and made searchable in Veritone.
 
-*Important Note about Translation:*<br>
+*Important Note about Translation:*
+
 Because translation engines use text to translate one language to another, an audio or video file must be transcribed before it can be translated. A transcription task can be included in the same job with translation, or it can occur in a separate job using the same `TDO ID` and the transcription asset as the input file.
 
 #### Engine IDs
+
 Calls to the `createJob` mutation pass the ID of the engine(s) that will carry out task processing and any additional required payload parameters in the body of the request. Depending on your needs, you may choose to offer all cognitive engines in your integration or limit the selection to specific categories. To get a full list of engines available for your organization with Engine IDs and additional required fields, [log into Veritone](https://www.veritone.com/) and [click here](https://api.veritone.com/v3/graphiql?query=%7B%0A%20%20engines%28limit%3A%201000%29%20%7B%0A%20%20%20%20count%0A%20%20%20%20records%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20category%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20fields%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20type%0A%20%20%20%20%20%20%20%20max%0A%20%20%20%20%20%20%20%20min%0A%20%20%20%20%20%20%20%20step%0A%20%20%20%20%20%20%20%20info%0A%20%20%20%20%20%20%20%20label%0A%20%20%20%20%20%20%20%20defaultValue%0A%20%20%20%20%20%20%20%20options%20%7B%0A%20%20%20%20%20%20%20%20%20%20key%0A%20%20%20%20%20%20%20%20%20%20value%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D) to run a pre-configured query in GraphiQL. If you will offer a more limited set of engines, you can retrieve engine information by category. First, [run this query](https://api.veritone.com/v3/graphiql?query=query%20%7B%0A%20%20engineCategories%20%7B%0A%20%20%20%20records%20%7B%0A%20%20%20%20%20%20id%20%0A%20%20%20%20%20%20name%0A%20%20%20%20%20%20description%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0A%0A) to get a list of available engine categories. Then, enter the selected category name as the value for the `category` field [in this query](https://api.veritone.com/v3/graphiql?query=%7B%0A%20%20engines%28category%3A%20%22transcription%22%2C%20limit%3A%201000%29%20%7B%0A%20%20%20%20count%0A%20%20%20%20records%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20category%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20fields%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20type%0A%20%20%20%20%20%20%20%20max%0A%20%20%20%20%20%20%20%20min%0A%20%20%20%20%20%20%20%20step%0A%20%20%20%20%20%20%20%20info%0A%20%20%20%20%20%20%20%20label%0A%20%20%20%20%20%20%20%20defaultValue%0A%20%20%20%20%20%20%20%20options%20%7B%0A%20%20%20%20%20%20%20%20%20%20key%0A%20%20%20%20%20%20%20%20%20%20value%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D) to get back a list of that category’s available engines and details.
 
 If you would like to run the above queries using a client other than GraphiQL, we’ve defined the schemas for you in Appendix 1 of this guide. To see our full API docs, [click here](https://api.veritone.com/v3/graphqldocs/).
 
 #### Request Payload: Create a Job
+
 ```graphql
 mutation{
 -------request fields-----------
@@ -274,15 +284,15 @@ mutation{
     tasks: [{ object   => The tasks object parameter with data specific to the job’s tasks. (required)
       engineId: "string"    => The ID of the engine that will process the task. (required)
         payload: {          => An object with required data to upload with an engine task. See the Engine Task Payloads table later in this section for options. (required by some engines)
-           target: "string" => The task payload option and value. (required when using the "payload" parameter)    
+           target: "string" => The task payload option and value. (required when using the "payload" parameter)
         },
-      {  
-      engineId: "fc004413-89f0-132a-60b2-b94522fb7e66" => The task engine ID that transcodes the file into a supported format for processing. Video files are transcoded to MP4 and audio files to MP3. Use the exact value shown. (required)                                             
+      {
+      engineId: "fc004413-89f0-132a-60b2-b94522fb7e66" => The task engine ID that transcodes the file into a supported format for processing. Video files are transcoded to MP4 and audio files to MP3. Use the exact value shown. (required)
         payload: {           => The payload object for transcoding. (required)
           setAsPrimary: true => A Boolean set to true to ensure the file is transcoded prior to running any other task in the job. (required)
         },
       {
-      engineId: "c2aaa6d7-14fa-f840-f77e-4d2c0b857fa8" => A task engine ID that stores output data in the search index. Use the exact value shown. This engine does not require a payload. (required)     
+      engineId: "c2aaa6d7-14fa-f840-f77e-4d2c0b857fa8" => A task engine ID that stores output data in the search index. Use the exact value shown. This engine does not require a payload. (required)
       }
   }){
 -------return fields------------
@@ -303,6 +313,7 @@ mutation{
 ```
 
 #### Sample Request: Create a Job
+
 The example below shows a request for a job with four tasks: transcoding (first engine ID), transcription (second engine ID), translation of the transcript into Spanish (third engine ID), and insert-into-index (fourth engine ID).
 ```graphql
 mutation {
@@ -321,7 +332,7 @@ mutation {
       {
         engineId: "b00fc05e-3502-e8da-4871-7182dc1aa9f2"
         payload: {
-          target: "Spanish:es" 
+          target: "Spanish:es"
         },
       },
       {
@@ -343,7 +354,8 @@ mutation {
   }
 }
 ```
-#### Sample Response: Create a Job 
+#### Sample Response: Create a Job
+
 ```json
 {
   "data": {
@@ -396,6 +408,7 @@ mutation {
 To check the status of the job and its tasks, make a call to the `job` query and provide the job `id` returned in the `createJob` mutation response. Successful calls return an object that contains the status for the job and each task. Unsuccessful calls will result in an error.
 
 #### Request Payload: Check a Job Status
+
 ```graphql
 query{
 -------request fields-----------
@@ -415,6 +428,7 @@ query{
 ```
 
 #### Sample Request: Check a Job Status
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -432,6 +446,7 @@ query{
 ```
 
 #### Sample Response: Check a Job Status
+
 ```json
 {
   "data": {
@@ -469,12 +484,14 @@ query{
 
 ## Retrieve Job Outputs
 
-Once a job has completed processing, a request can be made to retrieve an output asset produced by a task, such as a transcript, translation, or object detection results. 
+Once a job has completed processing, a request can be made to retrieve an output asset produced by a task, such as a transcript, translation, or object detection results.
 
 ### Retrieve a Transcript
+
 To retrieve a transcript, make a request to the `job` query with the `job ID`. Transcripts are returned in time-correlated text fragments that contain beginning and ending times. A successful call returns the transcript and other details specified in the request. Otherwise, an error is returned.
 
 #### Request Payload: Retrieve a Transcript
+
 ```graphql
 query{
 -------request fields-----------
@@ -504,6 +521,7 @@ query{
 ```
 
 #### Sample Request: Retrieve a Transcript
+
 ```graphql
 query:{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -511,7 +529,7 @@ query:{
       id
       assets(assetType: "transcript") {
       records {
-        id 
+        id
         signedUri
         contentType
         transform(transformFunction: XML2JSON)
@@ -531,6 +549,7 @@ query:{
 ```
 
 #### Sample Response: Retrieve a Transcript
+
 ```json
 {
   "data": {
@@ -558,6 +577,7 @@ query:{
 ```
 
 #### Response Attributes: Retrieve a Transcript
+
 <table>
   <tr>
     <td><b>Name</b></td>
@@ -590,12 +610,13 @@ query:{
     <td>Text for the indicated start/stop times.</td>
   </tr>
 </table>
-<br>
 
 ### Retrieve Object Detection Results
+
 To retrieve object detection results, make a request to the `job` query with the `job ID`. A successful request returns a JSON object with an array of the detected objects and details. Otherwise, an error is returned.
 
 #### Request Payload: Retrieve Object Detection Results
+
 ```graphql
 query{
 -------request fields-----------
@@ -620,6 +641,7 @@ query{
 }
 ```
 #### Sample Request: Retrieve Object Detection Results
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -627,7 +649,7 @@ query{
       id
       assets(assetType: "object") {
       records {
-        id 
+        id
         uri
         contentType
        }
@@ -646,6 +668,7 @@ query{
 ```
 
 #### Sample Response: Retrieve Object Detection Results
+
 ```json
 {
   "data": {
@@ -718,6 +741,7 @@ query{
 ```
 
 #### Response Attributes: Retrieve Object Detection Results
+
 <table>
   <tr>
     <td><b>Name</b></td>
@@ -750,12 +774,13 @@ query{
     <td>The estimated probability that the detected object is correctly identified.</td>
   </tr>
 </table>
-<br>
 
 ### Retrieve a Translation
-To retrieve a translation, make a request to the `job` query with the `Job ID` and specify `text` as the `assetType` value. Translations are returned as part of the task output. 
+
+To retrieve a translation, make a request to the `job` query with the `Job ID` and specify `text` as the `assetType` value. Translations are returned as part of the task output.
 
 #### Request Payload: Retrieve a Translation
+
 ```graphql
 query{
 -------request fields-----------
@@ -781,6 +806,7 @@ query{
 ```
 
 #### Sample Request: Retrieve a Translation
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -788,7 +814,7 @@ query{
       id
       assets(assetType: "text") {
       records {
-        id 
+        id
         uri
         contentType
        }
@@ -806,6 +832,7 @@ query{
 }
 ```
 #### Sample Response: Retrieve a Translation
+
 ```json
 {
   "data": {
@@ -885,16 +912,17 @@ query{
   }
 }
 ```
-<br>
 
 ## Delete a TDO and/or Its Content
 
 If a TDO is no longer needed, it can be deleted from an organization’s files to free up storage space or comply with organizational policies. The API provides flexible options that allow you to delete a TDO and all of its assets, or clean up a TDO's content by removing the associated assets so the TDO can be reused and new assets can be created.
 
 ### Delete a TDO and All Assets
+
 To delete a TDO and all asset metadata, make a request to the `deleteTDO` mutation and pass the `TDO ID` as an argument. This operation is processed immediately at the time of the request and permanently deletes the specified TDO and its assets from the organization's account. Any subsequent requests against the TDO or assets will return an error.
 
 #### Request Payload: Delete a TDO
+
 ```graphql
 mutation{
 -------request fields-----------
@@ -910,7 +938,7 @@ mutation{
  #### Sample Request: Delete a TDO
  ```graphql
  mutation{
-  deleteTDO(id: "44512341") 
+  deleteTDO(id: "44512341")
      {
       id
       message
@@ -918,6 +946,7 @@ mutation{
     }
 ```
 #### Sample Response: Delete a TDO
+
 ```json
 {
   "data": {
@@ -930,7 +959,8 @@ mutation{
 ```
 
 ### Delete TDO Content
-To remove the asset content associated with a TDO while retaining the TDO/container and asset metadata, make a request to the `cleanupTDO` mutation with the `TDO ID`. This mutation uses the `options` parameter along with any combination of the values below to specify the type of data to be deleted.   
+
+To remove the asset content associated with a TDO while retaining the TDO/container and asset metadata, make a request to the `cleanupTDO` mutation with the `TDO ID`. This mutation uses the `options` parameter along with any combination of the values below to specify the type of data to be deleted.
 
 * `storage`: Deletes the TDO's assets from storage, including engine results. Asset metadata will remain until the TDO/container is deleted.
 * `searchIndex`: Deletes all search index data. The TDO and its assets will no longer be accessible through search.
@@ -939,6 +969,7 @@ To remove the asset content associated with a TDO while retaining the TDO/contai
 *Note:* Requests that do not use the `options` parameter will remove the TDO's content from `storage` and the `search index` by default.
 
 #### Request Payload: Delete TDO Content
+
 ```graphql
 mutation{
 -------request fields-----------
@@ -975,15 +1006,18 @@ mutation{
 }
 ```
 ## Appendix 1
+
 This section includes the following sample schemas:
 * **Get All Engines**
 * **Get All Engine Categories**
 * **Get All Engines by Engine Category**
 
 #### Get All Engines
+
 Retrieve a full list of available Veritone engines with engine IDs, categories, and additional input field requirements.
 
 ##### Sample Request Payload: Get All Engine IDs
+
 ```graphql
 query{
   engines => The Get Engines query type.
@@ -996,7 +1030,7 @@ query{
         name      => The name of the engine category.
     	}
   	{
- 	 fields{  => The Fields object parameter with custom input fields used by the engine. 
+ 	 fields{  => The Fields object parameter with custom input fields used by the engine.
        name   => The name of the field.
        type   => The field type, such as "Text" or “Picklist.”
        max    => A maximum value for the field. Applies only when “type” field is a “Number.”
@@ -1020,10 +1054,11 @@ query{
 Retrieve a list of available Veritone engine categories.
 
 ##### Sample Request Payload: Get All Engine Categories
+
 ```graphql
 query {
   engineCategories(limit: 1000){ => The Get Engine Categories query type.
-   limit: 1000){  => The maximum number of results to return. Set value to 1,000 to ensure a full list is retrieved.       
+   limit: 1000){  => The maximum number of results to return. Set value to 1,000 to ensure a full list is retrieved.
     records {     => The Records object parameter with data specific to an  individual engine category.
       id          => The unique ID of the engine category.
       name        => The name of the engine category.
@@ -1038,6 +1073,7 @@ query {
 Retrieve a list of available engines for a specified engine category with engine IDs and additional required input fields.
 
 ##### Sample Request Payload: Get All Engines by Category
+
 ```graphql
 query{
   engines(       => The Get Engines query type.
@@ -1051,7 +1087,7 @@ query{
         name     => The name of the engine category.
     	}
   	{
- 	 fields { => The Fields object parameter with custom input fields used by the engine.                     
+ 	 fields { => The Fields object parameter with custom input fields used by the engine.
        name    => The name of the field.
        type    => The field type, such as "Text" or “Picklist.”
        max     => A maximum value for the field. Applies only when “type” field is a “Number.”

@@ -3,15 +3,17 @@
 Once an empty TDO has been created, call the *Create Asset* mutation to add and store a digital media asset (video or audio file) to it for processing. Requests must include the Container ID returned in the [Create a TDO](/apis/job-quick-start-guide/create-tdo) response, as well as an asset type and content type. There are two available options for setting up your *Create Asset* request, which are described below.
 
 ### Option 1
+
 ----------
 
 Send the file contents as part of the request. This option uses the *multipart/form-data header* and requires use of the *file* and *filename* parameters. Requests using this option are structured in two parts: the form field data that specifies the file information and a query containing details about the asset. Currently, GraphiQL does not support multipart/form requests, so a different HTTP client must be used for making sample calls.
 
 #### Option 1 Request Payload: Upload an Asset
+
 ```graphql
  -H content-type:  => A header that specifies the content type. Enter "multipart/form-data" as the value.(required)
- -F filename       => The name of the file to upload. The value must match the name of the saved file. (required)      
- -F file           => The path of the file to upload. (required)                                                           
+ -F filename       => The name of the file to upload. The value must match the name of the saved file. (required)
+ -F file           => The path of the file to upload. (required)
  -F query=mutation {
 -----------request fields-----------
   createAsset(input :{    => The Create Asset mutation type and input variable. (required)
@@ -31,6 +33,7 @@ Send the file contents as part of the request. This option uses the *multipart/f
 ```
 
 #### Option 1 Sample Request: Upload an Asset
+
 ```bash
 curl -X POST \
   https://api.veritone.com/v3/graphql \
@@ -54,7 +57,8 @@ curl -X POST \
        }'
 ```
 
-#### Option 1 Sample Response: Upload an Asset 
+#### Option 1 Sample Response: Upload an Asset
+
 ```json
 {
   "data": {
@@ -69,12 +73,14 @@ curl -X POST \
 }
 ```
 
-### Option 2 
+### Option 2
+
 ----------
 
 Pass the file's raw URI from an external host location that’s accessible to Veritone in the request.
 
 #### Option 2 Request Payload: Upload an Asset
+
 ```graphql
 mutation {
 -----------request fields-----------
@@ -95,6 +101,7 @@ mutation {
 ```
 
 #### Option 2 GraphiQL Sample Request: Upload an Asset
+
 ```graphql
 mutation {
   createAsset(
@@ -109,12 +116,13 @@ mutation {
     type
     contentType
     containerId
-    signedUri        
+    signedUri
   }
 }
 ```
 
 #### Option 2 cURL Sample Request: Upload an Asset
+
 ```bash
 curl -X POST \
   https://api.veritone.com/v3/graphql \
@@ -123,7 +131,8 @@ curl -X POST \
   -d '{"query": "mutation { createAsset( input: { containerId: \"44512341\", contentType: \"video/mp4\", type: \"media\", uri:\"https://www.youtube.com/watch?v=xsK9WsL0fVc\" }) { id, type, contentType, containerId, signedUri } }" }'
 ```
 
-#### Option 2 Sample Response: Upload an Asset 
+#### Option 2 Sample Response: Upload an Asset
+
 ```json
 {
   "data": {

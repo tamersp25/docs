@@ -31,7 +31,7 @@ This will spin up a local instance of the docs at http://localhost:3000.
 ### Submitting Changes
 
 To submit changes, create a branch off master, add your commits, and create a pull request from your branch to master.
-If the branch is in this repo (not a fork) and the name begins with `feature/VTN-` (internal Veritone users only), 
+If the branch is in this repo (not a fork) and the name begins with `feature/VTN-` (internal Veritone users only),
 our build system will build it and let you know if it passed in the PR.
 Once the PR is merged into master, it will be auto-deployed to docs.veritone.com.
 
@@ -53,7 +53,7 @@ Our conventions for this repo are as follows:
 
 - `>` is used for generally helpful hints and tips.
 - `?>` is used for more important hints and tips.
-While `>` notes could probably be skipped over by the reader and they'd still be successful, we expect they need to read the `?>` notes. 
+While `>` notes could probably be skipped over by the reader and they'd still be successful, we expect they need to read the `?>` notes.
 - `!>` is used for warnings about deprecated or otherwise problematic "land mines" the user should stay away from.
 
 #### How to add code examples
@@ -171,6 +171,7 @@ docker run -it --rm -p 9000:9000 docs:latest
 This is for local testing only.  Production builds happen through Jenkins.
 
 # License
+
 Copyright 2017, Veritone Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");

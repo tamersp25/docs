@@ -19,7 +19,6 @@ Therefore, a non-200 status code indicates that either the query did not reach t
 | 500	| An internal server error prevented the server from handling the request. This error will not happen under normal circumstances.|
 | 502	| HTTP gateway error. This could indicate an internal server error or timeout. Neither will occur under normal circumstances.|
 
-
 A HTTP 200 status code will be accompanied by a normal GraphQL response body in JSON format. Fields that were successfully resolved will have their data. Fields that cannot be successfully resolved will have a null value and a corresponding error set in the errors field.
 
 Here's an example where we attempt to create three objects and only one succeeds:
@@ -137,7 +136,6 @@ Error information is shown in a consistent format:
 |`name`	|A machine-readable error code in string form|
 |`time_thrown`|	Timestamp|
 |`data`	|Operation-specific supplementation information about the error. For example on a `not_found` the data field will often have `objectId` with the ID that could not be found.|
-
 
 A standard set of error codes is used across the API. This list may grow over time.
 

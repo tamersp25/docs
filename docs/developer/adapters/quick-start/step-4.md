@@ -4,7 +4,7 @@ When your adapter is registered, your manifest file is built, and your code is s
 
 In this section, we'll walk you through the steps to upload a build, including creating a Docker image and pushing it to Veritone's Docker registry. We'll also provide details about the compliance testing that your build will undergo and let you how you can download and review the results. Finally we&rsquo;ll dive into the different adapter states and provide descriptions and optional actions that can be performed for each.
 
-Remember that our developer support team is here to answer questions and provide assistance on our dedicated Veritone Developer [Slack channel](https://chat.veritone.com). 
+Remember that our developer support team is here to answer questions and provide assistance on our dedicated Veritone Developer [Slack channel](https://chat.veritone.com).
 
 1. Upload a New Build
    * Create a Docker File
@@ -17,18 +17,17 @@ Remember that our developer support team is here to answer questions and provide
 4. Reading a Build Report
 5. Understanding the Build States
 
-
 #### Upload a New Build ####
 
-The steps to upload a build are outlined below. While sample commands are provided with the instructions, it's recommended to copy the commands directly from the Developer App UI as they will include your organization ID. 
+The steps to upload a build are outlined below. While sample commands are provided with the instructions, it's recommended to copy the commands directly from the Developer App UI as they will include your organization ID.
 
 **Before You Begin**
 
 To help expedite the upload process, be sure to have the following on-hand prior to getting started:
 
-- Your Veritone Developer account login 
+- Your Veritone Developer account login
 - Access to a command line interface on your computer
-- Docker installed on your computer. If you don't have Docker, [download it here](https://www.docker.com/). 
+- Docker installed on your computer. If you don't have Docker, [download it here](https://www.docker.com/).
 
 If your build instructions are minimized, click on the down arrowhead next to the Copy button to expand the text.
 
@@ -36,12 +35,12 @@ If your build instructions are minimized, click on the down arrowhead next to th
 
 Uploading a build in Veritone begins with building a Dockerfile. A Dockerfile is a text file that contains a set of instructions to create your Docker image. These instructions should include any configuration files required by your adapter, such as API URLs (Veritone's API, your API, etc), authentication tokens (a Veritone token will be provided in the task payload), etc. If you'd like to get a sense of the different adapter components that should be included in your Dockerfile, take a look at our [Sample Engines](/developer/engines/sample-engines).
 
-**Important Notes Regarding Dockerfile Construction:**  
+**Important Notes Regarding Dockerfile Construction:**
 
 - Before uploading your build, you will need to install Docker using the [official Docker installation instructions](https://docs.docker.com/engine/installation/).
 - The Dockerfile must include your manifest. Be sure it's copied to the correct location. (See sample Dockerfile below.)
 - Use 'ENTRYPOINT' in [exec form](https://docs.docker.com/engine/reference/builder/#entrypoint) to launch your engine (not 'CMD').
-- We recommend using [Alpine Linux ](https://hub.docker.com/_/alpine/)as a base image and giving your image a descriptive name. 
+- We recommend using [Alpine Linux ](https://hub.docker.com/_/alpine/)as a base image and giving your image a descriptive name.
 - To learn more about creating a Dockerfile, visit the [Dockerfile Reference page](https://docs.docker.com/engine/reference/builder/) on Docker&rsquo;s website.
 
 Below is a Dockerfile sample for Go:
@@ -56,8 +55,7 @@ RUN apk update && apk add -U build-base git && \
 ENTRYPOINT ["/go/src/github.com/your-org/your-adapter/your-adapter"]
 ```
 
-
-Once your Dockerfile is created, proceed to the next steps package and upload your build.  
+Once your Dockerfile is created, proceed to the next steps package and upload your build.
 
 |Package and Upload Your Build| |
 |--------| ---------- |
@@ -67,9 +65,9 @@ Once your Dockerfile is created, proceed to the next steps package and upload yo
 
 When a build is submitted to Veritone, there are a number of tests run against it to make sure it is ready for prime time on our platform. This testing includes inspecting the packaged manifest, running the adapter with a payload appropriate for the adapter category, and examining the output and network usage of the run. In addition, a static analysis of vulnerabilities is performed in your Docker container.
 
-An adapter is expected to complete testing within 10 minutes, or it will be considered a timeout. When testing is complete, Veritone provides a Build Report with results of the testing that can be downloaded as a JSON file. If your build did not pass testing, this report can offer insight to help determine the cause. 
+An adapter is expected to complete testing within 10 minutes, or it will be considered a timeout. When testing is complete, Veritone provides a Build Report with results of the testing that can be downloaded as a JSON file. If your build did not pass testing, this report can offer insight to help determine the cause.
 
-During testing, the build state displays as *Fetching.* Once testing is complete, the status changes to *Available* if the build passed or *Invalid* if it failed. A build in the *Available* state is ready to be submitted to Veritone for final review and approval. 
+During testing, the build state displays as *Fetching.* Once testing is complete, the status changes to *Available* if the build passed or *Invalid* if it failed. A build in the *Available* state is ready to be submitted to Veritone for final review and approval.
 
 |To download a build report: | |
 |--------|--------|

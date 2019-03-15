@@ -1,16 +1,16 @@
 # Step 1 - Register Your Adapter
 
-Building an adapter in Veritone begins with a few basic steps to configure and register it. You'll use the Adapter Registration Wizard to enter general details about your technology, give scope to its capabilities, and specify the properties it will support. 
+Building an adapter in Veritone begins with a few basic steps to configure and register it. You'll use the Adapter Registration Wizard to enter general details about your technology, give scope to its capabilities, and specify the properties it will support.
 
-The Adapter Registration Wizard launches from the Veritone Developer homepage. It walks you through the pages and prompts you to enter specific information about your adapter, including connection and interaction properties, runtime implementation details, and design elements to uniquely identify it in the Veritone UI. 
+The Adapter Registration Wizard launches from the Veritone Developer homepage. It walks you through the pages and prompts you to enter specific information about your adapter, including connection and interaction properties, runtime implementation details, and design elements to uniquely identify it in the Veritone UI.
 
-The wizard includes three pages: 
-* **Basic Adapter Details:** The adapter name, category, description, icon, and logo 
+The wizard includes three pages:
+* **Basic Adapter Details:** The adapter name, category, description, icon, and logo
 * **Deployment Model:** Host environment type where your adapter will run
 * **Custom Fields:** Additional properties used by your adapter to collect data (optional)
 
 The steps for completing the wizard are described in detail below. When finished, your registered adapter will be listed on your account’s *Adapters* dashboard where you can upload builds to it, edit the configuration settings, and more.
-  
+
 ## 1. Enter Basic Adapter Details
 
 Provide basic details about your adapter.
@@ -55,9 +55,9 @@ Custom Fields are optional and can be added in the Registration Wizard when sett
 
 ## Adapter States
 
-Veritone Developer uses *Adapter States* to capture the most relevant aspects of an adapter's lifecycle and operations and to help you easily identify and track your adapter's progression through the development workflow. 
+Veritone Developer uses *Adapter States* to capture the most relevant aspects of an adapter's lifecycle and operations and to help you easily identify and track your adapter's progression through the development workflow.
 
-There are four available states for adapters, three of which apply to workflow stages. Workflow-related states are automatically set by the system and transition from one to the next when certain functions are carried out. Upon registration, an adapter enters the *Pending* state. It progresses to *Ready* when a build is approved, and it becomes *Active* when it's live in the Veritone platform. The final non-workflow state allows you to manually *Disable* an adapter and stop it from processing new tasks. 
+There are four available states for adapters, three of which apply to workflow stages. Workflow-related states are automatically set by the system and transition from one to the next when certain functions are carried out. Upon registration, an adapter enters the *Pending* state. It progresses to *Ready* when a build is approved, and it becomes *Active* when it's live in the Veritone platform. The final non-workflow state allows you to manually *Disable* an adapter and stop it from processing new tasks.
 
 The table below provides additional information about each of the *Adapter States*, including details about transitions and optional actions that can be performed.
 

@@ -15,43 +15,33 @@ The recommended way to test these types of engines locally is by simulating and 
 
 You can test your uploaded build in CMS by following the steps below.
 
-
 1\. Click on the `New` button and then select `Ingestion Job`
 
 ![cms ingestion job 1](images/cms-ingestion-job-1.png)
 
-
 2\. Select an adapter. For this example we're going to select the Web Stream Adapter.
-
 
 ![select an adapter](images/select-an-adapter.png)
 
 3\. If you don't have any existing sources, click on the `Select a Source` dropdown and then click on `Create New Source`
 
-
 ![create new source](images/create-new-source.png)
 
 4\. On the new source page, fill out the `Source Name` and the `Stream URL` fields and then click `Create`.
-
 
 ![new source page](images/new-source-page.png)
 
 5\. Select the newly created source from the `Select a Source` dropdown and click `Next`.
 
-
 ![select new source](images/select-new-source.png)
-
 
 6\. On the schedule page, choose immediate and then click `Next`.
 
-
 ![schedule page](images/schedule-page.png)
-
 
 7\. The default view of the processing step displays the Simple Cognitive Workflow which allows users to select a category in which Veritone chooses the best engine of that given category to process their media with. As the intention is to test your own engine, you need to click on `Show Advanced Congnitive Workflow` at the upper right corner.
 
 ![advanced workflow](images/advanced-workflow.png)
-
 
 8\. On the Advanced Cognitive Workflow page, click on the dropdown under Available Engines and choose the category that corresponds to your engine. You will then see your engine in the engine list. Click on the green plus icon to select your engine and move it to the Selected Engines panel. If your engine requires either engine parameters or a library you will now be asked to input these. After configuring your engine parameters, click `Next`.
 
@@ -59,9 +49,7 @@ You can test your uploaded build in CMS by following the steps below.
 
 9\. Click `Next` on the Content Templates step which will take you to the final step `Customize`. Fill out the `Customize` step with any information you'd like, and finally click `Save` to finish.  That will redirect you to the CMS main page.
 
-
 ![customize step](images/customize-step.png)
-
 
 10\. You have now successfully created an ingestion job, which your engine build will be asked to process. You can click on the `Processing Status` button in the left navigation panel to view the processing list, which gives an overview of all of the recently processed files and their status. You can also click on a file in the processing list to view its media details page where you can view the output of a successfully processed file, as well as make additional actions against the file such as reprocessing.
 
@@ -72,7 +60,7 @@ If your ingestion job results in an error, please read the section below on debu
 !> Legacy batch engines are deprecated.
 If you have developed a legacy batch engine, we highly recommend you upgrade it to a [segment engine](/developer/engines/processing-modes/segment-processing/).
 
-Information on testing legacy engines is available [here](/developer/engines/testing-and-debugging/batch-engines/). 
+Information on testing legacy engines is available [here](/developer/engines/testing-and-debugging/batch-engines/).
 
 ## Debugging
 
@@ -103,7 +91,6 @@ For both Stream and Segment engines you will also be able to view kafka events h
 
 > We only return the task log for completed or failed tasks so it is vital that your engine correctly updates the task status in response to both success/errors in order for you to view your logs.
 
-
 You can view your task log via graphql by using the snippet below:
 
 ```graphql
@@ -118,8 +105,8 @@ query {
 }
 ```
 
-
 ##### Task Output
+
 The task output tab displays your engine results. Take a look [here](apis/tutorials/engine-results?id=uploading-engine-results) for more information about engine results.
 
 You can view your task output via graphql by using the snippet below:
@@ -134,6 +121,7 @@ query {
 ```
 
 ##### Assets
+
 The assets tab displays all of the assets that were produced by your engine for that particular task. This allows you to view the type of asset that was produced, and also allows you to view the source by clicking on the asset ID. This is useful for verifying that the assets produced have been processed by your engine correctly.
 
 You can also view the assets created by your engine by using the graphql query below.  Replace the ID `replaceMe` with the `recordingId` from your task payload.

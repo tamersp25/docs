@@ -9,7 +9,7 @@ download the results.  In Veritone's API, that flow is modeled by the following 
 4. Check for job completion
 5. When job is complete, download the results
 
-_Veritone's Sample React App implements this request flow in its 
+_Veritone's Sample React App implements this request flow in its
 [example workflow](https://github.com/veritone/veritone-sample-app-react/blob/master/src/modules/mediaExample/index.js#L126)
 and is a good example to look at or copy and paste from._
 
@@ -55,7 +55,7 @@ through GraphQL.
 ```graphql
 mutation {
   createAsset(input: {
-    containerId: "52359027", 
+    containerId: "52359027",
     assetType: "media",
     contentType: "video/mp4",
     uri: "<file path goes here>"
@@ -84,13 +84,13 @@ To process the file you've uploaded, you construct a job that has one or more ta
 Each task contains an engineId and optionally a JSON payload defining field selections
 and/or library information (for trainable engines).
 
-To explore which engines and fields are available, see the tutorial on 
-[looking up available engines](/apis/tutorials/get-engines). 
+To explore which engines and fields are available, see the tutorial on
+[looking up available engines](/apis/tutorials/get-engines).
 
 ```graphql
 mutation {
   createJob(input: {
-    targetId: "52359027", 
+    targetId: "52359027",
     tasks: [{
       engineId: "<engineId goes here>"
     }, {
@@ -179,7 +179,7 @@ query {
       }
     }
   }
-  
+
   temporalDataObject(id: "52359027") {
     assets {
       records {

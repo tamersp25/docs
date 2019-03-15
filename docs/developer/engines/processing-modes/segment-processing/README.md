@@ -7,7 +7,7 @@ They operate out of a stateless queue, where they can process each small bit of 
 
 ?> The **[Engine Toolkit SDK (BETA)](/developer/engines/toolkit/)**
 is an alternative interface for building message engines.
-If you'd like a simpler interface and are comfortable using beta software in production, 
+If you'd like a simpler interface and are comfortable using beta software in production,
 you might consider using it instead of the specifications below.
 
 ## Use Cases

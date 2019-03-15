@@ -1,6 +1,6 @@
 # Looking Up Available Engines
 
-The list of available engines in the Veritone platform is constantly growing and 
+The list of available engines in the Veritone platform is constantly growing and
 dependent on the user's permissions.
 To get information on what engines are available to run and what options they have,
 you can use the GraphQL API.
@@ -67,12 +67,12 @@ query {
 ```
 
 The `fields` property on the engines defines the set of input parameters the engine accepts.
-You can see how the various options behave by running engines against media in CMS using 
+You can see how the various options behave by running engines against media in CMS using
 the "Advanced Cognitive Settings" mode and viewing the dropdown options.
 
 ![](engine-fields-in-cms.png)
 
-In practice, you would probably want to limit your returned dataset by specifying 
+In practice, you would probably want to limit your returned dataset by specifying
 a particular engine category or searching by engine name
 
 ```graphql
@@ -106,6 +106,6 @@ query {
 ```
 
 The engine IDs returned are what you would submit as the `engineId` in task definitions.
-The fields returned specify the keys and values you would submit as the `payload` in 
+The fields returned specify the keys and values you would submit as the `payload` in
 task definitions.  See [Uploading and Processing Files](/apis/tutorials/upload-and-process) for
 details on how to use those values.

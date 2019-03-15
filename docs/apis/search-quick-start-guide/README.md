@@ -6,11 +6,9 @@ Veritone API is built around the GraphQL paradigm to provide a more efficient wa
 
 To make effective use of the Search API, you’ll need to know a few things about how data is stored in Veritone, the various options for structuring queries, and requirements for performing successful requests. This quickstart guide provides everything you need to help get your integration up and running as quickly as possible. We designed this quickstart to be user-friendly and example-filled, but if you have any questions, please don’t hesitate to reach out to our [Developer Support Team](mailto:devsupport@veritone.com) for help.
 
-
 ### **Base URL**
 
 Veritone API uses a single endpoint for making ad-hoc requests and to integrate API into third-party applications. All requests must be HTTP POST to [https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) with *application/json* encoded bodies.
-
 
 ### **Making Sample Requests**
 
@@ -18,14 +16,11 @@ To make it easier to explore, write, and test the API, we set up [GraphiQL](http
 
 Veritone’s GraphiQL interface is the recommended method for ad hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the https://api.veritone.com/v3/graphql endpoint with the *query* parameter and *application/json* encoded bodies. In addition, requests must be authenticated using an API Token. Pass the token in your request using the *Authorization* header with a value *Bearer \<token\>*. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
-
 ### **Authentication**
 
 Veritone Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the *Authentication* header of the request with the value *Bearer \<token\>*. Requests made without this header or with an invalid token will return an error code.
 
-An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance. 
-
- 
+An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
 
 **To generate an API Token:**
 1. Log into the Veritone Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
@@ -37,9 +32,9 @@ An API Token can be generated in the Veritone Admin App by your Organization Adm
 
     ![Get API Token](Get-API-Token-2.png)
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated *window opens.
-5. Copy your token and click **Close** when finished. 
+5. Copy your token and click **Close** when finished.
 
-*Note*: Once the *Token Generated* window closes, the token code will no longer display. 
+*Note*: Once the *Token Generated* window closes, the token code will no longer display.
 
 ### Relevance
 

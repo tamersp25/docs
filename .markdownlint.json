@@ -1,0 +1,10 @@
+{
+  "line-length": false,
+  "no-inline-html": {
+    "allowed_elements": ["table", "tr", "th", "td", "sup"]
+  },
+  "no-bare-urls": false,
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:"
+  }
+}

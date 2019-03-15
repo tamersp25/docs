@@ -5,7 +5,7 @@
 ![](badge/UI/Yes/green)
 
 Face detection engines can detect human faces in media assets, and locate them (within the visual frame) in terms of a bounding polygon.
-Unlike a [face recognition engine](/developer/engines/cognitive/biometrics/face-recognition/), a face *detection* engine merely determines whether a face (*any* face) was detected. 
+Unlike a [face recognition engine](/developer/engines/cognitive/biometrics/face-recognition/), a face *detection* engine merely determines whether a face (*any* face) was detected.
 It does not try to identify the face or match it to other data.
 
 ## Engine Manifest
@@ -34,6 +34,7 @@ TODO
 ## Engine Output
 
 ### Example
+
 Here is an example of the simplest type of face detection output:
 
 [](vtn-standard.example.json ':include :type=code json')

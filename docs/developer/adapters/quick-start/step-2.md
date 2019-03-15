@@ -191,7 +191,6 @@ The _output_ field of the task should also be updated to include some informatio
 }
 ```
 
-
 ## Constructing a Stream Pull Adapter
 
 The basic steps for a real-time stream pull adapter:
@@ -342,7 +341,6 @@ Value: JSON
 | bytesWritten	| cummulative number of bytes written (for engines that write streams) |
 | messagesWritten	| cummulative number of messages published (for engines that write chunks) |
 | errorMsg	| an optional error message if the heartbeat indicates a failure status |
-
 
 #### stream_eof
 

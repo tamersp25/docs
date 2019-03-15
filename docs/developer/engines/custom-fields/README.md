@@ -14,36 +14,29 @@ You will then be presented with the `Add Field` modal which contains a list of f
 
 Field name will be used as the `key` of the parameter inside of the `taskPayload` given to your engine at runtime.
 
-
 #### Field Label
 
 Field label is used as the friendly name of your parameter when being displayed to end users.
-
 
 #### Field Info
 
 Field info is used to provide description to end users regarding the purpose of the parameter.
 
-
 #### Field Type
 
 Field type represents the type of input your parameter requires. See the table below for details.
 
-| Type       | Description                                             | 
-| ---------- | --------------------------------------------------------| 
-| Text     | Standard text input                                       | 
-| Number      | Standard number input with optional min/max/step restrictions | 
-| Picklist      | Define a list of KVP options, where only a single value is selectable                                       | 
+| Type       | Description                                             |
+| ---------- | --------------------------------------------------------|
+| Text     | Standard text input                                       |
+| Number      | Standard number input with optional min/max/step restrictions |
+| Picklist      | Define a list of KVP options, where only a single value is selectable                                       |
 | MultiPicklist     | Define a list of KVP options, where multiple values are selectable               |
 | SchemaSelection     | For engines that accept a data schema as an input              |
-
 
 #### Default Value
 
 Default value will be used as the initial value of your parameter when being displayed to end users.
-
-
-
 
 ### Querying an engines fields using GraphQL
 

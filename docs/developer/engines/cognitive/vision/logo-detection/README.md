@@ -4,7 +4,7 @@
 ![](badge/Search/Yes/green)
 ![](badge/UI/Yes/green)
 
-Logo detection engines are designed to detect one or more logos or branding elements in an image or video. 
+Logo detection engines are designed to detect one or more logos or branding elements in an image or video.
 
 <!-- TODO
 ## Engine Manifest
@@ -32,6 +32,7 @@ An object definition can exist in either the object array (for non-time-based de
 or in an `object` key in the `series` array (for time-based detections).
 
 ### Example
+
 Here is an example of proper engine output for objects detected within a time series:
 
 [](vtn-standard.example.json ':include :type=code json')

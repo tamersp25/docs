@@ -72,7 +72,6 @@ First we set the `Authorization` header using a valid token:
 Then we send the GraphQL query using multipart form post:
 ![Send GraphQL query](postman-query.png)
 
-
 ## Using GraphQL Variables
 
 It is often convenient to write GraphQL queries using

@@ -13,8 +13,7 @@ See the full documentation for [engine manifest standards](/engines/standards/en
 
 <!-- TODO  Need ##Engine Input section -->
 
-
-## Engine Output 
+## Engine Output
 
 ### Example
 

@@ -5,20 +5,15 @@
 
 ## Step 2: Check [x] the type of issue being reported:
 
-- [] Typo
-- [] Missing content
-- [] Incomplete content
-- [] Out-of-date content
-- [] Other
-  
+- [ ] Typo
+- [ ] Missing content
+- [ ] Incomplete content
+- [ ] Out-of-date content
+- [ ] Other
+
 ## Step 3: Describe the issue in more detail:
-
-
 
 ### If applicable, paste the text in question here:
 
-
-
 ### Optionally, add the suggested correction text here:
-
 

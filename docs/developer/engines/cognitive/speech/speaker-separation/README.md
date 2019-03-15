@@ -29,13 +29,12 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 ## Engine Output
 
-Within the time-based `series` array (see [vtn-standard](/developer/engines/standards/engine-output/)) in the engine's output, each speaker separation record (that is, each `series` entry) should contain an `object` of type `speaker`. 
+Within the time-based `series` array (see [vtn-standard](/developer/engines/standards/engine-output/)) in the engine's output, each speaker separation record (that is, each `series` entry) should contain an `object` of type `speaker`.
 Because each speaker maps back to an entity in a library, each `object` should include the `entityId` of that original entity, along with the `libraryId` where it can be found.
 
 Here is an example of the simplest type of speaker separation output:
 
 [](vtn-standard.example.json ':include :type=code json')
-
 
 ### Legacy Format
 

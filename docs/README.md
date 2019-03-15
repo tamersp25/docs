@@ -4,7 +4,7 @@
 
 **Veritone** is a provider of artificial intelligence (AI) technology and solutions to the media and entertainment, legal and compliance, government, and other industries.
 
-Our proprietary **aiWARE** platform, much like a traditional operating system, provides a common, open software infrastructure that lets you build and use end-to-end, AI-powered solutions — from data ingestion to intelligent data analysis — accessible in the application of your choice. 
+Our proprietary **aiWARE** platform, much like a traditional operating system, provides a common, open software infrastructure that lets you build and use end-to-end, AI-powered solutions — from data ingestion to intelligent data analysis — accessible in the application of your choice.
 
 This approach combined with our proprietary orchestration technology, **Conductor**, makes it possible to quickly and accurately analyze massive amounts of diverse information — audio, video, image, text, and more — from multiple sources and formats to produce actionable intelligence in a faster, more scalable, and more cost-effective way than humans can.
 
@@ -17,6 +17,7 @@ If you’re looking for a sales channel for your AI software products, to add in
 ## Key Platform Features {docsify-ignore}
 
 ### Ingestion
+
 aiWARE allows you to ingest both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP.
 The architecture inherently supports simple and rapid addition of new ingestion adapters.
 You can even [write your own](developer/adapters/).

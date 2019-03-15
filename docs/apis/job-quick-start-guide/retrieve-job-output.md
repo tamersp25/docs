@@ -1,11 +1,13 @@
 # Retrieve Job Output
 
-Once a job has completed processing, calls can be made to retrieve a transcript, a translation, or object detection task output. 
+Once a job has completed processing, calls can be made to retrieve a transcript, a translation, or object detection task output.
 
 ### Retrieve a Transcript
+
 To retrieve a transcript, make a request to the *Job* query with the Job ID. Transcripts are returned in time-correlated text fragments that include beginning and ending times. A successful request returns the specified transcript and other requested details. Otherwise, an error is returned.
 
 #### Request Payload: Retrieve a Transcript
+
 ```graphql
 query{
 -------request fields-----------
@@ -35,6 +37,7 @@ query{
 ```
 
 #### Sample Request: Retrieve a Transcript
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -42,7 +45,7 @@ query{
       id
       assets(assetType: "transcript") {
       records {
-        id 
+        id
         uri
         contentType
         transform(transformFunction: XML2JSON)
@@ -62,6 +65,7 @@ query{
 ```
 
 #### Sample Response: Retrieve a Transcript
+
 ```json
 {
   "data": {
@@ -90,6 +94,7 @@ query{
 ```
 
 #### Response Attributes: Retrieve a Transcript
+
 <table>
   <tr>
     <td><b>Name</b></td>
@@ -125,9 +130,11 @@ query{
 <br>
 
 ### Retrieve Object Detection Results
+
 To retrieve object detection results, make a request to the *Job* query with the Job ID. A successful request returns a JSON object with an array of the detected objects and details. Otherwise, an error is returned.
 
 #### Request Payload: Retrieve Object Detection Results
+
 ```graphql
 query{
 -------request fields-----------
@@ -152,6 +159,7 @@ query{
 }
 ```
 #### Sample Request: Retrieve Object Detection Results
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -159,7 +167,7 @@ query{
       id
       assets(assetType: "object") {
       records {
-        id 
+        id
         uri
         contentType
        }
@@ -178,6 +186,7 @@ query{
 ```
 
 #### Sample Response: Retrieve Object Detection Results
+
 ```json
 {
   "data": {
@@ -250,6 +259,7 @@ query{
 ```
 
 #### Response Attributes: Retrieve Object Detection Results
+
 <table>
   <tr>
     <td><b>Name</b></td>
@@ -285,9 +295,11 @@ query{
 <br>
 
 ### Retrieve a Translation
-To retrieve a translation, make a request to the *Job* query with the Job ID and specify *text* as the *Asset Type* value. Translations are returned as part of the task output. 
+
+To retrieve a translation, make a request to the *Job* query with the Job ID and specify *text* as the *Asset Type* value. Translations are returned as part of the task output.
 
 #### Request Payload: Retrieve a Translation
+
 ```graphql
 query{
 -------request fields-----------
@@ -313,6 +325,7 @@ query{
 ```
 
 #### Sample Request: Retrieve a Translation
+
 ```graphql
 query{
   job(id: "2791851b-0d02-4aaf-97e0-cd77a2e771ad") {
@@ -320,7 +333,7 @@ query{
       id
       assets(assetType: "text") {
       records {
-        id 
+        id
         uri
         contentType
        }
@@ -338,6 +351,7 @@ query{
 }
 ```
 #### Sample Response: Retrieve a Translation
+
 ```json
 {
   "data": {

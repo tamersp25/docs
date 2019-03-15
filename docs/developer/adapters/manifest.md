@@ -29,7 +29,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | libraries             | string           | No | List any dependent libraries required by your adapter.            | "libraries": ["tensorflow", "apache mahout"] |
 | maxFileMb             | float            | No | The maximum file size (in megabytes) that your adapter can process. Omit this field if your adapter can process a file of any length. | "maxFileMb": 1200.0  |
 | minMediaLengthMs      | integer          | No | The minimum input file length (in milliseconds) required by your adapter. Omit this field if your adapter can input a file of any length. | "minMediaLengthMs": 1000  |
-| maxMediaLengthMs      | integer          | No | The maximum file length (in milliseconds) that your adapter supports. Omit this field if your adapter can process a file of any length.  | "maxMediaLengthMs": 900000 |       
+| maxMediaLengthMs      | integer          | No | The maximum file length (in milliseconds) that your adapter supports. Omit this field if your adapter can process a file of any length.  | "maxMediaLengthMs": 900000 |
 | trainableViaApi       | boolean          | No | Describes whether an API is available for training. | "trainableViaApi": true |
 | supportedLanguages    | string           | No | A comma-separated list of the languages your adapter supports, expressed as [ISO 639-1 Codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).  | "supportedLanguages": [ "en" , "ko" ]  |
 | gpuSupported          | string           | No | A comma-separated list of supported GPU engines. The GPU options supported by Veritone are listed [below](/developer/engines/manifest?id=gpu). | "gpuSupported" : "P2", "G2", "G3"  |
@@ -43,13 +43,11 @@ The fields that should be included in manifest.json are listed in the table belo
 | oauth | string | No | Indicate the version of OAuth that your adapter supports. Omit if your adapter doesn't support OAuth.| "oauth": "2.0"|
 | releaseNotes          | string           | No | Tell users what has changed in this version of your code base. Enter unformatted, plain text in this field only.  | "releaseNotes": "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions." |
 
-
 ## Available cluster sizes
 
 |     | Small | Medium | Large |
 | --- | ----- | ------ | ----- |
 | RAM | 512MB | 2GB    | 6GB   |
-
 
 ## GPU
 
@@ -63,6 +61,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | NVIDIA Tesla M2050 GPUs       | Coming soon! | CG1  |
 
 ## MimeTypes
+
 _Contact us if your engine supports a MIME type that is not currently listed._
 
 * application/json
@@ -90,7 +89,6 @@ _Contact us if your engine supports a MIME type that is not currently listed._
 * video/x-m4v
 * video/x-ms-wmv
 * video/x-msvideo
- 
 
 ## Example
 

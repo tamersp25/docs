@@ -37,8 +37,8 @@ Since all face recognition engines identify entities, they are all required to b
 Face recognition engine output should be stored as `object`s in the time-based `series` array in [vtn-standard](/developer/engines/standards/engine-output/).
 Each `object` should be of type `face`, and because each recognized face always maps back to an entity in a library, each object should always include the `entityId` of that original entity in its output, along with the `libraryId` where it can be found.
 
-
 ### Example
+
 Here is an example of the simplest type of face recognition output:
 
 [](vtn-standard.example.json ':include :type=code json')

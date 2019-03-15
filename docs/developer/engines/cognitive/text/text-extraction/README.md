@@ -35,7 +35,7 @@ All indexes are optional but it is highly recommended to include at least one so
 The output can also include a language code and confidence scores if desired.
 
 ### Example
- 
- The following simple example shows what the output of a text extraction engine could look like:
- 
+
+The following simple example shows what the output of a text extraction engine could look like:
+
 [](vtn-standard.example.json ':include :type=code json')

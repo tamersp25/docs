@@ -9,7 +9,7 @@ For example, the engine might detect objects such as `person`, `desk`, or `aircr
 
 ## Engine Manifest
 
-<!-- TODO 
+<!-- TODO
 Here is a minimal example `manifest.json` that could apply to an object detection engine:
 -->
 
@@ -27,7 +27,7 @@ General detected objects can be reported in engine output by specifying an `obje
 An object definition can exist in either the object array (for non-time-based detections)
 or in an `object` key in the `series` array (for time-based detections).
 
-### Example 
+### Example
 
 Here is an example of proper engine output for objects detected within a time series:
 

@@ -33,7 +33,7 @@ mutation {
     id
     primaryAsset(assetType: "media") {
       id
-      uri      
+      uri
     }
   }
 }

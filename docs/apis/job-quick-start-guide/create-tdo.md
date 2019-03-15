@@ -6,9 +6,10 @@ is to create an empty TDO by calling the *Create TDO* mutation. Once a
 container is created, assets can be securely added and accessed for
 cognitive job processing and playback. Successful calls return a unique
 Recording ID that’s used with all subsequent Job workflow requests.
-Calls that are unsuccessful will result in an error. 
+Calls that are unsuccessful will result in an error.
 
 #### Request Payload: Create a TDO
+
 ```graphql
 mutation {
 -----------request fields-----------
@@ -26,6 +27,7 @@ mutation {
 ```
 
 #### GraphiQL Sample Request: Create a TDO
+
 ```graphql
 mutation {
   createTDO(
@@ -43,6 +45,7 @@ mutation {
 ```
 
 #### cURL Sample Request: Create a TDO
+
 ```bash
 curl -X POST \
   https://api.veritone.com/v3/graphql \
@@ -51,7 +54,8 @@ curl -X POST \
   -d '{"query": "mutation { createTDO( input: { startDateTime: 1507128535, stopDateTime: 1507128542, name: \"My New Video\", description: \"The latest video in the series\" }) { id,  status } }" }'
 ```
 
-#### Sample Response: Create a TDO 
+#### Sample Response: Create a TDO
+
 ```json
 {
   "data": {

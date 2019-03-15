@@ -4,7 +4,6 @@ An engine will typically act on an individual library per execution. When run in
 
 ![](https://gcc-elb-public-prod.gliffy.net/embed/image/3a64764f-4d70-4f63-8561-55b8c0409634.png?utm_medium=live&utm_source=custom)
 
-
 ## Engine Configuration
 
 An engine must configured to be library-enabled. To do so, a field called `libraryRequired` must be set to true on the engine definition. When you create your engine using the VDA "Create engine" wizard, check the "Library Required" option. You can also set this option after engine creation
@@ -70,6 +69,7 @@ modified, the system will automatically attempt to train a new model
 for all compatible engines.
 
 ## Engine modes
+
 When enabled for Libraries, the engine must support two specific modes, specified as "mode" in the task payload provided to the engine:
 
 * `library-train`: run the engine in training mode.

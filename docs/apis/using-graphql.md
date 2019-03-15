@@ -21,7 +21,7 @@ To get started right away:
 * Sign in to the Veritone platform at https://developer.veritone.com
 * Go to the GraphiQL user interface at https://api.veritone.com/v3/graphiql. You will automatically be authenticated through to the API and have access to live data for your organization.
 
-* Try a simple query such as me and use <ctrl-space> hints to see the fields available.
+* Try a simple query such as me and use `ctrl`+`space` (or `command`+`space` for Mac) hints to see the fields available.
 * See static schema documentation at https://api.veritone.com/v3/graphqldocs/
 * Hit the API directly at https://api.veritone.com/v3/graphql. You'll need to provide a valid authentication token as described at [here](/apis/authentication).
 * See [Basics](/apis/tutorials/graphql-basics) and [Examples](/apis/tutorials/)
@@ -34,13 +34,13 @@ This document contains a high-level overview and some information specific to Ve
 A GraphQL _schema_ defines _types_ and _fields_ on those types. That's it. A schema defines a set of queries as entry points to the data model. In a typical schema you will see something like this:
 
 ```graphql
-schema {  
+schema {
   query: Query
 }
-type Query {  
+type Query {
   objects(objectName: String):  [MyObjectType]
 }
-type MyObjectType {  
+type MyObjectType {
   name: String
 }
 ```
@@ -116,6 +116,7 @@ It would return something like:
 ```
 
 ## Veritone's schema
+
 Now let's take a look at the Veritone schema. You can refer to the following links. You can access the GraphiQL user interface at https://api.veritone.com/v3/graphiql.
 
 If you're new to our schema, try using the me query to explore the data you have access to.
@@ -146,14 +147,13 @@ GraphQL lets you structure complex queries that retrieve, aggregate, and marshal
 
 You can retrieve the same field twice, say to apply different parameters, using aliases. For example:
 
-
 ```graphql
 query {
   firstUser: user(name:"smith") {
     ...
   }
   secondUser: user(name:"jones") {
-    ...  
+    ...
   }
   thirdUser: user(id:"...") {
     ...
@@ -175,7 +175,7 @@ GraphQL supports interfaces, which define common fields for a set of types, and 
             liveImage
          }
        }
-     }   
+     }
   }
 }
 ```
@@ -183,7 +183,7 @@ GraphQL supports interfaces, which define common fields for a set of types, and 
 The result will look something like this:
 
 ```json
-{  
+{
   "data": {
     "temporalDataObjects": {
       "records": [

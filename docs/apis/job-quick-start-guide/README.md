@@ -20,17 +20,11 @@ This quickstart guide provides resources, detailed documentation, and sample req
 
 * [Delete a TDO/recording container](/apis/job-quick-start-guide/delete-tdo)
 
- 
-
 We designed this quickstart to be user-friendly and example-filled, but if you have any questions, please don’t hesitate to reach out to our [Developer Support Team](mailto:devsupport@veritone.com) for help.
-
- 
 
 ### **Base URL**
 
 Veritone API uses a single endpoint for making ad-hoc requests and to integrate API into third-party applications. All requests must be HTTP POST to [https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql) with *application/json* encoded bodies.
-
-
 
 ### **Making Sample Requests**
 
@@ -40,7 +34,6 @@ Veritone’s GraphiQL interface is the recommended method for ad hoc API request
 
 The sample requests provided in this documentation are structured for use in our [GraphiQL interface](https://api.veritone.com/v3/graphiql), but we’ve also included the basic cURL structure for your reference below. Please note that the examples shown do not use client information and are not language specific. For fields that require account-specific data (such as a Container ID), replace the value with your own. In addition, the sample requests shown are not all-inclusive — they highlight the minimum requirements and relevant information. Additional attributes for each request can be found in our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
 
- 
 #### Basic cURL Structure for Requests
 
 ```bash
@@ -51,18 +44,13 @@ curl -X POST \
   -d '{"query": "mutation { createTDO( input: { startDateTime: 1507128535, stopDateTime: 1507128542, name: \"My New Video\", description: \"The latest video in the series\" }) { id,  status } }" }'
 ```
 
-
-
 ### **Authentication**
 
 Veritone Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the *Authentication* header of the request with the value *Bearer \<token\>*. Requests made without this header or with an invalid token will return an error code.
 
-An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance. 
-
- 
+An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
 
 **To generate an API Token:**
-
 
 1. Log into the Veritone Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
 
@@ -76,6 +64,6 @@ An API Token can be generated in the Veritone Admin App by your Organization Adm
 
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated *window opens.
 
-5. Copy your token and click **Close** when finished. 
+5. Copy your token and click **Close** when finished.
 
-*Note*: Once the *Token Generated* window closes, the token code will no longer display. 
+*Note*: Once the *Token Generated* window closes, the token code will no longer display.

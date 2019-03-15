@@ -124,7 +124,6 @@ query {
 `JobList` represents a single page of results. The actual `Job` objects
 are contained in the `records` field.
 
-
 ```json
 {
   "data": {
@@ -166,7 +165,7 @@ The API follows the following contract across all paged fields:
 to the value set for `limit`
 * `count` will equal the size of the `records` array
 * if `count` is less than `limit`, there are no more results available; the client
-has reached the last page  
+has reached the last page
 * a request for a nonexistent page (`offset` greater than total possible results)
 returns an empty page, not an error
 
@@ -285,14 +284,13 @@ most effective model.
 In all cases it is important to choose an appropriate page size that
 will allow each HTTP request to complete in an acceptable amount of time.
 
-
 ## Choosing an Appropriate Page Size
 
 The default page size is suitable for most almost all cases.
 A smaller page size can always be used without ill effect.
 
-
 ### Large Page Sizes
+
 In some cases you may want to make query that returns minimal information
 about each object but an entire result set. For example, you might want
 to get the entire list of engine names and IDs within a given category.

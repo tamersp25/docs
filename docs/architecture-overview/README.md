@@ -1,19 +1,18 @@
 # aiWARE Architecture Overview
 
-
 ![Architecture Overview](architecture-overview.png)
 
 ## Data Ingestion & Storage
 
 aiWARE has been designed with flexibility to ingest and
 store virtually any type of structured or unstructured data, from
-storage or live streams.  
+storage or live streams.
 
 Data is generally categorized as "Public" or "Private".  Examples of
 Public data are broadcast TV, radio, podcast, or web video.  Veritone
 invests in aggregating and processing Public data from many sources in
 order to serve customers wishing to search locally or nationally for
-specific terms.  
+specific terms.
 
 Audio broadcast streams are programmatically ingested and "chunked" into
 15 minute segments, while video is chunked into 5 minute segments.
@@ -25,13 +24,13 @@ Connectors) that facilitate the easy import of data files from cloud
 storage, local storage, web sources, live streams, etc.  Currently
 available adapters include:
 
-  - Upload from local computer or network drive
-  - Cloud storage - Google Drive, Box.com, Dropbox
-  - Web video - YouTube, Vimeo
-  - FTP/SFTP
-  - RSS including Podcast RSS
-  - Amazon AWS
-  - More coming soon!
+- Upload from local computer or network drive
+- Cloud storage - Google Drive, Box.com, Dropbox
+- Web video - YouTube, Vimeo
+- FTP/SFTP
+- RSS including Podcast RSS
+- Amazon AWS
+- More coming soon!
 
 Once ingested, source data is stored securely in aiWARE and accessible
 via the [GraphQL API](apis/).
@@ -50,11 +49,11 @@ in an on-premise deployment.
 Users define their workflow for cognitive processing, including the
 class of engine or specific engine(s) to run against certain media.
  Depending on the source, this workflow can be defined for all inbound
-media or can be performed on an ad hoc basis after ingestion.  
+media or can be performed on an ad hoc basis after ingestion.
 
 For instance, broadcast television clients may choose to run
 transcription, OCR, Face Recognition, and Logo Recognition on all
-inbound media automatically upon ingestion.  
+inbound media automatically upon ingestion.
 
 aiWARE's real-time engine architecture means that processing results
 can be delivered in seconds or even sub-second depending on the latency
@@ -65,13 +64,13 @@ proprietary Conductor<sup>TM</sup> technology.  Veritone's Data Science
 team continues to make strides in auto selecting the best engine or
 engines to run for each specific data file based on the features of that
 file, utilizing robust machine learning that continues to improve over
-time.  
+time.
 
 Intraclass Conductor will select the best engine in a given class,
 transcription for example, based on the profile of a file.  Interclass
 Conductor will soon automatically select engines across classes based on
 what it may learn from a file as one or more engines begin to process
-the file.  
+the file.
 
 Ultimately the goal is for Conductor to also determine the domain
 context of a file, such that a file from one typical domain that happens
@@ -95,7 +94,7 @@ This architecture is the same regardless of aiWARE deployment model (cloud, on-p
 Docker containers can either be constructed to call an external API
 endpoint for remote processing, run a "network isolated" executable
 completely within the Docker, or run within the container but with
-external calls to a license or reporting server.  
+external calls to a license or reporting server.
 
 Network isolated versions provide the developer with more opportunities
 to earn processing volume and revenue, as they can be selected by
@@ -120,7 +119,7 @@ resulting French transcript (in words) is then translated to English.
 
 The output of each engine processing job is a set of metadata that is
 output by the engine and stored in Veritone's proprietary hyper-scale,
-time-correlated Temporal Elastic Database (TED<sup>TM</sup>).  
+time-correlated Temporal Elastic Database (TED<sup>TM</sup>).
 
 Time correlation based on the media run-time is required to facilitate
 effective multi-variant search by Veritone's suite of end-user

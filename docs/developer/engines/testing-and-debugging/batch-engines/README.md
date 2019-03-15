@@ -17,7 +17,6 @@ You can get a valid payload to test locally with by following the steps below.
 
 ![browse to upload](images/browse-to-upload.png)
 
-
 3\. Once you have chosen an appropriate media file, click Next to proceed to the next step `Select Options`.
 From the dropdown, select the build version `Local` in order to create a test task.
 
@@ -48,13 +47,11 @@ Example payload:
 }
 ```
 
-
 5\. Now that you have generated a valid payload, copy and save its contents into a `.json` file on your computer.
 
 As mentioned previously, when this type of engine is deployed to Veritone a `PAYLOAD_FILE` environment variable is passed to it at runtime which contains the location of the payload file it needs to process.
 
 You can simulate this by creating an environment variable locally called `PAYLOAD_FILE` and setting it's value to the file path of the file you have just created. Once you have done that, you can now run your engine locally using a valid payload in order to test your engine end to end to ensure it behaves correctly.
-
 
 #### Creating Test Tasks via API (Optional)
 
@@ -69,7 +66,6 @@ Once you have created the initial test payload, you may optionally prefer to cre
   -H 'content-type: application/json' \
   -d '{"query":"mutation{createJob(input:{targetId:\"<the recordingId>\" tasks:[{engineId:\"<your engineId>\" testTask:true}]}){id}}"}'
 ```
-
 
 ### Testing in aiWARE
 

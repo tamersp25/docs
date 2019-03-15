@@ -27,7 +27,6 @@ Here is a minimal example `manifest.json` that could apply to a text recognition
 
 -->
 
-
 <!--TODO: Define [](manifest.example.json ':include :type=code json')-->
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
@@ -40,7 +39,6 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 Text recognition engines are required to be [trainable via libraries](/developer/libraries/engines). -->
 
-
 ## Engine Output
 
 Text recognition engine output can follow two forms, depending on whether the file being processed is time-based file (e.g. audio, video) or a non-time-based (e.g. image).
@@ -52,5 +50,4 @@ Text recognition engine output can follow two forms, depending on whether the fi
 ### Example &mdash; Non-Time-Based
 
 [](vtn-standard-object.example.json ':include :type=code json')
-
 

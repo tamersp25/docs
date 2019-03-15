@@ -8,7 +8,7 @@ An automated license plate recognition (ALPR) engine extracts text strings from 
 
 ## Engine Manifest
 
-<!-- TODO 
+<!-- TODO
 All license plate recognition engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
@@ -43,6 +43,4 @@ Here is an example of proper engine output for objects detected within a time se
 
 The official engine output json-schema is available
 [here](/schemas/vtn-standard/license-plate.json ':ignore').
-
-
 

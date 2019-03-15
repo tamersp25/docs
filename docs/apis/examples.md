@@ -1,9 +1,6 @@
 # API Examples (GraphQL)
 
-
-
 ## Authentication
-
 
 ### Log In and Get Session Token
 
@@ -15,8 +12,8 @@ mutation userLogin {
 }
 ```
 
-
 RESPONSE:
+
 ```json
 {
   "data": {
@@ -27,8 +24,8 @@ RESPONSE:
 }
 ```
 
-
 ERRORS: (User not found)
+
 ```json
 {
   "data": {
@@ -59,6 +56,7 @@ ERRORS: (User not found)
 ```
 
 ### Validate Token
+
 ```graphql
 mutation validateToken {
   validateToken(token: "78cac3d0-684d-486e-8d86-8890dbae72e2") {
@@ -68,12 +66,12 @@ mutation validateToken {
 ```
 
 ### Log Out User Session
+
 ```graphql
 mutation userLogout {
   userLogout(token: "3c15e237-94a5-4563-9be7-4882acc7fa74")
 }
 ```
-
 
 ## Ingestion
 
@@ -88,14 +86,14 @@ Given a public file URL it will create a container TDO and upload the file as th
 mutation createTDOWithAsset {
   createTDOWithAsset(
     input: {
-      startDateTime: 1533761172, 
-      stopDateTime: 1533761227, 
-      contentType: "video/mp4", 
-      assetType: "media", 
-      addToIndex: true, 
+      startDateTime: 1533761172,
+      stopDateTime: 1533761227,
+      contentType: "video/mp4",
+      assetType: "media",
+      addToIndex: true,
       uri: "https://s3.amazonaws.com/hold4fisher/s3Test.mp4"
     }
-  ) 
+  )
   {
     id
     status
@@ -119,10 +117,10 @@ This can be useful for creating a container TDO that you can upload assets into 
 mutation createTDO {
   createTDO(
     input: {
-      startDateTime: 1548432520, 
+      startDateTime: 1548432520,
       stopDateTime: 1548436341
     }
-  ) 
+  )
   {
     id
     status
@@ -140,23 +138,23 @@ mutation createTDO {
 mutation runEngineJob {
   createJob(
     input: {
-      targetId: "102014611", 
+      targetId: "102014611",
       tasks: [
         {
           engineId: "8081cc99-c6c2-49b0-ab59-c5901a503508"
-        }, 
+        },
         {
           engineId: "insert-into-index"
-        }, 
+        },
         {
           engineId: "thumbnail-generator"
-        },         
+        },
         {
           engineId: "mention-generate"
         }
       ]
     }
-  ) 
+  )
   {
     id
   }
@@ -277,8 +275,8 @@ query getJobs {
       id
       createdDateTime
       status
-      tasks {        
-        records {       
+      tasks {
+        records {
           id
           status
           engine {
@@ -287,7 +285,7 @@ query getJobs {
             category {
               name
             }
-          }             
+          }
         }
       }
     }
@@ -297,7 +295,7 @@ query getJobs {
 
 ### Get List of Running Jobs
 
-In this example, we ask for a `limit` of 50 running jobs. 
+In this example, we ask for a `limit` of 50 running jobs.
 The `status` can be `pending`, `cancelled`, `queued`, `running`, or `complete`.
 
 ```graphql
@@ -687,13 +685,13 @@ RESPONSE:
 query getLogs {
   temporalDataObject(id: "331178425") {
     tasks {
-      records {       
+      records {
         engine {
           id
           name
-        }    
-        id        
-        status        
+        }
+        id
+        status
         startedDateTime
         completedDateTime
         log {
@@ -716,8 +714,9 @@ mutation cancelJob {
     }
   }
   ```
-  
+
 ### Delete TDO
+
 ```graphql
 mutation deleteTDO {
   deleteTDO(id: "64953347") {
@@ -741,7 +740,7 @@ query getAssets {
             id
             name
           }
-        }        
+        }
         id
         createdDateTime
         assetType
@@ -889,6 +888,7 @@ mutation createExportRequest {
 ```
 
 ### Check the status of an export request
+
 ```graphql
 query checkExportStatus {
  exportRequest(id:"10f6f809-ee36-4c12-97f4-d1d0cf04ea85") {
@@ -934,7 +934,7 @@ query searchSDO {
         query: {
             conditions: [
                 { operator: "term", field: "QUANTITY", value: 2 }
-               	{ operator: "term", field: "ORD_ID", value: "12343" }
+                { operator: "term", field: "ORD_ID", value: "12343" }
             ],
             operator: "or"
         },
@@ -950,7 +950,7 @@ query searchSDO {
 
 ### Create a Folder
 
-Before you can create a folder, you must know the ID of the intended parent folder. 
+Before you can create a folder, you must know the ID of the intended parent folder.
 If you want to place the new folder under the `rootFolder`, you can discover the `rootFolder` ID by (for example) running a query using `organizations(id:<your org ID>)`.
 
 ```graphql
@@ -984,7 +984,6 @@ ERRORS:
 
 Note that all four input fields (`name`, `description`, `parentId`, and `rootFolderType`) are mandatory.
 The `rootFolderType` should correspond to the folder type of the `parentId` folder and should be one of `cms`, `collection`, or `watchlist`.
-
 
 ### List Folders in CMS and Contained TDOs
 
@@ -1025,7 +1024,7 @@ query getFolderInfoByTDO {
         records {
           id
         }
-      }      
+      }
     }
   }
 }
@@ -1042,7 +1041,7 @@ query getFolderInfo {
       records {
         id
       }
-    }    
+    }
   }
 }
 ```
@@ -1137,6 +1136,7 @@ query engineLibraryTrainable {
 ```
 
 ### Update Entity Thumbnail in library
+
 First, obtain the URL for the entity's first identifier:
 
 ```graphql
@@ -1156,7 +1156,7 @@ Then pass the identifier's URL in as the value of `profileImageUrl`
 ```graphql
 mutation updateEntityThumbnail {
   updateEntity(input: {
-    id: "3fd506ec-aa31-43b3-b51e-5881a57965a1", 
+    id: "3fd506ec-aa31-43b3-b51e-5881a57965a1",
     profileImageUrl: "https://veritone-aiware-430032233708-us-gov-prod-sled2-recordings.s3-us-gov-west-1.amazonaws.com/3b82ec4a-0679-49cf-999b-7e76b899de56/3fd506ec-aa31-43b3-b51e-5881a57965a1/75a5f021-7c06-495a-9f03-ed5dc209dff3.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAWIH7LETWO45I3Q7X%2F20190117%2Fus-gov-west-1%2Fs3%2Faws4_request&X-Amz-Date=20190117T232649Z&X-Amz-Expires=86400&X-Amz-Security-Token=FQoDYXdzEDIaDO0%2FlJcJeJRIyJ86myLABEvH3vewwLDedka8Cn%2FcSPfDPA8rGer8JiyVtS7rB4mbYJ8kCkTzmWYdkm9DmBVyNxcMSqxUz9sW7U1yexuERkYcpD5ajBThw2JS8uwQeL4%2FXsO3vlk9ODBjFoT%2BWn%2B7p%2Bti54npv7BPSNHk7I%2BHLMfrSQQB6CmM8RZNAjGiyh%2FWk8Ls2ykyU92lIqAZKdKYbvhNfIGgSalH%2B%2BWnrEzVeBbDKN6ahLcqCbIsqfEIChjGk8XAwvfrTmnkXGjNZWheb6rHnl%2F24chxOyX4utZVuJeJIGZh6%2BOR%2F8TU4pSGiyvTuePmcdZkczLQKLu1g3TB5WbEPR2Ip1t%2F9Xr%2Fc54ph2qBXk4dEMlFHii0DCt4Ov7HXqsQtFS0fpNY3yrg3MxVLNfx5zpsUN0jwSB%2BAWGJ3jIOCe4djCx75dejnxAEse2lxxImPZnIhi1OspqHbb6TxTUfIkNHqLrFQ3Ari%2FtRnjRJID0ocwtziGgY7Husm1lWrJMyyhY9PGv1pHtfCmlXEcNKa0VLz52vsR9sOr6zIhM20GWJ8aSakEbauKBKDUeoA43ZQMZn4p05QAuIHIVOxcJ1VwPdrSLDFgi5MJawZYMgHbjIgSLpn6AD4aaIL7dkX6EiLrKir0OEXAiyU9P33btNVMPgWIWv%2FGGF%2FGakalGhTK8%2FoTlo%2BJIZdxmfk%2FH%2F%2BeAbTtHU0yVDwgh0PIGHUmL1rg2MkOXCEN4fT8dSY99s56Axrsr%2FhYIrimid2CI0AoFzCCyXGmng3VsScUeCoCiXuYPiBQ%3D%3D&X-Amz-Signature=d31cfb938032f55c73251ead4deadfaf0ab46d8b38728f4da998b517dd207859&X-Amz-SignedHeaders=host"
   }) {
     id
@@ -1168,7 +1168,9 @@ mutation updateEntityThumbnail {
 ## Users
 
 ### Get an Organization's Users
+
 Supply one or more `organizationId` values inside an array:
+
 ```graphql
 query {
   users(organizationIds:[17532]) {
@@ -1176,24 +1178,26 @@ query {
       id
       name
     }
-  } 
+  }
 }
 ```
 
 ### Create a New User
+
 The only *required* fields are `name` and `organizationId`.
+
 ```graphql
 mutation {
   createUser(input: {
-    name: "Arby Arbiti", 
-    requestorId: "960b3fa8-1812-4303-b58d-4f0d227f2afc", 
-    password: "", 
-    organizationId: 17532, 
-    sendNewUserEmail: false, 
-    email: "something@something.com", 
-    firstName: "Arby", 
+    name: "Arby Arbiti",
+    requestorId: "960b3fa8-1812-4303-b58d-4f0d227f2afc",
+    password: "",
+    organizationId: 17532,
+    sendNewUserEmail: false,
+    email: "something@something.com",
+    firstName: "Arby",
     lastName: "Arbiti"
-    }) 
+    })
     {
         id
     }
@@ -1206,7 +1210,7 @@ mutation {
 
 ```graphql
 query getTDODetails {
-  temporalDataObject(id: "102014611") {   
+  temporalDataObject(id: "102014611") {
     details
   }
 }
@@ -1295,10 +1299,10 @@ query listEnginesByCategory {
             options {
               value
             }
-            
-            
-            
-            
+
+
+
+
           }
         }
       }
@@ -1313,7 +1317,7 @@ query listEnginesByCategory {
 query listEngineCategories {
   engineCategories {
     records {
-      id 
+      id
       name
       description
     }
@@ -1411,13 +1415,14 @@ query primaryAsset {
 ```
 
 Step 3: Update the primary asset.
+
 ```graphql
 mutation setPrimaryAsset {
   updateTDO( input: {
-    id: 117679345, 
+    id: 117679345,
     primaryAsset:
       { id: "117679345_t6l92LBhp0", assetType: "media" }
-  }) 
+  })
   {
     id
   }
@@ -1425,17 +1430,18 @@ mutation setPrimaryAsset {
 ```
 
 ## Real Time
+
 Step 1: Create a TDO or "Container" for use in Step 2:
 
 ```graphql
 mutation createTDOWithAsset {
   createTDOWithAsset(input: {
-    startDateTime: 1548880932, 
-    updateStopDateTimeFromAsset: true, 
-    contentType: "video/mp4", 
-    assetType: "media", addToIndex: true, 
+    startDateTime: 1548880932,
+    updateStopDateTimeFromAsset: true,
+    contentType: "video/mp4",
+    assetType: "media", addToIndex: true,
     uri: "https://s3.amazonaws.com/hold4fisher/Manchester+United+4-3+Real+Madrid+-+UEFA+CL+2002_2003+%5BHD%5D-W7HM1RfNfS4.mp4"
-  }) 
+  })
   {
     id
     status
@@ -1452,6 +1458,7 @@ mutation createTDOWithAsset {
 ```
 
 RESPONSE:
+
 ```json
 {
   "data": {
@@ -1474,10 +1481,11 @@ RESPONSE:
 ```
 
 Step 2: Create a Job involving face recognition, using the ID obtained from the response to Step 1:
+
 ```graphql
 mutation createJob {
   createJob(input: {
-    targetId: "390257661", 
+    targetId: "390257661",
     isReprocessJob:true
     tasks: [
       {engineId: "5e651457-e102-4d16-a8f2-5c0c34f58851"}]}) {
@@ -1488,6 +1496,7 @@ mutation createJob {
 ```
 
 RESPONSE:
+
 ```json
 {
   "data": {
@@ -1500,6 +1509,7 @@ RESPONSE:
 ```
 
 Step 3: Get the results of the job created in step 2:
+
 ```graphql
 query getEngineResults {
   engineResults(tdoId: "390257661", engineIds: ["5e651457-e102-4d16-a8f2-5c0c34f58851"]) {
@@ -1511,6 +1521,7 @@ query getEngineResults {
 ```
 
 You can also provide the `jobId` instead of the `engineId`:
+
 ```graphql
 query getEngineResults {
   engineResults(tdoId: "390257661", jobId:"19031004_ADKtN72ZWZ") {
@@ -1520,12 +1531,3 @@ query getEngineResults {
   }
 }
 ```
-
-
-
-
-
-
-
-
-

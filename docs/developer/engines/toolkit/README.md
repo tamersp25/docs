@@ -154,7 +154,7 @@ To get started, you need to download the Engine Toolkit SDK. It contains tools t
 
 ### Writing a `Dockerfile`
 
-Veritone engines are Docker containers that run in the platform. To provide an engine, you must 
+Veritone engines are Docker containers that run in the platform. To provide an engine, you must
 build a Docker container (or image) that can encapsulate your dependencies and execute your code.
 
 A `Dockerfile` explains the steps that Docker needs to take in order to build a container.

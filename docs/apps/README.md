@@ -20,7 +20,6 @@ aiWARE includes the following native AI applications:
   - [Admin](#admin)
   - [Developer](#developer)
 
-
 ## CMS
 
 **Veritone CMS** (Content Management System) is used to ingest/add media, delete media, define cognitive workflows, process new or previously processed media with additional artificial intelligence engines, organize ingested media, check the status of engine execution, and view summary statistics for all ingested media.
@@ -40,7 +39,7 @@ Users and organizations can extend and amplify their media by customizing and sh
 **Veritone Library** provides capabilities for creating custom databases of entities (like people, places, or things) that can be used for training recognition engines.
 Veritone Library also includes a set of pre-defined libraries with more than 10,000 famous faces from around the world, including athletes, TV/news personalities, celebrities, and foreign dignitaries.
 
-<hr>
+---
 
 ## IDentify
 
@@ -51,7 +50,7 @@ Veritone Library also includes a set of pre-defined libraries with more than 10,
 **Veritone Redact** is a purpose-built solution for law enforcement agencies, law firms, or anyone else who needs to quickly redact faces, license plates, audio, or any other items from digital evidence.
 It uses AI engines to automatically follow faces and other user-tagged objects throughout a video and blur them, greatly reducing the time needed to redact sensitive materials.
 
-<hr>
+---
 
 ## Attribute
 
@@ -74,7 +73,7 @@ Capable of ingesting large amounts of assets across a broad range of audio, vide
 **Digital Media Hub** (formerly from Wazee Digital), is an intuitive web portal through which you can offer secure, cloud-native global access to your content to key stakeholders, including news media and corporate partners.
 And the best part? You can customize the look and feel of your portal to properly represent your brand.
 
-<hr>
+---
 
 ## Admin
 

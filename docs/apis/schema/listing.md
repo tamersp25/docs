@@ -102,6 +102,4 @@ This query generates:
 
 GraphQL schema files are auto-generated in `.graphql` and `.json` format.
 
-
-
 To generate your own copies from Veritone's, or any other, GraphQL endpoint, try GraphCool's get-graphql-schema tool:  https://github.com/graphcool/get-graphql-schema.

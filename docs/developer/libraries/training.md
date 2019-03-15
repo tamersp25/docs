@@ -40,7 +40,6 @@ mutation {
 }
 ```
 
-
 Training mode will typically follow the following workflow:
 
 1. Update the model's `trainStatus` field to `running`.
@@ -92,7 +91,6 @@ exceeding usage limits.
 concurrently. In synchronous code, this is typically automatic in a
 simple loop-based implementation, but in asynchronous code such as
 JavaScript it may be necessary to use protective measures such as `async.limit()`.
-
 
 3. Train your engine using the returned identifiers and metadata. This step is largely engine-dependent, but the idea here is be able to map a trained item back to a specific entity or identifier in the library. This is typically done by using either the entity ID or entity identifier ID, so that when the engine recognizes/detects that item on later executions, it will return an ID that can easily be mapped to library resources. Sometimes this is not possible and the engine will generate its own identifiers. In such cases, simply generate a mapping from the engine's IDs to the library entity ID/entity identifier IDs, and save it in some format, such as JSON. This mapping can then be saved with the engine model and referenced when necessary.
 
