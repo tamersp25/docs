@@ -84,7 +84,7 @@ Scenario('Go to Discovery  overview page', I => {
   I.see('Usage Data', OVERVIEW_SELECTOR + '_md.flex-order-2.flex-none');
   I.see('API Keys', OVERVIEW_SELECTOR + '_md.flex-order-8.flex-none');
   I.see('Conductor', OVERVIEW_SELECTOR + '_md.flex-order-10.flex-none');
-  I.see('Benchmarking', OVERVIEW_SELECTOR + '_md.flex-order-11.flex-none');
+  I.see('BenchmarkingFailed', OVERVIEW_SELECTOR + '_md.flex-order-11.flex-none');
   I.amOnPage('https://enterprise.stage.veritone.com/media/mentions#/mention/buy/all');
   I.wait(5);
   I.closeOtherTabs();
