@@ -624,6 +624,16 @@
             "description": "Retrieve jobs",
             "args": [
               {
+                "name": "hasTargetTDO",
+                "description": "",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
                 "name": "id",
                 "description": "Provide an ID to retrieve a single specific job.",
                 "type": {
@@ -785,6 +795,42 @@
                     "kind": "SCALAR",
                     "name": "ID",
                     "ofType": null
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "engineIds",
+                "description": "Provide a list of engine IDs to filter for jobs\nthat contain tasks for the specified engines.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "engineCategoryIds",
+                "description": "Provide a list of engine category IDs to filter for jobs\nthat contain tasks for engines in the specific categories.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
                   }
                 },
                 "defaultValue": null
@@ -4083,6 +4129,37 @@
             "deprecationReason": null
           },
           {
+            "name": "processTemplate",
+            "description": "Get process templates by id",
+            "args": [
+              {
+                "name": "id",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ProcessTemplate",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "creative",
             "description": "Get creative by id with current organizationId",
             "args": [
@@ -4593,6 +4670,70 @@
                   "ofType": null
                 },
                 "defaultValue": "30"
+              },
+              {
+                "name": "tagMatch",
+                "description": "Type of string match to use against tags, if any",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "StringMatch",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "tags",
+                "description": "List of tags to match against",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "dateTimeFilter",
+                "description": "",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ClusterDateTimeFilter",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "ClusterOrderBy",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
               }
             ],
             "type": {
@@ -5350,6 +5491,55 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "clusterTags",
+            "description": "matching cluster tags in use by this organization",
+            "args": [
+              {
+                "name": "matchType",
+                "description": "",
+                "type": {
+                  "kind": "ENUM",
+                  "name": "StringMatch",
+                  "ofType": null
+                },
+                "defaultValue": "startsWith"
+              },
+              {
+                "name": "match",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -5778,6 +5968,11 @@
           },
           {
             "kind": "OBJECT",
+            "name": "ClusterNodeList",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
             "name": "ClusterCollaboratorList",
             "ofType": null
           },
@@ -5789,6 +5984,11 @@
           {
             "kind": "OBJECT",
             "name": "TaskList",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ClusterSubscriptionList",
             "ofType": null
           },
           {
@@ -5938,11 +6138,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ClusterNodeList",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "ClusterList",
             "ofType": null
           },
@@ -6076,6 +6271,18 @@
           {
             "name": "thumbnailUrl",
             "description": "An optional URL for a thumbnail or preview image for\nthis object. If the URL is to an object in Veritone's\nobject storage, it will be signed.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "previewUrl",
+            "description": "An optional URL for a preview asset for this document\nobject. If the URL is to an object in Veritone's\nobject storage, it will be signed.",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -6557,6 +6764,18 @@
             "type": {
               "kind": "OBJECT",
               "name": "EngineRunList",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "streamManifest",
+            "description": "If this is a segmented TDO, returns the stream manifest\ncontents in normalized JSON form.",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TDOStreamManifest",
               "ofType": null
             },
             "isDeprecated": false,
@@ -7718,6 +7937,30 @@
             "type": {
               "kind": "SCALAR",
               "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "failureReason",
+            "description": "Failure reason code. This will be set only if the task final status\nwas `failed`.",
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "TaskFailureReason",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "failureMessage",
+            "description": "Failure message from the engine. This will be set only if the task final\nstatus was `failed` and `failureReason` is set.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -18837,13 +19080,9 @@
             "description": "",
             "args": [],
             "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "ClusterNode",
-                "ofType": null
-              }
+              "kind": "OBJECT",
+              "name": "ClusterNodeList",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -19047,10 +19286,479 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "jobs",
+            "description": "Retrieve jobs",
+            "args": [
+              {
+                "name": "id",
+                "description": "Provide an ID to retrieve a single specific job.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "status",
+                "description": "Provide a list of status strings to filter by status",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "JobStatusFilter",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "Provide an offset to skip to a certain element in the result, for paging.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "0"
+              },
+              {
+                "name": "limit",
+                "description": "Specify the maximum number of results to included in this response, or page size.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "30"
+              },
+              {
+                "name": "applicationId",
+                "description": "Provide an application ID to filter jobs for a given application.\nDefaults to the user's own application.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "targetId",
+                "description": "Provide a target ID to get the set of jobs running against a particular TDO.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "scheduledJobIds",
+                "description": "Provide a list of scheduled job IDs to get jobs associated with the scheduled jobs",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "orderBy",
+                "description": "Provide sort information. The default is to sort by\ncreatedDateTime descending.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "JobSortField",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "dateTimeFilter",
+                "description": "Filter by date/time field. If a filter is not provided, a default of\n`createdDateTime` between now and 1 day ago will be applied.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "JobDateTimeFilter",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "applicationIds",
+                "description": "Provide list of application IDs to filter jobs.\nDefaults to the user's own application.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "JobList",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "tasks",
+            "description": "",
+            "args": [
+              {
+                "name": "status",
+                "description": "Specify a list of job status strings to filter by status",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "TaskStatus",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "offset",
+                "description": "Provide an offset to skip to a certain element in the result, for paging.",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "0"
+              },
+              {
+                "name": "limit",
+                "description": "Maximum number of results to retrieve in this query",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                },
+                "defaultValue": "30"
+              },
+              {
+                "name": "id",
+                "description": "Specify an ID to retrieve a single specific task",
+                "type": {
+                  "kind": "SCALAR",
+                  "name": "ID",
+                  "ofType": null
+                },
+                "defaultValue": null
+              },
+              {
+                "name": "dateTimeFilter",
+                "description": "If a filter is not provided, a default of `createdDateTime` between\nnow and 1 day ago will be applied.",
+                "type": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "TaskDateTimeFilter",
+                      "ofType": null
+                    }
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "TaskList",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "subscriptions",
+            "description": "Retrieve current subscriptions for events on this cluster.",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ClusterSubscriptionList",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "tags",
+            "description": "Retrieve tags for this cluster",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "status",
+            "description": "Retrieve the cluster's current status",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ClusterStatus",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "clusterConfig",
+            "description": "Cluster configuration overrides",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "state",
+            "description": "State information about the cluster, conforming to a stable schema.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "stateLastUpdatedDateTime",
+            "description": "Date and time at which the state was last updated the system.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mediaStorage",
+            "description": "media storage option",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "MediaStorageOption",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mediaStoragePath",
+            "description": "media storage path -- applies to edge only",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "managementNodeID",
+            "description": "ID of the management node. Applies to portable/edge clusters only.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "restartTimeUTC",
+            "description": "Optionally, specify a time at which the edge cluster should\nbe restarted daily. Applies only to edge clusters.",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Time",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "serviceToken",
+            "description": "Retrieve the cluster's service token",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ClusterNodeList",
+        "description": "",
+        "fields": [
+          {
+            "name": "records",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ClusterNode",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "count",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offset",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "limit",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Page",
+            "ofType": null
+          }
+        ],
         "enumValues": null,
         "possibleTypes": null
       },
@@ -19110,6 +19818,42 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "metrics",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "nodeConfig",
+            "description": "Cluster configuration overrides",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "paused",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -19134,6 +19878,12 @@
           {
             "name": "RT",
             "description": "Real-Time",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "OnPrem",
+            "description": "On Premise",
             "isDeprecated": false,
             "deprecationReason": null
           }
@@ -19304,6 +20054,47 @@
         "possibleTypes": null
       },
       {
+        "kind": "ENUM",
+        "name": "JobStatusFilter",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "pending",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "running",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "complete",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "cancelled",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "queued",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "INPUT_OBJECT",
         "name": "JobSortField",
         "description": "",
@@ -19422,47 +20213,6 @@
           },
           {
             "name": "modifiedDateTime",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "JobStatusFilter",
-        "description": "",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "pending",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "running",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "complete",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "cancelled",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "queued",
             "description": "",
             "isDeprecated": false,
             "deprecationReason": null
@@ -19938,6 +20688,340 @@
           }
         ],
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "TaskDateTimeFilter",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "toDateTime",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "fromDateTime",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "field",
+            "description": "",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "TaskDateTimeField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "TaskDateTimeField",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "createdDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modifiedDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ClusterSubscriptionList",
+        "description": "",
+        "fields": [
+          {
+            "name": "records",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ClusterSubscription",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "count",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "offset",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "limit",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [
+          {
+            "kind": "INTERFACE",
+            "name": "Page",
+            "ofType": null
+          }
+        ],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "ClusterSubscription",
+        "description": "",
+        "fields": [
+          {
+            "name": "userId",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "emailAddress",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdDateTime",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modifiedDateTime",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "DateTime",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "isActive",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ClusterStatus",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "pending",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "active",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "deploying",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "online",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "paused",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "terminated",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "MediaStorageOption",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "edge",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "core",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -21966,74 +23050,6 @@
         "possibleTypes": null
       },
       {
-        "kind": "INPUT_OBJECT",
-        "name": "TaskDateTimeFilter",
-        "description": "",
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "toDateTime",
-            "description": "",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "fromDateTime",
-            "description": "",
-            "type": {
-              "kind": "SCALAR",
-              "name": "DateTime",
-              "ofType": null
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "field",
-            "description": "",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "ENUM",
-                "name": "TaskDateTimeField",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "ENUM",
-        "name": "TaskDateTimeField",
-        "description": "",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": [
-          {
-            "name": "createdDateTime",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "modifiedDateTime",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "possibleTypes": null
-      },
-      {
         "kind": "ENUM",
         "name": "BuildStatus",
         "description": "Valid strings for the `Build.status` field.",
@@ -23050,6 +24066,119 @@
       },
       {
         "kind": "ENUM",
+        "name": "TaskFailureReason",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "internal_error",
+            "description": "The engine encountered an unexpected internal error.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "unknown",
+            "description": "The cause of the failure could not be determined.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_not_found",
+            "description": "The engine attempted to download\ncontent from a URL provided in the task payload and\nreceived a 404.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_not_allowed",
+            "description": "The engine attempted to download\ncontent from a URL provided in the task payload and\nreceived a 401 or 403.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_timeout",
+            "description": "The engine attempted to download\ncontent from a URL provided in the task payload and\nthe download timed out",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_connection_refused",
+            "description": "The engine attempted to download\ncontent from a URL provided in the task payload and\nthe connection was refused.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "url_error",
+            "description": "The engine attempted to download content from a URL\nprovided in the task payload an received an error.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "invalid_data",
+            "description": "The input to the engine was incompatible with the engine\nrequirements. For example, an input media file had an\nunsupported MIME type or the file was empty.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "rate_limited",
+            "description": "An engine operation was subject to rate limiting.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "api_not_allowed",
+            "description": "The engine received an authorization error from the Veritone API.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "api_authentication_error",
+            "description": "The engine received an authentication error from the Veritone API using\nthe token provided in the task payload.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "api_not_found",
+            "description": "The engine received a \"not found\" error from the Veritone API on\na required object.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "api_error",
+            "description": "An unexpected error was received from the Veritone API, such as\nHTTP 500, HTTP 502, or an `internal_error` error.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "file_write_error",
+            "description": "The engine could not write temporary files to disk for processing\ndue to disk space full or other system error.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "system_dependency_missing",
+            "description": "The engine encountered a missing binary dependency or configuration,\nsuch as a missing executable or package or incompatible hardware.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "system_error",
+            "description": "The engine encountered an operating system, hardware, or other\nsystem-level error.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "other",
+            "description": "The error cause is known, but could not be mapped to a `TaskFailureReason`\nvalue. The `failureMessage` input field should contain details.",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
         "name": "TransformFunction",
         "description": "The possible transformer functions which can be used with assets",
         "fields": null,
@@ -23375,6 +24504,49 @@
             "type": {
               "kind": "SCALAR",
               "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "TDOStreamManifest",
+        "description": "",
+        "fields": [
+          {
+            "name": "segments",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "JSON",
+                  "ofType": null
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "initSegment",
+            "description": "",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
               "ofType": null
             },
             "isDeprecated": false,
@@ -30552,92 +31724,147 @@
         "possibleTypes": null
       },
       {
-        "kind": "OBJECT",
-        "name": "ClusterNodeList",
+        "kind": "INPUT_OBJECT",
+        "name": "ClusterDateTimeFilter",
         "description": "",
-        "fields": [
+        "fields": null,
+        "inputFields": [
           {
-            "name": "records",
+            "name": "toDateTime",
             "description": "",
-            "args": [],
             "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "ClusterNode",
-                    "ofType": null
-                  }
-                }
-              }
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
             },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "defaultValue": null
           },
           {
-            "name": "count",
+            "name": "fromDateTime",
             "description": "",
-            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "field",
+            "description": "",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
+                "kind": "ENUM",
+                "name": "ClusterDateTimeField",
                 "ofType": null
               }
             },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "offset",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "limit",
-            "description": "",
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
+            "defaultValue": null
           }
         ],
-        "inputFields": null,
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Page",
-            "ofType": null
-          }
-        ],
+        "interfaces": null,
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ClusterDateTimeField",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "createdDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modifiedDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "stateLastUpdatedDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ClusterOrderBy",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "field",
+            "description": "",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "ClusterOrderByField",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "direction",
+            "description": "",
+            "type": {
+              "kind": "ENUM",
+              "name": "OrderDirection",
+              "ofType": null
+            },
+            "defaultValue": "desc"
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "ClusterOrderByField",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "name",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "createdDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "modifiedDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "stateLastUpdatedDateTime",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
@@ -31308,6 +32535,37 @@
               "kind": "OBJECT",
               "name": "Asset",
               "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "addMediaSegment",
+            "description": "Add a single media segment to a TemporalDataObject.\nThis mutation will update the manifest asset (`media-mdp`)\nfor the TemporalDataObject.",
+            "args": [
+              {
+                "name": "input",
+                "description": "Fields necesary to create the segment.",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "AddMediaSegment",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "TemporalDataObject",
+                "ofType": null
+              }
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -33248,6 +34506,41 @@
             "deprecationReason": null
           },
           {
+            "name": "createCollectionMentions",
+            "description": "",
+            "args": [
+              {
+                "name": "input",
+                "description": "Fields needed to add mentions to a collection",
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateCollectionMentions",
+                  "ofType": null
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "CollectionMention",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "deleteCollectionMention",
             "description": "Remove a mention from a collection",
             "args": [
@@ -35029,6 +36322,37 @@
             "deprecationReason": null
           },
           {
+            "name": "deleteProcessTemplate",
+            "description": "Delete a processTemplate by ID in CMS",
+            "args": [
+              {
+                "name": "id",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "DeletePayload",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createMentionExportRequest",
             "description": "Create a mention export request. The requested mentionFilters including\nThe mention export file csv will be exported offline.",
             "args": [
@@ -36276,6 +37600,87 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "pauseClusterNode",
+            "description": "Pause for a node",
+            "args": [
+              {
+                "name": "input",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "PauseClusterNode",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ClusterNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "unpauseClusterNode",
+            "description": "Unpause for a node",
+            "args": [
+              {
+                "name": "input",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "UnpauseClusterNode",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "ClusterNode",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "updateClusterState",
+            "description": "Update the cluster's runtime state. Used only by infrastructure elements.",
+            "args": [
+              {
+                "name": "input",
+                "description": "",
+                "type": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "UpdateClusterState",
+                    "ofType": null
+                  }
+                },
+                "defaultValue": null
+              }
+            ],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Cluster",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -36438,6 +37843,16 @@
           {
             "name": "thumbnailUrl",
             "description": "An optional thumbnail URL for the TDO",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "previewUrl",
+            "description": "An optional preview asset URL for the TDO",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -36685,6 +38100,16 @@
           {
             "name": "thumbnailUrl",
             "description": "An optional thumbnail URL for the TDO",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "previewUrl",
+            "description": "An optional preview asset URL for the TDO",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -37252,6 +38677,59 @@
               "kind": "SCALAR",
               "name": "JSON",
               "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "AddMediaSegment",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "containerId",
+            "description": "ID of the TemporalDataObject container for the segment",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "details",
+            "description": "Details for the segment, such as start and stop offset",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "url",
+            "description": "The url to the segment content.",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             },
             "defaultValue": null
           }
@@ -38038,6 +39516,26 @@
             "type": {
               "kind": "SCALAR",
               "name": "DateTime",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "failureReason",
+            "description": "A code indicating why the task failed. Should be set\nif and only if task status is `failed`.\nIf set with any other task status, the API will return an error.",
+            "type": {
+              "kind": "ENUM",
+              "name": "TaskFailureReason",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "failureMessage",
+            "description": "A human-readable string with detail on the\ntask failure reason. Should be set if and only if\ntask status is `failed` and `failureReason` is set.\nIf set with any other task status or if `failureReason` is not set,\nthe API will return an error.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -43128,7 +44626,7 @@
           },
           {
             "name": "shareOptions",
-            "description": "Collection image",
+            "description": "app specific share options",
             "type": {
               "kind": "SCALAR",
               "name": "JSON",
@@ -43307,6 +44805,53 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateCollectionMentions",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "folderId",
+            "description": "id of the collection",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "mentionIds",
+            "description": "ids of the mentions",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "ID",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -45665,6 +47210,16 @@
           {
             "name": "thumbnailUrl",
             "description": "An optional thumbnail URL for the TDO",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "previewUrl",
+            "description": "An optional preview asset URL for the TDO",
             "type": {
               "kind": "SCALAR",
               "name": "String",
@@ -48062,6 +49617,94 @@
               }
             },
             "defaultValue": null
+          },
+          {
+            "name": "subscriptions",
+            "description": "Set subscriptions on the cluster.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "CreateClusterSubscription",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "tags",
+            "description": "Tags for cluster",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "status",
+            "description": "Status for cluster",
+            "type": {
+              "kind": "ENUM",
+              "name": "ClusterStatus",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clusterConfig",
+            "description": "Update the cluster config",
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "mediaStorage",
+            "description": "media storage type (edge or core)",
+            "type": {
+              "kind": "ENUM",
+              "name": "MediaStorageOption",
+              "ofType": null
+            },
+            "defaultValue": "core"
+          },
+          {
+            "name": "mediaStoragePath",
+            "description": "Media storage path. Optional -- use only for edge.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "restartTimeUTC",
+            "description": "Optionally, specify a time at which the edge cluster should\nbe restarted daily. Applies only to edge clusters.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Time",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "serviceToken",
+            "description": "Optionally, specify an api-token for cluster",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -48128,6 +49771,41 @@
             "deprecationReason": null
           }
         ],
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateClusterSubscription",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "userId",
+            "description": "",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isActive",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "defaultValue": "true"
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
         "possibleTypes": null
       },
       {
@@ -48239,6 +49917,129 @@
                   "ofType": null
                 }
               }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "tags",
+            "description": "Tags for cluster",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "status",
+            "description": "",
+            "type": {
+              "kind": "ENUM",
+              "name": "ClusterStatus",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "clusterConfig",
+            "description": "Update the cluster config",
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "mediaStoragePath",
+            "description": "Media storage path. Optional -- use only for edge.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "managementNodeID",
+            "description": "Designate a management node ID. Used only for edge/portable clusters.\nMust be the ID of an existing node in the cluster.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "restartTimeUTC",
+            "description": "Optionally, specify a time at which the edge cluster should\nbe restarted daily. Applies only to edge clusters.",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Time",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "subscriptions",
+            "description": "Update subscriptions on the cluster.",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "UpdateClusterSubscription",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "serviceToken",
+            "description": "Optionally, specify an api-token for cluster",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateClusterSubscription",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "userId",
+            "description": "",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "isActive",
+            "description": "",
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
             },
             "defaultValue": null
           }
@@ -48368,11 +50169,11 @@
             "defaultValue": null
           },
           {
-            "name": "type",
-            "description": "",
+            "name": "nodeConfig",
+            "description": "Update the cluster node config",
             "type": {
-              "kind": "ENUM",
-              "name": "ClusterType",
+              "kind": "SCALAR",
+              "name": "JSON",
               "ofType": null
             },
             "defaultValue": null
@@ -48531,6 +50332,16 @@
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "nodeConfig",
+            "description": "Update the cluster node config",
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
               "ofType": null
             },
             "defaultValue": null
@@ -50762,6 +52573,16 @@
             "defaultValue": null
           },
           {
+            "name": "previewUrl",
+            "description": "An optional preview asset URL for the TDO",
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "sourceImageUrl",
             "description": "An optional image representing the TDO source",
             "type": {
@@ -51720,6 +53541,105 @@
                 "name": "String",
                 "ofType": null
               }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "PauseClusterNode",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": "Node ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UnpauseClusterNode",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": "Node ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "UpdateClusterState",
+        "description": "Updates the state information for a given cluster",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": "The cluster ID",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "state",
+            "description": "",
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "targetStatus",
+            "description": "Optionally, update current the cluster status.",
+            "type": {
+              "kind": "ENUM",
+              "name": "ClusterStatus",
+              "ofType": null
             },
             "defaultValue": null
           }

@@ -101,6 +101,17 @@ input AddLibraryDataset {
   tdoIds: [ID]!
 }
 
+input AddMediaSegment {
+  """ID of the TemporalDataObject container for the segment"""
+  containerId: ID!
+
+  """Details for the segment, such as start and stop offset"""
+  details: JSON!
+
+  """The url to the segment content."""
+  url: String!
+}
+
 input AddTask {
   id: ID!
   jobId: ID!
@@ -833,7 +844,7 @@ input CloneScheduledJob {
 
 type Cluster {
   id: ID!
-  nodes: [ClusterNode]
+  nodes: ClusterNodeList
   name: String
   isPublic: Boolean
   type: ClusterType
@@ -850,6 +861,116 @@ type Cluster {
   default: Boolean
   bypassAllowedEngines: Boolean
   collaborators: ClusterCollaboratorList
+
+  """Retrieve jobs"""
+  jobs(
+    """Provide an ID to retrieve a single specific job."""
+    id: ID
+
+    """Provide a list of status strings to filter by status"""
+    status: [JobStatusFilter!]
+
+    """
+    Provide an offset to skip to a certain element in the result, for paging.
+    """
+    offset: Int = 0
+
+    """
+    Specify the maximum number of results to included in this response, or page size.
+    """
+    limit: Int = 30
+
+    """
+    Provide an application ID to filter jobs for a given application.
+    Defaults to the user's own application.
+    """
+    applicationId: ID
+
+    """
+    Provide a target ID to get the set of jobs running against a particular TDO.
+    """
+    targetId: ID
+
+    """
+    Provide a list of scheduled job IDs to get jobs associated with the scheduled jobs
+    """
+    scheduledJobIds: [ID!]
+
+    """
+    Provide sort information. The default is to sort by
+    createdDateTime descending.
+    """
+    orderBy: [JobSortField!]
+
+    """
+    Filter by date/time field. If a filter is not provided, a default of
+    `createdDateTime` between now and 1 day ago will be applied.
+    """
+    dateTimeFilter: [JobDateTimeFilter!]
+
+    """
+    Provide list of application IDs to filter jobs.
+    Defaults to the user's own application.
+    """
+    applicationIds: [ID]
+  ): JobList!
+  tasks(
+    """Specify a list of job status strings to filter by status"""
+    status: [TaskStatus!]
+
+    """
+    Provide an offset to skip to a certain element in the result, for paging.
+    """
+    offset: Int = 0
+
+    """Maximum number of results to retrieve in this query"""
+    limit: Int = 30
+
+    """Specify an ID to retrieve a single specific task"""
+    id: ID
+
+    """
+    If a filter is not provided, a default of `createdDateTime` between
+    now and 1 day ago will be applied.
+    """
+    dateTimeFilter: [TaskDateTimeFilter!]
+  ): TaskList!
+
+  """Retrieve current subscriptions for events on this cluster."""
+  subscriptions: ClusterSubscriptionList!
+
+  """Retrieve tags for this cluster"""
+  tags: [String!]
+
+  """Retrieve the cluster's current status"""
+  status: ClusterStatus!
+
+  """Cluster configuration overrides"""
+  clusterConfig: JSON
+
+  """State information about the cluster, conforming to a stable schema."""
+  state: JSON
+
+  """Date and time at which the state was last updated the system."""
+  stateLastUpdatedDateTime: DateTime
+
+  """media storage option"""
+  mediaStorage: MediaStorageOption!
+
+  """media storage path -- applies to edge only"""
+  mediaStoragePath: String
+
+  """ID of the management node. Applies to portable/edge clusters only."""
+  managementNodeID: ID
+
+  """
+  Optionally, specify a time at which the edge cluster should
+  be restarted daily. Applies only to edge clusters.
+  """
+  restartTimeUTC: Time
+
+  """Retrieve the cluster's service token"""
+  serviceToken: String
 }
 
 """
@@ -873,6 +994,18 @@ type ClusterCollaboratorList implements Page {
   count: Int
 }
 
+enum ClusterDateTimeField {
+  createdDateTime
+  modifiedDateTime
+  stateLastUpdatedDateTime
+}
+
+input ClusterDateTimeFilter {
+  toDateTime: DateTime
+  fromDateTime: DateTime
+  field: ClusterDateTimeField!
+}
+
 type ClusterList implements Page {
   records: [Cluster!]!
   count: Int!
@@ -885,13 +1018,30 @@ type ClusterNode {
   clusterId: ID
   cluster: Cluster
   name: String
+  metrics: JSON
+
+  """Cluster configuration overrides"""
+  nodeConfig: JSON
+  paused: Boolean
 }
 
 type ClusterNodeList implements Page {
-  records: [ClusterNode!]!
+  records: [ClusterNode]
   count: Int!
   offset: Int!
   limit: Int!
+}
+
+input ClusterOrderBy {
+  field: ClusterOrderByField!
+  direction: OrderDirection = desc
+}
+
+enum ClusterOrderByField {
+  name
+  createdDateTime
+  modifiedDateTime
+  stateLastUpdatedDateTime
 }
 
 enum ClusterPermission {
@@ -905,12 +1055,40 @@ enum ClusterSize {
   large
 }
 
+enum ClusterStatus {
+  pending
+  active
+  deploying
+  online
+  paused
+  terminated
+}
+
+type ClusterSubscription {
+  userId: ID!
+  emailAddress: String!
+  id: ID!
+  createdDateTime: DateTime!
+  modifiedDateTime: DateTime!
+  isActive: Boolean!
+}
+
+type ClusterSubscriptionList implements Page {
+  records: [ClusterSubscription!]!
+  count: Int!
+  offset: Int!
+  limit: Int!
+}
+
 enum ClusterType {
   """Amazon Machine Image"""
   ami
 
   """Real-Time"""
   RT
+
+  """On Premise"""
+  OnPrem
 }
 
 type CognitiveSearch {
@@ -1176,6 +1354,33 @@ input CreateCluster {
   can view or edit this field.
   """
   collaborators: [CreateClusterCollaborator!]
+
+  """Set subscriptions on the cluster."""
+  subscriptions: [CreateClusterSubscription]
+
+  """Tags for cluster"""
+  tags: [String]
+
+  """Status for cluster"""
+  status: ClusterStatus
+
+  """Update the cluster config"""
+  clusterConfig: JSON
+
+  """media storage type (edge or core)"""
+  mediaStorage: MediaStorageOption = core
+
+  """Media storage path. Optional -- use only for edge."""
+  mediaStoragePath: String
+
+  """
+  Optionally, specify a time at which the edge cluster should
+  be restarted daily. Applies only to edge clusters.
+  """
+  restartTimeUTC: Time
+
+  """Optionally, specify an api-token for cluster"""
+  serviceToken: String
 }
 
 input CreateClusterCollaborator {
@@ -1196,7 +1401,14 @@ input CreateClusterNode {
   containerTag: String
   offlineBrowsing: Boolean
   storagePresent: Boolean
-  type: ClusterType
+
+  """Update the cluster node config"""
+  nodeConfig: JSON
+}
+
+input CreateClusterSubscription {
+  userId: ID!
+  isActive: Boolean = true
 }
 
 input CreateCognitiveSearch {
@@ -1234,6 +1446,14 @@ input CreateCollection {
 
   """Collection image"""
   image: String
+}
+
+input CreateCollectionMentions {
+  """id of the collection"""
+  folderId: ID!
+
+  """ids of the mentions"""
+  mentionIds: [ID!]!
 }
 
 input CreateContextMenuExtension {
@@ -2408,6 +2628,9 @@ input CreateTDO {
   """An optional thumbnail URL for the TDO"""
   thumbnailUrl: String
 
+  """An optional preview asset URL for the TDO"""
+  previewUrl: String
+
   """An optional image representing the TDO source"""
   sourceImageUrl: String
 }
@@ -2486,6 +2709,9 @@ input CreateTDOForJob {
 
   """An optional thumbnail URL for the TDO"""
   thumbnailUrl: String
+
+  """An optional preview asset URL for the TDO"""
+  previewUrl: String
 
   """An optional image representing the TDO source"""
   sourceImageUrl: String
@@ -2577,6 +2803,9 @@ input CreateTDOWithAsset {
 
   """An optional thumbnail URL for the TDO"""
   thumbnailUrl: String
+
+  """An optional preview asset URL for the TDO"""
+  previewUrl: String
 
   """An optional image representing the TDO source"""
   sourceImageUrl: String
@@ -4643,6 +4872,11 @@ type MediaShareInfo {
   isSegmented: Boolean
 }
 
+enum MediaStorageOption {
+  edge
+  core
+}
+
 type Mention {
   id: ID!
   organizationId: ID!
@@ -4895,6 +5129,16 @@ type Mutation {
     """Fields needed to update an asset."""
     input: UpdateAsset!
   ): Asset
+
+  """
+  Add a single media segment to a TemporalDataObject.
+  This mutation will update the manifest asset (`media-mdp`)
+  for the TemporalDataObject.
+  """
+  addMediaSegment(
+    """Fields necesary to create the segment."""
+    input: AddMediaSegment!
+  ): TemporalDataObject!
 
   """
   Start a clone job. A clone creates a new TDO
@@ -5347,6 +5591,10 @@ type Mutation {
     """Fields needed to add a mention to a collection"""
     input: CollectionMentionInput
   ): CollectionMention
+  createCollectionMentions(
+    """Fields needed to add mentions to a collection"""
+    input: CreateCollectionMentions
+  ): [CollectionMention!]!
 
   """Remove a mention from a collection"""
   deleteCollectionMention(
@@ -5636,6 +5884,9 @@ type Mutation {
   """Update a processTemplate by ID in CMS"""
   updateProcessTemplate(input: UpdateProcessTemplate!): ProcessTemplate!
 
+  """Delete a processTemplate by ID in CMS"""
+  deleteProcessTemplate(id: ID!): DeletePayload!
+
   """
   Create a mention export request. The requested mentionFilters including
   The mention export file csv will be exported offline.
@@ -5731,6 +5982,17 @@ type Mutation {
 
   """Update bundle status as cluster."""
   updateBundleStatusAsCluster(input: updateBundleStatusAsCluster): Bundle!
+
+  """Pause for a node"""
+  pauseClusterNode(input: PauseClusterNode!): ClusterNode
+
+  """Unpause for a node"""
+  unpauseClusterNode(input: UnpauseClusterNode!): ClusterNode
+
+  """
+  Update the cluster's runtime state. Used only by infrastructure elements.
+  """
+  updateClusterState(input: UpdateClusterState!): Cluster
 }
 
 enum OrderDirection {
@@ -5884,6 +6146,11 @@ type PasswordTokenInfo {
 }
 
 input PauseCluster {
+  id: ID!
+}
+
+input PauseClusterNode {
+  """Node ID"""
   id: ID!
 }
 
@@ -6144,6 +6411,8 @@ type Query {
 
   """Retrieve jobs"""
   jobs(
+    hasTargetTDO: Boolean
+
     """Provide an ID to retrieve a single specific job."""
     id: ID
 
@@ -6199,6 +6468,18 @@ type Query {
     Defaults to the user's own application.
     """
     applicationIds: [ID]
+
+    """
+    Provide a list of engine IDs to filter for jobs
+    that contain tasks for the specified engines.
+    """
+    engineIds: [ID!]
+
+    """
+    Provide a list of engine category IDs to filter for jobs
+    that contain tasks for engines in the specific categories.
+    """
+    engineCategoryIds: [ID!]
   ): JobList
 
   """Retrieve a single job"""
@@ -7021,6 +7302,9 @@ type Query {
   """Get list process templates by id or current organizationId"""
   processTemplates(id: ID, offset: Int = 0, limit: Int = 30): ProcessTemplateList!
 
+  """Get process templates by id"""
+  processTemplate(id: ID!): ProcessTemplate!
+
   """Get creative by id with current organizationId"""
   creative(id: ID!): Creative!
 
@@ -7107,7 +7391,21 @@ type Query {
   cluster(id: ID!): Cluster!
 
   """Retrieve a list of clusters"""
-  clusters(id: ID, name: String, type: ClusterType, offset: Int = 0, limit: Int = 30): ClusterList!
+  clusters(
+    id: ID
+    name: String
+    type: ClusterType
+    offset: Int = 0
+    limit: Int = 30
+
+    """Type of string match to use against tags, if any"""
+    tagMatch: StringMatch
+
+    """List of tags to match against"""
+    tags: [String!]
+    dateTimeFilter: [ClusterDateTimeFilter!]
+    orderBy: [ClusterOrderBy!]
+  ): ClusterList!
 
   """Retrieve a single execution location"""
   executionLocation(id: ID!): ExecutionLocation!
@@ -7231,6 +7529,9 @@ type Query {
   """Retrieve a list of external credentials"""
   externalCredentials(id: ID): ExternalCredentialList!
   tasks(id: ID, taskTemplateId: ID): TaskList
+
+  """matching cluster tags in use by this organization"""
+  clusterTags(matchType: StringMatch = startsWith, match: String!): [String!]!
 }
 
 input ReplaceSavedSearch {
@@ -7934,7 +8235,7 @@ input ShareMention {
   """list of recipients"""
   recipients: [String]
 
-  """Collection image"""
+  """app specific share options"""
   shareOptions: JSON
 
   """Internal API token can create shared mention for other orgs"""
@@ -8591,6 +8892,18 @@ type Task {
   the task. This field is accessible only to platform components.
   """
   runtimePayload: JSON
+
+  """
+  Failure reason code. This will be set only if the task final status
+  was `failed`.
+  """
+  failureReason: TaskFailureReason
+
+  """
+  Failure message from the engine. This will be set only if the task final
+  status was `failed` and `failureReason` is set.
+  """
+  failureMessage: String
   engineConfiguration: EngineConfiguration
   engineConfigurationId: ID
   executionLocation: ExecutionLocation
@@ -8608,6 +8921,103 @@ input TaskDateTimeFilter {
   toDateTime: DateTime
   fromDateTime: DateTime
   field: TaskDateTimeField!
+}
+
+enum TaskFailureReason {
+  """The engine encountered an unexpected internal error."""
+  internal_error
+
+  """The cause of the failure could not be determined."""
+  unknown
+
+  """
+  The engine attempted to download
+  content from a URL provided in the task payload and
+  received a 404.
+  """
+  url_not_found
+
+  """
+  The engine attempted to download
+  content from a URL provided in the task payload and
+  received a 401 or 403.
+  """
+  url_not_allowed
+
+  """
+  The engine attempted to download
+  content from a URL provided in the task payload and
+  the download timed out
+  """
+  url_timeout
+
+  """
+  The engine attempted to download
+  content from a URL provided in the task payload and
+  the connection was refused.
+  """
+  url_connection_refused
+
+  """
+  The engine attempted to download content from a URL
+  provided in the task payload an received an error.
+  """
+  url_error
+
+  """
+  The input to the engine was incompatible with the engine
+  requirements. For example, an input media file had an
+  unsupported MIME type or the file was empty.
+  """
+  invalid_data
+
+  """An engine operation was subject to rate limiting."""
+  rate_limited
+
+  """The engine received an authorization error from the Veritone API."""
+  api_not_allowed
+
+  """
+  The engine received an authentication error from the Veritone API using
+  the token provided in the task payload.
+  """
+  api_authentication_error
+
+  """
+  The engine received a "not found" error from the Veritone API on
+  a required object.
+  """
+  api_not_found
+
+  """
+  An unexpected error was received from the Veritone API, such as
+  HTTP 500, HTTP 502, or an `internal_error` error.
+  """
+  api_error
+
+  """
+  The engine could not write temporary files to disk for processing
+  due to disk space full or other system error.
+  """
+  file_write_error
+
+  """
+  The engine encountered a missing binary dependency or configuration,
+  such as a missing executable or package or incompatible hardware.
+  """
+  system_dependency_missing
+
+  """
+  The engine encountered an operating system, hardware, or other
+  system-level error.
+  """
+  system_error
+
+  """
+  The error cause is known, but could not be mapped to a `TaskFailureReason`
+  value. The `failureMessage` input field should contain details.
+  """
+  other
 }
 
 type TaskList implements Page {
@@ -8761,6 +9171,11 @@ type TDOStreamData {
   protocol: String!
 }
 
+type TDOStreamManifest {
+  segments: [JSON!]
+  initSegment: JSON
+}
+
 type TemporalDataObject {
   """
   Object creation timestamp. Does not change. In seconds since epoch (TODO change!).
@@ -8784,6 +9199,13 @@ type TemporalDataObject {
   object storage, it will be signed.
   """
   thumbnailUrl: String
+
+  """
+  An optional URL for a preview asset for this document
+  object. If the URL is to an object in Veritone's
+  object storage, it will be signed.
+  """
+  previewUrl: String
 
   """
   An optional URL for a source image for this object.
@@ -8894,6 +9316,12 @@ type TemporalDataObject {
 
   """Statuses of the engines run on the TDO."""
   engineRuns(offset: Int = 0, limit: Int = 100): EngineRunList
+
+  """
+  If this is a segmented TDO, returns the stream manifest
+  contents in normalized JSON form.
+  """
+  streamManifest: TDOStreamManifest
 }
 
 enum TemporalDataObjectDateTimeField {
@@ -9027,6 +9455,11 @@ input UnpauseCluster {
   id: ID!
 }
 
+input UnpauseClusterNode {
+  """Node ID"""
+  id: ID!
+}
+
 type UnsubscribeEvent {
   """ID of the object that was deleted"""
   id: ID!
@@ -9108,11 +9541,57 @@ input UpdateCluster {
   can view or edit this field.
   """
   collaborators: [CreateClusterCollaborator!]
+
+  """Tags for cluster"""
+  tags: [String]
+  status: ClusterStatus
+
+  """Update the cluster config"""
+  clusterConfig: JSON
+
+  """Media storage path. Optional -- use only for edge."""
+  mediaStoragePath: String
+
+  """
+  Designate a management node ID. Used only for edge/portable clusters.
+  Must be the ID of an existing node in the cluster.
+  """
+  managementNodeID: ID
+
+  """
+  Optionally, specify a time at which the edge cluster should
+  be restarted daily. Applies only to edge clusters.
+  """
+  restartTimeUTC: Time
+
+  """Update subscriptions on the cluster."""
+  subscriptions: [UpdateClusterSubscription]
+
+  """Optionally, specify an api-token for cluster"""
+  serviceToken: String
 }
 
 input UpdateClusterNode {
   id: ID!
   name: String
+
+  """Update the cluster node config"""
+  nodeConfig: JSON
+}
+
+"""Updates the state information for a given cluster"""
+input UpdateClusterState {
+  """The cluster ID"""
+  id: ID!
+  state: JSON!
+
+  """Optionally, update current the cluster status."""
+  targetStatus: ClusterStatus
+}
+
+input UpdateClusterSubscription {
+  userId: ID!
+  isActive: Boolean
 }
 
 input UpdateCognitiveSearch {
@@ -9771,6 +10250,22 @@ input UpdateTask {
   data will not be overwritten.
   """
   clientTimestamp: DateTime
+
+  """
+  A code indicating why the task failed. Should be set
+  if and only if task status is `failed`.
+  If set with any other task status, the API will return an error.
+  """
+  failureReason: TaskFailureReason
+
+  """
+  A human-readable string with detail on the
+  task failure reason. Should be set if and only if
+  task status is `failed` and `failureReason` is set.
+  If set with any other task status or if `failureReason` is not set,
+  the API will return an error.
+  """
+  failureMessage: String
 }
 
 enum UpdateTaskStatus {
@@ -9834,6 +10329,9 @@ input UpdateTDO {
 
   """An optional thumbnail URL for the TDO"""
   thumbnailUrl: String
+
+  """An optional preview asset URL for the TDO"""
+  previewUrl: String
 
   """An optional image representing the TDO source"""
   sourceImageUrl: String
