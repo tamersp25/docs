@@ -75,8 +75,8 @@
       - [Stream Engine Processing](developer/engines/processing-modes/stream-processing/)
     - [Engine Standards](developer/engines/standards/)
       - [Engine Output (vtn-standard)](developer/engines/standards/engine-output/)
-        - [Engine Manifest](developer/engines/standards/engine-manifest/)
-        <!-- - [Message Types](developer/engines/standards/message-types/)-->
+      - [Engine Manifest](developer/engines/standards/engine-manifest/)
+      <!-- - [Message Types](developer/engines/standards/message-types/)-->
     - [Custom Fields](developer/engines/custom-fields/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
