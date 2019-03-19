@@ -1216,7 +1216,7 @@ mutation createOrg {
     status:active,
     adminSeatLimit: 1,
     seatLimit:5,
-    name: "jtruong+mborg5@veritone.com",
+    name: "someone5@veritone.com",
     businessUnit: "Developer",
     applications: [
       {  
