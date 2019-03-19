@@ -19,5 +19,6 @@ Scenario('search works', I => {
 Scenario('logo goes to top', I => {
   I.amOnPage('/#/apps/');
   I.click('.app-name-link');
-  I.seeCurrentUrlEquals('/#/');  // TODO: I think there's a race condition here
+  I.wait(0.1);  // Need to wait for hash to be added.  Race condition.
+  I.seeCurrentUrlEquals('/#/');
 });
