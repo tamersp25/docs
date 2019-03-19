@@ -1204,6 +1204,56 @@ mutation {
 }
 ```
 
+## Organizations
+
+###Create an Organization
+
+> This operation requires appropriate administrative privileges.
+
+```graphql
+mutation createOrg {
+  createOrganization(input:{
+    status:active,
+    adminSeatLimit: 1,
+    seatLimit:5,
+    name: "jtruong+mborg5@veritone.com",
+    businessUnit: "Developer",
+    applications: [
+      {  
+         applicationId:"8a37c1d0-3f3b-48d0-a84e-2b8e3646fbe5"
+      }
+      {  
+         applicationId:"b9dba7b8-501a-4219-995b-5e6eadfb5ae0"
+      }
+      {  
+         applicationId:"32babe30-fb42-11e4-89bc-27b69865858a"
+      }
+      {  
+         applicationId:"cc4e0e89-3420-49c2-b06d-8d9a929c941c"
+      }
+      {  
+         applicationId:"cf05552b-52e0-46fa-8f7f-4c9eee135c51"
+      }
+      {  
+         applicationId:"ea1d26ab-0d29-4e97-8ae7-d998a243374e"
+      }
+    ],
+    metadata:{
+      features:{
+          developer:"enabled"      
+      }
+    }
+  }) {
+    id
+  }
+}
+```
+
+ERRORS:
+
+The most likely error involves insufficient user rights. This is an administrative operation requiring special privileges.
+
+
 ## Miscellaneous
 
 ### Get TDO Details (Filename, Tags, etc.)
