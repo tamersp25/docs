@@ -12,7 +12,7 @@ Scenario('sidebar collapse feature', I => {
   const ARCHITECTURE_TITLE = 'Architecture Overview';
   const DEVELOPER_TITLE = 'Developer';
   const ENGINES_TITLE = 'Building Engines';
-  const COGNITIVE_TITLE = 'Building a Cognitive Engine';
+  const COGNITIVE_TITLE = 'Building Cognitive Engines';
 
   I.amOnPage('/');
   I.see(OVERVIEW_TITLE, SIDEBAR_CONTEXT);  // See self

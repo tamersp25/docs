@@ -8,7 +8,7 @@ The aiWARE platform and user interfaces know how to interpret the data written t
 When engines report their findings, they either write assets or broadcast messages in vtn-standard format.
 When apps query information from the engineResults GraphQL query, it responds in vtn-standard format.
 
-For specifications and examples for individual engine capabilities, please see the documentation for [Building a Cognitive Engine](/developer/engines/cognitive/).
+For specifications and examples for individual engine capabilities, please see the documentation for [Building Cognitive Engines](/developer/engines/cognitive/).
 
 ## Full Specification
 

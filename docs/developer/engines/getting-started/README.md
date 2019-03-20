@@ -10,7 +10,7 @@ The quickest way to get started building your custom cognitive engine is to do t
 
 1. Review the [Technologies Used](/developer/engines/getting-started/technologies/) section if you're unfamiliar with Docker.
 1. Follow the instructions in the [Engine Toolkit](/developer/engines/toolkit/) section to setup your local development environment.
-1. Find the class and capability in the [Building a Cognitive Engine](/developer/engines/cognitive/) guide and click through to documentation specific to your engine's capability.
+1. Find the class and capability in the [Building Cognitive Engines](/developer/engines/cognitive/) guide and click through to documentation specific to your engine's capability.
 If you don't see a matching capability, don't worry; reach out to our developer ecosystem team to discuss how best to implement your custom engine.
 1. When you're ready to monetize your custom engine, review the [Path to Monetization](/developer/engines/getting-started/path-to-monetization/) guide.
 If necessary, reach out to our developer ecosystem team to discuss monetization models.

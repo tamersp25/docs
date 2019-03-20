@@ -61,7 +61,7 @@ They include speech, text, vision, biometrics, audio, data, and transformation.
 Each engine class has multiple capabilities.
 For example, some capabilities under the vision class include object detection, text recognition, and license plate recognition.
 
-> For a full list of engine classes and capabilities currently supported by aiWARE, see the guide to [Building a Cognitive Engine](/developer/engines/cognitive/).
+> For a full list of engine classes and capabilities currently supported by aiWARE, see the guide to [Building Cognitive Engines](/developer/engines/cognitive/).
 
 ### Aggregator Engines
 
