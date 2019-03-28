@@ -17,24 +17,20 @@ Registering your app allows you to specify general information and basic configu
 
 3\. Upload an *icon* to represent your application as a 128x128 png or jpg file. For best results, upload a square image. The icon will display to the left of the application name in the *Veritone App Picker*. Images are automatically resized and converted to grayscale in the Veritone UI. If an icon is not uploaded, a generic icon will display next to your application name.
 
-4\. Click **Next**. The *Context Menu Extensions* page opens.
+4\. Click **Create** to continue. A "Application created successfully" confirmation message momentarily displays and the app is added to Veritone in a *Draft* state.
 
-![VDA-Create-App-2](App-QS-Step1-2.png)
+![VDA-Create-App-3](App-QS-Step1-2.png)
 
-5\. Enter the **Action Name** and **URL** to create one or more *Context Menu Extensions*. (Optional) See the [Context Menu Extensions](/developer/applications/context-menu-extensions) section of our docs to learn more.
-
-6\. Click **Submit** to continue. A "Application created successfully" confirmation message momentarily displays and the app is added to Veritone in a *Draft* state.
-
-![VDA-Create-App-3](App-QS-Step1-3.png)
-
-7\. Review your application details.
+5\. Review your application details.
 
 *   If no changes need to be made, no further action is necessary.
-*   If changes are required, make the necessary edits and click _Save_. An "Application updated successfully" message displays momentarily. Note that the _Save_ button remains blue after your changes have been applied.
+*   If changes are required, make the necessary edits and click _Save_. An "Application updated successfully" message displays momentarily.
 
-Once your app is registered, use the values at the top of the page to [configure your app with OAuth 2.0 authentication](/developer/applications/oauth).
+![VDA-Create-App-4](App-QS-Step1-3.png)
 
-![VDA-Create-App-4](App-QS-Step1-4.png)
+
+Once your app is registered, [configure your app with OAuth 2.0 authentication](/developer/applications/oauth).
+
 
 ### View and Access Your Application
 
@@ -45,5 +41,4 @@ Your registered applications can be viewed and accessed in the following ways:
   <li><b>App Picker:</b> Registered applications display by clicking the <i>App Picker</i> icon in the upper right of the window. The App Picker provides an easy way for users to find and access applications that have been enabled for their organization.</li>
 </ol>
 
-![VDA-View-and-Access-Apps](App-QS-Step1-5.png)
-
+![VDA-View-and-Access-Apps](App-QS-Step1-4.png)

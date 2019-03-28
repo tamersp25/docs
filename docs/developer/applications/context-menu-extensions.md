@@ -27,7 +27,7 @@ The step to add Context Menu Extensions for a new application is built directly 
 1. Select **Applications** on the left menu of the Veritone Developer homepage. A list of your organization’s *Applications* displays.
 2. Select the **application name** in the list where the Context Menu Extension will be added. The selected application’s settings open.
 ![Access-Context-Menu-Settings-1](context-menu-access-1.png)
-3. Click the **Context Menu Extensions** tab. The *Context Menu Extensions* settings open.
+3. Click the **Add Component** Button. The *Context Menu Extension* item will be displayed in the menu.
 ![Access-Context-Menu-Settings-2](context-menu-access-2.png)
 
 ### Add a Context Menu Extension
@@ -42,9 +42,7 @@ The step to add Context Menu Extensions for a new application is built directly 
 
 3. Enter the `URL` where users will be taken when your Context Menu item is clicked. A Context Menu `URL` is constructed of two parts: the URL of your application’s external server location and an appended template string that extracts the ID of the resource where the menu item was clicked. Template strings are similar in structure but differ between the Context Menu types (e.g., Mention: `${mentionId}`, Watchlist: `${watchlistId}`). Full URL configuration examples are provided as a reference for each Context Menu type and can be viewed by clicking in the `URL` field.
 
-4. Click **+** to add an additional item to the menu, if desired.
-
-5. Add extensions to additional Context Menu types, as desired. Click **Save** when all Context Menu Extensions have been added.
+4. Click **Add** to create the Context Menu Extension.
 ![Create-Context-Menu](context-menu-create.png)
 
 #### Example

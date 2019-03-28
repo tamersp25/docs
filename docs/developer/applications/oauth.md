@@ -34,14 +34,15 @@ Before using OAuth with your application, you must register your application wit
 
 #### Access the Client ID, Client Secret & Redirect URI
 
-The *Client ID*, *Client Secret*, and *Redirect URI* are available at the top of the *Application *settings page.
+The *Client ID* is available at the top of the *Application *configuration page.
+The *Client Secret*, and *Redirect URI* are displayed as a configuration component on the *Application* configuration page.
 
 1. Log into Veritone Developer. Click *Overview* in the upper left of the window and select *Applications* from the dropdown. The *Applications* dashboard opens.
 
 2. Click the appropriate **application name** in the list. The *Application Settings* open.
 ![client-secret1](VDA-Oauth-Client-Secret-1.png)
 
-3. The *Client ID*, *Client Secret*, and *Redirect URI* display at the top of the page. To retrieve the *Client Secret*, click **Click to reveal**, enter your Veritone password, and click **Submit** (do not press enter on your keyboard).The *Client Secret* displays.
+3. The *Client ID* is displayed at the top of the page. To retrieve the *Client Secret*, click **Click to reveal** on the Oauth configuration component, enter your Veritone password, and click **Submit**. The *Client Secret* displays.
 ![client-secret2](VDA-Oauth-Client-Secret-1.png)
 
 ### Examples and Libraries
