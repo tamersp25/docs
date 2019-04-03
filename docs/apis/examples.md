@@ -73,6 +73,131 @@ mutation userLogout {
 }
 ```
 
+## Builds and Deployment
+
+### Get an Engine's Name, State, Build, and Deployment Model
+
+```graphql
+query {
+  engine(id:"3929002a-6902-4c59-b81c-7a79fcd8b9c0"){
+    id
+    name
+    state
+    deploymentModel
+    builds(buildStatus:deployed) {
+      records{
+        id
+      }
+    }
+  }
+}
+```
+
+RETURNS:
+
+```json
+{
+  "data": {
+    "engine": {
+      "id": "3929002a-6902-4c59-b81c-7a79fcd8b9c0",
+      "name": "Amazon Transcribe - V2F (EU West)",
+      "state": "active",
+      "deploymentModel": "NonNetworkIsolated",
+      "builds": {
+        "records" : [  ]
+      }
+    }
+  }
+}
+```
+
+### Pause the Build
+
+Before changing an engine's `deploymentModel`, it should be paused.
+
+> Use caution not to pause an engine that might currently be in use.
+
+```graphql
+mutation pauseBuild{
+  updateEngineBuild(input:{
+    id: "6ff2cd01-a648-4ce1-afe4-9392b8821057"
+    engineId: "0fe8e64c-6c70-4727-9d89-de06f5231a6f"
+    action: pause
+  }){
+    id
+    engineId
+    status
+  }
+}
+```
+
+Possible values for `action` include the following:
+
+```graphql
+enum BuildUpdateAction {
+  deploy
+  pause
+  unpause
+  approve
+  disapprove
+  invalidate
+  submit
+  upload
+  delete
+}
+```
+
+### Update an Engine's Deployment Model
+
+> The engine should be paused (as demonstrated above) prior to running this command.
+
+```graphql
+mutation updateModel{
+  updateEngine(input:{
+    id:"0fe8e64c-6c70-4727-9d89-de06f5231a6f"
+    deploymentModel: FullyNetworkIsolated
+  }){
+    id
+    name
+    deploymentModel
+  }
+}
+```
+
+### Unpause the Build
+
+```graphql
+mutation unpauseBuild{
+  updateEngineBuild(input:{
+    id:"6ff2cd01-a648-4ce1-afe4-9392b8821057"
+    engineId:"0fe8e64c-6c70-4727-9d89-de06f5231a6f"
+    action:unpause
+  }){
+    id
+    engineId
+    status
+  }
+}
+```
+
+### Deploy a Build
+
+> If you have changed an engine's `deploymentModel` using the foregoing commands, you should `deploy` it again.
+
+```graphql
+mutation deployBuild{
+  updateEngineBuild(input:{
+    id:"6ff2cd01-a648-4ce1-afe4-9392b8821057"
+    engineId:"0fe8e64c-6c70-4727-9d89-de06f5231a6f"
+    action:deploy
+  }){
+    id
+    engineId
+    status
+  }
+}
+```
+
 ## Ingestion
 
 ### Create TDO and Upload Asset
@@ -382,6 +507,30 @@ RESPONSE:
             }
           }
         ]
+      }
+    }
+  }
+}
+```
+
+### Get Transcription Jobs
+
+You can (optionally) use the `dateTimeFilter` field to filter responses by date (as shown below).
+This example fetches a max `limit` of 3 transcription jobs, with a `status` of `complete`, created after 9/25/2018.
+
+```graphql
+query getTranscriptionJobs {
+  jobs(dateTimeFilter: {fromDateTime: "2018-09-25T03:10:40.000Z", field: createdDateTime}, limit: 3, status: complete, engineCategoryIds: ["67cd4dd0-2f75-445d-a6f0-2f297d6cd182"]) {
+    count
+    records {
+      id
+      targetId
+      createdDateTime
+      tasks {
+        records {
+          id
+          payload
+        }
       }
     }
   }
@@ -1205,6 +1354,235 @@ mutation {
 ```
 
 ## Miscellaneous
+
+### Enumerate Cognition Engine Categories
+
+```graphql
+query enumerateCognitionEngineCategories {
+  engineCategories(type:"Cognition") {
+    records {
+      categoryType
+      totalEngines
+      id
+      description
+      type {
+        name
+      }
+    }
+  }
+}
+```
+
+RESPONSE:
+
+```json
+{
+  "data": {
+    "engineCategories": {
+      "records": [
+        {
+          "categoryType": "transcode",
+          "totalEngines": 28,
+          "id": "581dbb32-ea5b-4458-bd15-8094942345e3",
+          "description": null,
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "transcript",
+          "totalEngines": 787,
+          "id": "67cd4dd0-2f75-445d-a6f0-2f297d6cd182",
+          "description": "Convert the spoken word into readable text",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "sentiment",
+          "totalEngines": 46,
+          "id": "f2554098-f14b-4d81-9be1-41d0f992a22f",
+          "description": "Infer the sentiment or emotion being emitted in media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "fingerprint",
+          "totalEngines": 14,
+          "id": "17d62b84-8b49-465b-a6be-fe3ea3bc8f05",
+          "description": "Find the same audio by using audio fingerprints",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "face",
+          "totalEngines": 282,
+          "id": "6faad6b7-0837-45f9-b161-2f6bf31b7a07",
+          "description": "Detect and Identify multiple faces within rich media content",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "object",
+          "totalEngines": 360,
+          "id": "088a31be-9bd6-4628-a6f0-e4004e362ea0",
+          "description": "Recognize Object and Logos within the Video Media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "translate",
+          "totalEngines": 157,
+          "id": "3b2b2ff8-44aa-4db4-9b71-ff96c3bf5923",
+          "description": "Translate transcribed text from one language to another",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "audio",
+          "totalEngines": 10,
+          "id": "c6e07fe3-f15f-48a7-8914-951b852d54d0",
+          "description": "Detect characteristics of sound, including alarms, breaking glass, gunshots and more within audio",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "music",
+          "totalEngines": 0,
+          "id": "c96b5d0e-3ce1-4fd7-9c38-d25ddef87a5f",
+          "description": "Identify the music playing in the background of media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "geolocation",
+          "totalEngines": 5,
+          "id": "203ad7c2-3dbd-45f9-95a6-855f911563d0",
+          "description": "Extract Location, acceleration, velocity and altitude from the media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "conductor",
+          "totalEngines": 32,
+          "id": "892960cb-14c7-4743-a6e2-d6e437d6c5bb",
+          "description": null,
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "stationPlayout",
+          "totalEngines": 1,
+          "id": "935c4838-dcf6-415c-99c4-5ceb0a8944be",
+          "description": "Find ads and songs for radio station mentions",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "ocr",
+          "totalEngines": 108,
+          "id": "3b4ac603-9bfa-49d3-96b3-25ca3b502325",
+          "description": "Recognize Text within the Video Media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "logo",
+          "totalEngines": 50,
+          "id": "5a511c83-2cbd-4f2d-927e-cd03803a8a9c",
+          "description": "Recognize Logos within the Video Media",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "utility",
+          "totalEngines": 13,
+          "id": "f951fbf9-aa69-47a2-87c8-12dfb51a1f18",
+          "description": "Miscellaneous utility engines for cognition",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "speech",
+          "totalEngines": 4,
+          "id": "09f48865-c9e5-47b9-be79-8581047477c4",
+          "description": "Convert text to speech",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "correlation",
+          "totalEngines": 18,
+          "id": "a70df3f6-84a7-4570-b8f4-daa122127e37",
+          "description": "Correlates structured data to recordings",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "voice",
+          "totalEngines": 4,
+          "id": "19bfa716-309a-41dc-9dac-d07a1e7008cd",
+          "description": "Detect and Identify multiple voices within rich media content",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "speaker",
+          "totalEngines": 14,
+          "id": "a856c447-1030-4fb0-917f-08179f949c4e",
+          "description": "Detect the change in speakers within your transcription results",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "workflow",
+          "totalEngines": 8,
+          "id": "c5458876-43d2-41e8-a340-f734702df04a",
+          "description": "",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "reducer",
+          "totalEngines": 3,
+          "id": "70e54f46-7586-4ff1-876c-5f918357aec6",
+          "description": "Combine engine outputs from multiple segments",
+          "type": {
+            "name": "Cognition"
+          }
+        },
+        {
+          "categoryType": "human",
+          "totalEngines": 11,
+          "id": "3b3cfe77-da94-4362-9ac2-3ed89747a68b",
+          "description": "Tasks to be performed by humans",
+          "type": {
+            "name": "Cognition"
+          }
+        }
+      ]
+    }
+  }
+}
+```
 
 ### Get TDO Details (Filename, Tags, etc.)
 

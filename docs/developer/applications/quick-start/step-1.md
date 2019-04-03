@@ -47,3 +47,8 @@ Your registered applications can be viewed and accessed in the following ways:
 
 ![VDA-View-and-Access-Apps](App-QS-Step1-5.png)
 
+> When your application is first registered, it will be in `DRAFT` state.
+When an application is in `DRAFT` state that means that it is available to use for Developer users of your organization.
+So anyone with access to Developer app in your organization will see it in the app switcher, will be able to OAuth against it, etc.
+In draft state, this is usually just for development and testing purposes.
+In order to make that application available to other users of aiWARE (either users of other organizations or non-developers in your organization), the application must be submitted for [review](/developer/applications/quick-start/step-4).
