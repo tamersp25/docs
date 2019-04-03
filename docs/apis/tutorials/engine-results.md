@@ -1,28 +1,41 @@
-# Uploading Engine Results
+# Posting Engine Results
+
+!> This article applies to `batch` engines only.
+Batch engines post results once and for all at the end of their processing.
+For information on how `chunk` engines should post results, please see the specific instructions for your engine's
+[cognitive capability](/developer/engines/cognitive/?id=capabilities) or the general instructions for use of the
+[Engine Toolkit](../../developer/engines/toolkit/).
 
 After an engine finishes processing and produces a result, several things
 have to happen in order for the engine results to be available to
 client applications and other engines:
 
 - the task status must be updated to `complete`
-- the engine result must be set on the tasks `output` property
-- an asset must be created containing the engine result
-- task and engine source data must be set on the asset metadata
+- the engine result must be set on the task's `output` property
+- an *asset* must be created containing the engine's result
+- task and engine source information must be set in the asset's metadata
 
-These requirements may change over time as engines move toward the
-newer model, asset creation, and adhere to engine output standards.
+This list assumes that the engine completed its work without error.
+When the engine is unable to finish normally, the task status should be set to `failed`, and appropriate details about the task should be specified in the `updateTask` mutation.
+ (See the [UpdateTask](https://api.veritone.com/v3/graphqldocs/updatetask.doc.html) schema definition for more information.)
 
-To ease the path for engine developers, the Veritone API provides a single
-mutation, `uploadEngineResult`, that will perform all necessary updates given a task ID and
-result payload. Use of this mutation insulates engine developers from
-changes in the requirements noted above, since Veritone engineers will
+> When reporting errors, we recommend that you use one of the predefined error codes in [TaskFailureReason](https://api.veritone.com/v3/graphqldocs/taskfailurereason.doc.html), if possible. 
+The use of these codes is optional but can greatly facilitate troubleshooting. 
+
+If the engine finishes its work without error, you can use `updateTask` (with a status of `complete`) to post the engine's results.
+For convenience, however, the Veritone API provides a more streamlined
+mutation, `uploadEngineResult`, that will report all necessary update info given a task ID and
+result payload. 
+(See the [UploadEngineResult](https://api.veritone.com/v3/graphqldocs/uploadengineresult.doc.html) schema specification.)
+Use of this mutation insulates engine developers from
+changes in the various requirements listed above, since Veritone engineers will
 update the mutation implementation as needed.
 
-The mutation will accept engine results via the `file` parameter in a multipart
-form POST request, or using the `outputString` query parameter. The former
-use case is more common, as most engines create files containing their results.
+The `uploadEngineResult` mutation will accept engine results via the `file` parameter in a multipart
+form POST request, or using the `outputString` query parameter. 
+The former use case is more common, as most engines create files containing their results.
 The following examples assume use of multipart form upload.
-See [Request Basics](/apis/tutorials/graphql-basics) for details and sample code for multipart form post.
+(See [Request Basics](/apis/tutorials/graphql-basics) for details and sample code for multipart form post.)
 
 Here's a sample query that creates a transcript engine result.
 Note that the `assetType` and `contentType` values will depend on the type of

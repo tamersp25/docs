@@ -198,6 +198,101 @@ mutation deployBuild{
 }
 ```
 
+## Collections
+
+### Create a Collection
+
+```graphql
+mutation newCollection {
+  createCollection(input:{
+    name:"Test Collection",
+    image:"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
+    folderDescription:"Interesting Folder"
+  }) {
+    id
+  }
+}
+```
+
+RESPONSE:
+
+```json
+{
+  "data": {
+    "createCollection": {
+      "id": "10570"
+    }
+  }
+}
+```
+
+### Get Collections
+
+```graphql
+query getCollections {
+  collections {
+    records {
+      id
+    }
+  }
+```
+
+RESPONSE:
+
+```json
+{
+  "data": {
+    "collections": {
+      "records": [
+        {
+          "id": "10566"
+        },
+        {
+          "id": "10570"
+        },
+        {
+          "id": "10569"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Update a Collection
+
+```graphql
+mutation {
+  updateCollection(input: {folderId: "10566", name: "First Collection", folderDescription: "Folder description of first collection"}) {
+    id
+    name
+  }
+}
+```
+
+RESPONSE:
+
+```json
+{
+  "data": {
+    "updateCollection": {
+      "id": "10566",
+      "name": "First Collection"
+    }
+  }
+}
+```
+
+### Delete a Collection
+
+```graphql
+mutation removeCollection {
+  deleteCollection(id: "10566") {
+    id
+  }
+}
+```
+
 ## Ingestion
 
 ### Create TDO and Upload Asset
@@ -982,6 +1077,8 @@ query getEngineOutputByTDO {
 
 ### Export Transcription Results
 
+This example shows how to limit line length to 32 characters for 3 of the 4 transcript formats, while setting it to 50 for `txt`.
+
 ```graphql
 mutation createExportRequest {
  createExportRequest(input: {
@@ -1087,7 +1184,7 @@ query searchSDO {
             ],
             operator: "or"
         },
-        type: "schemaId"
+        type: "<schemaId goes here>"
     })
     {
         jsondata
@@ -1310,6 +1407,23 @@ mutation updateEntityThumbnail {
   }) {
     id
     profileImageUrl
+  }
+}
+```
+
+## Structured Data
+
+### Get Currently Published Schema ID
+
+The ID you see in Developer's URL is the `dataRegistry` ID, which contains multiple schemas.
+To get the ID of the currently published one (for use in the `createStructuredData` mutation for example), you can use a query like this:
+
+```graphql
+query {
+  dataRegistry(id: "<data registry ID>") {
+    publishedSchema {
+      id
+    }
   }
 }
 ```
@@ -1584,6 +1698,24 @@ RESPONSE:
 }
 ```
 
+### Search for Engines by Capability
+
+Find all transcription engines:
+
+```graphql
+query getAllTranscriptionEngines {
+  engines(categoryId: "67cd4dd0-2f75-445d-a6f0-2f297d6cd182") {
+    records {
+      id
+      name
+      category {
+        id
+      }
+    }
+  }
+}
+```
+
 ### Get TDO Details (Filename, Tags, etc.)
 
 ```graphql
@@ -1677,10 +1809,6 @@ query listEnginesByCategory {
             options {
               value
             }
-
-
-
-
           }
         }
       }
@@ -1709,7 +1837,7 @@ query listEngineCategories {
 In actual practice you will want to use a lower limit and ensure that you are paginating through the list of engines by using the `offset` parameter until you receive an empty list.
 
 ```graphql
-query listCategoryEngines {
+query listEnginesForCategory {
   engines(category: "transcription", limit: 1000) {
     count
     records {
@@ -1748,6 +1876,47 @@ query engineCustomFields {
       options {
         key
         value
+      }
+    }
+  }
+}
+```
+
+### Add Engines to White List
+
+!> This operation requires elevated rights in the system.
+
+```graphql
+mutation addToWhiteList {
+  addToEngineWhitelist(toAdd:{
+    organizationId:13456
+    engineIds:["<engine Id>","<engine2 Id>"]
+  }){
+    organizationId
+    engines{
+      name
+      id
+    }
+  }
+}
+```
+
+### Get All Roles in an Organization
+
+> This method requires elevated rights in the system.
+
+```graphql
+query getAllRoles {
+  organization(id: 17532) {
+    roles {
+      name
+      id
+      permissions {
+        records {
+          id
+          name
+          description
+        }
       }
     }
   }

@@ -87,7 +87,7 @@ The response:
     {
       "message": "One of uri or file (upload) must be provided to create an asset.",
       "name": "invalid_input",
-      "time_thrown": "2017-12-12T01:15:48.964Z",
+      "time_thrown": "2017-12-12T01:15:48.964Z"
     }
   ]
 }

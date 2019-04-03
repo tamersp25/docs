@@ -52,11 +52,12 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 Since all audio fingerprinting engines identify entities, they are all required to be [trainable via libraries](/developer/libraries/engines).
 
-<!--
 ## Engine Input
 
-Point to the [stream processing](/developer/engines/processing-modes/stream-processing/) docs to explain how to actually process the data and create output?
--->
+Audio-fingerprinting engines are usually [stream processing](/developer/engines/processing-modes/stream-processing/) engines.
+
+?> All engines that process audio will receive audio data with MIME type `"audio/mp4"` (.wav and .mp3 are _not_ natively supported).
+If your engine needs a format other than `mp4`, you will need to transcode incoming `mp4` data to the appropriate target format using something like [ffmpeg](https://ffmpeg.org/).
 
 ## Engine Output
 

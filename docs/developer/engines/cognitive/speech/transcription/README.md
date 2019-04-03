@@ -21,12 +21,13 @@ Here is a minimal example `manifest.json` that could apply to a transcription en
 
 See the full documentation for [engine manifest standards](/developer/engines/standards/engine-manifest/) for more details.
 
-<!--TODO: Define
 ## Engine Input
 
-Point to engine toolkit documentation and explain some of the things to expect re: chunk boundaries and stuff.
-Talk about how if they want real-time-capable stateful stream processing, they should talk to us.
--->
+Audio-processing engines can be [stream processing](/developer/engines/processing-modes/stream-processing/) engines, or (if processing will be stateless) they can be [segment processing](/developer/engines/processing-modes/segment-processing/).
+A transcription engine is typically _stateful_, hence will operate in _stream processing_ mode.
+
+?> All engines that process audio will receive audio data with MIME type `"audio/mp4"` (.wav and .mp3 are _not_ natively supported).
+If your engine needs a format other than `mp4`, you will need to transcode incoming `mp4` data to the appropriate target format using something like [ffmpeg](https://ffmpeg.org/).
 
 ## Engine Output
 
