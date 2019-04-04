@@ -228,12 +228,12 @@ Instead, an array of `errors` is provided, with detailed information letting us 
 > "Testing can be used to show the presence of bugs, but never to show their absence."
 > &mdash;*Edsger W. Dijkstra*
 
-The engine output validator can determine if specific test data from your engine is invalid. 
-It cannot determine whether _all_ the possible outputs of your engine will always be valid. 
+The engine output validator can determine if specific test data from your engine is invalid.
+It cannot determine whether _all_ the possible outputs of your engine will always be valid.
 
 Also note, the validator does not yet cover the full spectrum of vtn-standard output. (This may change.)
 
-?> As of `3/28/19` only validation of the `transcription` engine capability is supported.
+?> As of `4/10/19` only validation of the `transcription` and `object detection` engine capabilities is supported.
 
 Since data validation is a computationally expensive task, the API only allows engine output of `1MB` or less to be validated at a time without rate limiting.
 
