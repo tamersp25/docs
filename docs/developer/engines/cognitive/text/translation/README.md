@@ -13,7 +13,7 @@ All translation engines should specify the following parameters in their build m
 | Parameter | Value |
 | --------- | ----- |
 | `preferredInputFormat` | `"text/plain"` |
-| `supportedInputFormats` | `["text/plain"]` |
+| `supportedInputFormats` | `["text/plain","text/plain; charset=utf-8"]` |
 | `engineMode` | `"chunk"` |
 
 Here is a minimal example `manifest.json` that could apply to a translation engine:
