@@ -55,7 +55,8 @@
         - [Data Correlation](developer/engines/cognitive/data/correlation/)
         - [Geolocation](developer/engines/cognitive/data/geolocation/)
       - Speech
-        - [Speaker Separation](developer/engines/cognitive/speech/speaker-separation/)
+        - [Speaker Detection](developer/engines/cognitive/speech/speaker-detection/)
+        - [Speaker Recognition](developer/engines/cognitive/speech/speaker-recognition/)
         - [Transcription](developer/engines/cognitive/speech/transcription/)
       - Text
         - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)

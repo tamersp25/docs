@@ -115,8 +115,8 @@ sample = {
     // - face: Face detection
     // - licensePlate: License plate detection
     // - logo: Logo detection
-    // - speakerId: Speaker recognition
-    // - soundId: Sound recognition
+    // - speaker: Speaker recognition
+    // - sound: Sound recognition
     // - concept: Concept recognition
     // - keyword: Keyword detection
     // - text: Recognized or extracted text (OCR / text extraction)
@@ -339,8 +339,8 @@ sample = {
       // - licensePlate: License plate detection
       // - logo: Logo detection
       // - fingerprint: Audio fingerprinting
-      // - speakerId: Speaker recognition
-      // - soundId: Sound recognition
+      // - speaker: Speaker recognition
+      // - sound: Sound recognition
       // - concept: Concept recognition
       // - keyword: Keyword detection
       // - text: Recognized or extracted text (OCR / text extraction)

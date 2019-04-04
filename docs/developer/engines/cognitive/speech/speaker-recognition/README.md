@@ -1,15 +1,16 @@
-# Building a Speaker Separation Engine
+# Building a Speaker Recognition Engine
 
 ![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+![](badge/Search/Partial/yellow)
+![](badge/UI/No/red)
 
-A speaker separation (aka *diarization*) engine partitions an audio stream into segments, based on who is speaking when.
+Speaker recognition (aka *speaker identification*) engines identify when speakers change and who those speakers are in a piece of audio.
+They expand upon the capabilities of [speaker detection](/developer/engines/cognitive/speaker-detection/) engines by identifying the individual whose voice was detected in addition to specifying where in time the person started and stopped talking.
 
 ## Engine Manifest
 
 <!-- TODO
-All speaker separation engines should specify the following parameters in their build manifest:
+All speaker recognition engines should specify the following parameters in their build manifest:
 
 | Parameter | Value |
 | --------- | ----- |
@@ -17,7 +18,7 @@ All speaker separation engines should specify the following parameters in their 
 | `TODO` | `TODO` |
 -->
 
-<!--TODO:  Here is a minimal example `manifest.json` that could apply to a speaker separation engine: -->
+<!--TODO:  Here is a minimal example `manifest.json` that could apply to a speaker recognition engine: -->
 
 <!--TODO: Define [](manifest.example.json ':include :type=code json')-->
 
@@ -36,12 +37,12 @@ If your engine needs a format other than `mp4`, you will need to transcode incom
 
 ## Engine Output
 
-Within the time-based `series` array (see [vtn-standard](/developer/engines/standards/engine-output/)) in the engine's output, each speaker separation record (that is, each `series` entry) should contain an `object` of type `speaker`.
+Within the time-based `series` array (see [vtn-standard](/developer/engines/standards/engine-output/)) in the engine's output, each speaker recognition record (that is, each `series` entry) should contain an `object` of type `speaker`.
 Because each speaker maps back to an entity in a library, each `object` should include the `entityId` of that original entity, along with the `libraryId` where it can be found.
 
 ### Example
 
-Here is an example of the simplest type of speaker separation output:
+Here is an example of the simplest type of speaker recognition output:
 
 [](vtn-standard.example.json ':include :type=code json')
 

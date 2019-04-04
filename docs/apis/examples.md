@@ -1013,7 +1013,7 @@ query getEngineOutput {
 }
 ```
 
-### Get Transcription and Speaker Separation Results in Veritone Standard Format
+### Get Transcription and Speaker Detection Results in Veritone Standard Format
 
 ```graphql
 query vtn {

@@ -1,0 +1,16 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "speaker"
+  ],
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 10000,
+      "object": {
+        "type": "speaker",
+        "label": "Tim"
+      }
+    }
+  ]
+}
