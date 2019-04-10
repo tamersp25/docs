@@ -1,9 +1,9 @@
-  # Mutation Methods
-  
-  The table below gives a quick summary of GraphQL [mutation](https://api.veritone.com/v3/graphqldocs/mutation.doc.html) methods, alphabetized by name. 
-  
-  Click any name to see the complete method signature, and other info.
-  
+# Mutation Methods
+
+The table below gives a quick summary of [Mutation](https://api.veritone.com/v3/graphqldocs/mutation.doc.html) methods, alphabetized by name. 
+
+Click any name to see the complete method signature, and other info.
+
 | Method name | Short Description  |
 | -- | -- |
 | [addLibraryDataset](#addlibrarydataset) | Add recordings to a dataset library |
@@ -168,9 +168,7 @@
 
 Add recordings to a dataset library
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 addLibraryDataset(input: AddLibraryDataset!): LibraryDataset
@@ -225,9 +223,7 @@ addToEngineWhitelist(toAdd: SetEngineWhitelist!): EngineWhitelist
 
 Apply an application workflow step, such as "submit" or "approve"
 
-_**Arguments**_<br/>
-
-`input:` Fields required to apply a application workflow step
+_**Arguments**_<br/>`input:` Fields required to apply a application workflow step
 
 ```graphql
 applicationWorkflow(input: ApplicationWorkflow): Application
@@ -240,9 +236,7 @@ applicationWorkflow(input: ApplicationWorkflow): Application
 
 Bulk delete context meu extensions.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 bulkDeleteContextMenuExtensions(
@@ -258,9 +252,7 @@ bulkDeleteContextMenuExtensions(
 Apply bulk updates to watchlists.
 This mutation is currently available only to Veritone operations.
 
-_**Arguments**_<br/>
-
-`filter:` A filter indicating which watchlists should be updated.
+_**Arguments**_<br/>`filter:` A filter indicating which watchlists should be updated.
 
 At least one filter condition must be provided.
 
@@ -284,9 +276,7 @@ Cancel a job. This action effectively deletes the job,
 although a records of job and task execution remains in
 Veritone's database.
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the job to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the job to delete.
 
 ```graphql
 cancelJob(id: ID!): DeletePayload
@@ -299,9 +289,7 @@ cancelJob(id: ID!): DeletePayload
 
 Change the current authenticated user's password
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to change password
+_**Arguments**_<br/>`input:` Fields needed to change password
 
 ```graphql
 changePassword(input: ChangePassword!): User
@@ -318,11 +306,10 @@ The default is to delete objects from storage and the search index,
 while leaving TDO-level metadata and task engine results intact.
 To permanently delete the TDO, use delete TDO.
 
-_**Arguments**_<br/>
+_**Arguments**_<br/>`id:` Supply the ID of the TDO to clean up.
 
-`id:` Supply the ID of the TDO to clean up.
+`options:` Supply a list of cleanup options. See TDOCleanupOption
 
-`options:` Supply a list of cleanup options. See [TDOCleanupOption](https://api.veritone.com/v3/graphqldocs/tdocleanupoption.doc.html)
 for details. If not provided, the server will use default settings.
 
 ```graphql
@@ -339,9 +326,7 @@ go through a sequence of workflow steps before
 it is available in production. See the VDA documentation
 for details.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new custom application.
+_**Arguments**_<br/>`input:` Fields needed to create a new custom application.
 
 ```graphql
 createApplication(input: CreateApplication): Application
@@ -355,9 +340,7 @@ createApplication(input: CreateApplication): Application
 Create a media asset. Optionally, upload content using
 multipart form POST.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create an asset.
+_**Arguments**_<br/>`input:` Fields needed to create an asset.
 
 ```graphql
 createAsset(input: CreateAsset!): Asset
@@ -368,9 +351,10 @@ createAsset(input: CreateAsset!): Asset
 ---
 #### createCognitiveSearch
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 createCognitiveSearch(input: CreateCognitiveSearch): CognitiveSearch
@@ -383,9 +367,7 @@ createCognitiveSearch(input: CreateCognitiveSearch): CognitiveSearch
 
 Create (ingest) a structured data object
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create new collection
+_**Arguments**_<br/>`input:` Fields required to create new collection
 
 ```graphql
 createCollection(input: CreateCollection): Collection
@@ -398,9 +380,7 @@ createCollection(input: CreateCollection): Collection
 
 Add a mention to a collection
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to add a mention to a collection
+_**Arguments**_<br/>`input:` Fields needed to add a mention to a collection
 
 ```graphql
 createCollectionMention(input: CollectionMentionInput): CollectionMention
@@ -413,9 +393,7 @@ createCollectionMention(input: CollectionMentionInput): CollectionMention
 
 Create a creative
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createCreative(input: CreateCreative!): Creative!
@@ -428,9 +406,7 @@ createCreative(input: CreateCreative!): Creative!
 
 Create a structured data registry schema metadata.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createDataRegistry(input: CreateDataRegistry!): DataRegistry
@@ -445,9 +421,7 @@ Create a new engine. The engine will need to go
 through a sequence of workflow steps before
 use in production. See VDA documentation for details.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new engine
+_**Arguments**_<br/>`input:` Fields needed to create a new engine
 
 ```graphql
 createEngine(input: CreateEngine): Engine
@@ -460,9 +434,7 @@ createEngine(input: CreateEngine): Engine
 
 Create an engine build.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create an engine build.
+_**Arguments**_<br/>`input:` Fields needed to create an engine build.
 
 ```graphql
 createEngineBuild(input: CreateBuild!): Build
@@ -475,9 +447,7 @@ createEngineBuild(input: CreateBuild!): Build
 
 Create a new entity.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create a new entity.
+_**Arguments**_<br/>`input:` Fields required to create a new entity.
 
 ```graphql
 createEntity(input: CreateEntity!): Entity
@@ -495,9 +465,7 @@ GraphQL query, and `file` containing the file itself.
 For more information see the documentation at
 https://veritone-developer.atlassian.net/wiki/spaces/DOC/pages/13893791/GraphQL.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create an entity identifier.
+_**Arguments**_<br/>`input:` Fields needed to create an entity identifier.
 
 ```graphql
 createEntityIdentifier(input: CreateEntityIdentifier!): EntityIdentifier
@@ -513,9 +481,7 @@ Entity identifier types are typically created or modified
 only by Veritone engineering. Most libraries and
 entities will use existing entity identifier types.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create an entity identifier type.
+_**Arguments**_<br/>`input:` Fields required to create an entity identifier type.
 
 ```graphql
 createEntityIdentifierType(
@@ -530,9 +496,7 @@ createEntityIdentifierType(
 
 Create a new event
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createEvent(input: CreateEvent!): Event!
@@ -546,9 +510,7 @@ createEvent(input: CreateEvent!): Event!
 Create an export request. The requested TDO data, possibly including
 TDO media and engine results, will be exported offline.
 
-_**Arguments**_<br/>
-
-`input:` Input data required to create the export request
+_**Arguments**_<br/>`input:` Input data required to create the export request
 
 ```graphql
 createExportRequest(input: CreateExportRequest!): ExportRequest!
@@ -561,9 +523,7 @@ createExportRequest(input: CreateExportRequest!): ExportRequest!
 
 Create a new folder
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new folder.
+_**Arguments**_<br/>`input:` Fields needed to create a new folder.
 
 ```graphql
 createFolder(input: CreateFolder): Folder
@@ -576,9 +536,7 @@ createFolder(input: CreateFolder): Folder
 
 Create new content template into a folder
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createFolderContentTempate(
@@ -593,9 +551,7 @@ createFolderContentTempate(
 
 Create an ingestion configuration
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createIngestionConfiguration(
@@ -610,9 +566,7 @@ createIngestionConfiguration(
 
 Create a job
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create a job.
+_**Arguments**_<br/>`input:` Fields required to create a job.
 
 ```graphql
 createJob(input: CreateJob): Job
@@ -629,9 +583,7 @@ entities and entity identifiers. Note that the
 library type determines what types of entity identifiers
 can be used within the library.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new library.
+_**Arguments**_<br/>`input:` Fields needed to create a new library.
 
 ```graphql
 createLibrary(input: CreateLibrary!): Library
@@ -644,9 +596,7 @@ createLibrary(input: CreateLibrary!): Library
 
 Create Dataset Library Configuration
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create library configuration
+_**Arguments**_<br/>`input:` Fields required to create library configuration
 
 ```graphql
 createLibraryConfiguration(
@@ -661,9 +611,7 @@ createLibraryConfiguration(
 
 Create a library engine model.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create a library engine model.
+_**Arguments**_<br/>`input:` Fields required to create a library engine model.
 
 ```graphql
 createLibraryEngineModel(
@@ -681,9 +629,7 @@ Entity identifier types are typically created or modified
 only by Veritone engineering. Most libraries
 will use existing entity identifier types.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new library type.
+_**Arguments**_<br/>`input:` Fields needed to create a new library type.
 
 ```graphql
 createLibraryType(input: CreateLibraryType!): LibraryType
@@ -696,9 +642,7 @@ createLibraryType(input: CreateLibraryType!): LibraryType
 
 Create Media Share. Returning the url of the share
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createMediaShare(input: CreateMediaShare!): CreatedMediaShare!
@@ -711,9 +655,7 @@ createMediaShare(input: CreateMediaShare!): CreatedMediaShare!
 
 Create a mention object
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createMention(input: CreateMention!): Mention
@@ -726,9 +668,7 @@ createMention(input: CreateMention!): Mention
 
 Create a mention comment
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a mention comment
+_**Arguments**_<br/>`input:` Fields needed to create a mention comment
 
 ```graphql
 createMentionComment(input: CreateMentionComment): MentionComment
@@ -742,9 +682,7 @@ createMentionComment(input: CreateMentionComment): MentionComment
 Create a mention export request. The requested mentionFilters including
 The mention export file csv will be exported offline.
 
-_**Arguments**_<br/>
-
-`input:` Input data required to create the export request
+_**Arguments**_<br/>`input:` Input data required to create the export request
 
 ```graphql
 createMentionExportRequest(
@@ -759,9 +697,7 @@ createMentionExportRequest(
 
 Create a mention rating
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a mention rating
+_**Arguments**_<br/>`input:` Fields needed to create a mention rating
 
 ```graphql
 createMentionRating(input: CreateMentionRating): MentionRating
@@ -774,9 +710,7 @@ createMentionRating(input: CreateMentionRating): MentionRating
 
 Create Mention in bulk. The input should be an array of createMentions
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createMentions(input: CreateMentions!): MentionList
@@ -789,9 +723,7 @@ createMentions(input: CreateMentions!): MentionList
 
 Create a new organization.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create an organization.
+_**Arguments**_<br/>`input:` Fields needed to create an organization.
 
 ```graphql
 createOrganization(input: CreateOrganization!): Organization
@@ -806,9 +738,7 @@ Create a password reset request. This mutation is used on behalf
 of a user who needs to reset their password. It operates only on
 the currently authenicated user (based on the authentication token provided).
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createPasswordResetRequest(
@@ -824,9 +754,7 @@ createPasswordResetRequest(
 Force a user to update password on next login.
 This mutation is used by administrators.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a password update request
+_**Arguments**_<br/>`input:` Fields needed to create a password update request
 
 ```graphql
 createPasswordUpdateRequest(
@@ -841,9 +769,7 @@ createPasswordUpdateRequest(
 
 Create a processTemplate in CMS
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createProcessTemplate(input: CreateProcessTemplate!): ProcessTemplate!
@@ -856,9 +782,7 @@ createProcessTemplate(input: CreateProcessTemplate!): ProcessTemplate!
 
 Create root folder for an organization
 
-_**Arguments**_<br/>
-
-`rootFolderType:` The type of root folder to create
+_**Arguments**_<br/>`rootFolderType:` The type of root folder to create
 
 ```graphql
 createRootFolders(rootFolderType: RootFolderType): [Folder]
@@ -871,9 +795,7 @@ createRootFolders(rootFolderType: RootFolderType): [Folder]
 
 Create a new Saved Search
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createSavedSearch(input: CreateSavedSearch!): SavedSearch!
@@ -886,9 +808,7 @@ createSavedSearch(input: CreateSavedSearch!): SavedSearch!
 
 Create (ingest) a structured data object
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createStructuredData(input: CreateStructuredData!): StructuredData
@@ -899,9 +819,10 @@ createStructuredData(input: CreateStructuredData!): StructuredData
 ---
 #### createSubscription
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 createSubscription(input: CreateSubscription!): Subscription
@@ -914,9 +835,7 @@ createSubscription(input: CreateSubscription!): Subscription
 
 Create a new temporal data object
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create a TDO
+_**Arguments**_<br/>`input:` Fields required to create a TDO
 
 ```graphql
 createTDO(input: CreateTDO): TemporalDataObject
@@ -929,9 +848,7 @@ createTDO(input: CreateTDO): TemporalDataObject
 
 Create a TDO and an asset with a single call
 
-_**Arguments**_<br/>
-
-`input:` Input fields necessary to create the TDO and asset
+_**Arguments**_<br/>`input:` Input fields necessary to create the TDO and asset
 
 ```graphql
 createTDOWithAsset(input: CreateTDOWithAsset): TemporalDataObject
@@ -945,9 +862,7 @@ createTDOWithAsset(input: CreateTDOWithAsset): TemporalDataObject
 Create a task log by using
 multipart form POST.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a task log.
+_**Arguments**_<br/>`input:` Fields needed to create a task log.
 
 ```graphql
 createTaskLog(input: CreateTaskLog!): TaskLog
@@ -960,9 +875,7 @@ createTaskLog(input: CreateTaskLog!): TaskLog
 
 Create trigger for events or types.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 createTriggers(input: CreateTriggers!): [Trigger]
@@ -975,9 +888,7 @@ createTriggers(input: CreateTriggers!): [Trigger]
 
 Create a new user within an organization.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a user.
+_**Arguments**_<br/>`input:` Fields needed to create a user.
 
 ```graphql
 createUser(input: CreateUser): User
@@ -988,9 +899,10 @@ createUser(input: CreateUser): User
 ---
 #### createWatchlist
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 createWatchlist(input: CreateWatchlist!): Watchlist
@@ -1003,9 +915,7 @@ createWatchlist(input: CreateWatchlist!): Watchlist
 
 Creates a widget associated with a collection
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to create a new widget
+_**Arguments**_<br/>`input:` Fields needed to create a new widget
 
 ```graphql
 createWidget(input: CreateWidget): Widget
@@ -1018,9 +928,7 @@ createWidget(input: CreateWidget): Widget
 
 Delete an application
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the application to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the application to delete.
 
 ```graphql
 deleteApplication(id: ID!): DeletePayload
@@ -1033,9 +941,7 @@ deleteApplication(id: ID!): DeletePayload
 
 Delete an asset
 
-_**Arguments**_<br/>
-
-`id:` Provide the ID of the asset to delete.
+_**Arguments**_<br/>`id:` Provide the ID of the asset to delete.
 
 ```graphql
 deleteAsset(id: ID!): DeletePayload
@@ -1046,9 +952,10 @@ deleteAsset(id: ID!): DeletePayload
 ---
 #### deleteCognitiveSearch
 
-_**Arguments**_<br/>
+Arguments
+id:
 
-`id:`
+_**Arguments**_<br/>
 
 ```graphql
 deleteCognitiveSearch(id: ID!): DeletePayload
@@ -1061,9 +968,7 @@ deleteCognitiveSearch(id: ID!): DeletePayload
 
 Delete Collection
 
-_**Arguments**_<br/>
-
-`folderId:` @deprecated(`reason:` "folderId has been renamed to id.
+_**Arguments**_<br/>`folderId:` @deprecated(`reason:` "folderId has been renamed to id.
 Use id.")
 
 `id:` Supply the ID of the folder or collection to delete
@@ -1079,9 +984,7 @@ deleteCollection(folderId: ID, id: ID): DeletePayload
 
 Remove a mention from a collection
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to delete a mention from a collection
+_**Arguments**_<br/>`input:` Fields needed to delete a mention from a collection
 
 ```graphql
 deleteCollectionMention(input: CollectionMentionInput): CollectionMention
@@ -1094,9 +997,7 @@ deleteCollectionMention(input: CollectionMentionInput): CollectionMention
 
 Delete a creative
 
-_**Arguments**_<br/>
-
-`id:`
+_**Arguments**_<br/>`id:`
 
 ```graphql
 deleteCreative(id: ID!): DeletePayload!
@@ -1109,9 +1010,7 @@ deleteCreative(id: ID!): DeletePayload!
 
 Delete an engine
 
-_**Arguments**_<br/>
-
-`id:` Provide the ID of the engine to delete
+_**Arguments**_<br/>`id:` Provide the ID of the engine to delete
 
 ```graphql
 deleteEngine(id: ID!): DeletePayload
@@ -1124,9 +1023,7 @@ deleteEngine(id: ID!): DeletePayload
 
 Delete an engine build
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to delete an engine build.
+_**Arguments**_<br/>`input:` Fields needed to delete an engine build.
 
 ```graphql
 deleteEngineBuild(input: DeleteBuild!): DeletePayload
@@ -1140,9 +1037,7 @@ deleteEngineBuild(input: DeleteBuild!): DeletePayload
 Delete an entity. This mutation will also delete all associated
 entity identifiers and associated objects.
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the entity to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the entity to delete.
 
 ```graphql
 deleteEntity(id: ID!): DeletePayload
@@ -1155,9 +1050,7 @@ deleteEntity(id: ID!): DeletePayload
 
 Delete an entity identifier
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the entity identifier to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the entity identifier to delete.
 
 ```graphql
 deleteEntityIdentifier(id: ID!): DeletePayload
@@ -1170,9 +1063,7 @@ deleteEntityIdentifier(id: ID!): DeletePayload
 
 Delete a folder
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to delete a folder
+_**Arguments**_<br/>`input:` Fields needed to delete a folder
 
 ```graphql
 deleteFolder(input: DeleteFolder): DeletePayload
@@ -1185,9 +1076,7 @@ deleteFolder(input: DeleteFolder): DeletePayload
 
 Delete existing folder content template by folderContentTemplateId
 
-_**Arguments**_<br/>
-
-`id:` Folder Content Template Id
+_**Arguments**_<br/>`id:` Folder Content Template Id
 
 ```graphql
 deleteFolderContentTempate(id: ID!): DeletePayload!
@@ -1198,9 +1087,10 @@ deleteFolderContentTempate(id: ID!): DeletePayload!
 ---
 #### deleteFromEngineBlacklist
 
-_**Arguments**_<br/>
+Arguments
+toDelete:
 
-`toDelete:`
+_**Arguments**_<br/>
 
 ```graphql
 deleteFromEngineBlacklist(
@@ -1213,9 +1103,10 @@ deleteFromEngineBlacklist(
 ---
 #### deleteFromEngineWhitelist
 
-_**Arguments**_<br/>
+Arguments
+toDelete:
 
-`toDelete:`
+_**Arguments**_<br/>
 
 ```graphql
 deleteFromEngineWhitelist(
@@ -1230,9 +1121,7 @@ deleteFromEngineWhitelist(
 
 Delete an ingestion configuration
 
-_**Arguments**_<br/>
-
-`id:` ID of the ingestion configuration to delete
+_**Arguments**_<br/>`id:` ID of the ingestion configuration to delete
 
 ```graphql
 deleteIngestionConfiguration(id: ID!): DeletePayload
@@ -1246,9 +1135,7 @@ deleteIngestionConfiguration(id: ID!): DeletePayload
 Delete a library. This mutation will also delete all entities,
 entity identifiers, library engine models, and associated objects.
 
-_**Arguments**_<br/>
-
-`id:` Provide the ID of the library to delete.
+_**Arguments**_<br/>`id:` Provide the ID of the library to delete.
 
 ```graphql
 deleteLibrary(id: ID!): DeletePayload
@@ -1261,9 +1148,7 @@ deleteLibrary(id: ID!): DeletePayload
 
 Delete Dataset Library Configuration
 
-_**Arguments**_<br/>
-
-`id:` Supply configuration ID to delete.
+_**Arguments**_<br/>`id:` Supply configuration ID to delete.
 
 ```graphql
 deleteLibraryConfiguration(id: ID!): DeletePayload
@@ -1276,9 +1161,7 @@ deleteLibraryConfiguration(id: ID!): DeletePayload
 
 Remove recordings from a dataset library
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 deleteLibraryDataset(input: DeleteLibraryDataset!): DeleteLibraryDatasetPayload
@@ -1291,9 +1174,7 @@ deleteLibraryDataset(input: DeleteLibraryDataset!): DeleteLibraryDatasetPayload
 
 Delete a library engine model
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the library engine model to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the library engine model to delete.
 
 ```graphql
 deleteLibraryEngineModel(id: ID!): DeletePayload
@@ -1306,9 +1187,7 @@ deleteLibraryEngineModel(id: ID!): DeletePayload
 
 Delete a mention comment
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to delete a mention comment
+_**Arguments**_<br/>`input:` Fields needed to delete a mention comment
 
 ```graphql
 deleteMentionComment(input: DeleteMentionComment): DeletePayload
@@ -1321,9 +1200,7 @@ deleteMentionComment(input: DeleteMentionComment): DeletePayload
 
 Delete a mention rating
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to delete a mention rating.
+_**Arguments**_<br/>`input:` Fields needed to delete a mention rating.
 
 ```graphql
 deleteMentionRating(input: DeleteMentionRating): DeletePayload
@@ -1336,9 +1213,7 @@ deleteMentionRating(input: DeleteMentionRating): DeletePayload
 
 Delete a saved search
 
-_**Arguments**_<br/>
-
-`id:`
+_**Arguments**_<br/>`id:`
 
 ```graphql
 deleteSavedSearch(id: ID!): DeletePayload!
@@ -1351,9 +1226,7 @@ deleteSavedSearch(id: ID!): DeletePayload!
 
 Delete a structured data object
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 deleteStructuredData(input: DeleteStructuredData!): DeletePayload
@@ -1364,9 +1237,10 @@ deleteStructuredData(input: DeleteStructuredData!): DeletePayload
 ---
 #### deleteSubscription
 
-_**Arguments**_<br/>
+Arguments
+id:
 
-`id:`
+_**Arguments**_<br/>
 
 ```graphql
 deleteSubscription(id: ID!): DeletePayload
@@ -1382,9 +1256,7 @@ all storage objects, and search index data are deleted.
 Engine results stored in related task objects are not.
 cleanupTDO can be used to selectively delete certain data on the TDO.
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the TDO to delete
+_**Arguments**_<br/>`id:` Supply the ID of the TDO to delete
 
 ```graphql
 deleteTDO(id: ID!): DeletePayload
@@ -1397,9 +1269,7 @@ deleteTDO(id: ID!): DeletePayload
 
 Delete a registed trigger by ID.
 
-_**Arguments**_<br/>
-
-`id:`
+_**Arguments**_<br/>`id:`
 
 ```graphql
 deleteTrigger(id: ID!): DeletePayload
@@ -1412,9 +1282,7 @@ deleteTrigger(id: ID!): DeletePayload
 
 Delete a user
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the user to delete.
+_**Arguments**_<br/>`id:` Supply the ID of the user to delete.
 
 ```graphql
 deleteUser(id: ID!): DeletePayload
@@ -1425,9 +1293,10 @@ deleteUser(id: ID!): DeletePayload
 ---
 #### deleteWatchlist
 
-_**Arguments**_<br/>
+Arguments
+id:
 
-`id:`
+_**Arguments**_<br/>
 
 ```graphql
 deleteWatchlist(id: ID!): DeletePayload
@@ -1440,9 +1309,7 @@ deleteWatchlist(id: ID!): DeletePayload
 
 Emit an event
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 emitEvent(input: EmitEvent!): EmitEventResponse!
@@ -1456,9 +1323,7 @@ emitEvent(input: EmitEvent!): EmitEventResponse!
 Emit a system-level emit. This mutation is used only by
 Veritone platform components.
 
-_**Arguments**_<br/>
-
-`input:` Data required to create the event
+_**Arguments**_<br/>`input:` Data required to create the event
 
 ```graphql
 emitSystemEvent(input: EmitSystemEvent!): SystemEventInfo!
@@ -1472,9 +1337,7 @@ emitSystemEvent(input: EmitSystemEvent!): SystemEventInfo!
 
 Apply an application workflow step, such as "submit" or "approve"
 
-_**Arguments**_<br/>
-
-`input:` Fields required to apply a engine workflow step
+_**Arguments**_<br/>`input:` Fields required to apply a engine workflow step
 
 ```graphql
 engineWorkflow(input: EngineWorkflow): Engine
@@ -1489,9 +1352,7 @@ File a TemporalDataObject in a folder. A given TemporalDataObject can
 be filed in any number of folders, or none. Filing causes the TemporalDataObject
 and its assets to be visible within the folder.
 
-_**Arguments**_<br/>
-
-`input:` The fields needed to file a TemporalDataObject in a
+_**Arguments**_<br/>`input:` The fields needed to file a TemporalDataObject in a
 folder
 
 ```graphql
@@ -1503,9 +1364,10 @@ fileTemporalDataObject(input: FileTemporalDataObject!): TemporalDataObject
 ---
 #### fileWatchlist
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 fileWatchlist(input: FileWatchlist!): Watchlist
@@ -1518,9 +1380,7 @@ fileWatchlist(input: FileWatchlist!): Watchlist
 
 Get password token info for current user
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 getCurrentUserPasswordToken(
@@ -1537,9 +1397,7 @@ JWT tokens with a more limited scoped token to specific
 resources to the recording, task, and job
 and also has no organization association.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 getEngineJWT(input: getEngineJWT!): JWTTokenInfo!
@@ -1552,9 +1410,7 @@ getEngineJWT(input: getEngineJWT!): JWTTokenInfo!
 
 Move a folder from one parent folder to another.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to move a folder
+_**Arguments**_<br/>`input:` Fields needed to move a folder
 
 ```graphql
 moveFolder(input: MoveFolder): Folder
@@ -1568,9 +1424,7 @@ moveFolder(input: MoveFolder): Folder
 Moves a TemporalDataObject from one parent folder to another.
 Any other folders the TemporalDataObject is filed in are unaffected.
 
-_**Arguments**_<br/>
-
-`input:` Fields need to move a TemporalDataObject
+_**Arguments**_<br/>`input:` Fields need to move a TemporalDataObject
 
 ```graphql
 moveTemporalDataObject(input: MoveTemporalDataObject!): TemporalDataObject
@@ -1583,9 +1437,7 @@ moveTemporalDataObject(input: MoveTemporalDataObject!): TemporalDataObject
 
 Poll a task
 
-_**Arguments**_<br/>
-
-`input:` Fields required to poll a task.
+_**Arguments**_<br/>`input:` Fields required to poll a task.
 
 ```graphql
 pollTask(input: PollTask): Task
@@ -1599,9 +1451,7 @@ pollTask(input: PollTask): Task
 Publish a new version of a library.
 Increments library version by one and trains compatible engines.
 
-_**Arguments**_<br/>
-
-`id:` ID of the library to publish
+_**Arguments**_<br/>`id:` ID of the library to publish
 
 ```graphql
 publishLibrary(id: ID!): Library
@@ -1615,9 +1465,7 @@ publishLibrary(id: ID!): Library
 Refresh a user token, returning a fresh token so that the client
 can continue to authenticate to the API.
 
-_**Arguments**_<br/>
-
-`token:`
+_**Arguments**_<br/>`token:`
 
 ```graphql
 refreshToken(token: String!): LoginInfo
@@ -1631,9 +1479,7 @@ refreshToken(token: String!): LoginInfo
 Mark existing saved search profile as deleted
 Create new saved search profile
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 replaceSavedSearch(input: ReplaceSavedSearch!): SavedSearch!
@@ -1649,9 +1495,7 @@ that links back to an existing TDO's assets
 instead of creating new ones and is used
 primarily to handle sample media.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to request a new clone job.
+_**Arguments**_<br/>`input:` Fields needed to request a new clone job.
 
 ```graphql
 requestClone(input: RequestClone): CloneRequest
@@ -1667,9 +1511,7 @@ that are in a failure state. The task sequence
 for the job will be restarted in its original
 configuration.
 
-_**Arguments**_<br/>
-
-`id:` Supply the ID of the job to retry.
+_**Arguments**_<br/>`id:` Supply the ID of the job to retry.
 
 ```graphql
 retryJob(id: ID!): Job
@@ -1682,9 +1524,7 @@ retryJob(id: ID!): Job
 
 Send a basic email. Mutation returns true for a success message.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 sendEmail(input: SendEmail!): Boolean!
@@ -1697,9 +1537,7 @@ sendEmail(input: SendEmail!): Boolean!
 
 Create or Update Workflow data.
 
-_**Arguments**_<br/>
-
-`workflowRuntimeId:`
+_**Arguments**_<br/>`workflowRuntimeId:`
 
 `input:`
 
@@ -1718,9 +1556,7 @@ setWorkflowRuntimeStorageData(
 Share a collection, allowing other organizations to view the data
 it contains.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to share a collection
+_**Arguments**_<br/>`input:` Fields needed to share a collection
 
 ```graphql
 shareCollection(input: ShareCollection): Share
@@ -1733,9 +1569,7 @@ shareCollection(input: ShareCollection): Share
 
 Share a folder with other organizations
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 shareFolder(input: ShareFolderInput): Folder
@@ -1748,9 +1582,7 @@ shareFolder(input: ShareFolderInput): Folder
 
 Share mention
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 shareMention(input: ShareMention): Share
@@ -1763,9 +1595,7 @@ shareMention(input: ShareMention): Share
 
 Share a mention from a collection
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to share a mention
+_**Arguments**_<br/>`input:` Fields needed to share a mention
 
 ```graphql
 shareMentionFromCollection(
@@ -1780,9 +1610,7 @@ shareMentionFromCollection(
 
 Share mentions in bulk
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 shareMentionInBulk(input: ShareMentionInBulk): [Share]
@@ -1795,9 +1623,7 @@ shareMentionInBulk(input: ShareMentionInBulk): [Share]
 
 Start a Veritone Workflow instance
 
-_**Arguments**_<br/>
-
-`workflowRuntimeId:`
+_**Arguments**_<br/>`workflowRuntimeId:`
 
 `orgId:`
 
@@ -1807,7 +1633,7 @@ _**Arguments**_<br/>
 startWorkflowRuntime(
   workflowRuntimeId: ID!,
   orgId: ID!,
-  generateAuthToken: Boolean
+generateAuthToken: Boolean
 ): WorkflowRuntimeResponse!
 ```
 
@@ -1816,11 +1642,9 @@ startWorkflowRuntime(
 ---
 #### stopWorkflowRuntime
 
-Shut down Veritone Workflow instance
+Shutdown Veritone Workflow instance
 
-_**Arguments**_<br/>
-
-`workflowRuntimeId:`
+_**Arguments**_<br/>`workflowRuntimeId:`
 
 ```graphql
 stopWorkflowRuntime(workflowRuntimeId: ID!): WorkflowRuntimeResponse!
@@ -1833,9 +1657,7 @@ stopWorkflowRuntime(workflowRuntimeId: ID!): WorkflowRuntimeResponse!
 
 Subscribe to an event
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 subscribeEvent(input: SubscribeEvent!): ID!
@@ -1850,9 +1672,7 @@ Unfile a TemporalDataObject from a folder. This causes the TemporalDataObject
 and its assets to disappear from the folder, but does not otherwise affect
 either the TDO or the folder and does not change access controls.
 
-_**Arguments**_<br/>
-
-`input:` The fields needed to file a TemporalDataObject in a
+_**Arguments**_<br/>`input:` The fields needed to file a TemporalDataObject in a
 folder
 
 ```graphql
@@ -1866,9 +1686,10 @@ unfileTemporalDataObject(
 ---
 #### unfileWatchlist
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 unfileWatchlist(input: UnfileWatchlist!): Watchlist
@@ -1881,9 +1702,7 @@ unfileWatchlist(input: UnfileWatchlist!): Watchlist
 
 Unsubscribe to an event
 
-_**Arguments**_<br/>
-
-`id:`
+_**Arguments**_<br/>`id:`
 
 ```graphql
 unsubscribeEvent(id: ID!): UnsubscribeEvent!
@@ -1898,9 +1717,7 @@ Update a custom application. Applications are subject to
 specific workflows. The current application state determines
 what updates can be made to it. See VDA documentation for details.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update a custom application.
+_**Arguments**_<br/>`input:` Fields required to update a custom application.
 
 ```graphql
 updateApplication(input: UpdateApplication): Application
@@ -1913,9 +1730,7 @@ updateApplication(input: UpdateApplication): Application
 
 Update an asset
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update an asset.
+_**Arguments**_<br/>`input:` Fields needed to update an asset.
 
 ```graphql
 updateAsset(input: UpdateAsset!): Asset
@@ -1926,9 +1741,10 @@ updateAsset(input: UpdateAsset!): Asset
 ---
 #### updateCognitiveSearch
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:'`
+_**Arguments**_<br/>
 
 ```graphql
 updateCognitiveSearch(input: UpdateCognitiveSearch): CognitiveSearch
@@ -1941,9 +1757,7 @@ updateCognitiveSearch(input: UpdateCognitiveSearch): CognitiveSearch
 
 Update a collection
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a collection
+_**Arguments**_<br/>`input:` Fields needed to update a collection
 
 ```graphql
 updateCollection(input: UpdateCollection): Collection
@@ -1956,9 +1770,7 @@ updateCollection(input: UpdateCollection): Collection
 
 Update a creative
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateCreative(input: UpdateCreative!): Creative!
@@ -1971,9 +1783,7 @@ updateCreative(input: UpdateCreative!): Creative!
 
 Update the current authenticated user
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateCurrentUser(input: UpdateCurrentUser!): User!
@@ -1986,9 +1796,7 @@ updateCurrentUser(input: UpdateCurrentUser!): User!
 
 Update a structured data registry schema metadata.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateDataRegistry(input: UpdateDataRegistry!): DataRegistry
@@ -2004,9 +1812,7 @@ workflow steps. An engine's state determines what
 updates can be made to it. See VDA documentation for
 details.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update an engine
+_**Arguments**_<br/>`input:` Fields needed to update an engine
 
 ```graphql
 updateEngine(input: UpdateEngine): Engine
@@ -2021,9 +1827,7 @@ Update an engine build. Engine builds are subject to
 specific workflow steps. A build's state determines what
 updates can be made to it. See VDA documentation for details.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update an engine build.
+_**Arguments**_<br/>`input:` Fields needed to update an engine build.
 
 ```graphql
 updateEngineBuild(input: UpdateBuild!): Build
@@ -2036,9 +1840,7 @@ updateEngineBuild(input: UpdateBuild!): Build
 
 Update an entity.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update an entity.
+_**Arguments**_<br/>`input:` Fields required to update an entity.
 
 ```graphql
 updateEntity(input: UpdateEntity!): Entity
@@ -2049,9 +1851,10 @@ updateEntity(input: UpdateEntity!): Entity
 ---
 #### updateEntityIdentifier
 
-_**Arguments**_<br/>
+Arguments
+input: Fields required to update an entity identifier.
 
-`input:` Fields required to update an entity identifier.`
+_**Arguments**_<br/>
 
 ```graphql
 updateEntityIdentifier(input: UpdateEntityIdentifier!): EntityIdentifier
@@ -2064,9 +1867,7 @@ updateEntityIdentifier(input: UpdateEntityIdentifier!): EntityIdentifier
 
 Update an entity identifier type.
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update an entity identifier type.
+_**Arguments**_<br/>`input:` Fields required to update an entity identifier type.
 
 ```graphql
 updateEntityIdentifierType(
@@ -2081,9 +1882,7 @@ updateEntityIdentifierType(
 
 Update an event
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateEvent(input: UpdateEvent!): Event!
@@ -2096,9 +1895,7 @@ updateEvent(input: UpdateEvent!): Event!
 
 Update an export request
 
-_**Arguments**_<br/>
-
-`input:` Input data required to update an export request
+_**Arguments**_<br/>`input:` Input data required to update an export request
 
 ```graphql
 updateExportRequest(input: UpdateExportRequest!): ExportRequest!
@@ -2111,9 +1908,7 @@ updateExportRequest(input: UpdateExportRequest!): ExportRequest!
 
 Update an existing folder
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a folder.
+_**Arguments**_<br/>`input:` Fields needed to update a folder.
 
 ```graphql
 updateFolder(input: UpdateFolder): Folder
@@ -2126,9 +1921,7 @@ updateFolder(input: UpdateFolder): Folder
 
 Update existing content template by folderContentTemplateId
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateFolderContentTempate(
@@ -2143,9 +1936,7 @@ updateFolderContentTempate(
 
 Update an ingestion configuration
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateIngestionConfiguration(
@@ -2158,9 +1949,10 @@ updateIngestionConfiguration(
 ---
 #### updateJobs
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 updateJobs(input: UpdateJobs!): JobList
@@ -2173,9 +1965,7 @@ updateJobs(input: UpdateJobs!): JobList
 
 Update an existing library.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a library
+_**Arguments**_<br/>`input:` Fields needed to update a library
 
 ```graphql
 updateLibrary(input: UpdateLibrary!): Library
@@ -2188,9 +1978,7 @@ updateLibrary(input: UpdateLibrary!): Library
 
 Update Dataset Library Configuration
 
-_**Arguments**_<br/>
-
-`input:` Fields required to create library configuration
+_**Arguments**_<br/>`input:` Fields required to create library configuration
 
 ```graphql
 updateLibraryConfiguration(
@@ -2205,9 +1993,7 @@ updateLibraryConfiguration(
 
 Update a library engine model
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update a library engine model
+_**Arguments**_<br/>`input:` Fields required to update a library engine model
 
 ```graphql
 updateLibraryEngineModel(
@@ -2222,9 +2008,7 @@ updateLibraryEngineModel(
 
 Update a library type.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a library type.
+_**Arguments**_<br/>`input:` Fields needed to update a library type.
 
 ```graphql
 updateLibraryType(input: UpdateLibraryType!): LibraryType
@@ -2237,9 +2021,7 @@ updateLibraryType(input: UpdateLibraryType!): LibraryType
 
 Update a mention object
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateMention(input: UpdateMention!): Mention
@@ -2252,9 +2034,7 @@ updateMention(input: UpdateMention!): Mention
 
 Update a mention comment
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a mention comment
+_**Arguments**_<br/>`input:` Fields needed to update a mention comment
 
 ```graphql
 updateMentionComment(input: UpdateMentionComment): MentionComment
@@ -2268,9 +2048,7 @@ updateMentionComment(input: UpdateMentionComment): MentionComment
 Update status or assetURI of a mentionExportRequest
 Often use when the file export was completed or downloaded
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateMentionExportRequest(
@@ -2285,9 +2063,7 @@ updateMentionExportRequest(
 
 Update a mention rating
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a mention rating
+_**Arguments**_<br/>`input:` Fields needed to update a mention rating
 
 ```graphql
 updateMentionRating(input: UpdateMentionRating): MentionRating
@@ -2300,9 +2076,7 @@ updateMentionRating(input: UpdateMentionRating): MentionRating
 
 Update a set of mentions
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateMentions(input: UpdateMentions!): [Mention]
@@ -2315,9 +2089,7 @@ updateMentions(input: UpdateMentions!): [Mention]
 
 Update an organization
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update an organization.
+_**Arguments**_<br/>`input:` Fields required to update an organization.
 
 ```graphql
 updateOrganization(input: UpdateOrganization!): Organization
@@ -2330,9 +2102,7 @@ updateOrganization(input: UpdateOrganization!): Organization
 
 Update a processTemplate by ID in CMS
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 updateProcessTemplate(input: UpdateProcessTemplate!): ProcessTemplate!
@@ -2343,9 +2113,10 @@ updateProcessTemplate(input: UpdateProcessTemplate!): ProcessTemplate!
 ---
 #### updateSchemaState
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 updateSchemaState(input: UpdateSchemaState!): Schema
@@ -2356,9 +2127,10 @@ updateSchemaState(input: UpdateSchemaState!): Schema
 ---
 #### updateSubscription
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 updateSubscription(input: UpdateSubscription!): Subscription
@@ -2371,9 +2143,7 @@ updateSubscription(input: UpdateSubscription!): Subscription
 
 Update a temporal data object
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update a TDO
+_**Arguments**_<br/>`input:` Fields required to update a TDO
 
 ```graphql
 updateTDO(input: UpdateTDO): TemporalDataObject
@@ -2386,9 +2156,7 @@ updateTDO(input: UpdateTDO): TemporalDataObject
 
 Update a task
 
-_**Arguments**_<br/>
-
-`input:` Fields required to update a task.
+_**Arguments**_<br/>`input:` Fields required to update a task.
 
 ```graphql
 updateTask(input: UpdateTask): Task
@@ -2401,9 +2169,7 @@ updateTask(input: UpdateTask): Task
 
 Update an existing user
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a user
+_**Arguments**_<br/>`input:` Fields needed to update a user
 
 ```graphql
 updateUser(input: UpdateUser): User
@@ -2414,9 +2180,10 @@ updateUser(input: UpdateUser): User
 ---
 #### updateWatchlist
 
-_**Arguments**_<br/>
+Arguments
+input:
 
-`input:`
+_**Arguments**_<br/>
 
 ```graphql
 updateWatchlist(input: UpdateWatchlist!): Watchlist
@@ -2429,9 +2196,7 @@ updateWatchlist(input: UpdateWatchlist!): Watchlist
 
 Updates a widget
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to update a widget
+_**Arguments**_<br/>`input:` Fields needed to update a widget
 
 ```graphql
 updateWidget(input: UpdateWidget): Widget
@@ -2447,9 +2212,7 @@ asset associated with the target TemporalDataObject and the
 task will be updated accordingly.
 Use a multipart form POST to all this mutation.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to upload and store an engine result
+_**Arguments**_<br/>`input:` Fields needed to upload and store an engine result
 
 ```graphql
 uploadEngineResult(input: UploadEngineResult!): Asset
@@ -2462,9 +2225,7 @@ uploadEngineResult(input: UploadEngineResult!): Asset
 
 Update a structured data registry schema.
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 upsertSchemaDraft(input: UpsertSchemaDraft!): Schema
@@ -2481,9 +2242,7 @@ Instead, the client supplies credentials to this mutation, which then
 authenticates the user and sets up the authentication context.
 The returned tokens can be used to authenticate future requests.
 
-_**Arguments**_<br/>
-
-`input:` Fields needed to log in
+_**Arguments**_<br/>`input:` Fields needed to log in
 
 ```graphql
 userLogin(input: UserLogin): LoginInfo
@@ -2496,9 +2255,7 @@ userLogin(input: UserLogin): LoginInfo
 
 Logout user and invalidate user token
 
-_**Arguments**_<br/>
-
-`token:` User token that should be invalidated
+_**Arguments**_<br/>`token:` User token that should be invalidated
 
 ```graphql
 userLogout(token: String!): Boolean
@@ -2511,9 +2268,7 @@ userLogout(token: String!): Boolean
 
 Validates if an engine output conforms to the engine output guidelines
 
-_**Arguments**_<br/>
-
-`input:`
+_**Arguments**_<br/>`input:`
 
 ```graphql
 validateEngineOutput(input: JSONData!): Boolean!
@@ -2527,9 +2282,7 @@ validateEngineOutput(input: JSONData!): Boolean!
 Validate a user token. This mutation is used by services to determine
 if the token provided by a given client is valid.
 
-_**Arguments**_<br/>
-
-`token:`
+_**Arguments**_<br/>`token:`
 
 ```graphql
 validateToken(token: String!): LoginInfo
@@ -2542,12 +2295,11 @@ validateToken(token: String!): LoginInfo
 
 Verify JWT token
 
-_**Arguments**_<br/>
-
-`jwtToken:`
+_**Arguments**_<br/>`jwtToken:`
 
 ```graphql
 verifyJWT(jwtToken: String!): VerifyJWTPayload
 ```
 
 *See also:*<br/>[String](https://api.veritone.com/v3/graphqldocs/string.doc.html), [VerifyJWTPayload](https://api.veritone.com/v3/graphqldocs/verifyjwtpayload.doc.html)
+
