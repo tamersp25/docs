@@ -1,4 +1,7 @@
 {
+  "validationContracts": [
+    "entity"
+  ],
   "object": [
     {
       "type": "namedEntity",

@@ -1,14 +1,15 @@
 {
+  "validationContracts": [
+    "concept"
+  ],
   "object": [
     {
-      "type": "namedEntity",
+      "type": "concept",
       "objectCategory": [
         {
           "class": "person"
         }
-      ],
-      "label": "John",
-      "sentence": 1
+      ]
     }
   ]
 }

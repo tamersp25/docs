@@ -1,0 +1,20 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "text"
+  ],
+  "language": "es",
+  "object": [
+    {
+      "type": "text",
+      "text": "El zorro marrón rápido saltó sobre el perro perezoso.",
+      "confidence": 0.879,
+      "sentence": 1
+    }, {
+      "type": "text",
+      "text": "Eso asustó al perro.",
+      "confidence": 0.678,
+      "sentence": 2
+    }
+  ]
+}

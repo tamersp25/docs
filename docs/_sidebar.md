@@ -62,9 +62,12 @@
         - [Speaker Recognition](developer/engines/cognitive/speech/speaker-recognition/)
         - [Transcription](developer/engines/cognitive/speech/transcription/)
       - Text
+        - [Content Classification](developer/engines/cognitive/text/content-classification/)
         - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)
-        - [Keyword Extraction](developer/engines/cognitive/text/keyword-extraction/)
+        - [Keyword Identification](developer/engines/cognitive/text/keyword-identification/)
+        - [Language Identification](developer/engines/cognitive/text/language-identification/)
         - [Sentiment Analysis](developer/engines/cognitive/text/sentiment/)
+        - [Summarization](developer/engines/cognitive/text/summarization/)
         - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
         - [Translation](developer/engines/cognitive/text/translation/)
       - Vision

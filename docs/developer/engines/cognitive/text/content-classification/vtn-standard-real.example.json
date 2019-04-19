@@ -1,0 +1,23 @@
+{
+  "validationContracts": [
+    "concept"
+  ],
+  "object": [
+    {
+      "type": "concept",
+      "text": "this is the text being classified",
+      "confidence": 0.5,
+      "objectCategory": [
+        {
+          "class": "Business"
+        },
+        {
+          "class": "Finance"
+        }
+      ],
+      "page": 1,
+      "paragraph": 2,
+      "sentence": 3
+    }
+  ]
+}

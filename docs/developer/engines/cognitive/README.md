@@ -32,9 +32,12 @@ Data | [Geolocation](/developer/engines/cognitive/data/geolocation/) | Identifie
 Speech | [Speaker Detection](/developer/engines/cognitive/speech/speaker-detection/)	| aka Speaker Separation, Diarization. Partitions an input audio stream into segments according to who is speaking when.
 Speech | [Speaker Recognition](/developer/engines/cognitive/speech/speaker-recognition/)	| aka Speaker Identification. Identifies speakers in an audio file based on trained recordings of their voice.
 Speech | [Transcription](/developer/engines/cognitive/speech/transcription/) | Converts speech audio to text.
+Text | [Content Classification](/developer/engines/cognitive/text/content-classification/) | Categorizes one or multiple documents according to a pre-defined ontology.
 Text | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | aka Named-entity recognition. Classifies named entities located in unstructured text into pre-defined categories such as people, organizations and locations.
-Text | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
+Text | [Keyword Identification](/developer/engines/cognitive/text/keyword-identification/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
+Text | [Language Identification](/developer/engines/cognitive/text/language-identification/) | Detects one or multiple natural languages in text.
 Text | [Sentiment Analysis](/developer/engines/cognitive/text/sentiment/) | Classifies text according to sentiment. May include a score representing negative, neutral or positive, or include a wider breadth of tags such as "happy" or "excited".
+Text | [Summarization](/developer/engines/cognitive/text/summarization/) | Generates a summary of written text.
 Text | [Text Extraction](/developer/engines/cognitive/text/text-extraction/) | Extract textual information from documents, and expresses that extracted text in a structured format.
 Text | [Translation](/developer/engines/cognitive/text/translation/) | Translates natural language from a text source.
 Transformation | [Visual Redaction](/developer/engines/cognitive/transformation/visual-redaction/) | Censors or obscures parts of an image or video, such as an individual's face.
@@ -48,9 +51,6 @@ Vision | [Text Recognition (OCR)](/developer/engines/cognitive/vision/text-recog
 Audio | Audio Recognition | Recognizes sound segments in an audio file, eg. 'gunshot', 'ad' or 'crying baby'.
 Speech | Keyword Spotting	| Finds specific words in an audio recording, without producing a transcript.
 Speech | Language Identification | Identifies the natural human language(s) spoken in an audio file.
-Text | Content Classification | Categorizes one or multiple documents according to a pre-defined ontology.
-Text | Language Identification | Detects one or multiple natural languages in text.
-Text | Summarization | Generates a summar of written text.
 Text | Text-to-Speech | Generates spoken word from text. Configurations may include output voice gender and accent.
 Transformation | Orchestration | Arranges and combines various processes in order to optimize output.
 Transformation | Transcoding | Converts one input file format to another.

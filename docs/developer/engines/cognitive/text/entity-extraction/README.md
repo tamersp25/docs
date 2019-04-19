@@ -1,6 +1,6 @@
 # Building an Entity Extraction Engine
 
-![](badge/API/Yes/green)
+![](badge/API/Partial/yellow)
 ![](badge/Search/No/red)
 ![](badge/UI/No/red)
 
@@ -35,11 +35,19 @@ If entity extraction engines are made [trainable with libraries](/developer/libr
 
 ## Engine Output
 
-### Example
+### Simple Example
 
-This is an example output that maps an extracted entity to an engine-specific category system that includes the category `"person"`.
+This is an example output that only specifies a `label` for the identified entity.
 
-[](vtn-standard.example.json ':include :type=code json')
+[](vtn-standard-minimal.example.json ':include :type=code json')
+
+### Real-World Example
+
+This is a more involved example that includes a label, confidence, a mapping to a category classification taxonomy, sentiment readings, and page/paragraph/sentence referencing (all optional)
+
+[](vtn-standard-real.example.json ':include :type=code json')
+
+### Library Entity Example
 
 This is an example output that maps an extracted entity back to an aiWARE library entity.
 

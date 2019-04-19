@@ -1,4 +1,7 @@
 {
+  "validationContracts": [
+    "keyword"
+  ],
   "object": [
     {
       "type": "keyword",

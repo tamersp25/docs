@@ -1,0 +1,58 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "transcript"
+  ],
+  "series": [
+    {
+      "startTimeMs": 0,
+      "stopTimeMs": 300,
+      "language": "es",
+      "words": [
+        {
+          "word": "esto"
+        }
+      ]
+    },
+    {
+      "startTimeMs": 300,
+      "stopTimeMs": 500,
+      "language": "es",
+      "words": [
+        {
+          "word": "es"
+        }
+      ]
+    },
+    {
+      "startTimeMs": 500,
+      "stopTimeMs": 800,
+      "language": "es",
+      "words": [
+        {
+          "word": "uno"
+        }
+      ]
+    },
+    {
+      "startTimeMs": 800,
+      "stopTimeMs": 1200,
+      "language": "es",
+      "words": [
+        {
+          "word": "frase"
+        }
+      ]
+    },
+        {
+      "startTimeMs": 1200,
+      "stopTimeMs": 1201,
+      "language": "es",
+      "words": [
+        {
+          "word": "."
+        }
+      ]
+    }
+  ]
+}

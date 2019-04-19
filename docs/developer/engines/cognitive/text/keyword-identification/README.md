@@ -1,6 +1,6 @@
 # Building a Keyword Extraction Engine
 
-![](badge/API/Yes/green)
+![](badge/API/Partial/yellow)
 ![](badge/Search/No/red)
 ![](badge/UI/No/red)
 

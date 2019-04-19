@@ -7,12 +7,16 @@
   },
 
   "emotions": [{
-    "emotion": "angry",
+    "emotion": "excited",
     "emotionValue": 0.14,
     "emotionConfidence": 0.88
   }, {
     "emotion": "confused",
     "emotionValue": 0.82,
     "emotionConfidence": 0.75
+  }, {
+    "emotion": "🤯",
+    "emotionValue": 1,
+    "emotionConfidence": 1
   }]
 }
