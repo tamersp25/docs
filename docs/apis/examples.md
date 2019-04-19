@@ -608,6 +608,30 @@ RESPONSE:
 }
 ```
 
+### Check the Status of a Specific Task
+
+If you know the Task ID, you can do:
+
+```graphql
+query {
+  task(id:"19020926_wUALxLYqjoDh5N8") {
+    status
+  }
+}
+```
+
+RESPONSE:
+
+```json
+{
+  "data": {
+    "task": {
+      "status": "complete"
+    }
+  }
+}
+```
+
 ### Get Transcription Jobs
 
 You can (optionally) use the `dateTimeFilter` field to filter responses by date (as shown below).

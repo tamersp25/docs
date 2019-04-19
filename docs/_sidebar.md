@@ -5,6 +5,9 @@
 - [Applications](apps/)
 
 - [APIs](apis/)
+  - API Documentation
+    - [Mutation Methods](apis/api-documentation/mutation-api.md)
+    - [Query Methods](apis/api-documentation/query-api.md)
   - [The Veritone API Data Model](apis/data-model.md)
   - [Using GraphQL](apis/using-graphql.md)
   - [Authentication](apis/authentication.md)
