@@ -28,6 +28,10 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 <!-- TODO -->
 
+### Training and Libraries
+
+Since speaker recognition engines identify entities, they are required to be [trainable via libraries](/developer/libraries/engines).
+
 ## Engine Input
 
 Audio-processing engines can be [stream processing](/developer/engines/processing-modes/stream-processing/) engines, or (if processing will be stateless) they can be [segment processing](/developer/engines/processing-modes/segment-processing/).
