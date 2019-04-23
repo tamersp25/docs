@@ -1,8 +1,7 @@
 # Creating Export Requests
 
 Export requests can be made to export data out of aiWARE in specific formats.
-They are requested via the [`createExportRequest` mutation](/apis/api-documentation/mutation-api?id=createexportrequest).
-<!--TODO: Update to /apis/reference/mutation/?id=createexportrequest if PR #94 is merged-->
+They are requested via the [`createExportRequest` mutation](/apis/reference/mutation/?id=createexportrequest).
 
 An example mutation might look like this:
 

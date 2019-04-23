@@ -5,16 +5,17 @@
 - [Applications](apps/)
 
 - [APIs](apis/)
-  - API Documentation
-    - [Mutation Methods](apis/api-documentation/mutation-api.md)
-    - [Query Methods](apis/api-documentation/query-api.md)
-  - [The Veritone API Data Model](apis/data-model.md)
-  - [Using GraphQL](apis/using-graphql.md)
-  - [Authentication](apis/authentication.md)
-  - [Error Codes](apis/error-codes.md)
-  - [API Examples](apis/examples.md)
-  - [Job Quickstart Guide](apis/job-quickstart.md)
-  - [Search Quickstart Guide](apis/search-quickstart.md)
+  - Developer Guide
+    - [The Veritone API Data Model](apis/data-model.md)
+    - [Using GraphQL](apis/using-graphql.md)
+    - [Authentication](apis/authentication.md)
+    - [Error Codes](apis/error-codes.md)
+  - API Reference
+    - [Mutation Methods](apis/reference/mutation/)
+    - [Query Methods](apis/reference/query/)
+    - [API Examples](apis/examples.md)
+    - [Job Quickstart Guide](apis/job-quickstart.md)
+    - [Search Quickstart Guide](apis/search-quickstart.md)
   - Tutorials
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)

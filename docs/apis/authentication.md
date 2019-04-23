@@ -8,7 +8,7 @@ Veritone uses token-based authentication for accessing the system and resources.
 
 * **API Token:** API Tokens provide access to organization-level resources and are generally used to make ad-hoc API requests by passing the token in an *Authorization* header.
 
-## Creating an API Token
+## Creating an API Token {docsify-ignore}
 
 Veritone’s GraphiQL interface is recommended for exploring, writing and testing the API, but calls can also be made using any HTTP client.
 When you’re logged into the Veritone platform, GraphiQL logic automatically passes a valid token in the `Authorization` header of every request.

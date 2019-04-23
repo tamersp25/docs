@@ -1,9 +1,9 @@
-  # Mutation Methods
-  
-  The table below gives a quick summary of GraphQL [mutation](https://api.veritone.com/v3/graphqldocs/mutation.doc.html) methods, alphabetized by name. 
-  
-  Click any name to see the complete method signature, and other info.
-  
+# Mutation Methods
+
+The table below gives a quick summary of GraphQL [mutation](https://api.veritone.com/v3/graphqldocs/mutation.doc.html) methods, alphabetized by name. 
+
+Click any name to see the complete method signature, and other info.
+
 | Method name | Short Description  |
 | -- | -- |
 | [addLibraryDataset](#addlibrarydataset) | Add recordings to a dataset library |
