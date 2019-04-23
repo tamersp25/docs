@@ -34,7 +34,7 @@ Speech | [Speaker Recognition](/developer/engines/cognitive/speech/speaker-recog
 Speech | [Transcription](/developer/engines/cognitive/speech/transcription/) | Converts speech audio to text.
 Text | [Content Classification](/developer/engines/cognitive/text/content-classification/) | Categorizes one or multiple documents according to a pre-defined ontology.
 Text | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | aka Named-entity recognition. Classifies named entities located in unstructured text into pre-defined categories such as people, organizations and locations.
-Text | [Keyword Identification](/developer/engines/cognitive/text/keyword-identification/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
+Text | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
 Text | [Language Identification](/developer/engines/cognitive/text/language-identification/) | Detects one or multiple natural languages in text.
 Text | [Sentiment Analysis](/developer/engines/cognitive/text/sentiment/) | Classifies text according to sentiment. May include a score representing negative, neutral or positive, or include a wider breadth of tags such as "happy" or "excited".
 Text | [Summarization](/developer/engines/cognitive/text/summarization/) | Generates a summary of written text.

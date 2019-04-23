@@ -64,7 +64,7 @@
       - Text
         - [Content Classification](developer/engines/cognitive/text/content-classification/)
         - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)
-        - [Keyword Identification](developer/engines/cognitive/text/keyword-identification/)
+        - [Keyword Extraction](developer/engines/cognitive/text/keyword-extraction/)
         - [Language Identification](developer/engines/cognitive/text/language-identification/)
         - [Sentiment Analysis](developer/engines/cognitive/text/sentiment/)
         - [Summarization](developer/engines/cognitive/text/summarization/)
