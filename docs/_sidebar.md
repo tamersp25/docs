@@ -18,6 +18,7 @@
   - Tutorials
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
+    - [Creating Export Requests](apis/tutorials/create-export-request/)
     - [Posting Engine Results](apis/tutorials/engine-results.md)
     - [Lookup Available Engines](apis/tutorials/get-engines.md)
     - [Error Handling in the GraphQL API](apis/tutorials/graphql-error-handling.md)

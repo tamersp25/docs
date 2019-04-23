@@ -544,7 +544,7 @@ createEvent(input: CreateEvent!): Event!
 #### createExportRequest
 
 Create an export request. The requested TDO data, possibly including
-TDO media and engine results, will be exported offline.
+TDO media and engine results, will be exported offline. 
 
 _**Arguments**_<br/>
 
@@ -553,7 +553,6 @@ _**Arguments**_<br/>
 ```graphql
 createExportRequest(input: CreateExportRequest!): ExportRequest!
 ```
-
 *See also:*<br/>[CreateExportRequest](https://api.veritone.com/v3/graphqldocs/createexportrequest.doc.html), [ExportRequest](https://api.veritone.com/v3/graphqldocs/exportrequest.doc.html)
 
 ---

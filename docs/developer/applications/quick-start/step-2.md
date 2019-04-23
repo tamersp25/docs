@@ -34,13 +34,12 @@ Before using OAuth with your application, you must register your application wit
 
 #### Access the Client ID, Client Secret & Redirect URI
 
-The _Client ID_, _Client Secret_, and _Redirect URI_ are available at the top of the *Application* settings page.
+The app's _Client ID_ (a), _OAuth Redirect URI_ (b), and _Client Secret_ (c) can be viewed on the *Application* settings page.
+(The Client Secret can be seen once you click the _click to reveal_ link.)
+![client-secret1](VDA-URLs.png)
 
-1.  Log in to Veritone Developer. Click **Applications** on the left menu. The *Applications Dashboard* opens.
-
-2.  Click the appropriate **application name** in the list. The _Application Settings_ open.![client-secret1](VDA-Oauth-Client-Secret-1.png)
-
-3.  The _Client ID_, _Client Secret_, and _Redirect URI_ display at the top of the page. To retrieve the _Client Secret_, click **Click to reveal**, enter your Veritone password, and click **Submit**. ![client-secret2](VDA-Oauth-Client-Secret-2.png)
+To get to this view, log in to Veritone Developer and click **Applications** on the menu sidebar, 
+then choose your application from the Applications Dashboard.
 
 ### Examples and Libraries
 
@@ -48,25 +47,33 @@ The [passport-veritone](https://github.com/veritone/veritone-sdk/tree/master/pac
 
 [veritone-widgets-server](https://github.com/veritone/veritone-sdk/tree/master/packages/veritone-widgets-server) implements the full token exchange using passport-veritone.
 
-[veritone-oauth-helpers](https://github.com/veritone/veritone-sdk/tree/master/packages/veritone-oauth-helpers) implements the client-side portion of the OAuth2 flow, with simple login() and logout() functions.
+[veritone-oauth-helpers](https://github.com/veritone/veritone-sdk/tree/master/packages/veritone-oauth-helpers) implements the client-side portion of the OAuth2 flow, with simple `login()` and `logout()` functions.
 
 ## Implementing the Authorization Code Flow
 
-The Authorization Code Flow is designed for server-side applications where source code is not publicly exposed and the confidentiality of the _Client Secret_ can be maintained. This is a redirection-based flow that begins with user authentication returning an _Authorization Code_ that’s exchanged for an _Access Token_ to access the user’s account. Along with the _Access Token_, you get a _Refresh Token_ that can be saved in your database and used at a later point to generate a new *Access Token* when the original expires. Because the Authorization Code Flow uses a *Client ID* and *Client Secret* to retrieve the tokens from the back end, it has the benefit of not exposing tokens to the web browser.
+The Authorization Code Flow is designed for server-side applications where source code is not publicly exposed and the confidentiality of the _Client Secret_ can be maintained. 
+This is a redirection-based flow that begins with user authentication returning an _Authorization Code_ that’s exchanged for an _Access Token_ to access the user’s account. 
+Along with the _Access Token_, you get a _Refresh Token_ that can be saved in your database and used at a later point to generate a new *Access Token* when the original expires. 
+Because the Authorization Code Flow uses a *Client ID* and *Client Secret* to retrieve the tokens from the back end, it has the benefit of not exposing tokens to the web browser.
 
-At a high-level, the Authorization Code Flow follows these steps when a user attempts to initiate a session with your application by clicking a "Sign In with Veritone" button.</br>
+At a high level, the Authorization Code Flow follows these steps when a user attempts to initiate a session with your application by clicking a "Sign In with Veritone" button.</br>
+
 ![sign-in-button](VDA-AppQS-Step2-OAuth-Sign-in-with-Veritone-Button.png)
 
-1.  Your application redirects the user to the Veritone authorization server, where the user authenticates their identity and authorizes your app to access their account by logging in.
+1.  Your application redirects the user to the Veritone authorization server, where the user authenticates his or her identity and authorizes your app to access the user's account by logging in.
 2.  An *Authorization Code* is passed to your application from the Veritone authorization server.
 3.  Your application sends the *Authorization Code* to Veritone, and Veritone returns an *Access Token* and a *Refresh Token*.
-4.  Your application can use the *Access Token* to call the Veritone API and access the user’s account.
+4.  Your application can then use the *Access Token* to call the Veritone API and access the user’s account.
 
 ![authorization-code-flow](VDA-AppQS-Step2-OAuth-Authorization-Code-Flow.png)
 
 ### **Step 1: Authenticate User and Get Authorization Code**
 
-A "Sign In With Veritone" button initiates user authentication. When a user clicks the button, you'll send them to an authorization page where they will authenticate their identity and give your application permission to access their account. In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that identify your app. The _Client ID_ and *Redirect URI* that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the *Applications Dashboard*.
+A "Sign In With Veritone" button initiates user authentication. 
+When a user clicks the button, you'll send the user to an authorization page where he or she will authenticate and give your application permission to access their account. 
+In this first step, you'll construct a link to the authorization page by adding specific parameters to the query that can identify your app. 
+The _Client ID_ and *Redirect URI* that you'll need to include in the authorization URL can be found in the settings for your app, which you can get to by clicking the name of your app from the *Applications Dashboard*. 
+(See earlier screen shot and discussion, above.)
 
 ##### Authorization URL Components
 
@@ -106,11 +113,12 @@ https://api.veritone.com/v1/admin/oauth/authorize?response_type=code&client_id=e
 
 #### User Authorizes Application
 
-When the user clicks the link, they’re prompted to log into Veritone to authenticate their identity and authorize your application to access their account.
+After clicking the link,the user will be prompted to log into Veritone to authenticate his or her identity and authorize your application to access the user's account.
 
 #### Application Receives Authorization Code
 
-After the user grants access by logging in, they arrive at your application’s *Redirect URI* with an _Authorization Code_ query parameter appended to the URL. You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone. If the login was unsuccessful, an error response will be returned in place of the *Authorization Code*.
+After the user grants access by logging in, the user will arrive at your application’s *Redirect URI* with an _Authorization Code_ query parameter appended to the URL (as shown below). 
+You'll use that code in the next step to get an _Access Token_ and a _Refresh Token_ from Veritone. If the login was unsuccessful, an error response will be returned in place of the *Authorization Code*.
 
 ##### Sample Redirect URI with Authorization Code
 
@@ -459,3 +467,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI4YTEwZ
 ```
 
 Access tokens expire after seven days. Unlike the Authorization Code Flow, _Refresh Tokens_ are not issued with the Implicit Flow. Refreshing a token requires use of the Client Secret, which cannot safely be stored with the Implicit Flow. If your application does not store the _Access Token_, users will be required to log in each time they use your app. If your application stores the token, you can use it to perform API calls immediately without requiring any additional action from the user. API calls made with an expired or invalid token will result in an error.
+
+[Continue to Step 3: Add APIs and Components](developer/applications/quick-start/step-3)
