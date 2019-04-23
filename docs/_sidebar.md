@@ -86,6 +86,7 @@
       - [Engine Manifest](developer/engines/standards/engine-manifest/)
       <!-- - [Message Types](developer/engines/standards/message-types/)-->
     - [Custom Fields](developer/engines/custom-fields/)
+    - [Polling](developer/engines/polling/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
 
