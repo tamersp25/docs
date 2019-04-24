@@ -88,7 +88,7 @@ If the vtn-standard document does **not** conform to one of the supported valida
 If the vtn-standard document **does** conform to one of the supported validation contracts, the engine would then translate the relevant text and construct an output message in the same structure as the input message, but with the translated text replacing the old text and a language code appended.
 
 !> At this time running translation engines on vtn-standard outputs is only supported by creating jobs that explicitly send output from one engine to the translation engine.
-In addition, mime-type filtering will not occur in this mode so the chaining of engines needs to be 
+In addition, mime-type filtering will not occur in this mode so the chaining of engines needs to be configured to ensure the proper mime-types are passed from one engine to the next.
 
 <!--TODO: Link to docs on how to do that^ (to be written by API team)-->
 
@@ -167,8 +167,12 @@ I have an open question as to whether we can actually do a separate word for eac
 so they'd all be overlapping terms for the entire length of the sentence.  If indexing uses a stable sort, then we can rely on word order and all should be ok.
 -->
 
-Because grammar structures differ between languages, Veritone's recommendation is to group the input transcript into sentences and translate each sentence individually, reporting a transcript series that only goes down to sentence-level granularity.
-This tends to strike a good balance between providing translation engines enough context to generate a good translation and keeping enough granular timing for typical transcribe-translate use cases like multi-lingual closed captioning. 
+Because grammar structures differ between languages, Veritone's recommendation is to group the input transcript into sentences and translate each sentence individually (break on periods), and return a transcript series that is grouped by sentences.
+This tends to strike a good balance between providing translation engines enough context to generate a good translation and keeping enough granular timing for typical transcribe-translate use cases like multi-lingual closed captioning.
+
+In order to do this, you should report the resulting sentence in order but give each word the same start and stop times.
+The start time should be the minimum start time of all the words in the sentence (`0` in this example).
+The stop time should be the maximum stop time of all the words in the sentence (`1201` in this example).
 
 [](vtn-standard-transcription.output-per-sentence.example.json ':include :type=code json')
 
