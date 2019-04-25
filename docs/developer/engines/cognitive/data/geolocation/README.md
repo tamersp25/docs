@@ -1,8 +1,8 @@
 # Building a Geolocation Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Partial/yellow)
-![](badge/UI/Partial/yellow)
+[badge/API/Yes/green]
+[badge/Search/Partial/yellow]
+[badge/UI/Partial/yellow]
 
 A geolocation engine identifies the location (latitude/longitude) of a person or object within a geographic domain.
 

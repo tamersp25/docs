@@ -7,7 +7,7 @@ The payload file itself contains all of the information the engine needs in orde
 In order to test an engine of this type, you will need to simulate an incoming payload to verify your engine can process it successfully.
 You can get a valid payload to test locally with by following the steps below.
 
-### Testing Locally
+## Testing Locally {docsify-ignore}
 
 1\. Click on the "Create Task" button shown on the tasks page of your engine.
 
@@ -53,11 +53,11 @@ As mentioned previously, when this type of engine is deployed to Veritone a `PAY
 
 You can simulate this by creating an environment variable locally called `PAYLOAD_FILE` and setting it's value to the file path of the file you have just created. Once you have done that, you can now run your engine locally using a valid payload in order to test your engine end to end to ensure it behaves correctly.
 
-#### Creating Test Tasks via API (Optional)
+### Creating Test Tasks via API (Optional)
 
 Once you have created the initial test payload, you may optionally prefer to create additional test tasks via curl rather than going through the GUI every time. Below is a curl snippet you can copy and modify to do so. Be sure to replace `engineId` with the id of your engine, as well as the `targetId` with the recording id of the payload from the original test task.
 
-<b>Note</b> - If your engine requires custom fields or a library, you will need to update the mutation below to include those.
+> If your engine requires custom fields or a library, you will need to update the mutation below to include those.
 
 ```bash
   curl -X POST \
@@ -67,7 +67,7 @@ Once you have created the initial test payload, you may optionally prefer to cre
   -d '{"query":"mutation{createJob(input:{targetId:\"<the recordingId>\" tasks:[{engineId:\"<your engineId>\" testTask:true}]}){id}}"}'
 ```
 
-### Testing in aiWARE
+## Testing in aiWARE {docsify-ignore}
 
 Before submitting your build, we also recommend testing it on our platform.
 To do this you should follow the same steps listed for testing your engine locally, except that you should now choose the build version that correlates to your uploaded build when asked to select a build on the select options page.

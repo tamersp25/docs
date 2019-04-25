@@ -1,8 +1,8 @@
 # Building a Transcription Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Transcription engines &mdash; often known as "speech-to-text" or natural language processing (NLP) &mdash; take recorded speech audio and output the words that were said.
 Depending on the engine's capabilities, the output could be a simple sequence of words or a "lattice of confidence" expressing multiple options for how the words were spoken.
@@ -61,6 +61,7 @@ To output a lattice of confidence, you can write multiple entries to the `words`
 | `utteranceLength` | In some cases, one utterance might span multiple word slots.  For example, if two possibilities for a phrase were "throne" or "their own", the first "throne" entry would have an utteranceLength of 2 while the "their" and "own" entries would have utterance lengths of 1. See the example below. |
 
 When reporting lattices, the following rules must be followed:
+
 - For every `words` array with multiple entries, a `confidence` value must be included on each entry.
 - For every `words` array with multiple entries, **one and only one** of the entries must contain the `bestPath` key with a value of `true`
 - For every `words` array with multiple entries, `utteranceLength` keys must be added to each entry.

@@ -97,7 +97,7 @@ To view the schema properties for a particular Source Type, make a call to the `
 query getSourceType {
   sourceType(id: 6) {
     name
-  	sourceSchema {
+    sourceSchema {
       id
       validActions
       definition
@@ -183,7 +183,7 @@ When developing your adapter, you'll work locally, package and upload your build
 
 5. [Submit your build for approval](https://docs.veritone.com/#/adapters/quick-start/step-5) by a member of our team.
 
-6. [Deploy your approved ](https://docs.veritone.com/#/adapters/quick-start/step-6)adapter to production in the Veritone Platform.
+6. [Deploy your approved adapter](https://docs.veritone.com/#/adapters/quick-start/step-6) adapter to production in the Veritone Platform.
 
 Our [Quickstart](https://docs.veritone.com/#/adapters/quick-start/) is designed to take you through the development workflow as quickly as possible. By the end, you'll have created and deployed a custom adapter in the Veritone Platform.
 

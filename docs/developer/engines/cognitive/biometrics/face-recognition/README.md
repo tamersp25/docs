@@ -1,8 +1,8 @@
 # Building a Face Recognition Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Face recognition engines can analyze human faces in media assets, and score them as to similarity with known faces.
 They expand upon the capabilities of [face detection](/developer/engines/cognitive/face-detection/) engines by identifying the individual whose face was detected in addition to specifying where in the image the face is located.

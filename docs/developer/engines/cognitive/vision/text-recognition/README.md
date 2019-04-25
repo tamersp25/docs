@@ -1,8 +1,8 @@
 # Building a Text Recognition Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Text recognition engines process documents (primarily images) to recognize text in them and express that recognized text in a structured format.
 **Optical character recognition (OCR)** is a technology that is often used to implement text recognition engines.
@@ -50,4 +50,3 @@ Text recognition engine output can follow two forms, depending on whether the fi
 ### Example &mdash; Non-Time-Based
 
 [](vtn-standard-object.example.json ':include :type=code json')
-

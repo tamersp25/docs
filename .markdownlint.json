@@ -4,6 +4,7 @@
     "allowed_elements": ["table", "tr", "th", "td", "sup"]
   },
   "no-bare-urls": false,
+  "no-duplicate-heading": false,
   "no-trailing-punctuation": {
     "punctuation": ".,;:"
   }

@@ -23,6 +23,7 @@ aiWARE currently only supports Windows docker containers.
 ### Other Resources
 
 You can find more information on Docker here:
+
 - https://docs.docker.com/get-started/
 - https://docs.docker.com/
 

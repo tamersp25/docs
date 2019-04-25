@@ -1,6 +1,7 @@
 # Authentication and Authorization Tokens
 
 This tutorial covers some common questions Veritone API users might have, such as
+
 * what is a token;
 * where do I get one;
 * what am I allowed to do with it?
@@ -8,8 +9,9 @@ This tutorial covers some common questions Veritone API users might have, such a
 First, as noted on the main [authentication page](/apis/authentication), the Veritone API
 accepts authentication in the standard form of a bearer token in
 the HTTP `Authorization` header:
+
 ```bash
-bash$ curl https://api.veritone.com/v3/graphql -H 'Authorization: Bearer <token goes here> ' -H 'Content-Type: application/json' -d '{"query" : "query { me { id }}"}'
+curl https://api.veritone.com/v3/graphql -H 'Authorization: Bearer <token goes here> ' -H 'Content-Type: application/json' -d '{"query" : "query { me { id }}"}'
 ```
 
 This is the _only_ authentication method accepted by the API.
@@ -82,6 +84,7 @@ mutation {
 ```
 
 If successful, a token is returned:
+
 ```json
 {
   "data": {
@@ -113,18 +116,19 @@ service to send it when authenticating to the API.
 
 To provision an API key, your organization administrator can use
 the administration interface.
+
 * Go to the Veritone Admin app
 * Navigate to the organization overview page for your organization
 * Click the "API Keys" tile
 * Click "Add token"
 * Give the token a distinct name that indicates its purpose (for eample, "webhook-handler")
-* Select appropriate rights. Use caution and do not add more rights than
-are strictly necessary. They can be updated later if necessary.
-* When you click "Save", the entire token will be displayed. Copy it to the
-clipboard and store it somewhere safe. For security reasons, the UI
-does not display actual tokens in the listing.
-* If necessary, come back to this tile later to edit the token and
-change its rights. You can also revoke the token from this page.
+* Select appropriate rights. Use caution and do not add more rights than are strictly necessary.
+They can be updated later if necessary.
+* When you click "Save", the entire token will be displayed.
+Copy it to the clipboard and store it somewhere safe.
+For security reasons, the UI does not display actual tokens in the listing.
+* If necessary, come back to this tile later to edit the token and change its rights.
+You can also revoke the token from this page.
 
 _Warning_:  API keys are sensitive information. They are persistent,
 lasting until revoked, and enable broad access to your organization's data.
@@ -163,6 +167,7 @@ However, the engine should _not_ be able to access any _other_ content
 within your organization. Nor should it be able to modify your content
 in unexpected ways. For example, say you have uploaded two media
 files to CMS:
+
 * `meetingRecording.mp4`
 * `securityCameraStream-2018-05-08.mp4`
 
@@ -173,17 +178,19 @@ one for transcoding, one for transcription, perhaps others.
 
 The transcription engine will use the Veritone API to retrieve and process your content and store its results.
 The engine should be able to:
-- retrieve metadata about `meetingRecording.mp4`
-- download `meetingRecording.mp4`
-- update the status of its own task
-- create and upload an asset containing the transcript and attach it to
+
+* retrieve metadata about `meetingRecording.mp4`
+* download `meetingRecording.mp4`
+* update the status of its own task
+* create and upload an asset containing the transcript and attach it to
 the TDO for `meetingRecording.mp4`
 
 The engine should _not_ be able to:
-- retrieve metadata about `securityCameraStream-2018-05-08.mp4`
-- delete the media asset for `meetingRecording.mp4`
-- update the status of the transcoding engine's task _or_ any other task
-- retrieve or modify other types of data in your organization, such as
+
+* retrieve metadata about `securityCameraStream-2018-05-08.mp4`
+* delete the media asset for `meetingRecording.mp4`
+* update the status of the transcoding engine's task _or_ any other task
+* retrieve or modify other types of data in your organization, such as
 user information, libraries, etc.
 
 In other words, when processing a task, and engine should have permission
@@ -199,27 +206,30 @@ appropriate time window.
 
 When examining the rights associated with an engine token through the
 API (see below for details), you will see something like this:
+
 ```json
-"myRights": {
-   "operations": [
-     "asset:uri",
-     "asset:all",
-     "recording:read",
-     "recording:update",
-     "task:update"
-   ],
-   "resources": {
-     "Job": [
-       "1923036a-abac-482a-9e68-d10d43f42849"
-     ],
-     "Task": [
-       "1923036a-abac-482a-9e68-d10d43f42849-eaf8bc0c-a197-4691-9c24-f8d34b791acb"
-     ],
-     "TemporalDataObject": [
-       "400000148"
-     ]
-   }
- }
+{
+  "myRights": {
+    "operations": [
+      "asset:uri",
+      "asset:all",
+      "recording:read",
+      "recording:update",
+      "task:update"
+    ],
+    "resources": {
+      "Job": [
+        "1923036a-abac-482a-9e68-d10d43f42849"
+      ],
+      "Task": [
+        "1923036a-abac-482a-9e68-d10d43f42849-eaf8bc0c-a197-4691-9c24-f8d34b791acb"
+      ],
+      "TemporalDataObject": [
+        "400000148"
+      ]
+    }
+  }
+}
 ```
 
 Note that the rights include a limited set of functional permissions appropriate
@@ -273,6 +283,7 @@ attempts to access some field, query, or mutation that it is not
 authorized to use. It does not indicate an error in the server or API.
 
 Resolution steps may include:
+
 * Switch tokens. For example, if you are using a user token to test
 engine code, switch to an engine token or API token for a more realistic
 test
@@ -288,6 +299,7 @@ To handle a `not_allowed` error, first examine the entire response payload
 and the token itself.
 
 Here's a sample `createEngine` attempt:
+
 ```graphql
 mutation {
   createEngine(input: {
@@ -302,6 +314,7 @@ mutation {
 
 And here's the response for a token that does not have sufficient rights
 to create an engine:
+
 ```json
 {
   "errors": [
@@ -466,6 +479,7 @@ query {
 Inaccessible resources are simply not returned. There is no error.
 
 However, this query attempts to access a specific resource by ID:
+
 ```graphql
 query {
   temporalDataObject(id: 4000051912345) {
@@ -473,10 +487,11 @@ query {
   }
 }
 ```
+
 If the resource does not exist _or_ does exist but you do not have access
 to it, you'll receive a `not_found`:
 
-```graphql
+```json
 {
   "data": {
     "temporalDataObject": null
@@ -504,6 +519,7 @@ In any case, unauthorized objects are effectively invisible; the caller is
 not entitled to know if they exist or not.
 
 An unexpected `not_found` can indicate that:
+
 * the resource has been deleted
 * the resource is owned by another organization and your access has been revoked
 * you are inadvertently using a token for a different org (such as a personal
@@ -511,6 +527,7 @@ An unexpected `not_found` can indicate that:
 * you are using an engine token that was created for a different job (this is a common mis-step)
 
 Resolutions may include:
+
 * Just don't attempt to access the resource. Ignore the error and continue,
 or, if you're testing, use a resource that you do have access to.
 * Locate the owner of the resource (whoever gave you its ID) and ask them to

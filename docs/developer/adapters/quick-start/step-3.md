@@ -117,4 +117,3 @@ Putting it all together, an example of a manifest.json submission is provided be
     "This version integrates a new algorithm that is better at detecting accented speech, specifically targeting Southern US accents. In addition to the improved accuracy, the algorithm runs 20% faster now. The version also fixes some minor bugs with dictionary files and permissions."
 }
 ```
-

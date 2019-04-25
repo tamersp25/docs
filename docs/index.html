@@ -218,14 +218,14 @@
 
       /**
        * "Support" Badges
-       * Replaces instances of `![](badge/API/Yes/green)` with a badge from shields.io
+       * Replaces instances of `[badge/API/Yes/green]` with a badge from shields.io
        * with a label of "API Support", a value of "Yes", and a color of green.
        **/
       function veritoneBadgePlugin(hook) {
         hook.beforeEach(function onBeforePageParsed(content) {
-          var BADGE_REGEX = /!\[]\(badge\/(\w+)\/(\w+)\/(\w+)\)/g;
+          var BADGE_REGEX = /\[badge\/(\w+)\/(\w+)\/(\w+)]/g;
           // TODO: Wrap with link to explanations of what API, Search, and UI Support mean
-          return content.replace(BADGE_REGEX, '![](https://img.shields.io/badge/$1%20Support-$2-$3.svg)');
+          return content.replace(BADGE_REGEX, '![$1 Support: $2](https://img.shields.io/badge/$1%20Support-$2-$3.svg)');
         });
       }
     ].concat(window.$docsify.plugins || []);

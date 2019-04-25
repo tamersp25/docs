@@ -1,3 +1,5 @@
+<!-- markdownlint-disable first-line-h1 -->
+
 Status of the chunk processed, to be sent after processing the chunk.
 
 Key: `chunkprocessedstatus`

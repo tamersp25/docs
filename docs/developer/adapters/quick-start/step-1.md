@@ -1,3 +1,5 @@
+<!-- markdownlint-disable no-inline-html -->
+
 # Step 1 - Register Your Adapter
 
 Building an adapter in Veritone begins with a few basic steps to configure and register it. You'll use the Adapter Registration Wizard to enter general details about your technology, give scope to its capabilities, and specify the properties it will support.
@@ -5,6 +7,7 @@ Building an adapter in Veritone begins with a few basic steps to configure and r
 The Adapter Registration Wizard launches from the Veritone Developer homepage. It walks you through the pages and prompts you to enter specific information about your adapter, including connection and interaction properties, runtime implementation details, and design elements to uniquely identify it in the Veritone UI.
 
 The wizard includes three pages:
+
 * **Basic Adapter Details:** The adapter name, category, description, icon, and logo
 * **Deployment Model:** Host environment type where your adapter will run
 * **Custom Fields:** Additional properties used by your adapter to collect data (optional)
@@ -17,8 +20,8 @@ Provide basic details about your adapter.
 
 | Enter Engine Details   |    |
 | ---------------------- | -- |
-| 1. Log into [Veritone Developer](https://developer.veritone.com). Click **New** in the upper left of the window and select **Adapters** from the dropdown. The _Basic Adapter Details_ page opens. | <div style="width: 500px">![](open-adapter-wizard.png)</div> |
-| 2. **Adapter Name**: _(required)_ Enter the name of your adapter as you would like it to appear to users. </br><br>3. **Adapter Category**: _(required)_ Select the category from the drop-down that describes your adapter's operation type. </br><br>4. **Adapter Description**: _(required)_ Briefly describe the adapter's purpose and function. This description displays to users on the new ingestion job configuration page. </br><br>5. **Icon**: _(optional)_ Upload an icon for your adapter from your local file system as a 128x128 PNG or JPG file. The image displays with your adapter's name on the new ingestion job configuration page. </br><br>6. **Logo**: _(required)_ Upload a logo image for your engine from your local file system as a 500x250 PNG or JPG file. The logo is used to identify your engine on the _Select Adapter_ page of Veritone CMS. It's important to note that the logo is the only identifier users will see &mdash; your adapter's name will not display. To ensure your adapter is easily identified, it's recommended to incorporate the adapter name into your logo image. </br><br>7. Click **Next** to continue. The _Select your deployment model_ window opens. | <div style="width: 500px">![](basic-adapter-details.png)</div>  |
+| 1. Log into [Veritone Developer](https://developer.veritone.com). Click **New** in the upper left of the window and select **Adapters** from the dropdown. The _Basic Adapter Details_ page opens. | <div style="width: 500px">![click new > adapter](open-adapter-wizard.png)</div> |
+| 2. **Adapter Name**: _(required)_ Enter the name of your adapter as you would like it to appear to users. </br><br>3. **Adapter Category**: _(required)_ Select the category from the drop-down that describes your adapter's operation type. </br><br>4. **Adapter Description**: _(required)_ Briefly describe the adapter's purpose and function. This description displays to users on the new ingestion job configuration page. </br><br>5. **Icon**: _(optional)_ Upload an icon for your adapter from your local file system as a 128x128 PNG or JPG file. The image displays with your adapter's name on the new ingestion job configuration page. </br><br>6. **Logo**: _(required)_ Upload a logo image for your engine from your local file system as a 500x250 PNG or JPG file. The logo is used to identify your engine on the _Select Adapter_ page of Veritone CMS. It's important to note that the logo is the only identifier users will see &mdash; your adapter's name will not display. To ensure your adapter is easily identified, it's recommended to incorporate the adapter name into your logo image. </br><br>7. Click **Next** to continue. The _Select your deployment model_ window opens. | <div style="width: 500px">![fill out adapter details](basic-adapter-details.png)</div>  |
 
 ## 2. Choose a Deployment Model
 
@@ -38,7 +41,7 @@ _Additional Notes About Deployment Models:_
 
 | **Choose Deployment Model** |     |
 |--------------------------------- | --- |
-| 1. Click the checkbox on a **deployment model option** to select it. The selected model's checkbox is enabled. <br></br> 2. Click **Next**. The _Custom Fields_ page opens. | <div style="width: 500px">![](choose-adapter-deployment-model.png)</div> |
+| 1. Click the checkbox on a **deployment model option** to select it. The selected model's checkbox is enabled. <br></br> 2. Click **Next**. The _Custom Fields_ page opens. | <div style="width: 500px">![select adapter deployment model](choose-adapter-deployment-model.png)</div> |
 
 ## 3. Add Custom Fields (optional)
 
@@ -48,10 +51,10 @@ Custom Fields are optional and can be added in the Registration Wizard when sett
 
 | **Custom Fields** |     |
 |--------------------------------- | --- |
-| 1. Click **New Field**. The _Add Field_ modal opens. | <div style="width: 500px">![](adapter-custom-fields-1.png)</div> |
-| 2. Enter information for each of the properties to define your field. Properties with an `*` are required. </br><br> a. **Field Name** Enter the name of your field. The field name is used as the `key` of the parameter inside of the `taskPayload` given to your adapter at runtime. </br><br> b. **Field Label** Enter a user-friendly name for your field. The Field Label displays to users when creating a new ingestion job in Veritone CMS. </br> <br> c. **Field Info** Briefly describe the purpose of the field. The Field Info displays to end users in Veritone CMS. </br> <br> d. **Field Type** Choose the type of input the parameter accepts. </br><br><li> _Text:_  Standard text input <br></li><li> _Number:_ Standard number input with optional min/max/step restrictions <br></li><li> _Picklist:_ A list of KVP options where only a single value is accepted <br></li><li> _MultiPicklist:_ A list of KVP options where multiple options can be selected </br><br> 3. Click **Add Field** to save your entry and create the custom field. The _Add Field_ modal closes and the new Custom Field displays in the table. | <div style="width: 500px">![](adapter-custom-fields-2.png)</div> |
-| 4. Repeat the previous steps to create additional Custom Fields, if necessary. When all Custom Fields are created, click **Submit**. The Adapter Registration Wizard closes and the _Upload a New Build_ page opens. | <div style="width: 500px">![](adapter-custom-fields-3.png)</div> |
-| 5. The registration process is complete. Click **Adapters** on the left menu to view and your new adapter on the _Adapters_ dashboard.  | <div style="width: 500px">![](adapter-custom-fields-4.png)</div> |
+| 1. Click **New Field**. The _Add Field_ modal opens. | <div style="width: 500px">![click new field button](adapter-custom-fields-1.png)</div> |
+| 2. Enter information for each of the properties to define your field. Properties with an `*` are required. </br><br> a. **Field Name** Enter the name of your field. The field name is used as the `key` of the parameter inside of the `taskPayload` given to your adapter at runtime. </br><br> b. **Field Label** Enter a user-friendly name for your field. The Field Label displays to users when creating a new ingestion job in Veritone CMS. </br> <br> c. **Field Info** Briefly describe the purpose of the field. The Field Info displays to end users in Veritone CMS. </br> <br> d. **Field Type** Choose the type of input the parameter accepts. </br><br><li> _Text:_  Standard text input <br></li><li> _Number:_ Standard number input with optional min/max/step restrictions <br></li><li> _Picklist:_ A list of KVP options where only a single value is accepted <br></li><li> _MultiPicklist:_ A list of KVP options where multiple options can be selected </br><br> 3. Click **Add Field** to save your entry and create the custom field. The _Add Field_ modal closes and the new Custom Field displays in the table. | <div style="width: 500px">![fill out adapter custom fields form](adapter-custom-fields-2.png)</div> |
+| 4. Repeat the previous steps to create additional Custom Fields, if necessary. When all Custom Fields are created, click **Submit**. The Adapter Registration Wizard closes and the _Upload a New Build_ page opens. | <div style="width: 500px">![save adapter settings](adapter-custom-fields-3.png)</div> |
+| 5. The registration process is complete. Click **Adapters** on the left menu to view and your new adapter on the _Adapters_ dashboard.  | <div style="width: 500px">![locate adapter in list](adapter-custom-fields-4.png)</div> |
 
 ## Adapter States
 
@@ -74,5 +77,5 @@ Upon completion of the registration process your adapter was assigned a unique I
 
 |**Locate an Adapter ID**|   |
 |--------------------------|---|
-|1. Click **Adapters** on the left menu of the Veritone Developer homepage. The _Adapters_ dashboard opens.</br><br> 2. Click the adapter name in the list. The adapter details page opens to the _Builds_ tab. |<div style="width: 500px">![](find-adapter-id-1.png)</div>|
-|The _Adapter ID_ is located under the adapter name near the top of the window. |<div style="width: 500px">![](find-adapter-id-2.png)</div>|
+|1. Click **Adapters** on the left menu of the Veritone Developer homepage. The _Adapters_ dashboard opens.</br><br> 2. Click the adapter name in the list. The adapter details page opens to the _Builds_ tab. |<div style="width: 500px">![click on adapter](find-adapter-id-1.png)</div>|
+|The _Adapter ID_ is located under the adapter name near the top of the window. |<div style="width: 500px">![locate adapter ID](find-adapter-id-2.png)</div>|

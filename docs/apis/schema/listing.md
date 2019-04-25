@@ -4,6 +4,7 @@ Some commonly available tooling for GraphQL, including code generators,
 requires a schema reference.
 
 Current V3 schema files are available at:
+
 * [schema.graphql](https://docs.veritone.com/apis/schema/v3/schema.graphql)
 * [schema.json](https://docs.veritone.com/apis/schema/v3/schema.json)
 
@@ -14,6 +15,7 @@ all schema metadata in the same way that the server itself does.
 Access these queries with the special `__schema` and `__type` queries.
 
 For example:
+
 ```graphql
 query {
   __schema {
@@ -44,6 +46,7 @@ query {
 ```
 
 This query generates:
+
 ```json
 {
   "data": {

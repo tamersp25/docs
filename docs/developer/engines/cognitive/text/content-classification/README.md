@@ -1,8 +1,8 @@
 # Building a Content Classification Engine
 
-![](badge/API/Partial/yellow)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 Content classification engines classify text into particular categories based on what words the text contains.
 

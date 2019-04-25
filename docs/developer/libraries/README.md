@@ -34,4 +34,4 @@ A Library's purpose is to provide a structured technical architecture and user-f
 
 ## Basic Relation Diagram
 
-![](library-design.jpg)
+![Library object model](library-design.jpg)

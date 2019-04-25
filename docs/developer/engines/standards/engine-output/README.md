@@ -34,7 +34,8 @@ The values must be valid JSON data types but have no other constraints.
 
 The four places you can add data to `vendor` sections are:
 
- * At the asset level (applies to the whole file):
+- At the asset level (applies to the whole file):
+
     ```json
     {
       "sourceEngineName": "engine_a",
@@ -45,7 +46,8 @@ The four places you can add data to `vendor` sections are:
     }
     ```
 
- * At the `object` level (applies to a particular object in the whole file):
+- At the `object` level (applies to a particular object in the whole file):
+
     ```json
     {
       "sourceEngineName": "engine_b",
@@ -61,7 +63,8 @@ The four places you can add data to `vendor` sections are:
     }
     ```
 
- * At the time slice (`series`) item level (applies to a particular slice of time):
+- At the time slice (`series`) item level (applies to a particular slice of time):
+
     ```json
     {
       "sourceEngineName": "engine_c",
@@ -78,7 +81,8 @@ The four places you can add data to `vendor` sections are:
     }
     ```
 
- * At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
+- At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
+
     ```json
     {
       "sourceEngineName": "engine_d",
@@ -98,7 +102,6 @@ The four places you can add data to `vendor` sections are:
     }
     ```
 
-
 ### By leveraging structured data
 
 If you would like your data to be displayed in a table in the user interface and indexed for searching against via the search API,
@@ -106,7 +109,8 @@ you can add your data to the vtn-standard file in one of the `structuredData` se
 To do this, you first need to [register a schema through Veritone Developer](/developer/data/quick-start/) that expresses the structure of your data.
 Then you can reference the schema ID in the `structuredData` section and include your custom data under it.
 
- * At the `object` level (applies to a particular object in the whole file):
+- At the `object` level (applies to a particular object in the whole file):
+
     ```json
     {
       "sourceEngineName": "engine_e",
@@ -117,7 +121,7 @@ Then you can reference the schema ID in the `structuredData` section and include
             "a0d65cfd-320b-4557-42ff-4e0c6fe9a152": {
               "scale": "Fahrenheit",
               "degrees": "80"
-		    },
+        },
             "ba735caa-fa9b-a4b2-bb72-2e4dc5a23ff5": {
               "25_30": "1000",
               "31_35": "1200",
@@ -129,7 +133,8 @@ Then you can reference the schema ID in the `structuredData` section and include
     }
     ```
 
- * At the time slice (`series`) item level (applies to a particular slice of time):
+- At the time slice (`series`) item level (applies to a particular slice of time):
+
     ```json
     {
       "sourceEngineName": "engine_f",
@@ -153,7 +158,8 @@ Then you can reference the schema ID in the `structuredData` section and include
     }
     ```
 
- * At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
+- At the time slice (`series`) item `object` level (applies to a particular object in a particular slice of time):
+
     ```json
     {
       "sourceEngineName": "engine_g",

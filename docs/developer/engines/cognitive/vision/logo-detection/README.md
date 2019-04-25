@@ -1,8 +1,8 @@
 # Building a Logo Detection Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Logo detection engines are designed to detect one or more logos or branding elements in an image or video.
 

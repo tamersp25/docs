@@ -1,3 +1,5 @@
+<!-- markdownlint-disable heading-increment -->
+
 # FAQ
 
 #### Where do I find my Application OAuth Keys?

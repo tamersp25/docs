@@ -8,13 +8,14 @@ Together with other capabilities for unstructured data, the Veritone platform ca
 Structured data is data with well-defined fixed fields, which usually can be stored in relational databases and is readily indexed for searching. Structured data can take any text-based format, and Veritone is initially supporting structured data expressed as JSON. Look for other formats to be supported in the future, though.
 
 A few examples of structured data:
-* Social media streams
-* Weather info
-* News feeds
-* Stock prices
-* Personnel records
-* Website analytics
-* Sensor data
+
+- Social media streams
+- Weather info
+- News feeds
+- Stock prices
+- Personnel records
+- Website analytics
+- Sensor data
 
 Structured data can be used in two ways, as primary data or secondary data. When used as primary data, the structured data is the content that you would like to analyze further, using cognitive engines. Structured data can also be used as secondary data, in order to augment or enhance the value of other content. This is done by correlating the structured data to the primary content along a common value in both datasets.
 

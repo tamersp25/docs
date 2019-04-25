@@ -29,8 +29,8 @@ Biometrics | [Face Detection](/developer/engines/cognitive/biometrics/face-detec
 Biometrics | [Face Recognition](/developer/engines/cognitive/biometrics/face-recognition/) | Identifies one or multiple people in an image or video by associating each individual's face to their name.
 Data | [Correlation](/developer/engines/cognitive/data/correlation/) | Associates two data products based on some commonality, such as occurence over time. For example, may associate weather data on a given date with stock prices on that date.
 Data | [Geolocation](/developer/engines/cognitive/data/geolocation/) | Identifies the geographic location of a person or object in the real world or some virtual equivalent.
-Speech | [Speaker Detection](/developer/engines/cognitive/speech/speaker-detection/)	| aka Speaker Separation, Diarization. Partitions an input audio stream into segments according to who is speaking when.
-Speech | [Speaker Recognition](/developer/engines/cognitive/speech/speaker-recognition/)	| aka Speaker Identification. Identifies speakers in an audio file based on trained recordings of their voice.
+Speech | [Speaker Detection](/developer/engines/cognitive/speech/speaker-detection/) | aka Speaker Separation, Diarization. Partitions an input audio stream into segments according to who is speaking when.
+Speech | [Speaker Recognition](/developer/engines/cognitive/speech/speaker-recognition/) | aka Speaker Identification. Identifies speakers in an audio file based on trained recordings of their voice.
 Speech | [Transcription](/developer/engines/cognitive/speech/transcription/) | Converts speech audio to text.
 Text | [Content Classification](/developer/engines/cognitive/text/content-classification/) | Categorizes one or multiple documents according to a pre-defined ontology.
 Text | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | aka Named-entity recognition. Classifies named entities located in unstructured text into pre-defined categories such as people, organizations and locations.
@@ -49,7 +49,7 @@ Vision | [Text Recognition (OCR)](/developer/engines/cognitive/vision/text-recog
 
 <!--TODO: Add back in when we have documentation
 Audio | Audio Recognition | Recognizes sound segments in an audio file, eg. 'gunshot', 'ad' or 'crying baby'.
-Speech | Keyword Spotting	| Finds specific words in an audio recording, without producing a transcript.
+Speech | Keyword Spotting | Finds specific words in an audio recording, without producing a transcript.
 Speech | Language Identification | Identifies the natural human language(s) spoken in an audio file.
 Text | Text-to-Speech | Generates spoken word from text. Configurations may include output voice gender and accent.
 Transformation | Orchestration | Arranges and combines various processes in order to optimize output.

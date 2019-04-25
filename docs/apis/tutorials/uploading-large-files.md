@@ -43,6 +43,7 @@ Veritone supports a maximum request size of 10MB. This limit exceeds the size of
 
 The Veritone API enforces certain file size limitations to ensure the reliability of data uploads. These limits are based on what can be reliably uploaded with a single request in a reasonable amount of time. The following table shows the size limits per request for various file types and upload methods. When uploading a single file, the defined limit is the maximum allowed size for that file. When a file is uploaded in parts, it’s the maximum allowed size for each of the file chunks. Files that are larger than the limits cannot be transferred in a single request. Veritone provides options to accommodate larger file uploads, which are outlined in the *Recommended Best Practice* column of the table and described in detail later in this guide.
 
+<!-- markdownlint-disable no-inline-html -->
 <table>
   <tr align="center">
   <td colspan="4"><h4><b>File Size Limits</b></h4>
@@ -86,6 +87,7 @@ Upload the file via URL</td>
     <td colspan="4">*Note:*  Although there are no restrictions imposed by Veritone for URL uploads, it’s important to note that cognition engines may set their own limits for data processing and analysis. Therefore, it’s recommended to split large files into smaller chunks to optimize performance and reduce the risk of error. </td>
   </tr>
 </table>
+<!-- markdownlint-enable no-inline-html -->
 
 ## Local File System Upload
 
@@ -557,6 +559,7 @@ To work around this issue, simply reduce the size of the payload by either split
 ### Local System File Upload Error
 
 Attempting to upload or attach a file that exceeds 100MB will return an HTTP 413 error response that looks similar to the following:
+
 ```json
 {
   "errors":[
