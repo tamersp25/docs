@@ -1,10 +1,25 @@
 # Create a Job with Cognitive Processing Tasks
 
-Uploaded assets can be processed to detect objects, transcribe the file’s audio into text, and translate between languages. A call to the *Create Job* mutation creates a new job with a list of cognitive processing tasks based on the engine IDs specified in the request body. Additional task payload parameters that indicate how the service is to be performed are required for certain engines. Each job request must set transcoding as the primary task to convert the file to a supported format for processing. The *insert into index* parameter is also required to ensure output data is indexed and made searchable in Veritone.
+A Job is a unit of work in aiWARE. The job, in turn, consists of one or more *tasks*.
+So for example, you can set up a job to operate against an asset so as to detect objects, 
+transcribe the asset’s audio into text, 
+and translate between languages. All of that would fit into a "job."
+
+A call to the `createJob` mutation creates a new job with a list of cognitive processing tasks 
+based on the engine IDs specified in the request body. 
+Additional task payload parameters (that specify how the service is to be performed) are 
+required for certain engines. 
+If an asset needs to be converted to a supported format for processing, 
+the job request must set *transcoding* as the primary task, to convert the file to a 
+supported format for processing. 
+The *insert into index* parameter is also required to ensure output data 
+will be indexed and made searchable in Veritone.
 
 *Important Note about Translation:*
 
-Because translation engines use text to translate one language to another, a file must first be processed for transcription before it can be translated. Transcription can occur separately or in the same job with translation.
+Because translation engines use text to translate one language to another, 
+a media file must first be processed for *transcription* before it can be translated. 
+Transcription can occur separately, or in the same job with translation.
 
 #### Request Payload: Create a Job
 

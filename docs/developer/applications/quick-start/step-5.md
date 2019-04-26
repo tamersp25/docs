@@ -19,3 +19,4 @@ When your application's status shows _Approved_, you can deploy it to production
 Your deployed application is accessible from the *App Picker* by any user in your organization.
 
 ![](App-QS-Step5-3.png)
+    
