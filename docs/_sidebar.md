@@ -113,3 +113,17 @@
     - [Running Engines](developer/libraries/running.md)
 
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
+
+  - [Machine Box](developer/machine-box/)
+    - [Boxes](developer/machine-box/boxes/)
+      - [Facebox](/developer/machine-box/boxes/Facebox.md)
+      - [Tagbox](/developer/machine-box/boxes/Tagbox.md)
+      - [Textbox](/developer/machine-box/boxes/Textbox.md)
+      - [Classificationbox](/developer/machine-box/boxes/Classificationbox.md)
+      - [Nudebox](/developer/machine-box/boxes/Nudebox.md)
+      - [Objectbox](/developer/machine-box/boxes/Objectbox.md)
+      - [Fakebox](/developer/machine-box/boxes/Fakebox.md)
+      - [Videobox](/developer/machine-box/boxes/Videobox.md)
+      - [Suggestionbox](/developer/machine-box/boxes/Suggestionbox.md)
+
+    - [Machine Box APIs](developer/machine-box/Machine-Box-APIs/README.md)
