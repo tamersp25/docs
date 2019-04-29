@@ -1,7 +1,5 @@
 # Welcome to Machine Box
 
-![Machina is the Machine Box mascot designed by Ashley McNamara](machineboxlogo-veritone.png)
-
 Machine Box allows you to integrate, deploy and scale Machine Learning capabilities fast, on-prem or in the cloud.
 
 ## What is Machine Box?
@@ -10,6 +8,8 @@ With Machine Box, you can utilize powerful artifical intelligence and machine le
 capabilities without a science degree. We do all that data science and model training
 for you, and wrap it up into a Docker image that you can deploy once or a million times,
 on-prem, or in the cloud.
+
+![Machina is the Machine Box mascot designed by Ashley McNamara](machineboxlogo-veritone.png)
 
 * Self-contained: No external calls: Everything runs inside the container—your data stays with you
 * Deploy and scale: Deploys everywhere: as many instances as you need
