@@ -115,7 +115,7 @@
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
 
   - [Machine Box](developer/machine-box/)
-    - [Boxes](developer/machine-box/boxes/)
+    - [The Boxes](developer/machine-box/boxes/)
       - [Facebox](/developer/machine-box/boxes/Facebox.md)
       - [Tagbox](/developer/machine-box/boxes/Tagbox.md)
       - [Textbox](/developer/machine-box/boxes/Textbox.md)
