@@ -9,7 +9,7 @@ The Job API is a set of calls that takes you through the workflow for
 performing cognitive task processing — from file ingestion to engine
 processing and retrieving output results.
 
-Veritone's API is built around the GraphQL paradigm to provide a more
+aiWARE's API is built around the GraphQL paradigm to provide a more
 efficient way to deliver data with greater flexibility than a traditional REST approach.
 GraphQL is a [query language](http://graphql.org/learn/queries/) that operates over a single
 endpoint using conventional HTTP requests and returning JSON responses.
@@ -29,13 +29,14 @@ but if you have any questions, please don’t hesitate to reach out to our [Deve
 
 ### Base URL
 
-Veritone uses a single endpoint for accessing the API. All calls to the API are POST requests and are served over *http* with *application/json* encoded bodies.
+aiWARE uses a single endpoint for accessing the API.
+All calls to the API are POST requests and are served over *http* with *application/json* encoded bodies.
 The base URL varies based on the geographic region where the services will run.
 When configuring your integration, choose the base URL from the list below that supports your geographic location.
 
 | Region | Base URL |
 | ------ | -------- |
-| United States | https://api.veritone.com/v3/graphql |
+| United States (Default) | https://api.veritone.com/v3/graphql |
 | United Kingdom | https://api.uk.veritone.com/v3/graphql |
 
 > The above base URLs are provided for use within SaaS environments.
@@ -44,11 +45,20 @@ Applications using GovCloud, on-prem, or other deployments access the API via an
 ### Making Sample Requests
 
 To make it easier to explore, write, and test the API, we set up [GraphiQL](https://api.veritone.com/v3/graphiql) &mdash; an interactive playground that gives you a code editor with autocomplete, validation, and syntax error highlighting features.
-Use the [GraphiQL interface](https://api.veritone.com/v3/graphiql) to construct and execute queries, experiment with different schema modifications, and browse documentation. In addition, GraphiQL bakes authorization right into the schema and automatically passes the `Authentication` header with a valid token when you’re logged into the Veritone system.
+Use the [GraphiQL interface](https://api.veritone.com/v3/graphiql) to construct and execute queries, experiment with different schema modifications, and browse documentation.
+In addition, GraphiQL bakes authorization right into the schema and automatically passes the `Authentication` header with a valid token when you’re logged into the aiWARE system.
 
-Veritone’s [GraphiQL interface](https://api.veritone.com/v3/graphiql) is the recommended method for ad hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the base URL designated for your geographic region with the `query` parameter and `application/json` encoded bodies. In addition, requests must be authenticated using an API Token. Pass the token in your request using the *Authorization* header with a value `Bearer token`. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
+aiWARE’s [GraphiQL interface](https://api.veritone.com/v3/graphiql) is the recommended method for ad hoc API requests, but calls can be made using any HTTP client.
+All requests must be HTTP POST to the base URL designated for your geographic region with the `query` parameter and `application/json` encoded bodies.
+In addition, requests must be authenticated using an API Token.
+Pass the token in your request using the *Authorization* header with a value `Bearer token`.
+If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
 
-The sample requests provided in this documentation are structured for use in our [GraphiQL interface](https://api.veritone.com/v3/graphiql), but we’ve also included the basic cURL structure for your reference below. Please note that the examples shown throughout this guide do not use client information and are not language specific. For fields that require account-specific data (such as a Container ID), replace the value with your own. In addition, the sample requests shown are not all-inclusive — they highlight the minimum requirements and relevant information. Additional attributes for each request can be found in our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
+The sample requests provided in this documentation are structured for use in our [GraphiQL interface](https://api.veritone.com/v3/graphiql), but we’ve also included the basic cURL structure for your reference below.
+Please note that the examples shown throughout this guide do not use client information and are not language specific.
+For fields that require account-specific data (such as a containerId), replace the value with your own.
+In addition, the sample requests shown are not all-inclusive — they highlight the minimum requirements and relevant information.
+Additional attributes for each request can be found in our [GraphQL docs](https://api.veritone.com/v3/graphqldocs/).
 
 #### Basic cURL Structure for Requests
 
@@ -67,13 +77,15 @@ This is pretty duplicate content with authorization stuff.
 Consider whether we can just include or link instead of duplicating.
 -->
 
-Veritone's Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the `Authentication` header of the request with the value `Bearer token`. Requests made without this header or with an invalid token will return an error code.
+aiWARE's Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the `Authentication` header of the request with the value `Bearer token`.
+Requests made without this header or with an invalid token will return an error code.
 
-An API Token can be generated in the Veritone Admin App by your Organization Administrator. If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
+An API Token can be generated in the Veritone Admin App by your Organization Administrator.
+If your organization does not use the Admin App, please contact your Veritone Account Manager for assistance.
 
 **To generate an API Token:**
 
-1. Log into the Veritone Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
+1. Log into the aiWARE Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
 
 1. Click the **API Keys** tile. The *API Key* page opens.
 
@@ -88,6 +100,7 @@ An API Token can be generated in the Veritone Admin App by your Organization Adm
 1. Copy your token and click **Close** when finished.
 
 ?> Once the *Token Generated* window closes, the token code no longer displays and it cannot be viewed again.
+If you misplace the token, you should delete the token and generate a new one.
 
 ## How to Create a Cognitive Processing Job: High-Level Summary
 
@@ -115,16 +128,12 @@ The choice of how many related tasks to wrap in a given job is up to you.
 A lot depends on the scenario.
 For example, in a job that will create a transcript from an audio or video file, there may
 need to be  a `Transcoding` task to convert the file to a supported format for processing.
-Also consider that because translation engines use text to translate one language to another,
-an audio or video file must be *transcribed* before it can be translated.
-(A transcription task can be included in the same job with translation;
-or it can occur in a separate job using the same TDO `id` and the transcription asset as the input file.)
 
 Some of these concepts will become clearer as you read through the example shown below.
 
 ## Create a TDO
 
-In Veritone, jobs and job-related artifacts (such as media files) need to be associated with
+In aiWARE, jobs and job-related artifacts (such as media files) need to be associated with
 a container called a [Temporal Data Object (TDO)](https://api.veritone.com/v3/graphqldocs/temporaldataobject.doc.html).
 The first step in the Job workflow is thus to create a TDO. This is easy to do:
 
@@ -173,14 +182,14 @@ For example, to run a transcription job on an `.mp4` file:
 ```graphql
 mutation createJob {
   createJob(input: {
-    targetId: "460907869", # the TDO id
+    targetId: "460907869", # the TDO ID (from the previous step)
     tasks: [{
-         engineId:"9e611ad7-2d3b-48f6-a51b-0a1ba40feab4", # The real-time adapter
-         payload:{
-             url: "https://s3.amazonaws.com/dev-chunk-cache-tmp/AC.mp4"
-         }
+      engineId: "9e611ad7-2d3b-48f6-a51b-0a1ba40feab4", # ID of webstream adapter
+      payload: {
+         url: "https://s3.amazonaws.com/dev-chunk-cache-tmp/AC.mp4"
+      }
     },{
-      engineId: "54525249-da68-4dbf-b6fe-aea9a1aefd4d" # the transcription engine
+      engineId: "54525249-da68-4dbf-b6fe-aea9a1aefd4d" # ID of a transcription engine
     }]
   }) {
     id
@@ -205,8 +214,8 @@ The response will look like:
 Take note of the returned `id` value.
 This is the value by which you will refer the job in the next step.
 
-> For more information on file ingestion,
-be sure to see [Uploading Large Files](/apis/tutorials/uploading-large-files.md).
+> If you want to process files larger than 100MB, please see additional information on
+[Uploading Large Files](/apis/tutorials/uploading-large-files.md).
 
 ## Check the Job Status
 
@@ -232,6 +241,7 @@ query queryJobStatus {
       }
     }
   }
+}
 ```
 
 > The possible job statuses are `cancelled`, `complete`, `pending`, `queued`, or `running`.
@@ -297,7 +307,7 @@ The response may look similar to:
 
 ## Retrieve Job Output
 
-Once a job has finished, you can request the output of a task,
+Once a job's status is `complete`, you can request the output of a task,
 such as a transcript, translation, or object detection results.
 
 Use the TDO `id`, along with the appropriate engine `id`, to query the item of interest.
@@ -305,7 +315,7 @@ Use the TDO `id`, along with the appropriate engine `id`, to query the item of i
 ```graphql
 query getEngineOutput {
   engineResults(tdoId: "460907869",
-    engineIds: ["54525249-da68-4dbf-b6fe-aea9a1aefd4d"]) {
+    engineIds: ["54525249-da68-4dbf-b6fe-aea9a1aefd4d"]) {  # ID of the transcription engine
     records {
       tdoId
       engineId
@@ -368,7 +378,7 @@ other details specified in the request. Otherwise, an error is returned.
 
 ## Requesting a Specific Output Format
 
-Sometimes you may want a particular flavor of output, such as 'ttml' or 'srt' (for captioning).
+Sometimes you may want a particular flavor of output (such as `ttml` or `srt` for captioning).
 In that case, you can use the `createExportRequest` mutation:
 
 ```graphql
@@ -384,13 +394,13 @@ mutation createExportRequest {
       }]
     }]
   }) {
-  id
-  status
-  organizationId
-  createdDateTime
-  modifiedDateTime
-  requestorId
-  assetUri
+    id
+    status
+    organizationId
+    createdDateTime
+    modifiedDateTime
+    requestorId
+    assetUri
   }
 }
 ```
@@ -440,6 +450,8 @@ The response (showing that the export is, in this case, incomplete):
 }
 ```
 
+When the status becomes `complete`, you can retrieve the results at the URL returned in the `assetUri` field.
+
 ## Delete a TDO and/or Its Content
 
 If a TDO is no longer needed, it can be deleted from an organization’s files
@@ -447,6 +459,9 @@ to free up storage space or comply with organizational policies.
 The API provides flexible options that allow you to delete a TDO and all of its assets,
 or clean up a TDO's content by removing the associated assets so the TDO can be reused
 and new assets can be created.
+
+!> Deleting a TDO data permanently removes contents from aiWARE and they will no longer be accessible via CMS, search, or any other method.
+**Deleting a TDO cannot be undone**!
 
 ### Delete a TDO and All Assets
 
