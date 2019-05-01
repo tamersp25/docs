@@ -10,19 +10,21 @@ On the custom fields table, click on `New Field`.
 
 You will then be presented with the `Add Field` modal which contains a list of fields that we provide for defining custom fields on an engine. The purpose of each field is outlined below.
 
-#### Field Name
+## Parameters
+
+### Field Name
 
 Field name will be used as the `key` of the parameter inside of the `taskPayload` given to your engine at runtime.
 
-#### Field Label
+### Field Label
 
 Field label is used as the friendly name of your parameter when being displayed to end users.
 
-#### Field Info
+### Field Info
 
 Field info is used to provide description to end users regarding the purpose of the parameter.
 
-#### Field Type
+### Field Type
 
 Field type represents the type of input your parameter requires. See the table below for details.
 
@@ -34,11 +36,11 @@ Field type represents the type of input your parameter requires. See the table b
 | MultiPicklist     | Define a list of KVP options, where multiple values are selectable               |
 | SchemaSelection     | For engines that accept a data schema as an input              |
 
-#### Default Value
+### Default Value
 
 Default value will be used as the initial value of your parameter when being displayed to end users.
 
-### Querying an engines fields using GraphQL
+## Querying an engines fields using GraphQL
 
 You can use the query below to view an engines fields, make sure to replace the id `replaceMe` below with the id of the engine you want to query.
 

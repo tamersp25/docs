@@ -1,8 +1,8 @@
 # Building a Text Extraction Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Text extraction engines extract textual information from documents, and express that extracted text in a structured format.
 
@@ -19,6 +19,7 @@ Each string of text is represented as an object of type `text`.
 ### Ordering Indexes
 
 Each object may include any or all of the page/paragraph/sentence indexes:
+
 - `page`: represents a physical page in a page-aware document type like PDF or docx.
 - `paragraph`: represents a section of content like a literary paragraph or a line number in less literary document formats.
 - `sentence`: represents an individual expression of thought like a literary sentence or a grouped string of text

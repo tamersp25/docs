@@ -1,8 +1,8 @@
 # Building a Speaker Detection Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 A speaker detection (aka *diarization* or *speaker separation*) engine partitions an audio stream into segments, based on who is speaking when.
 Unlike a [speaker recognition engine](/developer/engines/cognitive/speech/speaker-recognition/), a speaker *detection* engine merely determines when speaks change and possibly which speakers are the same person.

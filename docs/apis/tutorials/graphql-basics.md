@@ -15,6 +15,7 @@ Every request is an HTTP POST.
 Two types of requests are accepted:  plain JSON and multipart form POST. For most requests you'll use plain JSON. Multipart form POST is useful for mutations that accept a file upload.
 
 To make a plain JSON request:
+
 - use HTTP POST
 - set the `Content-Type` header to `application/json`
 - most operations require authentication. If authenticating, set the `Authorization` header to `Bearer: <your token>`.
@@ -37,6 +38,7 @@ console$ curl https://api.veritone.com/v3/graphql \
 ```
 
 Note that:
+
 - The `Authorization` header is used for authentication
 - The `Content-Type` header is set to `application/json`
 - HTTP POST is used
@@ -47,6 +49,7 @@ Note that:
 be on one line and be properly escaped (note the escaped double quotes).
 
 The API returns plain JSON:
+
 ```json
 {"data":{"asset":{"id":"<your asset ID>","assetType":"transcript"}}}
 ```
@@ -85,6 +88,7 @@ in the variable declaration much match the type where it is
 used (the `id` parameter on `asset`, which is `ID!`).
 
 Here's the rewritten query:
+
 ```graphql
 query assetById($assetId: ID!) {
   asset(id: $assetId) {
@@ -93,8 +97,10 @@ query assetById($assetId: ID!) {
   }
 }
 ```
-The client then provides variable values in a separate JSON
-object. Here is the `curl` example:
+
+The client then provides variable values in a separate JSON object.
+Here is the `curl` example:
+
 ```bash
 console$ curl https://api.veritone.com/v3/graphql \
 >   -H 'Authorization: Bearer <token>' \
@@ -103,8 +109,9 @@ console$ curl https://api.veritone.com/v3/graphql \
 >   -d '{ "query":" query byId($assetId: ID!) { asset(id: $assetId) { id assetType } }", "variables": " {\"assetId\":\"<your asset ID>\"}" }'
 ```
 
-If the request is not formed correctly, you'll receive a 400 error
-back from the GraphQL server. The error message will indicate the problem. Typical causes include:
+If the request is not formed correctly, you'll receive a 400 error back from the GraphQL server.
+The error message will indicate the problem. Typical causes include:
+
 - invalid or unspecified content type
 - the request body does not contain valid JSON with a `query` element
 - the string value of the `query` element is not escaped properly
@@ -135,6 +142,7 @@ curl -v \
 ```
 
 Note the following differences when using multipart form post:
+
 - the GraphQL query is provided as a plain string parameter (it is not embedded in JSON)
 - variables are defined in a JSON object (exclude this parameter if your query does not use variables)
 - a single `file` element contains the file to upload. This convention is used across all Veritone GraphQL APIs that accept a file upload.

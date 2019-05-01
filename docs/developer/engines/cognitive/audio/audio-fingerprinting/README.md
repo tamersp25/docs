@@ -1,8 +1,8 @@
 # Building an Audio Fingerprinting Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/No/red)
-![](badge/UI/Partial/yellow)
+[badge/API/Yes/green]
+[badge/Search/No/red]
+[badge/UI/Partial/yellow]
 
 Audio fingerprinting engines identify pre-recorded audio snippets in audio files based on a particular signature or "fingerprint."
 

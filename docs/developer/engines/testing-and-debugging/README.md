@@ -303,7 +303,7 @@ Any time your engine is asked to process a task which belongs to you, it will be
 
 By expanding the task row, you will be able to view additional information about your task in the tabs provided which are detailed below.
 
-##### Payload
+### Payload
 
 The payload tab displays the JSON payload that your engine will receive at runtime. You should verify that you are handling the payload correctly in your engine and also that the correct parameters (custom fields) are being passed to your engine inside of the payload.
 
@@ -317,7 +317,7 @@ query {
 }
 ```
 
-##### Task Log
+### Task Log
 
 The task log tab displays your engines task log in JSON format.
 The task log is the primary way for you to debug as it allows you to view the standard output (stdout) of your engine.
@@ -340,7 +340,7 @@ query {
 }
 ```
 
-##### Task Output
+### Task Output
 
 The task output tab displays your engine results. Take a look [here](apis/tutorials/engine-results?id=uploading-engine-results) for more information about engine results.
 
@@ -355,7 +355,7 @@ query {
 }
 ```
 
-##### Assets
+### Assets
 
 The assets tab displays all of the assets that were produced by your engine for that particular task. This allows you to view the type of asset that was produced, and also allows you to view the source by clicking on the asset ID. This is useful for verifying that the assets produced have been processed by your engine correctly.
 

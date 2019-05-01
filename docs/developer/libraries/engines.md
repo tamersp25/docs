@@ -1,8 +1,11 @@
 # Library-Enabled engines
 
-An engine will typically act on an individual library per execution. When run in a special "training" mode, the engine should consume applicable identifier assets from the provided library and, depending on the type of engine, generate a trained model. This model is the engine's internal representation of the library and an engine state that can be referenced by future invocations. This process is demonstrated in the diagram below:
+An engine will typically act on an individual library per execution.
+When run in a special "training" mode, the engine should consume applicable identifier assets from the provided library and, depending on the type of engine, generate a trained model.
+This model is the engine's internal representation of the library and an engine state that can be referenced by future invocations.
+This process is demonstrated in the diagram below:
 
-![](https://gcc-elb-public-prod.gliffy.net/embed/image/3a64764f-4d70-4f63-8561-55b8c0409634.png?utm_medium=live&utm_source=custom)
+![library engine training flow](https://gcc-elb-public-prod.gliffy.net/embed/image/3a64764f-4d70-4f63-8561-55b8c0409634.png?utm_medium=live&utm_source=custom)
 
 ## Engine Configuration
 
@@ -13,6 +16,7 @@ Additionally, depending on the engine category, the engine is configured to cons
 
 To see the mappings between engine categories and identifier types,
 use the following query:
+
 ```graphql
 query {
   engineCategories {
@@ -33,6 +37,7 @@ query {
 
 Engine categories that support libraries will have lists of
 compatible identifier types. For example:
+
 ```json
 {
           "id": "6faad6b7-0837-45f9-b161-2f6bf31b7a07",
@@ -108,6 +113,7 @@ mutation {
   }
 }
 ```
+
 This query will return the libraryEngineModelId that can be used in your sample payload. It can be re-used as necessary.
 
 Continue on to [training engines](/developer/libraries/training).

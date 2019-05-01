@@ -25,11 +25,13 @@ Some fields on the Veritone schema use simple arrays.
 For example, the `User` type has a list of user settings.
 Here's the schema definition:
 
-```
+```graphql
 # Settings for the user
 userSettings: [UserSetting!]
 ```
+
 And here's a sample query:
+
 ```graphql
 query {
   me {
@@ -85,7 +87,7 @@ Further, each paged field takes a standard pair of parameters that control
 paging.
 For example, here is the definition for `jobs`:
 
-```
+```graphql
 type Query {
   jobs(
     # Provide an offset to skip to a certain element in the result, for paging.
@@ -108,6 +110,7 @@ type JobList implements Page {
 ```
 
 Here we'll ask for the first page of three:
+
 ```graphql
 query {
   jobs (offset: 0 limit: 3){
@@ -159,6 +162,7 @@ The client cannot know ahead of time how many results there are; it must
 iterate over the pages until it reaches the end.
 
 The API follows the following contract across all paged fields:
+
 * the default offset is 0 (first page)
 * there is a default page size, almost always 30 (documented per field)
 * the number of objects returned in `records` will be less than or equal
@@ -200,10 +204,12 @@ query {
 ```
 
 Note that:
+
 * the nested `tasks` field _also_ is paged
 * the page parameters for `jobs` and its nested `tasks` are independent
 
 It returns:
+
 ```json
 {
   "data": {
@@ -264,6 +270,7 @@ It returns:
 ```
 
 As we examine the response, some important facts become apparent.
+
 * the `tasks` field involves retrieving and populating a separate set of
 objects _per job_ in top-level job page. Thus, this query can be considerably
 more expensive than the original `jobs` query even though the page size is
@@ -295,6 +302,7 @@ In some cases you may want to make query that returns minimal information
 about each object but an entire result set. For example, you might want
 to get the entire list of engine names and IDs within a given category.
 Simply set a very large page size:
+
 ```graphql
 query {
   engines(categoryId: "6faad6b7-0837-45f9-b161-2f6bf31b7a07", limit: 500) {

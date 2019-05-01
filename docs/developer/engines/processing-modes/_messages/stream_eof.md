@@ -1,3 +1,5 @@
+<!-- markdownlint-disable first-line-h1 -->
+
 Indicates when the stream has reached its end.
 
 Key: `stream_eof`

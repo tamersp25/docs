@@ -1,8 +1,8 @@
 # Building a Face Detection Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 Face detection engines can detect human faces in media assets, and locate them (within the visual frame) in terms of a bounding polygon.
 Unlike a [face recognition engine](/developer/engines/cognitive/biometrics/face-recognition/), a face *detection* engine merely determines whether a face (*any* face) was detected.

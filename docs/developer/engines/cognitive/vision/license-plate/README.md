@@ -1,8 +1,8 @@
 # Building a License Plate Recognition (ALPR) Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Yes/green]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 An automated license plate recognition (ALPR) engine extracts text strings from images or videos of vehicle license plates.
 

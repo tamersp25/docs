@@ -1,8 +1,8 @@
 # Building a Language Identification Engine
 
-![](badge/API/Partial/yellow)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 Language identification engines analyze text to deduce the most likely language being used in the text.
 
@@ -31,7 +31,7 @@ In this case, engines are given the entire file as their input and are responsib
 
 ## Engine Output
 
-Languages are specified according to the `language` validation contract by specifying the `language` key on the entire document. 
+Languages are specified according to the `language` validation contract by specifying the `language` key on the entire document.
 
 [](../_snippets/language_code_spec.md ':include')
 

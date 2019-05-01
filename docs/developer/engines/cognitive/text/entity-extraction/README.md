@@ -1,8 +1,8 @@
 # Building an Entity Extraction Engine
 
-![](badge/API/Partial/yellow)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 Entity extraction engines classify named entities, located in unstructured text, into predefined categories such as People, Organizations, and/or Locations.
 
@@ -29,7 +29,7 @@ In this case, engines are given the entire file as their input and are responsib
 
 > In the future, entity extraction engines will also be able to accept `vtn-standard` [text extraction output](/developer/engines/cognitive/text/text-extraction/?id=engine-output) as their input, opening up processing to any file types supported by text extraction engines.
 
-### Training and Libraries	
+### Training and Libraries
 
 If entity extraction engines are made [trainable with libraries](/developer/libraries/engines) then they can map their output back to entities in the libraries they were trained on by including an `entityId` in their engine output.
 

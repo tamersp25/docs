@@ -1,10 +1,10 @@
 # Step 3. Build an Application: Add APIs and Components
 
-### Leveraging our Components/Widgets
+## Leveraging our Components/Widgets
 
 Please see our [resources section](/developer/applications/resources) to check out a list of the various resources we provide to help you fast-track your application development.
 
-### Using our APIs
+## Using our APIs
 
 Veritone provides intelligent APIs that allow you to easily add AI features &mdash; such as object detection, face recognition, or transcription &mdash; into your application.
 

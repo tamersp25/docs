@@ -1,8 +1,8 @@
 # Building an Object Detection Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Yes/green)
-![](badge/UI/Yes/green)
+[badge/API/Yes/green]
+[badge/Search/Yes/green]
+[badge/UI/Yes/green]
 
 An object detection engine detects one or more objects in an image or video, based on a general (high level) ontology.
 For example, the engine might detect objects such as `person`, `desk`, or `aircraft`.

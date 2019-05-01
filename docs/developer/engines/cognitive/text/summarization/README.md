@@ -1,8 +1,8 @@
 # Building a Summarization Engine
 
-![](badge/API/Partial/yellow)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 Summarization engines generate a readable summary of a given piece of text.
 

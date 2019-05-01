@@ -1,8 +1,8 @@
 # Building a Translation Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/No/red)
-![](badge/UI/Partial/yellow)
+[badge/API/Yes/green]
+[badge/Search/No/red]
+[badge/UI/Partial/yellow]
 
 Translation engines take the content of a file and translate it to another language, ideally outputting it in the same format as the input.
 
@@ -114,6 +114,7 @@ In this case the engine can decide whether to support such a condition (and gues
 ###### Output
 
 Notice the following:
+
 - The `text` values have been changed to the translated text.
 - The `language` tag has been adjusted from `en` to `es`.
 - The `confidence` values now reflect the confidence of the translation, not the original text extraction.
@@ -138,6 +139,7 @@ In this case the engine can decide whether to support such a condition (and gues
 ###### Output
 
 Notice the following:
+
 - The `text` values have been changed to the translated text.
 - The `language` tag has been adjusted from `en` to `es`.
 - The `confidence` values now reflect the confidence of the translation, not the original text extraction.

@@ -41,12 +41,14 @@ See the [API reference](https://api.veritone.com/v3/graphqldocs/createexportrequ
 
 ## Format-Specific Options
 
-The `options` block under `formats` is (by definition) optional. 
+The `options` block under `formats` is (by definition) optional.
 When it is used, please note that different options apply to different formats.
 
+<!-- markdownlint-disable no-inline-html -->
 | Format | Available Options |
 | ---- | ---- |
 | `txt` | `maxCharacterPerLine`<br/>`withSpeakerData`<br/>`timeGapToSeparateParagraphMs` |
 | `ttml` | `maxCharacterPerLine`<br/>`newLineOnPunctuation`<br/>`withSpeakerData` |
 | `vtt` | `maxCharacterPerLine`<br/>`newLineOnPunctuation`<br/>`withSpeakerData`<br/>`linesPerScreen` |
 | `srt` | `maxCharacterPerLine`<br/>`newLineOnPunctuation`<br/>`withSpeakerData`<br/>`linesPerScreen` |
+<!-- markdownlint-enable no-inline-html -->

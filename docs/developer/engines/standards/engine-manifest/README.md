@@ -80,12 +80,12 @@ Fields that are not marked as being required are optional; they should be includ
 * push
 
 ### Available cluster sizes
+
 <!--TODO: This table should be flipped around and maybe more details provided (if we have them)-->
 
 |     | Small | Medium | Large |
 | --- | ----- | ------ | ----- |
 | RAM | 512MB | 2GB    | 6GB   |
-
 
 ### GPU Options
 
@@ -131,7 +131,6 @@ Fields that are not marked as being required are optional; they should be includ
 * video/x-m4v
 * video/x-ms-wmv
 * video/x-msvideo
-
 
 ## Example
 

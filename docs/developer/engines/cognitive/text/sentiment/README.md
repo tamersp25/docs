@@ -1,8 +1,8 @@
 # Building a Sentiment Analysis Engine
 
-![](badge/API/Partial/yellow)
-![](badge/Search/No/red)
-![](badge/UI/No/red)
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
 
 A sentiment analysis engine classifies text according to sentiment or emotion, which may be a score representing negative, positive, or neutral sentiment, or could include a wider breadth of tags (such as "happy" or "excited").
 

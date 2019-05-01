@@ -1,8 +1,8 @@
 # Building a Speaker Recognition Engine
 
-![](badge/API/Yes/green)
-![](badge/Search/Partial/yellow)
-![](badge/UI/No/red)
+[badge/API/Yes/green]
+[badge/Search/Partial/yellow]
+[badge/UI/No/red]
 
 Speaker recognition (aka *speaker identification*) engines identify when speakers change and who those speakers are in a piece of audio.
 They expand upon the capabilities of [speaker detection](/developer/engines/cognitive/speaker-detection/) engines by identifying the individual whose voice was detected in addition to specifying where in time the person started and stopped talking.
