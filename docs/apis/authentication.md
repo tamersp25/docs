@@ -24,11 +24,11 @@ Veritone Admin opens.
 
 2. Click the **API Keys** tile.
 The API Keys page opens.
-![Get API Token](Get-API-Token-1.png)
+![Get API Token](_media/Get-API-Token-1.png)
 
 3. Click **New API** Key.
 The New API Key window opens.
-![Get API Token](Get-API-Token-2.png)
+![Get API Token](_media/Get-API-Token-2.png)
 
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks.
 Click **Generate Token** to save.
