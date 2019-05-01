@@ -5,7 +5,7 @@
   "main": "n/a",
   "scripts": {
     "build": "sh ./schemagen.sh && rm -rf build-${ENVIRONMENT:-local} && mkdir build-${ENVIRONMENT:-local} && cp -r docs/* build-${ENVIRONMENT:-local}/",
-    "lint": "./node_modules/.bin/markdownlint --ignore \"docs/apis/*-quickstart.md\" docs/**/*.md",
+    "lint": "./node_modules/.bin/markdownlint --ignore \"docs/apis/search-quickstart.md\" docs/**/*.md",
     "start": "./node_modules/.bin/docsify serve ./docs",
     "test": "echo \"tests temporarily disabled\" && true  # ./node_modules/.bin/codeceptjs run --reporter mocha-multi",
     "test:full": "yarn && yarn build && HTTP_PORT=3333 yarn test",

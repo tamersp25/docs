@@ -2,57 +2,48 @@
 
 ## Getting Started
 
-Veritone Job API allows you to easily integrate cognitive functionality 
-such as object detection, language translation, and voice transcription 
-with just a few lines of code. 
-The Job API is a set of calls that takes you through the workflow for 
-performing cognitive task processing — from file ingestion to engine 
+The aiWARE Job API allows you to easily integrate cognitive functionality
+such as object detection, language translation, and voice transcription
+with just a few lines of code.
+The Job API is a set of calls that takes you through the workflow for
+performing cognitive task processing — from file ingestion to engine
 processing and retrieving output results.
 
-Veritone's API is built around the GraphQL paradigm to provide a more 
-efficient way to deliver data with greater flexibility than a traditional REST approach. 
-GraphQL is a [query language](http://graphql.org/learn/queries/) that operates over a single 
-endpoint using conventional HTTP requests and returning JSON responses. 
-The structure not only lets you call multiple nested resources in a single query, 
+Veritone's API is built around the GraphQL paradigm to provide a more
+efficient way to deliver data with greater flexibility than a traditional REST approach.
+GraphQL is a [query language](http://graphql.org/learn/queries/) that operates over a single
+endpoint using conventional HTTP requests and returning JSON responses.
+The structure not only lets you call multiple nested resources in a single query,
 it also allows you to define requests so that only requested data is sent back.
 
 This quickstart guide provides resources, detailed documentation, and example requests and responses to help get your integration up and running to perform the following operations:
 
-*  **[Create a TDO (recording container)](#create-a-tdo)**
-*  **[Create a job](#create-a-job) consisting of one or more tasks**
-*  **[Check the status of a job](#check-the-job-status)**
-*  **[Retrieve job results](#retrieve-job-output)**
-*  **[Delete a TDO (recording container)](#delete-a-tdo-andor-its-content)**
+1. [Create a TDO (recording container)](#create-a-tdo)
+1. [Create a job](#create-a-job) consisting of one or more tasks
+1. [Check the status of a job](#check-the-job-status)
+1. [Retrieve job results](#retrieve-job-output)
+1. [Delete a TDO (recording container)](#delete-a-tdo-andor-its-content)
 
-We designed this quickstart to be user friendly and example filled, 
+We designed this quickstart to be user friendly and example filled,
 but if you have any questions, please don’t hesitate to reach out to our [Developer Support Team](mailto:devsupport@veritone.com) for help.
 
-### **Base URL**
+### Base URL
 
-Veritone uses a single endpoint for accessing the API. All calls to the API are POST requests and are served over *http* with *application/json* encoded bodies. 
-The base URL varies based on the geographic region where the services will run. 
+Veritone uses a single endpoint for accessing the API. All calls to the API are POST requests and are served over *http* with *application/json* encoded bodies.
+The base URL varies based on the geographic region where the services will run.
 When configuring your integration, choose the base URL from the list below that supports your geographic location.
 
-<table>
-  <tr>
-    <td><b>Region</b></td>
-    <td><b>Base URL</b></td>
-  </tr>
-  <tr>
-    <td>United States</td>
-    <td>[https://api.veritone.com/v3/graphql](https://api.veritone.com/v3/graphql)</td>
-  </tr>
-  <tr>
-    <td>Europe</td>
-    <td>[https://api.uk.veritone.com/v3/graphql](https://api.uk.veritone.com/v3/graphql)</td>
-  </tr>
-</table>
+| Region | Base URL |
+| ------ | -------- |
+| United States | https://api.veritone.com/v3/graphql |
+| United Kingdom | https://api.uk.veritone.com/v3/graphql |
 
-> The above base URLs are provided for use within SaaS environments. Applications using an on-prem deployment access the API via an endpoint that's custom configured to the private network.
+> The above base URLs are provided for use within SaaS environments.
+Applications using GovCloud, on-prem, or other deployments access the API via an endpoint that's custom configured to the private network.
 
-### **Making Sample Requests**
+### Making Sample Requests
 
-To make it easier to explore, write, and test the API, we set up [GraphiQL](https://api.veritone.com/v3/graphiql) &mdash; an interactive playground that gives you a code editor with autocomplete, validation, and syntax error highlighting features. 
+To make it easier to explore, write, and test the API, we set up [GraphiQL](https://api.veritone.com/v3/graphiql) &mdash; an interactive playground that gives you a code editor with autocomplete, validation, and syntax error highlighting features.
 Use the [GraphiQL interface](https://api.veritone.com/v3/graphiql) to construct and execute queries, experiment with different schema modifications, and browse documentation. In addition, GraphiQL bakes authorization right into the schema and automatically passes the `Authentication` header with a valid token when you’re logged into the Veritone system.
 
 Veritone’s [GraphiQL interface](https://api.veritone.com/v3/graphiql) is the recommended method for ad hoc API requests, but calls can be made using any HTTP client. All requests must be HTTP POST to the base URL designated for your geographic region with the `query` parameter and `application/json` encoded bodies. In addition, requests must be authenticated using an API Token. Pass the token in your request using the *Authorization* header with a value `Bearer token`. If you’re using a raw HTTP client, the query body contents must be sent in a string with all quotes escaped.
@@ -69,7 +60,12 @@ curl -X POST \
   -d '{"query": "mutation { createTDO( input: { startDateTime: 1507128535, stopDateTime: 1507128542, name: \"My New Video\", description: \"The latest video in the series\" }) { id,  status } }" }'
 ```
 
-### **Authentication**
+### Authentication
+
+<!--TODO:
+This is pretty duplicate content with authorization stuff.
+Consider whether we can just include or link instead of duplicating.
+-->
 
 Veritone's Job API uses bearer token authentication for requests. To authenticate your calls, provide a valid API Token in the `Authentication` header of the request with the value `Bearer token`. Requests made without this header or with an invalid token will return an error code.
 
@@ -78,18 +74,20 @@ An API Token can be generated in the Veritone Admin App by your Organization Adm
 **To generate an API Token:**
 
 1. Log into the Veritone Platform and select **Admin** from the *App Picker* drop-down. The *Admin App* opens.
-2. Click the **API Keys** tile. The *API Key* page opens.
 
-![Get API Token](Get-API-Token-1.png)
+1. Click the **API Keys** tile. The *API Key* page opens.
 
-3. Click **New API** Key. The *New API Key* window opens.
+  ![Get API Token](Get-API-Token-1.png)
 
-![Get API Token](Get-API-Token-2.png)
+1. Click **New API** Key. The *New API Key* window opens.
 
-4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated *window opens.
-5. Copy your token and click **Close** when finished.
+  ![Get API Token](Get-API-Token-2.png)
 
-> Once the *Token Generated* window closes, the token code no longer displays and it cannot be viewed again.
+1. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated *window opens.
+
+1. Copy your token and click **Close** when finished.
+
+?> Once the *Token Generated* window closes, the token code no longer displays and it cannot be viewed again.
 
 ## How to Create a Cognitive Processing Job: High-Level Summary
 
@@ -97,59 +95,57 @@ For this quickstart, we will run a transcription job on a video file (.mp4) stor
 This is a relatively simple example, but it shows the overall pattern you will follow in running cognitive processing jobs.
 The approach is to:
 
-1\. Create a TDO.
+<!--TODO: This list looks redundant with the one above.  Consolidate?-->
 
-2\. Create the job. 
-
-3\. Poll for status.
-
-4\. Obtain the output of the job.
-
-5\. Clean up.
+1. Create a TDO.
+2. Create the job.
+3. Poll for status.
+4. Obtain the output of the job.
+5. Clean up.
 
 Each of these steps involves its own mutation or query.
 
 The second step not only specifies the tasks associated with the job, but actually queues and kicks off the job.
 
-Note that a job can contain one or more *tasks*. 
-Each task is associated with an engine. 
-The task will also usually specify an asset to operate against. 
+Note that a job can contain one or more *tasks*.
+Each task is associated with an engine.
+The task will also usually specify an asset to operate against.
 (You will see how this works in the [Create a Job](#create-a-job) section below.)
-The choice of how many related tasks to wrap in a given job is up to you. 
-A lot depends on the scenario. 
+The choice of how many related tasks to wrap in a given job is up to you.
+A lot depends on the scenario.
 For example, in a job that will create a transcript from an audio or video file, there may
-need to be  a `Transcoding` task to convert the file to a supported format for processing. 
-Also consider that because translation engines use text to translate one language to another, 
-an audio or video file must be *transcribed* before it can be translated. 
-(A transcription task can be included in the same job with translation; 
+need to be  a `Transcoding` task to convert the file to a supported format for processing.
+Also consider that because translation engines use text to translate one language to another,
+an audio or video file must be *transcribed* before it can be translated.
+(A transcription task can be included in the same job with translation;
 or it can occur in a separate job using the same TDO `id` and the transcription asset as the input file.)
 
 Some of these concepts will become clearer as you read through the example shown below.
 
 ## Create a TDO
 
-In Veritone, jobs and job-related artifacts (such as media files) need to be associated with 
-a container called a [Temporal Data Object (TDO)](https://api.veritone.com/v3/graphqldocs/temporaldataobject.doc.html). 
+In Veritone, jobs and job-related artifacts (such as media files) need to be associated with
+a container called a [Temporal Data Object (TDO)](https://api.veritone.com/v3/graphqldocs/temporaldataobject.doc.html).
 The first step in the Job workflow is thus to create a TDO. This is easy to do:
 
 ```graphql
 mutation createTDO {
   createTDO(
     input: {
-      startDateTime: "2019-04-24T21:49:04.412Z", 
+      startDateTime: "2019-04-24T21:49:04.412Z",
       stopDateTime: "2019-04-24T21:50:04.412Z"
     }
-  ) 
+  )
   {
     id
   }
 }
 ```
 
-> The `startDateTime` and `stopDateTime` values are required, but can be dummy values. 
-The only firm requirements are that the values exist, and that the 
-second value is greater than the first (but not by more than a year). 
-You can supply an integer here (milliseconds), or any ISO-8601-legal string. 
+> The `startDateTime` and `stopDateTime` values are required, but can be dummy values.
+The only firm requirements are that the values exist, and that the
+second value is greater than the first (but not by more than a year).
+You can supply an integer here (milliseconds), or any ISO-8601-legal string.
 E.g. `"20190424T174428Z"` and `"2019-04-24T21:49:04.412Z"` are both acceptable string values.
 
 A successful response will look like:
@@ -168,8 +164,8 @@ Take note of the `id`. You will need it to create a job.
 
 ## Create a Job
 
-If you know the URI of the media file you wish to process, you can immediately create the job that will run against that media file. 
-You just need the URI of the file, the `targetId` of the TDO you created in the previous step, 
+If you know the URI of the media file you wish to process, you can immediately create the job that will run against that media file.
+You just need the URI of the file, the `targetId` of the TDO you created in the previous step,
 and the `engineId` values of any engines that will be called upon to ingest and process the file.
 
 For example, to run a transcription job on an `.mp4` file:
@@ -179,7 +175,7 @@ mutation createJob {
   createJob(input: {
     targetId: "460907869", # the TDO id
     tasks: [{
-         engineId:"9e611ad7-2d3b-48f6-a51b-0a1ba40feab4", # The real-time adapter 
+         engineId:"9e611ad7-2d3b-48f6-a51b-0a1ba40feab4", # The real-time adapter
          payload:{
              url: "https://s3.amazonaws.com/dev-chunk-cache-tmp/AC.mp4"
          }
@@ -206,16 +202,16 @@ The response will look like:
 }
 ```
 
-Take note of the returned `id` value. 
+Take note of the returned `id` value.
 This is the value by which you will refer the job in the next step.
 
-> For more information on file ingestion, 
+> For more information on file ingestion,
 be sure to see [Uploading Large Files](/apis/tutorials/uploading-large-files.md).
 
 ## Check the Job Status
 
-Jobs run asynchronously. 
-You can check the job status (and also the individual `status` fields of the tasks) 
+Jobs run asynchronously.
+You can check the job status (and also the individual `status` fields of the tasks)
 with a query similar to this:
 
 ```graphql
@@ -238,13 +234,13 @@ query queryJobStatus {
   }
 ```
 
-> The possible job statuses are `cancelled`, `complete`, `pending`, `queued`, or `running`. 
-Tasks can have those same statuses, as well as `aborted`, `accepted`, 
+> The possible job statuses are `cancelled`, `complete`, `pending`, `queued`, or `running`.
+Tasks can have those same statuses, as well as `aborted`, `accepted`,
 `failed`, `resuming`, `standby_pending`, or `waiting`.
 
 The response may look similar to:
 
-```graphql
+```json
 {
   "data": {
     "job": {
@@ -301,14 +297,14 @@ The response may look similar to:
 
 ## Retrieve Job Output
 
-Once a job has finished, you can request the output of a task, 
+Once a job has finished, you can request the output of a task,
 such as a transcript, translation, or object detection results.
 
 Use the TDO `id`, along with the appropriate engine `id`, to query the item of interest.
 
 ```graphql
 query getEngineOutput {
-  engineResults(tdoId: "460907869", 
+  engineResults(tdoId: "460907869",
     engineIds: ["54525249-da68-4dbf-b6fe-aea9a1aefd4d"]) {
     records {
       tdoId
@@ -323,7 +319,7 @@ query getEngineOutput {
 }
 ```
 
-The response will be a (potentially sizable) JSON object. 
+The response will be a (potentially sizable) JSON object.
 The following example has a shortened `series` array; normally it is much longer.
 
 ```json
@@ -350,10 +346,10 @@ The following example has a shortened `series` array; normally it is much longer
                     "bestPath": true,
                     "utteranceLength": 1
                   }
-                ], 
+                ],
                 "language": "en"
-              } 
-            ], 
+              }
+            ],
             "modifiedDateTime": 1555357780000,
             "sourceEngineId": "54525249-da68-4dbf-b6fe-aea9a1aefd4d"
           },
@@ -363,12 +359,11 @@ The following example has a shortened `series` array; normally it is much longer
       ]
     }
   }
-}              
-
+}
 ```
 
-As you can see, transcripts contain time-correlated, word-based text fragments with 
-beginning and ending times. A successful call returns the transcript data, with an `assetId`, and 
+As you can see, transcripts contain time-correlated, word-based text fragments with
+beginning and ending times. A successful call returns the transcript data, with an `assetId`, and
 other details specified in the request. Otherwise, an error is returned.
 
 ## Requesting a Specific Output Format
@@ -379,12 +374,12 @@ In that case, you can use the `createExportRequest` mutation:
 ```graphql
 mutation createExportRequest {
   createExportRequest(input: {
-    includeMedia: false, 
-    tdoData: [{tdoId: "431011721"}], 
+    includeMedia: false,
+    tdoData: [{tdoId: "431011721"}],
     outputConfigurations: [{
-      engineId: "71ab1ba9-e0b8-4215-b4f9-0fc1a1d2b44d", 
+      engineId: "71ab1ba9-e0b8-4215-b4f9-0fc1a1d2b44d",
       formats: [{
-        extension: "vtt", 
+        extension: "vtt",
         options: {newLineOnPunctuation: false}
       }]
     }]
@@ -418,7 +413,7 @@ The response:
 }
 ```
 
-Since an export request may take time to process, you should poll until the status is complete, 
+Since an export request may take time to process, you should poll until the status is complete,
 using the `id` returned above.
 
 ```graphql
@@ -447,26 +442,27 @@ The response (showing that the export is, in this case, incomplete):
 
 ## Delete a TDO and/or Its Content
 
-If a TDO is no longer needed, it can be deleted from an organization’s files 
-to free up storage space or comply with organizational policies. 
-The API provides flexible options that allow you to delete a TDO and all of its assets, 
-or clean up a TDO's content by removing the associated assets so the TDO can be reused 
+If a TDO is no longer needed, it can be deleted from an organization’s files
+to free up storage space or comply with organizational policies.
+The API provides flexible options that allow you to delete a TDO and all of its assets,
+or clean up a TDO's content by removing the associated assets so the TDO can be reused
 and new assets can be created.
 
 ### Delete a TDO and All Assets
 
-To delete a TDO and all asset metadata, make a request to the `deleteTDO` mutation 
-and pass the TDO `id` as an argument. 
-This operation is processed immediately at the time of the request and 
-permanently deletes the specified TDO *as well as its assets* from the organization's account. 
+To delete a TDO and all asset metadata, make a request to the `deleteTDO` mutation
+and pass the TDO `id` as an argument.
+This operation is processed immediately at the time of the request and
+permanently deletes the specified TDO *as well as its assets* from the organization's account.
 Any subsequent requests against the TDO or assets will return an error.
 
-First, we'll look at how to delete the entire TDO. 
+First, we'll look at how to delete the entire TDO.
 Then we'll discuss how to remove *just the content items*.
 
- #### Example: Delete a TDO
- ```graphql
- mutation{
+#### Example: Delete a TDO
+
+```graphql
+mutation{
   deleteTDO(id: "44512341")
      {
       id
@@ -490,9 +486,9 @@ The response is:
 
 ### Remove TDO Content
 
-To remove just the asset (content) associated with a TDO, while retaining the TDO/container 
-and asset metadata, make a request to the `cleanupTDO` mutation with the TDO `id`. 
-This mutation uses the `options` parameter along with any combination of the values below 
+To remove just the asset (content) associated with a TDO, while retaining the TDO/container
+and asset metadata, make a request to the `cleanupTDO` mutation with the TDO `id`.
+This mutation uses the `options` parameter along with any combination of the values below
 to specify the type(s) of data to be deleted.
 
 * `storage`: Deletes the TDO's assets from storage, including engine results. Asset metadata will remain until the TDO/container is deleted.
@@ -501,7 +497,8 @@ to specify the type(s) of data to be deleted.
 
 !> Requests that do not use the `options` parameter will remove the TDO's content from `storage` and the `search index` by default.
 
- #### Example: Remove TDO Content (storage, engineResults)
+#### Example: Remove TDO Content (storage, engineResults)
+
 ```graphql
 mutation {
   cleanupTDO(id: "44512341", options: [storage, engineResults]) {
@@ -523,4 +520,5 @@ Response:
   }
 }
 ```
+
 <!-- TODO: Create some "What Next?" or "See Also" links here, anticipating customer questions. -->
