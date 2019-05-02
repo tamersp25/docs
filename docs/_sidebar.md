@@ -16,8 +16,8 @@
     - [Mutation Methods](apis/reference/mutation/)
     - [Query Methods](apis/reference/query/)
     - [API Examples](apis/examples.md)
-    - [Job Quickstart Guide](apis/job-quickstart.md)
-    - [Search Quickstart Guide](apis/search-quickstart.md)
+    - [Job Quickstart Guide](apis/job-quickstart/)
+    - [Search Quickstart Guide](apis/search-quickstart/)
   - Tutorials
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
