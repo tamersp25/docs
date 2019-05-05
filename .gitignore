@@ -3,6 +3,7 @@
 .idea
 !.idea/dictionaries
 .vscode
+.idea/
 
 node_modules
 
