@@ -3,7 +3,7 @@
 The following diagram presents a high-level overview of the data model
 implemented in the Veritone GraphQL API.
 
-![Entity relationship diagram](veritone-graphql-erd.svg)
+![Entity relationship diagram](_media/veritone-graphql-erd.svg)
 
 Typically, each block in the diagram has a corresponding type in the GraphQL
 schema. Each type has corresponding queries that retrieve it and mutations

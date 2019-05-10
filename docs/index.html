@@ -111,6 +111,10 @@
         // Ensures there's only ever one single sidebar
         '/.*/_sidebar.md': '/_sidebar.md',
 
+        // Permalinks for deprecated sections
+        '^\/apis\/job-quick-start-guide.*$': '/apis/job-quickstart/',
+        '^\/apis\/search-quick-start-guide.*$': '/apis/search-quickstart/',
+
         // Maintaining permalinks from old engines section
         '^\/engines\/classes$': '/developer/engines/cognitive/',
         // TODO: It'd be nice to port over some of the quick-start pages that still apply though.  All those screenshots and stuff...
@@ -148,6 +152,8 @@
         '^\/architecture-overview(|.md)$': '/architecture-overview/',
         '^\/glossary(|.md)': '/glossary/',
         '^\/apis$': '/apis/',
+        '^\/apis\/job-quickstart(|.md)$': '/apis/job-quickstart/',
+        '^\/apis\/search-quickstart(|.md)$': '/apis/search-quickstart/',
         '^\/apis\/tutorials$': '/apis/tutorials/',
         '^\/developer\/applications$': '/developer/applications/',
         '^\/developer\/data$': '/developer/data/',
