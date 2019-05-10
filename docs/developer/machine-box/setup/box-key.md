@@ -19,7 +19,7 @@ Every box needs an `MB_KEY` in order to run.
 Once you have copied your box key from the Account page, it is recommended that
 you save it on your local development computer as an environment variable.
 
-If you're using bash (the default shell on [unix systems](https://www.youtube.com/watch?v=dFUlAQZB9Ng)), you can add the following line to your `.bashrc` or `.bash_profile` file:
+If you're using bash, you can add the following line to your `.bashrc` or `.bash_profile` file:
 
 ```bash
 export MB_KEY=hOrRiBlE_kEy_GoEs_HeRe
