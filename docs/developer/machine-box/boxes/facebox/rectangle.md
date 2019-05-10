@@ -73,6 +73,6 @@ $('element').css({
 This allows you to build an experience where each detected face has its own element which can
 be distinctly styled like in the example below:
 
-![Facebox CSS example](/docs/assets/static/img/facebox-beatles.jpg)
+![Facebox CSS example](../facebox-beatles.jpg)
 
 You can see this working for real by accessing the [Live demo](http://localhost:8080/demo) when you have facebox running locally.
