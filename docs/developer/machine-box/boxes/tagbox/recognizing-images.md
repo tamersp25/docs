@@ -9,13 +9,13 @@ generate tags that describe images.
 
 The first thing we need to do is to install Docker.
 
-To install Docker, head over to the Docker website to [download Docker Community Edition](/out/docker/install)
+To install Docker, head over to the Docker website to [download Docker Community Edition](https://machinebox.io/out/docker/install)
 for your computer.
 
 Or pick from this list of popular operating systems:
 
-* [macOS](/out/docker/download/mac)
-* [Windows](/out/docker/download/windows)
+* [macOS](https://machinebox.io/out/docker/download/mac)
+* [Windows](https://machinebox.io/out/docker/download/windows)
 
 Follow the instructions in the installer until you have Docker up and running.
 
@@ -28,7 +28,7 @@ docker version
 You should see some output that lists various version information.
 
 If you get an error (like `docker: command not found`) then the installation was not successful, and we
-recommend you consult the [Docker website](/out/docker/install).
+recommend you consult the [Docker website](https://machinebox.io/out/docker/install).
 
 ## Run tagbox
 
