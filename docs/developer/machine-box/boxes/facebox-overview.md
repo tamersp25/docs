@@ -28,7 +28,7 @@ Facebox makes it very easy to build rich experiences using just JavaScript and C
 
 ![Facebox preview](facebox-beatles.jpg)
 
-In the above image, which a real tool available when you run facebox, the rectangles returned from the API are used to draw circles around each face allowing the user to interact with them. [Learn more about how we did this](facebox/rectangle#rendering-the-face-with-css).
+In the above image, which a real tool available when you run facebox, the rectangles returned from the API are used to draw circles around each face allowing the user to interact with them. [Learn more about how we did this](/developer/machine-box/boxes/facebox/rectangle?id=rendering-the-face-with-css).
 
 ## Interactive console
 
