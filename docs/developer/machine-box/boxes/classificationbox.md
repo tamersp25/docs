@@ -24,4 +24,4 @@ This capability has a variety of utilities:
 
 When you run Classificationbox, you'll have access to an interactive administration console that includes everything you need to get going.
 
-Get started by following the instructions in the [Account page](/account).
+Get started by following the instructions in the Account page.

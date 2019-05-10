@@ -7,8 +7,7 @@ The Beatles are.
 
 ## Run facebox
 
-To get a fresh facebox container running, head over to your [Machine Box Account page](/account)
-click on the _facebox_ tab, copy the code and paste it into a terminal.
+To get a fresh facebox container running, head over to your Machine Box Account page click on the _facebox_ tab, copy the code and paste it into a terminal.
 
 The code looks something like this:
 
