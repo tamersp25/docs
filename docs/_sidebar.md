@@ -116,6 +116,9 @@
 
   - [Machine Box](/developer/machine-box/)
     - [API guidelines](/developer/machine-box/api-guidelines)
+    - [Setup](/developer/machine-box/setup/)
+      - [Install Docker](/developer/machine-box/setup/docker)
+      - [Box Keys](/developer/machine-box/setup/box-key)
     - [Boxes](/developer/machine-box/boxes/)
       - [Facebox](/developer/machine-box/boxes/facebox-overview)
         - [Facebox tutorial: Teaching Facebox](/developer/machine-box/boxes/teaching-facebox)

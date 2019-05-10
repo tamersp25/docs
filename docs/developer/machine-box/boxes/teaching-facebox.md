@@ -17,7 +17,7 @@ MB_KEY="YOUR_KEY_HERE"
 docker run -p 8080:8080 -e "MB_KEY=$MB_KEY" machinebox/facebox
 ```
 
-* If you've already [configured your Box key](/docs/setup/box-key), you may only need to write the second line
+* If you've already [configured your Box key](/developer/machine-box/setup/box-key), you may only need to write the second line
 
 After a few moments, a fresh facebox container will be running.
 

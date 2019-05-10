@@ -5,7 +5,7 @@ generate tags that describe images.
 
 ## Install Docker
 
-![Docker logo](../dockerlogo.png)
+![Docker logo](../../dockerlogo.png)
 
 The first thing we need to do is to install Docker.
 
