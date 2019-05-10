@@ -127,5 +127,3 @@
       - [Nudebox](/developer/machine-box/boxes/nudebox.md)
       - [Objectbox](/developer/machine-box/boxes/objectbox.md)
       - [Fakebox](/developer/machine-box/boxes/fakebox.md)
-      - [Videobox](/developer/machine-box/boxes/videobox.md)
-        - [Videobox tutorial: Processing videos](/developer/machine-box/boxes/videobox/processing-videos)
