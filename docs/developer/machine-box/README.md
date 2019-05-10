@@ -38,7 +38,7 @@ integration is painless.
 
 Here is the range of Machine Box products:
 
-* [Facebox](/developer/machine-box/boxes/facebox) - Teach and recognize faces in images or photographs
+* [Facebox](/developer/machine-box/boxes/facebox-overview) - Teach and recognize faces in images or photographs
 * [Tagbox](/developer/machine-box/boxes/tagbox) - Teach and automatically understand the content of images
 * [Textbox](/developer/machine-box/boxes/textbox) - Understand text with natural language processing
 * [Classificationbox](/developer/machine-box/boxes/classificationbox) - Build your own classifiers for text, images, structured and unstructured data (Developer preview)
