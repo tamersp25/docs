@@ -115,7 +115,8 @@
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
 
   - [Machine Box](developer/machine-box/)
-    - [The Boxes](developer/machine-box/boxes/)
+    - [API guidelines](developer/machine-box/api-guidelines)
+    - [Boxes](developer/machine-box/boxes/)
       - [Facebox](/developer/machine-box/boxes/facebox.md)
         - [Facebox tutorial: Teaching Facebox](/developer/machine-box/boxes/teaching-facebox)
       - [Tagbox](/developer/machine-box/boxes/tagbox.md)
@@ -128,5 +129,3 @@
       - [Fakebox](/developer/machine-box/boxes/fakebox.md)
       - [Videobox](/developer/machine-box/boxes/videobox.md)
         - [Videobox tutorial: Processing videos](/developer/machine-box/boxes/videobox/processing-videos)
-
-    - [Machine Box APIs](developer/machine-box/Machine-Box-APIs/README.md)
