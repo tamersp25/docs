@@ -1,4 +1,4 @@
-# Overview of Veritone Developer
+# Veritone Developer
 
 **Veritone Developer** is an aiWARE application that allows developers to extend the capabilities of aiWARE with their own applications, engines, and other components, and monetize those extensions.
 
