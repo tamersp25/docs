@@ -1,4 +1,4 @@
-# APIs
+# aiWARE APIs
 
 Veritone's full suite of APIs enables you to easily add cognitive functionality and intelligent features to your custom solution. Our API is built around the GraphQL paradigm to provide a more efficient way to deliver data with greater flexibility than a traditional REST approach. GraphQL is a query language that operates over a single endpoint using conventional HTTP requests and returning JSON responses. The structure not only lets you call multiple nested resources in a single query, it also allows you to define requests and specify the exact data that you want sent back.
 
