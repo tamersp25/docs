@@ -192,7 +192,8 @@ sample = {
     // Object detection / keyword detection (optional)
     "objectCategory": [{
       "class": "animal",
-      "@id": "kg:/m/0dl567"
+      "@id": "kg:/m/0dl567",
+      "confidence": 0.567
     }],
 
     // Specifies the region match was found (optional)
@@ -411,7 +412,8 @@ sample = {
       // Object detection / keyword detection (optional)
       "objectCategory": [{
         "class": "animal",
-        "@id": "kg:/m/0dl567"
+        "@id": "kg:/m/0dl567",
+        "confidence": 0.567
       }],
 
       // Specifies the region match was found (optional)

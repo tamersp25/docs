@@ -5,14 +5,17 @@
   "object": [
     {
       "type": "concept",
-      "text": "this is the text being classified",
-      "confidence": 0.5,
+      "text": "this is the text being classified, and it's talking about business finance.",
       "objectCategory": [
         {
-          "class": "Business"
+          "class": "economy, business and finance",
+          "@id": "http://cv.iptc.org/newscodes/subjectcode/04000000",
+          "confidence": 0.468
         },
         {
-          "class": "Finance"
+          "class": "financial and business service",
+          "@id": "http://cv.iptc.org/newscodes/subjectcode/04006000",
+          "confidence": 0.897
         }
       ],
       "page": 1,

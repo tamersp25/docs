@@ -33,10 +33,13 @@ In this case, engines are given the entire file as their input and are responsib
 
 Content classification engine output conforms to the `concept` validationContract and writes results into the `object` array as objects of type `concept`.
 The `objectCategory` array is used to specify one or more categories that the text has been classified into.
-The text values written to the `class` key are specified by the engine provider based on their own taxonomy.
 
-> At this time aiWARE does not manage a master concept taxonomy that engines are required to conform to.
-They use class keys to map back to their own taxonomies.
+- The text written to the `class` key are specified by the engine provider based on their own taxonomy.
+- If the classification is in reference to a particular taxonomy, the `@id` key can be used to provide a URI to the category definition.
+- If there is a weighting or confidence on the various classifications, it can be expressed with the `confidence` key.
+
+> aiWARE does not mandate a master concept taxonomy that engines are required to conform to.
+They use class names (and @id if appropriate) to map to external taxonomies.
 
 ### Minimal Example
 
@@ -46,8 +49,9 @@ The minimal example of content classification engine output using only required 
 
 ### Real-World Example
 
-Here is a more typical engine output example that classifies a particular sentence in a document into two categories - Business and Finance - with 50% certainty.
+Here is a more typical engine output example that classifies a particular sentence in a document into two categories from the [IPTC Subject Codes taxonomy](https://iptc.org/standards/subject-codes/).
 
 [](vtn-standard-real.example.json ':include :type=code json')
 
-<!--TODO: Document the use of the @id tag for referencing external taxonomies-->
+> IPTC is simply chosen as one example.
+Any taxonomy may be used as long as its classes can be referenced with a URI.
