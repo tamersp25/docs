@@ -50,3 +50,8 @@ Text recognition engine output can follow two forms, depending on whether the fi
 ### Example &mdash; Non-Time-Based
 
 [](vtn-standard-object.example.json ':include :type=code json')
+
+## Translating Recognized Text
+
+Some translation engines will take the outputs of text recognition engines as input to their translation engines.
+To learn how those engines are built please see [Translating Recognized (OCR) Text](/developer/engines/cognitive/text/translation/recognized-text/).

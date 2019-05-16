@@ -6,7 +6,7 @@
   "series": [
     {
       "startTimeMs": 0,
-      "stopTimeMs": 300,
+      "stopTimeMs": 1201,
       "language": "es",
       "words": [
         {
@@ -15,8 +15,8 @@
       ]
     },
     {
-      "startTimeMs": 300,
-      "stopTimeMs": 500,
+      "startTimeMs": 0,
+      "stopTimeMs": 1201,
       "language": "es",
       "words": [
         {
@@ -25,8 +25,8 @@
       ]
     },
     {
-      "startTimeMs": 500,
-      "stopTimeMs": 800,
+      "startTimeMs": 0,
+      "stopTimeMs": 1201,
       "language": "es",
       "words": [
         {
@@ -35,8 +35,8 @@
       ]
     },
     {
-      "startTimeMs": 800,
-      "stopTimeMs": 1200,
+      "startTimeMs": 0,
+      "stopTimeMs": 1201,
       "language": "es",
       "words": [
         {
@@ -44,8 +44,8 @@
         }
       ]
     },
-        {
-      "startTimeMs": 1200,
+    {
+      "startTimeMs": 0,
       "stopTimeMs": 1201,
       "language": "es",
       "words": [
@@ -53,6 +53,25 @@
           "word": "."
         }
       ]
-    }
+    },
+    {
+      "startTimeMs": 2500,
+      "stopTimeMs": 3200,
+      "language": "es",
+      "words": [
+        {
+          "word": "ahora"
+        }
+      ]
+    },
+    {
+      "startTimeMs": 2500,
+      "stopTimeMs": 3200,
+      "language": "es",
+      "words": [
+        {
+          "word": "otro"
+        }
+      ]
   ]
 }

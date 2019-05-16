@@ -1,0 +1,14 @@
+{
+  "engineId": "<your engine ID from Veritone Developer>",
+  "preferredInputFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "supportedInputFormats": [
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ],
+  "outputFormats": [
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  ],
+  "engineMode": "chunk",
+  "clusterSize": "small"
+}

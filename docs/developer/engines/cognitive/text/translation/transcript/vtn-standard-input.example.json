@@ -53,6 +53,26 @@
           "word": "."
         }
       ]
+    },
+    {
+      "startTimeMs": 2500,
+      "stopTimeMs": 3000,
+      "language": "en",
+      "words": [
+        {
+          "word": "now"
+        }
+      ]
+    },
+    {
+      "startTimeMs": 3000,
+      "stopTimeMs": 3200,
+      "language": "en",
+      "words": [
+        {
+          "word": "another"
+        }
+      ]
     }
   ]
 }

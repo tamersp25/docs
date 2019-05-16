@@ -3,17 +3,19 @@
   "validationContracts": [
     "text"
   ],
-  "language": "en",
+  "language": "fr",
   "object": [
     {
       "type": "text",
-      "text": "The quick brown fox jumped over the lazy dog.",
-      "confidence": 0.99234,
+      "text": "Le rapide renard brun sauta par dessus le chien paresseux.",
+      "page": 1,
+      "paragraph": 1,
       "sentence": 1
     }, {
       "type": "text",
-      "text": "That freaked out the dog.",
-      "confidence": 0.85,
+      "text": "Cela a effrayé le chien.",
+      "page": 1,
+      "paragraph": 1,
       "sentence": 2
     }
   ]

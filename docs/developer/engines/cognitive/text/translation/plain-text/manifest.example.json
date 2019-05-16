@@ -1,0 +1,14 @@
+{
+  "engineId": "<your engine ID from Veritone Developer>",
+  "preferredInputFormat": "text/plain; charset=utf-8",
+  "supportedInputFormats": [
+    "text/plain",
+    "text/plain; charset=utf-8"
+  ],
+  "outputFormats": [
+    "text/plain",
+    "text/plain; charset=utf-8"
+  ],
+  "engineMode": "chunk",
+  "clusterSize": "small"
+}

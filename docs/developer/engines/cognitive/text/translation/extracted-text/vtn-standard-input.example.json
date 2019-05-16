@@ -8,12 +8,14 @@
     {
       "type": "text",
       "text": "The quick brown fox jumped over the lazy dog.",
-      "confidence": 0.99234,
+      "page": 1,
+      "paragraph": 1,
       "sentence": 1
     }, {
       "type": "text",
       "text": "That freaked out the dog.",
-      "confidence": 0.85,
+      "page": 1,
+      "paragraph": 1,
       "sentence": 2
     }
   ]

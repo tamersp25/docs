@@ -1,0 +1,12 @@
+{
+  "engineId": "<your engine ID from Veritone Developer>",
+  "preferredInputFormat": "application/json",
+  "supportedInputFormats": [
+    "application/json"
+  ],
+  "outputFormats": [
+    "application/json"
+  ],
+  "engineMode": "chunk",
+  "clusterSize": "small"
+}

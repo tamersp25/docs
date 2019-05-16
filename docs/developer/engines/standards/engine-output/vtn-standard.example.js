@@ -236,6 +236,19 @@ sample = {
     }
   }], // END OBJECT
 
+  // Media (for linking to files when the engine's cognition results in file outputs)
+  "media": [{
+    "assetId": "<ID of the associated asset>",
+
+    // Content Type (optional)
+    // Must be a valid MIME type (see https://www.iana.org/assignments/media-types/media-types.xhtml)
+    "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+
+    // Language Identification (optional)
+    // Format: BCP-47 https://tools.ietf.org/rfc/bcp/bcp47.txt
+    "language": "en"
+  }],
+
   // Custom data for this document (optional)
   // You can add any arbitrary data inside this object.
   // It will not be indexed, searchable, or have any impact on the system.
@@ -460,6 +473,19 @@ sample = {
         // ...
         "<keyN>": "<value>",
       }
+    },
+
+    // Media (for linking to files when the engine's cognition results in file outputs)
+    "media": {
+      "assetId": "<ID of the associated asset>",
+
+      // Content Type (optional)
+      // Must be a valid MIME type (see https://www.iana.org/assignments/media-types/media-types.xhtml)
+      "contentType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+
+      // Language Identification (optional)
+      // Format: BCP-47 https://tools.ietf.org/rfc/bcp/bcp47.txt
+      "language": "en"
     },
 
     // Custom data for this time-series entry (optional)

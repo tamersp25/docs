@@ -74,6 +74,11 @@
         - [Summarization](developer/engines/cognitive/text/summarization/)
         - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
         - [Translation](developer/engines/cognitive/text/translation/)
+          - [Extracted Text Translation](developer/engines/cognitive/text/translation/extracted-text/)
+          - [Plain Text Translation](developer/engines/cognitive/text/translation/plain-text/)
+          - [Recognized Text (OCR) Translation](developer/engines/cognitive/text/translation/recognized-text/)
+          - [Rich Text Translation](developer/engines/cognitive/text/translation/rich-text/)
+          - [Transcript Translation](developer/engines/cognitive/text/translation/transcript/)
       - Vision
         - [License Plate Recognition (ALPR)](developer/engines/cognitive/vision/license-plate/)
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)

@@ -69,3 +69,8 @@ When reporting lattices, the following rules must be followed:
 [](vtn-standard-lattice.example.json ':include :type=code json')
 
 <!--TODO: Link to official json-schema (when ready)-->
+
+## Translating Transcripts
+
+Some translation engines will take the outputs of transcription engines as input to their translation engines.
+To learn how those engines are built please see [Translating Transcripts](/developer/engines/cognitive/text/translation/transcript/).

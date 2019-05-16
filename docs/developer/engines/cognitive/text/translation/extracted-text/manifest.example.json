@@ -1,8 +1,7 @@
 {
   "engineId": "<your engine ID from Veritone Developer>",
-  "preferredInputFormat": "text/plain",
+  "preferredInputFormat": "application/json",
   "supportedInputFormats": [
-    "text/plain",
     "application/json"
   ],
   "outputFormats": [
