@@ -25,6 +25,6 @@ While Flow enables you to rapidly develop AI solutions that run on Veritone's re
 
 The Flow Designer is built with the Node-RED open source technology that is supported by the JavaScript foundation. At Veritone, we have taken this foundational open source technology and infused our own aiWARE palette of nodes that abstract away the underlying Veritone logic and data model, as well as make it easier for users to take advantage of the underlying power of aiWARE in a more approachable and less technically demanding format. 
 
-Make no mistake, though, we certainly want to enable users who want to push the tool as far as they can!
+Make no mistake though, we certainly want to enable users who want to push the tool as far as they can!
 
 For more info on how Flow fits into the aiAWRE architecture, see the *Flow Engine* section of the docs.
