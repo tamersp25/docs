@@ -30,6 +30,7 @@
     - [Handling File Upload Errors](apis/tutorials/file-upload-error-handling.md)
     - [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
     - [Paging](apis/tutorials/paging.md)
+    - [Asset Types](apis/tutorials/asset-types.md)
 
 - [Developer](developer/)
   - [Developer Benefits](developer/benefits.md)
