@@ -1,5 +1,7 @@
 # aiWARE Applications
 
+![Apps](stack-applications.svg)
+
 Veritone's suite of powerful AI applications enables users to organize, manage, search, analyze, and extend their cognitively-enriched content.
 aiWARE includes the following native AI applications:
 

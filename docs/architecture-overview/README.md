@@ -1,14 +1,16 @@
 # aiWARE Architecture Overview
 
-![Architecture Overview](architecture-overview.png)
+Veritone's aiWARE architecture is a layered, componentized, open architecture, built with extensibility and integration-friendliness  in mind.
+
+![Architecture Overview](stack-all.svg)
 
 ## Data Ingestion & Storage
 
 aiWARE has been designed with flexibility to ingest and
-store virtually any type of structured or unstructured data, from
+store virtually any type of structured or unstructured data, whether from
 storage or live streams.
 
-Data is generally categorized as "Public" or "Private".  Examples of
+Data is generally categorized as "Public" or "Private."  Examples of
 Public data are broadcast TV, radio, podcast, or web video.  Veritone
 invests in aggregating and processing Public data from many sources in
 order to serve customers wishing to search locally or nationally for
@@ -18,6 +20,8 @@ Audio broadcast streams are programmatically ingested and "chunked" into
 15 minute segments, while video is chunked into 5 minute segments.
  Private data can take many forms, and is only available to the
 organization that uploads the media into their Org account.
+
+![Ingestion](stack-ingestion.svg)
 
 We continue to expand the availability of what we call "Adapters" (aka
 Connectors) that facilitate the easy import of data files from cloud
@@ -45,6 +49,8 @@ storage.  All other aspects of the platform perform in the same fashion
 in an on-premise deployment.
 
 ## Engine Orchestration
+
+![Orchestration](stack-orchestration.svg)
 
 Users define their workflow for cognitive processing, including the
 class of engine or specific engine(s) to run against certain media.
@@ -85,6 +91,8 @@ Each engine process selected (whether programmatically by
 auto-ingestion, by an end user, or by Conductor) will create a unique
 "job" for a given piece of media.
 
+![Cognition](stack-cognition.svg)
+
 Veritone operates a scalable architecture for engine processing utilizing various engine runtimes.
 The most commonly used and most robust runtime is Docker on Linux.
 Under this runtime, each new processing job for a given piece of media is given an ID and distributed to a specific edge cluster for processing.
@@ -116,6 +124,8 @@ resulting French transcript (in words) is then translated to English.
 > For more information on engines, including runtimes, processing modes, deployment models, and more, please see the documentation for [Building Engines](/developer/engines/).
 
 ## Metadata Indexing and Storage
+
+![Metadata](stack-metadata.svg)
 
 The output of each engine processing job is a set of metadata that is
 output by the engine and stored in Veritone's proprietary hyper-scale,
