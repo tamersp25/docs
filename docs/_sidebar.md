@@ -117,8 +117,6 @@
     - [Training Engines](developer/libraries/training.md)
     - [Running Engines](developer/libraries/running.md)
 
-  - [Developer Terms & Conditions](developer/terms-and-conditions.md)
-
   - [Machine Box](/developer/machine-box/)
     - [API guidelines](/developer/machine-box/api-guidelines)
     - [Setup](/developer/machine-box/setup/)
@@ -135,3 +133,5 @@
       - [Nudebox](/developer/machine-box/boxes/nudebox)
       - [Objectbox](/developer/machine-box/boxes/objectbox)
       - [Fakebox](/developer/machine-box/boxes/fakebox)
+
+- [Developer Terms & Conditions](developer/terms-and-conditions.md)

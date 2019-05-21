@@ -67,12 +67,12 @@ Commerce is supported by an experienced research and advisory team that works wi
 
 ## Core
 
-**Veritone Core** (formerly from Wazee Digital), is a cloud-native digital asset management (DAM) system used to manage, share and monetize content.
+**Veritone Core** (formerly from Wazee Digital) is a cloud-native digital asset management (DAM) system used to manage, share and monetize content.
 Capable of ingesting large amounts of assets across a broad range of audio, video and still image formats, Core leverages the power of aiWARE to automatically enrich the metadata of every asset it ingests.
 
 ## Digital Media Hub
 
-**Digital Media Hub** (formerly from Wazee Digital), is an intuitive web portal through which you can offer secure, cloud-native global access to your content to key stakeholders, including news media and corporate partners.
+**Digital Media Hub** (formerly from Wazee Digital) is an intuitive web portal through which you can offer secure, cloud-native global access to your content to key stakeholders, including news media and corporate partners.
 And the best part? You can customize the look and feel of your portal to properly represent your brand.
 
 ---
@@ -83,5 +83,8 @@ And the best part? You can customize the look and feel of your portal to properl
 
 ## Developer
 
-[Veritone Developer](/developer/) is a self-service environment where registered developers can access tools, documentation, APIs to build and submit their AI applications, adapters, cognitive engines or data schemas to extend aiWARE for their own use or submit their extensions for distributing to other users.
+[Veritone Developer](/developer/) is a self-service environment where registered developers can access tools,
+documentation, APIs to build and submit their AI applications, adapters, cognitive engines or data schemas to extend aiWARE for their own use, or submit their extensions for distributing to other users.
 We are constantly adding new features to Veritone Developer, increasing the power and flexibility available at developers' fingertips.
+
+> Check out the [Applications](../developer/applications/) section for information about how to create custom aiWARE integrations of your own.
