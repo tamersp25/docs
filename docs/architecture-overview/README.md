@@ -48,43 +48,6 @@ solution, replacing cloud storage of the source data files with local
 storage.  All other aspects of the platform perform in the same fashion
 in an on-premise deployment.
 
-## Engine Orchestration
-
-![Orchestration](stack-orchestration.svg)
-
-Users define their workflow for cognitive processing, including the
-class of engine or specific engine(s) to run against certain media.
- Depending on the source, this workflow can be defined for all inbound
-media or can be performed on an ad hoc basis after ingestion.
-
-For instance, broadcast television clients may choose to run
-transcription, OCR, Face Recognition, and Logo Recognition on all
-inbound media automatically upon ingestion.
-
-aiWARE's real-time engine architecture means that processing results
-can be delivered in seconds or even sub-second depending on the latency
-of the input source.
-
-Increasingly, engine processing is orchestrated by Veritone's
-proprietary Conductor<sup>TM</sup> technology.  Veritone's Data Science
-team continues to make strides in auto selecting the best engine or
-engines to run for each specific data file based on the features of that
-file, utilizing robust machine learning that continues to improve over
-time.
-
-Intraclass Conductor will select the best engine in a given class,
-transcription for example, based on the profile of a file.  Interclass
-Conductor will soon automatically select engines across classes based on
-what it may learn from a file as one or more engines begin to process
-the file.
-
-Ultimately the goal is for Conductor to also determine the domain
-context of a file, such that a file from one typical domain that happens
-to have characteristics of another domain (e.g. a business related
-subject such as team valuation, in the broader context of sports news)
-may be routed to a set of narrow engines that specialize in a specific
-and perhaps non-obvious field.
-
 ## Cognitive Processing
 
 Each engine process selected (whether programmatically by
@@ -123,6 +86,43 @@ resulting French transcript (in words) is then translated to English.
 
 > For more information on engines, including runtimes, processing modes, deployment models, and more, please see the documentation for [Building Engines](/developer/engines/).
 
+## Engine Orchestration
+
+![Orchestration](stack-orchestration.svg)
+
+Users define their workflow for cognitive processing, including the
+class of engine or specific engine(s) to run against certain media.
+ Depending on the source, this workflow can be defined for all inbound
+media or can be performed on an ad hoc basis after ingestion.
+
+For instance, broadcast television clients may choose to run
+transcription, OCR, Face Recognition, and Logo Recognition on all
+inbound media automatically upon ingestion.
+
+aiWARE's real-time engine architecture means that processing results
+can be delivered in seconds or even sub-second depending on the latency
+of the input source.
+
+Increasingly, engine processing is orchestrated by Veritone's
+proprietary Conductor<sup>TM</sup> technology.  Veritone's Data Science
+team continues to make strides in auto selecting the best engine or
+engines to run for each specific data file based on the features of that
+file, utilizing robust machine learning that continues to improve over
+time.
+
+Intraclass Conductor will select the best engine in a given class,
+transcription for example, based on the profile of a file.  Interclass
+Conductor will soon automatically select engines across classes based on
+what it may learn from a file as one or more engines begin to process
+the file.
+
+Ultimately the goal is for Conductor to also determine the domain
+context of a file, such that a file from one typical domain that happens
+to have characteristics of another domain (e.g. a business related
+subject such as team valuation, in the broader context of sports news)
+may be routed to a set of narrow engines that specialize in a specific
+and perhaps non-obvious field.
+
 ## Metadata Indexing and Storage
 
 ![Metadata](stack-metadata.svg)
@@ -137,12 +137,21 @@ applications.
 
 > For more information on the types of data available to be indexed, see the [engine output specifications](developer/engines/standards/engine-output/).
 
-## User Interface
+## API Layer
+
+![Integration](../apis/stack-integration.svg)
+
+Near the top of the stack, the Integration (API) Layer affords access (via HTTP) to the other underlayers,
+via a rich [GraphQL](apis/using-graphql.md)-based Application Programming Interface.
+
+> Read more about our APIs [here](../apis/)
+
+## Applications
 
 Veritone provides a suite of native applications for end users to utilize and extract value from the aiWARE platform.
-aiWARE applications range from general-purpose applications to supporting very specific use cases.
+These applications range from general-purpose applications to highly specialized apps supporting very specific use cases.
 
-> See the [applications](apps/) section for more information.
+> See the [Applications](apps/) section of the documentation for more information.
 
 ## Search Functionality
 
