@@ -135,4 +135,4 @@
       - [Objectbox](/developer/machine-box/boxes/objectbox)
       - [Fakebox](/developer/machine-box/boxes/fakebox)
 
-- [Developer Terms & Conditions](developer/terms-and-conditions.md)
+  - [Developer Terms & Conditions](developer/terms-and-conditions.md)
