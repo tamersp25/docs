@@ -36,6 +36,7 @@ Text | [Content Classification](/developer/engines/cognitive/text/content-classi
 Text | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | aka Named-entity recognition. Classifies named entities located in unstructured text into pre-defined categories such as people, organizations and locations.
 Text | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
 Text | [Language Identification](/developer/engines/cognitive/text/language-identification/) | Detects one or multiple natural languages in text.
+Text | [Natural Language Understanding (NLU)](/developer/engines/cognitive/text/nlu/) | Analyzes text from spoken or written sources - often referred to as "utterances" - and determines the speaker's intent.
 Text | [Sentiment Analysis](/developer/engines/cognitive/text/sentiment/) | Classifies text according to sentiment. May include a score representing negative, neutral or positive, or include a wider breadth of tags such as "happy" or "excited".
 Text | [Summarization](/developer/engines/cognitive/text/summarization/) | Generates a summary of written text.
 Text | [Text Extraction](/developer/engines/cognitive/text/text-extraction/) | Extract textual information from documents, and expresses that extracted text in a structured format.
