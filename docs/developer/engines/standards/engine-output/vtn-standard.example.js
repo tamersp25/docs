@@ -121,6 +121,7 @@ sample = {
     // - keyword: Keyword detection
     // - text: Recognized or extracted text (OCR / text extraction)
     // - namedEntity: Entity extraction
+    // - intent: NLU intent mapping
     "type": "object",
 
     // Main label for this object (optional)
@@ -360,6 +361,7 @@ sample = {
       // - text: Recognized or extracted text (OCR / text extraction)
       // - namedEntity: Entity extraction
       // - barcode
+      // - intent: NLU intent mapping
       "type": "object",
 
       // Main label for this object (optional)

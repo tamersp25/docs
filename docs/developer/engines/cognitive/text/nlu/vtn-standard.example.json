@@ -1,0 +1,38 @@
+{
+  "schemaId": "https://docs.veritone.com/schemas/vtn-standard/master.json",
+  "validationContracts": [
+    "intent"
+  ],
+  "object": [
+    {
+      "type": "intent",
+      "label": "purchase",
+      "entityId": "<TODO: in the future, we could have intents as entities in libraries? with the utterances as identifiers?>",
+      "confidence": 0.987,
+      "slots": [  // TODO: Is "slots" the right word to stanardize around?  Alexa and snips call it slots.  Dialogflow calls it parameters.  Rasa seems to think "slots" is something else maybe?
+        {
+          "type": "string",  // TODO: Dialogflow and Snips call this an "entity". I think alexa calls it a "slot type" (need to confirm).
+          "label": "slot:product",
+          "value": "Coca-Cola",
+          "startChar": 17,
+          "stopChar": 20
+        }
+      ],
+
+      "text": "Please buy me a coke.",
+      "page": 1,
+      "paragraph": 1,
+      "sentence": 1
+    },
+    {
+      "type": "intent",
+      "label": "attack",
+      "confidence": 0.674,
+
+      "text": "Please buy me a coke.",
+      "page": 1,
+      "paragraph": 1,
+      "sentence": 1
+    }
+  ]
+}

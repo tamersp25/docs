@@ -71,6 +71,7 @@
         - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)
         - [Keyword Extraction](developer/engines/cognitive/text/keyword-extraction/)
         - [Language Identification](developer/engines/cognitive/text/language-identification/)
+        - [Natural Language Understanding (NLU)](developer/engines/cognitive/text/nlu/)
         - [Sentiment Analysis](developer/engines/cognitive/text/sentiment/)
         - [Summarization](developer/engines/cognitive/text/summarization/)
         - [Text Extraction](developer/engines/cognitive/text/text-extraction/)
