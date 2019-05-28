@@ -18,7 +18,7 @@
     - [API Examples](apis/examples.md)
     - [Job Quickstart Guide](apis/job-quickstart/)
     - [Search Quickstart Guide](apis/search-quickstart/)
-  - Tutorials
+  - [Tutorials](apis/tutorials/)
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
     - [Creating Export Requests](apis/tutorials/create-export-request/)
@@ -96,6 +96,7 @@
       <!-- - [Message Types](developer/engines/standards/message-types/)-->
     - [Custom Fields](developer/engines/custom-fields/)
     - [Polling](developer/engines/polling/)
+    - [Callbacks](developer/engines/callbacks/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
 

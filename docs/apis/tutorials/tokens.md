@@ -193,7 +193,7 @@ The engine should _not_ be able to:
 * retrieve or modify other types of data in your organization, such as
 user information, libraries, etc.
 
-In other words, when processing a task, and engine should have permission
+In other words, when processing a task, an engine should have permission
 _only_ to access the data targeted in the task and write its own results
 to the appropriate location.
 
@@ -338,7 +338,7 @@ to create an engine:
           "ingestion:read",
           "ingestion:create",
           "ingestion:update",
-          "ingestion:delete",
+          "ingestion:delete"
         ]
       },
       "name": "not_allowed",

@@ -39,14 +39,9 @@ available adapters include:
 Once ingested, source data is stored securely in aiWARE and accessible
 via the [GraphQL API](apis/).
 
-aiWARE generally transcodes to create a copy of media files in a
-standard format for playback in aiWARE apps, e.g. 480p video or .wav
-files for audio.
-
-Alternatively, the aiWARE platform can be deployed as an on-premise
+For customers who require it, the aiWARE platform can optionally be deployed as an on-premise
 solution, replacing cloud storage of the source data files with local
-storage.  All other aspects of the platform perform in the same fashion
-in an on-premise deployment.
+storage.  
 
 ## Cognitive Processing
 
