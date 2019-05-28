@@ -40,8 +40,7 @@ Text | [Natural Language Understanding (NLU)](/developer/engines/cognitive/text/
 Text | [Sentiment Analysis](/developer/engines/cognitive/text/sentiment/) | Classifies text according to sentiment. May include a score representing negative, neutral or positive, or include a wider breadth of tags such as "happy" or "excited".
 Text | [Summarization](/developer/engines/cognitive/text/summarization/) | Generates a summary of written text.
 Text | [Text Extraction](/developer/engines/cognitive/text/text-extraction/) | Extract textual information from documents, and expresses that extracted text in a structured format.
-Text | [Translation](/developer/engines/cognitive/text/translation/) | Translates natural language from a text source.
-Transformation | [Visual Redaction](/developer/engines/cognitive/transformation/visual-redaction/) | Censors or obscures parts of an image or video, such as an individual's face.
+Text | [Translation](/developer/engines/cognitive/text/translation/) | Translates natural language from a text source. Includes translating [plain text](/developer/engines/cognitive/text/translation/plain-text/), [rich text](/developer/engines/cognitive/text/translation/rich-text/), [extracted text](/developer/engines/cognitive/text/translation/extracted-text/), [recognized text(OCR)](/developer/engines/cognitive/text/translation/recognized-text/), and [transcripts](/developer/engines/cognitive/text/translation/transcript/).
 Vision | [Image Classification](/developer/engines/cognitive/vision/image-classification/) | Classifies the entire image (not objects within an image). eg. "landscape" or "basketball game".
 Vision | [License Plate Recognition (ALPR)](/developer/engines/cognitive/vision/license-plate/) | Produces a text string of alphanumeric characters for each license plate recognized in an image or video.
 Vision | [Logo Detection](/developer/engines/cognitive/vision/logo-detection/) | Recognizes one or more logos or branding elements in an image or video.
@@ -55,6 +54,7 @@ Speech | Language Identification | Identifies the natural human language(s) spok
 Text | Text-to-Speech | Generates spoken word from text. Configurations may include output voice gender and accent.
 Transformation | Orchestration | Arranges and combines various processes in order to optimize output.
 Transformation | Transcoding | Converts one input file format to another.
+Transformation | [Visual Redaction](/developer/engines/cognitive/transformation/visual-redaction/) | Censors or obscures parts of an image or video, such as an individual's face.
 Vision | Color | Recognizes colors in an image or video.
 Vision | Scene Break | Segments a video by identifying each instance of a scene change.
 Vision | Visual Moderation | Tags an image or video which likely contains explicit content.
