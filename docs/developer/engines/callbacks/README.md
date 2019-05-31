@@ -13,10 +13,12 @@ As an example, consider a facial recognition engine that has been trained agains
 yet still has accuracy problems with some faces (faces that it *should* be able to recognize with high confidence, but doesn't).
 Such an engine might benefit from human-intervention-based "edge case" training.
 
-![Human Review](HumanReview.png)
+![Human Review](HumanReview.jpg)
 
-In the above diagram, the engine is able to pause while it sends low-confidence image data out to a Human Review and Labeling service.
-When the service reports its results, the engine continues operation.
+In Step 1 of the above diagram, a facial recognition engine identifies a face with low confidence.
+To improve the confidence level (and train the image to recognize this face again later),
+the engine pauses (Step 2) while it sends the low-confidence data out to a Human Review and Labeling service.
+When the service reports its results (Step 3), the engine resumes operation.
 In the meantime, its library has been updated with new data, so that engine reliability is improved.
 
 In order to accommodate such scenarios, engine builders can take advantage of features in the Veritone platform that allow an engine to:
