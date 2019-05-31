@@ -58,7 +58,7 @@ The fields that should be included in manifest.json are listed in the table belo
 | Xilinx UltraScale+ VU9P FPGAs | Coming soon! | F1   |
 | NVIDIA Tesla M2050 GPUs       | Coming soon! | CG1  |
 
-## MimeTypes
+## MIME Types
 
 _Contact us if your engine supports a MIME type that is not currently listed._
 
@@ -68,17 +68,21 @@ _Contact us if your engine supports a MIME type that is not currently listed._
 * application/smil+xml
 * application/ttml+xml
 * application/x-flv
-* application/xmlaudio/aac
+* application/xml
+* audio/aac
 * audio/flac
 * audio/midi
 * audio/mp4
 * audio/mpeg
 * audio/wav
-* audio/webmimage/gif
+* audio/webm
+* image/gif
 * image/jpeg
-* image/tifftext/csv
+* image/tiff
+* text/csv
 * text/html
-* text/plainvideo/3gpp
+* text/plain
+* video/3gpp
 * video/mp4
 * video/mpeg
 * video/ogg

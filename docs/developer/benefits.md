@@ -42,11 +42,11 @@ Veritone will generally pay its partners for each month's processing volume by t
 
 ## Application Developers
 
-Veritone enables custom application developers to build unique apps on top of our technology platform via a suite of APIs.  Developers can take advantage not only of Veritone's leading cognitive processing capabilities across classes, but also modular elements of our standard UI, data and metadata storage, search functionality and other features.
+Veritone enables application developers to build bespoke, intelligent applications, unique to their or their customers' needs on top of our AI platform, aiWARE, via a suite of APIs. Developers can take advantage of the platform's broad cognitive processing capabilities and the pre-built aiWARE software infrastructure components including: modular elements of our standard UI, data and temporal metadata storage, cognitive search functionality, and other features.
 
 We will soon be launching the Veritone Marketplace - a hub for developers to offer their applications directly to Veritone customers on a SaaS model basis.  Applications can be offered in three ways:
 
-- Monthly SaaS model, as an upcharge to the core Veritone platform.  This could be based on a seat license basis, or as a single license fee to each client organization.
+- Monthly SaaS model, as an upcharge to the core Veritone platform. This could be based on a seat license basis, or as a single license fee to each client organization.
 - Free Saas model
 - One-time license fee
 
