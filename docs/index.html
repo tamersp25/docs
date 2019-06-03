@@ -63,6 +63,20 @@
       margin-top: 20px;
       border-top: 1px #eee solid;
     }
+
+    /* Style the "Try in GraphiQL" link */
+    pre[data-lang="graphql"] {
+      margin-bottom: .25em;
+    }
+    p.graphql-link {
+      text-align: right;
+      margin-top: .25em;
+      padding-right: 1em;
+    }
+    p.graphql-link a img {
+      position: relative;
+      top: 3px;
+    }
   </style>
 </head>
 <body>
@@ -183,6 +197,10 @@
     var collapseNavElRecursion = 0;
     var collapseExtendedFamilyRecursion = 0;
 
+    window.VERITONE_CONFIG = {
+      apiRoot: "@@apiRoot@@"
+    };
+
     // Custom docsify plugins
     window.$docsify.plugins = [
 
@@ -233,6 +251,36 @@
           // TODO: Wrap with link to explanations of what API, Search, and UI Support mean
           return content.replace(BADGE_REGEX, '![$1 Support: $2](https://img.shields.io/badge/$1%20Support-$2-$3.svg)');
         });
+      },
+
+      /**
+       * Adds a "Try It" link to any GraphQL samples
+       **/
+      function veritoneGraphqlLinkPlugin(hook) {
+        hook.doneEach(function onPageChanged() {
+          var examples = $('[data-lang="graphql"]');
+          for (var i = 0; i < examples.length; i++) {
+            try {
+              createLinkFromExample(examples[i], "Try it in GraphiQL").insertAfter(examples[i]);
+            } catch (e) {
+              console.error(`Error adding GraphiQL link: ${e}`);
+            }
+          }
+        });
+
+        function createLinkFromExample(exampleNode, text) {
+          var url = `${VERITONE_CONFIG.apiRoot}/v3/graphiql?query=${encodeURIComponent(exampleNode.innerText)}`;
+          return $(`
+            <p class="graphql-link">
+              <a href="${url}" target="_blank">
+                <img src="_media/graphql.svg" height="16px" width="16px" alt="GraphQL icon">
+                ${text}
+              </a>
+            </p>`
+          );
+        }
+
+
       }
     ].concat(window.$docsify.plugins || []);
 
