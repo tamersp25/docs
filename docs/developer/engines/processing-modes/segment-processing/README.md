@@ -4,6 +4,8 @@ Segment engines process data in small discrete quantities, which are produced by
 They operate out of a stateless queue, where they can process each small bit of content without having any knowledge of the content that came before or after the piece of content that they are processing.
 
 > In the GraphQL API, "segment" engine mode is identified as `EngineMode=Chunk`
+>
+> In the [engine manifest](/developer/engines/standards/engine-manifest/), "segment" engine mode is identified as `"engineMode": "chunk"`
 
 ?> The **[Engine Toolkit SDK (BETA)](/developer/engines/toolkit/)**
 is an alternative interface for building message engines.
