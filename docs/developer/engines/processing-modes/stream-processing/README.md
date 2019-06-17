@@ -35,14 +35,18 @@ The lifecycle for a stream engine is as follows:
 
 | Key Name | Description | Example |
 | -------- | ----------- | ------- |
+| CHUNK_CACHE_AWS_REGION|Stream/Batch|AWS region for Chunk Cache S3 bucket. Ex: "us-east-1" |
+| CHUNK_CACHE_BUCKET|Stream/Batch|Chunk Cache S3 bucket name. Ex: "chunk-cache" |
+| ENGINE_ID|All|The engine ID |
+| ENGINE_INSTANCE_ID|All|Unique instance ID for the engine instance |
 | KAFKA_BROKERS | Comma-separated list of Kafka Broker addresses | "kafka1:9092,kafka2:9092" |
 | KAFKA_CHUNK_TOPIC | The Chunk Queue Kafka topic | "chunk_all" |
+| KAFKA_HEARTBEAT_TOPIC|Stream/Batch|The Kafka topic the engine should publish heartbeat messages to. Ex: engine_status |
+| KAFKA_INGESTION_TOPIC|Stream/Batch|The Kafka topic adapters publish ingestion request messages to to. Ex: ingestion_queue |
+| PAYLOAD_JSON|Stream/Batch|JSON encoded task payload. Ex: "{\"lang\": \"en\", \"token\":\"....\"}" |
+| STREAM_INPUT_TOPIC|Stream|Kafka topic for input stream |
+| STREAM_OUTPUT_TOPIC|Stream|Kafka topic for output stream |
 | VERITONE_API_BASE_URL | Base URL for Veritone APIs | "https://api.veritone.com" |
-| ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
-| ENGINE_INSTANCE_ID | The engine instance ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3_1" |
-| PAYLOAD_JSON | JSON encoded task payload | "{\"lang\": \"en\", \"token\":\"....\"}" |
-| CHUNK_CACHE_BUCKET | Chunk Cache bucket name. Present for pipelines running on AWS only | "chunk-cache" |
-| CHUNK_CACHE_AWS_REGION | AWS region for Chunk Cache bucket | "us-east-1"|
 
 ## Messages
 

@@ -6,7 +6,7 @@ Key: `{taskId}`
 
 Value: JSON
 
-```json
+```graphql schema
 {
     "type": "media_chunk",
     "timestampUTC": int64,

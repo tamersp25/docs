@@ -42,18 +42,17 @@ The basic lifecycle for a segment engine is as follows:
 
 | Key Name | Description | Example |
 | -------- | ----------- | ------- |
+| ENGINE_ID|All|The engine ID |
+| ENGINE_INSTANCE_ID|All|Unique instance ID for the engine instance |
 | KAFKA_BROKERS | Comma-separated list of Kafka Broker addresses | "kafka1:9092,kafka2:9092" |
 | KAFKA_CHUNK_TOPIC | The Chunk Queue Kafka topic | "chunk_all" |
+| KAFKA_CONSUMER_GROUP|Chunk|The consumer group the engine must use (shared with all other chunk engines consuming that topic)  |
+| KAFKA_INPUT_TOPIC|Chunk|The Kafka topic the engine should consume chunks from. Ex: "chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
 | VERITONE_API_BASE_URL | Base URL for Veritone APIs | "https://api.veritone.com" |
-| ENGINE_ID | The engine ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3"
-| ENGINE_INSTANCE_ID | The engine instance ID | "5e323ad7-2c5b-48f6-b53a-0b1ca42ceab3_324" |
-| KAFKA_INPUT_TOPIC | The Kafka topic the engine should consume chunks from | "chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
-| KAFKA_CONSUMER_GROUP | The consumer group the engine must use (shared with all other chunk engines consuming that topic) | "cg_chunk_in_084f457c-4363-4aca-a455-66c07a9670d9" |
-| END_IF_IDLE_SECS | Number of seconds to wait for a job (idle) before killing self.  Default will be 3600 (1 hour). If not present then engine can sit idle indefinitely. | 3600 |
 
 ## Messages
 
-segment engines deal with three different Kafka messages:
+Segment engines deal with three different messages:
 
 - `media_chunk`
 - `engine_output`
