@@ -126,9 +126,13 @@ The output of each engine processing job is a set of metadata that is
 output by the engine and stored in Veritone's proprietary hyper-scale,
 time-correlated Temporal Elastic Database (TED<sup>TM</sup>).
 
-Time correlation based on the media run-time is required to facilitate
-effective multi-variant search by Veritone's suite of end-user
-applications.
+![Indexing](indexing.jpg)
+
+Time correlation to the media run-time allows data of various kinds, detected by various engines, to be searchable-in-context.
+This allows (for example) the end-user to run complex searches like "which portions of video show President Trump onscreen at the same time as a CNN logo?"
+Faces, objects, text, and other "detection targets" that are colocated in specific video clips can be searched on the basis of their being colocated.
+These custom, searchable ensembles of detection targets comprise a special class of objects called _Mentions_,
+which can (in turn) be produced in accordance with custom requirements specified in _Watchlists_.
 
 > For more information on the types of data available to be indexed, see the [engine output specifications](developer/engines/standards/engine-output/).
 
