@@ -33,25 +33,23 @@ Each schema should fully describe the fields for the structured data that you wa
 | required | array | No | Indicates the fields that are required to be present in the structured data. If a required field is not present in a record, that record will not be saved. | "required": \["id", "name"] |
 | properties | object | No | A JSON object containing the names and data types of the fields in the structured data set | "properties": {"firstName":{"type":"string"},"lastName":{"type":"string"}}|
 
- The data types that Veritone supports:
+The supported values of the `type` field that Veritone supports are:
 
-| Data Type | Example Values |
-| --------- | ------- |
-| number | 1, 2.0, 3431455 |
-| integer | 1, 4, 34, 32134 |
-| boolean | true, false |
-| string | "string" |
-| array | \["one", "two", "three"]
-| object | {"firstName":{"type":"string"},"lastName":{"type":"string"}} |
+| Type | Example Values | Notes |
+| ---- | -------------- | -------- |
+| `array` | `["one", "two", "three"]` | See [json-schema array](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.4) type |
+| `binary` | `"U29tZSBiaW5hcnkgYmxvYg=="` | See [elasticsearch binary](https://www.elastic.co/guide/en/elasticsearch/reference/current/binary.html) type |
+| `boolean` | `true`, `false` | See [json-schema boolean](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.7) type |
+| `dateTime` | `"2018-02-22T01:00:00.000Z"` | Should be in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) |
+| `geoPoint` | `"34.052235,-118.243683"` | Should be a latitude,longitude coordinate pair as a string |
+| `integer` | `1`, `4`, `-34`, `32134` | See [json-schema integer](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.2) type |
+| `ip` | `"192.168.1.1"` | See [elasticsearch ip](https://www.elastic.co/guide/en/elasticsearch/reference/current/ip.html) type |
+| `number` | `1`, `2.0`, `3431455` | See [json-schema number](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.2) type |
+| `object` | `{"firstName":{"type":"string"},"lastName":{"type":"string"}}` | See [json-schema object](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.5) type |
+| `string` | `"hello world."` | See [json-schema string](https://json-schema.org/latest/json-schema-validation.html#rfc.section.6.3) type |
 
-Within the string type, we support two specific formats:
-
-| Format | Example |
-| ------ | ------- |
-| geopoint | "34.052235,-118.243683" |
-| datetime | "2018-02-22T01\:00\:00.000Z" |
-
-*Note that datetime is in UTC time and formatted per [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).*
+> The `binary`, `dateTime`, `geoPoint`, and `ip` types are all custom extensions to the [json-schema](https://json-schema.org/) standard that in some cases dictate additional validation (specified above).
+The rest of the data types are direct implementations of their json-schema counterparts.
 
 ## Editing a Schema
 
