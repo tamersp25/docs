@@ -5,4 +5,7 @@ const config = JSON.parse(readFileSync('config.json', 'utf8'));
 const indexFileLocation = `${buildDirectory}/index.html`;
 const indexContents = readFileSync(indexFileLocation, 'utf8');
 
-writeFileSync(indexFileLocation, indexContents.replace('@@apiRoot@@', config.apiRoot));
+writeFileSync(
+  indexFileLocation,
+  indexContents.replace('@@apiRoot@@', config.apiRoot)
+);
