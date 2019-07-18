@@ -1,0 +1,136 @@
+/* For collapsing all but current page */
+.sidebar-nav .collapse ul {
+  display: none;
+}
+
+/**
+     * For highlighting the currently selected page
+     * Because the default assumes you only want things highlighted if they don't have any subpages
+     **/
+.sidebar-nav .active > a {
+  border-right: 2px solid;
+  /*noinspection CssUnresolvedCustomProperty*/
+  color: var(--theme-color, #42b983);
+  font-weight: 600;
+}
+
+/* Provide some differentiation between section headings and sub-pages in the sidebar */
+/*noinspection CssUnusedSymbol*/
+.sidebar-nav .section-link {
+  font-style: italic;
+}
+
+/* Make the top-level headings stand out in the nav bar */
+.sidebar-nav > ul > li > p > a,
+.sidebar-nav > ul > li > a {
+  font-weight: 600;
+  font-size: 17px;
+  margin-top: 20px;
+  border-top: 1px #eee solid;
+}
+
+/* Style the "Try in GraphiQL" link */
+pre[data-lang='graphql'] {
+  margin-bottom: 0.25em;
+}
+p.graphql-link {
+  text-align: right;
+  margin-top: 0.25em;
+  padding-right: 1em;
+}
+p.graphql-link a img {
+  position: relative;
+  top: 3px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
+section.cover.show {
+  display: block;
+  overflow-y: scroll;
+}
+
+section.cover.show .cover-main {
+  margin: 0;
+  padding-top: 100px;
+}
+
+.cover .main {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cover h1 {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.cover h2 {
+  text-transform: uppercase;
+}
+
+.cover .subtitle {
+  font-family: 'Dosis', sans-serif;
+  font-weight: 600;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.cover .card {
+  background-color: #ffffff;
+  margin: 20px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* TODO: Tune this or use someone else's "card" */
+}
+
+.cover .personas-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cover .personas-container .card {
+  width: 300px;
+}
+
+.cover .platform-approach {
+  color: white;
+  background-color: blue; /* TODO: fix this color */
+  height: 500px; /* TODO: Temporary hack to see how overflow scrolling works.  Fill with content instead */
+}
+
+.markdown-section h1 {
+  font-weight: bold;
+  font-size: 32px;
+  color: #132d43;
+}
+
+.markdown-section h2 {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.markdown-section h3 {
+  font-size: 16px;
+}
+
+.markdown-section h4 {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.markdown-section h5 {
+  font-size: 12px;
+}
+
+.markdown-section h6 {
+  font-size: 12px;
+  font-style: italic;
+}
