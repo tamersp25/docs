@@ -1188,7 +1188,7 @@ query getTranscriptJSON {
 
 ## Search
 
-See the [search quickstart guide](/apis/search-quickstart/) for details on the searchMedia query syntax.
+See the [search quickstart guide](apis/search-quickstart/) for details on the searchMedia query syntax.
 
 ### Search Structured Data
 

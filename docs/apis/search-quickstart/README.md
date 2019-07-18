@@ -689,7 +689,7 @@ query{
         "totalResults": 733275,
     	"limit": 1,
     	"from": 0,
-    	"to": 0
+    	"to": 0,
         "searchToken": "930f0960-e1c3-11e7-9e94-eba5f6b5faf7",
         "timestamp": 1513361576
   	}
