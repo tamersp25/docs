@@ -18,7 +18,6 @@ export default {
   subMaxLevel: 2,
   loadSidebar: true,
   auto2top: true,
-  coverpage: true,
   // notFoundPage: {
   //   '\/(.*)(?<!\/)$': '1$/'
   // }
