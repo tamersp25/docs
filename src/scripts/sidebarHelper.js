@@ -2,6 +2,10 @@ let RECURSION_LIMIT = 50;
 let collapseNavElRecursion = 0;
 let collapseExtendedFamilyRecursion = 0;
 
+export function resetExtendedFamilyRecursion() {
+  collapseExtendedFamilyRecursion = 0;
+}
+
 export function collapseChildren(el) {
   el = getSidebarNode(el);
   var subNavEls = getChildren(el);

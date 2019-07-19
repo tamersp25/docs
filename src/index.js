@@ -1,4 +1,5 @@
 import config from './scripts/docsifyConfig';
+import './base.scss';
 
 window.$docsify = config;
 

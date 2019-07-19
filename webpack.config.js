@@ -1,11 +1,10 @@
 const path = require('path');
-const fs = require('fs');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const buildDirectory = `build-${process.env.ENVIRONMENT || 'local'}`;
-const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 module.exports = {
   mode: 'development',
@@ -32,6 +31,10 @@ module.exports = {
       {
         from: path.resolve(__dirname, 'src', 'docs'),
         to: path.resolve(__dirname, buildDirectory, 'docs')
+      },
+      {
+        from: path.resolve(__dirname, 'src', 'media'),
+        to: path.resolve(__dirname, buildDirectory, 'media')
       }
     ]),
 

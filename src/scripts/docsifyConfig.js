@@ -1,9 +1,10 @@
 import {
   collapseExtendedFamily,
   collapseChildren,
-  iterateObject
+  iterateObject,
+  resetExtendedFamilyRecursion
 } from './sidebarHelper';
-const config = JSON.parse(readFileSync('../../config.json', 'utf8'));
+import config from '../../config.json';
 const { apiRoot } = config;
 
 export default {
@@ -106,7 +107,7 @@ export default {
      **/
     function veritoneSidebarCollapsePlugin(hook) {
       hook.doneEach(function onPageChanged() {
-        collapseExtendedFamilyRecursion = 0;
+        resetExtendedFamilyRecursion();
         var activeEl = $('.sidebar-nav .active');
         collapseChildren(activeEl);
         collapseExtendedFamily(activeEl);
