@@ -14,6 +14,18 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, buildDirectory)
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader' // compiles Sass to CSS, using Node Sass by default
+        ]
+      }
+    ]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
@@ -22,6 +34,7 @@ module.exports = {
         to: path.resolve(__dirname, buildDirectory, 'docs')
       }
     ]),
+
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })
