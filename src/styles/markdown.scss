@@ -1,0 +1,9 @@
+@import '_palette';
+
+.markdown-section {
+  @import '_typeface';
+
+  blockquote {
+    border-left: 4px solid $secondary;
+  }
+}

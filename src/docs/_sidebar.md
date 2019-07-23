@@ -1,12 +1,21 @@
 <!-- markdownlint-disable first-line-h1 -->
 
 - [aiWARE Overview](/)
+
   - [Architecture Overview](architecture-overview/)
   - [Glossary](glossary/)
+
+- [Quickstart](quickstart/)
+
+  - [Engine Developer](quickstart/engine-developer.md)
+  - [ML Integrator](quickstart/ml-integrator.md)
+  - [ML Explorer](quickstart/ml-explorer.md)
+  - [App Developer](quickstart/app-developer.md)
 
 - [Applications](apps/)
 
 - [APIs](apis/)
+
   - Developer Guide
     - [The Veritone API Data Model](apis/data-model.md)
     - [Using GraphQL](apis/using-graphql.md)
@@ -33,9 +42,11 @@
     - [Asset Types](apis/tutorials/asset-types.md)
 
 - [Developer](developer/)
+
   - [Developer Benefits](developer/benefits.md)
 
   - [Building **Applications**](developer/applications/)
+
     - [Application Integration](developer/applications/integration/)
     - [Quickstart](developer/applications/quick-start/)
       - [Step 1 - Register Your Application](developer/applications/quick-start/step-1.md)
@@ -49,6 +60,7 @@
     - [FAQ](developer/applications/faq.md)
 
   - [Building **Engines**](developer/engines/)
+
     - [Getting Started](developer/engines/getting-started/)
       - [Path to Monetization](developer/engines/getting-started/path-to-monetization/)
       - [Support](developer/engines/getting-started/support/)
@@ -93,7 +105,7 @@
     - [Engine Standards](developer/engines/standards/)
       - [Engine Output (vtn-standard)](developer/engines/standards/engine-output/)
       - [Engine Manifest](developer/engines/standards/engine-manifest/)
-      <!-- - [Message Types](developer/engines/standards/message-types/)-->
+        <!-- - [Message Types](developer/engines/standards/message-types/)-->
     - [Custom Fields](developer/engines/custom-fields/)
     - [Polling](developer/engines/polling/)
     - [Callbacks](developer/engines/callbacks/)
@@ -101,6 +113,7 @@
     - [Engine Toolkit (Beta)](developer/engines/toolkit/)
 
   - [Building **Adapters**](developer/adapters/)
+
     - [Quickstart](developer/adapters/quick-start/)
       - [Step 1 - Register Your Adapter](developer/adapters/quick-start/step-1.md)
       - [Step 2 - Construct Your Code for the Veritone Platform](developer/adapters/quick-start/step-2.md)
@@ -112,14 +125,17 @@
     - [Adapter Manifest](developer/adapters/manifest.md)
 
   - [Working with **Structured Data**](developer/data/)
+
     - [Quickstart](developer/data/quick-start/)
 
   - [Working with **Libraries**](developer/libraries/)
+
     - [Library-enabled Engines](developer/libraries/engines.md)
     - [Training Engines](developer/libraries/training.md)
     - [Running Engines](developer/libraries/running.md)
 
   - [Machine Box](/developer/machine-box/)
+
     - [API guidelines](/developer/machine-box/api-guidelines)
     - [Setup](/developer/machine-box/setup/)
       - [Install Docker](/developer/machine-box/setup/docker)

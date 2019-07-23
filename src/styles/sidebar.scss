@@ -1,0 +1,53 @@
+@import './_palette.scss';
+.sidebar {
+  /* For collapsing all but current page */
+  font-family: 'Dosis', sans-serif;
+
+  .collapse ul {
+    display: none;
+  }
+
+  li {
+    margin: 8px 0;
+  }
+
+  /* Top-level ul */
+  .sidebar-nav > ul {
+    margin-left: 32px;
+
+    & > li {
+      margin: 32px 0;
+      & > p > a {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  /* Sub-level ul */
+  .sidebar-nav > ul ul {
+    margin-left: 24px;
+
+    & > li {
+      margin: 8px 0;
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+
+  /**
+  * For highlighting the currently selected page
+  * Because the default assumes you only want things highlighted if they don't have any subpages
+  **/
+  ul li .active > a {
+    border-right: 6px solid;
+    color: $secondary;
+    font-weight: 600;
+  }
+
+  /* Provide some differentiation between section headings and sub-pages in the sidebar */
+  .section-link {
+    font-style: italic;
+  }
+}

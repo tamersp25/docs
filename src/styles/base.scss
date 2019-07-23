@@ -1,0 +1,32 @@
+@import './_palette';
+
+/* Style the "Try in GraphiQL" link */
+pre[data-lang='graphql'] {
+  margin-bottom: 0.25em;
+}
+
+p.graphql-link {
+  text-align: right;
+  margin-top: 0.25em;
+  padding-right: 1em;
+
+  a img {
+    position: relative;
+    top: 3px;
+  }
+}
+
+section.cover.show {
+  display: block;
+  overflow-y: scroll;
+
+  .cover-main {
+    margin: 0;
+    padding-top: 100px;
+  }
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}

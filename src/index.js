@@ -1,5 +1,8 @@
 import config from './scripts/docsifyConfig';
-import './base.scss';
+
+import './styles/sidebar.scss';
+import './styles/base.scss';
+import './styles/markdown.scss';
 
 window.$docsify = config;
 

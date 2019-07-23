@@ -9,6 +9,7 @@
     "lint": "./node_modules/.bin/markdownlint --ignore \"src/docs/apis/search-quickstart/README.md\" --ignore \"src/docs/developer/engines/toolkit/*\" --ignore \"src/docs/apis/reference/\" --ignore \"src/docs/apis/job-quick-start-guide/\" --ignore \"src/docs/apis/search-quick-start-guide/\" src/docs",
     "start": "yarn build && ./node_modules/.bin/docsify serve ./docs",
     "start:webpack": "yarn build:webpack && ./node_modules/.bin/docsify serve ./build-${ENVIRONMENT:-local}",
+    "serve": "./node_modules/.bin/docsify serve ./build-${ENVIRONMENT:-local}",
     "test": "echo \"tests temporarily disabled\" && true  # ./node_modules/.bin/codeceptjs run --reporter mocha-multi",
     "test:full": "yarn && yarn build:webpack && HTTP_PORT=3333 yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
@@ -34,7 +35,7 @@
     "yarn": "^1.15.2"
   },
   "dependencies": {
-    "clean-webpack-plugin": "^3.0.0",
+    "clean-webpack-plugin": "1.0.1",
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
