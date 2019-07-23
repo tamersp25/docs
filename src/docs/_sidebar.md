@@ -1,9 +1,9 @@
 <!-- markdownlint-disable first-line-h1 -->
 
-- [aiWARE Overview](/)
+- [aiWARE Overview](overview/)
 
-  - [Architecture Overview](architecture-overview/)
-  - [Glossary](glossary/)
+  - [Architecture Overview](overview/architecture-overview/)
+  - [Glossary](overview/glossary/)
 
 - [Quickstart](quickstart/)
 

@@ -4,14 +4,15 @@
   "version": "1.0.0",
   "main": "n/a",
   "scripts": {
-    "build": "sh ./schemagen.sh && rm -rf build-${ENVIRONMENT:-local} && mkdir build-${ENVIRONMENT:-local} && cp -r src/docs/* build-${ENVIRONMENT:-local}/ && node build.js",
-    "build:webpack": "sh ./schemagen.sh && webpack",
+    "build:old": "sh ./schemagen.sh && rm -rf build-${ENVIRONMENT:-local} && mkdir build-${ENVIRONMENT:-local} && cp -r src/docs/* build-${ENVIRONMENT:-local}/ && node build.js",
+    "build": "sh ./schemagen.sh && webpack",
+    "build:watch": "sh ./schemagen.sh && webpack -w",
     "lint": "./node_modules/.bin/markdownlint --ignore \"src/docs/apis/search-quickstart/README.md\" --ignore \"src/docs/developer/engines/toolkit/*\" --ignore \"src/docs/apis/reference/\" --ignore \"src/docs/apis/job-quick-start-guide/\" --ignore \"src/docs/apis/search-quick-start-guide/\" src/docs",
     "start": "yarn build && ./node_modules/.bin/docsify serve ./docs",
     "start:webpack": "yarn build:webpack && ./node_modules/.bin/docsify serve ./build-${ENVIRONMENT:-local}",
     "serve": "./node_modules/.bin/docsify serve ./build-${ENVIRONMENT:-local}",
     "test": "echo \"tests temporarily disabled\" && true  # ./node_modules/.bin/codeceptjs run --reporter mocha-multi",
-    "test:full": "yarn && yarn build:webpack && HTTP_PORT=3333 yarn test",
+    "test:full": "yarn && yarn build && HTTP_PORT=3333 yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
     "test:report": "E2E_GENERATE_REPORT=true yarn test:full; ./node_modules/.bin/allure serve test/e2e/output"
   },
