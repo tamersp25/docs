@@ -16,17 +16,104 @@ p.graphql-link {
   }
 }
 
-section.cover.show {
-  display: block;
-  overflow-y: scroll;
-
-  .cover-main {
-    margin: 0;
-    padding-top: 100px;
-  }
-}
-
 body {
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
+}
+
+section.cover {
+  color: $white;
+  height: unset;
+  background-image: linear-gradient($white, #5dbcd2) !important;
+
+  .wrapper {
+    max-width: 1000px;
+  }
+
+  .overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .background {
+    width: 100%;
+    height: 600px;
+    background-color: $primary;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .header {
+    font-family: 'Dosis', sans-serif;
+    font-size: 32px;
+    margin: 8px 0;
+    font-weight: bold;
+
+    &.blue {
+      color: $secondary;
+    }
+  }
+
+  .cover-main {
+    margin: 0px;
+
+    .title-text {
+      font-family: 'Dosis', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      margin-top: 64px;
+
+      .outline {
+        -webkit-text-stroke: 0.1px $white;
+        color: rgba(0, 0, 0, 0);
+      }
+    }
+
+    .news-box {
+      margin-top: 72px;
+      width: 100%;
+      height: 600px;
+      background: $white;
+    }
+
+    .dev-box-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > div {
+        display: flex;
+      }
+
+      .dev-box {
+        width: 320px;
+        height: 240px;
+        margin: 12px;
+        border-radius: 8px;
+        background-color: $white;
+      }
+    }
+
+    .footer {
+      width: 100%;
+      padding: 32px 0;
+      display: flex;
+      justify-content: center;
+      background: $secondary;
+
+      .footer-box-container {
+        display: flex;
+        justify-content: center;
+
+        .footer-box {
+          width: 300px;
+          height: 200px;
+          margin: 12px;
+          border-radius: 8px;
+          background-color: $white;
+        }
+      }
+    }
+  }
 }
