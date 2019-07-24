@@ -19,24 +19,24 @@
           <div class="dev-box">
             <div class="dev-box-title blue">ENGINE DEVELOPER</div>
             <p>Onboard Cognitive Machine Learning Engines or Data Adapters onto the aiWARE platform.</p>
-            <a class="button">GET STARTED</a>
+            <a href="/#/quickstart/engine-developer" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
             <div class="dev-box-title purple">ML INTEGRATOR</div>
               <p>Leverage aiWARE cognitive processes in your or your clients' business processes.</p>
-              <a class="button">GET STARTED</a>
+              <a href="/#/quickstart/ml-integrator" class="button">GET STARTED</a>
           </div>
         </div>
         <div>
           <div class="dev-box">
             <div class="dev-box-title teal">ML EXPLORER</div>
             <p>New to AI and Machine Learning? Find out what is possible with our free trial engines.</p>
-            <a class="button">GET STARTED</a>
+            <a href="/#/quickstart/ml-explorer" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
             <div class="dev-box-title magenta">APP DEVELOPER</div>
               <p>Put your AI powered Application onto the aiWARE platform and expand what is possible</p>
-              <a class="button">GET STARTED</a>
+              <a href="/#/quickstart/app-developer" class="button">GET STARTED</a>
           </div>
         </div>
       </div>
@@ -55,17 +55,17 @@
         <div class="platform-box">
           <div class="platform-box-title">APIs</div>
           <p>Veritone's GraphQL-based APIs combine the ease of declarative programming with the power of a sophisticated query language.</p>
-          <a class="button-text">LEARN MORE ></a>
+          <a href="/#/apis/" class="button-text">LEARN MORE ></a>
         </div>
         <div class="platform-box">
           <div class="platform-box-title">ENGINE DEVELOPMENT</div>
           <p>Find out how to modularize (and monetize!) your cognitive logic so that it can be consumed by aiWARE users the world over.</p>
-          <a class="button-text">LEARN MORE ></a>
+          <a href="/#/developer/engines/" class="button-text">LEARN MORE ></a>
         </div>
         <div class="platform-box">
           <div class="platform-box-title">TUTORIALS</div>
           <p>Want to see how easy it is to get an AI-enabled app up and running with just a few lines of code? Try some of our tutorials.</p>
-          <a class="button-text">LEARN MORE ></a>
+          <a href="/#/developer/applications/app-tutorial/" class="button-text">LEARN MORE ></a>
         </div>
       </div>
     </div>
