@@ -1,8 +1,11 @@
 <!-- markdownlint-disable no-inline-html -->
 <div class="overview">
-  <div class="background"></div>
+  <div class="action-bar"></div>
+  <div class="background">
+    <img class="background-image" src="docs/_media/header.svg" />
+  </div>
   <div class="wrapper">
-    <div class="title-text"><span class="outline">VERITONE</span> DOCUMENTATION</div>
+    <img class="title-image" src="docs/_media/title.svg" />
     <section class="intro">
       <header class="header">BUILT FOR DEVELOPERS BY DEVELOPERS</header>
       <h3>Veritone's aiWARE platform is purpose-built for extensibility. Our developer community is the lifeblood of the aiWARE platform, enabling it to expand organically through the addition of new capabilities and functionality. Whether your goal is to build new cognitive engines, leverage existing ones, or create never-before-seen solutions through integration of custom and existing modules, we can help.</h3>
@@ -10,18 +13,20 @@
     <div class="news-box">
     </div>
     <div class="divider-line">
-      <svg><line x1="200" y1="0" x2="200" y2="100" style="stroke:#2196f3;stroke-width:2"></line><line x1="0" y1="100" x2="201" y2="100" style="stroke:#2196f3;stroke-width:2"></line><line x1="1" y1="100" x2="1" y2="250" style="stroke:#2196f3;stroke-width:2"></line></svg>
+      <svg><line x1="200" y1="0" x2="200" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="0" y1="50" x2="201" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="1" y1="50" x2="1" y2="250" style="stroke:#2196f3;stroke-width:2"/></svg>
     </div>
     <section>
       <header class="header blue">WHAT KIND OF AIWARE DEVELOPER ARE YOU?</header>
       <div class="dev-box-container">
         <div>
           <div class="dev-box">
+            <img class="dev-image" src="docs/_media/personas/engine-developer.svg" />
             <div class="dev-box-title blue">ENGINE DEVELOPER</div>
             <p>Onboard Cognitive Machine Learning Engines or Data Adapters onto the aiWARE platform.</p>
             <a href="/#/quickstart/engine-developer" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
+            <img class="dev-image" src="docs/_media/personas/ml-integrator.svg" />
             <div class="dev-box-title purple">ML INTEGRATOR</div>
               <p>Leverage aiWARE cognitive processes in your or your clients' business processes.</p>
               <a href="/#/quickstart/ml-integrator" class="button">GET STARTED</a>
@@ -29,13 +34,15 @@
         </div>
         <div>
           <div class="dev-box">
+            <img class="dev-image" src="docs/_media/personas/ml-explorer.svg" />
             <div class="dev-box-title teal">ML EXPLORER</div>
             <p>New to AI and Machine Learning? Find out what is possible with our free trial engines.</p>
             <a href="/#/quickstart/ml-explorer" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
+            <img class="dev-image" src="docs/_media/personas/app-developer.svg" />
             <div class="dev-box-title magenta">APP DEVELOPER</div>
-              <p>Put your AI powered Application onto the aiWARE platform and expand what is possible</p>
+              <p>Put your AI powered Application onto the aiWARE platform and expand what is possible.</p>
               <a href="/#/quickstart/app-developer" class="button">GET STARTED</a>
           </div>
         </div>
@@ -79,6 +86,9 @@
           <li>Press & Media</li>
         </ul>
       </nav>
+      <div class="logo">
+        <p></p>
+      </div>
     </div>
   </section>
 </div>
