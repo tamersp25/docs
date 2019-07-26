@@ -1,4 +1,4 @@
-<!-- markdownlint-disable first-line-h1 -->
+<!-- markdownlint-disable no-inline-html first-line-h1 -->
 
 - [aiWARE Overview](overview/)
 
@@ -7,10 +7,10 @@
 
 - [Quickstart](quickstart/)
 
-  - [Engine Developer](quickstart/engine-developer.md)
-  - [ML Integrator](quickstart/ml-integrator.md)
-  - [ML Explorer](quickstart/ml-explorer.md)
-  - [App Developer](quickstart/app-developer.md)
+  - <span class="engine-developer">[Engine Developer](quickstart/engine-developer.md)</span>
+  - <span class="ml-integrator">[ML Integrator](quickstart/ml-integrator.md)</span>
+  - <span class="ml-explorer">[ML Explorer](quickstart/ml-explorer.md)</span>
+  - <span class="app-developer">[App Developer](quickstart/app-developer.md)</span>
 
 - [Applications](apps/)
 

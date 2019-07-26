@@ -1,3 +1,6 @@
+<!-- markdownlint-disable no-inline-html -->
+<div class="ml-integrator">
+
 # AI for Integrators
 
 building custom solutions for customers with complex data analysis requirements? Veritone can help, with pluggable cognitive engines, flexible deployment options (cloud and hybrid), and a powerful, easy-to-use GraphQL-based API. Even if you have no prior experience building AI-powered apps, Veritone's standards-based "Operating System for AI" approach gets you to the finish line quickly, with a best-of-breed solution that meets your customer's exact needs.
@@ -19,3 +22,5 @@ Get up to speed quickly with tutorials on GraphQL API Basics, Error Handling, Up
 ## Need Machine Learning in a Standalone App?
 
 Bring Artificial Intelligence to an app in your own infrastructure using Veritone's Machine Box Technology. Detect faces and objects, analyze text, classify data, tag images, spot NSFW imagery, or train our tech on any kind of identifiable entity, using power Machine Box modules ("Boxes") that you deploy on-premise, or in a virtual private cloud, running under your control. [Read more](https://docs.veritone.com/#/developer/machine-box)
+
+</div>

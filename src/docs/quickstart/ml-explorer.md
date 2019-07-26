@@ -1,3 +1,6 @@
+<!-- markdownlint-disable no-inline-html -->
+<div class="ml-explorer">
+
 # Build Intelligence into your App
 
 You don't need a Ph.D. in rocket science to add Machine Learning to an app within your infrastructure. All you need is Veritone's Machine Box technology. You get:
@@ -18,3 +21,5 @@ Find out how easy it is to train an engine to recognize familiar objects. Try th
 ## Read About The API
 
 Access to Machine Learning couldn't be any easier. Read about our JSON-based data model and Box APIs [here](https://docs.veritone.com/#/developer/machine-box/api-guidelines).
+
+</div>

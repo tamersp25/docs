@@ -46,6 +46,36 @@
     font-weight: 600;
   }
 
+  .active {
+    &.engine-developer {
+      & > a,
+      & li.active > a {
+        color: $secondary;
+      }
+    }
+
+    &.ml-integrator {
+      & > a,
+      & li.active > a {
+        color: $accent2;
+      }
+    }
+
+    &.ml-explorer {
+      & > a,
+      & li.active > a {
+        color: $accent3;
+      }
+    }
+
+    &.app-developer {
+      & > a,
+      & li.active > a {
+        color: $accent1;
+      }
+    }
+  }
+
   /* Provide some differentiation between section headings and sub-pages in the sidebar */
   .section-link {
     font-style: italic;

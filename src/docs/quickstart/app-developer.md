@@ -1,3 +1,6 @@
+<!-- markdownlint-disable no-inline-html -->
+<div class="app-developer">
+
 # Build an AI-Powered App on aiWARE
 
 Harnessing the power of Artificial Intelligence in a custom app is easier than you think. Choose from hundreds of cognitive engines (covering more than 25 cognitive capabilities) to build a best-of-breed AI solution to solve challenging business problems. Leverage aiWARE's built in asset management functionality to build access-controlled, rich-media web apps in record time.
@@ -17,3 +20,4 @@ Veritone uses GraphQL and JSON to make operating on data fast, powerful, and eas
 - Veritone's Data Model: <https://docs.veritone.com/#/apis/data-model>
 - See our API documentation: <https://docs.veritone.com/#/apis>
 - See our schema: <https://api.veritone.com/v3/graphqldocs>
+  </div>

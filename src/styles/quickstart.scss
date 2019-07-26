@@ -1,0 +1,25 @@
+@import './palette';
+
+.engine-developer {
+  h2 .anchor span {
+    color: $secondary;
+  }
+}
+
+.ml-integrator {
+  h2 .anchor span {
+    color: $accent2;
+  }
+}
+
+.ml-explorer {
+  h2 .anchor span {
+    color: $accent3;
+  }
+}
+
+.app-developer {
+  h2 .anchor span {
+    color: $accent1;
+  }
+}
