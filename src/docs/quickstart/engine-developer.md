@@ -19,10 +19,13 @@ In the aiWARE platform, cognitive runtimes are called cognitive engines. Write y
 
 Here's the quickest way to get started building your cognitive engine:
 
-- Pick your [cognitive class and capability](/). If you don't see a matching capability, don't worry. Reach out to Support to discuss how best to implement your custom engine.
-- Create your free account with [Veritone Developer](/), aiWARE's development environment (you will need this in step 3).
-- Use our [Engine Toolkit SDK](/) to package, deploy, and test your engine.
-- Once you've packaged and submitted your cognitive engine to Veritone, you're ready to monetize your engine! Review the [Path to Monetization](/) guide.
+1. Pick your [cognitive class and capability](/#/developer/engines/cognitive/). If you don't see a matching capability, don't worry. Reach out to Support to discuss how best to implement your custom engine.
+
+2. Create your free account with [Veritone Developer](/), aiWARE's development environment (you will need this in step 3).
+
+3. Use our [Engine Toolkit SDK](/#/developer/engines/toolkit/?id=using-the-engine-toolkit-beta) to package, deploy, and test your engine.
+
+4. Once you've packaged and submitted your cognitive engine to Veritone, you're ready to monetize your engine! Review the [Path to Monetization](/#/developer/engines/getting-started/path-to-monetization/) guide.
 
 For technical and business-related questions, please reach out to us on [Slack](/). We're here to help!
 

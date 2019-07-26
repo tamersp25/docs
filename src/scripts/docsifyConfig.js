@@ -145,6 +145,35 @@ export default {
     },
 
     /**
+     * "Support" Badges
+     * Replaces instances of `[badge/API/Yes/green]` with a badge from shields.io
+     * with a label of "API Support", a value of "Yes", and a color of green.
+     **/
+    function veritoneBadgePlugin(hook) {
+      hook.beforeEach(function onBeforePageParsed(content) {
+        var BADGE_REGEX = /\[badge\/(\w+)\/(\w+)\/(\w+)]/g;
+        // TODO: Wrap with link to explanations of what API, Search, and UI Support mean
+        return content.replace(
+          BADGE_REGEX,
+          '![$1 Support: $2](https://img.shields.io/badge/$1%20Support-$2-$3.svg)'
+        );
+      });
+    },
+
+    /**
+     * "Support" Classed Headers
+     * Replaces instances of `[header/h2/Header Text/class]` with a badge from shields.io
+     * with a label of "API Support", a value of "Yes", and a color of green.
+     **/
+    function veritoneClassedHeaderPlugin(hook) {
+      hook.beforeEach(function onBeforePageParsed(content) {
+        var BADGE_REGEX = /\[header\/(\w+)\/(.+)\/(.+)]/g;
+        // TODO: Wrap with link to explanations of what API, Search, and UI Support mean
+        return content.replace(BADGE_REGEX, '<$1 class="$3">$2</$1>');
+      });
+    },
+
+    /**
      * Adds a "Try It" link to any GraphQL samples
      **/
     function veritoneGraphqlLinkPlugin(hook) {

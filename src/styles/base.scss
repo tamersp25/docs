@@ -1,5 +1,10 @@
 @import './_palette';
 
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+}
+
 /* Style the "Try in GraphiQL" link */
 pre[data-lang='graphql'] {
   margin-bottom: 0.25em;
@@ -16,245 +21,18 @@ p.graphql-link {
   }
 }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-}
-
-section.cover {
-  color: $white;
-  height: unset;
-  background-image: linear-gradient($white, #d4e5f5) !important;
-
-  .cover-main {
-    overflow: auto;
-  }
-
-  .wrapper {
-    max-width: 768px;
-    overflow: auto;
-  }
-
-  .overview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: auto;
-  }
-
-  .action-bar {
-    margin: 0;
-    height: 72px;
-    width: 100%;
-    background: white;
-  }
-
-  .background {
-    width: 100%;
-    height: 640px;
-    background-image: linear-gradient(#002746, #347bb3);
-    position: absolute;
-    z-index: -1;
-    overflow: hidden;
-
-    .background-image {
-      position: relative;
-      height: 250%;
-      top: -400px;
-      left: -200px;
-      opacity: 0.4;
-    }
-  }
-
-  .header {
-    font-family: 'Dosis', sans-serif;
-    font-size: 32px;
-    margin: 8px 0;
+.iconlist {
+  .iconlist-icon {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
     font-weight: bold;
-
-    &.blue {
-      color: $secondary;
-    }
-  }
-
-  .button {
-    cursor: pointer;
-    width: 180px;
+    color: $white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
-    font-family: 'Dosis', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: $primary;
-    border: 2px solid $primary;
-  }
-
-  .button-text {
-    cursor: pointer;
-    font-family: 'Dosis', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    color: $secondary;
-  }
-
-  .cover-main {
-    margin: 0px;
-
-    .title-image {
-      margin-top: 128px;
-      max-width: 80%;
-    }
-
-    .news-box {
-      margin-top: 72px;
-      width: 95%;
-      height: 400px;
-      background: $white;
-      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-    }
-
-    .divider-line svg {
-      margin-top: 36px;
-      width: 234px;
-      height: 160px;
-      padding: 16px;
-    }
-
-    .dev-box-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      & > div {
-        display: flex;
-      }
-
-      .dev-box {
-        width: 50%;
-        margin: 16px;
-        padding: 16px;
-        border-radius: 8px;
-        background-color: $white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-
-        .dev-image {
-          max-width: 30%;
-        }
-
-        .dev-box-title {
-          font-family: 'Dosis', sans-serif;
-          font-size: 24px;
-          font-weight: bold;
-
-          &.blue {
-            color: $secondary;
-          }
-
-          &.purple {
-            color: $accent2;
-          }
-
-          &.teal {
-            color: $accent3;
-          }
-
-          &.magenta {
-            color: $accent1;
-          }
-        }
-
-        p {
-          color: $primary;
-        }
-      }
-    }
-
-    .quiz {
-      margin-top: 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      h3 {
-        color: $primary;
-      }
-    }
-
-    .platform {
-      width: 100%;
-      padding: 32px 0;
-      margin-top: 72px;
-      display: flex;
-      justify-content: center;
-      background: $secondary;
-
-      .platform-container {
-        display: flex;
-        justify-content: center;
-        justify-content: center;
-        align-items: center;
-
-        .platform-box {
-          background-image: linear-gradient(#d4e5f5, $white) !important;
-          margin: 12px;
-          padding: 16px;
-          border-radius: 8px;
-          background-color: $white;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-
-          .platform-box-title {
-            font-family: 'Dosis', sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-            color: $primary;
-          }
-
-          p {
-            color: $primary;
-            text-align: start;
-          }
-        }
-      }
-    }
-
-    .footer {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      height: 240px;
-      background-color: $primary;
-
-      nav {
-        ul {
-          display: flex;
-          margin-left: 0;
-          li {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            height: 32px;
-
-            &:not(:first-of-type) {
-              border-left: 1px solid $white;
-            }
-
-            &:hover {
-              color: $secondary;
-            }
-          }
-        }
-      }
-    }
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    background-color: $secondary;
   }
 }
