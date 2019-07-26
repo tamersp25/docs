@@ -12,14 +12,14 @@ You don't need a Ph.D. in rocket science to add Machine Learning to an app withi
 
 ## Feature Detection Made Easy
 
-Detect faces and objects, analyze text, classify data, tag images, spot NSFW imagery, or train our tech on any kind of identifiable entity, using power Machine Box modules ("Boxes") that you deploy on-premise, or in a virtual private cloud, running under your control. [Read more](https://docs.veritone.com/#/developer/machine-box)
+Detect faces and objects, analyze text, classify data, tag images, spot NSFW imagery, or train our tech on any kind of identifiable entity, using power Machine Box modules ("Boxes") that you deploy on-premise, or in a virtual private cloud, running under your control. [Read more](/developer/machine-box)
 
 ## Take The Tutorial
 
-Find out how easy it is to train an engine to recognize familiar objects. Try the tutorial [here](https://docs.veritone.com/#/developer/machine-box/boxes/tagbox/recognizing-images).
+Find out how easy it is to train an engine to recognize familiar objects. Try the tutorial [here](/developer/machine-box/boxes/tagbox/recognizing-images).
 
 ## Read About The API
 
-Access to Machine Learning couldn't be any easier. Read about our JSON-based data model and Box APIs [here](https://docs.veritone.com/#/developer/machine-box/api-guidelines).
+Access to Machine Learning couldn't be any easier. Read about our JSON-based data model and Box APIs [here](/developer/machine-box/api-guidelines).
 
 </div>

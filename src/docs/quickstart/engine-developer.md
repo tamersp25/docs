@@ -19,15 +19,15 @@ In the aiWARE platform, cognitive runtimes are called cognitive engines. Write y
 
 Here's the quickest way to get started building your cognitive engine:
 
-1. Pick your [cognitive class and capability](/#/developer/engines/cognitive/). If you don't see a matching capability, don't worry. Reach out to Support to discuss how best to implement your custom engine.
+1. Pick your [cognitive class and capability](/developer/engines/cognitive/). If you don't see a matching capability, don't worry. Reach out to Support to discuss how best to implement your custom engine.
 
-2. Create your free account with [Veritone Developer](/), aiWARE's development environment (you will need this in step 3).
+2. Create your free account with [Veritone Developer](https://developer.veritone.com/), aiWARE's development environment (you will need this in step 3).
 
-3. Use our [Engine Toolkit SDK](/#/developer/engines/toolkit/?id=using-the-engine-toolkit-beta) to package, deploy, and test your engine.
+3. Use our [Engine Toolkit SDK](/developer/engines/toolkit/?id=using-the-engine-toolkit-beta) to package, deploy, and test your engine.
 
-4. Once you've packaged and submitted your cognitive engine to Veritone, you're ready to monetize your engine! Review the [Path to Monetization](/#/developer/engines/getting-started/path-to-monetization/) guide.
+4. Once you've packaged and submitted your cognitive engine to Veritone, you're ready to monetize your engine! Review the [Path to Monetization](/developer/engines/getting-started/path-to-monetization/) guide.
 
-For technical and business-related questions, please reach out to us on [Slack](/). We're here to help!
+For technical and business-related questions, please reach out to us on [Slack](https://chat.veritone.com/). We're here to help!
 
 ## Helpful Resources
 
@@ -42,13 +42,13 @@ By meeting simple JSON-based input/output contracts, your engines achieve unpara
 
 ### Tutorials
 
-Get up to speed quickly with tutorials on GraphQL API Basics, Error Handling, Uploading, and Processing Files, Authentication, Posting Engine Results, and more. See all tutorials [here](/).
+Get up to speed quickly with tutorials on GraphQL API Basics, Error Handling, Uploading, and Processing Files, Authentication, Posting Engine Results, and more. See all tutorials [here](/apis/tutorials/).
 
 Check Out More Developer Guides!
 Engine development not exactly what you're looking for? Want to explore more AI-powered solutions you can build on aiWARE? Check out these additional guides:
 
-- [AI Integrator](/) - Integrate aiWARE's cognitive capabilities into your platform or app
-- [ML Explorer](/) - Deploy machine learning in your standalone app
-- [App Developer](/) - Build a bespoke app with the configurable aiWARE AI infrastructure and ecosystem of cognitive capabilities
+- [ML Integrator](/quickstart/ml-integrator) - Integrate aiWARE's cognitive capabilities into your platform or app
+- [ML Explorer](/quickstart/ml-explorer) - Deploy machine learning in your standalone app
+- [App Developer](/quickstart/app-developer) - Build a bespoke app with the configurable aiWARE AI infrastructure and ecosystem of cognitive capabilities
 
 </div>

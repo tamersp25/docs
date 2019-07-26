@@ -13,14 +13,14 @@ When the goal is to transform your clients' existing infrastructure to an AI-ena
 
 Run live quieries against real datasets. Federate cognitive engines into complex workflows. Aggregate, search, and analyze temporal data like a pro. You'll be amazed how fast you can go from zero to hero when you combine the ease of declarative programming with the power of AI.
 
-[Try it now](/)
+[Try it now](https://api.veritone.com/v3/graphiql)
 
 ## Tutorials
 
-Get up to speed quickly with tutorials on GraphQL API Basics, Error Handling, Uploading and Processing Files, Authentication, Posting Engine Results, and more. See all tutorials [here](/).
+Get up to speed quickly with tutorials on GraphQL API Basics, Error Handling, Uploading and Processing Files, Authentication, Posting Engine Results, and more. See all tutorials [here](/apis/tutorials/).
 
 ## Need Machine Learning in a Standalone App?
 
-Bring Artificial Intelligence to an app in your own infrastructure using Veritone's Machine Box Technology. Detect faces and objects, analyze text, classify data, tag images, spot NSFW imagery, or train our tech on any kind of identifiable entity, using power Machine Box modules ("Boxes") that you deploy on-premise, or in a virtual private cloud, running under your control. [Read more](https://docs.veritone.com/#/developer/machine-box)
+Bring Artificial Intelligence to an app in your own infrastructure using Veritone's Machine Box Technology. Detect faces and objects, analyze text, classify data, tag images, spot NSFW imagery, or train our tech on any kind of identifiable entity, using power Machine Box modules ("Boxes") that you deploy on-premise, or in a virtual private cloud, running under your control. [Read more](/developer/machine-box)
 
 </div>
