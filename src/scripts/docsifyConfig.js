@@ -162,8 +162,8 @@ export default {
 
     /**
      * "Support" Classed Headers
-     * Replaces instances of `[header/h2/Header Text/class]` with a badge from shields.io
-     * with a label of "API Support", a value of "Yes", and a color of green.
+     * Replaces instances of `[header/h2/Header Text/class]` with a header attached with a class
+     * with a h type h2, a value of "Header Text", and class name "class"
      **/
     function veritoneClassedHeaderPlugin(hook) {
       hook.beforeEach(function onBeforePageParsed(content) {
