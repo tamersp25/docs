@@ -11,6 +11,22 @@
       <h3>Veritone's aiWARE platform is purpose-built for extensibility. Our developer community is the lifeblood of the aiWARE platform, enabling it to expand organically through the addition of new capabilities and functionality. Whether your goal is to build new cognitive engines, leverage existing ones, or create never-before-seen solutions through integration of custom and existing modules, we can help.</h3>
     </section>
     <div class="news-box">
+      <div class="news-header">WHAT'S NEW</div>
+      <div class="divider"></div>
+      <h4 class="news-description">At Veritone, we're constantly shipping new features and capabilities for our aiWARE platform and applications to help you intelligently extract insight out of your data faster. To keep you devs up to date on the latest documentation updates and tutorials, we've summarized updates here. So check back from time to time to learn what's new in the Veritone Developer Community.</h4>
+      <div class="divider"></div>
+      <div class="news-content">
+        <div class="news-item">
+          <div class="news-item-header">6/10/2019</div>
+          <ul>
+            <li>Machine Box engines are now documented</li>
+            <li>Architecture overview - revised and expanded</li>
+            <li>Asynchronous Engines: Polling - for human-review scenarios</li>
+            <li>Asynchronous Engines: Callback - for human-review scenarios</li>
+            <li>Engine Testing API is now available!</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="divider-line">
       <svg><line x1="200" y1="0" x2="200" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="0" y1="50" x2="201" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="1" y1="50" x2="1" y2="250" style="stroke:#2196f3;stroke-width:2"/></svg>
