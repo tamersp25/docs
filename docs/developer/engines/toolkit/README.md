@@ -1,4 +1,4 @@
-# Using the Engine Toolkit (BETA)
+# Engine Developer Toolkit
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 

@@ -2,6 +2,10 @@
 
 [](_summary.md ':include')
 
+## Developer tools
+
+To get started building chunk engines, developers should use the [developer toolkit](/developer/engines/toolkit/).
+
 ## Classes
 
 Cognitive engines are categorized into engine classes based on the type of data that they analyze.
