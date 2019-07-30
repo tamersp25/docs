@@ -1,25 +1,32 @@
 @import './palette';
 
-.engine-developer {
-  h2 .anchor span {
-    color: $secondary;
+.quickstart {
+  .banner {
+    height: 120px;
+    margin-bottom: 36px;
   }
-}
 
-.ml-integrator {
-  h2 .anchor span {
-    color: $accent2;
+  .engine-developer {
+    h2 .anchor span {
+      color: $secondary;
+    }
   }
-}
 
-.ml-explorer {
-  h2 .anchor span {
-    color: $accent3;
+  .ml-integrator {
+    h2 .anchor span {
+      color: $accent2;
+    }
   }
-}
 
-.app-developer {
-  h2 .anchor span {
-    color: $accent1;
+  .ml-explorer {
+    h2 .anchor span {
+      color: $accent3;
+    }
+  }
+
+  .app-developer {
+    h2 .anchor span {
+      color: $accent1;
+    }
   }
 }

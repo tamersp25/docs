@@ -1,5 +1,7 @@
 <!-- markdownlint-disable no-inline-html -->
-<div class="ml-explorer">
+<div class="quickstart ml-explorer">
+
+<img class="banner" src="docs/_media/personas/banner-ml-explorer.png" />
 
 # Build Intelligence into your App
 

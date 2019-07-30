@@ -1,5 +1,7 @@
 <!-- markdownlint-disable no-inline-html -->
-<div class="app-developer">
+<div class="quickstart app-developer">
+
+<img class="banner" src="docs/_media/personas/banner-app-developer.png" />
 
 # Build an AI-Powered App on aiWARE
 
