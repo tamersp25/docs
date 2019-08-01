@@ -5,7 +5,7 @@
 
 # AI for Integrators
 
-building custom solutions for customers with complex data analysis requirements? Veritone can help, with pluggable cognitive engines, flexible deployment options (cloud and hybrid), and a powerful, easy-to-use GraphQL-based API. Even if you have no prior experience building AI-powered apps, Veritone's standards-based "Operating System for AI" approach gets you to the finish line quickly, with a best-of-breed solution that meets your customer's exact needs.
+Building custom solutions for customers with complex data analysis requirements? Veritone can help, with pluggable cognitive engines, flexible deployment options (cloud and hybrid), and a powerful, easy-to-use GraphQL-based API. Even if you have no prior experience building AI-powered apps, Veritone's standards-based "Operating System for AI" approach gets you to the finish line quickly, with a best-of-breed solution that meets your customer's exact needs.
 
 ## Let's Partner
 

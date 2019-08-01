@@ -23,7 +23,7 @@ Here's the quickest way to get started building your cognitive engine:
 
 1. Pick your [cognitive class and capability](/developer/engines/cognitive/). If you don't see a matching capability, don't worry. Reach out to Support to discuss how best to implement your custom engine.
 
-2. Create your free account with [Veritone Developer](https://developer.veritone.com/), aiWARE's development environment (you will need this in step 3).
+2. Create your free account with [Veritone Developer](https://www.veritone.com/devsignup/), aiWARE's development environment (you will need this in step 3).
 
 3. Use our [Engine Toolkit SDK](/developer/engines/toolkit/?id=using-the-engine-toolkit-beta) to package, deploy, and test your engine.
 
