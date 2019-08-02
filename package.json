@@ -7,14 +7,14 @@
     "build": "sh ./schemagen.sh && rm -rf build-${ENVIRONMENT:-local} && mkdir build-${ENVIRONMENT:-local} && cp -r docs/* build-${ENVIRONMENT:-local}/ && node build.js",
     "lint": "./node_modules/.bin/markdownlint --ignore \"docs/apis/search-quickstart/README.md\" --ignore \"docs/developer/engines/toolkit/*\" --ignore \"docs/apis/reference/\" --ignore \"docs/apis/job-quick-start-guide/\" --ignore \"docs/apis/search-quick-start-guide/\" docs",
     "start": "yarn build && ./node_modules/.bin/docsify serve ./docs",
-    "test": "echo \"tests temporarily disabled\" && true  # ./node_modules/.bin/codeceptjs run --reporter mocha-multi",
+    "test": "./node_modules/.bin/codeceptjs run --reporter mocha-multi",
     "test:full": "yarn && yarn build && HTTP_PORT=3333 yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
     "test:report": "E2E_GENERATE_REPORT=true yarn test:full; ./node_modules/.bin/allure serve test/e2e/output"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn test:full"
+      "pre-commit": "yarn lint"
     }
   },
   "devDependencies": {
