@@ -1,4 +1,8 @@
 {
-  "version": 1,
-  "type": "npm"
+  "version": 2,
+  "build": {
+    "env": {
+      "OUTPUT_DIRECTORY": "public"
+    }
+  }
 }
