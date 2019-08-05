@@ -8,10 +8,10 @@ With Veritone Automate Studio, less technical users can create their own AI Solu
 
 ## What is Veritone Automate?
 
-Veritone Flow has three components: 
-1. The Flow Designer where users can drag and drop shapes (or "nodes") that visualize discrete logic onto the Flow Designer canvas and test the logic using the Flow Designer runtime.
-1. The Veritone Real Time framework which serves as the production grade runtime for the Flow, running "as an engine," which in Veritone vocab, is just a fancy way of saying "custom logic that runs on Veritone's runtime"
-1. Managing the Flow application and related features as they are released to aiWARE users
+Automate Studio has three components: 
+1. The Automate Studio itself where users can drag and drop shapes (or "nodes") that visualize discrete logic onto the Flow Designer canvas and test the logic using the Flow Designer runtime.
+2. The Veritone Engine framework which serves as the production grade runtime for the Flow, running "as an engine," which in Veritone vocab, is just a fancy way of saying "custom logic that runs on Veritone's runtime"
+3. Managing the Automate Studio application and related features as they are released to aiWARE users in the Admin app
 
 ## Why do you need Automate Studio?
 
