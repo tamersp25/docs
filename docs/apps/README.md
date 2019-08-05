@@ -21,6 +21,7 @@ aiWARE includes the following native AI applications:
 - Administration: For configuring and extending aiWARE
   - [Admin](#admin)
   - [Developer](#developer)
+  - [Automate Studio](#automate-studio)
 
 ## CMS
 
@@ -88,3 +89,12 @@ documentation, APIs to build and submit their AI applications, adapters, cogniti
 We are constantly adding new features to Veritone Developer, increasing the power and flexibility available at developers' fingertips.
 
 > Check out the [Applications](../developer/applications/) section for information about how to create custom aiWARE integrations of your own.
+
+## Automate Studio
+
+With Veritone **Automate Studio**, tap into a low-code AI platform to intelligently automate manual data analysis processes – all without AI expertise.
+Simply design end-to-end, automated processes with a drag-and-drop UI empowering you to map out your unique combination of data inputs, AI-powered business logic, and desired output, then deploy in one-click to deliver insights in the application of your choice in hours, not months.
+
+Check out the [Engines](../developer/engines) section for documentation on creating aiWARE engines with Automate Studio
+
+For general introduction and configuration information, check out our [Help Docs](https://app.intercom.io/a/apps/ixc2n84g/articles/articles/3193488/show)
