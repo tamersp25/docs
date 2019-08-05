@@ -1,6 +1,4 @@
-# ![Engine Toolkit Logo](engine-toolkit-logo.png)
-
-## Introduction
+# Engine Developer Toolkit
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
@@ -14,8 +12,8 @@ To deploy an engine into production, you will need to perform the following task
 
 1. [Build your engine executable](#how-to-build-an-engine)
 1. [Consume HTTP webhooks to provide integration and respond with appropriate JSON](#webhooks)
-1. [Write tests for your code](#testing-your-webhooks)
 1. [Download the Engine Toolkit SDK](#download-the-engine-toolkit-sdk)
+1. [Write tests for your code](#testing-your-webhooks)
 1. [Write a `Dockerfile` which describes your engine](#writing-a-dockerfile)
 1. [Deploy your engine to the Veritone platform](#deploy-to-veritone)
 
@@ -30,8 +28,8 @@ Engines listen on an HTTP address and implement [Webhooks](#webhooks), which are
 
 To see the code for a complete working engine, choose from the list below:
 
-* **Go** - [Golang EXIF engine project on GitHub](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/exif)
-* **Python** - [Python Keras/Tensorflow Imagenet image tagging engine project on GitHub](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/python_imagenet)
+* **Go** - [Golang EXIF engine](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/exif)
+* **Python** - [Python Keras/Tensorflow Imagenet image tagging engine](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/python_imagenet)
 
 > If you would like to contribute an additional example engine, please [open an issue to start a conversation](https://github.com/veritone/engine-toolkit/issues/new?title=sample+project).
 
@@ -102,7 +100,7 @@ The following JSON is an example showing some faces that were found in the image
 {
 	"series": [{
 		"startTimeMs": 1000,
-		"endTimeMs": 2000,
+		"stopTimeMs": 2000,
 		"object": {
 			"type": "face",
 			"confidence": 0.95,
@@ -113,7 +111,7 @@ The following JSON is an example showing some faces that were found in the image
 		}
 	}, {
 		"startTimeMs": 5000,
-		"endTimeMs": 6000,
+		"stopTimeMs": 6000,
 		"object": {
 			"type": "face",
 			"confidence": 0.95,
@@ -128,7 +126,7 @@ The following JSON is an example showing some faces that were found in the image
 
 * `series` - (array) List of items found
 * `series[].startTimeMs` - (int) The start time of the chunk
-* `series[].endTimeMs` - (int) The end time of the chunk
+* `series[].stopTimeMs` - (int) The end time of the chunk
 * `series[].object` - (object) An object describing what was found
 * `series[].object.type` - (string) The type of the object
 * `series[].object.confidence` - (number) A number `0-1` of how confident the engine is about this object
@@ -142,26 +140,68 @@ If your engine is not going to process a chunk, the Process webhook should retur
 
 The Engine Toolkit will report the chunk as ignored.
 
-### Testing your webhooks
+##### Failed responses
 
-Since the [Webhooks](#webhooks) are just HTTP endpoints, you can test them by making your own HTTP requests directly.
+If the chunk cannot be processed, the webhook should return a non-200 response code (e.g. `500`) and 
+a meaningful error should be written as the response.
+
+> There is no need to return a JSON body on failures, plain text is fine.
 
 ### Download the Engine Toolkit SDK
 
-To get started, you need to download the Engine Toolkit SDK. It contains tools that will be bundled into the Docker container when you deploy your engine to the Veritone platform.
+To get started, you need to download the Engine Toolkit SDK. It contains the `engine` binrary that will be bundled into the Docker container when you deploy your engine to the Veritone platform.
+
+> **Did you know?** You only need to download the [latest release](https://github.com/veritone/engine-toolkit/releases/latest), there's no need to clone the repo.
 
 * [Download the Engine Toolkit SDK from our GitHub project](https://github.com/veritone/engine-toolkit/releases/latest)
 
+### Testing your webhooks
+
+Since the [Webhooks](#webhooks) are just HTTP endpoints, you can test them by HTTP requests directly
+to your own code.
+
+If you want to manually test the Webhooks, you can access the built-in [Engine Toolkit Test Console](#engine-toolkit-test-console).
+
+#### Engine Toolkit Test Console
+
+The Engine Toolkit Test Console is a web based tool that lets you simulate the HTTP
+requests that your engine will receive in production.
+
+The following is a preview of the test console running in the browser:
+
+![A preview of the Engine Toolkit Test Console](/veritone/engine-toolkit/static/test-console-preview.png)
+
+You can upload your own file to process, and use the web form to tune the parameters
+that your engine expects to support.
+
+##### Access the Engine Toolkit Test Console
+
+To access the test console, run your Docker container with the `docker run` command. Set the environment variable `VERITONE_TESTMODE=true` and expose port 9090 with the `-p 9090:9090` argument:
+
+> `-e "VERITONE_TESTMODE=true" -p 9090:9090`
+
+For example, you might run:
+
+```go
+docker build -f Dockerfile -t your-engine .
+docker run -e "VERITONE_TESTMODE=true" -p 9090:9090 -p 8080:8080 --name your-engine -t your-engine
+```
+
+Once the container is running, you can open a browser at `http://localhost:9090/` to access
+the Engine Toolkit Test Console and use it to interact with your engine.
+
+> **Do not** set the `VERITONE_TESTMODE` environment variable in your `Dockerfile` as there is a risk it could be deployed to production in test mode, which will prevent your engine from working.
+
 ### Writing a `Dockerfile`
 
-Veritone engines are Docker containers that run in the platform. To provide an engine, you must
+Veritone engines are Docker containers that run in the platform. To provide an engine, you must 
 build a Docker container (or image) that can encapsulate your dependencies and execute your code.
 
 A `Dockerfile` explains the steps that Docker needs to take in order to build a container.
 
 The following is an example of an engine `Dockerfile`:
 
-```dockerfile
+```docker
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 
@@ -193,7 +233,7 @@ The `Dockerfile` above describes a simple but complete engine. This section expl
 
 ##### Manifest file
 
-```dockerfile
+```docker
 ADD manifest.json /var/manifest.json
 ```
 
@@ -205,7 +245,7 @@ Usually your `manifest.json` file sits alongside your `Dockerfile` in your engin
 
 ##### The `engine` executable
 
-```dockerfile
+```docker
 ADD ./dist/engine /app/engine
 ```
 
@@ -222,7 +262,7 @@ It is available when you [download the Engine Toolkit SDK](#download-the-engine-
 
 ##### Webhook environment variables
 
-```dockerfile
+```docker
 ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8888/readyz"
 ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8888/process"
 ```
@@ -234,7 +274,7 @@ The environment variables specified with the `ENV` command inform the `engine` t
 
 ##### Engine entrypoint
 
-```dockerfile
+```docker
 ENTRYPOINT [ "/app/engine", "/app/your-engine", "--your-arg-1", "--your-arg-2" ]
 ```
 
@@ -292,7 +332,7 @@ Relative (or ratio) values are used so that they remain correct regardless of th
 
 The following diagram represents the points for a box describing an object that is `50x50` in the center of a `100x100` image:
 
-![bounding polygon illustration](boundingpoly.png)
+![](boundingpoly.png)
 
 The `boundingPoly` array for this object would be:
 
@@ -313,3 +353,23 @@ To calculate the `x` and `y` ratio values, you divide `x` by the width and `y` b
 ratioX = x / width
 ratioY = y / height
 ```
+
+## Troubleshooting
+
+This section provides answers to common problems that have been reported by
+engine developers.
+
+### `x509: certificate signed by unknown authority`
+
+If you see an error complaining about an unknown authority, it's likely that you do not have
+root certificates installed inside your Docker container.
+
+Try adding the following line to your `Dockerfile`:
+
+```docker
+RUN apk --no-cache add ca-certificates
+```
+
+This will install the certificates as part of your Docker build.
+
+> This solution has only been tested when the base Docker image is `FROM alpine:latest`. For other base images, you might need to install them with a different command.

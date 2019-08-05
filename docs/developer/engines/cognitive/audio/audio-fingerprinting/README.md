@@ -56,8 +56,7 @@ Since all audio fingerprinting engines identify entities, they are all required 
 
 Audio-fingerprinting engines are usually [stream processing](/developer/engines/processing-modes/stream-processing/) engines.
 
-?> All engines that process audio will receive audio data with MIME type `"audio/mp4"` (.wav and .mp3 are _not_ natively supported).
-If your engine needs a format other than `mp4`, you will need to transcode incoming `mp4` data to the appropriate target format using something like [ffmpeg](https://ffmpeg.org/).
+[](../../_snippets/audio-engine-mime-type.md ':include')
 
 ## Engine Output
 
@@ -66,8 +65,6 @@ Each detected section of audio is represented as an object of type `fingerprint`
 Because audio fingerprints always map back to an entity in a library, they should always include the `entityId` of the fingerprint in their output.
 
 ### Example
-
-Here is an example of proper engine output:
 
 [](vtn-standard.example.json ':include :type=code json')
 

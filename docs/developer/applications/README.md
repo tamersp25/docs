@@ -6,7 +6,7 @@ Our app development framework is flexible and open, so you can easily add the co
 
 Our documentation resources cover everything you need to know for building and integrating your app in the Veritone Platform. You’ll find the basics here and can access more detailed instructions for the app development process in other sections. We’ve even provided a tutorial walkthrough and sample application to help kick-start your innovative journey.
 
-## How does it work?
+## How does it work? {docsify-ignore}
 
 Veritone’s robust APIs provide a wide range of functions that your app can use to build creative and meaningful AI-based solutions. And because no two apps are alike, you have the flexibility of customizing your app by choosing the functionality that specifically meets your individual needs. Your app can use our API to take advantage of Veritone Platform features such as:
 

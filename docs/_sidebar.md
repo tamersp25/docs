@@ -18,7 +18,7 @@
     - [API Examples](apis/examples.md)
     - [Job Quickstart Guide](apis/job-quickstart/)
     - [Search Quickstart Guide](apis/search-quickstart/)
-  - Tutorials
+  - [Tutorials](apis/tutorials/)
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
     - [Creating Export Requests](apis/tutorials/create-export-request/)
@@ -30,18 +30,24 @@
     - [Handling File Upload Errors](apis/tutorials/file-upload-error-handling.md)
     - [Authentication and Authorization Tokens](apis/tutorials/tokens.md)
     - [Paging](apis/tutorials/paging.md)
+    - [Asset Types](apis/tutorials/asset-types.md)
 
 - [Developer](developer/)
   - [Developer Benefits](developer/benefits.md)
 
   - [Building **Applications**](developer/applications/)
-    - [Application Integration](developer/applications/integration/)
     - [Quickstart](developer/applications/quick-start/)
       - [Step 1 - Register Your Application](developer/applications/quick-start/step-1.md)
       - [Step 2 - Set Up Authentication](developer/applications/quick-start/step-2.md)
       - [Step 3 - Add APIs and Components](developer/applications/quick-start/step-3.md)
       - [Step 4 - Submit Your Application](developer/applications/quick-start/step-4.md)
       - [Step 5 - Deploy Your Application](developer/applications/quick-start/step-5.md)
+    - [Tutorial: Build Your Own AI App](developer/applications/app-tutorial/)
+      - [Step 1: Register Your App](developer/applications/app-tutorial/app-tutorial-step-1.md)
+      - [Step 2: Set Up Authentication](developer/applications/app-tutorial/app-tutorial-step-2.md)
+      - [Step 3: Add Processing Logic](developer/applications/app-tutorial/app-tutorial-step-3.md)
+      - [Step 4: Run Object Detection on a Video](developer/applications/app-tutorial/app-tutorial-step-4.md)
+    - [Application Integration](developer/applications/integration/)
     - [Context Menu Extensions](developer/applications/context-menu-extensions.md)
     - [OAuth](developer/applications/oauth.md)
     - [Resources](developer/applications/resources.md)
@@ -95,9 +101,10 @@
       <!-- - [Message Types](developer/engines/standards/message-types/)-->
     - [Custom Fields](developer/engines/custom-fields/)
     - [Polling](developer/engines/polling/)
+    - [Callbacks](developer/engines/callbacks/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
-    - [Engine Toolkit (Beta)](developer/engines/toolkit/)
-    
+    - [Engine Developer Toolkit](developer/engines/toolkit/)
+
   - [Building **Flows**](developer/flow/)
     - [FAQ](developer/flow/faq.md)
 
@@ -120,8 +127,6 @@
     - [Training Engines](developer/libraries/training.md)
     - [Running Engines](developer/libraries/running.md)
 
-  - [Developer Terms & Conditions](developer/terms-and-conditions.md)
-
   - [Machine Box](/developer/machine-box/)
     - [API guidelines](/developer/machine-box/api-guidelines)
     - [Setup](/developer/machine-box/setup/)
@@ -138,3 +143,5 @@
       - [Nudebox](/developer/machine-box/boxes/nudebox)
       - [Objectbox](/developer/machine-box/boxes/objectbox)
       - [Fakebox](/developer/machine-box/boxes/fakebox)
+
+  - [Developer Terms & Conditions](developer/terms-and-conditions.md)

@@ -1188,7 +1188,7 @@ query getTranscriptJSON {
 
 ## Search
 
-See the [search quickstart guide](/apis/search-quickstart/) for details on the searchMedia query syntax.
+See the [search quickstart guide](apis/search-quickstart/) for details on the searchMedia query syntax.
 
 ### Search Structured Data
 
@@ -1312,6 +1312,32 @@ query getFolderInfo {
         id
       }
     }
+  }
+}
+```
+
+### Update (Rename) a Folder
+
+```graphql
+mutation updateMyFolder {
+  updateFolder(input: {
+    id: "22896eba-763d-4f38-92d3-3e22d5498a86",
+    name: "My other folder"
+  }) {
+    id
+  }
+}
+```
+
+### Delete a Folder
+
+```graphql
+mutation deleteMyFolder {
+  deleteFolder(input: {
+    id: "b48e500f-1f02-4106-a1b1-bed4a538c535",
+    orderIndex: 1
+  }) {
+    id
   }
 }
 ```
