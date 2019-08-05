@@ -1,8 +1,8 @@
 # FAQ
 
-#### What should I do with Flow?
+#### What should I do with Automate Studio?
 
-Hrmmm, this is an interesting one! We recommend starting with this question: What kind of process do you or your customers still have to manually address with humans actively in the process loop? We think you will have some items that come to mind! You can use Flow to address these pain points and rapidly develop new solutions that automate more of these processes and move your end-users to the edge of the loop.
+We recommend starting with this question: What kind of process do you or your customers still have to manually address with humans actively in the process loop? We think you will have some items that come to mind! You can use Flow to address these pain points and rapidly develop new solutions that automate more of these processes and move your end-users to the edge of the loop.
 
 #### How technical do I need to be to use Flow?
 
