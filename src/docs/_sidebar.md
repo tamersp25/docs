@@ -7,10 +7,10 @@
 
 - [Quickstart](quickstart/)
 
-  - <span class="engine-developer">[Engine Developer](quickstart/engine-developer.md)</span>
-  - <span class="ml-integrator">[ML Integrator](quickstart/ml-integrator.md)</span>
-  - <span class="ml-explorer">[ML Explorer](quickstart/ml-explorer.md)</span>
-  - <span class="app-developer">[App Developer](quickstart/app-developer.md)</span>
+  - <span class="engine-developer">[Engine Developer](quickstart/engine-developer/)</span>
+  - <span class="ml-integrator">[ML Integrator](quickstart/ml-integrator/)</span>
+  - <span class="ml-explorer">[ML Explorer](quickstart/ml-explorer/)</span>
+  - <span class="app-developer">[App Developer](quickstart/app-developer/)</span>
 
 - [Applications](apps/)
 

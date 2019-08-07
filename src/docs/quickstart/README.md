@@ -1,9 +1,9 @@
 # In this section
 
-- [Engine Developer](quickstart/engine-developer.md)
+- [Engine Developer](quickstart/engine-developer/)
 
-- [ML Integrator](quickstart/ml-integrator.md)
+- [ML Integrator](quickstart/ml-integrator/)
 
-- [ML Explorer](quickstart/ml-explorer.md)
+- [ML Explorer](quickstart/ml-explorer/)
 
-- [App Developer](quickstart/app-developer.md)
+- [App Developer](quickstart/app-developer/)

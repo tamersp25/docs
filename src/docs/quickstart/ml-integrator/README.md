@@ -1,7 +1,7 @@
 <!-- markdownlint-disable no-inline-html -->
 <div class="quickstart ml-integrator">
 
-<img class="banner" src="docs/_media/personas/banner-ml-integrator.png" />
+<img class="banner" src="docs/quickstart/_media/banner-ml-integrator.png" />
 
 # AI for Integrators
 

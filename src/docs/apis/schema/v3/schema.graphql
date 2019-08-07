@@ -145,6 +145,7 @@ type Application {
   contextMenuExtensions: ContextMenuExtensionList
   validStateActions: [ApplicationStateAction]
   components: ApplicationComponent
+  dailyTaskMetrics: DailyTaskMetricsList
 }
 
 type ApplicationComponent {
@@ -2900,6 +2901,24 @@ enum CredentialType {
   Username
 }
 
+type DailyTaskMetrics {
+  # The date when the tasks run
+  date: String!
+
+  # The number of tasks created in this date
+  taskCount: Int!
+
+  # The storage in bytes used by these tasks
+  storageBytes: Int!
+
+  # The media length in seconds associated with these tasks
+  mediaSecs: Int!
+}
+
+type DailyTaskMetricsList {
+  records: [DailyTaskMetrics!]!
+}
+
 # Analytics Dashboards
 type Dashboard {
   # The order in which to display the dashboard.
@@ -3591,6 +3610,8 @@ type EngineResult {
   userEdited: Boolean
   tdo: TemporalDataObject
   taskId: ID
+  libraryId: ID
+  library: Library
 }
 
 # Represents a collection of engine results. Not Paged.
@@ -4580,7 +4601,24 @@ type Library {
   coverImageUrl: String
 
   # Retrieve engine models for a library
-  engineModels(id: ID): LibraryEngineModelList
+  engineModels(
+    # Provide an ID to retrieve a specific engine model
+    id: ID
+
+    # Provide a library version to retrieve engine models associated with
+    # a given version.
+    libraryVersion: Int
+
+    # Set to true to retrieve engine models associated with the current
+    # library version.
+    currentVersion: Boolean
+
+    # Provide a training status to filter for engine models by status.
+    trainStatus: LibraryEngineModelTrainStatus
+
+    # Set to true to retrieve the most recently modified engine model.
+    lastModified: Boolean
+  ): LibraryEngineModelList
 
   # Retrieve library model configurations
   configurations(limit: Int, offset: Int): LibraryConfigurationList
@@ -7076,6 +7114,7 @@ type Query {
 
   # Retrieve Workflow Metric of the current user's organization
   workflowMetric: WorkflowMetric!
+  dailyTaskMetrics: DailyTaskMetricsList!
 
   # Retrieve Veritone Workflow instance status by id
   workflowRuntime(workflowRuntimeId: ID!): WorkflowRuntimeResponse!

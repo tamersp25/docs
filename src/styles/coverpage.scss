@@ -10,6 +10,7 @@ section.cover {
   }
 
   .wrapper {
+    width: 100%;
     max-width: 768px;
     overflow: auto;
   }
@@ -217,13 +218,11 @@ section.cover {
       .platform-container {
         display: flex;
         justify-content: center;
-        justify-content: center;
         align-items: center;
 
         .platform-box {
           background-image: linear-gradient(#d4e5f5, $white) !important;
-          margin: 12px;
-          padding: 16px;
+          padding: 24px;
           border-radius: 8px;
           background-color: $white;
           display: flex;
@@ -231,6 +230,7 @@ section.cover {
           justify-content: center;
           align-items: flex-start;
           box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+          margin: 12px;
 
           .platform-box-title {
             font-family: 'Dosis', sans-serif;
@@ -254,27 +254,45 @@ section.cover {
       height: 240px;
       background-color: $primary;
 
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
       nav {
         ul {
           display: flex;
           margin-left: 0;
           li {
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             width: 200px;
             height: 32px;
 
+            a {
+              cursor: pointer;
+              &:hover {
+                color: $secondary;
+              }
+            }
+
             &:not(:first-of-type) {
               border-left: 1px solid $white;
             }
-
-            &:hover {
-              color: $secondary;
-            }
           }
         }
+      }
+
+      .logo-image {
+        margin-top: 72px;
+        height: 40px;
+        width: 200px;
+      }
+
+      h4 {
+        text-align: initial;
       }
     }
   }

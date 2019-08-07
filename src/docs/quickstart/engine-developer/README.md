@@ -1,7 +1,7 @@
 <!-- markdownlint-disable no-inline-html -->
 <div class="quickstart engine-developer">
 
-<img class="banner" src="docs/_media/personas/banner-engine-developer.png" />
+<img class="banner" src="docs/quickstart/_media/banner-engine-developer.png" />
 
 # Engine Development
 

@@ -39,13 +39,13 @@
             <img class="dev-image" src="docs/_media/personas/engine-developer.svg" />
             <div class="dev-box-title blue">ENGINE DEVELOPER</div>
             <p>Onboard Cognitive Machine Learning Engines or Data Adapters onto the aiWARE platform.</p>
-            <a href="/#/quickstart/engine-developer" class="button">GET STARTED</a>
+            <a href="/#/quickstart/engine-developer/" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
             <img class="dev-image" src="docs/_media/personas/ml-integrator.svg" />
             <div class="dev-box-title purple">ML INTEGRATOR</div>
               <p>Leverage aiWARE cognitive processes in your or your clients' business processes.</p>
-              <a href="/#/quickstart/ml-integrator" class="button">GET STARTED</a>
+              <a href="/#/quickstart/ml-integrator/" class="button">GET STARTED</a>
           </div>
         </div>
         <div>
@@ -53,13 +53,13 @@
             <img class="dev-image" src="docs/_media/personas/ml-explorer.svg" />
             <div class="dev-box-title teal">ML EXPLORER</div>
             <p>New to AI and Machine Learning? Find out what is possible with our free trial engines.</p>
-            <a href="/#/quickstart/ml-explorer" class="button">GET STARTED</a>
+            <a href="/#/quickstart/ml-explorer/" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
             <img class="dev-image" src="docs/_media/personas/app-developer.svg" />
             <div class="dev-box-title magenta">APP DEVELOPER</div>
               <p>Put your AI powered Application onto the aiWARE platform and expand what is possible.</p>
-              <a href="/#/quickstart/app-developer" class="button">GET STARTED</a>
+              <a href="/#/quickstart/app-developer/" class="button">GET STARTED</a>
           </div>
         </div>
       </div>
@@ -97,14 +97,13 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li>Resources</li>
-          <li>About</li>
-          <li>Press & Media</li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Press & Media</a></li>
         </ul>
       </nav>
-      <div class="logo">
-        <p></p>
-      </div>
+      <img class="logo-image" src="docs/_media/veritone-logo.svg" />
+      <h4>© 2019 Veritone, Inc. All rights reserved.</h4>
     </div>
   </section>
 </div>
