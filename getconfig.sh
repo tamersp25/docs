@@ -12,12 +12,31 @@ GLOBAL_APP_URL="http://${binaries_endpoint}/conf/global/${name}.json"
 ENV_BASE_URL="http://${binaries_endpoint}/conf/aws-${environment}/base.json"
 ENV_APP_URL="http://${binaries_endpoint}/conf/aws-${environment}/${name}.json"
 
+if echo "${environment}" | grep -E "^[A-Za-z]{3,4}[0-9]{1,2}-.*" &> /dev/null; then
+    binaries_endpoint="binaries.${environment//-/.}.veritone.com"
+    vpc_dns_zone_name="${environment//-/.}.veritone.com"
+
+    GLOBAL_BASE_URL="http://${binaries_endpoint}/conf/global/base.json"
+    GLOBAL_APP_URL="http://${binaries_endpoint}/conf/global/${name}.json"
+    ENV_BASE_URL="http://${binaries_endpoint}/conf/${environment}/base.json"
+    ENV_APP_URL="http://${binaries_endpoint}/conf/${environment}/${name}.json"
+fi
+
+echo "GLOBAL_BASE_URL=${GLOBAL_BASE_URL}"
+echo "GLOBAL_APP_URL=${GLOBAL_APP_URL}"
+echo "ENV_BASE_URL=${ENV_BASE_URL}"
+echo "ENV_APP_URL=${ENV_APP_URL}"
+
 # Download config files
 # Only retry global base since it's guaranteed to be there
 curl --retry 5 --retry-delay 2 ${GLOBAL_BASE_URL} --output /tmp/global_base.json
+cat /tmp/global_base.json
 curl ${GLOBAL_APP_URL} --output /tmp/global_${name}.json
+cat /tmp/global_${name}.json
 curl ${ENV_BASE_URL} --output /tmp/${environment}_base.json
+cat /tmp/${environment}_base.json
 curl ${ENV_APP_URL} --output /tmp/${environment}_${name}.json
+cat /tmp/${environment}_${name}.json
 
 # Verify each config is valid json, if not repalce with empty json {}
 declare -a configFiles=(
@@ -56,3 +75,6 @@ template_file () {
 }
 
 template_file /app/config.json.in
+
+echo "Final /app/config.json"
+cat /app/config.json

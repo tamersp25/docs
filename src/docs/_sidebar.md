@@ -47,13 +47,18 @@
 
   - [Building **Applications**](developer/applications/)
 
-    - [Application Integration](developer/applications/integration/)
     - [Quickstart](developer/applications/quick-start/)
       - [Step 1 - Register Your Application](developer/applications/quick-start/step-1.md)
       - [Step 2 - Set Up Authentication](developer/applications/quick-start/step-2.md)
       - [Step 3 - Add APIs and Components](developer/applications/quick-start/step-3.md)
       - [Step 4 - Submit Your Application](developer/applications/quick-start/step-4.md)
       - [Step 5 - Deploy Your Application](developer/applications/quick-start/step-5.md)
+    - [Tutorial: Build Your Own AI App](developer/applications/app-tutorial/)
+      - [Step 1: Register Your App](developer/applications/app-tutorial/app-tutorial-step-1.md)
+      - [Step 2: Set Up Authentication](developer/applications/app-tutorial/app-tutorial-step-2.md)
+      - [Step 3: Add Processing Logic](developer/applications/app-tutorial/app-tutorial-step-3.md)
+      - [Step 4: Run Object Detection on a Video](developer/applications/app-tutorial/app-tutorial-step-4.md)
+    - [Application Integration](developer/applications/integration/)
     - [Context Menu Extensions](developer/applications/context-menu-extensions.md)
     - [OAuth](developer/applications/oauth.md)
     - [Resources](developer/applications/resources.md)
@@ -110,7 +115,7 @@
     - [Polling](developer/engines/polling/)
     - [Callbacks](developer/engines/callbacks/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
-    - [Engine Toolkit (Beta)](developer/engines/toolkit/)
+    - [Engine Developer Toolkit](developer/engines/toolkit/)
 
   - [Building **Adapters**](developer/adapters/)
 
