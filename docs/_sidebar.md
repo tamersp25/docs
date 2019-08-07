@@ -12,6 +12,7 @@
     - [Using GraphQL](apis/using-graphql.md)
     - [Authentication](apis/authentication.md)
     - [Error Codes](apis/error-codes.md)
+    - [Jobs, Tasks, and TDOs](apis/jobs-tasks-tdos.md)
   - API Reference
     - [Mutation Methods](apis/reference/mutation/)
     - [Query Methods](apis/reference/query/)
