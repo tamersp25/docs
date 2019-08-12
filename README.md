@@ -16,12 +16,15 @@ Veritone Docs is a static site built using Markdown files and powered by [Docsif
 
 ### Requirements
 
-- node 8
-- yarn
+- [node](https://nodejs.org)
+- [nvm](http://nvm.sh)
+- [yarn](https://yarnpkg.com)
 
 ### Developing Locally
 
 ```bash
+nvm install
+nvm use 
 yarn install
 yarn start
 ```

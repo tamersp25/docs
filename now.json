@@ -1,8 +1,11 @@
 {
   "version": 2,
   "build": {
+    "config": {
+      "distDir": "build-now"
+    },
     "env": {
-      "OUTPUT_DIRECTORY": "public"
+      "ENVIRONMENT": "now"
     }
   }
 }
