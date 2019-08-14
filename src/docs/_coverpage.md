@@ -64,11 +64,11 @@
         </div>
       </div>
     </section>
-    <section class="quiz">
+    <!-- <section class="quiz">
       <header class="header blue">UNSURE?</header>
       <h3>Take our quiz and find out!</h3>
-      <a class="button">CLICK HERE</a>
-    </section>
+      <a href="https://developer.veritone.com/overview?product_tour_id=21159" class="button">CLICK HERE</a>
+    </section> -->
   </div>
   <section class="platform">
     <div class="wrapper">
@@ -97,9 +97,9 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li><a href="#">Resources</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Press & Media</a></li>
+          <li><a href="https://help.veritone.com/en/¬">Resources</a></li>
+          <li><a href="https://www.veritone.com/about/">About Us</a></li>
+          <li><a href="https://www.veritone.com/blog/category/news/">News</a></li>
         </ul>
       </nav>
       <img class="logo-image" src="docs/_media/veritone-logo.svg" />
