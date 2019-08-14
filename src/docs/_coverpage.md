@@ -5,7 +5,7 @@
     <img class="background-image" src="docs/_media/header.svg" />
   </div>
   <div class="wrapper">
-    <img class="title-image" src="docs/_media/title.svg" />
+    <img class="title-image" alt="Veritone Documentation" src="docs/_media/title.svg" />
     <section class="intro">
       <header class="header">BUILT FOR DEVELOPERS BY DEVELOPERS</header>
       <h3>Veritone's aiWARE platform is purpose-built for extensibility. Our developer community is the lifeblood of the aiWARE platform, enabling it to expand organically through the addition of new capabilities and functionality. Whether your goal is to build new cognitive engines, leverage existing ones, or create never-before-seen solutions through integration of custom and existing modules, we can help.</h3>
@@ -36,13 +36,13 @@
       <div class="dev-box-container">
         <div>
           <div class="dev-box">
-            <img class="dev-image" src="docs/_media/personas/engine-developer.svg" />
+            <img class="dev-image" alt="Engine Developer" src="docs/_media/personas/engine-developer.svg" />
             <div class="dev-box-title blue">ENGINE DEVELOPER</div>
             <p>Onboard Cognitive Machine Learning Engines or Data Adapters onto the aiWARE platform.</p>
             <a href="/#/quickstart/engine-developer/" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
-            <img class="dev-image" src="docs/_media/personas/ml-integrator.svg" />
+            <img class="dev-image" alt="ML Integrator" src="docs/_media/personas/ml-integrator.svg" />
             <div class="dev-box-title purple">ML INTEGRATOR</div>
               <p>Leverage aiWARE cognitive processes in your or your clients' business processes.</p>
               <a href="/#/quickstart/ml-integrator/" class="button">GET STARTED</a>
@@ -50,13 +50,13 @@
         </div>
         <div>
           <div class="dev-box">
-            <img class="dev-image" src="docs/_media/personas/ml-explorer.svg" />
+            <img class="dev-image" alt="ML Explorer" src="docs/_media/personas/ml-explorer.svg" />
             <div class="dev-box-title teal">ML EXPLORER</div>
             <p>New to AI and Machine Learning? Find out what is possible with our free trial engines.</p>
             <a href="/#/quickstart/ml-explorer/" class="button">GET STARTED</a>
           </div>
           <div class="dev-box">
-            <img class="dev-image" src="docs/_media/personas/app-developer.svg" />
+            <img class="dev-image" alt="App Developer" src="docs/_media/personas/app-developer.svg" />
             <div class="dev-box-title magenta">APP DEVELOPER</div>
               <p>Put your AI powered Application onto the aiWARE platform and expand what is possible.</p>
               <a href="/#/quickstart/app-developer/" class="button">GET STARTED</a>
@@ -97,9 +97,15 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li><a href="https://help.veritone.com/en/¬">Resources</a></li>
-          <li><a href="https://www.veritone.com/about/">About Us</a></li>
-          <li><a href="https://www.veritone.com/blog/category/news/">News</a></li>
+          <li><a href="https://www.veritone.com/about/"><h3>About Us</h3></a></li>
+          <li><a href="https://www.veritone.com/about/culture"><h3>Culture</h3></a></li>
+          <li><a href="https://www.veritone.com/about/careers"><h3>Careers</h3></a></li>
+          <li><a href="https://www.veritone.com/about/contact-us"><h3>Contact Us</h3></a></li>
+          <li><a href="https://investors.veritone.com/"><h3>Investors</h3></a></li>
+          <li><a href="https://www.veritone.com/about/#leadership"><h3>Leadership</h3></a></li>
+          <li><a href="https://www.veritone.com/partners"><h3>Partners</h3></a></li>
+          <li><a href="https://www.veritone.com/blog/category/news/"><h3>News</h3></a></li>
+          <li><a href="https://www.help.veritone.com/"><h3>Support</h3></a></li>
         </ul>
       </nav>
       <img class="logo-image" src="docs/_media/veritone-logo.svg" />

@@ -251,7 +251,6 @@ section.cover {
       width: 100%;
       display: flex;
       justify-content: center;
-      height: 240px;
       background-color: $primary;
 
       .wrapper {
@@ -262,13 +261,14 @@ section.cover {
 
       nav {
         ul {
+          max-width: unset;
           display: flex;
+          justify-content: space-between;
           margin-left: 0;
           li {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 200px;
             height: 32px;
 
             a {
@@ -277,16 +277,12 @@ section.cover {
                 color: $secondary;
               }
             }
-
-            &:not(:first-of-type) {
-              border-left: 1px solid $white;
-            }
           }
         }
       }
 
       .logo-image {
-        margin-top: 72px;
+        margin-top: 48px;
         height: 40px;
         width: 200px;
       }
