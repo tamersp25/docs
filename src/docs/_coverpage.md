@@ -1,6 +1,18 @@
 <!-- markdownlint-disable no-inline-html -->
 <div class="overview">
-  <div class="action-bar"></div>
+  <div class="action-bar">
+    <div class="wrapper">
+      <nav>
+        <ul>
+          <li><a href="/#/apps/"><h3>Apps</h3></a></li>
+          <li><a href="/#/apis/"><h3>APIs</h3></a></li>
+          <li><a href="/#/developer/applications/"><h3>Applications</h3></a></li>
+          <li><a href="/#/developer/engines/"><h3>Engines</h3></a></li>
+          <li><a href="/#/developer/machine-box/"><h3>Machine Box</h3></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
   <div class="background">
     <img class="background-image" src="docs/_media/header.svg" />
   </div>

@@ -12,7 +12,7 @@ section.cover {
   .wrapper {
     width: 100%;
     max-width: 768px;
-    overflow: auto;
+    overflow: visible;
   }
 
   .overview {
@@ -22,11 +22,59 @@ section.cover {
     overflow: auto;
   }
 
+  nav {
+    ul {
+      margin: 0;
+      max-width: unset;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 0;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 8px;
+
+        a {
+          cursor: pointer;
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+
   .action-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
     margin: 0;
     height: 72px;
     width: 100%;
     background: white;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    nav {
+      height: 100%;
+      ul {
+        height: 100%;
+        justify-content: unset;
+        li > a {
+          color: $secondary;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
   }
 
   .background {
@@ -89,10 +137,10 @@ section.cover {
 
     .news-box {
       display: flex;
+      justify-content: center;
       flex-direction: column;
-      overflow: auto;
+      overflow: visible;
       margin-top: 72px;
-      width: 95%;
       height: 400px;
       background: $white;
       box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
@@ -218,7 +266,7 @@ section.cover {
       .platform-container {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
 
         .platform-box {
           background-image: linear-gradient(#d4e5f5, $white) !important;
@@ -227,7 +275,7 @@ section.cover {
           background-color: $white;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           align-items: flex-start;
           box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
           margin: 12px;
@@ -257,28 +305,6 @@ section.cover {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-      }
-
-      nav {
-        ul {
-          max-width: unset;
-          display: flex;
-          justify-content: space-between;
-          margin-left: 0;
-          li {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 32px;
-
-            a {
-              cursor: pointer;
-              &:hover {
-                color: $secondary;
-              }
-            }
-          }
-        }
       }
 
       .logo-image {
