@@ -105,6 +105,9 @@
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
     - [Engine Developer Toolkit](developer/engines/toolkit/)
 
+  - [Building **Flows**](developer/flow/)
+    - [FAQ](developer/flow/faq.md)
+
   - [Building **Adapters**](developer/adapters/)
     - [Quickstart](developer/adapters/quick-start/)
       - [Step 1 - Register Your Adapter](developer/adapters/quick-start/step-1.md)
