@@ -4,11 +4,11 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li><a href="/#/apps/"><h3>Apps</h3></a></li>
-          <li><a href="/#/apis/"><h3>APIs</h3></a></li>
+          <li><a href="/#/overview/"><h3>Overview</h3></a></li>
+          <li><a href="/#/quickstart/"><h3>Quickstart</h3></a></li>
           <li><a href="/#/developer/applications/"><h3>Applications</h3></a></li>
-          <li><a href="/#/developer/engines/"><h3>Engines</h3></a></li>
-          <li><a href="/#/developer/machine-box/"><h3>Machine Box</h3></a></li>
+          <li><a href="/#/developer/apis/"><h3>APIs</h3></a></li>
+          <li><a href="/#/developer/developer/"><h3>Developer</h3></a></li>
         </ul>
       </nav>
     </div>
