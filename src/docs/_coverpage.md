@@ -4,11 +4,11 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li><a href="/#/overview/"><h3>Overview</h3></a></li>
+          <li><a href="http://local.veritone.com:3000/#/overview/"><h3>Overview</h3></a></li>
           <li><a href="/#/quickstart/"><h3>Quickstart</h3></a></li>
-          <li><a href="/#/developer/applications/"><h3>Applications</h3></a></li>
-          <li><a href="/#/developer/apis/"><h3>APIs</h3></a></li>
-          <li><a href="/#/developer/developer/"><h3>Developer</h3></a></li>
+          <li><a href="/#/apps/"><h3>Applications</h3></a></li>
+          <li><a href="/#/apis/"><h3>APIs</h3></a></li>
+          <li><a href="/#/developer/"><h3>Developer</h3></a></li>
         </ul>
       </nav>
     </div>
@@ -117,10 +117,9 @@
           <li><a href="https://www.veritone.com/about/#leadership"><h3>Leadership</h3></a></li>
           <li><a href="https://www.veritone.com/partners"><h3>Partners</h3></a></li>
           <li><a href="https://www.veritone.com/blog/category/news/"><h3>News</h3></a></li>
-          <li><a href="https://www.help.veritone.com/"><h3>Support</h3></a></li>
         </ul>
       </nav>
-      <img class="logo-image" src="docs/_media/veritone-logo.svg" />
+      <a href="https://veritone.com"><img class="logo-image" src="docs/_media/veritone-logo.svg" /></a>
       <h4>© 2019 Veritone, Inc. All rights reserved.</h4>
     </div>
   </section>

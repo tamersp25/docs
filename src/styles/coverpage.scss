@@ -307,10 +307,13 @@ section.cover {
         justify-content: flex-start;
       }
 
-      .logo-image {
-        margin-top: 48px;
-        height: 40px;
-        width: 200px;
+      a {
+        text-align: initial;
+        .logo-image {
+          margin-top: 48px;
+          height: 40px;
+          width: 200px;
+        }
       }
 
       h4 {
