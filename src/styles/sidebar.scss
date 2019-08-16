@@ -1,4 +1,9 @@
 @import './_palette.scss';
+
+.sidebar-toggle span {
+  background-color: $secondary;
+}
+
 .sidebar {
   /* For collapsing all but current page */
   font-family: 'Dosis', sans-serif;
