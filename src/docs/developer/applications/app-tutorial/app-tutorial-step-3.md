@@ -32,13 +32,13 @@ aside.small {
 <b>ESTIMATED TIME:</b> 20 minutes
 </aside>
 
-So far, we've: 
+So far, we've:
 
-* [Registered our app](/developer/applications/app-tutorial/app-tutorial-step-1) with Veritone
+- [Registered our app](/developer/applications/app-tutorial/app-tutorial-step-1) with Veritone
 
-* [Created a custom menu extension](https://cms.veritone.com) that appears in the [Veritone CMS](https://cms.veritone.com) UI
+- [Created a custom menu extension](https://cms.veritone.com) that appears in the [Veritone CMS](https://cms.veritone.com) UI
 
-* Put an [OAuth link](/developer/applications/app-tutorial/app-tutorial-step-2) in our app, so the user can authenticate to the Veritone site (and obtain the necessary security token for making calls to Veritone's API server)
+- Put an [OAuth link](/developer/applications/app-tutorial/app-tutorial-step-2) in our app, so the user can authenticate to the Veritone site (and obtain the necessary security token for making calls to Veritone's API server)
 
 It should now be possible for somebody in your organization to go to the [Veritone CMS](https://cms.veritone.com), select a media file,
 open a context menu, and execute our custom context-menu extension (CME), which &mdash; in turn &mdash; will cause our app to open in a new browser tab. But then what?
@@ -50,7 +50,7 @@ Which means we can subject that file to any kind of AI processing we might want 
 One very simple thing we can do is query the TDO to see what kinds of information are associated with it.
 
 <div style="transform:scaleX(.91);">
-<img alt="helpful robot" width="18%" style="float:left;margin-top:10px;" src="developer/applications/app-tutorial/_media/botty.png">
+<img alt="helpful robot" width="18%" style="float:left;margin-top:10px;" src="docs/developer/applications/app-tutorial/_media/botty.png">
 <div 
 style="font-family:Palatino;
 font-size:12.5pt;
@@ -85,14 +85,14 @@ If the URL contains a parameter string with a `tdoId` in it, we know the app was
 To do this bit of inspection, we can add the following lines of code to our [`load` event handler](developer/applications/app-tutorial/app-tutorial-step-2?id=_39onload39-handler).
 
 ```javascript
-     let TDO_MARKER = "tdoId=";
+let TDO_MARKER = 'tdoId=';
 
-	// Check if URL contains a tdoId
-    if (OUR_URL.indexOf(TDO_MARKER) != -1) {	    
-	    TDO_ID = OUR_URL.split(TDO_MARKER)[1].split(/[#&]/)[0];
-	    showSnackbar("TDO ID detected."); // for debug
-        showTDO( TDO_ID, "#rawdata" ); 
-    }
+// Check if URL contains a tdoId
+if (OUR_URL.indexOf(TDO_MARKER) != -1) {
+  TDO_ID = OUR_URL.split(TDO_MARKER)[1].split(/[#&]/)[0];
+  showSnackbar('TDO ID detected.'); // for debug
+  showTDO(TDO_ID, '#rawdata');
+}
 ```
 
 This code says "if the string `'tdoId='` exists in our URL, parse out the TDO ID, and call the function named `showTDO()`."
@@ -111,7 +111,7 @@ For example, the `temporalDataObject()` method can be as simple as this:
 
 ```graphql
 query {
-  temporalDataObject(id:"550956470") {
+  temporalDataObject(id: "550956470") {
     assetCount
   }
 }
@@ -171,24 +171,24 @@ Whoa! We're asking for a _lot_ of information now. But the point is, you can edi
 To invoke the query, we'll need to do:
 
 ```javascript
-    // Query to get TDO data
-    let query = TDO_QUERY_TEMPLATE.replace( /theID/, '"'+ tdoId + '"');
-    let payload = createVeritonePayload( query, _token );
-    let json = fetchJSONviaPOST( API_ENDPOINT, payload).catch(e=>{
-    	showSnackbar("Check the console... ", 1);
-        console.log("Welp. Got this message: " + e.toString());
-    });
-    
-    // Check for error messages in the json:
-    if ('errors' in json) {
-        // handle the error(s)
-    }
-    
-    // Do something with the json:
-    else if (json.data.temporalDataObject) {
-        // maybe log the TDO's name to the console:
-        console.log("The TDO's name is " + json.data.temporalDataObject.name);
-    }
+// Query to get TDO data
+let query = TDO_QUERY_TEMPLATE.replace(/theID/, '"' + tdoId + '"');
+let payload = createVeritonePayload(query, _token);
+let json = fetchJSONviaPOST(API_ENDPOINT, payload).catch(e => {
+  showSnackbar('Check the console... ', 1);
+  console.log('Welp. Got this message: ' + e.toString());
+});
+
+// Check for error messages in the json:
+if ('errors' in json) {
+  // handle the error(s)
+}
+
+// Do something with the json:
+else if (json.data.temporalDataObject) {
+  // maybe log the TDO's name to the console:
+  console.log("The TDO's name is " + json.data.temporalDataObject.name);
+}
 ```
 
 If there were problems with our query at the transport level, the `catch()` on our fetch method will catch them.
@@ -206,28 +206,32 @@ Here's a function that can do that:
 
 ```javascript
 // Find assets in TDO, and make links out of their signedUri data
-function getAssetsAsMarkup( json ) {
-	
-     if ('assets' in json.data.temporalDataObject ) {
-          let records = json.data.temporalDataObject.assets.records;
-          let link = '<a href="URL" target="_blank">TARGET</a>';
-          let results = [];
-          records.forEach( item=> { 
-              if (item.signedUri && item.signedUri.length > 0) {
-                   var a = link.replace("URL",item.signedUri).replace("TARGET",item.assetType);
-                   results.push( a );
-              }
-          });
- 
-      if (results.join("").length == 0)
- 	     return '<div style="font-size:var(--mediumFontSize);"><b>No assets in this TDO</b><br/><div>';
- 	 
- 	 return '<div style="font-size:var(--mediumFontSize);"><b>Assets in this TDO:</b><br/>' + 
- 	     results.join("<br/>") + "</div>"; 
-     }
- 	
-     return "";
- }
+function getAssetsAsMarkup(json) {
+  if ('assets' in json.data.temporalDataObject) {
+    let records = json.data.temporalDataObject.assets.records;
+    let link = '<a href="URL" target="_blank">TARGET</a>';
+    let results = [];
+    records.forEach(item => {
+      if (item.signedUri && item.signedUri.length > 0) {
+        var a = link
+          .replace('URL', item.signedUri)
+          .replace('TARGET', item.assetType);
+        results.push(a);
+      }
+    });
+
+    if (results.join('').length == 0)
+      return '<div style="font-size:var(--mediumFontSize);"><b>No assets in this TDO</b><br/><div>';
+
+    return (
+      '<div style="font-size:var(--mediumFontSize);"><b>Assets in this TDO:</b><br/>' +
+      results.join('<br/>') +
+      '</div>'
+    );
+  }
+
+  return '';
+}
 ```
 
 This function is invoked, in our code, within the body of _another_ function, `showTDO()`.
@@ -241,6 +245,5 @@ and (in a `<pre>` block) the TDO's stringified JSON representation. The user see
 
 Now that you know how to [authenticate to Veritone](developer/applications/app-tutorial/app-tutorial-step-2) (to get the API token), [create custom menu extensions](developer/applications/app-tutorial/app-tutorial-step-1?id=create-a-context-menu-extension) in the Veritone CMS, and [run GraphQL queries](developer/applications/app-tutorial/app-tutorial-step-2?id=communicating-with-the-server) in response to a custom menu command, it's a simple matter to run an AI job (say, an _object detection_ job) on a given media file.
 So let's do that! Let's see how to run an AI job using the Veritone aiWARE platform.
-
 
 [Run Object Detection on a Video ⇨](developer/applications/app-tutorial/app-tutorial-step-4)

@@ -32,14 +32,12 @@ aside.small {
 <b>ESTIMATED TIME:</b> 20 minutes
 </aside>
 
-
-
 We've seen how to make API calls to the Veritone GraphQL endpoint, but we haven't yet actually done anything AI-related &mdash; until now. We're about to change that!
 
-Let's add a Context Menu Extension that allows a user of the Veritone CMS to designate a video file for _object detection_. 
+Let's add a Context Menu Extension that allows a user of the Veritone CMS to designate a video file for _object detection_.
 
 <div style="transform:scaleX(.91);">
-<img width="18%" style="float:left;" src="developer/applications/app-tutorial/_media/botty.png">
+<img width="18%" style="float:left;" src="docs/developer/applications/app-tutorial/_media/botty.png">
 <div 
 style="font-family:Palatino;
 font-size:12.5pt;
@@ -56,20 +54,18 @@ By default, apps you deploy are visible only to <em>members of your organization
 
 To run an AI job on the aiWARE platform, you just need to submit a `createJob` mutation, designating a temporal data object (TDO) and one or more _tasks_. Each task, in turn, designates an _engine_ that will handle processing.
 
-**Example**: Suppose we have an `.mp4` file (in Veritone CMS) that's associated with a TDO of ID `"550730768"` and we want to run object detection on this video, using the cognitive engine with ID ` "60755416-766f-4014-bad9-f0ac8d900b86"`.
-This is the GraphQL mutation we would use: 
+**Example**: Suppose we have an `.mp4` file (in Veritone CMS) that's associated with a TDO of ID `"550730768"` and we want to run object detection on this video, using the cognitive engine with ID `"60755416-766f-4014-bad9-f0ac8d900b86"`.
+This is the GraphQL mutation we would use:
 
 ```graphql
-mutation createJob{
-  createJob(input: {
-    targetId: "550730768",
-    isReprocessJob: true,
-    tasks: [
-    {
-      engineId: "60755416-766f-4014-bad9-f0ac8d900b86"
+mutation createJob {
+  createJob(
+    input: {
+      targetId: "550730768"
+      isReprocessJob: true
+      tasks: [{ engineId: "60755416-766f-4014-bad9-f0ac8d900b86" }]
     }
-    ]
-  }) {
+  ) {
     id
   }
 }
@@ -77,13 +73,13 @@ mutation createJob{
 
 Let's break it down:
 
-* The `targetId` field is the TDO ID.
+- The `targetId` field is the TDO ID.
 
-* We set `isReprocessJob` to `true` because the media file has already been ingested (it does not need to be reingested).
+- We set `isReprocessJob` to `true` because the media file has already been ingested (it does not need to be reingested).
 
-* The array of tasks contains one task, involving just one engine, which corresponds (in this case) to an engine named `"task-google-video-intelligence-chunk-label"` having ID `"60755416-766f-4014-bad9-f0ac8d900b86"`.
+- The array of tasks contains one task, involving just one engine, which corresponds (in this case) to an engine named `"task-google-video-intelligence-chunk-label"` having ID `"60755416-766f-4014-bad9-f0ac8d900b86"`.
 
-* We wish to get back an `id`, corresponding to the Job ID.
+- We wish to get back an `id`, corresponding to the Job ID.
 
 Just by POSTing this GraphQL mutation to the API server, we will kick off a processing job. That's all there is to it!
 
@@ -128,7 +124,7 @@ Polling will result in a JSON response that looks something like
 ```
 
 <div style="transform:scaleX(.91);">
-<img alt="helpful robot" width="18%" style="float:left;" src="developer/applications/app-tutorial/_media/botty.png">
+<img alt="helpful robot" width="18%" style="float:left;" src="docs/developer/applications/app-tutorial/_media/botty.png">
 <div 
 style="font-family:Palatino;
 font-size:12.5pt;
@@ -141,6 +137,7 @@ It's important to check this response not only for the job status, but for task 
 </div><br/>
 
 ## How to Implement It
+
 Let's look at how this is implemented in our 'K2' app.
 
 Since we want a user to be able to designate a media file (in Veritone CMS) for processing, we'll need to create a Context Menu Extension (CME) with an appropriate command.
@@ -181,8 +178,7 @@ To create the job query, we have a special function:
 
 ```javascript
 function createTheJobQuery(tdoID, engineID) {
-
-    let query = `mutation createJob {
+  let query = `mutation createJob {
       createJob(input: {
         targetId: "TDO_ID",
         isReprocessJob: true,
@@ -195,8 +191,8 @@ function createTheJobQuery(tdoID, engineID) {
     id
   }
 }`;
-	
-    return query.replace(/TDO_ID/, tdoID).replace(/ENGINE_ID/, engineID);	
+
+  return query.replace(/TDO_ID/, tdoID).replace(/ENGINE_ID/, engineID);
 }
 ```
 
@@ -204,56 +200,60 @@ This function will be called from our START button click-handler, `handleJobButt
 
 ```javascript
 async function handleJobButtonClick() {
-	
-   let jobId = "";
-	
-   clearScreenLog("#job_log");
-	
-   if (!_token) {
-	showSnackbar("Looks like you need to log in first." , true );
-	return;
-   }
-	
-   let tdo = TDO_ID;
-		
-   // Get the query
-   let query = createTheJobQuery( tdo, DEFAULT_ENGINE );
+  let jobId = '';
 
-   // Create the payload
-   let payload = createVeritonePayload( query, _token );
-	
-   // Kick off the job
-   let json = await fetchJSONviaPOST( API_ENDPOINT, payload).catch(e=>{
-    	showSnackbar("Check the console.", true );
-        console.log("Got this exception:\n" + e.toString());
-   });	
+  clearScreenLog('#job_log');
 
-   // log an update to UI:
-   logToScreen( "We ran this query:\n\n" + query + "\n\n", "#job_log" );
-	
-   if (json) {
-       
-	  logToScreen( "We got back this result:\n\n" + JSON.stringify(json,null,3) + "\n\n", "#job_log" );
-	  if ('errors' in json) {
-		showSnackbar("Error. Job aborted.");
-		return;
-	  }
-	  jobId = json.data.createJob.id;
-	  logToScreen("The jobId is " + jobId + ".\n", "#job_log");
-	  logToScreen("We will poll for completion every " + POLL_INTERVAL/1000 + 
-		    " seconds, a maximum of " + MAX_POLL_ATTEMPTS + 
-		    " times.\n", "#job_log");
-           
-	   // create the Cancel button and display it
-	  createCancelJobButton( tdo, "#addContentHere" ); 
+  if (!_token) {
+    showSnackbar('Looks like you need to log in first.', true);
+    return;
+  }
 
-	   // POLL FOR STATUS
-      _pollkey = setInterval(()=>{
-                checkTheJobStatus(jobId, DEFAULT_ENGINE)
-        }, POLL_INTERVAL);
-	   
-   } // if json
-	
+  let tdo = TDO_ID;
+
+  // Get the query
+  let query = createTheJobQuery(tdo, DEFAULT_ENGINE);
+
+  // Create the payload
+  let payload = createVeritonePayload(query, _token);
+
+  // Kick off the job
+  let json = await fetchJSONviaPOST(API_ENDPOINT, payload).catch(e => {
+    showSnackbar('Check the console.', true);
+    console.log('Got this exception:\n' + e.toString());
+  });
+
+  // log an update to UI:
+  logToScreen('We ran this query:\n\n' + query + '\n\n', '#job_log');
+
+  if (json) {
+    logToScreen(
+      'We got back this result:\n\n' + JSON.stringify(json, null, 3) + '\n\n',
+      '#job_log'
+    );
+    if ('errors' in json) {
+      showSnackbar('Error. Job aborted.');
+      return;
+    }
+    jobId = json.data.createJob.id;
+    logToScreen('The jobId is ' + jobId + '.\n', '#job_log');
+    logToScreen(
+      'We will poll for completion every ' +
+        POLL_INTERVAL / 1000 +
+        ' seconds, a maximum of ' +
+        MAX_POLL_ATTEMPTS +
+        ' times.\n',
+      '#job_log'
+    );
+
+    // create the Cancel button and display it
+    createCancelJobButton(tdo, '#addContentHere');
+
+    // POLL FOR STATUS
+    _pollkey = setInterval(() => {
+      checkTheJobStatus(jobId, DEFAULT_ENGINE);
+    }, POLL_INTERVAL);
+  } // if json
 } // handleJobButtonClick()
 ```
 
@@ -268,10 +268,10 @@ Since our job is long-running, we need to check it periodically to see whether i
 You may have noticed, at the end of the `handleJobButtonClick()` function, a line of code as follows:
 
 ```javascript
-	   // POLL FOR STATUS
-      _pollkey = setInterval(()=>{
-                checkTheJobStatus(jobId, DEFAULT_ENGINE)
-        }, POLL_INTERVAL);
+// POLL FOR STATUS
+_pollkey = setInterval(() => {
+  checkTheJobStatus(jobId, DEFAULT_ENGINE);
+}, POLL_INTERVAL);
 ```
 
 This bit of code invokes JavaScript's top-level `setInterval()` function and stores the return value in a global variable, `_pollkey`. We will need that value in order to stop polling, later.
@@ -289,8 +289,7 @@ The function that generates that query for us (using arguments of `tdoId` and `e
 
 ```javascript
 function createEngineResultsQuery(tdoID, engineID) {
-
-    return `query getEngineOutput {
+  return `query getEngineOutput {
       engineResults(tdoId: "TDO",
       engineIds: ["ENGINE_ID"]) {
         records {
@@ -299,7 +298,9 @@ function createEngineResultsQuery(tdoID, engineID) {
           jsondata
         }
       }
-    }`.replace(/TDO/, tdoID).replace(/ENGINE_ID/, engineID);
+    }`
+    .replace(/TDO/, tdoID)
+    .replace(/ENGINE_ID/, engineID);
 }
 ```
 
@@ -310,14 +311,14 @@ When we run the query, the results will come back in a (potentially large) JSON 
 Note that the time-series data can be found as entries in a `series` array under a `jsondata` field of `records`. Each entry looks something like
 
 ```json
-  {
-     "startTimeMs": 2669,
-     "stopTimeMs": 6072,
-     "object": {
-        "label": "railroad car",
-        "confidence": 0.8477109
-      }
-   }
+{
+  "startTimeMs": 2669,
+  "stopTimeMs": 6072,
+  "object": {
+    "label": "railroad car",
+    "confidence": 0.8477109
+  }
+}
 ```
 
 This entry says that from 2.669 sec to 6.072 sec into the video, an object that looks like a _railroad car_ (confidence: 0.8477109) was detected.
@@ -330,7 +331,7 @@ In other words: _Select a video in CMS and execute one of the Context Menu Exten
 Then, open your browser's JavaScript console (for Chrome, type Control-Shift-J in Windows or Option-Command-J in MacOS), paste the following line of code into the console, and execute it:
 
 ```javascript
-DEFAULT_ENGINE = "54525249-da68-4dbf-b6fe-aea9a1aefd4d";
+DEFAULT_ENGINE = '54525249-da68-4dbf-b6fe-aea9a1aefd4d';
 ```
 
 This will set the global variable called `DEFAULT_ENGINE` to a cognitive engine named `"Transcription - DR - English (Global)"`.
@@ -341,19 +342,19 @@ Now all you have to do is click the app's START button, and a transcription job 
 
 You've finished the "How to Build Your Own AI App" tutorial. You've learned, among other things:
 
-* How to register a web app with the Veritone site.
+- How to register a web app with the Veritone site.
 
-* How to create Context Menu Extensions that you or your org's users can invoke from within the Veritone CMS.
+- How to create Context Menu Extensions that you or your org's users can invoke from within the Veritone CMS.
 
-* How to authenticate to Veritone with OAuth.
+- How to authenticate to Veritone with OAuth.
 
-* How to use a security token to make API calls to Veritone's GraphQL server.
+- How to use a security token to make API calls to Veritone's GraphQL server.
 
-* How to query a Temporal Data Object for its various properties and values.
+- How to query a Temporal Data Object for its various properties and values.
 
-* How to create a Job involving a cognitive engine. 
+- How to create a Job involving a cognitive engine.
 
-* How to poll for results (and do error checking).
+- How to poll for results (and do error checking).
 
 And you did it all with just 55 lines of HTML and 500 lines of JavaScript!
 

@@ -1,9 +1,10 @@
 <!-- markdownlint-disable -->
 
 <img width="60%" alt="AI emblem" 
-style="border-radius: 9px;" src="developer/applications/app-tutorial/_media/AI-mini-hero.png"><br/>
+style="border-radius: 9px;" src="docs/developer/applications/app-tutorial/_media/AI-mini-hero.png"><br/>
 
-# Tutorial: Build Your Own AI App 
+# Tutorial: Build Your Own AI App
+
 <div style="font-family: Verdana; font-size:10.5pt; transform:scaleX(.86); transform-origin: top left; 
 display: inline-block; line-height:80%;
               border-style: solid;
@@ -20,6 +21,7 @@ select a media asset in Veritone CMS, and perform object detection on the asset.
 Communication with Veritone's GraphQL endpoint via HTTP POST.
 
 **Prerequisites:** A solid understanding of web technologies. Prior familiarity with JSON a plus.
+
 </div>
 
 <style>
@@ -51,13 +53,14 @@ aside.small {
   line-height:45%;
 }
 </style>
+
 To show how easy it is to build AI-aware apps on Veritone's platform,
 we'll create a simple single-page browser app that can perform object detection on a video of your choice.
 Object detection can be useful for making video clips searchable
 (e.g. "Search for all scenes containing motor vehicles"), or as a preliminary step in positively identifying faces, weapons, logos, license plates, etc.
 
 <div style="transform:scaleX(.91);">
-<img alt="helpful mini-robot" width="18%" style="float:left;" src="developer/applications/app-tutorial/_media/botty.png">
+<img alt="helpful mini-robot" width="18%" style="float:left;" src="docs/developer/applications/app-tutorial/_media/botty.png">
 <div 
 style="font-family:Palatino;
 font-size:12.5pt;
@@ -90,9 +93,9 @@ Although you don't need a Github account to view the source files, the easiest w
 
 The app consists of three files:
 
-* `index.html` contains the markup for the page
-* `styles.css` contains CSS for the page
-* `scripts/utils.js` contains the client-side logic
+- `index.html` contains the markup for the page
+- `styles.css` contains CSS for the page
+- `scripts/utils.js` contains the client-side logic
 
 That's it! Deploy those 3 static files to any server, and you're done.
 
@@ -105,15 +108,17 @@ To use Veritone's aiWARE platform, you'll need a (free) login.
 Go to https://developer.veritone.com to set up your username and password.
 
 ### What's Next?
-That's it! You're ready to begin. 
+
+That's it! You're ready to begin.
 
 We recommend you run through the steps shown below in the order listed:
 
 <style>a {text-decoration: none;} </style>
+
 1\. **Register your app with Veritone.** (10 minutes) Once your app is part of the Veritone ecosystem, it can integrate easily into powerhouse Veritone platform services like CMS and Discovery.
 [Read more ⇨](developer/applications/app-tutorial/app-tutorial-step-1)
 
-2\. **Set up authentication.** (10 minutes) We'll show you two ways to log in and get an API token. 
+2\. **Set up authentication.** (10 minutes) We'll show you two ways to log in and get an API token.
 We'll also talk about error handling. [Read more ⇨](developer/applications/app-tutorial/app-tutorial-step-2)
 
 3\. **Add custom logic** (15 minutes) to make the app respond to a context menu command in Veritone's CMS.
