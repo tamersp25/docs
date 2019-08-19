@@ -4,7 +4,7 @@
     <div class="wrapper">
       <nav>
         <ul>
-          <li><a href="http://local.veritone.com:3000/#/overview/"><h3>Overview</h3></a></li>
+          <li><a href="/#/overview/"><h3>Overview</h3></a></li>
           <li><a href="/#/quickstart/"><h3>Quickstart</h3></a></li>
           <li><a href="/#/apps/"><h3>Applications</h3></a></li>
           <li><a href="/#/apis/"><h3>APIs</h3></a></li>
