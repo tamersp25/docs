@@ -1,9 +1,10 @@
 @import './palette';
+@import './_variables';
 
 .quickstart {
   .banner {
     height: 120px;
-    margin-bottom: 36px;
+    margin-bottom: $unit * 4;
   }
 
   .engine-developer {

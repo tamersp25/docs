@@ -1,4 +1,5 @@
 @import './_palette';
+@import './_variables';
 
 section.cover {
   color: $white;
@@ -34,7 +35,7 @@ section.cover {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 8px;
+        margin: 0 $unit;
 
         a {
           cursor: pointer;
@@ -51,7 +52,7 @@ section.cover {
     display: flex;
     justify-content: center;
     margin: 0;
-    height: 72px;
+    height: $unit * 9;
     width: 100%;
     background: white;
 
@@ -97,7 +98,7 @@ section.cover {
   .header {
     font-family: 'Dosis', sans-serif;
     font-size: 32px;
-    margin: 8px 0;
+    margin: $unit 0;
     font-weight: bold;
 
     &.blue {
@@ -127,26 +128,29 @@ section.cover {
     color: $secondary;
   }
 
+  // Content Sections
   .cover-main {
     margin: 0px;
 
+    /* Title Section */
     .title-image {
       margin-top: 128px;
       max-width: 80%;
     }
 
+    /* News Section */
     .news-box {
       display: flex;
       justify-content: center;
       flex-direction: column;
       overflow: visible;
-      margin-top: 72px;
+      margin-top: $unit * 9;
       height: 400px;
       background: $white;
-      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+      box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
 
       .news-header {
-        padding: 12px 0;
+        padding: $unit * 2 0;
         text-align: center;
         font-family: 'Dosis', sans-serif;
         font-size: 24px;
@@ -155,7 +159,7 @@ section.cover {
       }
 
       .news-description {
-        margin: 12px 32px;
+        margin: $unit * 2 $unit * 4;
         color: $primary;
       }
 
@@ -165,7 +169,7 @@ section.cover {
 
       .news-content {
         overflow: auto;
-        padding: 32px;
+        padding: $unit * 4;
         text-align: initial;
         .news-item {
           color: $grey;
@@ -177,7 +181,7 @@ section.cover {
           }
 
           ul {
-            margin: 16px;
+            margin: $unit * 2;
             color: $primary;
             list-style-type: circle;
           }
@@ -185,11 +189,12 @@ section.cover {
       }
     }
 
+    /* Squiggly Divider */
     .divider-line svg {
-      margin-top: 36px;
+      margin-top: $unit * 4;
       width: 234px;
       height: 160px;
-      padding: 16px;
+      padding: $unit * 2;
     }
 
     .dev-box-container {
@@ -203,15 +208,15 @@ section.cover {
 
       .dev-box {
         width: 50%;
-        margin: 16px;
-        padding: 16px;
-        border-radius: 8px;
+        margin: $unit * 2;
+        padding: $unit * 2;
+        border-radius: $unit;
         background-color: $white;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+        box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
 
         .dev-image {
           max-width: 30%;
@@ -245,20 +250,22 @@ section.cover {
       }
     }
 
-    .quiz {
-      margin-top: 36px;
+    /* TODO: Integrate Quiz once finished
+    /* .quiz {
+      margin-top: $unit * 4;
       display: flex;
       flex-direction: column;
       align-items: center;
       h3 {
         color: $primary;
       }
-    }
+    } */
 
+    /* Platform Boxes */
     .platform {
       width: 100%;
-      padding: 32px 0;
-      margin-top: 72px;
+      padding: $unit * 4 0;
+      margin-top: $unit * 9;
       display: flex;
       justify-content: center;
       background: $secondary;
@@ -277,14 +284,15 @@ section.cover {
           flex-direction: column;
           justify-content: flex-start;
           align-items: flex-start;
-          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-          margin: 12px;
+          box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
+          margin: $unit * 2;
 
           .platform-box-title {
             font-family: 'Dosis', sans-serif;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
             color: $primary;
+            text-align: left;
           }
 
           p {
@@ -295,6 +303,7 @@ section.cover {
       }
     }
 
+    /* Footer */
     .footer {
       width: 100%;
       display: flex;

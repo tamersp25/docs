@@ -1,4 +1,5 @@
 @import './_palette.scss';
+@import './_variables.scss';
 
 .sidebar-toggle span {
   background-color: $secondary;
@@ -22,10 +23,10 @@
 
   /* Top-level ul */
   .sidebar-nav > ul {
-    margin-left: 32px;
+    margin-left: $unit * 4;
 
     & > li {
-      margin: 32px 0;
+      margin: $unit * 3 0;
       & > p > a {
         font-size: 18px;
         font-weight: 600;
@@ -35,7 +36,7 @@
 
   /* Sub-level ul */
   .sidebar-nav > ul ul {
-    margin-left: 24px;
+    margin-left: $unit * 3;
 
     & > li {
       a {
@@ -49,7 +50,7 @@
   * Because the default assumes you only want things highlighted if they don't have any subpages
   **/
   ul li .active > a {
-    border-right: 6px solid;
+    border-right: $unit * 3/4 solid;
     color: $secondary;
     font-weight: 600;
   }
