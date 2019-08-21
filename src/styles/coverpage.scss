@@ -1,0 +1,333 @@
+@import './_palette';
+@import './_variables';
+
+section.cover {
+  color: $white;
+  height: unset;
+  background-image: linear-gradient($white, #d4e5f5) !important;
+
+  .cover-main {
+    overflow: auto;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 768px;
+    overflow: visible;
+  }
+
+  .overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+  }
+
+  nav {
+    ul {
+      margin: 0;
+      max-width: unset;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 0;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 $unit;
+
+        a {
+          cursor: pointer;
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+
+  .action-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: $unit * 9;
+    width: 100%;
+    background: white;
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    nav {
+      height: 100%;
+      ul {
+        height: 100%;
+        justify-content: unset;
+        li > a {
+          color: $secondary;
+
+          &:hover {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .background {
+    width: 100%;
+    height: 640px;
+    background-image: linear-gradient(#002746, #347bb3);
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+
+    .background-image {
+      position: relative;
+      height: 250%;
+      top: -400px;
+      left: -200px;
+      opacity: 0.4;
+    }
+  }
+
+  .header {
+    font-family: 'Dosis', sans-serif;
+    font-size: 32px;
+    margin: $unit 0;
+    font-weight: bold;
+
+    &.blue {
+      color: $secondary;
+    }
+  }
+
+  .button {
+    cursor: pointer;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: $primary;
+    border: 2px solid $primary;
+  }
+
+  .button-text {
+    cursor: pointer;
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: $secondary;
+  }
+
+  // Content Sections
+  .cover-main {
+    margin: 0px;
+
+    /* Title Section */
+    .title-image {
+      margin-top: 128px;
+      max-width: 80%;
+    }
+
+    /* News Section */
+    .news-box {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      overflow: visible;
+      margin-top: $unit * 9;
+      height: 400px;
+      background: $white;
+      box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
+
+      .news-header {
+        padding: $unit * 2 0;
+        text-align: center;
+        font-family: 'Dosis', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: $secondary;
+      }
+
+      .news-description {
+        margin: $unit * 2 $unit * 4;
+        color: $primary;
+      }
+
+      .divider {
+        border-bottom: 1px solid $grey;
+      }
+
+      .news-content {
+        overflow: auto;
+        padding: $unit * 4;
+        text-align: initial;
+        .news-item {
+          color: $grey;
+          .news-item-header {
+            font-family: 'Dosis', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: $secondary;
+          }
+
+          ul {
+            margin: $unit * 2;
+            color: $primary;
+            list-style-type: circle;
+          }
+        }
+      }
+    }
+
+    /* Squiggly Divider */
+    .divider-line svg {
+      margin-top: $unit * 4;
+      width: 234px;
+      height: 160px;
+      padding: $unit * 2;
+    }
+
+    .dev-box-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > div {
+        display: flex;
+      }
+
+      .dev-box {
+        width: 50%;
+        margin: $unit * 2;
+        padding: $unit * 2;
+        border-radius: $unit;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
+
+        .dev-image {
+          max-width: 30%;
+        }
+
+        .dev-box-title {
+          font-family: 'Dosis', sans-serif;
+          font-size: 24px;
+          font-weight: bold;
+
+          &.blue {
+            color: $secondary;
+          }
+
+          &.purple {
+            color: $accent2;
+          }
+
+          &.teal {
+            color: $accent3;
+          }
+
+          &.magenta {
+            color: $accent1;
+          }
+        }
+
+        p {
+          color: $primary;
+        }
+      }
+    }
+
+    /* TODO: Integrate Quiz once finished
+    /* .quiz {
+      margin-top: $unit * 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3 {
+        color: $primary;
+      }
+    } */
+
+    /* Platform Boxes */
+    .platform {
+      width: 100%;
+      padding: $unit * 4 0;
+      margin-top: $unit * 9;
+      display: flex;
+      justify-content: center;
+      background: $secondary;
+
+      .platform-container {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+
+        .platform-box {
+          background-image: linear-gradient(#d4e5f5, $white) !important;
+          padding: 24px;
+          border-radius: 8px;
+          background-color: $white;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          box-shadow: $unit * 1/2 $unit * 1/2 $unit rgba(0, 0, 0, 0.25);
+          margin: $unit * 2;
+
+          .platform-box-title {
+            font-family: 'Dosis', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: $primary;
+            text-align: left;
+          }
+
+          p {
+            color: $primary;
+            text-align: start;
+          }
+        }
+      }
+    }
+
+    /* Footer */
+    .footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: $primary;
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      a {
+        text-align: initial;
+        .logo-image {
+          margin-top: 48px;
+          height: 40px;
+          width: 200px;
+        }
+      }
+
+      h4 {
+        text-align: initial;
+      }
+    }
+  }
+}

@@ -70,7 +70,7 @@ Since the code for our app is already [available](https://github.com/veritone/ve
 
 ![App Setup Dialog](_media/AppSetup.png)
 
-4\. Optionally, upload an image icon for the app, using the "Browse to Upload" widget in the upper left. 
+4\. Optionally, upload an image icon for the app, using the "Browse to Upload" widget in the upper left.
 
 5\. Click the **Submit** button.
 
@@ -79,8 +79,8 @@ The app is now registered with the system, but is in a DRAFT state:
 ![K2 Component Listing screen withh DRAFT badge](_media/K2Draft.png)
 
 > Take note of the fact that the app has an ID shown in grey, under the title.
-In this case, it is `ID: 0f905d85-9235-4746-90d1-76afa2a305c0`.
-We will need this ID later, when setting up authentication.
+> In this case, it is `ID: 0f905d85-9235-4746-90d1-76afa2a305c0`.
+> We will need this ID later, when setting up authentication.
 
 ## Submit Your App for Approval
 
@@ -100,9 +100,9 @@ Once it has been set to Active, it will be visible (in Veritone's App Switcher m
 
 ## Create a Context Menu Extension
 
-While we're at it, let's go ahead and specify a CME (Context Menu Extension) for the app. 
+While we're at it, let's go ahead and specify a CME (Context Menu Extension) for the app.
 
-> You can do this step before *or after* your app is approved by Veritone.
+> You can do this step before _or after_ your app is approved by Veritone.
 
 **What It Means:** Veritone allows you to put a custom command in the UI that's seen when a user clicks the "kabob menu" icon on a media file in the [Veritone CMS](https://cms.veritone.com).
 
@@ -129,7 +129,7 @@ Let's look at how that CME was created. (It's easy!)
 
 6\. In the dialog, choose "Media (Temporal Data Objects)" from the picker list to set the value of the dialog's first field.
 
-7\. Enter a string for **Label**. 
+7\. Enter a string for **Label**.
 
 > This string will be visible to users, in the context menu UI of [Veritone CMS](https://cms.veritone.com), as the CME command name.
 
@@ -142,7 +142,7 @@ You should see your CME's Label string in the list of context menu commands. If 
 
 <!-- markdownlint-disable no-inline-html -->
 <div style="transform:scaleX(.91);">
-<img width="18%" style="float:left;" src="developer/applications/app-tutorial/_media/botty.png">
+<img width="18%" style="float:left;" src="docs/developer/applications/app-tutorial/_media/botty.png">
 <div 
 style="font-family:Palatino;
 font-size:12.5pt;

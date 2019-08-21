@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SDIR=./docs/apis/schema/v3
+SDIR=./src/docs/apis/schema/v3
 mkdir -p $SDIR
 
 echo "Generating schema.graphql..."
