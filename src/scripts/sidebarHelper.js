@@ -81,7 +81,7 @@ function getChildren(el) {
  * @param el
  */
 function getSidebarNode(el) {
-  if (el[0].tagName.toLowerCase() === 'p' && el.hasClass('active')) {
+  if (el[0] && el[0].tagName.toLowerCase() === 'p' && el.hasClass('active')) {
     return el.parent();
   }
   return el;
