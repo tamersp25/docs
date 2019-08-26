@@ -30,11 +30,49 @@ export function collapseExtendedFamily(el) {
     collapseNavElRecursion = 0;
     collapseNavEl(sibling);
   }
-  var parentEl = el.parent().parent(); // li > ul > li
-  if (!el.hasClass('sidebar-nav')) {
+  var parentEl = getParentLi(el);
+  if (parentEl && !parentEl.hasClass('sidebar-nav')) {
     collapseExtendedFamily(parentEl);
   }
   // TODO: It's currently recursing out of .sidebar-nav.  We should stop that once it gets to that point.
+
+  /**
+   * Gets the parent li of the current node
+   */
+  function getParentLi(el) {
+
+    //get first li
+    let getLiRecursion = 0;
+    var li = getLi(el);
+
+    if (!li) {
+      return null;
+    }
+
+    // get second li
+    getLiRecursion = 0;
+    return getLi(li.parent());
+
+    /**
+     * Gets the first li element above (or including) the one given
+     * @param el DOM element
+     * @return {*} parent li jQuery element or null if it does not exist
+     */
+    function getLi(el) {
+      getLiRecursion++;
+      if(getLiRecursion > RECURSION_LIMIT) {
+        console.error('getLi recursion limit reached!');
+      }
+      el = $(el);
+      if (el[0] && el[0].tagName && el[0].tagName.toLowerCase() === 'li') {
+        return el;
+      } else if (el.parent().length) {
+        return getLi(el.parent());
+      } else {
+        return null;
+      }
+    }
+  }
 }
 
 /**
