@@ -36,3 +36,14 @@ p.graphql-link {
     background-color: $secondary;
   }
 }
+
+.vtn-action-links {
+  @media(max-width: 860px) {
+    .nav-label {
+      display: none;
+    }
+  }
+  @media(max-width: 660px) {
+    display: none;
+  }
+}
