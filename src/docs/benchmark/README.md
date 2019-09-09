@@ -56,7 +56,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 0   | N/A |
 | Substitutions | 1   | cat |
 
-*Calculation: 100 - ( 1 substitution / 9 * 100)* {docsify-ignore}
+*Calculation: 100 - ( 1 substitution / 9 * 100)*
 
 **Asset from Hypothetical Engine 2:** ```The quick brown fox jumped over the cat```
 
@@ -66,7 +66,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 1   | lazy |
 | Substitutions | 1   | cat |
 
-*Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100* {docsify-ignore}
+*Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100*
 
 ## Limitations {docsify-ignore}
 
