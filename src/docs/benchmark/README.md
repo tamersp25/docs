@@ -30,7 +30,7 @@ Benchmark works by allowing you to select TDOs that have already been processed 
 
 > **Why do I have to pick a baseline manually?** The key difference between AI vs traditional computation algorithms is that with AI processing the computer can generate, but not understand, the results. Before the computer can compare the results against each other, a human fluent in the transcribed language needs to "train" or "teach" the machine which asset is the most accurate.  &nbsp;
 
-Once the benchmark job is completed, you can view the results of the benchmark by selecting the benchmark job from the Benchmark Jobs page.
+Once the benchmark job is completed, you can view the results of the benchmark by selecting the benchmark job from the Benchmark Jobs page. The results show how similar each benchmarked asset is compared to the baseline from a range of 0-100 -- 0 being not similar at all and 100 being perfectly identical. The higher the score, the closer the benchmarked asset is to the baseline.
 
 > **What if I select the wrong baseline asset?** If you select the wrong baseline asset, the scores reported by benchmark will not match the reality of which transcript is most accurate to people fluent in the transcribed language.
 
@@ -58,7 +58,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 0   | N/A |
 | Substitutions | 1   | cat |
 
-`Calculation: 100 - ( 1 substitution / 9 * 100)*`
+<sub>Calculation: 100 - ( 1 substitution / 9 * 100)</sub>
 
 **Asset from Hypothetical Engine 2:** ```The quick brown fox jumped over the cat```
 
@@ -68,7 +68,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 1   | lazy |
 | Substitutions | 1   | cat |
 
-`Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100*`
+<sub>Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100</sub>
 
 ## Limitations {docsify-ignore}
 
