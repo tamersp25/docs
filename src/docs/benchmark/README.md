@@ -14,7 +14,7 @@ An asset is simply a piece of data on a [TDO](apis/tutorials/upload-and-process?
 
 TO DO: Screenshots for the following steps.
 
-1. Selecting a TDO (from Benchmark) or Selecting a TDO (from CMS) Note: If there are not enough transcript assets, please run more engines on the TDO or select a different TDO.
+1. Selecting a TDO (from Benchmark) and/or Selecting a TDO (from CMS) Note: If there are not enough transcript assets, please run more engines on the TDO or select a different TDO.
 
 2. Screenshot of TDO screen and starting a new benchmark job.
 
@@ -62,7 +62,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 0   | N/A |
 | Substitutions | 1   | cat |
 
-*Calculation: 100 - ( 1 substitution / 9 * 100)*
+*Calculation: 100 - ( 1 substitution / 9 * 100)* {docsify-ignore}
 
 **Asset from Hypothetical Engine 2:** ```The quick brown fox jumped over the cat```
 
@@ -72,7 +72,7 @@ For example, let's use the following sentence as our baseline transcript and com
 | Deletions     | 1   | lazy |
 | Substitutions | 1   | cat |
 
-*Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100*
+*Calculation: 100 - ( 1 substitution + 1 deletion ) / 9 * 100* {docsify-ignore}
 
 ## Limitations {docsify-ignore}
 
