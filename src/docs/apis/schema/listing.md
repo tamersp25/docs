@@ -5,8 +5,8 @@ requires a schema reference.
 
 Current V3 schema files are available at:
 
-* [schema.graphql](https://docs.veritone.com/apis/schema/v3/schema.graphql)
-* [schema.json](https://docs.veritone.com/apis/schema/v3/schema.json)
+* [schema.graphql](/schemas/api/v3/schema.graphql ':ignore')
+* [schema.json](/schemas/api/v3/schema.json ':ignore')
 
 The GraphQL server provides introspection queries that can be used to
 dynamically inspect the schema. These queries have complete access to

@@ -35,6 +35,10 @@ module.exports = {
       {
         from: path.resolve(__dirname, 'src', 'docs'),
         to: path.resolve(__dirname, buildDirectory, 'docs')
+      },
+      {
+        from: path.resolve(__dirname, 'schemas'),
+        to: path.resolve(__dirname, buildDirectory, 'schemas')
       }
     ]),
 
