@@ -198,7 +198,7 @@ export default {
         return $(`
               <p class="graphql-link">
                 <a href="${url}" target="_blank">
-                  <img src="_media/graphql.svg" height="16px" width="16px" alt="GraphQL icon">
+                  <img src="/docs/_media/graphql.svg" height="16px" width="16px" alt="GraphQL icon">
                   ${text}
                 </a>
               </p>`);
