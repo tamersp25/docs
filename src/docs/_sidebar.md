@@ -102,6 +102,7 @@
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
         - [Object Detection](developer/engines/cognitive/vision/object-detection/)
         - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
+    - [Building **Correlation Engines**](developer/engines/correlation/)
     - [Approval Process](developer/engines/approval/)
     - [Deployment Models](developer/engines/deployment-model/)
     - [Processing Modes](developer/engines/processing-modes/)

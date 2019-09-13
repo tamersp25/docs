@@ -1,0 +1,14 @@
+{
+  "engineId": "075e728f-d835-4dbc-b81b-9bdfc1b985b0",
+  "url": "https://www.cbs.com",
+  "category": "adapter",
+  "externalCalls": [],
+  "preferredInputFormat": "application/json",
+  "outputFormats": [
+    "application/json"
+  ],
+  "clusterSize": "small",
+  "initialConcurrency": 50,
+  "maxConcurrency": 50,
+  "engineMode": "batch"
+}
