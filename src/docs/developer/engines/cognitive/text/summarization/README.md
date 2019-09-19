@@ -31,11 +31,14 @@ In this case, engines are given the entire file as their input and are responsib
 
 ## Engine Output
 
+> The official `summary` validation contract json-schema is available
+[here](/schemas/vtn-standard/summary/summary.json ':ignore').
+
 ### Example
 
 The simplest example is a single summary of an entire document
 
-[](vtn-standard-simple.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/summary/examples/simple.json ':include :type=code json')
 
 <!--TODO: Technically, summary also exists on the series array object but there doesn't seem like many use cases for that.-->
 <!--TODO: Consider adding summary to the object array so it can be specified on a per-phrase basis.-->

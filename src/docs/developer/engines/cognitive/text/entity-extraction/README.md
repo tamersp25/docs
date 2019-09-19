@@ -43,20 +43,23 @@ If entity extraction engines are made [trainable with libraries](/developer/libr
 
 ## Engine Output
 
+> The official `entity` validation contract json-schema is available
+[here](/schemas/vtn-standard/entity/entity.json ':ignore').
+
 ### Simple Example
 
 This is an example output that only specifies a `label` for the identified entity.
 
-[](vtn-standard-minimal.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/entity/examples/simple.json ':include :type=code json')
 
 ### Real-World Example
 
 This is a more involved example that includes a label, confidence, a mapping to a category classification taxonomy, sentiment readings, and page/paragraph/sentence referencing (all optional)
 
-[](vtn-standard-real.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/entity/examples/real-world.json ':include :type=code json')
 
 ### Library Entity Example
 
 This is an example output that maps an extracted entity back to an aiWARE library entity.
 
-[](vtn-standard-library-entity.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/entity/examples/library-entity.json ':include :type=code json')

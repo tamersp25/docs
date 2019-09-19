@@ -19,5 +19,6 @@ npm-debug.log
 
 package-lock.json
 
-# GraphQL schemas generated on build
-/schemas/
+# Things generated on build
+src/schemas/
+schemas/

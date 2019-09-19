@@ -46,6 +46,9 @@ Engine output is very similar to the engine input, conforming to the same `trans
 However, transcript translation is a little more complicated than other translation types because transcripts have word-by-word timing, but single-word translations are not nearly as accurate as phrase or sentence translations.
 Therefore, in order to properly group the translated words and still maintain the time-based `series` structure, the `series` array has to be modified slightly.
 
+> The official `transcript` validation contract json-schema is available
+[here](/schemas/vtn-standard/transcript/transcript.json ':ignore').
+
 ### The Per-Phrase Translation Algorithm
 
 First combine the input transcript up into sections based on where there are either `"."` words or breaks in the timing (i.e. the `startTimeMs` of one word is more than 1 second later than the stopTimeMs of the previous word).
@@ -61,6 +64,7 @@ Then for each section...
 1. Submit the section for translation as one phrase.
 1. Break the resulting translation back up into words based on spaces or characters (depending on what constitutes a word in that language).
 1. Reconstruct the series array by having one series object per word (similar to how the input had one object per word) but set the `startTimeMs` and `stopTimeMs` for each word equal to the minimum start and maximum stop times of the entire section (so they look like they overlap).
+   Make sure to keep all words in the sentence in the proper order in the output array.
 
 Here is some (Python-ish) pseudo-code that implements this algorithm:
 
@@ -121,4 +125,4 @@ There will only be one of these in each `words` array.
 
 ### Example Output
 
-[](vtn-standard-output.example.json ':include :type=code json')
+[](../../../../../../../schemas/vtn-standard/transcript/examples/translated.json ':include :type=code json')

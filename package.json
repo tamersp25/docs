@@ -6,7 +6,9 @@
   "scripts": {
     "build": "sh ./schemagen.sh && webpack",
     "build:watch": "sh ./schemagen.sh && webpack -w",
+    "copy-schemas": "cp -r ./node_modules/veritone-json-schemas/schemas src",
     "lint": "markdownlint --ignore \"src/docs/apis/search-quickstart/README.md\" --ignore \"src/docs/developer/engines/toolkit/*\" --ignore \"src/docs/apis/reference/\" --ignore \"src/docs/apis/job-quick-start-guide/\" --ignore \"src/docs/apis/search-quick-start-guide/\" src/docs",
+    "postinstall": "yarn copy-schemas  # really just for IDE intelligence",
     "start": "concurrently -k \"yarn build:watch\" \"yarn serve\"",
     "serve": "docsify serve ./build-${ENVIRONMENT:-local}",
     "test": "echo \"Testing temporarily disabled\" #codeceptjs run --reporter mocha-multi",
@@ -45,5 +47,8 @@
   },
   "engines": {
     "node": ">=10 <11"
+  },
+  "dependencies": {
+    "veritone-json-schemas": "^1.0.2"
   }
 }

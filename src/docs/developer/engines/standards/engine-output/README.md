@@ -12,9 +12,33 @@ For specifications and examples for individual engine capabilities, please see t
 
 ## Full Specification
 
-<!--TODO: Review
-The official specification is expressed in json-schema format and is [available here](https://github.com/veritone/docs/tree/master/docs/engines/standards/vtn-standard.schema.json)
--->
+The official specification is expressed in [json-schema](https://json-schema.org/) format according to various "validation contracts."
+The individual validation contracts are contained in their own schemas, which use definitions in the [master schema](/schemas/vtn-standard/master.json).
+Engine output should express which validation contract(s) it conforms to by including the validation contract identifier in the validationContracts array at the top level of the output.
+
+> The [veritone-json-schemas npm package](https://www.npmjs.com/package/veritone-json-schemas) includes all the vtn-standard json-schemas and tools for validating against them.
+
+### Validation Contracts
+
+The currently defined validation contracts are:
+
+Validation Contract | Applicable Capabilities | json-schema Definition
+------------------- | ----------------------- | ----------------------
+`concept` | [Content Classification](/developer/engines/cognitive/text/content-classification/) | [concept.json](/schemas/vtn-standard/concept/concept.json ':ignore')
+`entity` | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | [entity.json](/schemas/vtn-standard/entity/entity.json ':ignore')
+`keyword` | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | [keyword.json](/schemas/vtn-standard/keyword/keyword.json ':ignore')
+`language` | [Language Identification](/developer/engines/cognitive/text/language-identification/) | [language.json](/schemas/vtn-standard/language/language.json ':ignore')
+`media-translated` | [Plain Text Translation](/developer/engines/cognitive/text/translation/plain-text/), [Rich Text Translation](/developer/engines/cognitive/text/translation/rich-text/) | [media-translated.json](/schemas/vtn-standard/media-translated/media-translated.json ':ignore')
+`object` | [Object Detection](/developer/engines/cognitive/vision/object-detection/) | [object.json](/schemas/vtn-standard/object/object.json ':ignore')
+`sentiment` | [Sentiment Analysis](/developer/engines/cognitive/text/sentiment/) | [sentiment.json](/schemas/vtn-standard/sentiment/sentiment.json ':ignore')
+`summary` | [Summarization](/developer/engines/cognitive/text/summarization/) | [summary.json](/schemas/vtn-standard/summary/summary.json ':ignore')
+`text` | [Text Extraction](/developer/engines/cognitive/text/text-extraction/), [Text Recognition (OCR)](/developer/engines/cognitive/vision/text-recognition/), [Extracted Text Translation](/developer/engines/cognitive/text/translation/extracted-text/), [Recognized (OCR) Text Translation](/developer/engines/cognitive/text/translation/recognized-text/) | [text.json](/schemas/vtn-standard/text/text.json ':ignore')
+`transcript` | [Transcription](/developer/engines/cognitive/speech/transcription/), [Transcript Translation](/developer/engines/cognitive/text/translation/transcript/) | [transcript.json](/schemas/vtn-standard/transcript/transcript.json ':ignore')
+
+Other validation contracts are in the process of being formalized.
+In the meantime, please see the example engine outputs for various capabilities under [Building Cognitive Engines](/developer/engines/cognitive/).
+
+### Annotated Example
 
 An annotated example of the full specification is shown below demonstrating most of the capabilities:
 

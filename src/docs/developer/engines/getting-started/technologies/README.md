@@ -29,7 +29,5 @@ You can find more information on Docker here:
 
 <!--TODO: Document
 ## GraphQL
-
-<describe usage in VDA>
-<external resources>
+## json-schema
 -->

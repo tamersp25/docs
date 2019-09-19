@@ -37,8 +37,12 @@ module.exports = {
         to: path.resolve(__dirname, buildDirectory, 'docs')
       },
       {
-        from: path.resolve(__dirname, 'schemas'),
-        to: path.resolve(__dirname, buildDirectory, 'schemas')
+        from: path.resolve(__dirname, 'schemas', 'api'),
+        to: path.resolve(__dirname, buildDirectory, 'schemas', 'api')
+      },
+      {
+        from: path.resolve(__dirname, 'node_modules', 'veritone-json-schemas', 'schemas', 'vtn-standard'),
+        to: path.resolve(__dirname, buildDirectory, 'schemas', 'vtn-standard')
       }
     ]),
 

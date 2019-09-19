@@ -43,13 +43,16 @@ Text recognition engines are required to be [trainable via libraries](/developer
 
 Text recognition engine output can follow two forms, depending on whether the file being processed is time-based file (e.g. audio, video) or a non-time-based (e.g. image).
 
+> The official `text` validation contract json-schema is available
+[here](/schemas/vtn-standard/text/text.json ':ignore').
+
 ### Example &mdash; Time-Based
 
-[](vtn-standard-series.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/text/examples/recognized-text.json ':include :type=code json')
 
 ### Example &mdash; Non-Time-Based
 
-[](vtn-standard-object.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/text/examples/recognized-text-no-series.json ':include :type=code json')
 
 ## Translating Recognized Text
 

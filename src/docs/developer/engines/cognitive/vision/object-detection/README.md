@@ -19,7 +19,7 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 <!-- ## Engine Input -->
 
-<!-- TODO -->
+<!-- TODO: Give example of engine input -->
 
 ## Engine Output
 
@@ -27,10 +27,17 @@ General detected objects can be reported in engine output by specifying an `obje
 An object definition can exist in either the object array (for non-time-based detections)
 or in an `object` key in the `series` array (for time-based detections).
 
-### Example
+> The official `object` validation contract json-schema is available
+[here](/schemas/vtn-standard/object/object.json ':ignore').
+
+### Time-Series Example
 
 Here is an example of proper engine output for objects detected within a time series:
 
-[](vtn-standard-series.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/object/examples/from-docs.json ':include :type=code json')
 
-<!-- TODO: Add an example for objects outside a time series -->
+### Non-Time-Series Example
+
+Here is an example of proper engine output for objects detected over the entire input media:
+
+[](../../../../../../schemas/vtn-standard/object/examples/summary.json ':include :type=code json')

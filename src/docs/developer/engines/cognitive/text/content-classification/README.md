@@ -38,20 +38,22 @@ The `objectCategory` array is used to specify one or more categories that the te
 - If the classification is in reference to a particular taxonomy, the `@id` key can be used to provide a URI to the category definition.
 - If there is a weighting or confidence on the various classifications, it can be expressed with the `confidence` key.
 
-> aiWARE does not mandate a master concept taxonomy that engines are required to conform to.
+aiWARE does not mandate a master concept taxonomy that engines are required to conform to.
 They use class names (and @id if appropriate) to map to external taxonomies.
+
+> The official `concept` validation contract json-schema is available
+[here](/schemas/vtn-standard/concept/concept.json ':ignore').
 
 ### Minimal Example
 
 The minimal example of content classification engine output using only required keys would look something like this:
 
-[](vtn-standard-minimal.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/concept/examples/simple.json ':include :type=code json')
 
 ### Real-World Example
 
 Here is a more typical engine output example that classifies a particular sentence in a document into two categories from the [IPTC Subject Codes taxonomy](https://iptc.org/standards/subject-codes/).
-
-[](vtn-standard-real.example.json ':include :type=code json')
-
-> IPTC is simply chosen as one example.
+IPTC is simply chosen as one example.
 Any taxonomy may be used as long as its classes can be referenced with a URI.
+
+[](../../../../../../schemas/vtn-standard/concept/examples/real-world.json ':include :type=code json')

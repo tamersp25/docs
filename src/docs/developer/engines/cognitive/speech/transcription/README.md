@@ -32,17 +32,20 @@ A transcription engine is typically _stateful_, hence will operate in _stream pr
 
 Transcribed words can be reported in engine output by using the `words` array within the `series` array.
 
+> The official `transcript` validation contract json-schema is available
+[here](/schemas/vtn-standard/transcript/transcript.json ':ignore').
+
 ### Simple Example
 
 Here is an example of the simplest type of transcript output:
 
-[](vtn-standard-simple.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/transcript/examples/basic.json ':include :type=code json')
 
 ### Adding Confidence Scores
 
 In addition to the basic array of phrases, the `confidence` key can be used to indicate how confident the engine is in a given result (0-100%).
 
-[](vtn-standard-confidence.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/transcript/examples/confidence.json ':include :type=code json')
 
 ### Adding Transcription Lattices
 
@@ -65,9 +68,7 @@ When reporting lattices, the following rules must be followed:
 - For every `words` array with multiple entries, **one and only one** of the entries must contain the `bestPath` key with a value of `true`
 - For every `words` array with multiple entries, `utteranceLength` keys must be added to each entry.
 
-[](vtn-standard-lattice.example.json ':include :type=code json')
-
-<!--TODO: Link to official json-schema (when ready)-->
+[](../../../../../../schemas/vtn-standard/transcript/examples/lattice.json ':include :type=code json')
 
 ## Translating Transcripts
 

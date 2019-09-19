@@ -16,6 +16,9 @@ A keyword extraction engine identifies key terms and/or phrases that appear in o
 
 ## Engine Output
 
+> The official `keyword` validation contract json-schema is available
+[here](/schemas/vtn-standard/keyword/keyword.json ':ignore').
+
 ### Example
 
-[](vtn-standard.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/keyword/examples/simple.json ':include :type=code json')

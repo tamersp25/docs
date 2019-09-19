@@ -49,9 +49,12 @@ If it is not present, the engine may decide whether to try to guess the source l
 Engine output is very similar to the engine input, conforming to the same `text` validation contract and mirroring the object array and page/paragraph/sentence indices.
 The only things that usually change are the `language` code and the values in the `text` keys.
 
+> The official `text` validation contract json-schema is available
+[here](/schemas/vtn-standard/text/text.json ':ignore').
+
 ### Example Output
 
-[](vtn-standard-output.example.json ':include :type=code json')
+[](../../../../../../../schemas/vtn-standard/text/examples/extracted-text.with-language.json ':include :type=code json')
 
 > The `page`, `paragraph`, `sentence` values are optional for the input.
 Whatever is given in the input for those values (if any) should be returned on the output as well.

@@ -34,6 +34,11 @@ Each segment will be the entire contents of one file.
 
 ## Engine Output
 
+Because rich text translation generates a file and not merely data, generating rich text translation engine output is slightly more involved than other cognitive engine outputs, requiring the uploading of assets and the referencing of their IDs.
+
+> The official `media-translated` validation contract json-schema is available
+[here](/schemas/vtn-standard/media-translated/media-translated.json ':ignore').
+
 The engine should create a separate output file for each desired output language.
 Once the files are generated, the engine should do the following to properly register the result with aiWARE:
 
@@ -76,8 +81,8 @@ PUTing to the same URL twice will overwrite the contents of the first PUT reques
   
 1. Return your `vtn-standard` response in the following format:
 
-[](../_snippets/vtn-standard-doc-translation.example.json ':include :type=code json')
+[](../../../../../../../schemas/vtn-standard/media-translated/examples/basic.json ':include :type=code json')
 
 [](../_snippets/advanced-combined-doc-translation.md ':include')
 
-[](../_snippets/vtn-standard-with-extracted-text.example.json ':include :type=code json')
+[](../../../../../../../schemas/vtn-standard/media-translated/examples/with-text.json ':include :type=code json')

@@ -35,10 +35,13 @@ Languages are specified according to the `language` validation contract by speci
 
 [](../_snippets/language_code_spec.md ':include')
 
+> The official `language` validation contract json-schema is available
+[here](/schemas/vtn-standard/language/language.json ':ignore').
+
 ### Example
 
 This example shows categorizing an entire document according to one language.
 
-[](vtn-standard.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/language/examples/basic.json ':include :type=code json')
 
 <!--TODO: Consider adding support for phrase-based language identification by allowing object.language the same way we have series.words.language-->

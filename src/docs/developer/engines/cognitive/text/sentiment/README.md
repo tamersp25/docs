@@ -31,12 +31,17 @@ In this case, engines are given the entire file as their input and are responsib
 
 ## Engine Output
 
+Sentiment analysis engine output can take multiple forms depending on the format of the data being analyzed as well as the depth and detail of the insights the engine is able to express.
+
+> The official `sentiment` validation contract json-schema is available
+[here](/schemas/vtn-standard/sentiment/sentiment.json ':ignore').
+
 ### Example 1: Simple Output
 
 The simplest possible sentiment output involves reporting a single positive sentiment value for the entire document.
 Such an analysis would be reported like this:
 
-[](vtn-standard-simple-doc.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/simple.json ':include :type=code json')
 
 ### Example 2: Richer Output
 
@@ -50,7 +55,7 @@ The value of the `emotion` field can include any descriptor you'd like.
 > Although this example shows it and we do support it, we do not expect most engines to output both sentiment and emotions.
 Most would choose one output format or the other.
 
-[](vtn-standard-complex-doc.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/with-emotions.json ':include :type=code json')
 
 > While we don't have any current engine providers expressing emotions as emoji (like 🤯), it is technically supported as valid utf-8 characters,
 and its use above does exemplify the fact that these emotion codes do not need to conform to an aiWARE-managed list and can be anything the engine developer wishes.
@@ -60,7 +65,7 @@ and its use above does exemplify the fact that these emotion codes do not need t
 Both `sentiment` and `emotions` can be reported at a per-phrase resolution by putting them within a `text` object
 and optionally referencing the page, paragraph, and/or sentence index where they occur.
 
-[](vtn-standard-complex-phrase.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/per-phrase.json ':include :type=code json')
 
 ### Example 4: Polarized
 
@@ -75,12 +80,12 @@ Otherwise this is the only one with a differently-named confidence key
 
 #### Positive
 
-[](vtn-standard-positive.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/polarized.positive.json ':include :type=code json')
 
 #### Negative
 
-[](vtn-standard-negative.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/polarized.negative.json ':include :type=code json')
 
 #### Neutral
 
-[](vtn-standard-neutral.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/sentiment/examples/polarized.neutral.json ':include :type=code json')

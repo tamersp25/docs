@@ -16,6 +16,9 @@ text **extraction** engines are used to extract text content from *semi-structur
 Most text extraction engine output should be stored in the non-time-based `object` array in [vtn-standard](/developer/engines/standards/engine-output/).
 Each string of text is represented as an object of type `text`.
 
+> The official `text` validation contract json-schema is available
+[here](/schemas/vtn-standard/text/text.json ':ignore').
+
 ### Ordering Indexes
 
 Each object may include any or all of the page/paragraph/sentence indexes:
@@ -39,4 +42,4 @@ The output can also include a language code and confidence scores if desired.
 
 The following simple example shows what the output of a text extraction engine could look like:
 
-[](vtn-standard.example.json ':include :type=code json')
+[](../../../../../../schemas/vtn-standard/text/examples/extracted-text.json ':include :type=code json')
