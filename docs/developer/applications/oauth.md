@@ -51,7 +51,7 @@ We'll discuss each of these in turn.
 
 ## Implementing the Single-Factor Flow
 
-The single-factor (Implicit Grant) flow for OAuth is intended for simple browser-based ("serverless," CDN-hosted) web applications where the confidentiality of the *Client Secret* cannot be maintained. This is a redirection-based flow with all communication happening on the front end. The token to access a user’s account is given to the browser to forward to the application.
+The single-factor (Implicit Grant) flow for OAuth is intended for simple browser-based ("serverless") web applications where the confidentiality of the *Client Secret* cannot be maintained. This is a redirection-based flow with all communication happening on the front end. The token to access a user’s account is given to the browser to forward to the application.
 
 At a high-level, the single-factor flow follows these steps when a user clicks a "Sign In with Veritone" button in the app's UI.</br>
 
