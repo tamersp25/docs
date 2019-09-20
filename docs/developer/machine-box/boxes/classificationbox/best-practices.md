@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 # Best practices for using Classificationbox
 
 The quality of classifiers depends largly on the input data, and _how_ you teach a model.
