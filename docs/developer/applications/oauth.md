@@ -5,7 +5,7 @@ Integrated apps in Veritone use the [OAuth 2.0](http://oauth.net/2/) protocol to
 
 ## Getting Started
 
-Before using OAuth with your application, you must register your application with the Veritone. All registered applications are issued a set of authorization credentials &mdash; a *Client ID* and a *Client Secret* &mdash; that identify the app to Veritone’s OAuth 2.0 server.
+Before using OAuth with your application, you must register your application with Veritone. All registered applications are issued a set of authorization credentials &mdash; a *Client ID* and a *Client Secret* &mdash; that identify the app to Veritone’s OAuth 2.0 server.
 
 * **Application Client ID:** A publicly exposed string that is used by the Veritone API to identify your application. The Client ID is also built into the Authorization URL that authenticates users .
 
