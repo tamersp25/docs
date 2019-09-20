@@ -21,7 +21,7 @@ Pull adapters are the most common type of adapter implementation. With this adap
 ### Push Adapters
 
 With push adapters, the data source serves as the client and drives the transfer operation by notifying the adapter (server) whenever new data is available. After the initial request, data continues to be pushed from the source to the adapter without any subsequent requests.
-
+<!-- REDACTED for now
 ## Kafka
 
 Veritone's real-time pipeline uses [Kafka](https://kafka.apache.org/) to connect and manage communication between various components in the system. Kafka is a distributed pub-sub messaging system rethought as a distributed commit log. Kafka works by storing messages in topics that are partitioned and replicated across multiple brokers. Producers write data to topics and consumers read from topics using a topic subscription.
@@ -38,7 +38,7 @@ To understand how Kafka works, we define some of the key concepts below. For add
 
 **Topic partition:** Topics are divided into partitions, and each message is given an offset. Each partition is typically replicated at least once or twice. Each partition has a leader and one or more replicas (copies of the data) that exist on followers, providing protection against a broker failure. All brokers in the cluster are both leaders and followers, but a broker has at most one replica of a topic partition. The leader is used for all reads and writes.
 
-**Consumer:** Consumers subscribe to topic partitions in order to read the data written to them. The consumer then processes the message to accomplish whatever work is required.
+**Consumer:** Consumers subscribe to topic partitions in order to read the data written to them. The consumer then processes the message to accomplish whatever work is required. -->
 
 ## Adapter Workflow
 
@@ -90,6 +90,32 @@ query getSourceTypes {
   }
 }
 ```
+
+The source types currently supported are as follows.
+
+| ID | Source Type |
+| -- | --------------------- |
+| 1 | Audio |
+| 2 | Broadcast TV |
+| 3 | YouTube Channel |
+| 4 | Podcast |
+| 5 | General |
+| 6 | Web Stream |
+| 7 | Push App |
+| 10 | Mobile Device Capture |
+| 11 | Amazon S3 |
+| 12 | Dropbox |
+| 13 | SIP Stream |
+| 14 | Google Drive |
+| 15 | RSS |
+| 16 | FTP |
+| 17 | YouTube Video |
+| 18 | YouTube Live Stream |
+| 19 | Amazon Kinesis Video |
+| 20 | SFTP |
+| 21 | NAS |
+| 22 | Box |
+| 23 | External Application |
 
 To view the schema properties for a particular Source Type, make a call to the `getSourceTypes` query and specify the `Source Type ID` in the request along with the `sourceSchema` return fields shown below. The `details` field will return the configuration information of the schema.
 

@@ -2,7 +2,7 @@
 
 If you have an existing application and looking to integrate your application to our marketplace or our aiWare platform, you can choose how to best intgrate with the Veritone platform.
 
-Integrations can be done at various custom levels.  At the highest level, integration starts with the user interface level, which includes creating an application Veritone Developer, and integration with OAuth.  This allows users to seamless switch applications within out application switcher.
+Integrations can be done at various custom levels.  At the highest level, integration starts with the user interface level, which includes creating an application Veritone Developer, and integration with OAuth.  This allows users to seamless switch applications within our application switcher.
 
 Once the user interfaces have been integrated, data integration would be the next step.  Here, we'll be passing data for processing from the Veritone platform to the application, and then back to Veritone.
 

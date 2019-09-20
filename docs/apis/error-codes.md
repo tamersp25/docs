@@ -143,73 +143,9 @@ The response:
 }
 ```
 
-So, to check for errors you should first verify HTTP status 200, and then check for an errors array in the response body. Or, if a field you expected to find a value in has null, look in the errors object for an explanation.
+So, to check for errors you should first verify HTTP status 200, and then check for an errors array in the response body. Or, if a field you expected to find a value in has null, look in the `errors` array for an explanation.
 
-Error information is shown in a consistent format:
-
-| Code | Meaning |
-| ---- | ------- |
-| 200 | GraphQL server received the query, parsed it, and attempted to resolve |
-| 404 | Not found. In GraphQL, there is only one URL endpoint. Therefore, this error means that the caller's URL path was wrong. |
-| 400 | Malformed request. The request should have the Content-Type header set to either application/json or multipart/form-data. The request must contain a query parameter containing JSON, and that JSON should have a query element containing, as a string, a valid GraphQL query. |
-| 500 | An internal server error prevented the server from handling the request. This error will not happen under normal circumstances. |
-| 502 | HTTP gateway error. This could indicate an internal server error or timeout. Neither will occur under normal circumstances. |
-
-A HTTP 200 status code will be accompanied by a normal GraphQL response body in JSON format. Fields that were successfully resolved will have their data. Fields that cannot be successfully resolved will have a null value and a corresponding error set in the errors field.
-
-Here's another example where we attempt to retrieve three objects, but only one is found:
-
-```graphql
-{
-  asset1: asset(id: "2426dbe5-eef3-4167-9da8-fb1eeec61c67") {
-    id
-  }
-  asset2: asset(id: "2426dbe5-eef3-4167-9da8-fb1eeec61c68") {
-    id
-  }
-  asset3: asset(id: "1fa65e5a-8008-48e4-9968-272fbef54cc2") {
-    id
-  }
-}
-```
-
-The response:
-
-```json
-{
-  "data": {
-    "asset1": null,
-    "asset2": null,
-    "asset3": {
-      "id": "1fa65e5a-8008-48e4-9968-272fbef54cc2"
-    }
-  },
-  "errors": [
-    {
-      "message": "The requested object was not found",
-      "name": "not_found",
-      "time_thrown": "2017-12-12T01:21:30.243Z",
-      "data": {
-        "objectId": "2426dbe5-eef3-4167-9da8-fb1eeec61c67",
-        "objectType": "Asset"
-      }
-    },
-    {
-      "message": "The requested object was not found",
-      "name": "not_found",
-      "time_thrown": "2017-12-12T01:21:30.247Z",
-      "data": {
-        "objectId": "2426dbe5-eef3-4167-9da8-fb1eeec61c68",
-        "objectType": "Asset"
-      }
-    }
-  ]
-}
-```
-
-So, to check for errors you should first verify HTTP status 200, and then check for an errors array in the response body. Or, if a field you expected to find a value in has null, look in the errors object for an explanation.
-
-Error information is shown in a consistent format:
+Detailed error information is shown in a consistent format. Each entry in the `errors` array will be an object with the following fields:
 
 | Field | Description |
 | ----- | ----------- |
