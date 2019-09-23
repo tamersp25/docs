@@ -17,6 +17,10 @@ exports.config = {
       url: `${HTTP_ROOT}:${HTTP_PORT}`,
       chrome: {
         args: ['--no-sandbox'],
+        defaultViewport: {
+          width: 1024,
+          height: 768
+        }
       },
       executablePath: 'google-chrome-unstable'
     }
