@@ -89,7 +89,7 @@ And the best part? You can customize the look and feel of your portal to properl
 documentation, APIs to build and submit their AI applications, adapters, cognitive engines or data schemas to extend aiWARE for their own use, or submit their extensions for distributing to other users.
 We are constantly adding new features to Veritone Developer, increasing the power and flexibility available at developers' fingertips.
 
-> Check out the [Applications](../developer/applications/) section for information about how to create custom aiWARE integrations of your own.
+> Check out the [Applications](/developer/applications/) section for information about how to create custom aiWARE integrations of your own.
 
 ## Automate Studio
 
