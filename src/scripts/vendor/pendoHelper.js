@@ -25,18 +25,12 @@ const injectPendo = (
   })(window, document, 'script', 'pendo');
   pendo.initialize({
     visitor: {
-      id,
+      id: '11111',
       name,
       organizationId,
       email
     },
-
-    account: {
-      id,
-      name,
-      organizationId,
-      email
-    }
+    account: {}
   });
   console.log('Pendo Initialized');
 };
