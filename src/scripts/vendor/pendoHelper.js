@@ -1,17 +1,35 @@
-const injectPendo = (
-  apiKey,
-  { name = null, id = null, email = null, organizationId = null } = {}
+
+
+const injectPendo = async (
+  pendoKey,
+  apiKey
 ) => {
-  (function(p, e, n, d, o) {
+  const user = await postData(apiKey, {
+    query: `
+    query {
+      me {
+        id
+        name
+        email
+        organization {
+          organizationId
+        }
+      }
+    }
+  `});
+
+  debugger;
+
+  (function (p, e, n, d, o) {
     var v, w, x, y, z;
     o = p[d] = p[d] || {};
     o._q = [];
     v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
     for (w = 0, x = v.length; w < x; ++w)
-      (function(m) {
+      (function (m) {
         o[m] =
           o[m] ||
-          function() {
+          function () {
             o._q[m === v[0] ? 'unshift' : 'push'](
               [m].concat([].slice.call(arguments, 0))
             );
@@ -19,7 +37,7 @@ const injectPendo = (
       })(v[w]);
     y = e.createElement(n);
     y.async = !0;
-    y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+    y.src = 'https://cdn.pendo.io/agent/static/' + pendoKey + '/pendo.js';
     z = e.getElementsByTagName(n)[0];
     z.parentNode.insertBefore(y, z);
   })(window, document, 'script', 'pendo');

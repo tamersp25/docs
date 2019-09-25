@@ -11,4 +11,5 @@ import './styles/search.scss';
 
 window.config = appConfig;
 window.$docsify = docsifyConfig;
-pendo(appConfig.pendoKey);
+
+pendo(appConfig.pendoKey, appConfig.apiKey);
