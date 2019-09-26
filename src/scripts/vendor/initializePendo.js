@@ -46,7 +46,7 @@ const initializePendo = async (pendoKey, apiRoot) => {
   });
   const response = await userQuery.json();
   let id, name, email, organizationId, organizationName;
-  if (!response.error) {
+  if (!response.errors) {
     const { me } = response.data;
     id = me.id;
     name = me.name;
