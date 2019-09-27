@@ -2,14 +2,14 @@
   "version": 2,
   "build": {
     "env": {
-      "ENVIRONMENT": "now"
+      "ENVIRONMENT": "local"
     }
   },
   "builds": [{
     "src": "package.json",
     "use": "@now/static-build",
     "config": {
-      "distDir": "build-now"
+      "distDir": "build-local"
     }
   }]
 }
