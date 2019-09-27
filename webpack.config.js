@@ -1,10 +1,21 @@
 const path = require('path');
+const fs = require('fs');
+const _ = require('lodash');
 
+const { DefinePlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const buildDirectory = `build-${process.env.ENVIRONMENT || 'local'}`;
+const env = process.env.ENVIRONMENT || 'local';
+const buildDirectory = `build-${env}`;
+
+// Build app config
+const configPath = `config-${env}.json`;
+const config = _.pick(
+  JSON.parse(fs.readFileSync(configPath, 'utf8')),
+  JSON.parse(fs.readFileSync('configWhitelist.json', 'utf8'))
+);
 
 module.exports = {
   mode: 'development',
@@ -12,6 +23,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, buildDirectory)
+  },
+  node: {
+    fs: 'empty'
   },
   module: {
     rules: [
@@ -41,7 +55,13 @@ module.exports = {
         to: path.resolve(__dirname, buildDirectory, 'schemas', 'api')
       },
       {
-        from: path.resolve(__dirname, 'node_modules', 'veritone-json-schemas', 'schemas', 'vtn-standard'),
+        from: path.resolve(
+          __dirname,
+          'node_modules',
+          'veritone-json-schemas',
+          'schemas',
+          'vtn-standard'
+        ),
         to: path.resolve(__dirname, buildDirectory, 'schemas', 'vtn-standard')
       }
     ]),
@@ -49,6 +69,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: false
+    }),
+
+    // Load app config as global
+    new DefinePlugin({
+      config: JSON.stringify(config)
     })
   ]
 };

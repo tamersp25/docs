@@ -1,4 +1,3 @@
-import appConfig from '../config.json';
 import docsifyConfig from './scripts/docsifyConfig';
 import pendo from './scripts/vendor/initializePendo';
 
@@ -9,7 +8,9 @@ import './styles/quickstart.scss';
 import './styles/coverpage.scss';
 import './styles/search.scss';
 
-window.config = appConfig;
 window.$docsify = docsifyConfig;
 
-pendo(appConfig.pendoKey, appConfig.apiRoot);
+// Set app config to window variable from webpack DefinePlugin
+window.config = config;
+
+pendo(window.config.pendoKey, window.config.apiRoot);
