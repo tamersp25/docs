@@ -190,9 +190,9 @@ export default {
       });
 
       function createLinkFromExample(exampleNode, text) {
-        var url = `${config.apiRoot}/v3/graphiql/?query=${encodeURIComponent(
-          exampleNode.innerText
-        )}`;
+        var url = `${
+          window.config.apiRoot
+        }/v3/graphiql/?query=${encodeURIComponent(exampleNode.innerText)}`;
         return $(`
               <p class="graphql-link">
                 <a href="${url}" target="_blank">

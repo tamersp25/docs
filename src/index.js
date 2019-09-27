@@ -10,4 +10,7 @@ import './styles/search.scss';
 
 window.$docsify = docsifyConfig;
 
-pendo(config.pendoKey, config.apiRoot);
+// Set app config to window variable from webpack DefinePlugin
+window.config = config;
+
+pendo(window.config.pendoKey, window.config.apiRoot);

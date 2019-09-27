@@ -1,14 +1,13 @@
 const path = require('path');
 const fs = require('fs');
+const _ = require('lodash');
 
 const { DefinePlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const _ = require('lodash');
 
 const env = process.env.ENVIRONMENT || 'local';
-
 const buildDirectory = `build-${env}`;
 
 // Build app config
@@ -24,6 +23,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, buildDirectory)
+  },
+  node: {
+    fs: 'empty'
   },
   module: {
     rules: [
@@ -69,7 +71,7 @@ module.exports = {
       inject: false
     }),
 
-    // Load app config globally
+    // Load app config as global
     new DefinePlugin({
       config: JSON.stringify(config)
     })
