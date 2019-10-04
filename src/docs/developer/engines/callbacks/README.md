@@ -124,10 +124,12 @@ If your engine wants to send itself state data, as a reminder of how/where to re
 
 For example, if your engine wants to send the following JSON to its future self when the task resumes:
 
-             {
-                 isCallback: true,
-                 myExternalJobRef: "xyz"
-             }
+```json
+{
+  "isCallback": true,
+  "myExternalJobRef": "xyz"
+}
+```
 
 it can marshal the above JSON into a string and set it as value of the `data` field in the callback URL.
 

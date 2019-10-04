@@ -18,7 +18,7 @@ If you’re looking for a sales channel for your AI software products, to add in
 
 ### Ingestion
 
-aiWARE allows you to ingest both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP.
+Veritone aiWARE allows you to ingest both public and private content and media through various adapters from virtually any source, including user computers and network-accessible drives, RSS, Amazon Web Services, YouTube, Google Drive, Dropbox, Vimeo, and FTP.
 The architecture inherently supports simple and rapid addition of new ingestion adapters.
 You can even [write your own](developer/adapters/).
 
@@ -29,7 +29,7 @@ Veritone Developer connects developers with resources to create, submit, and dep
 
 #### A Broad and Growing Cognitive Spectrum
 
-aiWARE unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines.
+Veritone aiWARE unlocks unique insights from the sea of unstructured data with a rich and optimized portfolio of cognitive engines.
 Customers can employ multiple AI engines - both within the same category and across different categories - at high rates of cognition.
 Veritone's hundreds of production engines encompass seven cognitive classes and more than 50 categories, including NLP, Computer Vision, Face Recognition, Sentiment, Translation, Audio Fingerprinting, Geolocation, and Content Moderation.
 
@@ -68,8 +68,3 @@ The possibilities are within reach.
 
 The Veritone ecosystem of best-of-breed AI cognitive engines in a single platform eliminates the need for businesses, agencies, and individuals to select one vendor from the landscape of thousands of engines.
 This effectively future-proofs AI technology choices and ensures timely and common access to the latest AI advances.
-
-## Veritone Application Suite {docsify-ignore}
-
-Veritone has built a robust suite of applications that run on the aiWARE platform.
-See the [applications](apps/) section for more information on each application.
