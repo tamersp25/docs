@@ -5,21 +5,28 @@ Integrated apps in Veritone use the [OAuth 2.0](http://oauth.net/2/) protocol to
 
 ## Getting Started
 
-Before using OAuth with your application, you must register your application with Veritone. All registered applications are issued a set of authorization credentials &mdash; a *Client ID* and a *Client Secret* &mdash; that identify the app to Veritone’s OAuth 2.0 server.
+Before using OAuth with your application, you must register your application with Veritone Developer.
+All registered applications are issued a set of authorization credentials &mdash; a *Client ID* and a *Client Secret* &mdash; that identify the app to aiWARE’s OAuth 2.0 server.
 
-* **Application Client ID:** A publicly exposed string that is used by the Veritone API to identify your application. The Client ID is also built into the Authorization URL that authenticates users .
+* **Application Client ID:** A publicly exposed string that is used by the Veritone API to identify your application.
+  The Client ID is also built into the Authorization URL that authenticates users.
 
-* **Client Secret:** A unique value that can be used to authenticate the identity of your application to the Veritone API when your application requests to access a user's account. _The Client Secret must be kept private._
+* **Client Secret:** A unique value that can be used to authenticate the identity of your application to the aiWARE API when your application requests to access a user's account.
+  _The Client Secret must be kept private._
 
-* **Redirect URI:** The URI where the user will be directed after the user authorizes your application to access the account. The Redirect URI should point to the part of your application that will handle authorization codes or access tokens.
+* **Redirect URI:** The URI where the user will be directed after the user authorizes your application to access the account.
+  The Redirect URI should point to the part of your application that will handle authorization codes or access tokens.
 
 ### Access the Client ID, Client Secret, and Redirect URI
 
 The *Client ID*, *Client Secret*, and *Redirect URI* are available at the top of the *Application Settings* page.
 
-1. Log into Veritone Developer. Click *Overview* in the upper left of the window and select *Applications* from the dropdown. The *Applications* dashboard opens.
+1. Log into Veritone Developer.
+   Click *Overview* in the upper left of the window and select *Applications* from the dropdown.
+   The *Applications* dashboard opens.
 
-2. Click the appropriate **application name** in the list. The *Application Settings* panel opens.
+2. Click the appropriate **application name** in the list.
+The *Application Settings* panel opens.
 
 ![client-secret1](VDA-Oauth-Client-Secret-1.png)
 
@@ -27,7 +34,8 @@ The *Client ID*, *Client Secret*, and *Redirect URI* are available at the top of
 
 ![client-secret2](VDA-Oauth-Client-Secret-2.png)
 
-To retrieve the *Client Secret*, click the **click to reveal** link, enter your Veritone password when prompted, and click **Submit** (do not press enter on your keyboard). The *Client Secret* displays.
+To retrieve the *Client Secret*, click the **click to reveal** link, enter your Veritone password when prompted, and click **Submit** (do not press enter on your keyboard).
+The *Client Secret* displays.
 
 ### Examples and Libraries
 
@@ -43,7 +51,8 @@ For an example of how to implement the Implicit Grant flow, check out the [JavaS
 
 Veritone supports two OAuth choreographies:
 
-* A single-factor flow, sometimes called the [Implicit Grant](https://oauth.net/2/grant-types/implicit/) flow, involving a single round trip to the auth server. This flow type can be used by simple static web apps that aren't able to rely on server-side logic.
+* A single-factor flow, sometimes called the [Implicit Grant](https://oauth.net/2/grant-types/implicit/) flow, involving a single round trip to the auth server.
+  This flow type can be used by simple static web apps that aren't able to rely on server-side logic.
 
 * A two-factor flow, also known as a [PKCE (Proof Key for Code Exchange)](https://www.oauth.com/oauth2-servers/pkce/) flow, involving a trip to the auth server from the client, and a separate trip (using a second authentication factor, the "Client Secret"), via a back-end server that hosts your app.
 
@@ -300,7 +309,7 @@ https://bestappever.com/oauth/callback?code=U1XbJMBhiRk
 
 ### Step 2: Request Access and Refresh Tokens
 
-Your application uses the *Authorization Code* it received, along with a Client Secret (which you should have obtained in the Veritone Developer UI) to request an *Access Token* and a *Refresh Token* from the Veritone server. To exchange the auth code and Client Secret for tokens, POST a request to the *Token Exchange* endpoint with the parameters below posted as a part of the URL-encoded form values.
+Your application uses the *Authorization Code* it received, along with a Client Secret (which you should have obtained in the Veritone Developer UI) to request an *Access Token* and a *Refresh Token* from the Veritone server. To exchange the auth code and Client Secret for tokens, make an HTTP POST request to the *Token Exchange* endpoint with the parameters below posted as a part of the URL-encoded form values.
 
 *Important note:* To ensure the security of the *Client Secret*, this request must happen from your application server and not the front end of your app.
 

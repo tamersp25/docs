@@ -49,7 +49,8 @@ An API Token can be generated in the Veritone Admin App by your organization adm
 
 3. Click **New API** Key. The *New API Key* window opens.
 
-    ![Get API Token](Get-API-Token-2.png)
+![Get API Token](Get-API-Token-2.png)
+
 4. Enter a token name and select the permissions needed for the token to perform the required API tasks. Click **Generate Token** to save. The *Token Generated* window opens.
 5. Copy your token and click **Close** when finished.
 

@@ -21,6 +21,7 @@ Pull adapters are the most common type of adapter implementation. With this adap
 ### Push Adapters
 
 With push adapters, the data source serves as the client and drives the transfer operation by notifying the adapter (server) whenever new data is available. After the initial request, data continues to be pushed from the source to the adapter without any subsequent requests.
+
 <!-- REDACTED for now
 ## Kafka
 
@@ -38,7 +39,8 @@ To understand how Kafka works, we define some of the key concepts below. For add
 
 **Topic partition:** Topics are divided into partitions, and each message is given an offset. Each partition is typically replicated at least once or twice. Each partition has a leader and one or more replicas (copies of the data) that exist on followers, providing protection against a broker failure. All brokers in the cluster are both leaders and followers, but a broker has at most one replica of a topic partition. The leader is used for all reads and writes.
 
-**Consumer:** Consumers subscribe to topic partitions in order to read the data written to them. The consumer then processes the message to accomplish whatever work is required. -->
+**Consumer:** Consumers subscribe to topic partitions in order to read the data written to them. The consumer then processes the message to accomplish whatever work is required.
+-->
 
 ## Adapter Workflow
 
