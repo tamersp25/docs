@@ -4,31 +4,51 @@
   "version": "1.0.0",
   "main": "n/a",
   "scripts": {
-    "build": "node build.js",
-    "lint": "./node_modules/.bin/markdownlint --ignore \"docs/apis/search-quickstart/README.md\" --ignore \"docs/developer/engines/toolkit/*\" --ignore \"docs/apis/reference/\" --ignore \"docs/apis/job-quick-start-guide/\" --ignore \"docs/apis/search-quick-start-guide/\" docs",
-    "start": "yarn build && ./node_modules/.bin/docsify serve ./docs",
-    "test": "echo \"tests temporarily disabled\" && true  # ./node_modules/.bin/codeceptjs run --reporter mocha-multi",
+    "build": "sh ./schemagen.sh && webpack",
+    "build:watch": "sh ./schemagen.sh && webpack -w",
+    "copy-schemas": "cp -r ./node_modules/veritone-json-schemas/schemas src",
+    "lint": "markdownlint --ignore \"src/docs/apis/search-quickstart/README.md\" --ignore \"src/docs/developer/engines/toolkit/*\" --ignore \"src/docs/apis/reference/\" --ignore \"src/docs/apis/job-quick-start-guide/\" --ignore \"src/docs/apis/search-quick-start-guide/\" src/docs",
+    "postinstall": "yarn copy-schemas  # really just for IDE intelligence",
+    "start": "concurrently -k \"yarn build:watch\" \"yarn serve\"",
+    "serve": "docsify serve ./build-${ENVIRONMENT:-local}",
+    "test": "echo \"Testing temporarily disabled\" #codeceptjs run --reporter mocha-multi",
     "test:full": "yarn && yarn build && HTTP_PORT=3333 yarn test",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test",
     "test:report": "E2E_GENERATE_REPORT=true yarn test:full; ./node_modules/.bin/allure serve test/e2e/output"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint && yarn test:full"
+      "pre-commit": "yarn lint"
     }
   },
   "devDependencies": {
     "allure-commandline": "^2.9.0",
+    "clean-webpack-plugin": "1.0.1",
     "codeceptjs": "^2.0.7",
+    "concurrently": "^4.1.1",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^3.1.0",
     "docsify": "^4.6.7",
     "docsify-cli": "^4.2.0",
     "get-graphql-schema": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
     "markdownlint-cli": "^0.14.0",
     "mocha-junit-reporter": "^1.18.0",
     "mocha-multi": "^1.0.1",
+    "node-sass": "^4.12.0",
     "puppeteer": "^1.13.0",
-    "shelljs": "^0.8.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
     "yarn": "^1.15.2"
+  },
+  "engines": {
+    "node": ">=10 <11"
+  },
+  "dependencies": {
+    "veritone-json-schemas": "^1.0.2"
   }
 }
