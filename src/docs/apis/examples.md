@@ -320,7 +320,7 @@ mutation createTDOWithAsset {
     assets {
       records {
         id
-        type
+        assetType
         contentType
         signedUri
       }

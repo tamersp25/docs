@@ -3,8 +3,8 @@
 <!--TODO: Need to re-document builds, states, all that stuff.  Can pull from previous docs.-->
 
 **Engines** are the main unit of cognitive computing in aiWARE.
-Engines are discreet units of code that process data using various algorithms or machine learning techniques.
-Within aiWARE's engine processing architecture, engines are primarily implemented as Docker containers.
+Engines are discrete units of code that process data using various algorithms or machine learning techniques.
+Within aiWARE's engine processing architecture, engines are primarily implemented as Docker images.
 
 Developers can extend aiWARE's capabilities and add their own logic by writing their own custom engines and pushing them to Veritone Developer as Docker containers.
 
