@@ -104,6 +104,15 @@
         - [Object Detection](developer/engines/cognitive/vision/object-detection/)
         - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
     - [Building **Correlation Engines**](developer/engines/correlation/)
+    - [Engine Developer Toolkit](developer/engines/toolkit/)
+    - [Tutorial: Build Your Own Engine](developer/engines/tutorial/)
+      - [Step 0 - Introduction and Project Setup](developer/engines/tutorial/)
+      - [Step 1 - Register Your Project with Veritone](developer/engines/tutorial/engine-tutorial-step-1.md)
+      - [Step 2 - Use Docker to Create a Build](developer/engines/tutorial/engine-tutorial-step-2.md)
+      - [Step 3 - Test Your Build Locally](developer/engines/tutorial/engine-tutorial-step-3.md)
+      - [Step 4 - Upload Your Build to Veritone](developer/engines/tutorial/engine-tutorial-step-4.md)
+      - [Step 5 - Test Your Engine in aiWARE](developer/engines/tutorial/engine-tutorial-step-5.md)
+      - [Deeper Dive: Customizing Engine Output](developer/engines/tutorial/customizing-engine-output.md)
     - [Approval Process](developer/engines/approval/)
     - [Deployment Models](developer/engines/deployment-model/)
     - [Processing Modes](developer/engines/processing-modes/)
@@ -117,14 +126,6 @@
     - [Polling](developer/engines/polling/)
     - [Callbacks](developer/engines/callbacks/)
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
-    - [Engine Developer Toolkit](developer/engines/toolkit/)
-    - [Tutorial](developer/engines/tutorial/)
-      - [Step 0 - Introduction and Project Setup](developer/engines/tutorial/)
-      - [Step 1 - Register Your Project with Veritone](developer/engines/tutorial/engine-tutorial-step-1.md)
-      - [Step 2 - Use Docker to Create a Build](developer/engines/tutorial/engine-tutorial-step-2.md)
-      - [Step 3 - Test Your Build Locally](developer/engines/tutorial/engine-tutorial-step-3.md)
-      - [Step 4 - Upload Your Build to Veritone](developer/engines/tutorial/engine-tutorial-step-4.md)
-      - [Step 5 - Test Your Engine in aiWARE](developer/engines/tutorial/engine-tutorial-step-5.md)
 
   - [Building **Flows**](developer/flow/)
     - [FAQ](developer/flow/faq.md)
@@ -170,5 +171,6 @@
       - [Fakebox](/developer/machine-box/boxes/fakebox)
 
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
-
-- [Benchmark](benchmark/)
+  
+<!--
+- [Benchmark](benchmark/) -->

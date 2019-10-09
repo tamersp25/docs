@@ -2,7 +2,7 @@
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
-This toolkit is aimed at [cognitive engines](/developer/engines/cognitive/) processing [segments](/developer/engines/processing-modes/segment-processing/).
+This toolkit is aimed at [cognitive engines](/developer/engines/cognitive/) that process [segments](/developer/engines/processing-modes/segment-processing/).
 For example, images, frames from videos, video clips, and audio files.
 If you are building a different kind of engine, you may need to use lower level APIs.
 
@@ -29,6 +29,7 @@ Engines listen on an HTTP address and implement [Webhooks](#webhooks), which are
 To see the code for a complete working engine, choose from the list below:
 
 * **Go** - [Golang EXIF engine](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/exif)
+* **JavaScript (NodeJS)** * - [hello-world](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/hello-world), a simple vocabulary extraction engine
 * **Python** - [Python Keras/Tensorflow Imagenet image tagging engine](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/python_imagenet)
 
 > If you would like to contribute an additional example engine, please [open an issue to start a conversation](https://github.com/veritone/engine-toolkit/issues/new?title=sample+project).
@@ -169,7 +170,7 @@ requests that your engine will receive in production.
 
 The following is a preview of the test console running in the browser:
 
-![A preview of the Engine Toolkit Test Console](/veritone/engine-toolkit/static/test-console-preview.png)
+![A preview of the Engine Toolkit Test Console](test-console-preview.png)
 
 You can upload your own file to process, and use the web form to tune the parameters
 that your engine expects to support.
@@ -319,7 +320,7 @@ To specify a region (such as an area on an image) the Veritone platform expects 
 
 Relative (or ratio) values are used so that they remain correct regardless of the resolution of the image.
 
-```json
+```metadata json
 "boundingPoly": [
 	{"x": 0, "y": 0},
 	{"x": 1, "y": 0},
@@ -336,7 +337,7 @@ The following diagram represents the points for a box describing an object that 
 
 The `boundingPoly` array for this object would be:
 
-```json
+```metadata json
 "boundingPoly": [
 	{"x": 0.25, "y": 0.25},
 	{"x": 0.75, "y": 0.25},

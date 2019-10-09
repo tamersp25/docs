@@ -1,6 +1,8 @@
-# Tutorials <!-- We need this trampoline page as part of the Developer redesign -->
+# Tutorials <!-- Don't remove -->
 
 * [GraphQL API Basics](apis/tutorials/graphql-basics.md)
+* [Build Your Own Cognitive Engine](developer/engines/tutorial/)
+* [Build Your Own AI App](developer/applications/app-tutorial/)
 * [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
 * [Creating Export Requests](apis/tutorials/create-export-request/)
 * [Posting Engine Results](apis/tutorials/engine-results.md)

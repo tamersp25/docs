@@ -29,13 +29,12 @@
       <div class="divider"></div>
       <div class="news-content">
         <div class="news-item">
-          <div class="news-item-header">6/10/2019</div>
+          <div class="news-item-header">10/11/2019</div>
           <ul>
-            <li>Machine Box engines are now documented</li>
-            <li>Architecture overview - revised and expanded</li>
-            <li>Asynchronous Engines: Polling - for human-review scenarios</li>
-            <li>Asynchronous Engines: Callback - for human-review scenarios</li>
-            <li>Engine Testing API is now available!</li>
+            <li>All-New Tutorial: <a href="https://docs.veritone.com/#/developer/engines/tutorial/">Create Your Own Cognitive Engine</a></li>
+            <li>Improved artwork throughout site</li>
+            <li>New page on Building Correlation Engines</li>
+            <li><a href="https://docs.veritone.com/#/developer/flow/">Building Flows with Automate Studio</a></li>
           </ul>
         </div>
       </div>

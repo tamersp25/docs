@@ -30,7 +30,7 @@ aside.small {
 }
 </style>
 
-<h2 style="display: inline;">Step 1: Register your engine project with Veritone &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
+<h2 style="display: inline;">Step 1: Register your engine with Veritone &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 10 minutes </aside> &nbsp;
 
 Assuming you've already accomplished the prerequisites outlined in [Before You Begin](developer/engines/tutorial/?id=before-you-begin), your first step in creating an engine should be to register it with Veritone.

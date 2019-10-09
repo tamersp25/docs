@@ -134,7 +134,7 @@ applications.
 
 ## API Layer
 
-![Integration](../apis/stack-integration.svg)
+![Integration](stack-integration.svg)
 
 Near the top of the stack, the Integration (API) Layer affords access (via HTTP) to the other underlayers,
 via a rich [GraphQL](apis/using-graphql.md)-based Application Programming Interface.

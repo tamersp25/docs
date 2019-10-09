@@ -2,7 +2,7 @@
 
 Veritone's full suite of APIs enables you to easily add cognitive functionality and intelligent features to your custom solution.
 
-![Integration](stack-integration.svg)
+![Integration](../overview/architecture-overview/stack-integration.svg)
 
 Our API is built around the GraphQL paradigm to provide a more efficient way to deliver data with greater flexibility than a traditional REST approach.
 GraphQL is a powerful query language that operates via a single endpoint using conventional HTTP requests and returning JSON responses.
