@@ -151,11 +151,13 @@ mutation createTDO {
 }
 ```
 
-> The `startDateTime` and `stopDateTime` values are required, but can be dummy values.
+?> The `startDateTime` and `stopDateTime` values are required, but can be dummy values.
 The only firm requirements are that the values exist, and that the
 second value is greater than the first (but not by more than a year).
 You can supply an integer here (milliseconds), or any ISO-8601-legal string.
 E.g. `"20190424T174428Z"` and `"2019-04-24T21:49:04.412Z"` are both acceptable string values.
+
+> Set the TDO's `addToIndex` field to `false` if you want to _disable_ automatic indexing of TDO assets for purposes of Search.
 
 A successful response will look like:
 
