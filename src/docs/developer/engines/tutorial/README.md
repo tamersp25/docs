@@ -15,7 +15,7 @@ display: inline-block; line-height:80%;
 
 **Technology Stack:** NodeJS, Veritone Engine Toolkit, Docker on Mac or Linux.
 
-**Prerequisites:** Familiarity with SOA concepts. Access to a Linux or Mac computer with Docker installed. (Docker for Windows is not supported.)
+**Prerequisites:** Access to a Linux or Mac computer with Docker installed. (Docker for Windows is not supported.)
 </div>
 
 In aiWARE, _engines_ afford a modular way to provide different types of cognitive processing.
@@ -58,7 +58,7 @@ Regardless of engine type, an engine's "contract" with aiWARE is quite simple:
 
 * When the engine receives a GET request on a route of `/ready` (or the route you specify in the environment variable called `VERITONE_WEBHOOK_READY`), the engine should respond with HTTP status `200 OK` if the engine is ready to begin, or else `503 Service Unavailable` if it is not ready.
 * When the engine receives a POST (of `ContentType` `multipart/form-data`) on a route of `/process` (or the route you specify in `VERITONE_WEBHOOK_PROCESS`), your engine should process the incoming data chunk, then respond with status `200 OK` while sending output formatted as `application/json` data.
- 
+
  > Your engine's output needs to conform to Veritone's [vtn-standard](developer/engines/standards/engine-output/?id=engine-output-standard-vtn-standard) (specifically, the portion of that schema that applies to your engine's particular [cognitive capability](developer/engines/cognitive/?id=capabilities)).
 
 When your engine receives the `/process` request, it will be able to inspect various fields of the incoming chunk's `multipart/form-data` (see below) to obtain information about the chunk.
@@ -73,7 +73,7 @@ const MyCognitionLogic = require("./my-cognition-logic.js"),
       multer = require('multer'),
       upload = multer({storage: multer.memoryStorage()}),
       app = express();
- 
+
 let chunkUpload = upload.single('chunk'); // this puts a callback in chunkUpload
 let server = app.listen( 8080 );
 server.setTimeout( 10 * 60 * 1000 );
@@ -82,7 +82,7 @@ server.setTimeout( 10 * 60 * 1000 );
 app.get('/ready', (req, res) => {
     res.status(200).send('OK');
 });
- 
+
 // PROCESS WEBHOOK
 app.post('/process', chunkUpload, async (req, res)=>{
     try {
@@ -95,11 +95,11 @@ app.post('/process', chunkUpload, async (req, res)=>{
 });
 ```
 
-Just 25 lines of code! And yes, it's deployable with no modifications.
+Just 25 lines of code! And yes, it's deployable.
 
-Note that this reusable skeleton does no "cognition" per se &mdash; it merely delegates cognitive processing to a custom, user-written external module called `my-cognition-logic.js`.
+?> Note that this reusable skeleton does no "cognition" per se &mdash; it merely delegates cognitive processing to a custom, user-written external module called `my-cognition-logic.js`.
 
-Also note that the task of reading the file-upload stream is handled by a third-party open-source middleware module called [Multer](https://www.npmjs.com/package/multer).
+In this example, the task of reading the file-upload stream is handled by a third-party open-source middleware module called [Multer](https://www.npmjs.com/package/multer).
 
 <div style="transform:scaleX(.91);">
 <img alt="helpful mini-robot" width="18%" style="float:left;" src="docs/developer/applications/app-tutorial/_media/botty.png">
@@ -139,7 +139,7 @@ The following fields are posted to your `/process` webhook:
 
 > It's entirely possible your engine will not need to use any of the above parameters. Their use is optional.
 
-More information on these items can be found in . . . 
+More information on these items can be found in the Engine Developer's Toolkit (see next section).
 
 ## The Veritone Engine Developer's Toolkit
 
@@ -236,7 +236,7 @@ aside.small {
 <br/><h2 style="display: inline;">Step 0: Set Up the Project &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 5 minutes </aside> &nbsp;
 
-You should either clone [the repo for this project](https://github.com/kasthomas2/veritone-sample-engine-keyword), or create a project locally, in a folder called `/hello-world`, with the following structure:
+You should either clone [the repo for this project](https://github.com/veritone/engine-toolkit/tree/master/engine/examples/hello-world), or create a project locally, in a folder called `/hello-world`, with the following structure:
 
 <pre>/hello-world
     |&mdash; /dist
@@ -255,7 +255,7 @@ Let's talk quickly about the project files.
 
 ### /dist/engine
 
-The `engine` binary, under `/dist`, is the Engine Developer Toolkit binary discussed earlier.
+The `engine` binary, under `/dist`, is the [Engine Developer Toolkit](https://github.com/veritone/engine-toolkit/releases/latest) binary discussed earlier.
 Be sure to obtain the latest version of it, and add it to your `/dist` folder.
 
 ### Dockerfile
@@ -264,7 +264,7 @@ For now, you can just create an empty file named `Dockerfile` (using, for exampl
 
 ### index.js and keyword-extraction.js
 
-Writing the code for an engine is easy: All you need to do is create code that can respond to two HTTP requests (corresponding to a `GET` on `/ready` and a `POST` on `/process`), being sure &mdash; in the latter case &mdash; to output JSON that obeys an applicable `vtn-standard` sub-schema.
+Writing the code for an engine is easy: All you need to do is create code that can respond to two HTTP requests (corresponding to a `GET` on `/ready` and a `POST` on `/process`), being sure &mdash; in the case of the `/process` call &mdash; to output JSON that obeys an applicable `vtn-standard` sub-schema.
 
 The code for `index.js` is just:
 
@@ -396,8 +396,8 @@ Your `/var` folder should be empty. It will be populated automatically during th
 
 Ready to begin? Learn how to:
 
-* [Register your project with Veritone](developer/engines/tutorial/engine-tutorial-step-1)
-* [Use Docker to create a build](developer/engines/tutorial/engine-tutorial-step-2)
-* [Test your build locally](developer/engines/tutorial/engine-tutorial-step-3) using the Engine Developer Toolkit's Test Console App
-* [Push your engine build to Veritone](developer/engines/tutorial/engine-tutorial-step-4) 
-* [Test your engine in aiWARE](developer/engines/tutorial/engine-tutorial-step-5) and, if necessary, debug/rebuild/re-deploy
+* [Register your project with Veritone](developer/engines/tutorial/engine-tutorial-step-1) &mdash; **Step 1**
+* [Use Docker to create a build](developer/engines/tutorial/engine-tutorial-step-2) &mdash; **Step 2**
+* [Test your build locally](developer/engines/tutorial/engine-tutorial-step-3) using the Engine Developer Toolkit's Test Console App &mdash; **Step 3**
+* [Push your engine build to Veritone](developer/engines/tutorial/engine-tutorial-step-4) &mdash; **Step 4**
+* [Test your engine in aiWARE](developer/engines/tutorial/engine-tutorial-step-5) and, if necessary, debug/rebuild/re-deploy &mdash; **Step 5**

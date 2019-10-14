@@ -97,6 +97,9 @@ RUN apk update \
 
 ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8080/readyz"
 ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8080/process"
+
+RUN chmod +x /app/engine
+
 ENTRYPOINT [ "/app/engine", "node", "index.js" ]
 ```
 
@@ -127,6 +130,8 @@ Our Dockerfile says to base our image off `mhart/alpine-node:8`, which is a mini
 `ENV VERITONE_WEBHOOK_READY="http://0.0.0.0:8080/readyz"` &mdash; Sets the environment variable that tells the `engine` driver which route to contact with the readiness probe.
 
 `ENV VERITONE_WEBHOOK_PROCESS="http://0.0.0.0:8080/process"` &mdash; Env variable to identify the "process" route.
+
+`RUN chmod +x /app/engine` &mdash; Make sure the `engine` file is executable.
 
 ### Entry Point
 
