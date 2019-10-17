@@ -1,8 +1,11 @@
 # Tutorials <!-- Don't remove -->
 
+This list changes frequently, so be sure to come back often!
+
 * [GraphQL API Basics](apis/tutorials/graphql-basics.md)
-* [Build Your Own Cognitive Engine](developer/engines/tutorial/)
 * [Build Your Own AI App](developer/applications/app-tutorial/)
+* [Build Your Own Cognitive Engine](developer/engines/tutorial/)
+* [Customizing Engine Output](developer/engines/tutorial/customizing-engine-output)
 * [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
 * [Creating Export Requests](apis/tutorials/create-export-request/)
 * [Posting Engine Results](apis/tutorials/engine-results.md)
