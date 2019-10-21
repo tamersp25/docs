@@ -168,6 +168,10 @@ Note that the Engine Toolkit currently supports segment (chunk) engines only. If
  
 ## 'Hello World' Engine: High-Level Overview
 
+<div>
+<img style="width:640px;" src="docs/developer/applications/app-tutorial/_media/EngineDevJourney.jpg">
+</div>
+
 In the steps that follow, we'll build a simple text-processing engine that extracts vocabulary words from a file. The JSON output produced by the engine follows the structure shown in the example at [Building a Keyword extraction Engine](developer/engines/cognitive/text/keyword-extraction/?id=engine-output).
 
 > While the example that follows uses NodeJS, you should note that it's possible to use _any_ programming language to create a cognitive engine, as long as the runtimes can be packaged into a Docker image. See [https://github.com/veritone/engine-toolkit/tree/master/engine/examples](https://github.com/veritone/engine-toolkit/tree/master/engine/examples) for engine examples written in Python and Go. 
