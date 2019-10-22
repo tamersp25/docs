@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 let RECURSION_LIMIT = 50;
 let collapseNavElRecursion = 0;
 let collapseExtendedFamilyRecursion = 0;

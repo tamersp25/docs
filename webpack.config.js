@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
 
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -74,6 +74,9 @@ module.exports = {
     // Load app config as global
     new DefinePlugin({
       config: JSON.stringify(config)
+    }),
+    new ProvidePlugin({
+      $: 'jquery'
     })
   ]
 };

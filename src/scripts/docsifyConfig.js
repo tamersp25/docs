@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import {
   collapseExtendedFamily,
   collapseChildren,
@@ -200,6 +202,13 @@ export default {
                   ${text}
                 </a>
               </p>`);
+      }
+    },
+    // Fixes issue with anchor tags not working on _coverpage.md
+    function linkQuiz() {
+      var path = window.location.hash.match(/#\/\?id=(.*)/);
+      if (path) {
+        setTimeout(() => (window.location.hash = `#/#${path[1]}`), 0);
       }
     }
   ]

@@ -1,4 +1,5 @@
 <!-- markdownlint-disable no-inline-html -->
+
 <div class="overview">
   <div class="action-bar">
     <div class="wrapper">
@@ -43,7 +44,7 @@
       <svg><line x1="200" y1="0" x2="200" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="0" y1="50" x2="201" y2="50" style="stroke:#2196f3;stroke-width:2"/><line x1="1" y1="50" x2="1" y2="250" style="stroke:#2196f3;stroke-width:2"/></svg>
     </div>
     <section>
-      <header class="header blue">WHAT KIND OF AIWARE DEVELOPER ARE YOU?</header>
+      <header id="personas" class="header blue">WHAT KIND OF AIWARE DEVELOPER ARE YOU?</header>
       <div class="dev-box-container">
         <div>
           <div class="dev-box">
@@ -73,13 +74,40 @@
               <a href="/#/quickstart/app-developer/" class="button">GET STARTED</a>
           </div>
         </div>
+        <div class="quiz-box">
+          <img class="dev-image" alt="Developer Quiz" src="docs/_media/personas/quiz.svg" />
+          <div class="quiz-text">
+            <div class="quiz-title">NOT SURE?</div>
+            <p>Take a short quiz to find out.</p>
+          </div>
+          <button class="button start-quiz" class="button">START QUIZ</button>
+        </div>
+        <div class="quiz main" style="display: none;">
+          <h2 class="quiz-question question-1">Are you interested in <span class="grey">Veritone's machine learning technology</span> or <span class="grey">selling your own</span>?</h2>
+          <h2 class="quiz-question question-2">Would you like to <span class="grey">build something new</span> or <span class="grey">integrate your existing systems</span> with our technology?</h2>
+          <h2 class="quiz-question question-3">Where would you like to deploy your solution? On <span class="grey">your infrastructure</span> or <span class="grey">Veritone's</span>?</h2>
+          <div class="choice-container">
+            <button class="button quiz-choice choice-1a">VERITONE TECH</button>
+            <button class="button quiz-choice choice-1b">SELL MINE</button>
+            <button class="button quiz-choice choice-2a">BUILD</button>
+            <button class="button quiz-choice choice-2b">INTEGRATE</button>
+            <button class="button quiz-choice choice-3a">MINE</button>
+            <button class="button quiz-choice choice-3b">VERITONE'S</button>
+          <div>
+        </div>
+        <div class="result" style="display:none;">
+          <div class="result-content">
+            <h2 class="result-persona">You're an <span class="persona-text"></span>!</h2>
+            <img class="persona-image" alt="Persona Image" />
+            <h3>
+              Redirecting to the <span class="persona-text"></span> Quickstart <div class="loader"></div>
+            </h3>
+            <p class="redirect-text"><a class="quickstart-link">Click here</a> to be redirected immediately</p>
+            <button class="button retake-quiz">RETAKE QUIZ</button>
+          </div>
+        </div>
       </div>
     </section>
-    <!-- <section class="quiz">
-      <header class="header blue">UNSURE?</header>
-      <h3>Take our quiz and find out!</h3>
-      <a href="https://developer.veritone.com/overview?product_tour_id=21159" class="button">CLICK HERE</a>
-    </section> -->
   </div>
   <section class="platform">
     <div class="wrapper">

@@ -1,5 +1,6 @@
 import docsifyConfig from './scripts/docsifyConfig';
 import pendo from './scripts/vendor/initializePendo';
+import './scripts/developerQuiz';
 
 import './styles/sidebar.scss';
 import './styles/base.scss';

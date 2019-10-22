@@ -50,6 +50,8 @@
     "node": ">=10"
   },
   "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
     "veritone-json-schemas": "^1.0.2"
   }
 }
