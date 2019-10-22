@@ -10,6 +10,7 @@
           <li><a href="/#/apps/"><h3>Applications</h3></a></li>
           <li><a href="/#/apis/"><h3>APIs</h3></a></li>
           <li><a href="/#/developer/"><h3>Developer</h3></a></li>
+          <li><a href="/#/apis/tutorials/"><h3>Tutorials</h3></a></li>
         </ul>
       </nav>
     </div>
@@ -30,9 +31,10 @@
       <div class="divider"></div>
       <div class="news-content">
         <div class="news-item">
-          <div class="news-item-header">10/11/2019</div>
+          <div class="news-item-header">10/25/2019</div>
           <ul>
             <li>All-New Tutorial: <a href="https://docs.veritone.com/#/developer/engines/tutorial/">Create Your Own Cognitive Engine</a></li>
+            <li>All-Deeper Dive: <a href="https://docs.veritone.com/#/developer/engines/tutorial/customizing-engine-output">How to Customize Engine Output</a></li>
             <li>Improved artwork throughout site</li>
             <li>New page on Building Correlation Engines</li>
             <li><a href="https://docs.veritone.com/#/developer/flow/">Building Flows with Automate Studio</a></li>
