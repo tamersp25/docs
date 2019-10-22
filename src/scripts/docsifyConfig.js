@@ -7,7 +7,7 @@ import {
   resetExtendedFamilyRecursion
 } from './sidebarHelper';
 
-export default {
+const docsifyConfig = {
   basePath: '/docs',
   search: 'auto', // default
   maxLevel: 1,
@@ -213,3 +213,7 @@ export default {
     }
   ]
 };
+
+export default function initializeDocsify() {
+  window.$docsify = docsifyConfig;
+}

@@ -22,6 +22,9 @@ const initializePendo = async (pendoKey, apiRoot) => {
   })(window, document, 'script', 'pendo');
 
   // Get User info from API
+  // TODO: Move this out of the pendo init and into a shared tools post-init
+  //  that, upon successful user information, calls the proper init functions for
+  //  both pendo and sentry with the same user info.
   const userQuery = await fetch(`${apiRoot}/v3/graphql`, {
     method: 'post',
     credentials: 'include',

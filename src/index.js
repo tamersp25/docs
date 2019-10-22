@@ -1,4 +1,5 @@
-import docsifyConfig from './scripts/docsifyConfig';
+import initializeDocsify from './scripts/docsifyConfig';
+import initializeSentry from './scripts/vendor/initializeSentry';
 import pendo from './scripts/vendor/initializePendo';
 import './scripts/developerQuiz';
 
@@ -9,9 +10,10 @@ import './styles/quickstart.scss';
 import './styles/coverpage.scss';
 import './styles/search.scss';
 
-window.$docsify = docsifyConfig;
 
-// Set app config to window variable from webpack DefinePlugin
+// Expose global config to window so it can be used easily in random scripts
 window.config = config;
 
-pendo(window.config.pendoKey, window.config.apiRoot);
+initializeSentry(config.sentryDSN, config.nodeEnv);
+initializeDocsify();
+pendo(config.pendoKey, config.apiRoot);
