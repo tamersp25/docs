@@ -168,12 +168,6 @@ Note that the Engine Toolkit currently supports segment (chunk) engines only. If
  
 ## 'Hello World' Engine: High-Level Overview
 
-In the steps that follow, we'll build a simple text-processing engine that extracts vocabulary words from a file. The JSON output produced by the engine follows the structure shown in the example at [Building a Keyword extraction Engine](developer/engines/cognitive/text/keyword-extraction/?id=engine-output).
-
-> While the example that follows uses NodeJS, you should note that it's possible to use _any_ programming language to create a cognitive engine, as long as the runtimes can be packaged into a Docker image. See [https://github.com/veritone/engine-toolkit/tree/master/engine/examples](https://github.com/veritone/engine-toolkit/tree/master/engine/examples) for engine examples written in Python and Go. 
-
-The purpose of this tutorial is to show you (using actual code and build artifacts) how to structure an engine; package it using Docker; test the engine locally; deploy it onto the Veritone platform, and test the deployed engine, live, in aiWARE.
-
 At a high level, the steps you need to carry out in order to create and onboard an engine include:
 
 * **Step 0** (this page, below): Set up your project &mdash; create all artifacts except the `manifest.json` file
@@ -182,6 +176,14 @@ At a high level, the steps you need to carry out in order to create and onboard 
 * **[Step 3](developer/engines/tutorial/engine-tutorial-step-3)**: Test your build locally
 * **[Step 4](developer/engines/tutorial/engine-tutorial-step-4)**: Push your build to Veritone &mdash; and when it's Approved, use the online UI to Deploy it
 * **[Step 5](developer/engines/tutorial/engine-tutorial-step-5)**: Test your engine in aiWARE, and debug as necessary 
+
+![](EngineDevJourney.svg)
+
+In the steps that follow, we'll build a simple text-processing engine that extracts vocabulary words from a file. The JSON output produced by the engine follows the structure shown in the example at [Building a Keyword extraction Engine](developer/engines/cognitive/text/keyword-extraction/?id=engine-output).
+
+> While the example that follows uses NodeJS, you should note that it's possible to use _any_ programming language to create a cognitive engine, as long as the runtimes can be packaged into a Docker image. See [https://github.com/veritone/engine-toolkit/tree/master/engine/examples](https://github.com/veritone/engine-toolkit/tree/master/engine/examples) for engine examples written in Python and Go. 
+
+The purpose of this tutorial is to show you (using actual code and build artifacts) how to structure an engine; package it using Docker; test the engine locally; deploy it onto the Veritone platform, and test the deployed engine, live, in aiWARE.
 
 ## Before You Begin
 

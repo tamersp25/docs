@@ -3,9 +3,6 @@
 An engine will typically act on an individual library per execution.
 When run in a special "training" mode, the engine should consume applicable identifier assets from the provided library and, depending on the type of engine, generate a trained model.
 This model is the engine's internal representation of the library and an engine state that can be referenced by future invocations.
-This process is demonstrated in the diagram below:
-
-![library engine training flow](https://gcc-elb-public-prod.gliffy.net/embed/image/3a64764f-4d70-4f63-8561-55b8c0409634.png?utm_medium=live&utm_source=custom)
 
 ## Engine Configuration
 
