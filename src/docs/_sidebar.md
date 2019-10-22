@@ -113,6 +113,7 @@
       - [Step 4 - Upload Your Build to Veritone](developer/engines/tutorial/engine-tutorial-step-4.md)
       - [Step 5 - Test Your Engine in aiWARE](developer/engines/tutorial/engine-tutorial-step-5.md)
       - [Deeper Dive: Customizing Engine Output](developer/engines/tutorial/customizing-engine-output.md)
+      - [Deeper Dive: How to Train an Engine](developer/engines/tutorial/engine-training-tutorial)
     - [Approval Process](developer/engines/approval/)
     - [Deployment Models](developer/engines/deployment-model/)
     - [Processing Modes](developer/engines/processing-modes/)
@@ -171,6 +172,3 @@
       - [Fakebox](/developer/machine-box/boxes/fakebox)
 
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
-  
-<!--
-- [Benchmark](benchmark/) -->
