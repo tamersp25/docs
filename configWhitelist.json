@@ -1,1 +1,6 @@
-["apiRoot", "pendoKey"]
+[
+  "apiRoot",
+  "nodeEnv",
+  "pendoKey",
+  "sentryDSN"
+]
