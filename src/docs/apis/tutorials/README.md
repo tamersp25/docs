@@ -1,6 +1,6 @@
 <!-- markdownlint-disable no-inline-html -->
 
-# Tutorials <!-- Don't remove -->
+# Tutorials
 
 ## Featured
 
