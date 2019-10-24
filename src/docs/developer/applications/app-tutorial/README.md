@@ -77,7 +77,23 @@ you can adapt the code in this project to do other types of cognitive analysis a
 Our goal throughout this tutorial will be to _get to working code quickly, with a minimum of ceremony._
 To keep the focus on aiWARE-related idioms, we'll stick to plain-vanilla JavaScript and HTML,
 with no reliance on web development frameworks (no React, no Vue, etc.) and no server-side logic &mdash; not even NodeJS!
-Our single HTML file is only 55 lines long. Our JavaScript file weighs in at just under 500 lines of code.<br/><br/>
+Our single HTML file is only 55 lines long. Our JavaScript file weighs in at just under 500 lines of code.
+
+## Overview
+
+Our app can be built in just a few steps:
+
+* **Step 0\: Get the code** (See this page, further below.)
+
+* **Step 1\:** [Register your app with Veritone](developer/applications/app-tutorial/app-tutorial-step-1) (10 minutes)
+
+* **Step 2\:** [Set up authentication](developer/applications/app-tutorial/app-tutorial-step-2) (10 minutes)
+
+* **Step 3\:** [Add custom logic](developer/applications/app-tutorial/app-tutorial-step-3) (15 minutes)
+
+* **Step 4\:** [Test the app (run object detection against a video)](developer/applications/app-tutorial/app-tutorial-step-4) (30 minutes)
+
+![App Developer's Journey](_media/AppDevJourney.svg)
 
 <h2 style="display: inline;">Step 0: Getting Started &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 5 minutes
@@ -105,7 +121,7 @@ If you fork the project to your own repository, you should be able to point [Net
 ### Get a Veritone Login
 
 To use Veritone's aiWARE platform, you'll need a (free) login.
-Go to https://developer.veritone.com to set up your username and password.
+Go to [developer.veritone.com](https://developer.veritone.com) to set up your username and password.
 
 ### What's Next?
 

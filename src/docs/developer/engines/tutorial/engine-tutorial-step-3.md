@@ -77,7 +77,7 @@ Scroll down the page, to "Manifest file." You should see a green **LOOKS GOOD** 
 
 ![Test console manifest badge](TestConsole-2.png)
 
-> If the badge is red and contains a failure notice, use Control-C to exit the Test Console (and shut down your container), then edit your `manifgest.json` file as needed, re-build your engine, and re-run it in test mode. 
+> If the badge is red and contains a failure notice, use Control-C to exit the Test Console (and shut down your container), then edit your `manifest.json` file as needed, re-build your engine, and re-run it in test mode. 
 
 If you continue scrolling down the page, you should see green badges for **Environment variables** as well as **Ready webhook test**. The green badges mean your engine is properly configured. 
 
@@ -94,7 +94,7 @@ In this case, you can see we used the **Chunk file** File-picker to specify a te
 
 Notice that we manually entered a MIME type of `text/plain`.
 
-The various other form fields (`startOffsetMS`, `iwdth`, `height`, etc.) are meaningless in the context of text input, so it doesn't matter what the values are. Our engine code ignores these fields.
+The various other form fields (`startOffsetMS`, `width`, `height`, etc.) are meaningless in the context of text input, so it doesn't matter what the values are. Our engine code ignores these fields.
 
 We can use the green **Submit request** button to cause the `engine` driver to hit our `/process` webhook with the test-mode data chunk we've configured. The result is shown in the page, just under the Submit button:
 
