@@ -38,6 +38,7 @@ transform-origin: top left; "><div class="topruled"><br/></div>
 * [Build Your Own AI App](developer/applications/app-tutorial/)
 * [Build Your Own Cognitive Engine](developer/engines/tutorial/)
 * [Customizing Engine Output](developer/engines/tutorial/customizing-engine-output)
+* [Customizing Engine Input](developer/engines/tutorial/engine-custom-fields)
 * [How to Train a Cognitive Engine](developer/engines/tutorial/engine-training-tutorial)
 * [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
 * [Creating Export Requests](apis/tutorials/create-export-request/)
