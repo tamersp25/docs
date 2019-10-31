@@ -1,8 +1,8 @@
-# Engine Developer Toolkit
+# Engine Developer's Toolkit
 
 Engines allow you to process files (or chunks of files like frames from a video) in the Veritone platform.
 
-This toolkit is aimed at [cognitive engines](/developer/engines/cognitive/) that process [segments](/developer/engines/processing-modes/segment-processing/).
+The [Veritone Engine Developer's Toolkit](https://github.com/veritone/engine-toolkit/releases/latest) is designed to help you develop [cognitive engines](/developer/engines/cognitive/) that process [segments](/developer/engines/processing-modes/segment-processing/).
 For example, images, frames from videos, video clips, and audio files.
 If you are building a different kind of engine, you may need to use lower level APIs.
 

@@ -107,7 +107,7 @@ To see how this works, try the following:
 
 ![Advanced Cognitive Workflow link](Processing.png)
 
-5\. Use the **Available Engines** picker to find your engine. Click the greeen circle+ icon to select your engine and move it into the "Selected Engines" column on the right.
+5\. Use the **Available Engines** picker to find your engine. Click the green circle+ icon to select your engine and move it into the "Selected Engines" column on the right.
 
 ![Selected engines](SelectedEngine.png)
 

@@ -72,7 +72,7 @@
       - [Path to Monetization](developer/engines/getting-started/path-to-monetization/)
       - [Support](developer/engines/getting-started/support/)
       - [Technologies Used](developer/engines/getting-started/technologies/)
-    - [Building **Cognitive Engines**](developer/engines/cognitive/)
+    - [Overview: Building **Cognitive Engines**](developer/engines/cognitive/)
       - Audio
         - [Audio Fingerprinting](developer/engines/cognitive/audio/audio-fingerprinting/)
       - Biometrics
@@ -104,8 +104,8 @@
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
         - [Object Detection](developer/engines/cognitive/vision/object-detection/)
         - [Text Recognition (OCR)](developer/engines/cognitive/vision/text-recognition/)
-    - [Building **Correlation Engines**](developer/engines/correlation/)
-    - [Engine Developer Toolkit](developer/engines/toolkit/)
+    - [Overview: **Correlation Engines**](developer/engines/correlation/)
+    - [Engine Developer's Toolkit](developer/engines/toolkit/)
     - [Tutorial: Build Your Own Engine](developer/engines/tutorial/)
       - [Step 0 - Introduction and Project Setup](developer/engines/tutorial/)
       - [Step 1 - Register Your Project with Veritone](developer/engines/tutorial/engine-tutorial-step-1.md)
