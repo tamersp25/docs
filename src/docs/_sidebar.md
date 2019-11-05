@@ -173,6 +173,7 @@
       - [Objectbox](/developer/machine-box/boxes/objectbox)
       - [Fakebox](/developer/machine-box/boxes/fakebox)
 
+  - [Resources: Data Science](developer/resources/)
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
   
 - [Tutorials](apis/tutorials/)

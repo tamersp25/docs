@@ -33,6 +33,10 @@ For technical and business-related questions, please reach out to us on [Slack](
 
 ## Helpful Resources
 
+### Machine Learning
+
+See our [Getting Started in Data Science](developer/resources/) page.
+
 ### APIs and Standards
 
 By meeting simple JSON-based input/output contracts, your engines achieve unparalleled flexibility and interoperability via Veritone's GraphQL-based API.
