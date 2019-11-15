@@ -27,6 +27,7 @@ Scenario('json-schemas are reachable and equal to their $id', async I => {
     const schemaIdPath = `/schemas/vtn-standard/${validationContract}/${validationContract}.json`;
 
     I.amOnPage('/#/developer/engines/standards/engine-output/');
+    I.closeOtherTabs();
     I.click(`${validationContract}.json`);
     I.switchToNextTab();
     I.seeCurrentUrlEquals(schemaIdPath);
