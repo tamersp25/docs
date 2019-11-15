@@ -2,6 +2,7 @@ const HTTP_ROOT = process.env.HTTP_ROOT || 'http://localhost';
 const HTTP_PORT = process.env.HTTP_PORT || 3000;
 const SKIP_BOOTSTRAP = process.env.E2E_SKIP_BOOTSTRAP === 'true';
 const GENERATE_REPORT = process.env.E2E_GENERATE_REPORT === 'true';
+const SHOW = process.env.E2E_SHOW === 'true';
 
 /**
  * Need ENV for:
@@ -15,6 +16,7 @@ exports.config = {
   helpers: {
     Puppeteer: {
       url: `${HTTP_ROOT}:${HTTP_PORT}`,
+      show: SHOW,
       chrome: {
         args: ['--no-sandbox'],
         defaultViewport: {
