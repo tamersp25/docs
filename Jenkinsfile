@@ -2,10 +2,12 @@
 
 @Library(value='jenkins-scripts@master', changelog=false) _
 
-# This is copied and modified from https://github.com/veritone/jenkins-scripts/blob/master/vars/veritoneStaticPipeline.groovy
-# The original includes the conventions for our proper gated release process.
-# This copy bypasses all of that and deploys straight to prod.
-# In particular, every stage now runs when BRANCH_NAME == 'master' as opposed to things like release/* and prod/* being required for deploys.
+/*
+This is copied and modified from https://github.com/veritone/jenkins-scripts/blob/master/vars/veritoneStaticPipeline.groovy
+The original includes the conventions for our proper gated release process.
+This copy bypasses all of that and deploys straight to prod.
+In particular, every stage now runs when BRANCH_NAME == 'master' as opposed to things like release/* and prod/* being required for deploys.
+*/
 
 pipeline {
     agent { node { label "linux" } }
