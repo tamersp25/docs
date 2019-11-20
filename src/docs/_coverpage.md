@@ -27,16 +27,21 @@
     <div class="news-box">
       <div class="news-header">WHAT'S NEW</div>
       <div class="divider"></div>
-      <h4 class="news-description">At Veritone, we're constantly shipping new features and capabilities for our aiWARE platform and applications to help you intelligently extract insight out of your data faster. To keep you devs up to date on the latest documentation updates and tutorials, we've summarized updates here. So check back from time to time to learn what's new in the Veritone Developer Community.</h4>
+      <h4 class="news-description">At Veritone, we're constantly shipping new features and capabilities for our aiWARE platform and applications to help you intelligently extract insight out of your data faster. We've summarized the latest updates here. Be sure to check back from time to time to learn what's new in the Veritone Developer Community!</h4>
       <div class="divider"></div>
       <div class="news-content">
         <div class="news-item">
+          <div class="news-item-header">11/22/2019</div>
+          <ul>
+            <li><a href="https://docs.veritone.com/#/developer/engines/approval/">Understanding Engine Certification and Approval</a></li>
+            <li>Deeper Dive: <a href="https://docs.veritone.com/#/developer/engines/tutorial/engine-custom-fields">How to Customize Engine Input Options</a></li>
+            <li><a href="https://docs.veritone.com/#/developer/resources/">Getting Started in Data Science</a></li>
+          </ul>
           <div class="news-item-header">10/25/2019</div>
           <ul>
             <li>All-New Tutorial: <a href="https://docs.veritone.com/#/developer/engines/tutorial/">Create Your Own Cognitive Engine</a></li>
-            <li>All-Deeper Dive: <a href="https://docs.veritone.com/#/developer/engines/tutorial/customizing-engine-output">How to Customize Engine Output</a></li>
-            <li>Improved artwork throughout site</li>
-            <li>New page on Building Correlation Engines</li>
+            <li>Deeper Dive: <a href="https://docs.veritone.com/#/developer/engines/tutorial/customizing-engine-output">How to Customize Engine Output</a></li>
+            <li><a href="https://docs.veritone.com/#/developer/engines/correlation/">Building Correlation Engines</a></li>
             <li><a href="https://docs.veritone.com/#/developer/flow/">Building Flows with Automate Studio</a></li>
           </ul>
         </div>

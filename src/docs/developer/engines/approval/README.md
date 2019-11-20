@@ -1,6 +1,6 @@
-# Engine Approval Process
+# Engine Certification and Approval Process
 
-Once the engine is pushed to the Veritone Docker registry, various checks need to be performed on _our_ end before the engine can be considered ready for use.
+Once your engine is pushed to the Veritone Docker registry, various checks need to be performed on _our_ end before the engine can be considered ready for use.
 
 ![Approval process](EngineApproval.svg)
 
@@ -9,9 +9,17 @@ Your engine will be checked in terms of:
 * Manifest validation
 * Security vulnerabilities
 * Network-awareness
-* Build soundness
+* Build soundness (output validation)
 
-And then you will be notified (usually within 24 to 72 hours) as to the status of your engine. If the engine is Approved, you can Deploy it immediately. If it is not Approved, you'll be told the status of the engine, and you can take appropriate steps to address any problems.
+You will be notified (within 72 hours) as to the status of your engine. If the engine is Approved, you can Deploy it immediately. If it is not Approved, you'll be told the status of the engine, and you can take appropriate steps to address any problems.
+
+## Certification Process
+
+The relationship between engine states, VDA build status, and the onboarding process is depicted in the diagram below.
+
+![Certification workflow](EngineOnboarding.svg)
+
+### Engine Status
 
 The possible statuses of an engine are:
 
@@ -28,14 +36,14 @@ invalid
 paused
 pending
 uploaded
-```  
+```
 
-## Manifest validation
+### Manifest validation
 
 During the initial upload process, the `manifest.json` file is extracted from the Docker image.
 The content of the manifest is then checked against the [manifest standards](/developer/engines/standards/engine-manifest/).
 
-## Docker Security
+### Docker Security
 
 Next, the layers of the Docker image are analyzed for critical security flaws.
 
@@ -45,12 +53,12 @@ Once the trusted source is confirmed, use the latest version available.
 Your number one priority is to keep the host operating system properly patched and updated.
 Similarly, processes running inside your container should have the latest security updates.
 
-## Network awareness
+### Network awareness
 
 When you registered your engine with Veritone, you were required to specify whether you engine should be considered network-isolated, or network-aware. (See [Engine Deployment Models](developer/engines/deployment-model/?id=engine-deployment-models) for more information on the choices available.)
 If you specified that your engine is _network-isolated_, and yet it makes calls to an external IP address using a wire protocol, this could result in your engine being marked `disapproved`.
 
-## Build test
+### Build test
 
 The build test looks to see if your engine produces output that conforms to the [vtn-standard](developer/engines/standards/engine-output/).
 
