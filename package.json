@@ -11,7 +11,7 @@
     "postinstall": "yarn copy-schemas  # really just for IDE intelligence",
     "start": "concurrently -k \"yarn build:watch\" \"yarn serve\"",
     "serve": "docsify serve ./build-${ENVIRONMENT:-local}",
-    "test": "HTTP_PORT=$RANDOM codeceptjs run --reporter mocha-multi",
+    "test": "HTTP_PORT=$(($$%5000+3000)) codeceptjs run --reporter mocha-multi",
     "test:only": "E2E_SKIP_BOOTSTRAP=true yarn test"
   },
   "husky": {
