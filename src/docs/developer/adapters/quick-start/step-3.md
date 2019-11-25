@@ -63,10 +63,15 @@ The fields that should be included in manifest.json are listed in the table belo
 _Contact us if your engine supports a MIME type that is not currently listed._
 
 * application/json
-* application/vtn-engineout+json
+* application/msword
 * application/pdf
+* application/rtf
 * application/smil+xml
 * application/ttml+xml
+* application/vnd.ms-outlook
+* application/vnd.ms-powerpoint
+* application/vnd.openxmlformats-officedocument.wordprocessingml.document
+* application/vtn-engineout+json
 * application/x-flv
 * application/xml
 * audio/aac
@@ -79,9 +84,11 @@ _Contact us if your engine supports a MIME type that is not currently listed._
 * image/gif
 * image/jpeg
 * image/tiff
+* message/rfc822
 * text/csv
 * text/html
 * text/plain
+* text/plain; charset=utf-8
 * video/3gpp
 * video/mp4
 * video/mpeg
@@ -91,6 +98,18 @@ _Contact us if your engine supports a MIME type that is not currently listed._
 * video/x-m4v
 * video/x-ms-wmv
 * video/x-msvideo
+
+### Text File Types
+
+Supported text file types include:
+
+* doc
+* pdf
+* eml
+* msg
+* txt
+* ppt
+* rtf
 
 ## Example
 
