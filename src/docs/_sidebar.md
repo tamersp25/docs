@@ -5,8 +5,6 @@
   - [Architecture Overview](overview/architecture-overview/)
   - [Glossary](overview/glossary/)
 
-- [Release Notes](release-notes/)
-
 - [Quickstart](quickstart/)
 
   - <span class="engine-developer">[Engine Developer](quickstart/engine-developer/)</span>
@@ -30,6 +28,7 @@
     - [API Examples](apis/examples.md)
     - [Job Quickstart Guide](apis/job-quickstart/)
     - [Search Quickstart Guide](apis/search-quickstart/)
+  - [Endpoints](apis/endpoints/)
   - [Tutorials](apis/tutorials/)
     - [GraphQL API Basics](apis/tutorials/graphql-basics.md)
     - [Clean up TDO data](apis/tutorials/cleanup-tdo.md)
