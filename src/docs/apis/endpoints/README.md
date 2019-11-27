@@ -6,15 +6,17 @@ The changes made may require you to change the end points your organization uses
 
 To access Veritone’s API end points use the following configurations:
 
-| Environment | URL Endpoint                    | Protocol | IP                            |
-|-------------|---------------------------------|----------|-------------------------------|
-| US-Prod     | https://api.veritone.com        | HTTPS    | N/A                           |
-| US-Prod     | https://api-static.veritone.com | HTTPS    | xx.xx.xx.xx <br/> xx.xx.xx.xx |
-| UK-Prod     | https://api.uk.veritone.com     | HTTPS    | N/A                           |
+| Environment | URL Endpoint                    | Protocol | IP                      |
+|-------------|---------------------------------|----------|-------------------------|
+| US-Prod     | https://api.veritone.com        | HTTPS    | N/A                     |
+| US-Prod     | https://api-static.veritone.com, http://api-static.aws-prod.veritone.com | HTTPS    | xx.xx.xx.xx             |
+| UK-Prod     | https://api.uk.veritone.com     | HTTPS    | N/A                     |
+| UK-Prod     | https://api-static.aws-uk.veritone.com | HTTPS | 34.194.123.82       |
 
-## Depreciated and Decommissioned
 
-The following IPs were removed from https://api-static.veritone.com on December 20, 2019 at 6pm PST
+## Deprecated and Decommissioned
+
+The following IPs will be removed from https://api-static.veritone.com on *December 20, 2019* at 6pm PST
 
     34.231.237.177
     34.195.184.63
