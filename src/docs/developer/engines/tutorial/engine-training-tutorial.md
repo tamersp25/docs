@@ -42,6 +42,14 @@ To train a cognitive engine in aiWARE, you need to:
 
 We'll now demonstrate this process by showing how to create the artifacts needed in order to train a facial recognition engine to recognize Yoko Ono. Once training is complete, we'll test the engine by having it analyze a group photo, to see if Yoko can be deteected in the image.
 
+## Tutorial Walkthroughs
+
+The following training steps can be done using either the Veritone Library application or with GraphiQL APIs. Videos showing both methods are available below:
+
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375686298?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:50%;height:50%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375686491?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:50%;height:50%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 ## Step 1: Create an empty Library
 
 Before starting, be sure you are logged into Veritone. Then, go to [the GraaphiQL sandbox](https://api.veritone.com/v3/graphiql) and run the following mutation:
@@ -237,6 +245,9 @@ Notice how there's a training record for each engine? These are all the engines 
 ?> Recall that in Step 3, we added assets (EntityIdentifiers) having `contentType:"image/jpeg"`.
 
 ## Step 6: Test a trained engine
+
+This step must be done with the GraphiQL APIs. The tutorial walkthrough is available below:
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375686558?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:50%;height:50%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 Now we're at a point where we can choose a trained engine (from the list shown in the last step), and run a job using it.
 

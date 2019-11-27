@@ -33,6 +33,8 @@ aside.small {
 <h2 style="display: inline;">Step 2: Use Docker to create a build &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 10 minutes </aside> &nbsp;
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375527701?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 In this step, we'll create a Dockerfile, and use Docker to create a deployable engine _build_.
 
 ?> This step assumes that you have already installed Docker on your MacOS or Linux development machine. (Docker for Windows is not yet supported.)
