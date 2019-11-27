@@ -33,6 +33,8 @@ aside.small {
 <h2 style="display: inline;">Step 5: Test your engine in aiWARE &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 20 minutes </aside> &nbsp;
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375527833?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 Now that you've onboarded an engine (and set its status to DEPLOYED), you can test the engine in a live Job, in aiWARE.
 
 One of the easiest ways to do this is, of course, to use the GraphiQL web IDE.

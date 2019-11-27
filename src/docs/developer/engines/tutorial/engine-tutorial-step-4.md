@@ -33,6 +33,8 @@ aside.small {
 <h2 style="display: inline;">Step 4: Push your engine build to Veritone &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 10 minutes </aside> &nbsp;
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375527778?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 In [Step 1](developer/engines/tutorial/engine-tutorial-step-1), you learned how to register your project with [Veritone](https://developer.veritone.com/) via a simple setup wizard. Having done that, and having built and tested (locally) your engine, you can now go back to the Veritone Developer site and onboard your engine.
 
 All you need to do is:

@@ -33,6 +33,8 @@ aside.small {
 <h2 style="display: inline;">Step 1: Register your engine with Veritone &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 10 minutes </aside> &nbsp;
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375527586?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 Assuming you've already accomplished the prerequisites outlined in [Before You Begin](developer/engines/tutorial/?id=before-you-begin), your first step in creating an engine should be to register it with Veritone.
 
 > In this step, you'll obtain a Veritone-assigned Engine ID, and generate your manifest.json file using an online UI.

@@ -32,6 +32,8 @@ aside.small {
 <h2 style="display: inline;">Step 3: Test your engine locally &nbsp;</h2>&nbsp;&nbsp;<aside class="small">
 <b>ESTIMATED TIME:</b> 15 minutes </aside> &nbsp;
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/375527735?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 Veritone's Engine Developer's Toolkit has been designed in such a way that your engine can be run locally, using Docker. This is called running the engine in **test mode**.
 
 ## How to Run Your Engine in Test Mode
