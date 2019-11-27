@@ -5,8 +5,6 @@
   - [Architecture Overview](overview/architecture-overview/)
   - [Glossary](overview/glossary/)
 
-- [Release Notes](release-notes/)
-
 - [Quickstart](quickstart/)
 
   - <span class="engine-developer">[Engine Developer](quickstart/engine-developer/)</span>
