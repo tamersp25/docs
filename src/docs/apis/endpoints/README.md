@@ -11,6 +11,7 @@ To access Veritone’s API end points use the following configurations:
 | US-Prod     | https://api.veritone.com        | HTTPS    | N/A                     |
 | US-Prod     | https://api-static.veritone.com | HTTPS    | xx.xx.xx.xx             |
 | UK-Prod     | https://api.uk.veritone.com     | HTTPS    | N/A                     |
+| UK-Prod     | https://api-static.aws-uk.veritone.com | HTTPS | 34.194.123.82       |
 
 ## Deprecated and Decommissioned
 
