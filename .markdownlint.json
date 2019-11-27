@@ -1,7 +1,7 @@
 {
   "line-length": false,
   "no-inline-html": {
-    "allowed_elements": ["table", "tr", "th", "td", "sup"]
+    "allowed_elements": ["table", "tr", "th", "td", "sup","div","iframe","script"]
   },
   "no-bare-urls": false,
   "no-duplicate-heading": false,
