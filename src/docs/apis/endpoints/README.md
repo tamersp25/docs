@@ -14,7 +14,7 @@ To access Veritone’s API end points use the following configurations:
 
 ## Deprecated and Decommissioned
 
-The following IPs will be removed from https://api-static.veritone.com on /December 20, 2019/ at 6pm PST
+The following IPs will be removed from https://api-static.veritone.com on *December 20, 2019* at 6pm PST
 
     34.231.237.177
     34.195.184.63
