@@ -12,9 +12,9 @@ To access Veritone’s API end points use the following configurations:
 | US-Prod     | https://api-static.veritone.com | HTTPS    | xx.xx.xx.xx             |
 | UK-Prod     | https://api.uk.veritone.com     | HTTPS    | N/A                     |
 
-## Depreciated and Decommissioned
+## Deprecated and Decommissioned
 
-The following IPs were removed from https://api-static.veritone.com on December 20, 2019 at 6pm PST
+The following IPs will be removed from https://api-static.veritone.com on /December 20, 2019/ at 6pm PST
 
     34.231.237.177
     34.195.184.63
