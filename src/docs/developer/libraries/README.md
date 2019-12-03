@@ -32,6 +32,6 @@ A Library's purpose is to provide a structured technical architecture and user-f
 
 **Cross-Engine** **Identification**\- The idea that the same entity can be identified by different engines trained using the same library.
 
-## Basic Relation Diagram
+## Object Relationship Diagram
 
-![Library object model](library-design.jpg)
+![Library object model](Libraries.svg)

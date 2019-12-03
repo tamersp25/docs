@@ -160,4 +160,4 @@ Veritone search features include:
 - Faceted search options refine results by attributes such as watchlists, faces, locations, objects, and tags.
 - Result ranking logic returns the most relevant results by default or can be fine-tuned for specific queries.
 
-> For more information on the search API, see the [search quickstart guide](../apis/search-quickstart/).
+> For more information on the search API, see the [search quickstart guide](apis/search-quickstart/).
