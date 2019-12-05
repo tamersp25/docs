@@ -176,12 +176,13 @@ output.push( getStructuredData() );
 return output;
 ```
 
-> Note that at the top of the file, we also need to add a line:
+> Note that at the top of the file, we also need to add these two lines:
 ```javascript
         let _startTime = 1 * new Date;
+        let _words = null;
 ```
 
-to support the use of our timing variable, `_startTime`, in this snippet.
+to support the use of our timing variable, `_startTime`, and a new global `_words` (for word count), in this snippet.
 
 At this point, you can Save the file, re-build the engine, and test it locally (using Test Mode, as described in the [earlier tutorial]((developer/engines/tutorial/)). Once you've verified that the engine produces the desired output, deploy it to Veritone.
 
