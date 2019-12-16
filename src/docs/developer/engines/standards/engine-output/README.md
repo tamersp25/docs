@@ -24,6 +24,7 @@ The currently defined validation contracts are:
 
 Validation Contract | Applicable Capabilities | json-schema Definition
 ------------------- | ----------------------- | ----------------------
+`anomaly` | [Anomaly Detection](/developer/engines/cognitive/text/anomaly-detection/) | [anomaly.json](/schemas/vtn-standard/anomaly/anomaly.json ':ignore')
 `concept` | [Content Classification](/developer/engines/cognitive/text/content-classification/) | [concept.json](/schemas/vtn-standard/concept/concept.json ':ignore')
 `entity` | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | [entity.json](/schemas/vtn-standard/entity/entity.json ':ignore')
 `keyword` | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | [keyword.json](/schemas/vtn-standard/keyword/keyword.json ':ignore')
