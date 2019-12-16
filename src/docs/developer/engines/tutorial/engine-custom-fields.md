@@ -75,6 +75,8 @@ In this case, the `cutoff` field (our custom input) is the second field listed.
 
 ## Custom Fields
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/379805420?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 ?> **NOTE:** The discussion shown hereunder is relevant only if you care how your engine appears in the Veritone CMS online UI. It does not affect how custom `payload` properties work (as outlined above). You _need not_ use the Custom Fields UI described below to achieve custom input to your engine. The Custom Fields UI is merely a convenience for users of the Veritone CMS.
 
 When you create and register a new engine in Veritone Developer using the online UI, you are given the opportunity to specify [Custom Fields](developer/adapters/quick-start/step-1?id=_3-add-custom-fields-optional).
@@ -90,6 +92,8 @@ In this example, we've specified a Field Name of `outputLanguage`. The Field Lab
 What this means is that if someone using the [Veritone CMS](https://cms.veritone.com) decides to run your cognitive engine against a particular media file, that person will see a UI that allows him or her to specify a value for Output Language. The value so specified will show up as the value of an `outputLanguage` form-field parameter in the body POSTed to the engine's `/process` handler at runtime.
 
 ### Example: Using the Advanced Cognitive Workflow UI
+
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/379805503?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 To see how this works, try the following:
 
