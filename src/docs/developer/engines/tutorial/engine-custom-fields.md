@@ -75,7 +75,7 @@ In this case, the `cutoff` field (our custom input) is the second field listed.
 
 ## Custom Fields
 
-<div style="width: 35%"><iframe src="https://player.vimeo.com/video/379805420?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script> 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/379805420?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 ?> **NOTE:** The discussion shown hereunder is relevant only if you care how your engine appears in the Veritone CMS online UI. It does not affect how custom `payload` properties work (as outlined above). You _need not_ use the Custom Fields UI described below to achieve custom input to your engine. The Custom Fields UI is merely a convenience for users of the Veritone CMS.
 
