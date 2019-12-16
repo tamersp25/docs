@@ -87,6 +87,7 @@
         - [Speaker Recognition](developer/engines/cognitive/speech/speaker-recognition/)
         - [Transcription](developer/engines/cognitive/speech/transcription/)
       - Text
+        - [Anomaly Detection](developer/engines/cognitive/text/anomaly-detection/)
         - [Content Classification](developer/engines/cognitive/text/content-classification/)
         - [Entity Extraction](developer/engines/cognitive/text/entity-extraction/)
         - [Keyword Extraction](developer/engines/cognitive/text/keyword-extraction/)
