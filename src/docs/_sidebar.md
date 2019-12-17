@@ -1,5 +1,9 @@
 <!-- markdownlint-disable no-inline-html first-line-h1 -->
 
+<!-- Sidebar Logo -->
+
+<a href="/"><div class="logo"><img src="https://static.veritone.com/assets/favicon/favicon.ico" alt="Veritone logo"/><span class="logo-text">Veritone Docs<span></div></a>
+
 - [aiWARE Overview](overview/)
 
   - [Architecture Overview](overview/architecture-overview/)
@@ -133,6 +137,7 @@
     - [Testing & Debugging](developer/engines/testing-and-debugging/)
 
   - [Building **Flows**](developer/flow/)
+
     - [FAQ](developer/flow/faq.md)
 
   - [Building **Adapters**](developer/adapters/)
@@ -177,5 +182,5 @@
 
   - [Resources: Data Science](developer/resources/)
   - [Developer Terms & Conditions](developer/terms-and-conditions.md)
-  
+
 - [Tutorials](apis/tutorials/)

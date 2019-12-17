@@ -1,19 +1,17 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 import {
   collapseExtendedFamily,
   collapseChildren,
   iterateObject,
   resetExtendedFamilyRecursion
-} from './sidebarHelper';
+} from "./sidebarHelper";
 
 const docsifyConfig = {
-  basePath: '/docs',
-  search: 'auto', // default
+  basePath: "/docs",
+  search: "auto", // default
   maxLevel: 1,
-  name: "Veritone Docs",
-      // '<div><img src="https://static.veritone.com/assets/favicon/favicon.ico" height="18px" width="18px" style="margin-right: 5px"  alt="Veritone logo"/> Veritone Docs</div>',
-  repo: '',
+  repo: "",
   // routerMode: 'history',
   subMaxLevel: 2,
   loadSidebar: true,
@@ -39,66 +37,66 @@ const docsifyConfig = {
    */
   alias: {
     // Ensures there's only ever one single sidebar
-    '/.*/_sidebar.md': '/_sidebar.md',
+    "/.*/_sidebar.md": "/_sidebar.md",
 
     // Permalinks for deprecated sections
-    '^/apis/job-quick-start-guide.*$': '/apis/job-quickstart/',
-    '^/apis/search-quick-start-guide.*$': '/apis/search-quickstart/',
+    "^/apis/job-quick-start-guide.*$": "/apis/job-quickstart/",
+    "^/apis/search-quick-start-guide.*$": "/apis/search-quickstart/",
 
     // Maintaining permalinks from old engines section
-    '^/engines/classes$': '/developer/engines/cognitive/',
+    "^/engines/classes$": "/developer/engines/cognitive/",
     // TODO: It'd be nice to port over some of the quick-start pages that still apply though.  All those screenshots and stuff...
-    '^(/developer|)/engines/quick-start(.*)':
-      '/developer/engines/getting-started/',
-    '^/engines/types$': '/developer/engines/',
-    '^/engines/guidelines/?$': '/developer/engines/',
-    '^/engines/guidelines/cognitive-engines$': '/developer/engines/cognitive/',
-    '^/engines/guidelines/real-time-engines$': '/developer/engines/cognitive/',
+    "^(/developer|)/engines/quick-start(.*)":
+      "/developer/engines/getting-started/",
+    "^/engines/types$": "/developer/engines/",
+    "^/engines/guidelines/?$": "/developer/engines/",
+    "^/engines/guidelines/cognitive-engines$": "/developer/engines/cognitive/",
+    "^/engines/guidelines/real-time-engines$": "/developer/engines/cognitive/",
     // TODO: Adapters section might be out of date
-    '^/engines/guidelines/adapters$': '/developer/adapters/guidelines',
-    '^/engines/engine_standards/?$':
-      '/developer/engines/standards/engine-output/',
-    '^/engines/engine_standards/capability/?': '/developer/engines/cognitive/',
-    '^/engines/engine_standards/veri_standards$':
-      '/developer/engines/standards/engine-output/',
-    '^/engines/manifest/?$': '/developer/engines/standards/engine-manifest/',
-    '^/engines/custom-fields$': '/developer/engines/custom-fields/',
-    '^/engines/testing-and-debugging$':
-      '/developer/engines/testing-and-debugging/',
-    '^/engines/engine-input-output/$': '/developer/engines/cognitive/',
-    '^/engines/engine-input-output/transcription$':
-      '/developer/engines/cognitive/speech/transcription/',
-    '^/engines/engine-input-output/object-detection$':
-      '/developer/engines/cognitive/vision/object-detection/',
-    '^/engines/engine-input-output/face-detection$':
-      '/developer/engines/cognitive/biometrics/face-detection/',
-    '^/engines/faq$': '/developer/engines/faq/',
+    "^/engines/guidelines/adapters$": "/developer/adapters/guidelines",
+    "^/engines/engine_standards/?$":
+      "/developer/engines/standards/engine-output/",
+    "^/engines/engine_standards/capability/?": "/developer/engines/cognitive/",
+    "^/engines/engine_standards/veri_standards$":
+      "/developer/engines/standards/engine-output/",
+    "^/engines/manifest/?$": "/developer/engines/standards/engine-manifest/",
+    "^/engines/custom-fields$": "/developer/engines/custom-fields/",
+    "^/engines/testing-and-debugging$":
+      "/developer/engines/testing-and-debugging/",
+    "^/engines/engine-input-output/$": "/developer/engines/cognitive/",
+    "^/engines/engine-input-output/transcription$":
+      "/developer/engines/cognitive/speech/transcription/",
+    "^/engines/engine-input-output/object-detection$":
+      "/developer/engines/cognitive/vision/object-detection/",
+    "^/engines/engine-input-output/face-detection$":
+      "/developer/engines/cognitive/biometrics/face-detection/",
+    "^/engines/faq$": "/developer/engines/faq/",
 
     // Permalinks to support legacy developer-only file structure
-    '^/applications(|/.*)$': '/developer/applications$1',
-    '^/data/(|/.*)$': '/developer/data$1',
-    '^/engines(|/.*)$': '/developer/engines$1',
-    '^/libraries(|/.*)$': '/developer/libraries$1',
-    '^/veritone-developer-overview(|.md)$': '/developer/',
-    '^/developer-benefits(|.md)$': '/developer/benefits',
-    '^/terms-and-conditions(|.md)$': '/developer/terms-and-conditions',
+    "^/applications(|/.*)$": "/developer/applications$1",
+    "^/data/(|/.*)$": "/developer/data$1",
+    "^/engines(|/.*)$": "/developer/engines$1",
+    "^/libraries(|/.*)$": "/developer/libraries$1",
+    "^/veritone-developer-overview(|.md)$": "/developer/",
+    "^/developer-benefits(|.md)$": "/developer/benefits",
+    "^/terms-and-conditions(|.md)$": "/developer/terms-and-conditions",
 
     // Makes trailing slash optional for certain pages
     // TODO: change convention to use README files for all content pages (no my-page-name.md, only my-page-name/README.md)
     // and add a global alias (or maybe just a hard redirect in the plugin for converting no-trailing-slash to trailing-slash
-    '^/architecture-overview(|.md)$': '/architecture-overview/',
-    '^/glossary(|.md)': '/glossary/',
-    '^/apis$': '/apis/',
-    '^/apis/job-quickstart(|.md)$': '/apis/job-quickstart/',
-    '^/apis/search-quickstart(|.md)$': '/apis/search-quickstart/',
-    '^/apis/tutorials$': '/apis/tutorials/',
-    '^/developer/applications$': '/developer/applications/',
-    '^/developer/data$': '/developer/data/',
-    '^/developer/engines$': '/developer/engines/',
-    '^/developer/libraries$': '/developer/libraries/',
-    '^/engines/engine-input-output$': '/engines/engine-input-output/',
-    '^/engines/tutorials$': '/engines/tutorials/',
-    '(.*)/quick-start$': '$1/quick-start/'
+    "^/architecture-overview(|.md)$": "/architecture-overview/",
+    "^/glossary(|.md)": "/glossary/",
+    "^/apis$": "/apis/",
+    "^/apis/job-quickstart(|.md)$": "/apis/job-quickstart/",
+    "^/apis/search-quickstart(|.md)$": "/apis/search-quickstart/",
+    "^/apis/tutorials$": "/apis/tutorials/",
+    "^/developer/applications$": "/developer/applications/",
+    "^/developer/data$": "/developer/data/",
+    "^/developer/engines$": "/developer/engines/",
+    "^/developer/libraries$": "/developer/libraries/",
+    "^/engines/engine-input-output$": "/engines/engine-input-output/",
+    "^/engines/tutorials$": "/engines/tutorials/",
+    "(.*)/quick-start$": "$1/quick-start/"
   },
   plugins: [
     /**
@@ -109,7 +107,7 @@ const docsifyConfig = {
     function veritoneSidebarCollapsePlugin(hook) {
       hook.doneEach(function onPageChanged() {
         resetExtendedFamilyRecursion();
-        var activeEl = $('.sidebar-nav .active');
+        var activeEl = $(".sidebar-nav .active");
         collapseChildren(activeEl);
         collapseExtendedFamily(activeEl);
       });
@@ -123,20 +121,20 @@ const docsifyConfig = {
       hook.beforeEach(function onBeforePageParsed() {
         var redirects = vm.router.config.alias;
         iterateObject(redirects, function(routeMatch, newRoute) {
-          var routeMatchRegex = new RegExp(routeMatch, 'g');
+          var routeMatchRegex = new RegExp(routeMatch, "g");
           var testResult = routeMatchRegex.exec(vm.route.path);
           if (testResult) {
             for (var i = 1; i < testResult.length; i++) {
-              newRoute = newRoute.replace('$' + i, testResult[i]);
+              newRoute = newRoute.replace("$" + i, testResult[i]);
             }
             console.log(
-              'Alias detected.  Redirecting from ' +
+              "Alias detected.  Redirecting from " +
                 vm.route.path +
-                ' to ' +
+                " to " +
                 newRoute
             );
             window.location.replace(
-              window.location.origin + window.location.pathname + '#' + newRoute
+              window.location.origin + window.location.pathname + "#" + newRoute
             );
             return true;
           }
@@ -155,7 +153,7 @@ const docsifyConfig = {
         // TODO: Wrap with link to explanations of what API, Search, and UI Support mean
         return content.replace(
           BADGE_REGEX,
-          '![$1 Support: $2](https://img.shields.io/badge/$1%20Support-$2-$3.svg)'
+          "![$1 Support: $2](https://img.shields.io/badge/$1%20Support-$2-$3.svg)"
         );
       });
     },
@@ -183,7 +181,7 @@ const docsifyConfig = {
           try {
             createLinkFromExample(
               examples[i],
-              'Try it in GraphiQL'
+              "Try it in GraphiQL"
             ).insertAfter(examples[i]);
           } catch (e) {
             console.error(`Error adding GraphiQL link: ${e}`);
