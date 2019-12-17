@@ -9,6 +9,8 @@ In the mini-tutorial below, we'll look at how to customize an engine's output da
 
 ?> Other techniques exist for customizing engine output, but some of them do not result in _searchable_ data. See the full discussion under [Extending the Standard](developer/engines/standards/engine-output/?id=extending-the-standard).
 
+<div style="width: 35%"><iframe src="https://player.vimeo.com/video/378596549?color=ff9933&title=0&byline=0&portrait=0" style="border:0;top:0;left:0;width:75%;height:75%;" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+
 ### Scenario: Including Summary Data
 
 A common requirement is that you need to include a summary block of data as part of your engine's output. This can be done in a couple of ways.

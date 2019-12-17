@@ -36,6 +36,7 @@ Data | [Geolocation](/developer/engines/cognitive/data/geolocation/) | Identifie
 Speech | [Speaker Detection](/developer/engines/cognitive/speech/speaker-detection/) | aka Speaker Separation, Diarization. Partitions an input audio stream into segments according to who is speaking when.
 Speech | [Speaker Recognition](/developer/engines/cognitive/speech/speaker-recognition/) | aka Speaker Identification. Identifies speakers in an audio file based on trained recordings of their voice.
 Speech | [Transcription](/developer/engines/cognitive/speech/transcription/) | Converts speech audio to text.
+Text | [Anomaly Detection](/developer/engines/cognitive/text/anomaly-detection/) | Assigns a value to each item in a time-series according to how anomalous the object is.
 Text | [Content Classification](/developer/engines/cognitive/text/content-classification/) | Categorizes one or multiple documents according to a pre-defined ontology.
 Text | [Entity Extraction](/developer/engines/cognitive/text/entity-extraction/) | aka Named-entity recognition. Classifies named entities located in unstructured text into pre-defined categories such as people, organizations and locations.
 Text | [Keyword Extraction](/developer/engines/cognitive/text/keyword-extraction/) | Identifies key terms and/or phrases that appear in documents, based on parts of speech, salience, or other criteria.
