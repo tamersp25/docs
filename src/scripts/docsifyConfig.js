@@ -11,8 +11,8 @@ const docsifyConfig = {
   basePath: '/docs',
   search: 'auto', // default
   maxLevel: 1,
-  name:
-    '<div><img src="https://static.veritone.com/assets/favicon/favicon.ico" height="18px" width="18px" style="margin-right: 5px"  alt="Veritone logo"/> Veritone Docs</div>',
+  name: "Veritone Docs",
+      // '<div><img src="https://static.veritone.com/assets/favicon/favicon.ico" height="18px" width="18px" style="margin-right: 5px"  alt="Veritone logo"/> Veritone Docs</div>',
   repo: '',
   // routerMode: 'history',
   subMaxLevel: 2,
