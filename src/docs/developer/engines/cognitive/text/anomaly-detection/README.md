@@ -1,5 +1,9 @@
 # Building an Anomaly Detection Engine
 
+[badge/API/Partial/yellow]
+[badge/Search/No/red]
+[badge/UI/No/red]
+
 Anomaly Detection engines assign a confidence value to specific entries in time-series objects with the goal of predicting which events are anomalous
 
 ## Engine Manifest
