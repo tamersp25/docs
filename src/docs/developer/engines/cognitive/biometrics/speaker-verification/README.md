@@ -30,7 +30,7 @@ See the full documentation for [engine manifest standards](/developer/engines/st
 
 ### Training and Libraries
 
-Training for the Speaker Verification Engine is done by using the `enroll` mode of the engine, specified when calling the engine. The hashed voiceprint of the trained identity is stored in the library, with the hash key stored in an additional database. 
+Training for the Speaker Verification Engine is done by using the `enroll` mode of the engine, specified when calling the engine. The hashed voiceprint of the trained identity is stored in the library, with the hash key stored in an additional database.
 
 *Note*: The `verify` mode of the engine retrieves the hashed voiceprint from the library corresponding to the specified username, decrypts the voiceprint using the hash key, and compares the decrypted voiceprint to the voiceprint extracted from the input image.
 

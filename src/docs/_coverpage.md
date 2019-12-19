@@ -33,7 +33,8 @@
         <div class="news-item">
           <div class="news-item-header">12/20/2019</div>
           <ul>
-            <li><a href="https://docs.veritone.com/#/developer/engines/cognitive/text/anomaly-detection/">Building an Anomaly Detection Engine</a></li>
+            <li>New Cognitive Capability: <a href="https://docs.veritone.com/#/developer/engines/cognitive/text/anomaly-detection/">Building an Anomaly Detection Engine</a></li>
+            <li>New Biometric Capabilities: <a href="https://docs.veritone.com/#/developer/engines/cognitive/biometrics/face-verification/">Face Verification</a> and <a href="https://docs.veritone.com/#/developer/engines/cognitive/biometrics/speaker-verification/">Speaker Verification</a><</li>
             <li><a href="https://docs.veritone.com/#/developer/engines/tutorial/customizing-engine-output">Developer Bootcamp videos are now embedded in tutorials</a></li>
           </ul>
           <div class="news-item-header">11/22/2019</div>
