@@ -83,6 +83,8 @@
       - Biometrics
         - [Face Detection](developer/engines/cognitive/biometrics/face-detection/)
         - [Face Recognition](developer/engines/cognitive/biometrics/face-recognition/)
+        - [Face Verification](developer/engines/cognitive/biometrics/face-verification/)
+        - [Speaker Verification](developer/engines/cognitive/biometrics/speaker-verification/)
       - Data
         - [Data Correlation](developer/engines/cognitive/data/correlation/)
         - [Geolocation](developer/engines/cognitive/data/geolocation/)
