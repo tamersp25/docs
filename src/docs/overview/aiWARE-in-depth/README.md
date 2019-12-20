@@ -6,6 +6,8 @@
 
 Edge instances may be deployed as standalone subsystems in supported public clouds; on a single machine (e.g. laptop); or on-premise at customer locations. Edge instances may also be integrated into third-party on-premise software, or connect to an aiWARE Core subsystem, which provides augmented functionality and hosted applications.
 
+![](NewEdge.png)
+
 Edge is designed to be a stateless cognitive processing unit, not a long term repository for information, which is a function handled by Core in the larger aiWARE architecture. Edge does provide short term persistence of all data and an API to access it. This short term memory duration is configurable (but limited) and dependent on the resources allocated to an Edge installation.
 
 ## Edge Design Considerations
@@ -52,7 +54,7 @@ In addition to many of the requirements and features of older versions of Edge, 
 Links (TBD) provide a deeper dive into each subsystem and its implementation.
 * Edge Agent
 * [File System](overview/aiWARE-in-depth/file-system.md)
-* Controller & Primary Controller
+* [Controller](overview/aiWARE-in-depth/controller.md)
 * Database
 * [Engines & Engine Toolkit](overview/aiWARE-in-depth/engines.md)
 * Engine Registry
@@ -70,7 +72,8 @@ External interfaces available in Edge 3.0 are as follows.
 ## Workflows
 Describes in detail how Edge works at a functional level.
 * Workflow
-* Job Processing
+* [Job Processing](overview/aiWARE-in-depth/job-processing.md)
+    - [Create Job](overview/aiWARE-in-depth/create-jobs.md)
 * Interface with aiWARE Core
 * Coreless Edge
 * Scaling
@@ -85,6 +88,6 @@ Base engines are engines owned by Veritone.
 * Output Writer
 * Adapters
 
-## References
-* Edge 3.0 specification document [can be seen here](overview/aiWARE-in-depth/new-edge.md).
-* Original Edge 3.0 diagrams: link.
+## Miscellaneous
+* [How to Run V3F Locally](how-to-run-locally.md)
+
