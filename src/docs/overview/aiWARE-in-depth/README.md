@@ -66,8 +66,8 @@ External interfaces available in Edge 3.0 are as follows.
 * Installation & Update
 * API, CLI, & SDK
 * Admin UI
-* Engine Development
-* Standup Local Environment
+* [Engine Development](overview/aiWARE-in-depth/engine-development.md)
+* [Standup Local Environment](overview/aiWARE-in-depth/how-to-run-locally.md)
 
 ## Workflows
 Describes in detail how Edge works at a functional level.
