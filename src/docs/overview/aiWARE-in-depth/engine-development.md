@@ -11,8 +11,9 @@ For new engine onboarding, BU engine owners can either:
 1. Open a new Account in Salesforce if the engine vendor is a new one. 
 2. Open a new Opportunity in Salesforce if adding an engine by and existing vendor. 
 
+<!-- INTERNAL
 The [Engines Qlik Dashboard](https://qlik.veritone.com/veritone/sense/app/48937db1-6a76-45c4-9b89-0a22e1b7c1cd/sheet/3225d592-13fd-40d4-89ed-2edd0e2c65ef/state/0) is the internal single source of truth and is syncing hourly with both production tables and Salesforce. 
-
+-->
 <!-- INTERNAL
 
 Salesforce has a schema for Engines:
@@ -31,17 +32,21 @@ TODO (Kfir / Sean / Trevor):
 
 ## Engine Deployment Workflow
 
-External docs: [Link](https://docs.veritone.com/#/developer/engines/tutorial/?id=_39hello-world39-engine-high-level-overview).
+Documentataion: [Link](https://docs.veritone.com/#/developer/engines/tutorial/?id=_39hello-world39-engine-high-level-overview).
 
+<!-- INTERNAL
 Internal spec: [Engine Approval Process](https://docs.google.com/document/d/1Ty3bUw3_20aoonFCKLyMn1MpCGRhkK5cVaykVq9li7s/edit?usp=sharing)
+-->
 
 ![](https://lh5.googleusercontent.com/otbaYNnEXPzdKUm-t4_AQEeg3kZilFR61eEeyKaJkG2dc1kq5YQSi_lAhMTzc5To3bUcRJYGyZCza7JgWSK6gd24V1dvaLo-l9SFPriEq_rxtn8oTNUb-SGdcHSaOgMPP6gDc_ux)
 
 ## Engine Certification Workflow
 
-External docs: [Link](https://docs.veritone.com/#/developer/engines/approval/).
+Documentation: [Link](https://docs.veritone.com/#/developer/engines/approval/).
 
+<!-- INTERNAL
 Internal spec: [Engine Certification Reqs](https://docs.google.com/document/d/1fXUAwfB9BqF8wSisI0jiVfeM9kq3vDKcNJhxM8Cuh6g/edit?usp=sharing)
+-->
 
 ![](https://lh6.googleusercontent.com/8pzXwFh4qNEV2Mg3FUaX9du-zmLQZYbp7CYc-2hdOtWxAhiiDYqPexo1dUDLGYFj8ryLbMVuBy0n44hELWoMvB1qFwkJ8-49RLNWzxT1BBZ7RCMQnrrKbT4qMkDnb7f-q8nEz2Pc)
 
@@ -71,7 +76,8 @@ Internal spec: [Engine Certification Reqs](https://docs.google.com/document/d/1f
             1. What steps the developer needs to take to get org approval 
             2. What Veritone will need to do 
 
-1This is situationally dependant on the engine’s capability
+<!-- INTERNAL
+1 This is situationally dependant on the engine’s capability
 
 2 Will be invoked by an API call to the VDA services - SETA team currently working on this
 
@@ -82,6 +88,7 @@ Internal spec: [Engine Certification Reqs](https://docs.google.com/document/d/1f
 5 This is functionality is only available to engines on Edge 3 which use the toolkit
 
 6 This is only supported for Transcription and will initially be an optional step
+-->
 
 ## Development Roadmap
 

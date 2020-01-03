@@ -2,27 +2,24 @@
 
 # Creating Jobs in V3F
 
-This wiki attempts to give tips on creating jobs for V3 using the existing GraphQL `createJob` mutation.
-However this is not the final solution -- ideally we want to have a `createJobV3` to explicitly instruct V3 framework the routes and IOs -- 
-In addition, a number of Job DAGs are not totally supported yet -- will be noted in the section.  
-See
+This page talks about creating jobs for aiWARE using the existing GraphQL `createJob` mutation.
+However, this is not the final solution -- ideally we want to have a `createJobV3` to explicitly instruct V3 framework the routes and IOs -- 
+In addition, a number of Job DAGs are not totally supported yet -- will be noted in the section. 
+
+See also:
 
  [A3-133: Supporting pure batch engine tasks without any ingestion](https://steel-ventures.atlassian.net/browse/A3-133) 
 
  [A3-131: Support Job DAGs where Adapters output directly to Cognitive Engines](https://steel-ventures.atlassian.net/browse/A3-131)
-
-
-***
-
 
 ### Engines
 
 | engine | id | notes |
 |--------|----|-------|
 | WSA (regular) | 9e611ad7-2d3b-48f6-a51b-0a1ba40feab4 | official WSA |
-| WSA2 (test) | 9e611ad7-2d3b-48f6-a51b-0a1ba40fe255 | for testing WSA so that we don't disturb the official |
+| WSA2 (test) | 9e611ad7-2d3b-48f6-a51b-0a1ba40fe255 | for testing WSA |
 | TVR (regular) | 74dfd76b-472a-48f0-8395-c7e01dd7fd24 | official TVR |
-| TVR2 (test) | 74dfd76b-472a-48f0-8395-c7e01dd7f255 | similar to WSA2 purpose |
+| TVR2 (test) | 74dfd76b-472a-48f0-8395-c7e01dd7f255 | test version |
 
 ### Test URLs
 
@@ -30,10 +27,13 @@ See
 |--------|------|-------|
 | WSA | https://s3.amazonaws.com/src-veritone-tests/stage/20190505/0_40_Eric%20Knox%20BWC%20Video_40secs.mp4 | 40 sec video | public |
 | WSA | https://src-veritone-tests.s3.amazonaws.com/stage/20190505/r32_00_redactTest_axon.mp4 | 32m video | public - but need to tighten up |
+
+
 ### Query Variables
+
 Set Query variable `clusterId` in the Query Variables
-and use that with these GraphQl mutations/queries
-For PROD, See [this](https://github.com/veritone/realtime/wiki/CLUSTER-IDS) for clusters:
+and use that with these GraphQl mutations/queries.
+For PROD, see [this](https://github.com/veritone/realtime/wiki/CLUSTER-IDS) for clusters:
  
 ```
 {
@@ -48,7 +48,8 @@ For PROD, See [this](https://github.com/veritone/realtime/wiki/CLUSTER-IDS) for 
 This is for using the WSA2, with audio chunks to SM
 
 **JobDAG**
-Supported in V3 edge
+
+Supported in V3 Edge
 
 ```
 WSA ----> SI Playback (to store HLS segments for playback and primary media to the TDO )
@@ -102,6 +103,7 @@ mutation createJobForEdge{
 ```
 
 #### Create Job for stream engine
+
 Supported in V3 edge
 
 ```
@@ -165,9 +167,10 @@ mutation createGSTTJobForEdge{
 
 ### Reprocessing TDO with different engines
 
-Not yet see [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
+See [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
 
-#### stream engines
+#### Stream Engines
+
 ```
 WSA ---> Cognitive engines (stream engines)
 ```
@@ -194,13 +197,14 @@ mutation reprocessTDOWithStreamEngine{
   }
 }
 ```
-#### chunk engines
+#### Chunk Engines
 
 Not yet see [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
 
 ```
 SI FFMPEG  ---> Cognitive engines (chunk engines)
 ```
+
 ```
 mutation reprocessTDOWithChunkEngine{
   createJob(input: {
@@ -230,7 +234,7 @@ mutation reprocessTDOWithChunkEngine{
 
 ### Create job for processing non-media files
 
-Not yet see [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
+See [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
 
 ```
 WSA ----> SI Asset creator (to store the asset to the TDO)
@@ -271,7 +275,8 @@ mutation createTextJobForEdge{
 ```
 
 ### Reprocessing  job for processing non-media files
-Not yet see [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
+
+See [A3-131](https://steel-ventures.atlassian.net/browse/A3-131)
 
 ```
 WSA ----> SI Asset creator (to store the asset to the TDO)

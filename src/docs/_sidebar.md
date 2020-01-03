@@ -7,6 +7,15 @@
 - [aiWARE Overview](overview/)
 
   - [Architecture Overview](overview/architecture-overview/)
+  - [aiWARE in Depth](overview/aiWARE-in-depth/)
+    - [Controller](overview/aiWARE-in-depth/controller)
+    - [Engines](overview/aiWARE-in-depth/engines)
+    - [Engine Development](overview/aiWARE-in-depth/engine-development)
+    - [Jobs](overview/aiWARE-in-depth/create-jobs)
+    - [Job Processing](overview/aiWARE-in-depth/job-processing)
+    - [File System](overview/aiWARE-in-depth/file-system)
+    - [Running aiWARE Locally](overview/aiWARE-in-depth/how-to-run-locally)
+
   - [Glossary](overview/glossary/)
 
 - [Quickstart](quickstart/)

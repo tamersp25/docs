@@ -1,12 +1,12 @@
 <!-- markdownlint-disable -->
 
-Overview
-========
+# Job Processing
+
+## Overview
 
 Fundamental to the value of Veritone aiWARE Edge is the ability to ingest and process data with a set of Engines and in an order defined by the user. A single end-to-end processing of a workflow defined by a user is called a Job. Every Job is made out of 1-N Tasks, each Task is implemented by 1-N instances of a specific type of Engine. This document describes how a Job is processed by Edge 3.0.
 
-Job Processing Flow
-===================
+### Job Processing Flow
 
 Each Job can be represented by a Directed Acyclic Graph (DAG) that defines the path that data will flow from ingestion to final Engine execution. Each node on the graph is a Task and represents an Engine (or Adapter) on Edge. Each output of one engine can become the input of another.
 
@@ -18,13 +18,11 @@ In order to process a Job DAG, each Task requires 0-N inputs, either from previo
 
 ![](https://docs.google.com/drawings/u/0/d/sAhNmw41aJqoq6WXcrhRlcw/image?w=575&h=274&rev=1&ac=1&parent=1CdxuBz01B0eUJU8nKrZLWAF6hKwqJJWh4T6FW3ddPTk)
 
-DAG Constraints
----------------
+### DAG Constraints
 
 Stream -> chunk, chunk -> stream, and stream -> stream processing has to be serial, i.e. done by a single engine instance. Chunk -> chunk processing can be serial or parallel, i.e. done by multiple instances of the same Engine. Adapters by definition ingest chunks or streams from external sources, therefore they may run as root nodes or as child nodes, while engines may never run as root nodes of a DAG (except for batch engines).
 
-Task Processing Flow
-====================
+## Task Processing Flow
 
 1. Engine Toolkit — Scan the Input Folder for up to X items with .IN or .P (skip .ERROR and .DONE). X is passed in by Controller.  
     1. If a file has a .P modifier — meaning someone is being processed by another instance 
@@ -74,21 +72,21 @@ Task Processing Flow
             2. Notify Controller of too many errors reached: Error count &gt; N 
             3. Controller tells engine to die and marks DB that engine instance was killed for error &gt; N reason. Toolkit may or may not comply with request from Controller.  
                 1. Toolkit fails to die 
-                    1. When Server Agent [ADD LINK] checks in and the instance of the bad engine is still alive, controller responds and tells Server Agent to kill the container and to relaunch a new one. 
+                    When Server Agent [ADD LINK] checks in and the instance of the bad engine is still alive, controller responds and tells Server Agent to kill the container and to relaunch a new one. 
 
                 2. Toolkit dies properly 
-                    1. When Server Agent checks in, Controller valiates that engine died and instructs Server Agent to start another process. 
+                    When Server Agent checks in, Controller valiates that engine died and instructs Server Agent to start another process. 
 
             4. Once the cumulative errors on a specific input directory on the Job (as a % or #), then the Task is failed 
-                1. At the DAG level, meta-data will tell Controller what to do when this happens. For example:  Stop all processing for this DAG, continue processing, notify application, etc. 
+                At the DAG level, meta-data will tell Controller what to do when this happens. For example:  Stop all processing for this DAG, continue processing, notify application, etc. 
 
 5. Engine Toolkit —  
     1. If there are additional items still on the list — Go to step 2. 
     2. If no more items on the list — Go to step 1.
 
 
-Engine Errors
--------------
+## Engine Errors
+
 
 Job processing may fail in one of the following scenarios. For the complete list of error codes, see here [ADD CODE LINK].
 
@@ -108,8 +106,7 @@ Job processing may fail in one of the following scenarios. For the complete list
     2. Internal process crashes 
     3. Container crashes e.g., out of memory, or yanked by the infra
 
-Engine Recovery
----------------
+### Engine Recovery
 
 When an engine crashes for whatever reason, the Controller can run another engine in a Recovery Mode. The Recovery Mode field is passed from the Controller to the Engine Toolkit, along one of the following flags:
 
@@ -124,7 +121,7 @@ When an engine crashes for whatever reason, the Controller can run another engin
         2. If hardlink true, drop output file on floor, so it doesn’t get duplicated by downstream engines. 
         3. If false, Engine toolkit writes output to Output and Child Input folders. 
 
-2. “recover at error” (default for chunk engines) 
+2. “recover at error” (default for chunk engines)
     1. All .DONE files are ignored. 
     2. .IN, .P, and .ERROR files are processed by the chunk engine. 
     3. To avoid duplicates, any .P and .ERROR chunks created are first checked for duplicates in the Output and Child Input folders. 

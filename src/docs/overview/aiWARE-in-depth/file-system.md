@@ -3,7 +3,7 @@
 Overview
 ========
 
-In New Edge, a filesystem is used as the I/O mechanism for Engines to read data and write results. It is also used as an execution-time cache if one is required by the Engine. For each discrete Engine process, all of the information contained in the DB and additional debug data will be persisted in the filesystem. Being the single source of persisted I/O data used by Engines and Controller, the File System will support both the planned execution path (DAG) and the various system error cases. It will contain enough information to rebuild the database for reprocessing or restarting tasks and jobs. The file system is NFS 4 and mounted through a docker NFS deployment.
+In New Edge, a file system is used as the I/O mechanism for Engines to read data and write results. It is also used as an execution-time cache if one is required by the Engine. For each discrete Engine process, all of the information contained in the DB and additional debug data will be persisted in the filesystem. Being the single source of persisted I/O data used by Engines and Controller, the File System will support both the planned execution path (DAG) and the various system error cases. It will contain enough information to rebuild the database for reprocessing or restarting tasks and jobs. The file system is NFS 4 and mounted through a docker NFS deployment.
 
 ## Folder Structure
 
@@ -102,6 +102,8 @@ mapping.txt / cache.json | \[???]
 \[task_id]/metadata.json | [???]
 
 
+<!-- INTERNAL
+
 Failures Folder
 ---------------
 
@@ -160,6 +162,11 @@ Interfaces Related to Job Processing
 
 <http://localhost:6060/pkg/veritone.com/realtime/modules/scfs/#ChunkFileName>
 
+-->
+
+
+
+<!-- INTERNAL
 Open Questions
 ==============
 
@@ -186,3 +193,4 @@ Open Questions
 1.  This still needs to be implemented.  The log is written to ~task/error.<engine_instance>.log and ~task/output..<engine_instance>.log by engine toolkit.  
 
 2.  Christos & Quynh should implement
+-->

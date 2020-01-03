@@ -8,7 +8,7 @@ Overview
 Engine Types
 ============
 
-Veritone engine types are: chunk, stream, and batch.  The runtime of the engines could be via docker for traditional engines built in Developer, or nodeRed for engines built in Automate Studio.
+Veritone engine types are: chunk, stream, and batch.  The runtime of the engines could be via Docker for traditional engines built in Developer, or NodeRed for engines built in Automate Studio.
 
 See the following table for the difference between the different engine types. Note that this could be changed in the future depending on the business needs.
 
@@ -20,7 +20,7 @@ Processes a chunk at a time, producing vtn-standard outputs which are then aggre
 Engine Toolkit
 ==============
 
-Engine Toolkit (ET) abstracts the input/output layer between the Engine and Veritone platform, freeing engine developers of having to deal with the nuances of getting input data (e.g. off Kafka queues) and producing the engine outputs (e.g. back to Kafka queue).
+Engine Toolkit (ET) abstracts the input/output layer between the Engine and Veritone platform, freeing engine developers of having to deal with the nuances of getting input data (e.g. off queues) and producing the engine outputs (e.g. back to queue).
 
 New Engine Toolkit
 ------------------
@@ -29,7 +29,7 @@ New Engine Toolkit
 
 2.  Unified protocol -- The new version of Engine Toolkit strives to provide support to all engine types - keeping the interface consistent so that the choice of implementing chunk, stream or batch shouldn't be depending on how engines should get their data.
 
-V3 Framework
+V3F Framework
 ------------
 
 The figure below shows at a high level the V3 Framework (V3F), which is where Engine Toolkit makes requests to Controller for work. The requests are made on behalf of the engines that the Engine Toolkit represents, including native engines such as Webstream Adaptor, TV&Radio, Stream Ingestors and Output Writer.
@@ -89,9 +89,9 @@ See the [Deep Dive: Engine Interaction with Engine Toolkit](https://docs.google.
 Converting V2F Engines to V3F
 =============================
 
-Chunk Engines that already use the Engine Toolkit AND do not have any direct interaction with Kafka &mdash; it's an easy process: Just pick up the latest distribution of the engine toolkit.
+Chunk Engines that already use the Engine Toolkit and thus do not have any direct interaction with Kafka &mdash; it's an easy process: Just pick up the latest distribution of the Engine Toolkit.
 
-Stream Engines need to be updated to move away from consuming directly from Kafka. Think of stream engine as chunk with just a single chunk. The payload would come from the payload field in the post request to the `/process` webhook (vs. PAYLOAD_JSON env variable in V2F). The heartbeats should be converted to post to the callback endpoint with the appropriate payload.
+Stream Engines need to be updated to move away from consuming directly from Kafka. Think of a stream engine as a chunk engine processing just a single chunk. The payload would come from the `payload` field in the post request to the `/process` webhook (vs. PAYLOAD_JSON env variable in V2F). The heartbeats should be converted to post to the callback endpoint with the appropriate payload.
 
 
 
@@ -113,7 +113,7 @@ Update Task Status to running or complete | Do not update task status back to co
 Engine Toolkit Docker image
 ===========================
 
-Engine toolkit will be released as Docker image.  To include engine toolkit in your engine Docker, use [multi-stage build ](https://docs.docker.com/develop/develop-images/multistage-build/)and copy the engine toolkit binary to a specific location in your image.  Here is a sample Dockerfile snippet
+Engine Toolkit will be released as Docker image.  To include Engine Toolkit in your engine Docker, use [multi-stage build ](https://docs.docker.com/develop/develop-images/multistage-build/)and copy the engine toolkit binary to a specific location in your image.  Here is a sample Dockerfile snippet
 
 ```pre
 
@@ -134,11 +134,13 @@ Node Red (Automate) Engine Runner in Engine Toolkit
 
 Node Red (Automate) engine runner is a Docker image that has Engine Toolkit & Node Red installed, and it acts as a proxy agent. The ENTRYPOINT for the Docker image should be `/app/engine node main.js`, where main.js is the Node Red engine runner.
 
-Node Red engines are denoted with "runtime":"nodeRed" in their manifest.json.  They may have their own package requirements or custom execution environment that may take some time to install. Some optimizations could be done by having the engines execution runtime setup in a designated location in the File System, e.g., /cache/nodered/engines/{engineId}-{buildId} directory to contain scripts, JSON etc. to set up engine runtime environments.
+Node Red engines are denoted with "runtime":"nodeRed" in their `manifest.json`.  They may have their own package requirements or custom execution environment that may take some time to install. Some optimizations could be done by having the engines execution runtime setup in a designated location in the File System, e.g., /cache/nodered/engines/{engineId}-{buildId} directory to contain scripts, JSON etc. to set up engine runtime environments.
 
 The work item will be passed on to the Node Red engine runner `/process` endpoint which then call into the engine's runtime execution code accordingly. Note that Node Red engine runner SHOULD follow the protocol to interact with Engine Toolkit by posting periodically the heartbeat to Engine Toolkit `/callback` endpoint.
 
+<!--
 TODO: The getWork API to Controller would need to be enhanced to allow retrieving Node Red work items (e.g. need runtime parameter). 
+-->
 
 ![](https://docs.google.com/drawings/u/0/d/saX3hnhHnAdGPXUr-YnUDQw/image?w=624&h=486&rev=230&ac=1&parent=1VC06SkIlMi-3FoqrqU3N_WGIwV7j2EmphRRSOXzbAi0)
 
@@ -305,7 +307,7 @@ TBD
 Troubleshooting
 ===============
 
-1.  Using engine toolkit in an alpine-based image.  To use Engine Toolkit with an alpine image, make sure to include this:
+1.  Using engine toolkit in an alpine-based image.  To use Engine Toolkit with an `alpine` image, make sure to include this:
 
 `RUN apk add --no-cache libc6-compat`
 

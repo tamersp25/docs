@@ -4,7 +4,7 @@
 
 ### Overview
 
-Controller is the central service that registers hosts &amp; engine instances, manages all work and communicates to the DB layer. Controllers are stateless API services, typically deployed behind a load balancer, to achieve API and business logic scalability. Within the cluster, a single Controller is promoted to be a Primary Controller and serves as the Edge supervisor, responsible for specific critical functions.
+Controller is the central service that registers hosts &amp; engine instances, manages all work, and communicates to the DB layer. Controllers are stateless API services, typically deployed behind a load balancer, to achieve API and business logic scalability. Within the cluster, a single Controller is promoted to be a Primary Controller and serves as the Edge supervisor, responsible for specific critical functions.
 
 ### Primary Controller
 
@@ -12,83 +12,82 @@ Controller is the central service that registers hosts &amp; engine instances, m
 - Pulls work, syncs with core (Stateful)
 - Usage Reporting
 - Loading Engines
-- Initial layout of services across
-- Checking all resources and availability
-- Dumping DB backups to file system periodically
+- Initial layout of services
+- Checks all resources and availability
+- Dumps DB backups to file system periodically
 - Error notifications
-- Also remove stopped hosts from EC2/Azure after a period
+- Also removes stopped hosts from EC2/Azure after a period
 
 ### Controller
 
 The Controller&#39;s principal function is to assign tasks to engines and adapters in an optimal manner to meet SLAs and minimize costs.  It is also responsible for communicating with external services via an HTTP API.
 
-To achieve this goal there are several core functions that a controller must manage:
+There are several core functions that a controller must manage:
 
-- Controlling the starting and stopping engines
+- Control the starting and stopping of engines
 - Provide data to Master Controller to properly scale engine hardware
 - Provide stats data to the DB and Forecaster, so it can properly forecast engine and hardware demand
-- Routing data from one task to the next
+- Route data from one task to the next
 - Control the assignment of engines to tasks
 - Manage failures and retries
 - Log data for analysis
-- Billing metrics
+- Expose billing metrics
 - HTTP API
   - Admin
   - Edge API
 
 ### Controller Process Flow
 
-Startup Flow
+**Startup Flow**
 
 Step 1:  When a controller launches it connects directly to the database via the PG GO library Lib/PG and establishes a connection pool to read and write from DB.  It stores this connection info in the database in DB Table config and logs it as well.
 
 Step 2:  The controller creates an HTTP Server endpoint for engines and adapters to communicate with it.  The HTTP library used is FastHTTP.
 
-Step 3:  Startup engine servers (created at edge launch) are running a local aiWARE Agent.  This aiWARE Agent is written in Go and connects to a controller via HTTP connection and registers the server with controller and provides a status update on the engines running on this server (zero for now) and the resource capacity and current usage of them (memory, CPU, Disk).  This information is logged in DB Table: host\_status.
+Step 3:  Startup engine servers (created at edge launch) are running a local aiWARE Agent.  This aiWARE Agent is written in Go and connects to a controller via HTTP connection and registers the server with controller and provides a status update on the engines running on this server (zero for now) and the resource capacity and current usage of them (memory, CPU, Disk).  This information is logged in DB Table `host_status`.
 
-Step 4: Controller is in startup mode still.  It checks the DB to see what engines it can run on this Edge and what the base configuration of engines should be.   It will know how many total startup edge servers will be available.   As each Engine Agent connects, Controller tells the agent via http to launch certain engines.
+Step 4: Controller is in startup mode still.  It checks the DB to see what engines it can run on this Edge and what the base configuration of engines should be.   It will know how many total startup edge servers will be available. As each Engine Agent connects, Controller tells the agent via http to launch certain engines.
 
 Step 5:  Engine Agent launches engines.
 
-Step 6:  As each Engine comes online, it makes http requests to Controller via a long lived http connection, waiting work.  It registers itself with controller, which in turn stores this information in the DB Table: [TABLE NAME]
+Step 6:  As each Engine comes online, it makes http requests to Controller via a long lived http connection, waiting work.  It registers itself with controller, which in turn stores this information in a DB Table.
 
 Step 7: Once all the startup servers are launched, registered and startup engines are running, controller changes a field in the DB, telling the Edge cluster that it is ready to process jobs.
 
-Step 8: Controller queries DB to get the highest priority task.  It pings the appropriate engine via http and asks if its ready for work.   If it receives a positive response, it assigns the work to the engine via an http response and logs this in the DB in Table: [TABLE NAME].  If it receives a negative response, controller moves on to the next available engine and takes the appropriate action depending on the type of negative response, for example:  no response, error, system busy, etc….
+Step 8: Controller queries DB to get the highest priority task.  It pings the appropriate engine via HTTP and asks if its ready for work.   If it receives a positive response, it assigns the work to the engine via an HTTP response and logs this in the DB in a Table.  If it receives a negative response, controller moves on to the next available engine and takes the appropriate action depending on the type of negative response, for example:  no response, error, system busy, etc.
 
 Step 9:  Controller repeats Step 8, until all tasks are assigned to engines.
 
-Step 10:  Every 5 seconds, engines report back status and progress on processing to controller via an http post.  This data is logged in DB Tables: [TABLE NAME].
+Step 10:  Every 5 seconds, engines report back status and progress on processing to Controller via HTTP POST.  This data is logged in DB Tables.
 
-Step 11:  When an engine completes its task, it reports back to controller the units of work completed, errors, retries, etc…  controller stores this information in the DB.  Engines then make a request for more work and are either given work or are left idle.   Go to Step 8 for work assigned.
+Step 11:  When an engine completes its task, it reports back to controller the units of work completed, errors, retries, etc.,\;  controller stores this information in the DB.  Engines then make a request for more work and are either given work or are left idle.   Go to Step 8 for work assigned.
 
 ### Routing
 
-A route is a directed acylcic graph (DAG) that defines the path that data will flow from ingestion to final engine execution for every Job.   Each node on the graph is a task and represents an engine or adapter on edge.   Each vertex represents a route where the output of one engine become the input of another.   For the most part, each Job is associated with a static DAG, defined apriori to execution on Edge; however, the architecture and Edge API&#39;s support dynamic DAGs (modified during runtime, while the data is being routed through the DAG).
+A route is a directed acylcic graph (DAG) that defines the path that data will follow from ingestion to final engine execution for every Job.   Each node on the graph is a task and represents an engine or adapter on edge.   Each vertex represents a route where the output of one engine become the input of another.   For the most part, each Job is associated with a static DAG, defined apriori to execution on Edge; however, the architecture and Edge API&#39;s support dynamic DAGs (modified during runtime, while the data is being routed through the DAG).
 
 #### Routing Tables
 
-Each route is defined by a json payload for serialization and communication between services.
+Each route is defined by a JSON payload for serialization and communication between services.
 
-In the Edge DB, in addition to storing the json, there is a set of routing tables, that break the routes down into more granular parts for tracking and process management.   From an implementation perspective, each vertex in the DAG is represented by two file system folders, an output folder from the prior engine and an input folder for the next engine on the DAG.
-
+In the Edge DB, in addition to storing the JSON, there is a set of routing tables that break the routes down into more granular parts for tracking and process management.   From an implementation perspective, each vertex in the DAG is represented by two file system folders, an output folder from the prior engine and an input folder for the next engine on the DAG.
 
 
 ## Engine Process Flow
 
 ### Startup
 
-Step 1:  An engine is started by a message sent from Controller to the Engine Agent running on the server that in turn launches an Engine with a docker run command.  This process is covered here:  \&lt;link\&gt;
+Step 1:  An engine is started by a message sent from Controller to the Engine Agent running on the server that in turn launches an Engine with a Docker run command.
 
 ### Processing Tasks
 
-Step 1:  An  An engine is started by a message sent from Controller to the Engine Agent running on the server that in turn launches an Engine with a docker run command.
+Step 1:  An engine is started by a message sent from Controller to the Engine Agent running on the server that in turn launches an Engine with a Docker run command.
 
 Step 2:  Controller responds by assigning it a TaskId and the number of units to process.  A unit is a file in the task input folder.  For example, there may be 10000 files (units) in the input task folder, but controller only wants the engine to process 100 of them before checking back in for more work.  This is important, because it allows Controller to re-allocate the engine to work on other higher priority tasks, without blocking on this task until all 10000 files are done.
 
-Step 3:  The Engine reads the directory of files left to be processes in the TaskId Input Folder.  Randomizes the list.   It selects a number of units of work from the randomized list (configurable).  It then tries to process each file.
+Step 3:  The Engine reads the directory of files left to be processed in the TaskId Input Folder.  It randomizes the list.   It selects a number of units of work from the randomized list (configurable).  It then tries to process each file.
 
-Step 4:  If it is successful opening a file to work, it marks it as being processes.
+Step 4:  If it is successful opening a file to work, it marks it as being processed.
 
 Step 5:  When it has finished the work on the file, it marks the file as being completed and writes the engine output to the output folder.
 
@@ -96,11 +95,11 @@ Step 6: The Engine keeps track of the work it has performed by calling the API o
 
 Step 7:  At 5 second intervals the RT Engine Library wakes up and posts a status update to the Controller.   For example:  12 units complete or 11 units complete, 1 error, 1 retry.  Etc.
 
-Step 8:  When the last work is done.  The engine notifies controller that all work assigned is done.
+Step 8:  When the last work is done, the engine notifies Controller that all work assigned is done.
 
 ### Controller HTTP API
 
-Controller HTTP API is implemented using the fasthttp go library.    We are using a restful style for these HTTP-based APIs.
+Controller HTTP API is implemented using the _fasthttp_ Go library.    We are using a RESTful style for these HTTP-based APIs.
 
 The APIs are defined at [https://github.com/veritone/project-edge/tree/master/api/controller](https://github.com/veritone/project-edge/tree/master/api/controller) in swagger definition.
 
@@ -114,13 +113,13 @@ General notes:
 
 ### Request Bodies
 
-All Request Bodies will be JSON
+All Request Bodies will be JSON.
 
 ### Authentication
 
-Controller on registration of Engine Instance and Host/Node.  The Agent or Engine Instance will include that token in the Authorization Header using the Bearer scheme as documented at [https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
+Controller provides a security token upon registration of Engine Instances and Host/Node.  The Agent or Engine Instance will include its token in the Authorization Header using the Bearer scheme as documented at [https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
 
-HTTP Response Codes
+**HTTP Response Codes**
 
 Errors will be returned as part of the HTTP specification.  The response body will be in JSON format with the following fields:
 
@@ -167,7 +166,7 @@ Host APIs
 
 ### Controller DB Tables
 
-Routing Tables:
+#### Routing Tables
 
 This table contains Task Parent and Task Child.
 
@@ -182,7 +181,7 @@ This table contains Task Parent and Task Child.
 
 
 
-In this table, route Parent-\&gt;Out #1-\&gt;In #1-\&gt;Task Child is a row.  That diagram has two more additional rows that can be inserted into the table
+In this table, route Parent->Out #1->In #1->Task Child is a row.  That diagram has two more additional rows that can be inserted into the table
 
 | Task\_Vertix (DAG Vertix) | Field Name |
 | --- | --- |
@@ -204,14 +203,12 @@ In this table, route Parent-\&gt;Out #1-\&gt;In #1-\&gt;Task Child is a row.  Th
 | --- | --- |
 | IO ID | Unique ID |
 | IO\_TYPE | Input or Output |
-| Path | String, path from inside ~job folder to the input.  For example:
-- \&lt;taskId\&gt;/input-\&lt;IO\_ID\&gt;
- |
+| Path | String, path from inside ~job folder to the input. |
 | Format | JSONB Object.   |
 
 
 
-DAG Execution Tables
+#### DAG Execution Tables
 
 For an up to date definition of tables, please see the github repo: [https://github.com/veritone/project-edge/tree/master/sql](https://github.com/veritone/project-edge/tree/master/sql).
 
@@ -248,9 +245,9 @@ Every 5 seconds, every engine reports via a timestamp the following data
 
 During processing, the engine toolkit on a seperate thread within the process should sample CPU and Memory via a command such as PS (&quot;ps -p [ARRAY of PID] -f -v&quot;) every second, and then publish average values over the 5 second interval.   Note which ones is the engine toolkit.  Docker Container stats.   Add Swap to server.
 
-DB Data Overview
+#### DB Data Overview
 
-Admin
+**Admin**
 
 Each edge has a set of admin parameters.  This data is stored in the following tables:
 
@@ -266,7 +263,7 @@ Each edge has a set of admin parameters.  This data is stored in the following t
 
 
 
-Engine Servers
+**Engine Servers**
 
 Each edge has either a fixed or scalable number of servers that it can launch and run processes on to do various tasks.  The types of servers, the number to launch at startup, the launch instructions and other data critical to managing the servers are stored in these tables:
 
@@ -277,7 +274,7 @@ Each edge has either a fixed or scalable number of servers that it can launch an
 
 
 
-Processes
+**Processes**
 
 Each edge is configured to run a subset of processes:  engines, adapters, controllers.  This data is stored in the following tables:
 
@@ -286,7 +283,7 @@ Each edge is configured to run a subset of processes:  engines, adapters, contro
 | engine\_instance | A list of processes running and recently killed that are mapped to the servers they run on. |
 | engine\_instance\_status | A list of all processes in the last configurable period (e.g., 24)  that have been launched and stopped. |
 
-Jobs and Tasks
+**Jobs and Tasks**
 
 Jobs and their corresponding tasks assigned to an Edge by one or multiple aiWARE Cores or via a local Edge HTTP API are stored here.  Job and task data assigned are stored in the following tables:
 
@@ -299,7 +296,7 @@ Jobs and their corresponding tasks assigned to an Edge by one or multiple aiWARE
 
 
 
-Task Processing, Engine Allocation and Performance
+**Task Processing, Engine Allocation and Performance**
 
 The controller reads and writes from DB to maintain state of the jobs, tasks and engine processing them.   Engines are assigned work and report back via an HTTP heartbeat every 5 seconds and also when the assigned work is complete.  Data of this type is stored in the following tables:
 
@@ -317,16 +314,17 @@ The controller reads and writes from DB to maintain state of the jobs, tasks and
 
 
 ### Implementation
-
+<!--
 **Auto-generated code docs:** [**http://localhost:6060/pkg/veritone.com/realtime/modules/controller/**](http://localhost:6060/pkg/veritone.com/realtime/modules/controller/)
+-->
 
-The controller is a cluster of stateless servers that has connections to the DB, to a number of filesystems which store engine / task output data and to engines and adapters via an http server.
+The Controller is a cluster of stateless servers that has connections to the DB, to a number of filesystems which store engine/task output data, and to engines and adapters via an HTTP server.
 
 Aligning Task Load with Engine Resources
 
 Adding Engine Capacity
 
-Step 1:  Every 60 seconds, Engine Agent, checks in with Controller by calling the controller API: [API]
+Step 1:  Every 60 seconds, Engine Agent checks in with Controller by calling the controller API.
 
 Payload format:
 
@@ -378,23 +376,23 @@ Example:
 
 ### Adding and Removing Engine Logic
 
-The decision to add a new engine or to remove it is not a simple task.   Let&#39;s look at a few situations where modifying engine allocation can occur.
+Increasinhg or decreasing engine capacity is not a simple task.   Let&#39;s look at a few situations where modifying engine allocation can occur.
 
-Case 1 : High priority task is going to miss its SLA without more engine capacity
+Case 1 : High priority task is going to miss its SLA without more engine capacity.
 
-Root causes:  poor forecasting, bursting ad-hoc requests
+Root causes:  poor forecasting, bursting ad-hoc requests.
 
-Solution:  if possible assign more engines to the task, assuming lower priority tasks exist and engine ping to controller happens within a short enough duration to catch up.
+Solution:  If possible, assign more engines to the task, assuming lower priority tasks exist and engine ping to Controller happens within a short enough duration to catch up.
 
-Case 2:  Task forecast predicts that the workload for a given engine type is below and above current capacity
+Case 2:  Task forecast predicts that the workload for a given engine type is below or above current capacity.
 
-The forecasting process uses data provided by controller to predict engine supply requirements given scheduled and historical ad-hoc demand. In the case where there are clear over and under capacity engines based on the forecast, then the controller&#39;s task is straight forward:  kill the over capacity engines and launch the under capacity based on the SLA rankings in the DB.
+The forecasting process uses data provided by Controller to predict engine supply requirements given scheduled and historical ad-hoc demand. In the case where there are clear over and under capacity engines based on the forecast, then the controller&#39;s task is straight forward:  kill the over capacity engines and launch the under capacity based on the SLA rankings in the DB.
 
-Case 3: Task forecast predicts the need for more engines than the hardware servers will support to meet SLAs
+Case 3: Task forecast predicts the need for more engines than the hardware servers will support to meet SLAs.
 
 Controller is not responsible for solving this problem.
 
 Case 4: Task forecast predicts that we have excess engine capacity across the board.
 
 In this case, based on the forecasted lowest engine demand, controller will mark a server for termination.  First it marks the server for termination in the DB.
-from this server check-in for more work, controller kills the engine.   When Engine Agent checks in and provides a status report, showing whats running on the box, when this data confirms what the controller and DB should know at some point, that all engines are dead - then controller will send a message to Engine Agent, to kill the server.  Controller will then mark the server as being killed.
+Controller kills the engine.   When Engine Agent checks in and provides a status report, showing what is running on the box, when this data confirms what the controller and DB should know at some point, that all engines are dead &mdash; then controller will send a message to Engine Agent, to kill the server.  Controller will then mark the server as being killed.
