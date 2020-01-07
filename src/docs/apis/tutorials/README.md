@@ -32,7 +32,7 @@ transform-origin: top left; "><div class="topruled"><br/></div>
 </div>
 <br/>
 
-## The Full List
+## Tutorials: The Full List
 
 * [GraphQL API Basics](apis/tutorials/graphql-basics.md)
 * [Build Your Own AI App](developer/applications/app-tutorial/)

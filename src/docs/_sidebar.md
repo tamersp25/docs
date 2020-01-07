@@ -108,6 +108,7 @@
           - [Rich Text Translation](developer/engines/cognitive/text/translation/rich-text/)
           - [Transcript Translation](developer/engines/cognitive/text/translation/transcript/)
       - Vision
+        - [Image classification](developer/engines/cognitive/vision/image-classification/)
         - [License Plate Recognition (ALPR)](developer/engines/cognitive/vision/license-plate/)
         - [Logo Detection](developer/engines/cognitive/vision/logo-detection/)
         - [Object Detection](developer/engines/cognitive/vision/object-detection/)
